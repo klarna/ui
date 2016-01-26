@@ -31,7 +31,6 @@ export default function Buttons () {
         <Button success size='normal'>Click me!</Button>
         <Button success size='big'>Click me!</Button>
       </div>
-
     </div>
   )
 }
