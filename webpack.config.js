@@ -56,9 +56,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    alias: {
-      'meta-react-components': path.resolve(__dirname, './')
-    }
+    extensions: ['', '.js', '.jsx']
   }
 }
