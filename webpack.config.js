@@ -1,7 +1,6 @@
 var Webpack = require('webpack')
 var WebpackCleanPlugin = require('clean-webpack-plugin')
 var WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
-var path = require('path')
 
 module.exports = {
   cache: true,
@@ -56,9 +55,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    alias: {
-      'meta-react-components': path.resolve(__dirname, './')
-    }
+    extensions: ['', '.js', '.jsx']
   }
 }
