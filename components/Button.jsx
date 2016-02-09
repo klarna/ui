@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
-import styles from 'ui-toolkit/src/components/button.scss'
+import styles from 'ui-css-components/src/components/button.scss'
 
 export default function Button (props) {
   const {
