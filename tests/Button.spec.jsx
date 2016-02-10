@@ -1,30 +1,25 @@
 /* global describe it */
 
-import React from 'react'
 import Button from '../components/Button'
-import assert from 'assert'
-import { createRenderer } from 'react-addons-test-utils'
+import { ok, equal, deepEqual } from 'assert'
+import { renderer } from './helpers'
 
-const shallow = createRenderer()
-const render = (props = {}) => {
-  shallow.render(<Button {...props} />)
-  return shallow.getRenderOutput()
-}
+const render = renderer(Button)
 
 describe('Button', () => {
   describe('default', () => {
     const button = render()
 
     it("renders tag 'button'", () => {
-      assert.equal(button.type, 'button')
+      equal(button.type, 'button')
     })
 
     it("has className 'cui__button--primary'", () => {
-      assert.equal(button.props.className, 'cui__button--primary')
+      equal(button.props.className, 'cui__button--primary')
     })
 
     it('is not disabled', () => {
-      assert(!button.props.disabled)
+      ok(!button.props.disabled)
     })
   })
 
@@ -32,7 +27,7 @@ describe('Button', () => {
     const button = render({ design: 'secondary' })
 
     it("has className 'cui__button--secondary'", () => {
-      assert.equal(
+      equal(
         button.props.className,
         'cui__button--secondary'
       )
@@ -46,24 +41,22 @@ describe('Button', () => {
       const child = button.props.children
 
       it("is a 'div'", () => {
-        assert.equal(child.type, 'div')
+        equal('div', child.type)
       })
 
       it("by default has className 'cui__button--primary__loader'", () => {
-        assert.equal(
-          child.props.className,
-          'cui__button--primary__loader'
-        )
+        equal('cui__button--primary__loader', child.props.className)
       })
 
       it("when secondary has className 'cui__button--secondary__loader'", () => {
         const secondary = render({ design: 'secondary', loading: true })
-        assert.equal(secondary.props.children.props.className, 'cui__button--secondary__loader')
+
+        equal('cui__button--secondary__loader', secondary.props.children.props.className)
       })
     })
 
     it('is disabled', () => {
-      assert(button.props.disabled)
+      ok(button.props.disabled)
     })
   })
 
@@ -71,40 +64,44 @@ describe('Button', () => {
     const button = render({ success: true })
 
     it('contains ✔', () => {
-      assert.equal(button.props.children, '✔')
+      equal(button.props.children, '✔')
     })
 
     it('is disabled', () => {
-      assert(button.props.disabled)
+      ok(button.props.disabled)
     })
   })
 
   describe('size', () => {
     it("when 'small' has className 'small'", () => {
-      assert(render({ size: 'small' }).props.className.match(/small/))
+      const button = render({ size: 'small' })
+
+      equal('cui__button--primary small', button.props.className)
     })
 
     it("when 'big' has className 'big'", () => {
-      assert(render({ size: 'big' }).props.className.match(/big/))
+      const button = render({ size: 'big' })
+
+      equal('cui__button--primary big', button.props.className)
     })
   })
 
   describe('custom props', () => {
     it('overrides disabled default', () => {
-      assert(render({ disabled: true }).props.disabled)
+      ok(render({ disabled: true }).props.disabled)
     })
 
     it("allows passing custom 'className' without overriding defaults", () => {
-      assert.equal(
-        render({ className: 'custom' }).props.className,
-        'custom cui__button--primary'
-      )
+      const button = render({ className: 'custom' })
+
+      equal('custom cui__button--primary', button.props.className)
     })
 
     it('allows passing other props', () => {
       const props = { foo: 'foo', bar: 'bar' }
       const { foo, bar } = render(props).props
-      assert.deepEqual(props, { foo, bar })
+
+      deepEqual(props, { foo, bar })
     })
   })
 })
