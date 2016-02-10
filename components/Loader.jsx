@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react'
-import classnames from 'classnames'
+import classNamesBind from 'classnames/bind'
 import styles from 'ui-css-components/src/components/loader.scss'
 
-export default function Loader ({className, small}) {
-  const cls = classnames(className, {
-    'cui__loader': !small,
-    'cui__loader--small': small
-  })
+const classNames = classNamesBind.bind(styles)
+
+export default function Loader ({className, color, size}) {
+  const cls = classNames(className, 'cui__loader', size, color)
 
   return <div className={ cls }></div>
 }
