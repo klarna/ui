@@ -10,7 +10,11 @@ export default function Loader ({className, color, size}) {
   return <div className={ cls }></div>
 }
 
+Loader.sizes = ['big', 'small', 'tiny']
+Loader.colors = ['blue']
+
 Loader.propTypes = {
   className: PropTypes.string,
-  small: PropTypes.bool
+  color: PropTypes.oneOf(Loader.colors),
+  size: PropTypes.oneOf(Loader.sizes)
 }
