@@ -23,14 +23,14 @@ var config = {
         test: /\.scss$/,
         loaders: [
           'style',
-          'css?modules,localIdentName=[local]',
+          'css?modules',
           'autoprefixer',
           'sass'
         ]
       },
       {
-        test: /(\.jpg|\.jpeg|\.png|\.gif)$/,
-        loader: 'null-loader'
+        test: /\.(jpe?g|png|gif|svg|ico|eot|woff|ttf|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
+        loader: 'null'
       }
     ]
   },

@@ -25,7 +25,7 @@ module.exports = {
         test: /\.scss$/,
         loaders: [
           'style',
-          'css?modules',
+          'css?modules,localIdentName=[local]',
           'autoprefixer',
           'sass'
         ]
@@ -55,6 +55,10 @@ module.exports = {
     })
   ],
   resolve: {
+    modulesDirectories: [
+      './node_modules',
+      './node_modules/ui-css-components/src/components'
+    ],
     extensions: ['', '.js', '.jsx']
   }
 }
