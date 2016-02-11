@@ -55,6 +55,10 @@ module.exports = {
     })
   ],
   resolve: {
+    modulesDirectories: [
+      './node_modules',
+      './node_modules/ui-css-components/src/components'
+    ],
     extensions: ['', '.js', '.jsx']
   }
 }
