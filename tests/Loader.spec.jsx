@@ -19,6 +19,12 @@ describe('Loader', () => {
     })
   })
 
+  it("allows passing custom 'className' without overriding defaults", () => {
+    const loader = render({ className: 'custom' })
+
+    equal('cui__loader custom', loader.props.className)
+  })
+
   describe('color', () => {
     it("when 'blue' has className 'blue'", () => {
       const loader = render({ color: 'blue' })

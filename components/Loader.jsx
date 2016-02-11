@@ -5,7 +5,7 @@ import styles from 'ui-css-components/src/components/loader.scss'
 const classNames = classNamesBind.bind(styles)
 
 export default function Loader ({className, color, size}) {
-  const cls = classNames(className, 'cui__loader', size, color)
+  const cls = classNames('cui__loader', size, color, className)
 
   return <div className={ cls }></div>
 }

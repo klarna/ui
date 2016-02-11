@@ -94,7 +94,7 @@ describe('Button', () => {
     it("allows passing custom 'className' without overriding defaults", () => {
       const button = render({ className: 'custom' })
 
-      equal('custom cui__button--primary', button.props.className)
+      equal('cui__button--primary custom', button.props.className)
     })
 
     it('allows passing other props', () => {
