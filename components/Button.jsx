@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
-import classnames from 'classnames'
+import classNamesBind from 'classnames/bind'
 import styles from 'ui-css-components/src/components/button.scss'
+
+const classNames = classNamesBind.bind(styles)
 
 export default function Button (props) {
   const {
@@ -17,11 +19,7 @@ export default function Button (props) {
     loading && <div className={ classNames(`cui__button--${design}__loader`) } /> ||
     children
 
-  const cls = classNames(className,
-    `cui__button--${design}`,
-    styles[`-${size}`],
-    { success }
-  )
+  const cls = classNames(`cui__button--${design}`, size, className)
 
   return (
     <button className={cls} disabled={loading || success} {...remainingProps}>
@@ -33,12 +31,11 @@ export default function Button (props) {
 Button.defaultProps = {
   design: 'primary',
   loading: false,
-  size: 'normal',
   success: false
 }
 
 Button.designs = ['primary', 'secondary']
-Button.sizes = ['small', 'normal', 'big']
+Button.sizes = ['small', 'big']
 
 Button.propTypes = {
   children: PropTypes.node,

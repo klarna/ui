@@ -3,3 +3,26 @@
 body {
   font-family: 'Open Sans';
 }
+
+main {
+  margin: 0 auto;
+  width: 520px;
+}
+
+pre {
+  background: #F5F5F7 !important;
+  padding: 2em !important;
+  margin: 0;
+}
+
+section {
+  border-radius: 6px;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1em;
+}
+
+article {
+  padding: 1em;
+}
