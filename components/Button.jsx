@@ -19,7 +19,7 @@ export default function Button (props) {
     loading && <div className={ classNames(`cui__button--${design}__loader`) } /> ||
     children
 
-  const cls = classNames(className, `cui__button--${design}`, size)
+  const cls = classNames(`cui__button--${design}`, size, className)
 
   return (
     <button className={cls} disabled={loading || success} {...remainingProps}>
