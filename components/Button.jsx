@@ -12,17 +12,19 @@ export default function Button (props) {
     children,
     size,
     success,
+    disabled,
     ...remainingProps } = props
 
   const content =
-    success && '✔' ||
-    loading && <div className={ classNames(`cui__button--${design}__loader`) } /> ||
-    children
+    success && '✔' || !loading && children
 
-  const cls = classNames(`cui__button--${design}`, size, className)
+  const cls = classNames(`cui__button--${design}`, size, {
+    'is-disabled': disabled,
+    'is-loading': loading
+  }, className)
 
   return (
-    <button className={cls} disabled={loading || success} {...remainingProps}>
+    <button className={cls} disabled={loading || success || disabled} {...remainingProps}>
       {content}
     </button>
   )
@@ -31,7 +33,8 @@ export default function Button (props) {
 Button.defaultProps = {
   design: 'primary',
   loading: false,
-  success: false
+  success: false,
+  disabled: false
 }
 
 Button.designs = ['primary', 'secondary']
@@ -43,5 +46,6 @@ Button.propTypes = {
   design: PropTypes.oneOf(Button.designs),
   size: PropTypes.oneOf(Button.sizes),
   loading: PropTypes.bool,
-  success: PropTypes.bool
+  success: PropTypes.bool,
+  disabled: PropTypes.bool
 }
