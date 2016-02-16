@@ -31,6 +31,36 @@ export default function SegmentedControls () {
           ]}
         />
       </Code>
+
+      <h3>Static</h3>
+      <Code>
+        <SegmentedControl
+          design='static'
+          name='navigation-2'
+          options={[
+            {
+              key: 'home',
+              label: 'Home',
+              checked: true
+            },
+
+            {
+              key: 'about',
+              label: 'About'
+            },
+
+            {
+              key: 'archive',
+              label: 'Archive'
+            },
+
+            {
+              key: 'contact',
+              label: 'Contact'
+            }
+          ]}
+        />
+      </Code>
     </div>
   )
 }

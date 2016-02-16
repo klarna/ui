@@ -4,6 +4,8 @@ import styles from 'ui-css-components/src/components/segmentedcontrol.scss'
 
 const classNames = classNamesBind.bind(styles)
 
+const staticSizesClassNames = ['', 'half', 'third', 'quarter', 'twenty']
+
 export default function SegmentedControl (props) {
   const {
     className,
@@ -24,7 +26,7 @@ export default function SegmentedControl (props) {
       left: index === 0,
       center: index > 0 && index < options.length - 1,
       right: index === options.length - 1
-    })
+    }, design === 'static' ? staticSizesClassNames[options.length - 1] : '')
 
     items.push(
       <input
