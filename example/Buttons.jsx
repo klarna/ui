@@ -21,11 +21,28 @@ export default function Buttons () {
         <Button design='secondary' size='big'>Click me!</Button>
       </Code>
 
+      <h3>Disabled</h3>
+      <Code>
+        <Button disabled size='small'>Click me!</Button>
+        <Button disabled>Click me!</Button>
+        <Button disabled size='big'>Click me!</Button>
+
+        <Button design='secondary' disabled size='small'>Click me!</Button>
+        <Button design='secondary' disabled>Click me!</Button>
+        <Button design='secondary' disabled size='big'>Click me!</Button>
+      </Code>
+
       <h3>Loading</h3>
       <Code>
         <Button loading size='small'>Click me!</Button>
         <Button loading>Click me!</Button>
         <Button loading size='big'>Click me!</Button>
+
+        <hr style={{border: 0, background: 0}} />
+
+        <Button design='secondary' loading size='small'>Click me!</Button>
+        <Button design='secondary' loading>Click me!</Button>
+        <Button design='secondary' loading size='big'>Click me!</Button>
       </Code>
 
       <h3>Success</h3>
