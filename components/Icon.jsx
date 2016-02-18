@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import validateSize from 'lib/validateSize'
+import validateSize from '../lib/validateSize'
 
 const strokes = {
   disabled: '#cbcbcd',
