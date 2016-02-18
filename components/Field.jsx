@@ -25,6 +25,7 @@ export default class Field extends React.Component {
 
   onFocus (event) {
     this.setState({focused: true})
+    this.props.onFocus && this.props.onFocus()
   }
 
   onBlur (event) {
@@ -110,6 +111,7 @@ Field.propTypes = {
   error: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
+  onFocus: PropTypes.func,
   size: PropTypes.oneOf(Field.sizes),
   type: PropTypes.oneOf(Field.types),
   value: PropTypes.string,
