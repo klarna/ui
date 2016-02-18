@@ -1,3 +1,4 @@
+var path = require('path')
 var Webpack = require('webpack')
 var WebpackCleanPlugin = require('clean-webpack-plugin')
 var WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
@@ -18,7 +19,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /\.(jsx|es6)$/,
         loader: 'babel'
       },
       {
@@ -26,7 +27,6 @@ module.exports = {
         loaders: [
           'style',
           'css?modules',
-          'autoprefixer',
           'sass'
         ]
       },
@@ -56,9 +56,9 @@ module.exports = {
   ],
   resolve: {
     modulesDirectories: [
-      './node_modules',
-      './node_modules/ui-css-components/src/components'
+      './node_modules'
     ],
-    extensions: ['', '.js', '.jsx']
+    root: path.join(__dirname),
+    extensions: ['', '.js', '.jsx', '.es6']
   }
 }
