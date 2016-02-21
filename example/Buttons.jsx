@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../components/Button'
+import PayButton from '../components/PayButton'
 import Code from './Code'
 
 export default function Buttons () {
@@ -51,6 +52,20 @@ export default function Buttons () {
         <Button success>Click me!</Button>
         <Button success size='big'>Click me!</Button>
       </Code>
+
+      <h3>Button with price</h3>
+      <h5>Primary</h5>
+      <Code>
+        <PayButton price="$12.0">Pay now!</PayButton>
+        <PayButton price="14:-" size='big'>Pay now!</PayButton>
+      </Code>
+
+      <h5>Secondary</h5>
+      <Code>
+        <PayButton design="secondary" price="$12.0">Pay now!</PayButton>
+        <PayButton design="secondary" price="14:-" size='big'>Pay now!</PayButton>
+      </Code>
+
     </div>
   )
 }
