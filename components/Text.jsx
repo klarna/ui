@@ -4,7 +4,7 @@ import styles from 'ui-css-components/src/components/text.scss'
 
 const classNames = classNamesBind.bind(styles)
 
-export function PrimaryTitle(props) {
+export function PrimaryTitle (props) {
   const {
     className,
     blue,
@@ -33,13 +33,14 @@ PrimaryTitle.defaultProps = {
 }
 
 PrimaryTitle.propTypes = {
+  children: PropTypes.node,
   blue: PropTypes.bool,
   small: PropTypes.bool,
-  strong: PropTypes.bool
+  strong: PropTypes.bool,
+  className: PropTypes.string
 }
 
-
-export function SecondaryTitle(props) {
+export function SecondaryTitle (props) {
   const {
     className,
     blue,
@@ -61,16 +62,17 @@ export function SecondaryTitle(props) {
 
 SecondaryTitle.defaultProps = {
   blue: false,
-  condensed: false,
+  condensed: false
 }
 
 SecondaryTitle.propTypes = {
+  children: PropTypes.node,
   blue: PropTypes.bool,
-  condensed: PropTypes.bool
+  condensed: PropTypes.bool,
+  className: PropTypes.string
 }
 
-
-export function Subtitle(props) {
+export function Subtitle (props) {
   const {
     className,
     blue,
@@ -92,16 +94,17 @@ export function Subtitle(props) {
 
 Subtitle.defaultProps = {
   blue: false,
-  condensed: false,
+  condensed: false
 }
 
 Subtitle.propTypes = {
+  children: PropTypes.node,
   blue: PropTypes.bool,
-  condensed: PropTypes.bool
+  condensed: PropTypes.bool,
+  className: PropTypes.string
 }
 
-
-export function Paragraph(props) {
+export function Paragraph (props) {
   const {
     className,
     design,
@@ -128,12 +131,13 @@ Paragraph.defaultProps = {
 }
 
 Paragraph.propTypes = {
+  children: PropTypes.node,
   condensed: PropTypes.bool,
-  design: PropTypes.oneOf(Paragraph.designs)
+  design: PropTypes.oneOf(Paragraph.designs),
+  className: PropTypes.string
 }
 
-
-export function Label(props) {
+export function Label (props) {
   const {
     className,
     children,
@@ -142,11 +146,16 @@ export function Label(props) {
   const cls = classNames('cui__label', className)
 
   return (
-    <span className={cls}>{ children }</span>
+    <span className={cls} {...remainingProps}>{ children }</span>
   )
 }
 
-export function TextLabel(props) {
+Label.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string
+}
+
+export function TextLabel (props) {
   const {
     className,
     children,
@@ -155,6 +164,11 @@ export function TextLabel(props) {
   const cls = classNames('cui__text-label', className)
 
   return (
-    <h4 className={cls}>{ children }</h4>
+    <h4 className={cls} {...remainingProps}>{ children }</h4>
   )
+}
+
+TextLabel.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string
 }
