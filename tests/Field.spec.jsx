@@ -111,7 +111,7 @@ describe('Field', () => {
   })
 
   describe('icon', () => {
-    const field = render({ children: <span />, name: 'filled', label: 'Filled' })
+    const field = render({ name: 'filled', label: 'Filled' }, <span />)
 
     it('has icon', () => {
       equal(icon(field).type, 'span')
@@ -135,25 +135,25 @@ describe('Field', () => {
 
     describe('states', () => {
       it('error', () => {
-        const field = render({ error: 'Ooops', children: <span />, name: 'filled', label: 'Filled' })
+        const field = render({ error: 'Ooops', name: 'filled', label: 'Filled' }, <span />)
 
         equal(icon(field).props.state, 'error')
       })
 
       it('warning', () => {
-        const field = render({ warning: 'Hey!', children: <span />, name: 'filled', label: 'Filled' })
+        const field = render({ warning: 'Hey!', name: 'filled', label: 'Filled' }, <span />)
 
         equal(icon(field).props.state, 'warning')
       })
 
       it('disabled', () => {
-        const field = render({ disabled: true, children: <span />, name: 'filled', label: 'Filled' })
+        const field = render({ disabled: true, name: 'filled', label: 'Filled' }, <span />)
 
         equal(icon(field).props.state, 'disabled')
       })
 
       it('focused', () => {
-        const renderer = shallow(Field, { children: <span />, name: 'focused', label: 'Focused' })
+        const renderer = shallow(Field, { name: 'focused', label: 'Focused' }, <span />)
         input(renderer.getRenderOutput()).props.onFocus()
         equal(icon(renderer.getRenderOutput()).props.state, 'focused')
         input(renderer.getRenderOutput()).props.onBlur()
