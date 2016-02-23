@@ -31,7 +31,6 @@ describe('Button', () => {
     })
 
     it('should have the content', () => {
-      console.log('>>>', button.props)
       ok(button.props.children.match('Click me'))
     })
   })
