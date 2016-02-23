@@ -1,8 +1,12 @@
 import React from 'react'
 import { createRenderer } from 'react-addons-test-utils'
 
-const shallow = createRenderer()
-export const renderer = (Component) => (props = {}, children = {}) => {
-  shallow.render(<Component {...props}>{ children }</Component>)
-  return shallow.getRenderOutput()
+export const renderer = (Component) => (props = {}, children = null) => {
+  return shallow(Component, props, children).getRenderOutput()
+}
+
+export const shallow = (Component, props = {}, children = null) => {
+  const shallowRenderer = createRenderer()
+  shallowRenderer.render(<Component {...props}>{ children }</Component>)
+  return shallowRenderer
 }

@@ -8,14 +8,25 @@ export default function Buttons () {
     <div>
       <h1>Button examples</h1>
 
-      <h3>Primary</h3>
+      <h2>Primary</h2>
+
+      <h5>Regular</h5>
       <Code>
         <Button size='small'>Click me!</Button>
         <Button>Click me!</Button>
         <Button size='big'>Click me!</Button>
       </Code>
 
-      <h3>Secondary</h3>
+      <h5>Loading</h5>
+      <Code>
+        <Button loading size='small'>Click me!</Button>
+        <Button loading>Click me!</Button>
+        <Button loading size='big'>Click me!</Button>
+      </Code>
+
+      <h2>Secondary</h2>
+
+      <h5>Regular</h5>
       <Code>
         <Button design='secondary' size='small'>Click me!</Button>
         <Button design='secondary'>Click me!</Button>
@@ -56,14 +67,14 @@ export default function Buttons () {
       <h3>Button with price</h3>
       <h5>Primary</h5>
       <Code>
-        <PayButton price="$12.0">Pay now!</PayButton>
-        <PayButton price="14:-" size='big'>Pay now!</PayButton>
+        <PayButton price='$12.0'>Pay now!</PayButton>
+        <PayButton price='14:-' size='big'>Pay now!</PayButton>
       </Code>
 
       <h5>Secondary</h5>
       <Code>
-        <PayButton design="secondary" price="$12.0">Pay now!</PayButton>
-        <PayButton design="secondary" price="14:-" size='big'>Pay now!</PayButton>
+        <PayButton design='secondary' price='$12.0'>Pay now!</PayButton>
+        <PayButton design='secondary' price='14:-' size='big'>Pay now!</PayButton>
       </Code>
 
     </div>
