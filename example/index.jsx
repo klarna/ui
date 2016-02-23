@@ -7,12 +7,14 @@ import Fields from './Fields'
 import Icons from './Icons'
 import Loaders from './Loaders'
 import SegmentedControls from './SegmentedControls'
+import Text from './Text'
 
 import './index.scss'
 
 function Root () {
   return (
     <main>
+      <Text />
       <Icons />
       <Fields />
       <Buttons />
