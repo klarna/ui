@@ -10,13 +10,13 @@ var config = {
     publicPath: 'http://' + devServerHostname + ':' + devServerPort + '/tests'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.es6'],
     root: path.join(__dirname)
   },
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /\.(jsx|es6)$/,
         loader: 'babel'
       },
       {
@@ -24,7 +24,6 @@ var config = {
         loaders: [
           'style',
           'css?modules,localIdentName=[local]',
-          'autoprefixer',
           'sass'
         ]
       },
