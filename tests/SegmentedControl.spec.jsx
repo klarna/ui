@@ -1,103 +1,144 @@
 /* global describe it */
 
 import SegmentedControl from '../components/SegmentedControl'
-import { ok, equal, deepEqual } from 'assert'
+import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 
 const render = renderer(SegmentedControl)
 
 describe('SegmentedControl', () => {
   describe('default', () => {
-    const segmentedControl = render()
+    const segmentedControl = render({
+      name: 'the-control',
+      options: [
+        {
+          key: 'home',
+          label: 'Home'
+        },
+        {
+          checked: true,
+          key: 'archive',
+          label: 'Archive'
+        }
+      ]
+    })
 
-    it("renders tag 'div'", () => {
+    it('renders tag "div"', () => {
       equal(segmentedControl.type, 'div')
     })
 
-    it("has className 'cui__segmentedcontrol'", () => {
+    it('has className "cui__segmentedcontrol"', () => {
       equal(segmentedControl.props.className, 'cui__segmentedcontrol')
     })
-  })
 
-  describe('static', () => {
-    const segmentedControl = render({ design: 'static' })
+    describe('first option (home)', () => {
+      const home = {
+        input: segmentedControl.props.children[0],
+        label: segmentedControl.props.children[1]
+      }
 
-    it("has className 'cui__segmentedcontrol--secondary'", () => {
-      equal(
-        segmentedControl.props.className,
-        'cui__segmentedcontrol--secondary'
-      )
-    })
-  })
+      describe('input', () => {
+        it('is an input', () => {
+          equal(home.input.type, 'input')
+        })
 
-  describe('loading', () => {
-    const segmentedControl = render({ loading: true })
+        it('has type radio', () => {
+          equal(home.input.props.type, 'radio')
+        })
 
-    describe('children', () => {
-      const child = segmentedControl.props.children
+        it('has key input-0', () => {
+          equal(home.input.key, 'input-0')
+        })
 
-      it("is a 'div'", () => {
-        equal('div', child.type)
+        it('has className "cui__segmentedcontrol__input"', () => {
+          ok(home.input.props.className.match('cui__segmentedcontrol__input'))
+        })
+
+        it('has the name of the SegmentedControl', () => {
+          equal(home.input.props.name, 'the-control')
+        })
+
+        it('has id with the SegmentedControl name "-home"', () => {
+          equal(home.input.props.id, 'the-control-home')
+        })
+
+        it('is not checked', () => {
+          ok(!home.input.props.checked)
+        })
       })
 
-      it("by default has className 'cui__segmentedcontrol--primary__loader'", () => {
-        equal('cui__segmentedcontrol--primary__loader', child.props.className)
+      describe('label', () => {
+        it('is a label', () => {
+          equal(home.label.type, 'label')
+        })
+
+        it('has key label-0', () => {
+          equal(home.label.key, 'label-0')
+        })
+
+        it('has className "cui__segmentedcontrol__button"', () => {
+          ok(home.label.props.className.match('cui__segmentedcontrol__button'))
+        })
+
+        it('has htmlFor with the SegmentedControl name "-home"', () => {
+          equal(home.label.props.htmlFor, 'the-control-home')
+        })
+      })
+    })
+
+    describe('second option (archive)', () => {
+      const archive = {
+        input: segmentedControl.props.children[2],
+        label: segmentedControl.props.children[3]
+      }
+
+      describe('input', () => {
+        it('is an input', () => {
+          equal(archive.input.type, 'input')
+        })
+
+        it('has type radio', () => {
+          equal(archive.input.props.type, 'radio')
+        })
+
+        it('has key input-1', () => {
+          equal(archive.input.key, 'input-1')
+        })
+
+        it('has className "cui__segmentedcontrol__input"', () => {
+          ok(archive.input.props.className.match('cui__segmentedcontrol__input'))
+        })
+
+        it('has the name of the SegmentedControl', () => {
+          equal(archive.input.props.name, 'the-control')
+        })
+
+        it('has id with the SegmentedControl name "-archive"', () => {
+          equal(archive.input.props.id, 'the-control-archive')
+        })
+
+        it('is checked', () => {
+          ok(archive.input.props.checked)
+        })
       })
 
-      it("when secondary has className 'cui__segmentedcontrol--secondary__loader'", () => {
-        const secondary = render({ design: 'secondary', loading: true })
+      describe('label', () => {
+        it('is a label', () => {
+          equal(archive.label.type, 'label')
+        })
 
-        equal('cui__segmentedcontrol--secondary__loader', secondary.props.children.props.className)
+        it('has key label-0', () => {
+          equal(archive.label.key, 'label-1')
+        })
+
+        it('has className "cui__segmentedcontrol__button"', () => {
+          ok(archive.label.props.className.match('cui__segmentedcontrol__button'))
+        })
+
+        it('has htmlFor with the SegmentedControl name "-archive"', () => {
+          equal(archive.label.props.htmlFor, 'the-control-archive')
+        })
       })
-    })
-
-    it('is disabled', () => {
-      ok(segmentedControl.props.disabled)
-    })
-  })
-
-  describe('success', () => {
-    const segmentedControl = render({ success: true })
-
-    it('contains ✔', () => {
-      equal(segmentedControl.props.children, '✔')
-    })
-
-    it('is disabled', () => {
-      ok(segmentedControl.props.disabled)
-    })
-  })
-
-  describe('size', () => {
-    it("when 'small' has className 'small'", () => {
-      const segmentedControl = render({ size: 'small' })
-
-      equal('cui__segmentedcontrol--primary small', segmentedControl.props.className)
-    })
-
-    it("when 'big' has className 'big'", () => {
-      const segmentedControl = render({ size: 'big' })
-
-      equal('cui__segmentedcontrol--primary big', segmentedControl.props.className)
-    })
-  })
-
-  describe('custom props', () => {
-    it('overrides disabled default', () => {
-      ok(render({ disabled: true }).props.disabled)
-    })
-
-    it("allows passing custom 'className' without overriding defaults", () => {
-      const segmentedControl = render({ className: 'custom' })
-
-      equal('cui__segmentedcontrol--primary custom', segmentedControl.props.className)
-    })
-
-    it('allows passing other props', () => {
-      const props = { foo: 'foo', bar: 'bar' }
-      const { foo, bar } = render(props).props
-
-      deepEqual(props, { foo, bar })
     })
   })
 })
