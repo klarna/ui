@@ -19,7 +19,7 @@ export default function SegmentedControl (props) {
 
   const items = []
 
-  options.forEach(({ key, checked, label}, index) => {
+  options.forEach(({ key, checked, label }, index) => {
     const id = `${name}-${key}`
 
     const clsLabel = classNames(styles['cui__segmentedcontrol__button'], {
@@ -66,9 +66,9 @@ SegmentedControl.designs = ['fluid', 'static']
 SegmentedControl.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     checked: PropTypes.bool,
-    label: PropTypes.string,
-    key: PropTypes.string
-  })),
+    label: PropTypes.string.isRequired,
+    key: PropTypes.string.isRequired
+  })).isRequired,
   className: PropTypes.string,
   design: PropTypes.oneOf(SegmentedControl.designs),
   onChange: PropTypes.func,
