@@ -2,7 +2,7 @@
 
 import PayButton from '../components/PayButton'
 import Button from '../components/Button'
-import { ok, equal, deepEqual } from 'assert'
+import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 
 const render = renderer(PayButton)
@@ -21,7 +21,6 @@ describe('PayButton', () => {
       })
 
       it('has the cui__button__price component inside the button', () => {
-        console.log(payButton.props.children[1])
         equal(payButton.props.children[1].props.className, 'cui__button__price')
       })
 
