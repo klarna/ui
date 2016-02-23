@@ -8,14 +8,25 @@ export default function Buttons () {
     <div>
       <h1>Button examples</h1>
 
-      <h3>Primary</h3>
+      <h2>Primary</h2>
+
+      <h5>Regular</h5>
       <Code>
         <Button size='small'>Click me!</Button>
         <Button>Click me!</Button>
         <Button size='big'>Click me!</Button>
       </Code>
 
-      <h3>Secondary</h3>
+      <h5>Loading</h5>
+      <Code>
+        <Button loading size='small'>Click me!</Button>
+        <Button loading>Click me!</Button>
+        <Button loading size='big'>Click me!</Button>
+      </Code>
+
+      <h2>Secondary</h2>
+
+      <h5>Regular</h5>
       <Code>
         <Button design='secondary' size='small'>Click me!</Button>
         <Button design='secondary'>Click me!</Button>
