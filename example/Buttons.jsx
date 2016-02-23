@@ -56,14 +56,14 @@ export default function Buttons () {
       <h3>Button with price</h3>
       <h5>Primary</h5>
       <Code>
-        <PayButton price="$12.0">Pay now!</PayButton>
-        <PayButton price="14:-" size='big'>Pay now!</PayButton>
+        <PayButton price='$12.0'>Pay now!</PayButton>
+        <PayButton price='14:-' size='big'>Pay now!</PayButton>
       </Code>
 
       <h5>Secondary</h5>
       <Code>
-        <PayButton design="secondary" price="$12.0">Pay now!</PayButton>
-        <PayButton design="secondary" price="14:-" size='big'>Pay now!</PayButton>
+        <PayButton design='secondary' price='$12.0'>Pay now!</PayButton>
+        <PayButton design='secondary' price='14:-' size='big'>Pay now!</PayButton>
       </Code>
 
     </div>
