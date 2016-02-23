@@ -34,7 +34,7 @@ describe('Icon', () => {
     })
 
     it('injects common props into children', () => {
-      const child = render({ children: <div></div> }).props.children[0]
+      const child = render({}, <div />).props.children[0]
 
       equal('5', child.props.strokeWidth)
       equal('transparent', child.props.fill)
@@ -44,22 +44,22 @@ describe('Icon', () => {
 
   describe('states', () => {
     it('disabled', () => {
-      const stroke = render({ state: 'disabled', children: <div></div> }).props.children[0].props.stroke
+      const stroke = render({ state: 'disabled' }, <div />).props.children[0].props.stroke
       equal('#cbcbcd', stroke)
     })
 
     it('error', () => {
-      const stroke = render({ state: 'error', children: <div></div> }).props.children[0].props.stroke
+      const stroke = render({ state: 'error' }, <div/>).props.children[0].props.stroke
       equal('#e63200', stroke)
     })
 
     it('focused', () => {
-      const stroke = render({ state: 'focused', children: <div></div> }).props.children[0].props.stroke
+      const stroke = render({ state: 'focused' }, <div/>).props.children[0].props.stroke
       equal('#0074c8', stroke)
     })
 
     it('warning', () => {
-      const stroke = render({ state: 'warning', children: <div></div> }).props.children[0].props.stroke
+      const stroke = render({ state: 'warning' }, <div />).props.children[0].props.stroke
       equal('#e0a644', stroke)
     })
   })

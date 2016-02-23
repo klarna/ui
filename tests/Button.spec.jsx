@@ -8,7 +8,7 @@ const render = renderer(Button)
 
 describe('Button', () => {
   describe('default', () => {
-    const button = render()
+    const button = render({}, 'Click me')
 
     it("renders tag 'button'", () => {
       equal(button.type, 'button')
@@ -20,6 +20,31 @@ describe('Button', () => {
 
     it('is not disabled', () => {
       ok(!button.props.disabled)
+    })
+
+    it('does not have class is-disabled', () => {
+      ok(!button.props.className.match('is-disabled'))
+    })
+
+    it('does not have class is-loading', () => {
+      ok(!button.props.className.match('is-loading'))
+    })
+
+    it('should have the content', () => {
+      console.log('>>>', button.props)
+      ok(button.props.children.match('Click me'))
+    })
+  })
+
+  describe('disabled', () => {
+    const button = render({ disabled: true })
+
+    it('is disabled', () => {
+      ok(button.props.disabled)
+    })
+
+    it('has class is-disabled', () => {
+      ok(button.props.className.match('is-disabled'))
     })
   })
 
@@ -35,28 +60,18 @@ describe('Button', () => {
   })
 
   describe('loading', () => {
-    const button = render({ loading: true })
+    const button = render({ loading: true }, 'Click me')
 
-    describe('children', () => {
-      const child = button.props.children
-
-      it("is a 'div'", () => {
-        equal('div', child.type)
-      })
-
-      it("by default has className 'cui__button--primary__loader'", () => {
-        equal('cui__button--primary__loader', child.props.className)
-      })
-
-      it("when secondary has className 'cui__button--secondary__loader'", () => {
-        const secondary = render({ design: 'secondary', loading: true })
-
-        equal('cui__button--secondary__loader', secondary.props.children.props.className)
-      })
+    it('has class is-loading', () => {
+      ok(button.props.className.match('is-loading'))
     })
 
     it('is disabled', () => {
       ok(button.props.disabled)
+    })
+
+    it('hides the content', () => {
+      ok(!button.props.children)
     })
   })
 
