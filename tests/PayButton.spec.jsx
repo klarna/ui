@@ -15,6 +15,18 @@ describe('PayButton', () => {
       equal(payButton.type, Button)
     })
 
+    it("has class 'has-price'", () => {
+      equal(payButton.props.className, 'has-price')
+    })
+
+    describe('loading', () => {
+      const payButton = render({ price: '10.15', loading: true }, 'Click me')
+
+      it("does not have class 'has-price'", () => {
+        ok(!payButton.props.className.match('has-price'))
+      })
+    })
+
     describe('price', () => {
       it('has the span component inside the button', () => {
         equal(payButton.props.children[1].type, 'span')

@@ -69,12 +69,14 @@ export default function Buttons () {
       <Code>
         <PayButton price='$12.0'>Pay now!</PayButton>
         <PayButton price='14:-' size='big'>Pay now!</PayButton>
+        <PayButton price='14:-' loading style={{width: '200px'}}>Pay now!</PayButton>
       </Code>
 
       <h5>Secondary</h5>
       <Code>
         <PayButton design='secondary' price='$12.0'>Pay now!</PayButton>
         <PayButton design='secondary' price='14:-' size='big'>Pay now!</PayButton>
+        <PayButton design='secondary' price='14:-' loading style={{width: '200px'}}>Pay now!</PayButton>
       </Code>
 
     </div>
