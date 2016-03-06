@@ -6,13 +6,13 @@ import classNamesBind from 'classnames/bind'
 const classNames = classNamesBind.bind(styles)
 
 export default function PayButton (props) {
-  const { price, children, className, ...remainingProps } = props
-  const cls = classNames('has-price', className)
+  const { price, children, className, loading, ...remainingProps } = props
+  const cls = classNames(loading || 'has-price', className)
 
   return (
-    <Button className={ cls } {...remainingProps}>
+    <Button className={cls} loading={loading} {...remainingProps}>
       {children}
-      <span className={ styles['cui__button__price'] }>
+      <span className={styles['cui__button__price']}>
         {price}
       </span>
     </Button>
