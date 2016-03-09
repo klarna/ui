@@ -7,7 +7,7 @@ const classNames = classNamesBind.bind(styles)
 export default function Loader ({className, color, size}) {
   const cls = classNames('cui__loader', size, color, className)
 
-  return <div className={ cls }></div>
+  return <div className={ cls } />
 }
 
 Loader.sizes = ['big', 'small', 'tiny']
