@@ -10,6 +10,7 @@ import Previews from './Previews'
 import Switches from './Switches'
 import SegmentedControls from './SegmentedControls'
 import Text from './Text'
+import Tooltips from './Tooltips'
 
 import './index.scss'
 
@@ -23,6 +24,7 @@ function Root () {
       <Fields />
       <Buttons />
       <Loaders />
+      <Tooltips />
       <SegmentedControls />
     </main>
   )
