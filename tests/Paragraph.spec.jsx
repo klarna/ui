@@ -47,7 +47,7 @@ describe('Paragraph', () => {
     const paragraph = render({design: 'legal'}, 'LoremIpsum')
 
     it("has className 'cui__paragraph--legal'", () => {
-      equal(paragraph.props.className, 'cui__paragraph--secondary')
+      equal(paragraph.props.className, 'cui__paragraph--legal')
     })
   })
 })
