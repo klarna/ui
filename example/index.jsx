@@ -9,7 +9,7 @@ import Loaders from './Loaders'
 import Previews from './Previews'
 import Switches from './Switches'
 import SegmentedControls from './SegmentedControls'
-import Text from './Text'
+import Texts from './Texts'
 import Tooltips from './Tooltips'
 
 import './index.scss'
@@ -19,7 +19,7 @@ function Root () {
     <main>
       <Previews />
       <Switches />
-      <Text />
+      <Texts />
       <Icons />
       <Fields />
       <Buttons />
