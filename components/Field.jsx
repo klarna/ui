@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from 'ui-css-components/src/components/field.scss'
+import styles from '@klarna/ui-css-components/src/components/field.scss'
 
 const classNames = classNamesBind.bind(styles)
 
