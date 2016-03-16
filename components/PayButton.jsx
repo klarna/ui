@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import styles from 'ui-css-components/src/components/button.scss'
+import styles from '@klarna/ui-css-components/src/components/button.scss'
 import Button from './Button'
 import classNamesBind from 'classnames/bind'
 
