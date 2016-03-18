@@ -7,9 +7,8 @@
  */
 
 import StatefullRadioGroup from '../components/StatefullRadioGroup'
-import { ok, equal } from 'assert'
+import { equal } from 'assert'
 import { shallow } from './helpers'
-// import { spy } from 'sinon'
 
 const data = [
   {id: 1, label: 'option1'},
