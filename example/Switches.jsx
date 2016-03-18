@@ -6,8 +6,6 @@ import Code from './Code'
 export default function Switches () {
   return (
     <div>
-      <h1>Switch examples</h1>
-
       <h2>Primary</h2>
 
       <h5>Regular</h5>
