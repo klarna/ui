@@ -5,8 +5,6 @@ import Code from './Code'
 export default function Loaders () {
   return (
     <div>
-      <h1>Loader examples</h1>
-
       <h3>Primary</h3>
       <Code>
         <Loader size='big' />

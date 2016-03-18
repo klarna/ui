@@ -5,8 +5,6 @@ import Code from './Code'
 export default function Tooltips () {
   return (
     <div>
-      <h1>Tooltip examples</h1>
-
       <h5>Simple</h5>
       <Code>
         <Tooltip>
