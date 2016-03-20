@@ -5,8 +5,6 @@ import Code from './Code'
 export default function Previews () {
   return (
     <div>
-      <h1>Preview examples</h1>
-
       <h3>Default</h3>
       <Code>
         <Preview>

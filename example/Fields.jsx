@@ -7,8 +7,6 @@ import Code from './Code'
 export default function Fields () {
   return (
     <div>
-      <h1>Field examples</h1>
-
       <h2>Regular</h2>
 
       <h5>Normal</h5>

@@ -6,8 +6,6 @@ import Code from './Code'
 export default function Icons () {
   return (
     <div>
-      <h1>Icon examples</h1>
-
       <h2>mail</h2>
 
       <h5>Sizes</h5>

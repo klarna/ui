@@ -5,8 +5,6 @@ import Code from './Code'
 export default function SegmentedControls () {
   return (
     <div>
-      <h1>SegmentedControl examples</h1>
-
       <h3>Fluid</h3>
       <Code>
         <SegmentedControl

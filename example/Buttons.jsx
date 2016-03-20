@@ -6,8 +6,6 @@ import Code from './Code'
 export default function Buttons () {
   return (
     <div>
-      <h1>Button examples</h1>
-
       <h2>Primary</h2>
 
       <h5>Regular</h5>

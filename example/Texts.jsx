@@ -5,8 +5,6 @@ import { PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, Label, TextLabel } f
 export default function Text () {
   return (
     <div>
-      <h1>Text examples</h1>
-
       <h3>Primary Title</h3>
       <Code>
         <PrimaryTitle>Primary Title</PrimaryTitle>
