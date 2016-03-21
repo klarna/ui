@@ -5,14 +5,34 @@ body {
 }
 
 main {
-  margin: 0 auto;
-  width: 580px;
+  display: table;
 }
 
-nav a {
-  display: block;
-  color: black;
-  padding: 5px;
+aside {
+  display: table-cell;
+  padding: 10px 0 0 10px;
+  width: 200px;
+}
+
+nav {
+  position: fixed;
+
+  a {
+    color: black;
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+
+    &.selected {
+      text-decoration: underline;
+    }
+  }
+}
+
+.example {
+  display: table-cell;
+  max-width: 580px;
+  width: 580px;
 }
 
 pre {
@@ -23,10 +43,10 @@ pre {
 
 section {
   border-radius: 6px;
-  box-sizing: border-box;
-  overflow: hidden;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
   margin-bottom: 1em;
+  overflow: hidden;
 }
 
 article {
