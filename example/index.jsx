@@ -17,7 +17,7 @@ import Tooltips from './Tooltips'
 import classNames from 'classnames'
 import { PrimaryTitle } from '../components/Text'
 
-import './index.scss'
+import styles from './index.scss'
 
 const examples = {
   Buttons,
@@ -52,7 +52,7 @@ function Root () {
           }
         </nav>
       </aside>
-      <div className='example'>
+      <div className={styles.example}>
         <PrimaryTitle>{Example.name}</PrimaryTitle>
         <Example />
       </div>

@@ -111,27 +111,6 @@ describe('TabMenu', () => {
         })
       })
     })
-
-    describe('tabs positions', () => {
-      describe('2', () => {
-        const tabMenu = render({ name: 'menu', options: buildOptions(2) })
-
-        it('is "left" and "right"', () => {
-          ok(label(tabMenu, 0).props.className.match('left'))
-          ok(label(tabMenu, 1).props.className.match('right'))
-        })
-      })
-
-      describe('>= 3', () => {
-        const tabMenu = render({ name: 'menu', options: buildOptions(3) })
-
-        it('is "left", "center" and "right"', () => {
-          ok(label(tabMenu, 0).props.className.match('left'))
-          ok(label(tabMenu, 1).props.className.match('center'))
-          ok(label(tabMenu, 2).props.className.match('right'))
-        })
-      })
-    })
   })
 
   describe('static', () => {
@@ -142,38 +121,11 @@ describe('TabMenu', () => {
     })
 
     describe('tabs sizes', () => {
-      describe('2', () => {
-        it('sets size to "half"', () => {
-          times(2, (i) =>
-            ok(label(tabMenu, i).props.className.match('half')))
-        })
-      })
-
-      describe('3', () => {
-        const tabMenu = render({ design: 'static', name: 'menu', options: buildOptions(3) })
-
-        it('sets size to "third"', () => {
-          times(3, (i) =>
-            ok(label(tabMenu, i).props.className.match('third')))
-        })
-      })
-
-      describe('4', () => {
-        const tabMenu = render({ design: 'static', name: 'menu', options: buildOptions(4) })
-
-        it('sets size to "quarter"', () => {
-          times(4, (i) =>
-            ok(label(tabMenu, i).props.className.match('quarter')))
-        })
-      })
-
-      describe('>= 5', () => {
+      it('sets size to 100 divided by the number of options', () => {
         const tabMenu = render({ design: 'static', name: 'menu', options: buildOptions(5) })
 
-        it('sets size to "twenty"', () => {
-          times(5, (i) =>
-            ok(label(tabMenu, i).props.className.match('twenty')))
-        })
+        times(5, (i) =>
+          equal(label(tabMenu, i).props.style.width, '20%'))
       })
     })
   })
