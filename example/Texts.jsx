@@ -2,7 +2,7 @@ import React from 'react'
 import Code from './Code'
 import { PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, Label, TextLabel } from '../components/Text'
 
-export default function Text () {
+export default function Texts () {
   return (
     <div>
       <h3>Primary Title</h3>
