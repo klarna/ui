@@ -77,20 +77,20 @@ export default class Field extends React.Component {
     })
 
     return (
-      <div className={ cls }>
-        { this.renderIcon() }
-        <label className={ styles[`${baseClassName}__label`] }>
-          { error || warning || label }
+      <div className={cls}>
+        {this.renderIcon()}
+        <label className={styles[`${baseClassName}__label`]}>
+          {error || warning || label}
         </label>
         <input
-          name={ name }
-          type={ type }
-          disabled={ disabled }
-          value={ this.state.value }
-          onChange={ this.onChange }
-          onFocus={ this.onFocus }
-          onBlur={ this.onBlur }
-          className={ styles[`${baseClassName}__input`] } />
+          name={name}
+          type={type}
+          disabled={disabled}
+          value={this.state.value}
+          onChange={this.onChange}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          className={styles[`${baseClassName}__input`]} />
       </div>
     )
   }
