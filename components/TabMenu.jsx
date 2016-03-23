@@ -4,8 +4,6 @@ import styles from '@klarna/ui-css-components/src/components/tab-menu.scss'
 
 const classNames = classNamesBind.bind(styles)
 
-const staticSizesClassNames = ['', 'half', 'third', 'quarter', 'twenty']
-
 export default function TabMenu (props) {
   const {
     className,
@@ -18,15 +16,12 @@ export default function TabMenu (props) {
 
   const baseClass = 'cui__tab-menu'
   const cls = classNames(baseClass, design, className)
+  const tabStyle = design === 'static'
+    ? {width: (100 / options.length) + '%'}
+    : {}
 
   const items = options.map(({ key, label }, index) => {
     const id = `${name}-${key}`
-
-    const clsLabel = classNames(`${baseClass}__button`, {
-      left: index === 0,
-      center: index > 0 && index < options.length - 1,
-      right: index === options.length - 1
-    }, design === 'static' ? staticSizesClassNames[options.length - 1] : '')
 
     return (
       <div key={index}>
@@ -39,7 +34,8 @@ export default function TabMenu (props) {
           defaultChecked={key === selected}
         />
         <label
-          className={clsLabel}
+          style={tabStyle}
+          className={styles[`${baseClass}__button`]}
           htmlFor={id}>
           {label}
         </label>
