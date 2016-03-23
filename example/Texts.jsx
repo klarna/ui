@@ -1,11 +1,12 @@
 import React from 'react'
 import Code from './Code'
 import { PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, Label, TextLabel } from '../components/Text'
+import Link from '../components/Link'
 
 export default function Texts () {
   return (
     <div>
-      <h3>Primary Title</h3>
+      <PrimaryTitle small blue>Primary Title</PrimaryTitle>
       <Code>
         <PrimaryTitle>Primary Title</PrimaryTitle>
         <PrimaryTitle blue>Primary Title in blue</PrimaryTitle>
@@ -13,21 +14,21 @@ export default function Texts () {
         <PrimaryTitle strong small>Primary Title in strong</PrimaryTitle>
       </Code>
 
-      <h3>Secondary Title</h3>
+      <PrimaryTitle small blue>Secondary Title</PrimaryTitle>
       <Code>
         <SecondaryTitle>Secondary Title</SecondaryTitle>
         <SecondaryTitle blue>Secondary Title in blue</SecondaryTitle>
         <SecondaryTitle condensed>Secondary Title in condensed</SecondaryTitle>
       </Code>
 
-      <h3>Subtitle</h3>
+      <PrimaryTitle small blue>Subtitle</PrimaryTitle>
       <Code>
         <Subtitle>Subtitle</Subtitle>
         <Subtitle blue>Subtitle in blue</Subtitle>
         <Subtitle condensed>Subtitle in condensed</Subtitle>
       </Code>
 
-      <h3>Paragraphs</h3>
+      <PrimaryTitle small blue>Paragraphs</PrimaryTitle>
       <Code>
         <Paragraph>Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph </Paragraph>
         <Paragraph condensed>Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed </Paragraph>
@@ -35,14 +36,24 @@ export default function Texts () {
         <Paragraph design='legal'>Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text </Paragraph>
       </Code>
 
-      <h3>Label</h3>
+      <PrimaryTitle small blue>Label</PrimaryTitle>
       <Code>
         <Label>Boom!</Label>
       </Code>
 
-      <h3>Text Label</h3>
+      <PrimaryTitle small blue>Text Label</PrimaryTitle>
       <Code>
         <TextLabel>Klarna ID</TextLabel>
+      </Code>
+
+      <PrimaryTitle small blue>Link</PrimaryTitle>
+      <Code>
+        <Subtitle>
+          Some subtitle with <Link href='#'>a link.</Link>
+        </Subtitle>
+        <Paragraph>
+          Some paragraph with <Link href='#'>a link</Link>.
+        </Paragraph>
       </Code>
 
     </div>
