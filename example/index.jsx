@@ -10,58 +10,62 @@ import Previews from './Previews'
 import Switches from './Switches'
 import SegmentedControls from './SegmentedControls'
 import Selectors from './Selectors'
+import TabMenus from './TabMenus'
 import Texts from './Texts'
 import Tooltips from './Tooltips'
 
+import classNames from 'classnames'
 import { PrimaryTitle } from '../components/Text'
 
-import './index.scss'
+import styles from './index.scss'
 
-const examples = [
-  Previews,
-  Switches,
-  Texts,
-  Icons,
-  Fields,
+const examples = {
   Buttons,
+  Fields,
+  Icons,
   Loaders,
-  Tooltips,
+  Previews,
   SegmentedControls,
-  Selectors
-]
+  Selectors,
+  Switches,
+  TabMenus,
+  Texts,
+  Tooltips
+}
 
 function Root () {
+  const anchor = window.location.hash.substring(1)
+  const Example = anchor && examples[anchor] || Buttons
   return (
     <main>
-      <nav>
-        {
-          examples.map((Example) => {
-            return (
+      <aside>
+        <nav>
+          {
+            Object.values(examples).map(({ name }) => (
               <a
-                href={`#${Example.name}`}
-                key={Example.name}>
-                {Example.name}
+                href={`#${name}`}
+                className={classNames({selected: Example.name === name})}
+                key={name}>
+                {name}
               </a>
-            )
-          })
-        }
-      </nav>
-      {
-        examples.map((Example, idx) => {
-          return (
-            <div key={Example.name}>
-              <a name={Example.name} />
-              <PrimaryTitle>{Example.name}</PrimaryTitle>
-              <Example />
-            </div>
-          )
-        })
-      }
+            ))
+          }
+        </nav>
+      </aside>
+      <div className={styles.example}>
+        <PrimaryTitle>{Example.name}</PrimaryTitle>
+        <Example />
+      </div>
     </main>
   )
 }
 
-ReactDOM.render(
-  <Root />,
-  document.getElementById('root')
+const render = () => (
+  ReactDOM.render(
+    <Root />,
+    document.getElementById('root')
+  )
 )
+
+window.onhashchange = render
+render()
