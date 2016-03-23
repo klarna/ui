@@ -6,11 +6,10 @@ import Buttons from './Buttons'
 import Fields from './Fields'
 import Icons from './Icons'
 import Loaders from './Loaders'
+import Menus from './Menus'
 import Previews from './Previews'
 import Switches from './Switches'
-import SegmentedControls from './SegmentedControls'
 import Selectors from './Selectors'
-import TabMenus from './TabMenus'
 import Texts from './Texts'
 import Tooltips from './Tooltips'
 
@@ -24,11 +23,10 @@ const examples = {
   Fields,
   Icons,
   Loaders,
+  Menus,
   Previews,
-  SegmentedControls,
   Selectors,
   Switches,
-  TabMenus,
   Texts,
   Tooltips
 }
