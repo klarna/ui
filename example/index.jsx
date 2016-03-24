@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import Buttons from './Buttons'
 import Fields from './Fields'
 import Icons from './Icons'
+import Links from './Links'
 import Loaders from './Loaders'
 import Menus from './Menus'
 import Previews from './Previews'
@@ -22,6 +23,7 @@ const examples = {
   Buttons,
   Fields,
   Icons,
+  Links,
   Loaders,
   Menus,
   Previews,
