@@ -3,7 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import asString from 'react-to-jsx'
 
 export default function Code ({ children }) {
-  const code = React.Children.map((children, item) => {
+  const code = React.Children.map(children, (item) => {
     return asString(item, { indent: '  ' })
   }).join('')
 
