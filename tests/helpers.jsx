@@ -7,6 +7,6 @@ export const renderer = (Component) => (props = {}, children = null) => {
 
 export const shallow = (Component, props = {}, children = null) => {
   const shallowRenderer = createRenderer()
-  shallowRenderer.render(<Component {...props}>{ children }</Component>)
+  shallowRenderer.render(<Component {...props}>{children}</Component>)
   return shallowRenderer
 }
