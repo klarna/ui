@@ -18,7 +18,7 @@ export default function RadioGroup (props) {
 
     return (
       <div key={id} className={optionClass} onClick={() => onChange(id)}>
-        <div className={labelClass}>{label}</div>
+        <label className={labelClass} style={{display: 'block'}}>{label}</label>
         {description && <div className={descriptionClass}>{description}</div>}
       </div>
     )
