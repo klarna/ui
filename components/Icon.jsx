@@ -20,8 +20,8 @@ export default function Icon ({children, className, size = '20px', state}) {
   })
 
   return (
-    <svg className={ className } width={ size } height={ size } viewBox='0 0 100 100' version='1.1' xmlns='http://www.w3.org/2000/svg'>
-      { childrenWithProps }
+    <svg className={className} width={size} height={size} viewBox='0 0 100 100' version='1.1' xmlns='http://www.w3.org/2000/svg'>
+      {childrenWithProps}
     </svg>
   )
 }

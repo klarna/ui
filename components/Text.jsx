@@ -146,7 +146,7 @@ export function Label (props) {
   const cls = classNames('cui__label', className)
 
   return (
-    <span className={cls} {...remainingProps}>{ children }</span>
+    <span className={cls} {...remainingProps}>{children}</span>
   )
 }
 
@@ -164,7 +164,7 @@ export function TextLabel (props) {
   const cls = classNames('cui__text-label', className)
 
   return (
-    <h4 className={cls} {...remainingProps}>{ children }</h4>
+    <h4 className={cls} {...remainingProps}>{children}</h4>
   )
 }
 
