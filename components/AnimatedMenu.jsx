@@ -15,9 +15,14 @@ export default class AnimatedMenu extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = { width: null, left: null }
+    this.state = {
+      width: null,
+      left: null,
+      selected: props.selected
+    }
 
     this.onClick = this.onClick.bind(this)
+    this.onChange = this.onChange.bind(this)
   }
 
   setStateForTab (tab) {
@@ -28,7 +33,7 @@ export default class AnimatedMenu extends React.Component {
   }
 
   setStateForSelectedTab () {
-    this.setStateForTab(document.getElementById(`${this.props.name}-${this.props.selected}-tab`))
+    this.setStateForTab(document.getElementById(`${this.props.name}-${this.state.selected}-tab`))
   }
 
   componentDidUpdate (prevProps) {
@@ -47,9 +52,22 @@ export default class AnimatedMenu extends React.Component {
     this.setStateForTab(target)
   }
 
+  onChange (selected) {
+    this.setState({ selected })
+
+    if (this.props.onChange) {
+      this.props.onChange(selected)
+    }
+  }
+
   render () {
     return (
-      <Menu {...this.props} design='tab' selectable={false} onClick={this.onClick}>
+      <Menu {...this.props}
+        design='tab'
+        selectable={false}
+        selected={this.state.selected}
+        onClick={this.onClick}
+        onChange={this.onChange}>
         {this.state.width && <AnimatedSelectedBar {...this.state} />}
       </Menu>
     )
