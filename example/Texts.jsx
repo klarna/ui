@@ -1,6 +1,7 @@
 import React from 'react'
 import Code from './Code'
-import { PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, Label, TextLabel } from '../components/Text'
+import Block from '../components/Block'
+import { Amount, PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, Label, TextLabel } from '../components/Text'
 import Link from '../components/Link'
 
 export default function Texts () {
@@ -56,6 +57,15 @@ export default function Texts () {
         </Paragraph>
       </Code>
 
+      <PrimaryTitle small blue>Amount</PrimaryTitle>
+      <Code>
+        <Amount>1500€</Amount>
+        <Amount>$1500</Amount>
+        <Amount>1500₪</Amount>
+        <Block blue>
+          <Amount white>1500€</Amount>
+        </Block>
+      </Code>
     </div>
   )
 }
