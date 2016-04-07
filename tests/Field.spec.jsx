@@ -8,7 +8,7 @@ const render = renderer(Field)
 
 const input = (field) => field.props.children[1]
 
-describe('Field', () => {
+describe.only('Field', () => {
   describe('default', () => {
     const field = render({
       className: 'extra__className',
@@ -165,6 +165,36 @@ describe('Field', () => {
             it(`has className '${y}-${x}'`, () => (
               ok(field.props.className.match(`${y}-${x}`))
             ))
+          })
+        })
+      })
+    })
+
+    describe('sizes', () => {
+      const sizesMap = {
+        '1/2': 'half',
+        '1/3': 'third',
+        '2/3': 'two-thirds',
+        '1/4': 'quarter',
+        '2/4': 'half',
+        '3/4': 'three-quarters',
+        '1/5': 'twenty',
+        '2/5': 'forty',
+        '3/5': 'sixty',
+        '4/5': 'eighty'
+      }
+
+      Object.keys(sizesMap).map((size) => {
+        const className = sizesMap[size]
+
+        describe(size, () => {
+          const field = render({
+            label: 'The half',
+            size
+          })
+
+          it(`has className '${className}'`, () => {
+            ok(field.props.className.match(className))
           })
         })
       })

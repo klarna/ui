@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/field.scss'
+import fieldSizeFraction from '../prop-types/field-size-fraction'
 
 const classNames = classNamesBind.bind(styles)
 const toObjectWithValue = (value) => (list) =>
@@ -27,6 +28,19 @@ export const states = [
   'warning'
 ]
 
+const sizesMap = {
+  '1/2': 'half',
+  '1/3': 'third',
+  '2/3': 'two-thirds',
+  '1/4': 'quarter',
+  '2/4': 'half',
+  '3/4': 'three-quarters',
+  '1/5': 'twenty',
+  '2/5': 'forty',
+  '3/5': 'sixty',
+  '4/5': 'eighty'
+}
+
 export const maxSize = 5
 
 const prioritizedAllowedPositionCombinations =
@@ -44,6 +58,7 @@ export default function Field ({
   error,
   focus,
   label,
+  size,
   value,
   warning,
   ...props
@@ -67,6 +82,7 @@ export default function Field ({
         'is-focused': focus,
         'is-warning': warning
       },
+      sizesMap[size],
       positionCombination,
       className),
     label: classNames('cui__field__label'),
@@ -89,7 +105,8 @@ export default function Field ({
 Field.defaultProps = {
   big: false,
   ...toObjectWithValue(false)(states),
-  ...toObjectWithValue(false)(positions)
+  ...toObjectWithValue(false)(positions),
+  size: '1/1'
 }
 
 Field.propTypes = {
@@ -97,5 +114,6 @@ Field.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.string,
   ...toObjectWithValue(PropTypes.bool)(states),
-  ...toObjectWithValue(PropTypes.bool)(positions)
+  ...toObjectWithValue(PropTypes.bool)(positions),
+  size: fieldSizeFraction(maxSize)
 }
