@@ -134,10 +134,22 @@ describe.only('Field', () => {
     ))
   })
 
+  describe('square', () => {
+    const field = render({
+      label: 'Something',
+      square: true
+    })
+
+    it("has className 'square'", () => (
+      ok(field.props.className.match('square'))
+    ))
+  })
+
   describe('stacked', () => {
     describe('positions', () => {
       [
         'bottom',
+        'center',
         'left',
         'right',
         'top'

@@ -1,14 +1,87 @@
 import React from 'react'
+import Field from '../components/Field'
 import StatefulField from '../components/stateful/Field'
-import MailIcon from '../components/icons/Mail'
-import LockIcon from '../components/icons/Lock'
+import { SecondaryTitle, Subtitle } from '../components/Text'
 import Code from './Code'
 
 export default function Fields () {
   return (
     <div>
-      <h2>Regular</h2>
+      <SecondaryTitle>Regular</SecondaryTitle>
+      <Subtitle>Stateless</Subtitle>
+      <h5>Normal</h5>
+      <Code>
+        <Field label='Enter your email' />
+      </Code>
 
+      <h5>Big</h5>
+      <Code>
+        <Field label='Enter your email' big />
+      </Code>
+
+      <h2>Error</h2>
+
+      <h5>Normal</h5>
+      <Code>
+        <Field label='Invalid email' error value='invalid@' />
+      </Code>
+
+      <h5>Big</h5>
+      <Code>
+        <Field label='Invalid email' error value='invalid@' big />
+      </Code>
+
+      <h2>Warning</h2>
+
+      <h5>Normal</h5>
+      <Code>
+        <Field label='Are you sure the domain is exanple?' warning value='email@exanple.com' />
+      </Code>
+
+      <h5>Big</h5>
+      <Code>
+        <Field label='Are you sure the domain is exanple?' warning value='email@exanple.com' big />
+      </Code>
+
+      <h2>Disabled</h2>
+
+      <h5>Normal</h5>
+      <Code>
+        <Field disabled label='Address' value='16, Corn street' />
+      </Code>
+
+      <h5>Big</h5>
+      <Code>
+        <Field disabled label='Address' value='16, Corn street' big />
+      </Code>
+
+      <h2>Focused</h2>
+
+      <h5>Normal</h5>
+      <Code>
+        <Field focus label='Address' value='16, Corn street' />
+      </Code>
+
+      <h5>Big</h5>
+      <Code>
+        <Field focus label='Address' value='16, Corn street' big />
+      </Code>
+
+      <h2>Stacked</h2>
+      <h5>Normal</h5>
+      <Code>
+        <Field top left size='1/2' label='Given name' />
+        <Field center size='1/4' label='Middle name' />
+        <Field top right size='1/4' label='Last name' />
+        <Field left square size='1/5' label='Number' />
+        <Field right square size='4/5' label='Street Address' />
+        <Field left square size='1/3' label='Your favorite pokémon' />
+        <Field right square size='2/3' label='Android or iPhone: please explain' />
+        <Field left bottom size='2/5' label='Date of Birth' />
+        <Field right bottom size='3/5' label='Mobile phone number' />
+      </Code>
+
+      <Subtitle>Stateful</Subtitle>
       <h5>Normal</h5>
       <Code>
         <StatefulField name='email' label='Enter your email' />
@@ -53,48 +126,6 @@ export default function Fields () {
       <h5>Big</h5>
       <Code>
         <StatefulField name='address' disabled label='Address' value='16, Corn street' size='big' />
-      </Code>
-
-      <h2>Icon</h2>
-
-      <h5>Normal</h5>
-      <Code>
-        <StatefulField name='email' label='Email'>
-          <MailIcon />
-        </StatefulField>
-        <StatefulField name='pin' label='PIN Code'>
-          <LockIcon />
-        </StatefulField>
-      </Code>
-
-      <h5>Error</h5>
-      <Code>
-        <StatefulField name='email' label='Email' error='Invalid email' value='invalid@'>
-          <MailIcon />
-        </StatefulField>
-        <StatefulField name='pin' label='PIN Code' error='Invalid code' value='9236'>
-          <LockIcon />
-        </StatefulField>
-      </Code>
-
-      <h5>Warning</h5>
-      <Code>
-        <StatefulField name='email' label='Email' warning='Are you sure the domain is exanple?' value='email@exanple.com'>
-          <MailIcon />
-        </StatefulField>
-        <StatefulField name='password' type='password' label='Password' warning='To make it stronger, prefer at least 8 characters' value='fghhgj'>
-          <LockIcon />
-        </StatefulField>
-      </Code>
-
-      <h5>Disabled</h5>
-      <Code>
-        <StatefulField name='email' label='Email' disabled value='email@exanple.com'>
-          <MailIcon />
-        </StatefulField>
-        <StatefulField name='password' type='password' label='Password' disabled value='fghhgj'>
-          <LockIcon />
-        </StatefulField>
       </Code>
 
     </div>

@@ -16,6 +16,7 @@ const combinations = (xs, ys) =>
 
 export const positions = [
   'bottom',
+  'center',
   'left',
   'right',
   'top'
@@ -49,7 +50,7 @@ const prioritizedAllowedPositionCombinations =
     ['left', 'right']
   )
   .concat(positions.map((x) => [x]))
-  .sort((a, b) => a.length > b.length)
+  .sort((a, b) => a.length < b.length)
 
 export default function Field ({
   big,
@@ -59,6 +60,7 @@ export default function Field ({
   focus,
   label,
   size,
+  square,
   value,
   warning,
   ...props
@@ -80,7 +82,8 @@ export default function Field ({
         'is-error': error,
         'is-filled': value != null && value !== '',
         'is-focused': focus,
-        'is-warning': warning
+        'is-warning': warning,
+        square
       },
       sizesMap[size],
       positionCombination,
