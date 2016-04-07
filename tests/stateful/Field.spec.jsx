@@ -1,17 +1,17 @@
 /* global describe it */
 
 import React from 'react'
-import Field from '../components/Field'
+import StatefulField from '../../components/stateful/Field'
 import assert, { equal } from 'assert'
-import { renderer, shallow } from './helpers'
+import { renderer, shallow } from '../helpers'
 
-const render = renderer(Field)
+const render = renderer(StatefulField)
 
 const icon = (field) => field.props.children[0]
 const label = (field) => field.props.children[1]
 const input = (field) => field.props.children[2]
 
-describe('Field', () => {
+describe('StatefulField', () => {
   describe('default', () => {
     const field = render({ name: 'test', label: 'Test' })
 
@@ -56,7 +56,7 @@ describe('Field', () => {
     })
 
     it("when changed with value has className 'is-filled'", () => {
-      const renderer = shallow(Field, { name: 'focused', label: 'Focused' })
+      const renderer = shallow(StatefulField, { name: 'focused', label: 'Focused' })
       input(renderer.getRenderOutput()).props.onChange({target: {value: 'something'}})
       equal(renderer.getRenderOutput().props.className, 'cui__field is-filled')
       input(renderer.getRenderOutput()).props.onChange({target: {value: ''}})
@@ -66,7 +66,7 @@ describe('Field', () => {
 
   describe('focused', () => {
     it("has className 'is-focused'", () => {
-      const renderer = shallow(Field, { name: 'focused', label: 'Focused' })
+      const renderer = shallow(StatefulField, { name: 'focused', label: 'Focused' })
       input(renderer.getRenderOutput()).props.onFocus()
       equal(renderer.getRenderOutput().props.className, 'cui__field is-focused')
       input(renderer.getRenderOutput()).props.onBlur()
@@ -153,7 +153,7 @@ describe('Field', () => {
       })
 
       it('focused', () => {
-        const renderer = shallow(Field, { name: 'focused', label: 'Focused' }, <span />)
+        const renderer = shallow(StatefulField, { name: 'focused', label: 'Focused' }, <span />)
         input(renderer.getRenderOutput()).props.onFocus()
         equal(icon(renderer.getRenderOutput()).props.state, 'focused')
         input(renderer.getRenderOutput()).props.onBlur()

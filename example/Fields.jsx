@@ -1,5 +1,5 @@
 import React from 'react'
-import Field from '../components/Field'
+import StatefulField from '../components/stateful/Field'
 import MailIcon from '../components/icons/Mail'
 import LockIcon from '../components/icons/Lock'
 import Code from './Code'
@@ -11,90 +11,90 @@ export default function Fields () {
 
       <h5>Normal</h5>
       <Code>
-        <Field name='email' label='Enter your email' />
+        <StatefulField name='email' label='Enter your email' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <Field name='email' label='Enter your email' size='big' />
+        <StatefulField name='email' label='Enter your email' size='big' />
       </Code>
 
       <h2>Error</h2>
 
       <h5>Normal</h5>
       <Code>
-        <Field name='email' error='Invalid email' value='invalid@' />
+        <StatefulField name='email' error='Invalid email' value='invalid@' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <Field name='email' error='Invalid email' value='invalid@' size='big' />
+        <StatefulField name='email' error='Invalid email' value='invalid@' size='big' />
       </Code>
 
       <h2>Warning</h2>
 
       <h5>Normal</h5>
       <Code>
-        <Field name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' />
+        <StatefulField name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <Field name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' size='big' />
+        <StatefulField name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' size='big' />
       </Code>
 
       <h2>Disabled</h2>
 
       <h5>Normal</h5>
       <Code>
-        <Field name='address' disabled label='Address' value='16, Corn street' />
+        <StatefulField name='address' disabled label='Address' value='16, Corn street' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <Field name='address' disabled label='Address' value='16, Corn street' size='big' />
+        <StatefulField name='address' disabled label='Address' value='16, Corn street' size='big' />
       </Code>
 
       <h2>Icon</h2>
 
       <h5>Normal</h5>
       <Code>
-        <Field name='email' label='Email'>
+        <StatefulField name='email' label='Email'>
           <MailIcon />
-        </Field>
-        <Field name='pin' label='PIN Code'>
+        </StatefulField>
+        <StatefulField name='pin' label='PIN Code'>
           <LockIcon />
-        </Field>
+        </StatefulField>
       </Code>
 
       <h5>Error</h5>
       <Code>
-        <Field name='email' label='Email' error='Invalid email' value='invalid@'>
+        <StatefulField name='email' label='Email' error='Invalid email' value='invalid@'>
           <MailIcon />
-        </Field>
-        <Field name='pin' label='PIN Code' error='Invalid code' value='9236'>
+        </StatefulField>
+        <StatefulField name='pin' label='PIN Code' error='Invalid code' value='9236'>
           <LockIcon />
-        </Field>
+        </StatefulField>
       </Code>
 
       <h5>Warning</h5>
       <Code>
-        <Field name='email' label='Email' warning='Are you sure the domain is exanple?' value='email@exanple.com'>
+        <StatefulField name='email' label='Email' warning='Are you sure the domain is exanple?' value='email@exanple.com'>
           <MailIcon />
-        </Field>
-        <Field name='password' type='password' label='Password' warning='To make it stronger, prefer at least 8 characters' value='fghhgj'>
+        </StatefulField>
+        <StatefulField name='password' type='password' label='Password' warning='To make it stronger, prefer at least 8 characters' value='fghhgj'>
           <LockIcon />
-        </Field>
+        </StatefulField>
       </Code>
 
       <h5>Disabled</h5>
       <Code>
-        <Field name='email' label='Email' disabled value='email@exanple.com'>
+        <StatefulField name='email' label='Email' disabled value='email@exanple.com'>
           <MailIcon />
-        </Field>
-        <Field name='password' type='password' label='Password' disabled value='fghhgj'>
+        </StatefulField>
+        <StatefulField name='password' type='password' label='Password' disabled value='fghhgj'>
           <LockIcon />
-        </Field>
+        </StatefulField>
       </Code>
 
     </div>
