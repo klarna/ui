@@ -54,7 +54,11 @@ module.exports = {
       template: 'example/index.html'
     })
   ],
+  resolveLoader: {
+    fallback: [path.join(__dirname, 'node_modules')]
+  },
   resolve: {
+    fallback: [path.join(__dirname, 'node_modules')],
     modulesDirectories: [
       './node_modules'
     ],

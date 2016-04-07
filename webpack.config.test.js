@@ -10,8 +10,12 @@ var config = {
     publicPath: 'http://' + devServerHostname + ':' + devServerPort + '/tests'
   },
   resolve: {
+    fallback: [path.join(__dirname, 'node_modules')],
     extensions: ['', '.js', '.jsx', '.es6'],
     root: path.join(__dirname)
+  },
+  resolveLoader: {
+    fallback: [path.join(__dirname, 'node_modules')]
   },
   module: {
     loaders: [
