@@ -1,18 +1,11 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/field.scss'
-import fieldSizeFraction from '../prop-types/field-size-fraction'
+import combinations from '../lib/combinations'
+import toObjectWithValue from '../lib/toObjectWithValue'
+import fieldSizeFraction from '../propTypes/fieldSizeFraction'
 
 const classNames = classNamesBind.bind(styles)
-const toObjectWithValue = (value) => (list) =>
-  list.reduce((accumulator, item) => ({
-    ...accumulator,
-    [item]: value
-  }), {})
-const combinations = (xs, ys) =>
-  xs
-    .map((x) => ys.map((y) => [x, y]))
-    .reduce((a, b) => a.concat(b), [])
 
 export const positions = [
   'bottom',
@@ -50,15 +43,17 @@ const prioritizedAllowedPositionCombinations =
     ['left', 'right']
   )
   .concat(positions.map((x) => [x]))
-  .sort((a, b) => a.length < b.length)
 
 export default function Field ({
   big,
+  children,
   className,
+  centered,
   disabled,
   error,
   focus,
   label,
+  loading,
   size,
   square,
   value,
@@ -76,13 +71,15 @@ export default function Field ({
 
   const classes = {
     field: classNames(
-      'cui__field', {
+      (children ? 'cui__field--icon' : 'cui__field'), {
         big,
+        'is-centered': centered,
         'is-disabled': disabled,
         'is-error': error,
         'is-filled': value != null && value !== '',
         'is-focused': focus,
         'is-warning': warning,
+        'is-loading': loading,
         square
       },
       sizesMap[size],
@@ -94,6 +91,8 @@ export default function Field ({
 
   return (
     <div className={classes.field}>
+      {children}
+
       <label className={classes.label}>{label}</label>
 
       <input
@@ -107,6 +106,8 @@ export default function Field ({
 
 Field.defaultProps = {
   big: false,
+  centered: false,
+  loading: false,
   ...toObjectWithValue(false)(states),
   ...toObjectWithValue(false)(positions),
   size: '1/1'
@@ -114,6 +115,8 @@ Field.defaultProps = {
 
 Field.propTypes = {
   big: PropTypes.bool,
+  centered: PropTypes.bool,
+  loading: PropTypes.bool,
   label: PropTypes.string.isRequired,
   value: PropTypes.string,
   ...toObjectWithValue(PropTypes.bool)(states),

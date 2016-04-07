@@ -4,7 +4,7 @@ import {
   isFraction,
   isNumeratorAboveDenominator,
   isPositiveIntegerFraction
-} from './helpers/validators'
+} from '../lib/validators'
 
 export default (threshold) => composeValidators(
   isNumeratorAboveDenominator,

@@ -1,6 +1,6 @@
 /* global describe it */
 
-import fieldSizeFraction, { FIELD_SIZE_ERRORS } from '../../prop-types/field-size-fraction'
+import fieldSizeFraction, { FIELD_SIZE_ERRORS } from '../../propTypes/fieldSizeFraction'
 import { equal } from 'assert'
 
 describe('fieldSizeFraction', () => {

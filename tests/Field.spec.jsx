@@ -6,12 +6,11 @@ import { renderer } from './helpers'
 
 const render = renderer(Field)
 
-const input = (field) => field.props.children[1]
+const input = (field) => field.props.children[2]
 
 describe.only('Field', () => {
   describe('default', () => {
     const field = render({
-      className: 'extra__className',
       label: 'Given Name'
     })
 
@@ -20,17 +19,11 @@ describe.only('Field', () => {
     })
 
     it("has className 'cui__field'", () => {
-      ok(field.props.className.match('cui__field'))
-    })
-
-    describe('add a className', () => {
-      it('has the extra className', () => {
-        ok(field.props.className.match('extra__className'))
-      })
+      equal(field.props.className, 'cui__field')
     })
 
     describe('label', () => {
-      const label = field.props.children[0]
+      const label = field.props.children[1]
 
       it("renders tag 'label'", () => {
         equal(label.type, 'label')
@@ -123,6 +116,39 @@ describe.only('Field', () => {
     })
   })
 
+  describe('add a className', () => {
+    const field = render({
+      className: 'extra__className',
+      label: 'Given Name'
+    })
+
+    it('has the extra className', () => {
+      ok(field.props.className.match('extra__className'))
+    })
+  })
+
+  describe('loading', () => {
+    const field = render({
+      label: 'Something',
+      loading: true
+    })
+
+    it("has className 'is-loading'", () => (
+      ok(field.props.className.match('is-loading'))
+    ))
+  })
+
+  describe('centered', () => {
+    const field = render({
+      label: 'Something',
+      centered: true
+    })
+
+    it("has className 'is-centered'", () => (
+      ok(field.props.className.match('is-centered'))
+    ))
+  })
+
   describe('big', () => {
     const field = render({
       label: 'Something',
@@ -211,5 +237,19 @@ describe.only('Field', () => {
         })
       })
     })
+  })
+
+  describe('icon', () => {
+    const field = render({
+      label: 'Email'
+    }, 'something') // TODO: Use actual icon from ui-illustrations
+
+    it("has className 'cui__field--icon'", () => (
+      ok(field.props.className.match('cui__field--icon'))
+    ))
+
+    it('has the expected first item', () => (
+      equal(field.props.children[0], 'something')
+    ))
   })
 })
