@@ -8,7 +8,7 @@ const render = renderer(Field)
 
 const input = (field) => field.props.children[1]
 
-describe.only('Field', () => {
+describe('Field', () => {
   describe('default', () => {
     const field = render({
       className: 'extra__className',
@@ -40,7 +40,7 @@ describe.only('Field', () => {
         equal(label.props.className, 'cui__field__label')
       })
 
-      it("has the label text", () => (
+      it('has the label text', () => (
         equal(label.props.children, 'Given Name')
       ))
     })
@@ -78,7 +78,7 @@ describe.only('Field', () => {
     ))
 
     describe('input', () => {
-      it("has the value", () => {
+      it('has the value', () => {
         equal(input(field).props.value, 'Some value')
       })
     })
@@ -117,7 +117,7 @@ describe.only('Field', () => {
     ))
 
     describe('input', () => {
-      it("is disabled", () => (
+      it('is disabled', () => (
         ok(input(field).props.disabled)
       ))
     })

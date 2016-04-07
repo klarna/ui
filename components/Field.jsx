@@ -27,6 +27,8 @@ export const states = [
   'warning'
 ]
 
+export const maxSize = 5
+
 const prioritizedAllowedPositionCombinations =
   combinations(
     ['bottom', 'top'],
