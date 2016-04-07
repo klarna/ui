@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom'
 import Badges from './Badges'
 import Buttons from './Buttons'
 import Fields from './Fields'
-import Icons from './Icons'
 import Links from './Links'
 import Loaders from './Loaders'
 import Menus from './Menus'
@@ -24,7 +23,6 @@ const examples = {
   Badges,
   Buttons,
   Fields,
-  Icons,
   Links,
   Loaders,
   Menus,
