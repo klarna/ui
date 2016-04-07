@@ -4,7 +4,7 @@ import styles from '@klarna/ui-css-components/src/components/field.scss'
 
 const classNames = classNamesBind.bind(styles)
 
-export default class Field extends React.Component {
+export default class StatefulField extends React.Component {
 
   constructor (props) {
     super(props)
@@ -96,24 +96,24 @@ export default class Field extends React.Component {
   }
 }
 
-Field.sizes = ['big']
-Field.types = ['text', 'password', 'number', 'email', 'search', 'url']
+StatefulField.sizes = ['big']
+StatefulField.types = ['text', 'password', 'number', 'email', 'search', 'url']
 
-Field.defaultProps = {
+StatefulField.defaultProps = {
   type: 'text',
   disabled: false,
   value: ''
 }
 
-Field.propTypes = {
+StatefulField.propTypes = {
   children: PropTypes.element,
   disabled: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onFocus: PropTypes.func,
-  size: PropTypes.oneOf(Field.sizes),
-  type: PropTypes.oneOf(Field.types),
+  size: PropTypes.oneOf(StatefulField.sizes),
+  type: PropTypes.oneOf(StatefulField.types),
   value: PropTypes.string,
   warning: PropTypes.string
 }
