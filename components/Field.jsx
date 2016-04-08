@@ -54,6 +54,7 @@ export default function Field ({
   focus,
   label,
   loading,
+  onChange,
   size,
   square,
   value,
@@ -99,6 +100,7 @@ export default function Field ({
         className={classes.input}
         disabled={disabled}
         value={value}
+		onChange={onChange}
       />
     </div>
   )
