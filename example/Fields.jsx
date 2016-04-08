@@ -1,5 +1,6 @@
 import React from 'react'
 import Field from '../components/Field'
+import Fieldset from '../components/Fieldset'
 import StatefulField from '../components/stateful/Field'
 import { SecondaryTitle, Subtitle } from '../components/Text'
 import Code from './Code'
@@ -70,28 +71,32 @@ export default function Fields () {
       <h2>Stacked</h2>
       <h5>Normal</h5>
       <Code>
-        <Field top left size='1/2' label='Given name' />
-        <Field center size='1/4' label='Middle name' />
-        <Field top right size='1/4' label='Last name' />
-        <Field left square size='1/5' label='Number' />
-        <Field right square size='4/5' label='Street Address' />
-        <Field left square size='1/3' label='Your favorite pokémon' />
-        <Field right square size='2/3' label='Android or iPhone: please explain' />
-        <Field left bottom size='2/5' label='Date of Birth' />
-        <Field right bottom size='3/5' label='Mobile phone number' />
+        <Fieldset>
+          <Field top left size='1/2' label='Given name' />
+          <Field center size='1/4' label='Middle name' />
+          <Field top right size='1/4' label='Last name' />
+          <Field left square size='1/5' label='Number' />
+          <Field right square size='4/5' label='Street Address' />
+          <Field left square size='1/3' label='Your favorite pokémon' />
+          <Field right square size='2/3' label='Android or iPhone: please explain' />
+          <Field left bottom size='2/5' label='Date of Birth' />
+          <Field right bottom size='3/5' label='Mobile phone number' />
+        </Fieldset>
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <Field big top left size='1/2' label='Given name' />
-        <Field big center size='1/4' label='Middle name' />
-        <Field big top right size='1/4' label='Last name' />
-        <Field big left square size='1/5' label='Number' />
-        <Field big right square size='4/5' label='Street Address' />
-        <Field big left square size='1/3' label='Your favorite pokémon' />
-        <Field big right square size='2/3' label='Android or iPhone: please explain' />
-        <Field big left bottom size='2/5' label='Date of Birth' />
-        <Field big right bottom size='3/5' label='Mobile phone number' />
+        <Fieldset>
+          <Field big top left size='1/2' label='Given name' />
+          <Field big center size='1/4' label='Middle name' />
+          <Field big top right size='1/4' label='Last name' />
+          <Field big left square size='1/5' label='Number' />
+          <Field big right square size='4/5' label='Street Address' />
+          <Field big left square size='1/3' label='Your favorite pokémon' />
+          <Field big right square size='2/3' label='Android or iPhone: please explain' />
+          <Field big left bottom size='2/5' label='Date of Birth' />
+          <Field big right bottom size='3/5' label='Mobile phone number' />
+        </Fieldset>
       </Code>
 
       <Subtitle>Stateful</Subtitle>
