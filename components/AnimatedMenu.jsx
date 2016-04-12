@@ -16,8 +16,8 @@ export default class AnimatedMenu extends React.Component {
     super(props)
 
     this.state = {
-      width: null,
-      left: null,
+      width: 0,
+      left: 0,
       selected: props.selected
     }
 
