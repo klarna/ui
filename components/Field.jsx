@@ -101,9 +101,11 @@ export default class Field extends Component {
       focus,
       label,
       loading,
+      onBlur,
       onChange,
       onClick,
       onEnter,
+      onFocus,
       onTab,
       size,
       square,
@@ -154,7 +156,9 @@ export default class Field extends Component {
           className={classes.input}
           disabled={disabled}
           value={value}
+          onBlur={onBlur}
           onChange={onChange}
+          onFocus={onFocus}
           onKeyDown={handleKeyDown({onTab, onEnter})}
           ref='input'
         />
@@ -177,8 +181,10 @@ Field.propTypes = {
   centered: PropTypes.bool,
   loading: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
+  onFocus: PropTypes.func,
   onEnter: PropTypes.func,
   onTab: PropTypes.func,
   value: PropTypes.string,
