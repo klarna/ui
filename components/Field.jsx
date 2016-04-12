@@ -85,6 +85,7 @@ export default class Field extends Component {
       label,
       loading,
       onChange,
+      onClick,
       size,
       square,
       value,
@@ -122,7 +123,10 @@ export default class Field extends Component {
     }
 
     return (
-      <div className={classes.field}>
+      <div
+        className={classes.field}
+        onClick={onClick}
+      >
         {children}
 
         <label className={classes.label}>{label}</label>
@@ -153,6 +157,8 @@ Field.propTypes = {
   centered: PropTypes.bool,
   loading: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
   value: PropTypes.string,
   ...toObjectWithValue(PropTypes.bool)(states),
   ...toObjectWithValue(PropTypes.bool)(positions),
