@@ -7,6 +7,11 @@ import fieldSizeFraction from '../propTypes/fieldSizeFraction'
 
 const classNames = classNamesBind.bind(styles)
 
+const KEYS = {
+  ENTER: 13,
+  TAB: 9
+}
+
 export const positions = [
   'bottom',
   'center',
@@ -63,6 +68,18 @@ const maybeFocus = ((document) => (type, input) => {
   }
 })(document)
 
+const handleKeyDown = ({ onTab, onEnter }) => (e) => {
+  switch (e.keyCode) {
+    case KEYS.TAB: {
+      const direction = e.shiftKey ? -1 : 1
+      return onTab(direction, e)
+    }
+    case KEYS.ENTER: {
+      return onEnter(e)
+    }
+  }
+}
+
 export default class Field extends Component {
 
   componentDidMount () {
@@ -86,6 +103,8 @@ export default class Field extends Component {
       loading,
       onChange,
       onClick,
+      onEnter,
+      onTab,
       size,
       square,
       value,
@@ -136,6 +155,7 @@ export default class Field extends Component {
           disabled={disabled}
           value={value}
           onChange={onChange}
+          onKeyDown={handleKeyDown({onTab, onEnter})}
           ref='input'
         />
       </div>
@@ -159,6 +179,8 @@ Field.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
+  onEnter: PropTypes.func,
+  onTab: PropTypes.func,
   value: PropTypes.string,
   ...toObjectWithValue(PropTypes.bool)(states),
   ...toObjectWithValue(PropTypes.bool)(positions),
