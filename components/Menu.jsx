@@ -51,7 +51,7 @@ export default function Menu (props) {
     })
 
     return (
-      <div key={index}>
+      <div key={index} style={{boxSizing: 'content-box'}}>
         <input
           className={styles[`${baseClass}__input`]}
           type='radio'
