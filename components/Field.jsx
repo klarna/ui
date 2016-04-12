@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/field.scss'
 import combinations from '../lib/combinations'
@@ -15,9 +15,13 @@ export const positions = [
   'top'
 ]
 
+export const focusTypes = {
+  FAKE: 'fake',
+  REAL: 'real'
+}
+
 export const states = [
   'disabled',
-  'focus',
   'error',
   'warning'
 ]
@@ -44,66 +48,95 @@ const prioritizedAllowedPositionCombinations =
   )
   .concat(positions.map((x) => [x]))
 
-export default function Field ({
-  big,
-  children,
-  className,
-  centered,
-  disabled,
-  error,
-  focus,
-  label,
-  loading,
-  onChange,
-  size,
-  square,
-  value,
-  warning,
-  ...props
-}) {
-  const positionCombination = (
-    prioritizedAllowedPositionCombinations
-      .find((combination) =>
-        combination.length === 1
-          ? props[combination[0]]
-          : (props[combination[0]] && props[combination[1]])
-      ) || []
-  ).join('-')
+const maybeFocus = ((document) => (type, input) => {
+  switch (type) {
+    case focusTypes.REAL:
+      if (document.activeElement !== input) {
+        input.focus()
+      }
+      break
+    case focusTypes.FAKE:
+      if (typeof input.scrollIntoViewIfNeeded === 'function') {
+        input.scrollIntoViewIfNeeded()
+      }
+      break
+  }
+})(document)
 
-  const classes = {
-    field: classNames(
-      (children ? 'cui__field--icon' : 'cui__field'), {
-        big,
-        'is-centered': centered,
-        'is-disabled': disabled,
-        'is-error': error,
-        'is-filled': value != null && value !== '',
-        'is-focused': focus,
-        'is-warning': warning,
-        'is-loading': loading,
-        square
-      },
-      sizesMap[size],
-      positionCombination,
-      className),
-    label: classNames('cui__field__label'),
-    input: classNames('cui__field__input')
+export default class Field extends Component {
+
+  componentDidMount () {
+    maybeFocus(this.props.focus, this.refs.input)
   }
 
-  return (
-    <div className={classes.field}>
-      {children}
+  componentDidUpdate () {
+    maybeFocus(this.props.focus, this.refs.input)
+  }
 
-      <label className={classes.label}>{label}</label>
+  render () {
+    const {
+      big,
+      children,
+      className,
+      centered,
+      disabled,
+      error,
+      focus,
+      label,
+      loading,
+      onChange,
+      size,
+      square,
+      value,
+      warning,
+      ...props
+    } = this.props
 
-      <input
-        className={classes.input}
-        disabled={disabled}
-        value={value}
-        onChange={onChange}
-      />
-    </div>
-  )
+    const positionCombination = (
+      prioritizedAllowedPositionCombinations
+        .find((combination) =>
+          combination.length === 1
+            ? props[combination[0]]
+            : (props[combination[0]] && props[combination[1]])
+        ) || []
+    ).join('-')
+
+    const classes = {
+      field: classNames(
+        (children ? 'cui__field--icon' : 'cui__field'), {
+          big,
+          'is-centered': centered,
+          'is-disabled': disabled,
+          'is-error': error,
+          'is-filled': value != null && value !== '',
+          'is-focused': focus,
+          'is-warning': warning,
+          'is-loading': loading,
+          square
+        },
+        sizesMap[size],
+        positionCombination,
+        className),
+      label: classNames('cui__field__label'),
+      input: classNames('cui__field__input')
+    }
+
+    return (
+      <div className={classes.field}>
+        {children}
+
+        <label className={classes.label}>{label}</label>
+
+        <input
+          className={classes.input}
+          disabled={disabled}
+          value={value}
+          onChange={onChange}
+          ref='input'
+        />
+      </div>
+    )
+  }
 }
 
 Field.defaultProps = {
@@ -123,5 +156,9 @@ Field.propTypes = {
   value: PropTypes.string,
   ...toObjectWithValue(PropTypes.bool)(states),
   ...toObjectWithValue(PropTypes.bool)(positions),
-  size: fieldSizeFraction(maxSize)
+  size: fieldSizeFraction(maxSize),
+  focus: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(Object.keys(focusTypes).map((key) => focusTypes[key]))
+  ])
 }
