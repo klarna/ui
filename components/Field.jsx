@@ -4,13 +4,9 @@ import styles from '@klarna/ui-css-components/src/components/field.scss'
 import combinations from '../lib/combinations'
 import toObjectWithValue from '../lib/toObjectWithValue'
 import fieldSizeFraction from '../propTypes/fieldSizeFraction'
+import keyboardEvents from './keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
-
-const KEYS = {
-  ENTER: 13,
-  TAB: 9
-}
 
 export const positions = [
   'bottom',
@@ -68,19 +64,7 @@ const maybeFocus = ((document) => (type, input) => {
   }
 })(document)
 
-const handleKeyDown = ({ onTab, onEnter }) => (e) => {
-  switch (e.keyCode) {
-    case KEYS.TAB: {
-      const direction = e.shiftKey ? -1 : 1
-      return onTab(direction, e)
-    }
-    case KEYS.ENTER: {
-      return onEnter(e)
-    }
-  }
-}
-
-export default class Field extends Component {
+class Field extends Component {
 
   componentDidMount () {
     maybeFocus(this.props.focus, this.refs.input)
@@ -159,8 +143,8 @@ export default class Field extends Component {
           onBlur={onBlur}
           onChange={onChange}
           onFocus={onFocus}
-          onKeyDown={handleKeyDown({onTab, onEnter})}
           ref='input'
+          {...props}
         />
       </div>
     )
@@ -196,3 +180,5 @@ Field.propTypes = {
     PropTypes.oneOf(Object.keys(focusTypes).map((key) => focusTypes[key]))
   ])
 }
+
+export default keyboardEvents(Field)
