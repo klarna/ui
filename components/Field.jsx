@@ -64,7 +64,7 @@ const maybeFocus = ((document) => (type, input) => {
   }
 })(document)
 
-class Field extends Component {
+export default class Field extends Component {
 
   componentDidMount () {
     maybeFocus(this.props.focus, this.refs.input)
@@ -181,4 +181,4 @@ Field.propTypes = {
   ])
 }
 
-export default keyboardEvents(Field)
+export const FieldWithKeyEventsCantThinkOfAnythingBetter = keyboardEvents(Field)
