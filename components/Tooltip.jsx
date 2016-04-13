@@ -4,8 +4,8 @@ import styles from '@klarna/ui-css-components/src/components/tooltip.scss'
 
 const classNames = classNamesBind.bind(styles)
 
-export default function Tooltip ({className, arrow, children}) {
-  const cls = classNames('cui__tooltip', arrow, className)
+export default function Tooltip ({ className, arrow, children, border }) {
+  const cls = classNames('cui__tooltip', arrow, className, { border })
 
   return (
     <div className={cls}>
@@ -24,5 +24,6 @@ Tooltip.arrows = [
 Tooltip.propTypes = {
   className: PropTypes.string,
   arrow: PropTypes.oneOf(Tooltip.arrows),
-  children: PropTypes.node
+  children: PropTypes.node,
+  border: PropTypes.bool
 }
