@@ -33,7 +33,9 @@ export default class AnimatedMenu extends React.Component {
   }
 
   setStateForSelectedTab () {
-    this.setStateForTab(document.getElementById(`${this.props.name}-${this.state.selected}-tab`))
+    if (this.state.selected) {
+      this.setStateForTab(document.getElementById(`${this.props.name}-${this.state.selected}-tab`))
+    }
   }
 
   componentDidUpdate (prevProps) {
@@ -68,7 +70,7 @@ export default class AnimatedMenu extends React.Component {
         selected={this.state.selected}
         onClick={this.onClick}
         onChange={this.onChange}>
-        {this.state.width && <AnimatedSelectedBar {...this.state} />}
+        {this.state.width > 0 && <AnimatedSelectedBar {...this.state} />}
       </Menu>
     )
   }
