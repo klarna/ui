@@ -1,15 +1,15 @@
 /* global describe it */
 
-import { Dialog, DialogIcon, DialogContent, DialogFooter } from '../components/Dialog'
+import Dialog from '../components/Dialog'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 
 const render = renderer(Dialog)
-const renderIcon = renderer(DialogIcon)
-const renderContent = renderer(DialogContent)
-const renderFooter = renderer(DialogFooter)
+const renderIcon = renderer(Dialog.Icon)
+const renderContent = renderer(Dialog.Content)
+const renderFooter = renderer(Dialog.Footer)
 
-describe('Dialog', () => {
+describe.only('Dialog', () => {
   describe('default', () => {
     const dialog = render({})
 
