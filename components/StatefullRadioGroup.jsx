@@ -7,7 +7,6 @@ export default class StatefullRadioGroup extends Component {
     super(props)
 
     this.state = {selected: props.selected || (props.data && props.data[0].id)}
-    console.log(this.state.selected)
 
     this.onChange = this.onChange.bind(this)
   }
