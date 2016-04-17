@@ -1,10 +1,11 @@
 /* global describe it */
 
-import { Dialog, DialogContent, DialogFooter } from '../components/Dialog'
+import { Dialog, DialogIcon, DialogContent, DialogFooter } from '../components/Dialog'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 
 const render = renderer(Dialog)
+const renderIcon = renderer(DialogIcon)
 const renderContent = renderer(DialogContent)
 const renderFooter = renderer(DialogFooter)
 
@@ -18,6 +19,23 @@ describe('Dialog', () => {
 
     it("has className 'cui__dialog'", () => {
       equal(dialog.props.className, 'cui__dialog')
+    })
+  })
+
+  describe('icon', () => {
+    const dialog = render({}, renderIcon({}, 'X'))
+    const dialogIcon = dialog.props.children
+
+    it("renders tag 'div'", () => {
+      equal(dialogIcon.type, 'div')
+    })
+
+    it("has className 'cui__dialog__icon'", () => {
+      equal(dialogIcon.props.className, 'cui__dialog__icon')
+    })
+
+    it('has the content', () => {
+      ok(dialogIcon.props.children.match('X'))
     })
   })
 

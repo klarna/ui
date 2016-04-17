@@ -17,6 +17,19 @@ Dialog.propTypes = {
   children: PropTypes.node
 }
 
+export function DialogIcon ({ children }) {
+  return (
+    <div
+      className={classNames('cui__dialog__icon')}>
+      {children}
+    </div>
+  )
+}
+
+DialogIcon.propTypes = {
+  children: PropTypes.node
+}
+
 export function DialogContent ({ children }) {
   return (
     <div
