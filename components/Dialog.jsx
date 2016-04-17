@@ -4,60 +4,54 @@ import styles from '@klarna/ui-css-components/src/components/dialog.scss'
 
 const classNames = classNamesBind.bind(styles)
 
-export function Dialog ({ children }) {
+export default function Dialog ({ children, className, ...props }) {
   return (
-    <div
-      className={classNames('cui__dialog')}>
+    <div className={classNames('cui__dialog', className)} {...props}>
       {children}
     </div>
   )
 }
 
 Dialog.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 }
 
-export function DialogIcon ({ children }) {
-  return (
-    <div
-      className={classNames('cui__dialog__icon')}>
+Dialog.Icon = ({ children, className, ...props }) => (
+  <div className={classNames('cui__dialog__icon', className)} {...props}>
+    {children}
+  </div>
+)
+
+Dialog.Icon.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string
+}
+
+Dialog.Content = ({ children, className, ...props }) => (
+  <div className={classNames('cui__dialog__content', className)} {...props}>
+    <div className={classNames('cui__dialog__content--inner')}>
       {children}
     </div>
-  )
+  </div>
+)
+
+Dialog.Content.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string
 }
 
-DialogIcon.propTypes = {
-  children: PropTypes.node
-}
-
-export function DialogContent ({ children }) {
-  return (
+Dialog.Footer = ({ children, className, ...props }) => (
+  <div
+    className={classNames('cui__dialog__footer', className)} {...props}>
     <div
-      className={classNames('cui__dialog__content')}>
-      <div
-        className={classNames('cui__dialog__content--inner')}>
-        {children}
-      </div>
+      className={classNames('cui__dialog__footer--inner')}>
+      {children}
     </div>
-  )
-}
+  </div>
+)
 
-DialogContent.propTypes = {
-  children: PropTypes.node
-}
-
-export function DialogFooter ({ children }) {
-  return (
-    <div
-      className={classNames('cui__dialog__footer')}>
-      <div
-        className={classNames('cui__dialog__footer--inner')}>
-        {children}
-      </div>
-    </div>
-  )
-}
-
-DialogFooter.propTypes = {
-  children: PropTypes.node
+Dialog.Footer.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string
 }
