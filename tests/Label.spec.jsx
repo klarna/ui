@@ -6,7 +6,7 @@ import { renderer } from './helpers'
 
 const render = renderer(Label)
 
-describe.only('Label', () => {
+describe('Label', () => {
   describe('default', () => {
     const label = render({}, 'LoremIpsum')
 
