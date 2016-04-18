@@ -4,8 +4,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Badges from './Badges'
 import Buttons from './Buttons'
+import Dialogs from './Dialogs'
 import Fields from './Fields'
 import Icons from './Icons'
+import Labels from './Labels'
 import Links from './Links'
 import Loaders from './Loaders'
 import Menus from './Menus'
@@ -23,8 +25,10 @@ import styles from './index.scss'
 const examples = {
   Badges,
   Buttons,
+  Dialogs,
   Fields,
   Icons,
+  Labels,
   Links,
   Loaders,
   Menus,
