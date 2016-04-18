@@ -1,101 +1,89 @@
 import React from 'react'
 import Field from '../components/Field'
-import MailIcon from '../components/icons/Mail'
-import LockIcon from '../components/icons/Lock'
 import Code from './Code'
+
+import { PrimaryTitle, Subtitle } from '../components/Text'
+
+import Arrow from '@klarna/ui-illustrations/src/Arrow'
+import Details from '@klarna/ui-illustrations/src/Details'
+import Download from '@klarna/ui-illustrations/src/Download'
+import ExtendDate from '@klarna/ui-illustrations/src/ExtendDate'
+import Items from '@klarna/ui-illustrations/src/Items'
+import Logout from '@klarna/ui-illustrations/src/Logout'
+import Mail from '@klarna/ui-illustrations/src/Mail'
+import Password from '@klarna/ui-illustrations/src/Password'
+import Person from '@klarna/ui-illustrations/src/Person'
+import Phone from '@klarna/ui-illustrations/src/Phone'
+import Question from '@klarna/ui-illustrations/src/Question'
+import Remind from '@klarna/ui-illustrations/src/Remind'
+
+const icons = [
+  Arrow,
+  Details,
+  Download,
+  ExtendDate,
+  Items,
+  Logout,
+  Mail,
+  Password,
+  Person,
+  Phone,
+  Question,
+  Remind
+]
 
 export default function Fields () {
   return (
     <div>
-      <h2>Regular</h2>
 
-      <h5>Normal</h5>
+      <PrimaryTitle small blue>Sizes</PrimaryTitle>
       <Code>
         <Field name='email' label='Enter your email' />
+        <Field size='big' name='email' label='Enter your email' />
       </Code>
 
-      <h5>Big</h5>
+      <PrimaryTitle small blue>Types</PrimaryTitle>
       <Code>
-        <Field name='email' label='Enter your email' size='big' />
+        <Field type='text' name='text' label='Text' />
+        <Field type='password' name='password' label='Password' />
+        <Field type='number' name='number' label='Number' />
+        <Field type='email' name='email' label='Email' />
+        <Field type='search' name='search' label='Search' />
+        <Field type='url' name='url' label='URL' />
       </Code>
 
-      <h2>Error</h2>
-
-      <h5>Normal</h5>
+      <PrimaryTitle small blue>States</PrimaryTitle>
       <Code>
-        <Field name='email' error='Invalid email' value='invalid@' />
+        <Field error='Invalid email' name='email' value='invalid@' />
+        <Field size='big' error='Invalid email' name='email' value='invalid@' />
+        <Field warning='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
+        <Field size='big' warning='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
+        <Field disabled name='address' label='Address' value='16, Corn street' />
       </Code>
 
-      <h5>Big</h5>
-      <Code>
-        <Field name='email' error='Invalid email' value='invalid@' size='big' />
-      </Code>
+      <PrimaryTitle small blue>Icons</PrimaryTitle>
+      {
 
-      <h2>Warning</h2>
-
-      <h5>Normal</h5>
-      <Code>
-        <Field name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' />
-      </Code>
-
-      <h5>Big</h5>
-      <Code>
-        <Field name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' size='big' />
-      </Code>
-
-      <h2>Disabled</h2>
-
-      <h5>Normal</h5>
-      <Code>
-        <Field name='address' disabled label='Address' value='16, Corn street' />
-      </Code>
-
-      <h5>Big</h5>
-      <Code>
-        <Field name='address' disabled label='Address' value='16, Corn street' size='big' />
-      </Code>
-
-      <h2>Icon</h2>
-
-      <h5>Normal</h5>
-      <Code>
-        <Field name='email' label='Email'>
-          <MailIcon />
-        </Field>
-        <Field name='pin' label='PIN Code'>
-          <LockIcon />
-        </Field>
-      </Code>
-
-      <h5>Error</h5>
-      <Code>
-        <Field name='email' label='Email' error='Invalid email' value='invalid@'>
-          <MailIcon />
-        </Field>
-        <Field name='pin' label='PIN Code' error='Invalid code' value='9236'>
-          <LockIcon />
-        </Field>
-      </Code>
-
-      <h5>Warning</h5>
-      <Code>
-        <Field name='email' label='Email' warning='Are you sure the domain is exanple?' value='email@exanple.com'>
-          <MailIcon />
-        </Field>
-        <Field name='password' type='password' label='Password' warning='To make it stronger, prefer at least 8 characters' value='fghhgj'>
-          <LockIcon />
-        </Field>
-      </Code>
-
-      <h5>Disabled</h5>
-      <Code>
-        <Field name='email' label='Email' disabled value='email@exanple.com'>
-          <MailIcon />
-        </Field>
-        <Field name='password' type='password' label='Password' disabled value='fghhgj'>
-          <LockIcon />
-        </Field>
-      </Code>
+        icons.map((Icon) => (
+          <div>
+            <Subtitle>{Icon.displayName}</Subtitle>
+            <Code key={Icon.displayName}>
+              <Field name={Icon.displayName} label={Icon.displayName}>
+                <Icon />
+              </Field>
+              <Field error={`Invalid ${Icon.displayName}`} name={Icon.displayName} label={Icon.displayName} value='abc'>
+                <Icon />
+              </Field>
+              <Field warning='Are you sure?' name={Icon.displayName} label={Icon.displayName} value='abc'>
+                <Icon />
+              </Field>
+              <Field disabled name={Icon.displayName} label={Icon.displayName} value='abc'>
+                <Icon />
+              </Field>
+            </Code>
+          </div>
+        ))
+      }
 
     </div>
   )
