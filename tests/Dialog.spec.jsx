@@ -9,7 +9,7 @@ const renderIcon = renderer(Dialog.Icon)
 const renderContent = renderer(Dialog.Content)
 const renderFooter = renderer(Dialog.Footer)
 
-describe.only('Dialog', () => {
+describe('Dialog', () => {
   describe('default', () => {
     const dialog = render({})
 
