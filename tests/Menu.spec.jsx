@@ -3,14 +3,13 @@
 import Menu from '../components/Menu'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
-import times from 'lodash/utility/times'
+import times from 'ramda/src/times'
 
 const render = renderer(Menu)
-const buildOptions = (n) =>
-  times(n, (i) =>
+const buildOptions = times((i) =>
     ({ key: `key-${i + 1}`, label: `Label ${i + 1}` }))
 
-const option = (menu, idx) => menu.props.children[idx]
+const option = (menu, idx) => menu.props.children[1][idx]
 const input = (menu, idx) => option(menu, idx).props.children[0]
 const label = (menu, idx) => option(menu, idx).props.children[1]
 
@@ -115,16 +114,16 @@ describe('Menu', () => {
     describe('static', () => {
       const menu = render({ tabDisplay: 'static', name: 'menu', options: buildOptions(2) })
 
-      it('has className "cui__tab-menu static"', () => {
-        equal(menu.props.className, 'cui__tab-menu static')
+      it('has className "static"', () => {
+        ok(menu.props.className.match('static'))
       })
 
       describe('tab sizes', () => {
         it('sets size to 100 divided by the number of options', () => {
           const menu = render({ tabDisplay: 'static', name: 'menu', options: buildOptions(5) })
 
-          times(5, (i) =>
-            equal(label(menu, i).props.style.width, '20%'))
+          times((i) =>
+            equal(label(menu, i).props.style.width, '20%'), 5)
         })
       })
     })
