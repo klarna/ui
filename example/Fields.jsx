@@ -65,7 +65,7 @@ export default function Fields () {
       {
 
         icons.map((Icon) => (
-          <div>
+          <div key={Icon.displayName}>
             <Subtitle>{Icon.displayName}</Subtitle>
             <Code key={Icon.displayName}>
               <Field name={Icon.displayName} label={Icon.displayName}>
