@@ -4,7 +4,7 @@ import styles from '@klarna/ui-css-components/src/components/field.scss'
 import combinations from '../lib/combinations'
 import toObjectWithValue from '../lib/toObjectWithValue'
 import fieldSizeFraction from '../propTypes/fieldSizeFraction'
-import keyboardEvents from './keyboardEvents'
+import { handleKeyDown } from './features/keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
 
@@ -64,7 +64,7 @@ const maybeFocus = ((document) => (type, input) => {
   }
 })(document)
 
-class Field extends Component {
+export default class Field extends Component {
 
   componentDidMount () {
     maybeFocus(this.props.focus, this.refs.input)
@@ -114,9 +114,7 @@ class Field extends Component {
       onBlur,
       onChange,
       onClick,
-      onEnter,
       onFocus,
-      onTab,
       size,
       square,
       value,
@@ -168,6 +166,7 @@ class Field extends Component {
           value={value}
           onBlur={onBlur}
           onChange={onChange}
+          onKeyDown={handleKeyDown(this.props)}
           onFocus={onFocus}
           ref='input'
           {...props}
@@ -183,7 +182,8 @@ Field.defaultProps = {
   loading: false,
   ...toObjectWithValue(false)(states),
   ...toObjectWithValue(false)(positions),
-  size: '1/1'
+  size: '1/1',
+  ...handleKeyDown.defaultProps
 }
 
 Field.propTypes = {
@@ -195,8 +195,6 @@ Field.propTypes = {
   onChange: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
-  onEnter: PropTypes.func,
-  onTab: PropTypes.func,
   value: PropTypes.string,
   ...toObjectWithValue(PropTypes.bool)(states),
   ...toObjectWithValue(PropTypes.bool)(positions),
@@ -204,7 +202,6 @@ Field.propTypes = {
   focus: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf(Object.keys(focusTypes).map((key) => focusTypes[key]))
-  ])
+  ]),
+  ...handleKeyDown.propTypes
 }
-
-export default keyboardEvents(Field)

@@ -40,7 +40,7 @@ export default function Fields () {
       <Subtitle>Stateless</Subtitle>
       <h5>Normal</h5>
       <Code>
-        <Field label='Enter your email' />
+        <Field label='Enter your email' onTab={() => alert('tab')} onEnter={() => alert('enter')} />
       </Code>
 
       <h5>Big</h5>
