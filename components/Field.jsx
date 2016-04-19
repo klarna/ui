@@ -43,23 +43,23 @@ export default class Field extends React.Component {
 
     const { children, disabled, error, warning } = this.props
 
-    let iconState
+    let iconColor
     switch (true) {
       case !!error:
-        iconState = 'error'
+        iconColor = 'red'
         break
       case !!warning:
-        iconState = 'warning'
+        iconColor = 'orange'
         break
       case disabled:
-        iconState = 'disabled'
+        iconColor = 'gray'
         break
       case this.state.focused:
-        iconState = 'focused'
+        iconColor = 'blue'
         break
     }
 
-    return React.cloneElement(React.Children.only(children), {className: styles['cui__field--icon__icon'], state: iconState})
+    return React.cloneElement(React.Children.only(children), {className: styles['cui__field--icon__icon'], color: iconColor})
   }
 
   render () {
