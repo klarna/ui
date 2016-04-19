@@ -1,6 +1,6 @@
 /* global describe it */
 
-import { Label } from '../components/Text'
+import Label from '../components/Label'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 
@@ -20,6 +20,32 @@ describe('Label', () => {
 
     it('should have the content', () => {
       ok(label.props.children.match('LoremIpsum'))
+    })
+  })
+
+  describe('designs', () => {
+    Label.designs.map((design) => {
+      const label = render({ design }, 'LoremIpsum')
+
+      it(`has className "${design}" when design is set`, () => {
+        ok(label.props.className.match(design))
+      })
+    })
+  })
+
+  describe('outline', () => {
+    const label = render({ outline: true }, 'LoremIpsum')
+
+    it('has className "outline"', () => {
+      ok(label.props.className.match('outline'))
+    })
+  })
+
+  describe('inverted', () => {
+    const label = render({ inverted: true }, 'LoremIpsum')
+
+    it('has className "inverted"', () => {
+      ok(label.props.className.match('inverted'))
     })
   })
 })

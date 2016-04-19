@@ -34,4 +34,12 @@ describe('Tooltip', () => {
       })
     })
   })
+
+  describe('border', () => {
+    const tooltip = render({ border: true }, 'Lorem ipsum')
+
+    it("has className 'cui__tooltip'", () => {
+      ok(tooltip.props.className.match('border'))
+    })
+  })
 })

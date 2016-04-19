@@ -74,6 +74,32 @@ export default class Field extends Component {
     maybeFocus(this.props.focus, this.refs.input)
   }
 
+  renderIcon () {
+    if (!this.hasIcon()) {
+      return null
+    }
+
+    const { children, disabled, error, warning } = this.props
+
+    let iconColor
+    switch (true) {
+      case !!error:
+        iconColor = 'red'
+        break
+      case !!warning:
+        iconColor = 'orange'
+        break
+      case disabled:
+        iconColor = 'gray'
+        break
+      case this.state.focused:
+        iconColor = 'blue'
+        break
+    }
+
+    return React.cloneElement(React.Children.only(children), {className: styles['cui__field--icon__icon'], color: iconColor})
+  }
+
   render () {
     const {
       big,
