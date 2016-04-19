@@ -137,27 +137,27 @@ describe('Field', () => {
       it('error', () => {
         const field = render({ error: 'Ooops', name: 'filled', label: 'Filled' }, <span />)
 
-        equal(icon(field).props.state, 'error')
+        equal(icon(field).props.color, 'red')
       })
 
       it('warning', () => {
         const field = render({ warning: 'Hey!', name: 'filled', label: 'Filled' }, <span />)
 
-        equal(icon(field).props.state, 'warning')
+        equal(icon(field).props.color, 'orange')
       })
 
       it('disabled', () => {
         const field = render({ disabled: true, name: 'filled', label: 'Filled' }, <span />)
 
-        equal(icon(field).props.state, 'disabled')
+        equal(icon(field).props.color, 'gray')
       })
 
       it('focused', () => {
         const renderer = shallow(Field, { name: 'focused', label: 'Focused' }, <span />)
         input(renderer.getRenderOutput()).props.onFocus()
-        equal(icon(renderer.getRenderOutput()).props.state, 'focused')
+        equal(icon(renderer.getRenderOutput()).props.color, 'blue')
         input(renderer.getRenderOutput()).props.onBlur()
-        assert(icon(renderer.getRenderOutput()).props.state === undefined)
+        assert(icon(renderer.getRenderOutput()).props.color === undefined)
       })
     })
   })
