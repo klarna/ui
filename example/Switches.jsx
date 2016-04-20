@@ -18,6 +18,11 @@ export default function Switches () {
         <Switch checked>This is a toggle switch checked</Switch>
       </Code>
 
+      <h5>Error</h5>
+      <Code>
+        <Switch error>This is a toggle switch in an error state</Switch>
+      </Code>
+
       <h5>Right</h5>
       <Code>
         <Switch align='right'>This is a toggle switch on the right side</Switch>
