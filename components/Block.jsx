@@ -8,7 +8,7 @@ export default function Block ({className, blue, children, ...remainingProps}) {
   const cls = classNames('cui__block', { blue }, className)
 
   return (
-    <div className={cls}>
+    <div className={cls} {...remainingProps}>
       {children}
     </div>
   )
