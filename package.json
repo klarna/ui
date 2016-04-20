@@ -12,7 +12,7 @@
   },
   "author": "Klarna front end people",
   "dependencies": {
-    "@klarna/ui-css-components": "^5.3.3",
+    "@klarna/ui-css-components": "git+https://github.com/klarna/ui-css-components.git#new-inputs",
     "classnames": "^2.1.3",
     "react": "^0.14.7"
   },
