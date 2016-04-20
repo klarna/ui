@@ -101,7 +101,7 @@ export default function Buttons () {
       <h5>Inverse color scheme</h5>
       <Code>
         <Block blue style={{padding: 20}}>
-          <BackButton color='inverse' />
+          <BackButton onClick={() => alert('lala')} color='inverse' />
           <CloseButton color='inverse' />
           <HamburgerButton color='inverse' />
           <OptionsButton color='inverse' />
