@@ -5,7 +5,7 @@
   "repository": "https://github.com/klarna/ui-react-components",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "start": "webpack-dev-server --port 7777 --history-api-fallback",
+    "start": "webpack-dev-server --port 7777 --host 0.0.0.0 --history-api-fallback",
     "test": "karma start karma.conf.js",
     "lint": "standard",
     "test:watch": "npm test -- --watch"
