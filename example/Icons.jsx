@@ -1,36 +1,37 @@
 import React from 'react'
 
-import AccountActivated from '../components/icons/AccountActivated.jsx'
-import AllSet from '../components/icons/AllSet.jsx'
-import Arrow from '../components/icons/Arrow.jsx'
-import Back from '../components/icons/Back.jsx'
-import Close from '../components/icons/Close.jsx'
-import Done from '../components/icons/Done.jsx'
-import Error from '../components/icons/Error.jsx'
-import Details from '../components/icons/Details.jsx'
-import Download from '../components/icons/Download.jsx'
-import ExtendDate from '../components/icons/ExtendDate.jsx'
-import Hamburger from '../components/icons/Hamburger.jsx'
-import Items from '../components/icons/Items.jsx'
-import Letter from '../components/icons/Letter.jsx'
-import Logout from '../components/icons/Logout.jsx'
-import Mail from '../components/icons/Mail.jsx'
-import NotFound from '../components/icons/NotFound.jsx'
-import OpenLetter from '../components/icons/OpenLetter.jsx'
-import Options from '../components/icons/Options.jsx'
-import Password from '../components/icons/Password.jsx'
-import Person from '../components/icons/Person.jsx'
-import Phone from '../components/icons/Phone.jsx'
-import Question from '../components/icons/Question.jsx'
-import Remind from '../components/icons/Remind.jsx'
-import Time from '../components/icons/Time.jsx'
-import SMS from '../components/icons/SMS.jsx'
-import Warning from '../components/icons/Warning.jsx'
-import Wrong from '../components/icons/Wrong.jsx'
+import AccountActivated from '../components/icons/AccountActivated'
+import AllSet from '../components/icons/AllSet'
+import Arrow from '../components/icons/Arrow'
+import Back from '../components/icons/Back'
+import Checkmark from '../components/icons/Checkmark'
+import Close from '../components/icons/Close'
+import Done from '../components/icons/Done'
+import Error from '../components/icons/Error'
+import Details from '../components/icons/Details'
+import Download from '../components/icons/Download'
+import ExtendDate from '../components/icons/ExtendDate'
+import Hamburger from '../components/icons/Hamburger'
+import Items from '../components/icons/Items'
+import Letter from '../components/icons/Letter'
+import Logout from '../components/icons/Logout'
+import Mail from '../components/icons/Mail'
+import NotFound from '../components/icons/NotFound'
+import OpenLetter from '../components/icons/OpenLetter'
+import Options from '../components/icons/Options'
+import Password from '../components/icons/Password'
+import Person from '../components/icons/Person'
+import Phone from '../components/icons/Phone'
+import Question from '../components/icons/Question'
+import Remind from '../components/icons/Remind'
+import Time from '../components/icons/Time'
+import SMS from '../components/icons/SMS'
+import Warning from '../components/icons/Warning'
+import Wrong from '../components/icons/Wrong'
 
 import { PrimaryTitle, SecondaryTitle } from '../components/Text'
 import Code from './Code'
-import { colors } from '../components/icons/Icon.jsx'
+import { colors } from '../components/icons/Icon'
 
 const icons = {
   big: [
@@ -49,6 +50,7 @@ const icons = {
 
   small: [
     Back,
+    Checkmark,
     Close,
     Hamburger,
     Options
