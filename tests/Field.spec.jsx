@@ -1,14 +1,17 @@
 /* global describe it */
 
+import React from 'react'
 import Field from '../components/Field'
-import { equal, ok } from 'assert'
+import assert, { equal, ok } from 'assert'
 import { renderer } from './helpers'
 
 const render = renderer(Field)
 
+const icon = (field) => field.props.children[0]
+const label = (field) => field.props.children[1]
 const input = (field) => field.props.children[2]
 
-describe.only('Field', () => {
+describe('Field', () => {
   describe('default', () => {
     const field = render({
       label: 'Given Name'
@@ -159,7 +162,7 @@ describe.only('Field', () => {
       ok(field.props.className.match('big'))
     ))
   })
-   
+
   describe('square', () => {
     const field = render({
       label: 'Something',
