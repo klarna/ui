@@ -16,7 +16,6 @@
     "react": "^0.14.7"
   },
   "devDependencies": {
-    "@klarna/ui-illustrations": "git+ssh://git@stash.int.klarna.net:7999/bow/ui-illustrations.git#1.1.1",
     "autoprefixer-loader": "^3.1.0",
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
