@@ -2,8 +2,7 @@ import React from 'react'
 import Code from './Code'
 import Button from '../components/Button'
 import Dialog from '../components/Dialog'
-import { PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, Label, TextLabel } from '../components/Text'
-import Link from '../components/Link'
+import { PrimaryTitle, Subtitle, Paragraph } from '../components/Text'
 
 export default function Dialogs () {
   return (
