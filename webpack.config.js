@@ -2,6 +2,7 @@ var path = require('path')
 var Webpack = require('webpack')
 var WebpackCleanPlugin = require('clean-webpack-plugin')
 var WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
+var WebpackErrorNotificationPlugin = require('webpack-error-notification')
 
 module.exports = {
   cache: true,
@@ -47,6 +48,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new WebpackErrorNotificationPlugin(),
     new Webpack.NoErrorsPlugin(),
     new WebpackCleanPlugin(['build/*']),
     new WebpackHtmlWebpackPlugin({
