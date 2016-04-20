@@ -7,6 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server --port 7777 --history-api-fallback",
     "test": "karma start karma.conf.js",
+    "lint": "standard",
     "test:watch": "npm test -- --watch"
   },
   "author": "Klarna front end people",
