@@ -39,6 +39,7 @@ export default class Switch extends React.Component {
       children,
       design,
       disabled,
+      error,
       name,
       ...remainingProps } = this.props
 
@@ -50,6 +51,7 @@ export default class Switch extends React.Component {
       'is-checked': checked,
       'is-pressed': pressed,
       'is-disabled': disabled,
+      'is-error': error,
       'right': align === 'right',
       'checkbox': design === 'checkbox'
     }, className)
@@ -75,6 +77,7 @@ Switch.designs = ['switch', 'checkbox']
 Switch.defaultProps = {
   design: 'switch',
   checked: false,
+  error: false,
   disabled: false,
   align: 'left'
 }
@@ -82,8 +85,9 @@ Switch.defaultProps = {
 Switch.propTypes = {
   children: PropTypes.node,
   checked: PropTypes.bool,
-  disabled: PropTypes.bool,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
   name: PropTypes.string,
   align: PropTypes.oneOf(Switch.alignments),
   design: PropTypes.oneOf(Switch.designs),

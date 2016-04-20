@@ -32,6 +32,14 @@ describe('Switch', () => {
     })
   })
 
+  describe('error', () => {
+    const _switch = render({ error: true }, 'Toggle me')
+
+    it("has className 'is-error'", () => {
+      ok(_switch.props.className.match('is-error'))
+    })
+  })
+
   describe('disabled', () => {
     const _switch = render({ disabled: true }, 'Toggle me')
 
