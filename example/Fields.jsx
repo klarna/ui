@@ -33,6 +33,8 @@ const icons = [
   Remind
 ]
 
+import * as fieldIcons from '../components/icons/fieldIcons'
+
 export default function Fields () {
   return (
     <div>
@@ -202,8 +204,8 @@ export default function Fields () {
       <PrimaryTitle small blue>Icons</PrimaryTitle>
       {
 
-        icons.map((Icon) => (
-          <div>
+        Object.values(fieldIcons).map((Icon) => (
+          <div key={Icon.displayName}>
             <Subtitle>{Icon.displayName}</Subtitle>
             <Code key={Icon.displayName}>
               <Field name={Icon.displayName} label={Icon.displayName}>

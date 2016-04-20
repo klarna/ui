@@ -28,6 +28,8 @@ Dialog.Icon.propTypes = {
   className: PropTypes.string
 }
 
+Dialog.Icon.displayName = 'Dialog.Icon'
+
 Dialog.Content = ({ children, className, ...props }) => (
   <div className={classNames('cui__dialog__content', className)} {...props}>
     <div className={classNames('cui__dialog__content--inner')}>
@@ -35,6 +37,8 @@ Dialog.Content = ({ children, className, ...props }) => (
     </div>
   </div>
 )
+
+Dialog.Content.displayName = 'Dialog.Content'
 
 Dialog.Content.propTypes = {
   children: PropTypes.node,
@@ -50,6 +54,8 @@ Dialog.Footer = ({ children, className, ...props }) => (
     </div>
   </div>
 )
+
+Dialog.Footer.displayName = 'Dialog.Footer'
 
 Dialog.Footer.propTypes = {
   children: PropTypes.node,

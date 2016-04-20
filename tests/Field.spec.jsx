@@ -159,7 +159,7 @@ describe.only('Field', () => {
       ok(field.props.className.match('big'))
     ))
   })
-
+   
   describe('square', () => {
     const field = render({
       label: 'Something',
@@ -240,16 +240,54 @@ describe.only('Field', () => {
   })
 
   describe('icon', () => {
-    const field = render({
-      label: 'Email'
-    }, 'something') // TODO: Use actual icon from ui-illustrations
+    const field = render({ name: 'filled', label: 'Filled' }, <span />)
 
-    it("has className 'cui__field--icon'", () => (
-      ok(field.props.className.match('cui__field--icon'))
-    ))
+    it('has icon', () => {
+      equal(icon(field).type, 'span')
+    })
 
-    it('has the expected first item', () => (
-      equal(field.props.children[0], 'something')
-    ))
+    it('icon state is undefined', () => {
+      assert(icon(field).props.state === undefined)
+    })
+
+    it('adds icon to className', () => {
+      equal(field.props.className, 'cui__field--icon')
+    })
+
+    it('label adds icon to className', () => {
+      equal(label(field).props.className, 'cui__field--icon__label')
+    })
+
+    it('input adds icon to className', () => {
+      equal(input(field).props.className, 'cui__field--icon__input')
+    })
+
+    describe('states', () => {
+      it('error', () => {
+        const field = render({ error: 'Ooops', name: 'filled', label: 'Filled' }, <span />)
+
+        equal(icon(field).props.color, 'red')
+      })
+
+      it('warning', () => {
+        const field = render({ warning: 'Hey!', name: 'filled', label: 'Filled' }, <span />)
+
+        equal(icon(field).props.color, 'orange')
+      })
+
+      it('disabled', () => {
+        const field = render({ disabled: true, name: 'filled', label: 'Filled' }, <span />)
+
+        equal(icon(field).props.color, 'gray')
+      })
+
+      it('focused', () => {
+        const renderer = shallow(Field, { name: 'focused', label: 'Focused' }, <span />)
+        input(renderer.getRenderOutput()).props.onFocus()
+        equal(icon(renderer.getRenderOutput()).props.color, 'blue')
+        input(renderer.getRenderOutput()).props.onBlur()
+        assert(icon(renderer.getRenderOutput()).props.color === undefined)
+      })
+    })
   })
 })
