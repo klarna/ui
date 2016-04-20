@@ -1,5 +1,7 @@
 # Klarna UI React Components
 
+[![Build Status](https://travis-ci.org/klarna/ui-react-components.svg)](https://travis-ci.org/klarna/ui-react-components)
+
 This library is a [React](https://facebook.github.io/react/) wrapper on top of [ui-css-components](https://github.com/klarna/ui-css-components).
 
 #### Running locally
