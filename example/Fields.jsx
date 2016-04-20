@@ -3,34 +3,7 @@ import Field from '../components/Field'
 import Code from './Code'
 
 import { PrimaryTitle, Subtitle } from '../components/Text'
-
-import Arrow from '@klarna/ui-illustrations/src/Arrow'
-import Details from '@klarna/ui-illustrations/src/Details'
-import Download from '@klarna/ui-illustrations/src/Download'
-import ExtendDate from '@klarna/ui-illustrations/src/ExtendDate'
-import Items from '@klarna/ui-illustrations/src/Items'
-import Logout from '@klarna/ui-illustrations/src/Logout'
-import Mail from '@klarna/ui-illustrations/src/Mail'
-import Password from '@klarna/ui-illustrations/src/Password'
-import Person from '@klarna/ui-illustrations/src/Person'
-import Phone from '@klarna/ui-illustrations/src/Phone'
-import Question from '@klarna/ui-illustrations/src/Question'
-import Remind from '@klarna/ui-illustrations/src/Remind'
-
-const icons = [
-  Arrow,
-  Details,
-  Download,
-  ExtendDate,
-  Items,
-  Logout,
-  Mail,
-  Password,
-  Person,
-  Phone,
-  Question,
-  Remind
-]
+import * as fieldIcons from '../components/icons/fieldIcons'
 
 export default function Fields () {
   return (
@@ -64,8 +37,8 @@ export default function Fields () {
       <PrimaryTitle small blue>Icons</PrimaryTitle>
       {
 
-        icons.map((Icon) => (
-          <div>
+        Object.values(fieldIcons).map((Icon) => (
+          <div key={Icon.displayName}>
             <Subtitle>{Icon.displayName}</Subtitle>
             <Code key={Icon.displayName}>
               <Field name={Icon.displayName} label={Icon.displayName}>
