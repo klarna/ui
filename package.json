@@ -1,10 +1,6 @@
 {
   "name": "@klarna/ui-react-components",
-<<<<<<< HEAD
-  "version": "0.3.0",
-=======
   "version": "0.5.0",
->>>>>>> master
   "description": "Klarna's UI React Components",
   "repository": "https://github.com/klarna/ui-react-components",
   "license": "SEE LICENSE IN LICENSE",
