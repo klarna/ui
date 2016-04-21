@@ -4,6 +4,7 @@ import styles from '@klarna/ui-css-components/src/components/field.scss'
 import combinations from '../lib/combinations'
 import toObjectWithValue from '../lib/toObjectWithValue'
 import fieldSizeFraction from '../propTypes/fieldSizeFraction'
+import { position } from './features/stacking'
 import { handleKeyDown } from './features/keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
@@ -181,8 +182,8 @@ Field.defaultProps = {
   centered: false,
   loading: false,
   ...toObjectWithValue(false)(states),
-  ...toObjectWithValue(false)(positions),
   size: '1/1',
+  ...position.defaultProps,
   ...handleKeyDown.defaultProps
 }
 
@@ -197,11 +198,11 @@ Field.propTypes = {
   onFocus: PropTypes.func,
   value: PropTypes.string,
   ...toObjectWithValue(PropTypes.bool)(states),
-  ...toObjectWithValue(PropTypes.bool)(positions),
   size: fieldSizeFraction(maxSize),
   focus: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf(Object.keys(focusTypes).map((key) => focusTypes[key]))
   ]),
+  ...position.propTypes,
   ...handleKeyDown.propTypes
 }
