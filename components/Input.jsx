@@ -71,6 +71,7 @@ export default class Input extends React.Component {
       'is-filled': !!this.state.value,
       'is-focused': this.state.focused,
       'big': size === 'big',
+      'giant': size === 'giant',
       'is-error': !!error,
       'is-warning': !!warning,
       'is-disabled': !!disabled
@@ -96,7 +97,7 @@ export default class Input extends React.Component {
   }
 }
 
-Input.sizes = ['big']
+Input.sizes = ['big', 'giant']
 Input.types = ['text', 'password', 'number', 'email', 'search', 'url']
 
 Input.defaultProps = {
