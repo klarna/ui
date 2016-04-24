@@ -1,6 +1,6 @@
 {
   "name": "@klarna/ui-react-components",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "description": "Klarna's UI React Components",
   "repository": "https://github.com/klarna/ui-react-components",
   "license": "SEE LICENSE IN LICENSE",
@@ -56,6 +56,7 @@
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1",
+    "webpack-error-notification": "^0.1.6",
     "yargs": "^3.31.0"
   }
 }
