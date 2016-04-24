@@ -46,6 +46,12 @@ describe('Input', () => {
 
       equal(input.props.className, 'cui__input big')
     })
+
+    it("when 'giant' has className 'giant'", () => {
+      const input = render({ size: 'giant', name: 'test', label: 'Test' })
+
+      equal(input.props.className, 'cui__input giant')
+    })
   })
 
   describe('filled', () => {

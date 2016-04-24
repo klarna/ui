@@ -13,6 +13,7 @@ export default function Inputs () {
       <Code>
         <Input name='email' label='Enter your email' />
         <Input size='big' name='email' label='Enter your email' />
+        <Input size='giant' name='giant' label='Enter your email' />
       </Code>
 
       <PrimaryTitle small blue>Types</PrimaryTitle>
