@@ -3,6 +3,7 @@
 import React from 'react'
 import StatefullRadioGroup from '../components/StatefullRadioGroup'
 import RadioGroup from '../components/RadioGroup'
+import Selector from '../components/Selector'
 import Button from '../components/Button'
 import { SecondaryTitle, Subtitle, Paragraph } from '../components/Text'
 import Code from './Code'
@@ -60,7 +61,14 @@ export default function Selectors () {
           <Button size='small'>Try me</Button>
         </form>
       </Code>
+      <SecondaryTitle>Selector</SecondaryTitle>
+      <Paragraph>
+        Same as RadioGroups with different style.
+      </Paragraph>
 
+      <Code>
+        <Selector selected={1} onChange={alert} data={data} />
+      </Code>
     </div>
   )
 }
