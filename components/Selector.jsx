@@ -11,7 +11,7 @@ export default function Selector (props) {
   const cls = classNames(baseClass, className)
 
   const options = data.map(({id, label}) => {
-    const optionClass = `${baseClass}__item`
+    const optionClass = classNames(`${baseClass}__item`)
     const labelClass = classNames(`${baseClass}__label`)
     const iconClass = classNames(`${baseClass}__icon`)
 
