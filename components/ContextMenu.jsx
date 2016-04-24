@@ -11,23 +11,21 @@ const ContextMenu = ({ className, children, ...props }) => (
   </ol>
 )
 
-ContextMenu.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
-}
-
 ContextMenu.Link = ({ className, children, ...props }) => (
   <li>
-    <a className={classNames(`${baseClass}__link`, className)} {...props}>
+    <a className={classNames(`${baseClass}__item`, className)} {...props}>
       {children}
     </a>
   </li>
 )
 ContextMenu.Link.displayName = 'ContextMenu.Link'
-ContextMenu.Link.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
-}
+
+ContextMenu.Item = ({ className, children, ...props }) => (
+  <li className={classNames(`${baseClass}__item`, className)} {...props}>
+    {children}
+  </li>
+)
+ContextMenu.Item.displayName = 'ContextMenu.Item'
 
 ContextMenu.Separator = ({ className, ...props }) => (
   <li className={classNames(`${baseClass}__separator`, className)} {...props} />
@@ -37,11 +35,14 @@ ContextMenu.Separator.propTypes = {
   className: PropTypes.string
 }
 
-ContextMenu.Icon = ({ className, children, ...props }) => (
-  React.cloneElement(React.Children.only(children), {className: classNames(`${baseClass}__icon`, className)})
+ContextMenu.Icon = ({ className, children }) => (
+  React.cloneElement(React.Children.only(children), {
+    className: classNames(`${baseClass}__icon`, className)
+  })
 )
 ContextMenu.Icon.displayName = 'ContextMenu.Icon'
-ContextMenu.Icon.propTypes = {
+
+ContextMenu.propTypes = ContextMenu.Link.propTypes = ContextMenu.Item.propTypes = ContextMenu.Icon.propTypes = {
   className: PropTypes.string,
   children: PropTypes.element
 }

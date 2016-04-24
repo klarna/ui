@@ -13,6 +13,9 @@ export default function ContextMenus () {
           <ContextMenu.Link href='#buttons'>Buttons</ContextMenu.Link>
           <ContextMenu.Link href='#icons'>Icons</ContextMenu.Link>
           <ContextMenu.Link href='#labels'>Labels</ContextMenu.Link>
+          <ContextMenu.Item href='#'>
+            <form>Custom form</form>
+          </ContextMenu.Item>
           <ContextMenu.Separator />
           <ContextMenu.Link href='#'>
             <ContextMenu.Icon><Logout /></ContextMenu.Icon>
