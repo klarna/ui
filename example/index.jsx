@@ -3,6 +3,7 @@ import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Buttons from './Buttons'
+import ContextMenus from './ContextMenus'
 import Dialogs from './Dialogs'
 import Fields from './Fields'
 import Icons from './Icons'
@@ -23,6 +24,7 @@ import styles from './index.scss'
 
 const examples = {
   Buttons,
+  ContextMenus,
   Dialogs,
   Fields,
   Icons,
