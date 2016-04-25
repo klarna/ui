@@ -27,6 +27,11 @@ ContextMenu.Item = ({ className, children, ...props }) => (
 )
 ContextMenu.Item.displayName = 'ContextMenu.Item'
 
+ContextMenu.propTypes = ContextMenu.Link.propTypes = ContextMenu.Item.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node
+}
+
 ContextMenu.Separator = ({ className, ...props }) => (
   <li className={classNames(`${baseClass}__separator`, className)} {...props} />
 )
@@ -41,8 +46,7 @@ ContextMenu.Icon = ({ className, children }) => (
   })
 )
 ContextMenu.Icon.displayName = 'ContextMenu.Icon'
-
-ContextMenu.propTypes = ContextMenu.Link.propTypes = ContextMenu.Item.propTypes = ContextMenu.Icon.propTypes = {
+ContextMenu.Icon.propTypes = {
   className: PropTypes.string,
   children: PropTypes.element
 }
