@@ -74,21 +74,16 @@ export const SearchButton = ({ className, color, ...props }) => (
   <svg
     className={classNames('cui__illustration', 'button', color, className)}
     viewBox='0 0 25 25'
+    strokeWidth='2'
+    strokeLinecap='round'
     {...props}>
-    <defs>
-      <polygon
-        id="path-1"
-        points="16.28 16.28 16.28 0.0003 0 0.0003 0 8.14015 0 16.28">
-      </polygon>
-    </defs>
-    <g transform="translate(4.000000, 4.000000)">
-      <mask id="mask-2" fill="white">
-        <use xlinkHref="#path-1"></use>
-      </mask>
-      <path
-        className={classNames('cui__illustration__fill')}
-        d="M6.5,11 C4.019,11 2,8.981 2,6.5 C2,4.019 4.019,2 6.5,2 C8.981,2 11,4.019 11,6.5 C11,8.981 8.981,11 6.5,11 M15.987,14.573 L11.744,10.33 C12.53,9.255 13,7.934 13,6.5 C13,2.91 10.09,0 6.5,0 C2.91,0 0,2.91 0,6.5 C0,10.09 2.91,13 6.5,13 C7.934,13 9.255,12.53 10.33,11.744 L14.573,15.987 C14.769,16.183 15.024,16.28 15.28,16.28 C15.536,16.28 15.792,16.183 15.987,15.987 C16.378,15.597 16.378,14.964 15.987,14.573"
-        mask="url(#mask-2)"></path>
-    </g>
+    <circle
+      className={classNames('cui__illustration__stroke')}
+      cx={10.5} cy={10.5} r={5.5} />
+    <line
+      className={classNames('cui__illustration__stroke')}
+      x1={15} x2={19.2} y1={15} y2={19.2} />
   </svg>
 )
+
+BackButton.propTypes = CloseButton.propTypes = HamburgerButton.propTypes = OptionsButton.propTypes = SearchButton.propTypes = iconPropTypes
