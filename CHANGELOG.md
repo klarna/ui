@@ -1,3 +1,7 @@
+# 0.5.4
+
+- Fixes ContextMenu prop types
+
 # 0.5.3
 
 - Adds ContextMenu
