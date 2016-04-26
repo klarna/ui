@@ -42,6 +42,12 @@ module.exports = function (config) {
     browserNoActivityTimeout: 1000000,
 
     customLaunchers: {
+      sl_ios_safari: {
+        base: 'SauceLabs',
+        browserName: 'iphone',
+        platform: 'OS X 10.9',
+        version: '7.1'
+      }
     },
 
     browsers: browserToUse,
