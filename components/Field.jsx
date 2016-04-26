@@ -26,6 +26,7 @@ export default class Field extends React.Component {
   onFocus (event) {
     this.setState({focused: true})
     this.props.onFocus && this.props.onFocus()
+    event.target.scrollIntoViewIfNeeded()
   }
 
   onBlur (event) {
