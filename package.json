@@ -1,6 +1,6 @@
 {
   "name": "@klarna/ui-react-components",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Klarna's UI React Components",
   "repository": "https://github.com/klarna/ui-react-components",
   "license": "SEE LICENSE IN LICENSE",
@@ -14,7 +14,8 @@
   "dependencies": {
     "@klarna/ui-css-components": "^5.4.2",
     "classnames": "^2.1.3",
-    "react": "^0.14.7"
+    "react": "^0.14.7",
+    "react-motion": "^0.4.2"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
@@ -45,7 +46,6 @@
     "ramda": "^0.21.0",
     "react-addons-test-utils": "^0.14.6",
     "react-dom": "^0.14.7",
-    "react-motion": "^0.4.2",
     "react-syntax-highlighter": "^1.1.2",
     "react-to-jsx": "^1.3.2",
     "resolve-url-loader": "^1.2.0",
