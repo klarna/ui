@@ -1,41 +1,33 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/text.scss'
+import palette from './palette'
 
 const classNames = classNamesBind.bind(styles)
 
-export default function PrimaryTitle (props) {
-  const {
-    className,
-    blue,
-    small,
-    strong,
-    children,
-    ...remainingProps } = props
-
-  const cls = classNames('cui__title--primary', {
-    blue,
+export default function PrimaryTitle ({ className, color, small, strong, children, ...props }) {
+  const cls = classNames('cui__title--primary', color, className, {
     small,
     strong
-  }, className)
+  })
 
   return (
-    <h1 className={cls} {...remainingProps}>
+    <h1 className={cls} {...props}>
       {children}
     </h1>
   )
 }
 
 PrimaryTitle.defaultProps = {
-  blue: false,
+  color: 'black',
   small: false,
   strong: false
 }
 
 PrimaryTitle.propTypes = {
   children: PropTypes.node,
-  blue: PropTypes.bool,
+  className: PropTypes.string,
+  color: PropTypes.oneOf(palette),
   small: PropTypes.bool,
-  strong: PropTypes.bool,
-  className: PropTypes.string
+  strong: PropTypes.bool
 }
