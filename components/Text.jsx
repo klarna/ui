@@ -1,5 +1,4 @@
 export { default as Amount } from './texts/Amount'
-export { default as Label } from './texts/Label'
 export { default as Paragraph } from './texts/Paragraph'
 export { default as PrimaryTitle } from './texts/PrimaryTitle'
 export { default as SecondaryTitle } from './texts/SecondaryTitle'
