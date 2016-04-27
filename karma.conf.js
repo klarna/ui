@@ -32,13 +32,17 @@ module.exports = function (config) {
     webpackMiddleware: {
       noInfo: true
     },
-    reporters: ['spec'],
+    reporters: ['spec', 'saucelabs'],
     port: 9890,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: argv.watch,
 
-    hostname: karmaServer,
+    //hostname: karmaServer,
+    sauceLabs: {
+      testName: 'klarna-react-components'
+    },
+    captureTimeout: 120000,
     browserNoActivityTimeout: 1000000,
 
     customLaunchers: {
