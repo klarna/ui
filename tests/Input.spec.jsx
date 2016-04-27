@@ -1,7 +1,7 @@
 /* global describe it */
 
 import React from 'react'
-import Input from '../components/Input'
+import { ControlledInput as Input } from '../components/Input'
 import assert, { equal } from 'assert'
 import { renderer, shallow } from './helpers'
 
@@ -33,7 +33,7 @@ describe('Input', () => {
     it('renders an enabled text input', () => {
       equal(_input(input).type, 'input')
       equal(_input(input).props.type, 'text')
-      equal(_input(input).props.value, '')
+      equal(_input(input).props.value, undefined)
       equal(_input(input).props.name, 'test')
       equal(_input(input).props.className, 'cui__input__input')
       assert(_input(input).props.disabled === false)
@@ -60,22 +60,14 @@ describe('Input', () => {
 
       equal(input.props.className, 'cui__input is-filled')
     })
-
-    it("when changed with value has className 'is-filled'", () => {
-      const renderer = shallow(Input, { name: 'focused', label: 'Focused' })
-      _input(renderer.getRenderOutput()).props.onChange({target: {value: 'something'}})
-      equal(renderer.getRenderOutput().props.className, 'cui__input is-filled')
-      _input(renderer.getRenderOutput()).props.onChange({target: {value: ''}})
-      equal(renderer.getRenderOutput().props.className, 'cui__input')
-    })
   })
 
   describe('focused', () => {
     it("has className 'is-focused'", () => {
       const renderer = shallow(Input, { name: 'focused', label: 'Focused' })
-      _input(renderer.getRenderOutput()).props.onFocus()
+      _input(renderer.getRenderOutput()).props.onFocus({ defaultPrevented: false })
       equal(renderer.getRenderOutput().props.className, 'cui__input is-focused')
-      _input(renderer.getRenderOutput()).props.onBlur()
+      _input(renderer.getRenderOutput()).props.onBlur({ defaultPrevented: false })
       equal(renderer.getRenderOutput().props.className, 'cui__input')
     })
   })
@@ -160,9 +152,9 @@ describe('Input', () => {
 
       it('focused', () => {
         const renderer = shallow(Input, { name: 'focused', label: 'Focused' }, <span />)
-        _input(renderer.getRenderOutput()).props.onFocus()
+        _input(renderer.getRenderOutput()).props.onFocus({ defaultPrevented: false })
         equal(icon(renderer.getRenderOutput()).props.color, 'blue')
-        _input(renderer.getRenderOutput()).props.onBlur()
+        _input(renderer.getRenderOutput()).props.onBlur({ defaultPrevented: false })
         assert(icon(renderer.getRenderOutput()).props.color === undefined)
       })
     })
