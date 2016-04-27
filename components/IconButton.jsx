@@ -30,10 +30,8 @@ export const CloseButton = ({ className, color, ...props }) => (
     strokeWidth='2'
     viewBox='0 0 25 25'
     {...props}>
-    <line x1="6" x2="19" y1="6" y2="19"
-          className={classNames('cui__illustration__stroke')} />
-    <line x1="19" x2="6" y1="6" y2="19"
-          className={classNames('cui__illustration__stroke')} />
+    <line x1='6' x2='19' y1='6' y2='19' className={classNames('cui__illustration__stroke')} />
+    <line x1='19' x2='6' y1='6' y2='19' className={classNames('cui__illustration__stroke')} />
   </svg>
 )
 
