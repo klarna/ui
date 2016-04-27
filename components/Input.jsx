@@ -1,17 +1,15 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import classNames from 'classnames'
 import styles from '@klarna/ui-css-components/src/components/input.scss'
 
-const classNames = classNamesBind.bind(styles)
+const boundClassNames = classNamesBind.bind(styles)
 
 export class ControlledInput extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = {
-      focused: false
-    }
-
+    this.state = { focused: false }
     this.onFocus = this.onFocus.bind(this)
     this.onBlur = this.onBlur.bind(this)
   }
@@ -19,14 +17,14 @@ export class ControlledInput extends React.Component {
   onFocus (event) {
     this.props.onFocus && this.props.onFocus(event)
     if (!event.defaultPrevented) {
-      this.setState({focused: true})
+      this.setState({ focused: true })
     }
   }
 
   onBlur (event) {
     this.props.onBlur && this.props.onBlur(event)
     if (!event.defaultPrevented) {
-      this.setState({focused: false})
+      this.setState({ focused: false })
     }
   }
 
@@ -57,14 +55,14 @@ export class ControlledInput extends React.Component {
         break
     }
 
-    return React.cloneElement(React.Children.only(children), {className: styles['cui__input--icon__icon'], color: iconColor})
+    return React.cloneElement(React.Children.only(children), { className: styles['cui__input--icon__icon'], color: iconColor })
   }
 
   render () {
     const { size, value, label, error, warning, disabled, className } = this.props
     const baseClassName = this.hasIcon() ? 'cui__input--icon' : 'cui__input'
 
-    const cls = classNames(baseClassName, size, {
+    const wrapperClassName = boundClassNames(baseClassName, size, {
       'is-focused': this.state.focused,
       'is-filled': !!value,
       'is-error': !!error,
@@ -72,20 +70,17 @@ export class ControlledInput extends React.Component {
       'is-disabled': !!disabled
     })
 
-    const inputClassName = styles[`${baseClassName}__input`]
-    const inputFinalClassName = className
-      ? `${className} ${inputClassName}`
-      : inputClassName
+    const inputClassName = classNames(styles[`${baseClassName}__input`], className)
 
     const { children, ...otherProps } = this.props // eslint-disable-line no-unused-vars
     const inputProps = Object.assign(otherProps, {
       onFocus: this.onFocus,
       onBlur: this.onBlur,
-      className: inputFinalClassName
+      className: inputClassName
     })
 
     return (
-      <div className={cls}>
+      <div className={wrapperClassName}>
         {this.renderIcon()}
         <label className={styles[`${baseClassName}__label`]}>
           {error || warning || label}
@@ -125,7 +120,7 @@ export class UncontrolledInput extends React.Component {
   }
 
   onChange (e) {
-    this.setState({value: e.target.value})
+    this.setState({ value: e.target.value })
     this.props.onChange && this.props.onChange(e)
   }
 
