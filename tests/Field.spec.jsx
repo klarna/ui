@@ -69,7 +69,7 @@ describe('Field', () => {
   describe('focused', () => {
     it("has className 'is-focused'", () => {
       const renderer = shallow(Field, { name: 'focused', label: 'Focused' })
-      input(renderer.getRenderOutput()).props.onFocus({ target: { scrollIntoViewIfNeeded }})
+      input(renderer.getRenderOutput()).props.onFocus({ target: { scrollIntoViewIfNeeded } })
       equal(renderer.getRenderOutput().props.className, 'cui__field is-focused')
       assert(scrollIntoViewIfNeeded.called)
       input(renderer.getRenderOutput()).props.onBlur()
@@ -157,7 +157,7 @@ describe('Field', () => {
 
       it('focused', () => {
         const renderer = shallow(Field, { name: 'focused', label: 'Focused' }, <span />)
-        input(renderer.getRenderOutput()).props.onFocus({ target: { scrollIntoViewIfNeeded }})
+        input(renderer.getRenderOutput()).props.onFocus({ target: { scrollIntoViewIfNeeded } })
         equal(icon(renderer.getRenderOutput()).props.color, 'blue')
         input(renderer.getRenderOutput()).props.onBlur()
         assert(icon(renderer.getRenderOutput()).props.color === undefined)
