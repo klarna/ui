@@ -1,3 +1,7 @@
+# 0.6.0
+
+- Adds white versions for texts
+
 # 0.5.4
 
 - Fixes ContextMenu prop types
