@@ -4,32 +4,31 @@ import styles from '@klarna/ui-css-components/src/components/input.scss'
 
 const classNames = classNamesBind.bind(styles)
 
-export default class Input extends React.Component {
+class Input extends React.Component {
 
   constructor (props) {
     super(props)
 
     this.state = {
-      value: props.value || '',
       focused: false
     }
 
-    this.onChange = this.onChange.bind(this)
     this.onFocus = this.onFocus.bind(this)
     this.onBlur = this.onBlur.bind(this)
   }
 
-  onChange (event) {
-    this.setState({value: event.target.value})
-  }
-
   onFocus (event) {
-    this.setState({focused: true})
-    this.props.onFocus && this.props.onFocus()
+    this.props.onFocus && this.props.onFocus(event)
+    if (!event.defaultPrevented) {
+      this.setState({focused: true})
+    }
   }
 
   onBlur (event) {
-    this.setState({focused: false})
+    this.props.onBlur && this.props.onBlur(event)
+    if (!event.defaultPrevented) {
+      this.setState({focused: false})
+    }
   }
 
   hasIcon () {
@@ -63,19 +62,27 @@ export default class Input extends React.Component {
   }
 
   render () {
-    const { name, type = 'text', size, disabled = false, error, warning, label } = this.props
-
+    const { size, value, label, error, warning, disabled, className } = this.props
     const baseClassName = this.hasIcon() ? 'cui__input--icon' : 'cui__input'
 
-    const cls = classNames(baseClassName, {
-      'is-filled': !!this.state.value,
+    const cls = classNames(baseClassName, size, {
       'is-focused': this.state.focused,
-      'big': size === 'big',
-      'giant': size === 'giant',
+      'is-filled': !!value,
       'is-error': !!error,
       'is-warning': !!warning,
       'is-disabled': !!disabled
     })
+
+    const inputClassName = styles[`${baseClassName}__input`]
+    const inputFinalClassName = className
+      ? `${className} ${inputClassName}`
+      : inputClassName
+
+    const inputProps = {...this.props, ...{
+      onFocus: this.onFocus,
+      onBlur: this.onBlur,
+      className: inputFinalClassName
+    }}
 
     return (
       <div className={cls}>
@@ -83,15 +90,7 @@ export default class Input extends React.Component {
         <label className={styles[`${baseClassName}__label`]}>
           {error || warning || label}
         </label>
-        <input
-          name={name}
-          type={type}
-          disabled={disabled}
-          value={this.state.value}
-          onChange={this.onChange}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          className={styles[`${baseClassName}__input`]} />
+        <input {...inputProps} />
       </div>
     )
   }
@@ -102,8 +101,7 @@ Input.types = ['text', 'password', 'number', 'email', 'search', 'url']
 
 Input.defaultProps = {
   type: 'text',
-  disabled: false,
-  value: ''
+  disabled: false
 }
 
 Input.propTypes = {
@@ -112,9 +110,45 @@ Input.propTypes = {
   error: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
-  onFocus: PropTypes.func,
   size: PropTypes.oneOf(Input.sizes),
   type: PropTypes.oneOf(Input.types),
   value: PropTypes.string,
   warning: PropTypes.string
+}
+
+class StatefullInput extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {value: ''}
+    this.onChange = this.onChange.bind(this)
+  }
+
+  onChange (e) {
+    this.setState({value: e.target.value})
+    this.props.onChange && this.props.onChange(e)
+  }
+
+  render () {
+    <Input
+      {...this.props}
+      value={this.state.value}
+      onChange={this.onChange}
+    />
+  }
+}
+
+StatefullInput.propTypes = {
+  onChange: PropTypes.func
+}
+
+// In standard React terminology:
+// - Input is a 'Controlled Component'
+// - StatefullInput is an 'Uncontrolled Component'
+export default function InputWrapper (props) {
+  if (props.value !== undefined) {
+    return <Input {...props} />
+  } else {
+    return <StatefullInput {...props} />
+  }
 }
