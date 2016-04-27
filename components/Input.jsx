@@ -97,7 +97,7 @@ class Input extends React.Component {
 }
 
 Input.sizes = ['big', 'giant']
-Input.types = ['text', 'password', 'number', 'email', 'search', 'url']
+Input.types = ['text', 'password', 'number', 'email', 'search', 'url', 'tel']
 
 Input.defaultProps = {
   type: 'text',
