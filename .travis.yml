@@ -8,4 +8,4 @@ before_script:
   - npm install
 script:
   - npm run lint
-  - BROWSER=sl_ios_safari,PhantomJS npm test
+  - BROWSER=SL_Chrome,PhantomJS npm test
