@@ -46,6 +46,27 @@ npm start
 
 Open [localhost:7777](http://localhost:7777/).
 
+## Using locally
+
+Most of the time you'll want to change things in `ui-react-components` and see how they reflect in your project. To do that without having to push and publish versions, you need to create a global symlink from `ui-react-components` and then use this symlink in your project.
+
+So first, create the global symlink by doing:
+
+```sh
+cd path/to/ui-react-components
+npm link 
+```
+
+Then go to your project and:
+
+```
+npm link @klarna/ui-react-components 
+UV_THREADPOOL_SIZE=100 npm start 
+```
+
+This uses the global symlink of `ui-react-components` that points to our local git copy. Replace `npm start` with the command you use to start your app, if you use something different.
+
+The `UV_THREADPOOL_SIZE=100` solves a problem you may encounter with symlinks when importing sass files [https://github.com/jtangelder/sass-loader/issues/100](https://github.com/jtangelder/sass-loader/issues/100).
 
 #### License
 
