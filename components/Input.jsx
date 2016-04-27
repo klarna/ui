@@ -4,8 +4,7 @@ import styles from '@klarna/ui-css-components/src/components/input.scss'
 
 const classNames = classNamesBind.bind(styles)
 
-class Input extends React.Component {
-
+export class ControlledInput extends React.Component {
   constructor (props) {
     super(props)
 
@@ -78,11 +77,12 @@ class Input extends React.Component {
       ? `${className} ${inputClassName}`
       : inputClassName
 
-    const inputProps = {...this.props, ...{
+    const { children, ...otherProps } = this.props // eslint-disable-line no-unused-vars
+    const inputProps = Object.assign(otherProps, {
       onFocus: this.onFocus,
       onBlur: this.onBlur,
       className: inputFinalClassName
-    }}
+    })
 
     return (
       <div className={cls}>
@@ -96,31 +96,31 @@ class Input extends React.Component {
   }
 }
 
-Input.sizes = ['big', 'giant']
-Input.types = ['text', 'password', 'number', 'email', 'search', 'url', 'tel']
+ControlledInput.sizes = ['big', 'giant']
+ControlledInput.types = ['text', 'password', 'number', 'email', 'search', 'url', 'tel']
 
-Input.defaultProps = {
+ControlledInput.defaultProps = {
   type: 'text',
   disabled: false
 }
 
-Input.propTypes = {
+ControlledInput.propTypes = {
   children: PropTypes.element,
   disabled: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(Input.sizes),
-  type: PropTypes.oneOf(Input.types),
+  size: PropTypes.oneOf(ControlledInput.sizes),
+  type: PropTypes.oneOf(ControlledInput.types),
   value: PropTypes.string,
   warning: PropTypes.string
 }
 
-class StatefullInput extends React.Component {
-  constructor(props) {
+export class UncontrolledInput extends React.Component {
+  constructor (props) {
     super(props)
 
-    this.state = {value: ''}
+    this.state = { value: props.defaultValue }
     this.onChange = this.onChange.bind(this)
   }
 
@@ -130,7 +130,7 @@ class StatefullInput extends React.Component {
   }
 
   render () {
-    <Input
+    return <ControlledInput
       {...this.props}
       value={this.state.value}
       onChange={this.onChange}
@@ -138,17 +138,14 @@ class StatefullInput extends React.Component {
   }
 }
 
-StatefullInput.propTypes = {
+UncontrolledInput.propTypes = {
   onChange: PropTypes.func
 }
 
-// In standard React terminology:
-// - Input is a 'Controlled Component'
-// - StatefullInput is an 'Uncontrolled Component'
-export default function InputWrapper (props) {
+export default function Input (props) {
   if (props.value !== undefined) {
-    return <Input {...props} />
+    return <ControlledInput {...props} />
   } else {
-    return <StatefullInput {...props} />
+    return <UncontrolledInput {...props} />
   }
 }
