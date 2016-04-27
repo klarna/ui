@@ -28,11 +28,11 @@ export default function Inputs () {
 
       <PrimaryTitle small blue>States</PrimaryTitle>
       <Code>
-        <Input error='Invalid email' name='email' value='invalid@' />
-        <Input size='big' error='Invalid email' name='email' value='invalid@' />
-        <Input warning='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
-        <Input size='big' warning='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
-        <Input disabled name='address' label='Address' value='16, Corn street' />
+        <Input error='Invalid email' name='email' defaultValue='invalid@' />
+        <Input size='big' error='Invalid email' name='email' defaultValue='invalid@' />
+        <Input warning='Are you sure the domain is exanple?' name='email' defaultValue='email@exanple.com' />
+        <Input size='big' warning='Are you sure the domain is exanple?' name='email' defaultValue='email@exanple.com' />
+        <Input disabled name='address' label='Address' defaultValue='16, Corn street' />
       </Code>
 
       <PrimaryTitle small blue>Icons</PrimaryTitle>
@@ -45,13 +45,13 @@ export default function Inputs () {
               <Input name={Icon.displayName} label={Icon.displayName}>
                 <Icon />
               </Input>
-              <Input error={`Invalid ${Icon.displayName}`} name={Icon.displayName} label={Icon.displayName} value='abc'>
+              <Input error={`Invalid ${Icon.displayName}`} name={Icon.displayName} label={Icon.displayName} defaultValue='abc'>
                 <Icon />
               </Input>
-              <Input warning='Are you sure?' name={Icon.displayName} label={Icon.displayName} value='abc'>
+              <Input warning='Are you sure?' name={Icon.displayName} label={Icon.displayName} defaultValue='abc'>
                 <Icon />
               </Input>
-              <Input disabled name={Icon.displayName} label={Icon.displayName} value='abc'>
+              <Input disabled name={Icon.displayName} label={Icon.displayName} defaultValue='abc'>
                 <Icon />
               </Input>
             </Code>
