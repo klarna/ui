@@ -40,8 +40,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico|eot|woff|ttf|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
-        loader: 'file' // Could use url loader for inline serialisation
-        // loader: 'url?limit=25000' // please be careful when changing this value. Some CSS may rely on this!
+        loader: 'url'
       }
 
     ]
