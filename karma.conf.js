@@ -1,14 +1,9 @@
 var webpackConfig = require('./webpack.config.test.js')
 var argv = require('yargs').argv
 
-var browserToUse = ['PhantomJS']
+var browserToUse = ['PhantomJS', 'SL_Chrome']
 if (process.env.BROWSER) {
   browserToUse = process.env.BROWSER.split(',')
-}
-
-var karmaServer = 'localhost'
-if (process.env.KARMA_SERVER) {
-  karmaServer = process.env.KARMA_SERVER
 }
 
 module.exports = function (config) {
@@ -38,7 +33,6 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: argv.watch,
 
-    //hostname: karmaServer,
     sauceLabs: {
       testName: 'klarna-react-components'
     },
@@ -46,11 +40,9 @@ module.exports = function (config) {
     browserNoActivityTimeout: 1000000,
 
     customLaunchers: {
-      sl_ios_safari: {
+      SL_Chrome: {
         base: 'SauceLabs',
-        browserName: 'iphone',
-        platform: 'OS X 10.9',
-        version: '7.1'
+        browserName: 'chrome'
       }
     },
 
