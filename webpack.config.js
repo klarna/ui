@@ -1,6 +1,5 @@
 var path = require('path')
 var Webpack = require('webpack')
-var WebpackCleanPlugin = require('clean-webpack-plugin')
 var WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
 var WebpackErrorNotificationPlugin = require('webpack-error-notification')
 
@@ -12,7 +11,7 @@ module.exports = {
     example: './example/index'
   },
   output: {
-    path: './build/',
+    path: './',
     filename: '[name].js',
     chunkFilename: '[id].js',
     publicPath: '/'
@@ -50,7 +49,6 @@ module.exports = {
   plugins: [
     new WebpackErrorNotificationPlugin(),
     new Webpack.NoErrorsPlugin(),
-    new WebpackCleanPlugin(['build/*']),
     new WebpackHtmlWebpackPlugin({
       title: 'UI React components example',
       template: 'example/index.html'
