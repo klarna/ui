@@ -1,3 +1,9 @@
+# 0.7.0
+
+- Borderless input fields
+- Adds 'giant' input type
+- Controlled/uncontrolled inputs
+
 # 0.6.0
 
 - Adds white versions for texts
