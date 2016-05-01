@@ -1,8 +1,9 @@
 /* global describe it */
 
-import { PrimaryTitle } from '../components/Text'
+import PrimaryTitle from '../components/texts/PrimaryTitle'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
+import describePalette from './describePalette'
 
 const render = renderer(PrimaryTitle)
 
@@ -15,19 +16,7 @@ describe('PrimaryTitle', () => {
     })
 
     it("has className 'cui__title--primary'", () => {
-      equal(primaryTitle.props.className, 'cui__title--primary')
-    })
-
-    it('does not have class blue', () => {
-      ok(!primaryTitle.props.className.match('blue'))
-    })
-
-    it('does not have class strong', () => {
-      ok(!primaryTitle.props.className.match('strong'))
-    })
-
-    it('does not have class small', () => {
-      ok(!primaryTitle.props.className.match('small'))
+      ok(primaryTitle.props.className.match('cui__title--primary'))
     })
 
     it('should have the content', () => {
@@ -35,13 +24,7 @@ describe('PrimaryTitle', () => {
     })
   })
 
-  describe('blue', () => {
-    const primaryTitle = render({blue: true}, 'LoremIpsum')
-
-    it('does have class blue', () => {
-      ok(primaryTitle.props.className.match('blue'))
-    })
-  })
+  describePalette(render)
 
   describe('small', () => {
     const primaryTitle = render({small: true}, 'LoremIpsum')

@@ -1,69 +1,84 @@
 import React from 'react'
 import Code from './Code'
 import Block from '../components/Block'
-import { Amount, PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, Label, TextLabel } from '../components/Text'
+import { Amount, PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, TextLabel } from '../components/Text'
 import Link from '../components/Link'
 
 export default function Texts () {
   return (
     <div>
-      <PrimaryTitle small blue>Primary Title</PrimaryTitle>
+      <PrimaryTitle small color='blue'>Primary Title</PrimaryTitle>
       <Code>
         <PrimaryTitle>Primary Title</PrimaryTitle>
-        <PrimaryTitle blue>Primary Title in blue</PrimaryTitle>
+        <PrimaryTitle color='blue'>Primary Title in blue</PrimaryTitle>
         <PrimaryTitle small>Primary Title in small</PrimaryTitle>
         <PrimaryTitle strong small>Primary Title in strong</PrimaryTitle>
+        <Block blue>
+          <PrimaryTitle color='white'>Primary Title in white</PrimaryTitle>
+        </Block>
       </Code>
 
-      <PrimaryTitle small blue>Secondary Title</PrimaryTitle>
+      <PrimaryTitle small color='blue'>Secondary Title</PrimaryTitle>
       <Code>
         <SecondaryTitle>Secondary Title</SecondaryTitle>
-        <SecondaryTitle blue>Secondary Title in blue</SecondaryTitle>
+        <SecondaryTitle color='blue'>Secondary Title in blue</SecondaryTitle>
         <SecondaryTitle condensed>Secondary Title in condensed</SecondaryTitle>
+        <Block blue>
+          <SecondaryTitle color='white'>Secondary Title in white</SecondaryTitle>
+        </Block>
       </Code>
 
-      <PrimaryTitle small blue>Subtitle</PrimaryTitle>
+      <PrimaryTitle small color='blue'>Subtitle</PrimaryTitle>
       <Code>
         <Subtitle>Subtitle</Subtitle>
-        <Subtitle blue>Subtitle in blue</Subtitle>
+        <Subtitle color='blue'>Subtitle in blue</Subtitle>
         <Subtitle condensed>Subtitle in condensed</Subtitle>
+        <Block blue>
+          <Subtitle color='white'>Subtitle in white</Subtitle>
+        </Block>
       </Code>
 
-      <PrimaryTitle small blue>Paragraphs</PrimaryTitle>
+      <PrimaryTitle small color='blue'>Paragraphs</PrimaryTitle>
       <Code>
         <Paragraph>Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph </Paragraph>
         <Paragraph condensed>Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed </Paragraph>
         <Paragraph design='secondary'>Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph </Paragraph>
         <Paragraph design='legal'>Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text </Paragraph>
+        <Block blue>
+          <Paragraph color='white'>Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph </Paragraph>
+          <Paragraph design='legal' color='white'>Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text </Paragraph>
+        </Block>
       </Code>
 
-      <PrimaryTitle small blue>Label</PrimaryTitle>
-      <Code>
-        <Label>Boom!</Label>
-      </Code>
-
-      <PrimaryTitle small blue>Text Label</PrimaryTitle>
+      <PrimaryTitle small color='blue'>Text Label</PrimaryTitle>
       <Code>
         <TextLabel>Klarna ID</TextLabel>
       </Code>
 
-      <PrimaryTitle small blue>Link</PrimaryTitle>
+      <PrimaryTitle small color='blue'>Link</PrimaryTitle>
       <Code>
         <Subtitle>
-          Some subtitle with <Link href='#'>a link.</Link>
+          Some subtitle with <Link onClick={window.alert} href='#'>a link.</Link>
+
         </Subtitle>
         <Paragraph>
           Some paragraph with <Link href='#'>a link</Link>.
         </Paragraph>
+        <Block blue>
+          <Paragraph color='white'>
+            Some paragraph with <Link color='white' href='#'>a link</Link>.
+          </Paragraph>
+        </Block>
+
       </Code>
 
-      <PrimaryTitle small blue>Amount</PrimaryTitle>
+      <PrimaryTitle small color='blue'>Amount</PrimaryTitle>
       <Code>
         <Amount>1500€</Amount>
         <Amount>$1500</Amount>
-        <Amount>1500₪</Amount>
+        <Amount color='blue'>1500₪</Amount>
         <Block blue>
-          <Amount white>1500€</Amount>
+          <Amount color='white'>1500€</Amount>
         </Block>
       </Code>
     </div>

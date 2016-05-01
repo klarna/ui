@@ -1,8 +1,9 @@
 /* global describe it */
 
-import { Paragraph } from '../components/Text'
+import Paragraph from '../components/texts/Paragraph'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
+import describePalette from './describePalette'
 
 const render = renderer(Paragraph)
 
@@ -15,17 +16,15 @@ describe('Paragraph', () => {
     })
 
     it("has className 'cui__paragraph--primary'", () => {
-      equal(paragraph.props.className, 'cui__paragraph--primary')
-    })
-
-    it('does not have class condensed', () => {
-      ok(!paragraph.props.className.match('condensed'))
+      ok(paragraph.props.className.match('cui__paragraph--primary'))
     })
 
     it('should have the content', () => {
       ok(paragraph.props.children.match('LoremIpsum'))
     })
   })
+
+  describePalette(render)
 
   describe('condensed', () => {
     const paragraph = render({condensed: true}, 'LoremIpsum')
@@ -39,7 +38,7 @@ describe('Paragraph', () => {
     const paragraph = render({design: 'secondary'}, 'LoremIpsum')
 
     it("has className 'cui__paragraph--secondary'", () => {
-      equal(paragraph.props.className, 'cui__paragraph--secondary')
+      ok(paragraph.props.className.match('cui__paragraph--secondary'))
     })
   })
 
@@ -47,7 +46,7 @@ describe('Paragraph', () => {
     const paragraph = render({design: 'legal'}, 'LoremIpsum')
 
     it("has className 'cui__paragraph--legal'", () => {
-      equal(paragraph.props.className, 'cui__paragraph--legal')
+      ok(paragraph.props.className.match('cui__paragraph--legal'))
     })
   })
 })

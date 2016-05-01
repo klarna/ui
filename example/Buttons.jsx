@@ -1,3 +1,5 @@
+/* globals alert */
+
 import React from 'react'
 import Button from '../components/Button'
 import PayButton from '../components/PayButton'
