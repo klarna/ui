@@ -3,6 +3,7 @@ import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/field.scss'
 import * as programmaticFocus from './features/programmaticFocus'
 import * as fieldStates from './features/fieldStates'
+import * as inlinedIcon from './features/inlinedIcon'
 import { position, size } from './features/stacking'
 import { handleKeyDown } from './features/keyboardEvents'
 
@@ -24,7 +25,7 @@ export default class Field extends Component {
       className,
       centered,
       disabled,
-      icon: Icon,
+      icon,
       label,
       loading,
       onBlur,
@@ -38,7 +39,7 @@ export default class Field extends Component {
 
     const classes = {
       field: classNames(
-        (Icon ? 'cui__field--icon' : 'cui__field'), {
+        (icon ? 'cui__field--icon' : 'cui__field'), {
           big,
           'is-centered': centered,
           'is-filled': value != null && value !== '',
@@ -50,8 +51,16 @@ export default class Field extends Component {
         size.getClassName(this.props),
         position.getClassName(this.props),
         className),
-      label: classNames('cui__field__label'),
-      input: classNames('cui__field__input')
+      label: classNames(
+        icon
+          ? 'cui__field--icon__label'
+          : 'cui__field__label'
+      ),
+      input: classNames(
+        icon
+          ? 'cui__field--icon__input'
+          : 'cui__field__input'
+      )
     }
 
     return (
@@ -59,8 +68,12 @@ export default class Field extends Component {
         className={classes.field}
         onClick={onClick}
       >
-        { Icon &&
-          <Icon />
+        {
+          inlinedIcon.renderInlinedIcon(this.props, {
+            icon: classNames('cui__field--icon__icon'),
+            fill: classNames('cui__field--icon__icon__fill'),
+            stroke: classNames('cui__field--icon__icon__stroke')
+          })
         }
 
         <label className={classes.label}>{label}</label>
@@ -85,6 +98,7 @@ Field.defaultProps = {
   big: false,
   centered: false,
   loading: false,
+  ...inlinedIcon.defaultProps,
   ...fieldStates.defaultProps,
   ...position.defaultProps,
   ...handleKeyDown.defaultProps,
@@ -96,12 +110,12 @@ Field.propTypes = {
   centered: PropTypes.bool,
   loading: PropTypes.bool,
   label: PropTypes.string.isRequired,
-  icon: PropTypes.element,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
   value: PropTypes.string,
+  ...inlinedIcon.propTypes,
   ...fieldStates.propTypes,
   ...handleKeyDown.propTypes,
   ...position.propTypes,
