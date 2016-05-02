@@ -9,7 +9,6 @@ import { spy } from 'sinon'
 const render = renderer(Field)
 const scrollIntoViewIfNeeded = spy()
 
-const icon = (field) => field.props.children[0]
 const label = (field) => field.props.children[1]
 const input = (field) => field.props.children[2]
 
@@ -240,58 +239,6 @@ describe('Field', () => {
             ok(field.props.className.match(className))
           })
         })
-      })
-    })
-  })
-
-  describe('icon', () => {
-    const field = render({ name: 'filled', label: 'Filled' }, <span />)
-
-    it('has icon', () => {
-      equal(icon(field).type, 'span')
-    })
-
-    it('icon state is undefined', () => {
-      assert(icon(field).props.state === undefined)
-    })
-
-    it('adds icon to className', () => {
-      equal(field.props.className, 'cui__field--icon')
-    })
-
-    it('label adds icon to className', () => {
-      equal(label(field).props.className, 'cui__field--icon__label')
-    })
-
-    it('input adds icon to className', () => {
-      equal(input(field).props.className, 'cui__field--icon__input')
-    })
-
-    describe('states', () => {
-      it('error', () => {
-        const field = render({ error: 'Ooops', name: 'filled', label: 'Filled' }, <span />)
-
-        equal(icon(field).props.color, 'red')
-      })
-
-      it('warning', () => {
-        const field = render({ warning: 'Hey!', name: 'filled', label: 'Filled' }, <span />)
-
-        equal(icon(field).props.color, 'orange')
-      })
-
-      it('disabled', () => {
-        const field = render({ disabled: true, name: 'filled', label: 'Filled' }, <span />)
-
-        equal(icon(field).props.color, 'gray')
-      })
-
-      it('focused', () => {
-        const renderer = shallow(Field, { name: 'focused', label: 'Focused' }, <span />)
-        input(renderer.getRenderOutput()).props.onFocus({ target: { scrollIntoViewIfNeeded } })
-        equal(icon(renderer.getRenderOutput()).props.color, 'blue')
-        input(renderer.getRenderOutput()).props.onBlur()
-        assert(icon(renderer.getRenderOutput()).props.color === undefined)
       })
     })
   })

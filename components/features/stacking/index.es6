@@ -1,5 +1,5 @@
 import { PropTypes } from 'react'
-import combinations from '../../lib/combinations'
+import combinations from '../../../lib/combinations'
 
 export const position = {
   getClassName: () => {},

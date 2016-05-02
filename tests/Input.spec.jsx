@@ -7,7 +7,6 @@ import { renderer, shallow } from './helpers'
 
 const render = renderer(Input)
 
-const icon = (input) => input.props.children[0]
 const label = (input) => input.props.children[1]
 const _input = (input) => input.props.children[2]
 
@@ -18,10 +17,6 @@ describe('Input', () => {
     it('renders cui__input', () => {
       equal(input.type, 'div')
       equal(input.props.className, 'cui__input')
-    })
-
-    it('does not render icon', () => {
-      assert(icon(input) === null)
     })
 
     it('renders a label', () => {
@@ -105,58 +100,6 @@ describe('Input', () => {
 
     it('input is disabled', () => {
       assert(_input(input).props.disabled === true)
-    })
-  })
-
-  describe('icon', () => {
-    const input = render({ name: 'filled', label: 'Filled' }, <span />)
-
-    it('has icon', () => {
-      equal(icon(input).type, 'span')
-    })
-
-    it('icon state is undefined', () => {
-      assert(icon(input).props.state === undefined)
-    })
-
-    it('adds icon to className', () => {
-      equal(input.props.className, 'cui__input--icon')
-    })
-
-    it('label adds icon to className', () => {
-      equal(label(input).props.className, 'cui__input--icon__label')
-    })
-
-    it('input adds icon to className', () => {
-      equal(_input(input).props.className, 'cui__input--icon__input')
-    })
-
-    describe('states', () => {
-      it('error', () => {
-        const input = render({ error: 'Ooops', name: 'filled', label: 'Filled' }, <span />)
-
-        equal(icon(input).props.color, 'red')
-      })
-
-      it('warning', () => {
-        const input = render({ warning: 'Hey!', name: 'filled', label: 'Filled' }, <span />)
-
-        equal(icon(input).props.color, 'orange')
-      })
-
-      it('disabled', () => {
-        const input = render({ disabled: true, name: 'filled', label: 'Filled' }, <span />)
-
-        equal(icon(input).props.color, 'gray')
-      })
-
-      it('focused', () => {
-        const renderer = shallow(Input, { name: 'focused', label: 'Focused' }, <span />)
-        _input(renderer.getRenderOutput()).props.onFocus({ defaultPrevented: false })
-        equal(icon(renderer.getRenderOutput()).props.color, 'blue')
-        _input(renderer.getRenderOutput()).props.onBlur({ defaultPrevented: false })
-        assert(icon(renderer.getRenderOutput()).props.color === undefined)
-      })
     })
   })
 })
