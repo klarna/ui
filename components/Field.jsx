@@ -104,12 +104,12 @@ export default class Field extends Component {
   render () {
     const {
       big,
-      children,
       className,
       centered,
       disabled,
       error,
       focus,
+      icon: Icon,
       label,
       loading,
       onBlur,
@@ -134,7 +134,7 @@ export default class Field extends Component {
 
     const classes = {
       field: classNames(
-        (children ? 'cui__field--icon' : 'cui__field'), {
+        (Icon ? 'cui__field--icon' : 'cui__field'), {
           big,
           'is-centered': centered,
           'is-disabled': disabled,
@@ -157,7 +157,9 @@ export default class Field extends Component {
         className={classes.field}
         onClick={onClick}
       >
-        {children}
+        { Icon &&
+          <Icon />
+        }
 
         <label className={classes.label}>{label}</label>
 
@@ -192,6 +194,7 @@ Field.propTypes = {
   centered: PropTypes.bool,
   loading: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  icon: PropTypes.element,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
