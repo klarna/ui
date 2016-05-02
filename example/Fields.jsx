@@ -173,7 +173,16 @@ export default function Fields () {
 
       <PrimaryTitle small blue>Icons</PrimaryTitle>
       <Code>
-        <Field icon='card' label='Please enter your credit card number' />
+        <Fieldset>
+          <Field
+            icon='card'
+            label='Please enter your credit card number' />
+        </Fieldset>
+        <Fieldset>
+          <Field 
+            icon='calendar'
+            label='Date of Birth' />
+        </Fieldset>
       </Code>
 
     </div>
