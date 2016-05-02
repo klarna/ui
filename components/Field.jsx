@@ -1,18 +1,12 @@
 import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/field.scss'
-import combinations from '../lib/combinations'
 import toObjectWithValue from '../lib/toObjectWithValue'
-import fieldSizeFraction from '../propTypes/fieldSizeFraction'
+import * as programmaticFocus from './features/programmaticFocus'
 import { position, size } from './features/stacking'
 import { handleKeyDown } from './features/keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
-
-export const focusTypes = {
-  FAKE: 'fake',
-  REAL: 'real'
-}
 
 export const states = [
   'disabled',
@@ -20,29 +14,14 @@ export const states = [
   'warning'
 ]
 
-const maybeFocus = ((document) => (type, input) => {
-  switch (type) {
-    case focusTypes.REAL:
-      if (document.activeElement !== input) {
-        input.focus()
-      }
-      break
-    case focusTypes.FAKE:
-      if (typeof input.scrollIntoViewIfNeeded === 'function') {
-        input.scrollIntoViewIfNeeded()
-      }
-      break
-  }
-})(document)
-
 export default class Field extends Component {
 
   componentDidMount () {
-    maybeFocus(this.props.focus, this.refs.input)
+    programmaticFocus.maybeFocus(this.props.focus, this.refs.input)
   }
 
   componentDidUpdate () {
-    maybeFocus(this.props.focus, this.refs.input)
+    programmaticFocus.maybeFocus(this.props.focus, this.refs.input)
   }
 
   render () {
@@ -52,7 +31,6 @@ export default class Field extends Component {
       centered,
       disabled,
       error,
-      focus,
       icon: Icon,
       label,
       loading,
@@ -74,13 +52,13 @@ export default class Field extends Component {
           'is-disabled': disabled,
           'is-error': error,
           'is-filled': value != null && value !== '',
-          'is-focused': focus,
           'is-warning': warning,
           'is-loading': loading,
           square
         },
-        size.getClassName(props),
-        position.getClassName(props),
+        programmaticFocus.getClassName(this.props),
+        size.getClassName(this.props),
+        position.getClassName(this.props),
         className),
       label: classNames('cui__field__label'),
       input: classNames('cui__field__input')
@@ -135,11 +113,8 @@ Field.propTypes = {
   onFocus: PropTypes.func,
   value: PropTypes.string,
   ...toObjectWithValue(PropTypes.bool)(states),
-  focus: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.oneOf(Object.keys(focusTypes).map((key) => focusTypes[key]))
-  ]),
   ...handleKeyDown.propTypes,
   ...position.propTypes,
+  ...programmaticFocus.propTypes,
   ...size.propTypes
 }
