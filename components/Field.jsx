@@ -1,18 +1,12 @@
 import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/field.scss'
-import toObjectWithValue from '../lib/toObjectWithValue'
 import * as programmaticFocus from './features/programmaticFocus'
+import * as fieldStates from './features/fieldStates'
 import { position, size } from './features/stacking'
 import { handleKeyDown } from './features/keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
-
-export const states = [
-  'disabled',
-  'error',
-  'warning'
-]
 
 export default class Field extends Component {
 
@@ -30,7 +24,6 @@ export default class Field extends Component {
       className,
       centered,
       disabled,
-      error,
       icon: Icon,
       label,
       loading,
@@ -40,7 +33,6 @@ export default class Field extends Component {
       onFocus,
       square,
       value,
-      warning,
       ...props
     } = this.props
 
@@ -49,13 +41,11 @@ export default class Field extends Component {
         (Icon ? 'cui__field--icon' : 'cui__field'), {
           big,
           'is-centered': centered,
-          'is-disabled': disabled,
-          'is-error': error,
           'is-filled': value != null && value !== '',
-          'is-warning': warning,
           'is-loading': loading,
           square
         },
+        fieldStates.getClassName(this.props),
         programmaticFocus.getClassName(this.props),
         size.getClassName(this.props),
         position.getClassName(this.props),
@@ -95,7 +85,7 @@ Field.defaultProps = {
   big: false,
   centered: false,
   loading: false,
-  ...toObjectWithValue(false)(states),
+  ...fieldStates.defaultProps,
   ...position.defaultProps,
   ...handleKeyDown.defaultProps,
   ...size.defaultProps
@@ -112,7 +102,7 @@ Field.propTypes = {
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
   value: PropTypes.string,
-  ...toObjectWithValue(PropTypes.bool)(states),
+  ...fieldStates.propTypes,
   ...handleKeyDown.propTypes,
   ...position.propTypes,
   ...programmaticFocus.propTypes,
