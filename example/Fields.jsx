@@ -179,9 +179,15 @@ export default function Fields () {
             label='Please enter your credit card number' />
         </Fieldset>
         <Fieldset>
-          <Field 
+          <Field
             icon='calendar'
             label='Date of Birth' />
+        </Fieldset>
+        <Fieldset>
+          <Field
+            icon='lock'
+            type='password'
+            label='Password' />
         </Fieldset>
       </Code>
 
