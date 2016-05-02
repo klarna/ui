@@ -1,8 +1,9 @@
 /* global describe it */
 
-import { Subtitle } from '../components/Text'
+import Subtitle from '../components/texts/Subtitle'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
+import describePalette from './describePalette'
 
 const render = renderer(Subtitle)
 
@@ -15,15 +16,7 @@ describe('Subtitle', () => {
     })
 
     it("has className 'cui__subtitle'", () => {
-      equal(subtitle.props.className, 'cui__subtitle')
-    })
-
-    it('does not have class blue', () => {
-      ok(!subtitle.props.className.match('blue'))
-    })
-
-    it('does not have class condensed', () => {
-      ok(!subtitle.props.className.match('condensed'))
+      ok(subtitle.props.className.match('cui__subtitle'))
     })
 
     it('should have the content', () => {
@@ -31,13 +24,7 @@ describe('Subtitle', () => {
     })
   })
 
-  describe('blue', () => {
-    const subtitle = render({blue: true}, 'LoremIpsum')
-
-    it('does have class blue', () => {
-      ok(subtitle.props.className.match('blue'))
-    })
-  })
+  describePalette(render)
 
   describe('condensed', () => {
     const subtitle = render({condensed: true}, 'LoremIpsum')

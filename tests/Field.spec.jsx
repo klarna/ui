@@ -3,9 +3,11 @@
 import React from 'react'
 import Field from '../components/Field'
 import assert, { equal, ok } from 'assert'
-import { renderer } from './helpers'
+import { renderer, shallow } from './helpers'
+import { spy } from 'sinon'
 
 const render = renderer(Field)
+const scrollIntoViewIfNeeded = spy()
 
 const icon = (field) => field.props.children[0]
 const label = (field) => field.props.children[1]
@@ -286,7 +288,7 @@ describe('Field', () => {
 
       it('focused', () => {
         const renderer = shallow(Field, { name: 'focused', label: 'Focused' }, <span />)
-        input(renderer.getRenderOutput()).props.onFocus()
+        input(renderer.getRenderOutput()).props.onFocus({ target: { scrollIntoViewIfNeeded } })
         equal(icon(renderer.getRenderOutput()).props.color, 'blue')
         input(renderer.getRenderOutput()).props.onBlur()
         assert(icon(renderer.getRenderOutput()).props.color === undefined)

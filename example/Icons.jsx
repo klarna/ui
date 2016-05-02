@@ -46,6 +46,7 @@ const icons = {
 
   tiny: [
     Arrow,
+    Checkmark,
     Details,
     Download,
     ExtendDate,
