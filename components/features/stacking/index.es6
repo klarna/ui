@@ -2,7 +2,17 @@ import { PropTypes } from 'react'
 import combinations from '../../../lib/combinations'
 
 export const position = {
-  getClassName: () => {},
+  getClassName: (props) =>
+    (
+      position.positionCombinations
+        .concat(position.positionList.map((x) => [x]))
+        .find((combination) =>
+          combination.length === 1
+            ? props[combination[0]]
+            : (props[combination[0]] && props[combination[1]])
+        ) || []
+    ).join('-')
+  ,
 
   positionList: [
     'bottom',

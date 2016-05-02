@@ -9,14 +9,6 @@ import { handleKeyDown } from './features/keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
 
-export const positions = [
-  'bottom',
-  'center',
-  'left',
-  'right',
-  'top'
-]
-
 export const focusTypes = {
   FAKE: 'fake',
   REAL: 'real'
@@ -42,13 +34,6 @@ const sizesMap = {
 }
 
 export const maxSize = 5
-
-const prioritizedAllowedPositionCombinations =
-  combinations(
-    ['bottom', 'top'],
-    ['left', 'right']
-  )
-  .concat(positions.map((x) => [x]))
 
 const maybeFocus = ((document) => (type, input) => {
   switch (type) {
@@ -123,15 +108,6 @@ export default class Field extends Component {
       ...props
     } = this.props
 
-    const positionCombination = (
-      prioritizedAllowedPositionCombinations
-        .find((combination) =>
-          combination.length === 1
-            ? props[combination[0]]
-            : (props[combination[0]] && props[combination[1]])
-        ) || []
-    ).join('-')
-
     const classes = {
       field: classNames(
         (Icon ? 'cui__field--icon' : 'cui__field'), {
@@ -146,7 +122,7 @@ export default class Field extends Component {
           square
         },
         sizesMap[size],
-        positionCombination,
+        position.getClassName(props),
         className),
       label: classNames('cui__field__label'),
       input: classNames('cui__field__input')
