@@ -1,7 +1,16 @@
 import { PropTypes } from 'react'
 import combinations from '../../../lib/combinations'
+import fieldSizeFraction from '../../../propTypes/fieldSizeFraction'
 
 export const position = {
+  defaultProps: {
+    bottom: false,
+    center: false,
+    left: false,
+    right: false,
+    top: false
+  },
+
   getClassName: (props) =>
     (
       position.positionCombinations
@@ -14,6 +23,11 @@ export const position = {
     ).join('-')
   ,
 
+  positionCombinations: combinations(
+    ['bottom', 'top'],
+    ['left', 'right']
+  ),
+
   positionList: [
     'bottom',
     'center',
@@ -22,24 +36,40 @@ export const position = {
     'top'
   ],
 
-  positionCombinations: combinations(
-    ['bottom', 'top'],
-    ['left', 'right']
-  ),
-
-  defaultProps: {
-    bottom: false,
-    center: false,
-    left: false,
-    right: false,
-    top: false
-  },
-
   propTypes: {
     bottom: PropTypes.bool,
     center: PropTypes.bool,
     left: PropTypes.bool,
     right: PropTypes.bool,
     top: PropTypes.bool
+  }
+}
+
+const MAX_SIZE = 5
+
+export const size = {
+  defaultProps: {
+    size: '1/1'
+  },
+
+  getClassName: (props) => size.map[props.size],
+
+  map: {
+    '1/2': 'half',
+    '1/3': 'third',
+    '2/3': 'two-thirds',
+    '1/4': 'quarter',
+    '2/4': 'half',
+    '3/4': 'three-quarters',
+    '1/5': 'twenty',
+    '2/5': 'forty',
+    '3/5': 'sixty',
+    '4/5': 'eighty'
+  },
+
+  max: MAX_SIZE,
+
+  propTypes: {
+    size: fieldSizeFraction(MAX_SIZE)
   }
 }

@@ -4,7 +4,7 @@ import styles from '@klarna/ui-css-components/src/components/field.scss'
 import combinations from '../lib/combinations'
 import toObjectWithValue from '../lib/toObjectWithValue'
 import fieldSizeFraction from '../propTypes/fieldSizeFraction'
-import { position } from './features/stacking'
+import { position, size } from './features/stacking'
 import { handleKeyDown } from './features/keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
@@ -19,21 +19,6 @@ export const states = [
   'error',
   'warning'
 ]
-
-const sizesMap = {
-  '1/2': 'half',
-  '1/3': 'third',
-  '2/3': 'two-thirds',
-  '1/4': 'quarter',
-  '2/4': 'half',
-  '3/4': 'three-quarters',
-  '1/5': 'twenty',
-  '2/5': 'forty',
-  '3/5': 'sixty',
-  '4/5': 'eighty'
-}
-
-export const maxSize = 5
 
 const maybeFocus = ((document) => (type, input) => {
   switch (type) {
@@ -101,7 +86,6 @@ export default class Field extends Component {
       onChange,
       onClick,
       onFocus,
-      size,
       square,
       value,
       warning,
@@ -121,7 +105,7 @@ export default class Field extends Component {
           'is-loading': loading,
           square
         },
-        sizesMap[size],
+        size.getClassName(props),
         position.getClassName(props),
         className),
       label: classNames('cui__field__label'),
@@ -160,9 +144,9 @@ Field.defaultProps = {
   centered: false,
   loading: false,
   ...toObjectWithValue(false)(states),
-  size: '1/1',
   ...position.defaultProps,
-  ...handleKeyDown.defaultProps
+  ...handleKeyDown.defaultProps,
+  ...size.defaultProps
 }
 
 Field.propTypes = {
@@ -177,11 +161,11 @@ Field.propTypes = {
   onFocus: PropTypes.func,
   value: PropTypes.string,
   ...toObjectWithValue(PropTypes.bool)(states),
-  size: fieldSizeFraction(maxSize),
   focus: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf(Object.keys(focusTypes).map((key) => focusTypes[key]))
   ]),
+  ...handleKeyDown.propTypes,
   ...position.propTypes,
-  ...handleKeyDown.propTypes
+  ...size.propTypes
 }
