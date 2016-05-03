@@ -205,6 +205,11 @@ export default function Fields () {
             icon='phone'
             label='Mobile number' />
         </Fieldset>
+        <Fieldset>
+          <Field
+            icon='close'
+            label='Enter an incorrect value (?)' />
+        </Fieldset>
       </Code>
 
     </div>
