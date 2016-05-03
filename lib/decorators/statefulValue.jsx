@@ -26,7 +26,7 @@ export default (Target) => {
     }
   }
 
-  DecoratedComponent.displayName = Target.name
+  DecoratedComponent.displayName = Target.displayName || Target.name
 
   return DecoratedComponent
 }
