@@ -1,7 +1,7 @@
 import React from 'react'
 import Field from '../components/Field'
 import Fieldset from '../components/Fieldset'
-import StatefulField from '../components/stateful/Field'
+import UncontrolledField from '../components/uncontrolled/Field'
 import { PrimaryTitle, SecondaryTitle, Subtitle } from '../components/Text'
 import Code from './Code'
 
@@ -9,7 +9,7 @@ export default function Fields () {
   return (
     <div>
       <SecondaryTitle>Regular</SecondaryTitle>
-      <Subtitle>Stateless</Subtitle>
+      <Subtitle>Controlled</Subtitle>
       <h5>Normal</h5>
       <Code>
         <Field label='Enter your email' onTab={() => alert('tab')} onEnter={() => alert('enter')} />
@@ -99,51 +99,51 @@ export default function Fields () {
         </Fieldset>
       </Code>
 
-      <Subtitle>Stateful</Subtitle>
+      <Subtitle>Uncontrolled</Subtitle>
       <h5>Normal</h5>
       <Code>
-        <StatefulField name='email' label='Enter your email' />
+        <UncontrolledField name='email' label='Enter your email' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <StatefulField name='email' label='Enter your email' size='big' />
+        <UncontrolledField name='email' label='Enter your email' size='big' />
       </Code>
 
       <h2>Error</h2>
 
       <h5>Normal</h5>
       <Code>
-        <StatefulField name='email' error='Invalid email' value='invalid@' />
+        <UncontrolledField name='email' error='Invalid email' value='invalid@' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <StatefulField name='email' error='Invalid email' value='invalid@' size='big' />
+        <UncontrolledField name='email' error='Invalid email' value='invalid@' size='big' />
       </Code>
 
       <h2>Warning</h2>
 
       <h5>Normal</h5>
       <Code>
-        <StatefulField name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' />
+        <UncontrolledField name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <StatefulField name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' size='big' />
+        <UncontrolledField name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' size='big' />
       </Code>
 
       <h2>Disabled</h2>
 
       <h5>Normal</h5>
       <Code>
-        <StatefulField name='address' disabled label='Address' value='16, Corn street' />
+        <UncontrolledField name='address' disabled label='Address' value='16, Corn street' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <StatefulField name='address' disabled label='Address' value='16, Corn street' size='big' />
+        <UncontrolledField name='address' disabled label='Address' value='16, Corn street' size='big' />
       </Code>
 
       <PrimaryTitle small blue>Sizes</PrimaryTitle>

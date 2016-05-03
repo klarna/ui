@@ -1,11 +1,11 @@
 import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/field.scss'
-import * as programmaticFocus from './features/programmaticFocus'
-import * as fieldStates from './features/fieldStates'
-import * as inlinedIcon from './features/inlinedIcon'
-import { position, size } from './features/stacking'
-import { handleKeyDown } from './features/keyboardEvents'
+import * as programmaticFocus from '../lib/features/programmaticFocus'
+import * as fieldStates from '../lib/features/fieldStates'
+import * as inlinedIcon from '../lib/features/inlinedIcon'
+import { position, size } from '../lib/features/stacking'
+import { handleKeyDown } from '../lib/features/keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
 

@@ -1,7 +1,7 @@
 /* globals alert */
 
 import React from 'react'
-import StatefulRadioGroup from '../components/stateful/RadioGroup'
+import UncontrolledRadioGroup from '../components/uncontrolled/RadioGroup'
 import RadioGroup from '../components/RadioGroup'
 import Selector from '../components/Selector'
 import Button from '../components/Button'
@@ -35,7 +35,7 @@ export default function Selectors () {
       </Paragraph>
       <Paragraph>
         An example implementation of how you should consume the
-        RadioGroup is the StatefulRadioGroup itself.
+        RadioGroup is the UncontrolledRadioGroup itself.
       </Paragraph>
       <Code>
         <RadioGroup selected={1} onChange={alert} data={data} />
@@ -48,7 +48,7 @@ export default function Selectors () {
         prop <b>name</b>.
       </Paragraph>
       <Code>
-        <StatefulRadioGroup data={data} />
+        <UncontrolledRadioGroup data={data} />
       </Code>
 
       <Subtitle>Statefull in a form</Subtitle>
@@ -57,7 +57,7 @@ export default function Selectors () {
           event.preventDefault()
           window.alert(event.target.lorem.value)
         }}>
-          <StatefulRadioGroup name='lorem' data={data} />
+          <UncontrolledRadioGroup name='lorem' data={data} />
           <Button size='small'>Try me</Button>
         </form>
       </Code>
