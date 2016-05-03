@@ -1,15 +1,11 @@
 /* global describe it */
 
-import React from 'react'
 import Field from '../components/Field'
-import assert, { equal, ok } from 'assert'
-import { renderer, shallow } from './helpers'
-import { spy } from 'sinon'
+import { equal, ok } from 'assert'
+import { renderer } from './helpers'
 
 const render = renderer(Field)
-const scrollIntoViewIfNeeded = spy()
 
-const label = (field) => field.props.children[1]
 const input = (field) => field.props.children[2]
 
 describe('Field', () => {

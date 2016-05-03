@@ -1,6 +1,8 @@
+/* global describe it */
+
 import React, { Component } from 'react'
 import statefulValue from '../../lib/decorators/statefulValue'
-import { instance, renderer, shallow } from '../helpers'
+import { shallow } from '../helpers'
 import { equal } from 'assert'
 
 class TestComponent extends Component {

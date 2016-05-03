@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactShallowRenderer, { createRenderer } from 'react-addons-test-utils'
+import { createRenderer } from 'react-addons-test-utils'
 
 export const renderer = (Component) => (props = {}, children = null) => (
   shallow(Component, props, children).getRenderOutput()

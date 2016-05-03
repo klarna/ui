@@ -5,7 +5,6 @@ import Fieldset from '../components/Fieldset'
 import Code from './Code'
 
 import { PrimaryTitle, SecondaryTitle, Subtitle } from '../components/Text'
-import * as fieldIcons from '../components/icons/fieldIcons'
 
 export default function Inputs () {
   return (

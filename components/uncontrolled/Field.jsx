@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import compose from '../../lib/compose'
 import statefulValue from '../../lib/decorators/statefulValue'
 import statefulFocus from '../../lib/decorators/statefulFocus'

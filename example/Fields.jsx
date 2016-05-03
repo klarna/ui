@@ -1,3 +1,4 @@
+/* global alert */
 import React from 'react'
 import Field from '../components/Field'
 import Fieldset from '../components/Fieldset'

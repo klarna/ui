@@ -1,6 +1,5 @@
 /* global describe it */
 
-import React from 'react'
 import Input from '../components/Input'
 import assert, { equal } from 'assert'
 import { renderer, shallow } from './helpers'
