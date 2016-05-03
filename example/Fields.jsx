@@ -220,6 +220,11 @@ export default function Fields () {
             icon='check'
             label='These look like button icons really' />
         </Fieldset>
+        <Fieldset>
+          <Field
+            icon='logout'
+            label='Write something to log out' />
+        </Fieldset>
       </Code>
 
     </div>
