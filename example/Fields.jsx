@@ -189,6 +189,11 @@ export default function Fields () {
             type='password'
             label='Password' />
         </Fieldset>
+        <Fieldset>
+          <Field
+            icon='person'
+            label='Enter your user name' />
+        </Fieldset>
       </Code>
 
     </div>
