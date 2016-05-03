@@ -6,7 +6,7 @@
  * the state of the object
  */
 
-import StatefulRadioGroup from '../../components/stateful/RadioGroup'
+import StatefulRadioGroup from '../../components/uncontrolled/RadioGroup'
 import { equal } from 'assert'
 import { shallow } from '../helpers'
 

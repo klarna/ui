@@ -1,7 +1,7 @@
 /* global describe it */
 
 import React from 'react'
-import StatefulField from '../../components/stateful/Field'
+import StatefulField from '../../components/uncontrolled/Field'
 import assert, { equal } from 'assert'
 import { renderer, shallow } from '../helpers'
 
