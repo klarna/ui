@@ -26,7 +26,7 @@ describe('Input', () => {
 
     it('renders an enabled text input', () => {
       equal(_input(input).type, 'input')
-      equal(_input(input).props.value, undefined)
+      equal(_input(input).props.value, '')
       equal(_input(input).props.name, 'test')
       equal(_input(input).props.className, 'cui__input__input')
       assert(_input(input).props.disabled === false)
