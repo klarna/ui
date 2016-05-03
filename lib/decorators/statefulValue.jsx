@@ -17,12 +17,6 @@ export default (Target) => {
       )
     }
 
-    getInitialState () {
-      return {
-        value: undefined
-      }
-    }
-
     handleChange (onChange, e) {
       this.setState({
         value: e.target.value

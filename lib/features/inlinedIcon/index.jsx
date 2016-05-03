@@ -18,13 +18,13 @@ export const renderInlinedIcon = ({ icon }, styles) => {
             <g className={styles.stroke}>
               <path
                 d="M3.5,8.5 L16.5,8.5"
-                stroke-linecap="square"></path>
+                strokeLinecap="square"></path>
               <path
                 d="M6.5,2.5 L6.5,5.5"
-                stroke-linecap="round"></path>
+                strokeLinecap="round"></path>
               <path
                 d="M13.5,2.5 L13.5,5.5"
-                stroke-linecap="round"></path>
+                strokeLinecap="round"></path>
             </g>
           </svg>
         )

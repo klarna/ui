@@ -107,31 +107,31 @@ export default function Fields () {
 
       <h5>Big</h5>
       <Code>
-        <UncontrolledField name='email' label='Enter your email' size='big' />
+        <UncontrolledField name='email' label='Enter your email' big />
       </Code>
 
       <h2>Error</h2>
 
       <h5>Normal</h5>
       <Code>
-        <UncontrolledField name='email' error='Invalid email' value='invalid@' />
+        <UncontrolledField name='email' error label='Invalid email' value='invalid@' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <UncontrolledField name='email' error='Invalid email' value='invalid@' size='big' />
+        <UncontrolledField name='email' error label='Invalid email' value='invalid@' big />
       </Code>
 
       <h2>Warning</h2>
 
       <h5>Normal</h5>
       <Code>
-        <UncontrolledField name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' />
+        <UncontrolledField name='email' warning label='Are you sure the domain is exanple?' value='email@exanple.com' />
       </Code>
 
       <h5>Big</h5>
       <Code>
-        <UncontrolledField name='email' warning='Are you sure the domain is exanple?' value='email@exanple.com' size='big' />
+        <UncontrolledField name='email' warning label='Are you sure the domain is exanple?' value='email@exanple.com' big />
       </Code>
 
       <h2>Disabled</h2>
@@ -143,13 +143,13 @@ export default function Fields () {
 
       <h5>Big</h5>
       <Code>
-        <UncontrolledField name='address' disabled label='Address' value='16, Corn street' size='big' />
+        <UncontrolledField name='address' disabled label='Address' value='16, Corn street' big />
       </Code>
 
       <PrimaryTitle small blue>Sizes</PrimaryTitle>
       <Code>
         <Field name='email' label='Enter your email' />
-        <Field size='big' name='email' label='Enter your email' />
+        <Field big name='email' label='Enter your email' />
       </Code>
 
       <PrimaryTitle small blue>Types</PrimaryTitle>
@@ -164,10 +164,10 @@ export default function Fields () {
 
       <PrimaryTitle small blue>States</PrimaryTitle>
       <Code>
-        <Field error='Invalid email' name='email' value='invalid@' />
-        <Field size='big' error='Invalid email' name='email' value='invalid@' />
-        <Field warning='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
-        <Field size='big' warning='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
+        <Field error label='Invalid email' name='email' value='invalid@' />
+        <Field big error label='Invalid email' name='email' value='invalid@' />
+        <Field warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
+        <Field big warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
         <Field disabled name='address' label='Address' value='16, Corn street' />
       </Code>
 
