@@ -83,7 +83,7 @@ export default class Input extends Component {
         <input
           className={classes.input}
           disabled={disabled}
-          value={value}
+          value={value || ''}
           onBlur={onBlur}
           onChange={onChange}
           onKeyDown={handleKeyDown(this.props)}
