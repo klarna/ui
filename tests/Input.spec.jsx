@@ -27,7 +27,6 @@ describe('Input', () => {
 
     it('renders an enabled text input', () => {
       equal(_input(input).type, 'input')
-      equal(_input(input).props.type, 'text')
       equal(_input(input).props.value, undefined)
       equal(_input(input).props.name, 'test')
       equal(_input(input).props.className, 'cui__input__input')
@@ -37,13 +36,13 @@ describe('Input', () => {
 
   describe('sizes', () => {
     it("when 'big' has className 'big'", () => {
-      const input = render({ size: 'big', name: 'test', label: 'Test' })
+      const input = render({ big: true, name: 'test', label: 'Test' })
 
       equal(input.props.className, 'cui__input big')
     })
 
     it("when 'giant' has className 'giant'", () => {
-      const input = render({ size: 'giant', name: 'test', label: 'Test' })
+      const input = render({ giant: true, name: 'test', label: 'Test' })
 
       equal(input.props.className, 'cui__input giant')
     })
@@ -59,16 +58,14 @@ describe('Input', () => {
 
   describe('focused', () => {
     it("has className 'is-focused'", () => {
-      const renderer = shallow(Input, { name: 'focused', label: 'Focused' })
-      _input(renderer.getRenderOutput()).props.onFocus({ defaultPrevented: false })
+      const renderer = shallow(Input, { name: 'focused', label: 'Focused', focus: true })
+
       equal(renderer.getRenderOutput().props.className, 'cui__input is-focused')
-      _input(renderer.getRenderOutput()).props.onBlur({ defaultPrevented: false })
-      equal(renderer.getRenderOutput().props.className, 'cui__input')
     })
   })
 
   describe('error', () => {
-    const input = render({ error: 'Ooops', name: 'filled', label: 'Filled' })
+    const input = render({ error: true, name: 'filled', label: 'Ooops' })
 
     it("has className 'is-error'", () => {
       equal(input.props.className, 'cui__input is-error')
@@ -80,7 +77,7 @@ describe('Input', () => {
   })
 
   describe('warning', () => {
-    const input = render({ warning: 'Hey!', name: 'filled', label: 'Filled' })
+    const input = render({ warning: true, name: 'filled', label: 'Hey!' })
 
     it("has className 'is-warning'", () => {
       equal(input.props.className, 'cui__input is-warning')
