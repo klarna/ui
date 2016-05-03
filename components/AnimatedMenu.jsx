@@ -3,10 +3,8 @@ import { Motion, spring } from 'react-motion'
 import Menu from './Menu'
 import styles from '@klarna/ui-css-components/src/components/tab-menu.scss'
 
-const springConfig = { stiffness: 170, damping: 26 }
-
 const AnimatedSelectedBar = ({ width, left }) => (
-  <Motion style={{left: spring(left, springConfig), width: spring(width, springConfig)}}>
+  <Motion style={{left: spring(left), width: spring(width)}}>
     {(style) => <div style={style} className={styles['cui__tab-menu__selected']} />}
   </Motion>
 )
