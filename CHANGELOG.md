@@ -1,3 +1,7 @@
+# 0.7.2
+
+- Hotfix for AnimatedMenu's transition
+
 # 0.7.0
 
 - Borderless input fields
