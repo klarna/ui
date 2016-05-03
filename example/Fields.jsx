@@ -210,6 +210,16 @@ export default function Fields () {
             icon='close'
             label='Enter an incorrect value (?)' />
         </Fieldset>
+        <Fieldset>
+          <Field
+            icon='question'
+            label='Are we sure about these being field icons?' />
+        </Fieldset>
+        <Fieldset>
+          <Field
+            icon='check'
+            label='These look like button icons really' />
+        </Fieldset>
       </Code>
 
     </div>
