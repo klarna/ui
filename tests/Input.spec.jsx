@@ -1,7 +1,7 @@
 /* global describe it */
 
 import React from 'react'
-import { ControlledInput as Input } from '../components/Input'
+import Input from '../components/Input'
 import assert, { equal } from 'assert'
 import { renderer, shallow } from './helpers'
 
