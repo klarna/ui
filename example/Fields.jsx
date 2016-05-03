@@ -195,6 +195,11 @@ export default function Fields () {
             icon='person'
             label='Enter your user name' />
         </Fieldset>
+        <Fieldset>
+          <Field
+            icon='email'
+            label='Enter your email address' />
+        </Fieldset>
       </Code>
 
     </div>
