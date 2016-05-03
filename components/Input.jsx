@@ -1,146 +1,128 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
-import classNames from 'classnames'
 import styles from '@klarna/ui-css-components/src/components/input.scss'
+import * as programmaticFocus from '../lib/features/programmaticFocus'
+import * as fieldStates from '../lib/features/fieldStates'
+import * as inlinedIcon from '../lib/features/inlinedIcon'
+import { position, size } from '../lib/features/stacking'
+import { handleKeyDown } from '../lib/features/keyboardEvents'
 
-const boundClassNames = classNamesBind.bind(styles)
+const classNames = classNamesBind.bind(styles)
 
-export class ControlledInput extends React.Component {
-  constructor (props) {
-    super(props)
+export default class Input extends Component {
 
-    this.state = { focused: false }
-    this.onFocus = this.onFocus.bind(this)
-    this.onBlur = this.onBlur.bind(this)
+  componentDidMount () {
+    programmaticFocus.maybeFocus(this.props.focus, this.refs.input)
   }
 
-  onFocus (event) {
-    this.props.onFocus && this.props.onFocus(event)
-    if (!event.defaultPrevented) {
-      this.setState({ focused: true })
-    }
-  }
-
-  onBlur (event) {
-    this.props.onBlur && this.props.onBlur(event)
-    if (!event.defaultPrevented) {
-      this.setState({ focused: false })
-    }
-  }
-
-  hasIcon () {
-    return !!this.props.children
-  }
-
-  renderIcon () {
-    if (!this.hasIcon()) {
-      return null
-    }
-
-    const { children, disabled, error, warning } = this.props
-
-    let iconColor
-    switch (true) {
-      case !!error:
-        iconColor = 'red'
-        break
-      case !!warning:
-        iconColor = 'orange'
-        break
-      case disabled:
-        iconColor = 'gray'
-        break
-      case this.state.focused:
-        iconColor = 'blue'
-        break
-    }
-
-    return React.cloneElement(React.Children.only(children), { className: styles['cui__input--icon__icon'], color: iconColor })
+  componentDidUpdate () {
+    programmaticFocus.maybeFocus(this.props.focus, this.refs.input)
   }
 
   render () {
-    const { size, value, label, error, warning, disabled, className } = this.props
-    const baseClassName = this.hasIcon() ? 'cui__input--icon' : 'cui__input'
+    const {
+      big,
+      className,
+      centered,
+      disabled,
+      giant,
+      icon,
+      label,
+      loading,
+      onBlur,
+      onChange,
+      onClick,
+      onFocus,
+      square,
+      value,
+      ...props
+    } = this.props
 
-    const wrapperClassName = boundClassNames(baseClassName, size, {
-      'is-focused': this.state.focused,
-      'is-filled': !!value,
-      'is-error': !!error,
-      'is-warning': !!warning,
-      'is-disabled': !!disabled
-    })
-
-    const inputClassName = classNames(styles[`${baseClassName}__input`], className)
-
-    const { children, ...otherProps } = this.props // eslint-disable-line no-unused-vars
-    const inputProps = Object.assign(otherProps, {
-      onFocus: this.onFocus,
-      onBlur: this.onBlur,
-      className: inputClassName
-    })
+    const classes = {
+      field: classNames(
+        (icon ? 'cui__input--icon' : 'cui__input'), {
+          big,
+          giant,
+          'is-centered': centered,
+          'is-filled': value != null && value !== '',
+          'is-loading': loading,
+          square
+        },
+        fieldStates.getClassName(this.props),
+        programmaticFocus.getClassName(this.props),
+        size.getClassName(this.props),
+        position.getClassName(this.props),
+        className),
+      label: classNames(
+        icon
+          ? 'cui__input--icon__label'
+          : 'cui__input__label'
+      ),
+      input: classNames(
+        icon
+          ? 'cui__input--icon__input'
+          : 'cui__input__input'
+      )
+    }
 
     return (
-      <div className={wrapperClassName}>
-        {this.renderIcon()}
-        <label className={styles[`${baseClassName}__label`]}>
-          {error || warning || label}
-        </label>
-        <input {...inputProps} />
+      <div
+        className={classes.field}
+        onClick={onClick}
+      >
+        {
+          inlinedIcon.renderInlinedIcon(this.props, {
+            icon: classNames('cui__input--icon__icon'),
+            fill: classNames('cui__input--icon__icon__fill'),
+            stroke: classNames('cui__input--icon__icon__stroke')
+          })
+        }
+
+        <label className={classes.label}>{label}</label>
+
+        <input
+          className={classes.input}
+          disabled={disabled}
+          value={value}
+          onBlur={onBlur}
+          onChange={onChange}
+          onKeyDown={handleKeyDown(this.props)}
+          onFocus={onFocus}
+          ref='input'
+          {...props}
+        />
       </div>
     )
   }
 }
 
-ControlledInput.sizes = ['big', 'giant']
-ControlledInput.types = ['text', 'password', 'number', 'email', 'search', 'url', 'tel']
-
-ControlledInput.defaultProps = {
-  type: 'text',
-  disabled: false
+Input.defaultProps = {
+  big: false,
+  centered: false,
+  giant: false,
+  loading: false,
+  ...inlinedIcon.defaultProps,
+  ...fieldStates.defaultProps,
+  ...position.defaultProps,
+  ...handleKeyDown.defaultProps,
+  ...size.defaultProps
 }
 
-ControlledInput.propTypes = {
-  children: PropTypes.element,
-  disabled: PropTypes.bool,
-  error: PropTypes.string,
-  label: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(ControlledInput.sizes),
-  type: PropTypes.oneOf(ControlledInput.types),
+Input.propTypes = {
+  big: PropTypes.bool,
+  centered: PropTypes.bool,
+  giant: PropTypes.bool,
+  loading: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
   value: PropTypes.string,
-  warning: PropTypes.string
-}
-
-export class UncontrolledInput extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = { value: props.defaultValue }
-    this.onChange = this.onChange.bind(this)
-  }
-
-  onChange (e) {
-    this.setState({ value: e.target.value })
-    this.props.onChange && this.props.onChange(e)
-  }
-
-  render () {
-    return <ControlledInput
-      {...this.props}
-      value={this.state.value}
-      onChange={this.onChange}
-    />
-  }
-}
-
-UncontrolledInput.propTypes = {
-  onChange: PropTypes.func
-}
-
-export default function Input (props) {
-  if (props.value !== undefined) {
-    return <ControlledInput {...props} />
-  } else {
-    return <UncontrolledInput {...props} />
-  }
+  ...inlinedIcon.propTypes,
+  ...fieldStates.propTypes,
+  ...handleKeyDown.propTypes,
+  ...position.propTypes,
+  ...programmaticFocus.propTypes,
+  ...size.propTypes
 }
