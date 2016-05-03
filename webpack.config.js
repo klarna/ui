@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico|eot|woff|ttf|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
-        loader: 'url'
+        loader: 'file'
       }
 
     ]
