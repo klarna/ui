@@ -1,6 +1,6 @@
-# 0.7.2
+# 0.7.2 & 0.7.3
 
-- Hotfix for AnimatedMenu's transition
+- Hotfixes for AnimatedMenu's transition
 
 # 0.7.0
 
