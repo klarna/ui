@@ -200,6 +200,11 @@ export default function Fields () {
             icon='email'
             label='Enter your email address' />
         </Fieldset>
+        <Fieldset>
+          <Field
+            icon='phone'
+            label='Mobile number' />
+        </Fieldset>
       </Code>
 
     </div>
