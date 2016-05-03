@@ -12,11 +12,11 @@ const classNames = classNamesBind.bind(styles)
 export default class Input extends Component {
 
   componentDidMount () {
-    programmaticFocus.maybeFocus(this.props.focus, this.refs.input)
+    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
   }
 
   componentDidUpdate () {
-    programmaticFocus.maybeFocus(this.props.focus, this.refs.input)
+    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
   }
 
   render () {

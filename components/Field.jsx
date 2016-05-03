@@ -12,11 +12,11 @@ const classNames = classNamesBind.bind(styles)
 export default class Field extends Component {
 
   componentDidMount () {
-    programmaticFocus.maybeFocus(this.props.focus, this.refs.input)
+    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
   }
 
   componentDidUpdate () {
-    programmaticFocus.maybeFocus(this.props.focus, this.refs.input)
+    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
   }
 
   render () {

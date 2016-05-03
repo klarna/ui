@@ -7,7 +7,7 @@ export const FOCUS_TYPES = {
 
 export const getClassName = ({ focus }) => focus && 'is-focused'
 
-export const maybeFocus = ((document) => (type, input) => {
+export const maybeFocus = (document) => (type, input) => {
   switch (type) {
     case FOCUS_TYPES.REAL:
       if (document.activeElement !== input) {
@@ -20,7 +20,7 @@ export const maybeFocus = ((document) => (type, input) => {
       }
       break
   }
-})(document)
+}
 
 export const propTypes = {
   focus: PropTypes.oneOfType([
