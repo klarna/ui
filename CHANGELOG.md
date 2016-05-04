@@ -1,3 +1,7 @@
+# 0.7.4
+
+- Selector onChange callback called with an object instead of id
+
 # 0.7.0
 
 - Borderless input fields
