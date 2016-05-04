@@ -1,9 +1,16 @@
 language: node_js
 node_js:
-  - "4"
-  - "5"
+- '4'
+- '5'
 before_script:
-  - npm install
+- npm install
 script:
-  - npm run lint
-  - npm test
+- npm run lint
+- npm test
+deploy:
+  provider: npm
+  email: ui-admin.e@klarna.com
+  api_key:
+    secure: RnXmzLLLOSdw7TBTp2EzAg7UXav4taJQ10if2neyKfAmwUnQ3D6wHjq8wsqrKQp/5w8zWj9rhEzCjXqKfcJU3TTgs/i7ruQ5c5vvDOe8h8IMzFOiVQuVVf+hPpcRpwKweFdSO8PS+FQ5ENPI7lgip1hVUxiAB9ykDvA+BQIWJ6wYQ6HZNhA6yDsQbS1h7Oa0V+cVs282nHsw39aDqcUtUL4PbqIgh08ztO6IHN0z9kFtOlh/2dYALOML8jkQx8EC8byFRXf0AAIF0tS9nqiTId9FFv+MX9uiLQLZa60qZ4JvBvyjUl/YUe+uKDbPDE+sWtJBbzxxgmv37QqETJ8Wriu7xd0ZJWYVu87/JIRtH7dgaYHiBZJXhnzL1m5laTsLBBvtagm0fsAtDPBNSAm92LA2VSBfQ3mH+p8CcRBiziBGKIF6jww5HZ8IabzhbAIUP2zQVDO+G1RyxX7ZKdugWyfDr0WVC8Ng1jPrVLWmZ9fUlnHEIdSLb/Jp9bcXMHGLc3PiImZygn6wCTfRfUNTeWIr7wqU30XR7LrHbf2e/Iwa2IC3PuPsVuqt5oiO3qYTn7j1c51ML08Dc5HE76h5+qhcnYbc6mLpZYTZ1tsjW1rUFXQw4IzKj6Hlu+H+6AWAoRZ2KbLkVKGLm+0vf3DSvcc1PGg4Nk0HXbCtwamGuJ0=
+  on:
+    branch: master
