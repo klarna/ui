@@ -21,6 +21,16 @@ export default function Fields () {
         <Field label='Enter your email' big />
       </Code>
 
+      <h5>Focused</h5>
+      <Code>
+        <Field label='Enter your email' focus />
+      </Code>
+
+      <h5>Fake focused</h5>
+      <Code>
+        <Field label='Enter your email' focus='fake' />
+      </Code>
+
       <h2>Error</h2>
 
       <h5>Normal</h5>

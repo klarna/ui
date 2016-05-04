@@ -16,6 +16,8 @@ export default function Inputs () {
         <Input name='email' label='Enter your email' />
         <Input big name='email' label='Enter your email' />
         <Input giant name='giant' label='Enter your email' />
+        <Input label='Enter your email' focus />
+        <Input label='Enter your email' focus='fake' />
       </Code>
 
       <Subtitle small blue>Types</Subtitle>
