@@ -70,7 +70,7 @@ export default function Menus () {
       <Code>
         <Menu
           onChange={(key) => console.log('You selected', key)}
-          name='tab-menu-fl)uid'
+          name='tab-menu-fluid'
           selected='home'
           options={options}
         />

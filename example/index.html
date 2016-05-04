@@ -1,5 +1,13 @@
 <!DOCTYPE html>
-<html {% if(o.htmlWebpackPlugin.files.manifest) { %} manifest="{%= o.htmlWebpackPlugin.files.manifest %}"{% } %}>
+<!--[if IE 8]>
+<html lang="en" class="ie8 cui__baseline">
+<![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 cui__baseline">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="cui__baseline" lang="en">
+<!--<![endif]-->
   <head>
     <meta charset="UTF-8">
     <title>{%=o.htmlWebpackPlugin.options.title || 'Webpack App'%}</title>

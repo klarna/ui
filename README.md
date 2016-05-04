@@ -14,10 +14,9 @@ npm instal @klarna/ui-react-components --save
 
 This package doesn't have a build, so you must have a babel pipeline to use it. The minimal set of loaders is:
 
-```
+```javascript
 test: /\.(jsx|es6)$/
 loader: 'babel'
-
 test: /\.scss$/,
 loaders: [
   'style',
@@ -66,11 +65,7 @@ This uses the global symlink of `ui-react-components` that points to our local g
 
 The `UV_THREADPOOL_SIZE=100` solves a problem you may encounter with symlinks when importing sass files [https://github.com/jtangelder/sass-loader/issues/100](https://github.com/jtangelder/sass-loader/issues/100).
 
-#### License
-
-Please check the [LICENSE](LICENSE) file.
-
-#### Contributing
+## Contributing
 
 Make sure...
 
@@ -111,11 +106,3 @@ BROWSER=PhantomJS,Chrome,Firefox npm test
 ## License
 
 Please check the [LICENSE](LICENSE) file.
-
-## Contributing
-
-Make sure...
-
-1. ... your code is linted: `npm run lint`.
-2. ... your code is properly covered by tests, and all tests pass: `npm test` or `npm run test:watch`.
-3. ... it works in the major browsers, the simplest way is to spawn [ngrok](https://ngrok.com/) and use the cloud service of your choice. Else, you can download IE virtual machines for virtualbox using `curl -s https://raw.githubusercontent.com/xdissent/ievms/master/ievms.sh | env IEVMS_VERSIONS="9" bash`.
