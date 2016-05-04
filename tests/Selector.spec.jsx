@@ -45,9 +45,9 @@ describe('Selector', () => {
 
     it('calls onChange callback when options are clicked', () => {
       options[0].props.onClick()
-      ok(onChange.calledWith(1))
+      ok(onChange.calledWith(data[0]))
       options[1].props.onClick()
-      ok(onChange.calledWith(2))
+      ok(onChange.calledWith(data[1]))
     })
   })
 })
