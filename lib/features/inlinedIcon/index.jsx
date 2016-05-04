@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import values from '../../values'
 
 export const INLINED_ICONS = {
   CALENDAR: 'calendar',
@@ -170,7 +171,5 @@ renderInlinedIcon.defaultProps = {
 }
 
 renderInlinedIcon.propTypes = {
-  icon: PropTypes.oneOf(
-    Object.keys(INLINED_ICONS).map((key) => INLINED_ICONS[key])
-  )
+  icon: PropTypes.oneOf(values(INLINED_ICONS))
 }

@@ -1,4 +1,5 @@
 import { PropTypes } from 'react'
+import values from '../../values'
 
 export const FOCUS_TYPES = {
   FAKE: 'fake',
@@ -25,6 +26,6 @@ export const maybeFocus = (document) => (type, input) => {
 export const propTypes = {
   focus: PropTypes.oneOfType([
     PropTypes.bool,
-    PropTypes.oneOf(Object.keys(FOCUS_TYPES).map((key) => FOCUS_TYPES[key]))
+    PropTypes.oneOf(values(FOCUS_TYPES))
   ])
 }
