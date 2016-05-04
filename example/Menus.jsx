@@ -111,7 +111,6 @@ export default function Menus () {
         Animated menus must be controlled. On implementation reference can be found in examples/Menus.jsx.
       </Paragraph>
 
-
       <Subtitle>Fluid</Subtitle>
       <Paragraph>Click "Add" and check it out</Paragraph>
       <Code>
@@ -146,10 +145,6 @@ export default function Menus () {
           options={options}
         />
       </Code>
-
-
-
-
 
       <Subtitle>Static</Subtitle>
       <Paragraph>
