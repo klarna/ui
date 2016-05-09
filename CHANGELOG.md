@@ -1,3 +1,7 @@
+# 0.7.5
+
+- Using ui-css-components to v5.6.5 to get some minor margins improvements
+
 # 0.7.4
 
 - Selector onChange callback called with an object instead of id
