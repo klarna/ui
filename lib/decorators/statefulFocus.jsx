@@ -24,7 +24,7 @@ export default (Target) => {
         focus: undefined
       })
 
-      onBlur(e)
+      onBlur && onBlur(e)
     }
 
     handleFocus (onFocus, e) {
@@ -32,7 +32,7 @@ export default (Target) => {
         focus: true
       })
 
-      onFocus(e)
+      onFocus && onFocus(e)
     }
   }
 

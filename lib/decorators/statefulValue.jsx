@@ -22,7 +22,7 @@ export default (Target) => {
         value: e.target.value
       })
 
-      onChange(e)
+      onChange && onChange(e)
     }
   }
 
