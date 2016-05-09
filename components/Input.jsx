@@ -85,7 +85,7 @@ export default class Input extends Component {
           disabled={disabled}
           value={value || ''}
           onBlur={onBlur}
-          onChange={onChange}
+          onChange={onChange || function () {}}
           onKeyDown={handleKeyDown(this.props)}
           onFocus={onFocus}
           ref='input'
