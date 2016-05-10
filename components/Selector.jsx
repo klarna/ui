@@ -8,7 +8,7 @@ const classNames = classNamesBind.bind(styles)
 export default function Selector (props) {
   const { selected, onChange, className, data, ...remainingProps } = props
   const baseClass = 'cui__selector--direct'
-  const cls = classNames(baseClass, className)
+  const cls = classNames(baseClass, 'title', className)
 
   const options = data.map(({id, label}) => {
     const optionClass = classNames(`${baseClass}__item`)

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import RadioGroup from './RadioGroup'
+import RadioGroup from '../RadioGroup'
 
-export default class StatefullRadioGroup extends Component {
+export default class StatefulRadioGroup extends Component {
 
   constructor (props) {
     super(props)
@@ -30,7 +30,7 @@ export default class StatefullRadioGroup extends Component {
   }
 }
 
-StatefullRadioGroup.propTypes = {
+StatefulRadioGroup.propTypes = {
   name: PropTypes.string,
   // Following PropTypes are the same as RadioGroup's
   // except selected and onChange are optional.

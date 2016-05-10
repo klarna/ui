@@ -1,8 +1,9 @@
 /* global describe it */
 
-import { SecondaryTitle } from '../components/Text'
+import SecondaryTitle from '../components/texts/SecondaryTitle'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
+import describePalette from './describePalette'
 
 const render = renderer(SecondaryTitle)
 
@@ -15,15 +16,7 @@ describe('SecondaryTitle', () => {
     })
 
     it("has className 'cui__title--secondary'", () => {
-      equal(secondaryTitle.props.className, 'cui__title--secondary')
-    })
-
-    it('does not have class blue', () => {
-      ok(!secondaryTitle.props.className.match('blue'))
-    })
-
-    it('does not have class condensed', () => {
-      ok(!secondaryTitle.props.className.match('condensed'))
+      ok(secondaryTitle.props.className.match('cui__title--secondary'))
     })
 
     it('should have the content', () => {
@@ -31,13 +24,7 @@ describe('SecondaryTitle', () => {
     })
   })
 
-  describe('blue', () => {
-    const secondaryTitle = render({blue: true}, 'LoremIpsum')
-
-    it('does have class blue', () => {
-      ok(secondaryTitle.props.className.match('blue'))
-    })
-  })
+  describePalette(render)
 
   describe('condensed', () => {
     const secondaryTitle = render({condensed: true}, 'LoremIpsum')

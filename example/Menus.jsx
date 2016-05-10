@@ -21,10 +21,12 @@ class AddableMenu extends React.Component {
     ]
 
     this.state = {
-      options: [{ key: 'home', label: 'Home' }]
+      options: [{ key: 'home', label: 'Home' }],
+      selected: 'home'
     }
 
     this.add = this.add.bind(this)
+    this.onChange = this.onChange.bind(this)
   }
 
   add (e) {
@@ -38,12 +40,18 @@ class AddableMenu extends React.Component {
       ]
     })
   }
+
+  onChange (selected) {
+    this.setState({ ...this.state, selected })
+  }
+
   render () {
     return (
       <div>
         <AnimatedMenu
           {...this.props}
-          selected='home'
+          selected={this.state.selected}
+          onChange={this.onChange}
           options={this.state.options} />
         <button onClick={this.add}>Add</button>
       </div>
@@ -99,57 +107,27 @@ export default function Menus () {
 
       <PrimaryTitle small blue>Animated</PrimaryTitle>
 
+      <Paragraph>
+        Animated menus must be controlled. On implementation reference can be found in examples/Menus.jsx.
+      </Paragraph>
+
       <Subtitle>Fluid</Subtitle>
-      <Code>
-        <AnimatedMenu
-          onChange={(key) => console.log('You selected', key)}
-          name='animated-fluid'
-          selected='home'
-          options={options}
-        />
-      </Code>
-
-      <Subtitle>Static</Subtitle>
-      <Code>
-        <AnimatedMenu
-          tabDisplay='static'
-          name='animated-static'
-          selected='home'
-          options={options} />
-      </Code>
-
-      <Subtitle>White & Fluid</Subtitle>
-      <Code>
-        <div style={{background: '#333', padding: '20px'}}>
-          <AnimatedMenu
-            white
-            name='animated-fluid-white'
-            selected='archive'
-            options={options} />
-        </div>
-      </Code>
-
-      <Subtitle>White & Static</Subtitle>
-      <Code>
-        <div style={{background: '#333', padding: '20px'}}>
-          <AnimatedMenu
-            white
-            tabDisplay='static'
-            name='animated-static-white'
-            selected='home'
-            options={options} />
-        </div>
-      </Code>
-
-      <Subtitle>Menus can be dynamic</Subtitle>
       <Paragraph>Click "Add" and check it out</Paragraph>
       <Code>
         <AddableMenu name='addable-fluid' />
       </Code>
 
       <Paragraph>Click "Add" and check it out</Paragraph>
+      <Subtitle>Static</Subtitle>
       <Code>
         <AddableMenu name='addable-static' tabDisplay='static' />
+      </Code>
+
+      <Subtitle>White</Subtitle>
+      <Code>
+        <div style={{background: '#333', padding: '20px'}}>
+          <AddableMenu white name='addable-white' tabDisplay='static' />
+        </div>
       </Code>
 
       <PrimaryTitle small blue>Segmented</PrimaryTitle>

@@ -6,20 +6,20 @@
  * the state of the object
  */
 
-import StatefullRadioGroup from '../components/StatefullRadioGroup'
+import StatefulRadioGroup from '../../components/uncontrolled/RadioGroup'
 import { equal } from 'assert'
-import { shallow } from './helpers'
+import { shallow } from '../helpers'
 
 const data = [
   {id: 1, label: 'option1'},
   {id: 2, label: 'option2'}
 ]
 
-const renderer = shallow(StatefullRadioGroup, { data, name: 'lorem' })
+const renderer = shallow(StatefulRadioGroup, { data, name: 'lorem' })
 const radioGroup = () => renderer.getRenderOutput().props.children[0]
 const input = () => renderer.getRenderOutput().props.children[1]
 
-describe('StatefullRadioGroup', () => {
+describe('StatefulRadioGroup', () => {
   it("changes the radio group selected when it's changed", () => {
     equal(radioGroup().props.selected, 1)
     equal(input().props.value, 1)

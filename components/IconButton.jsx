@@ -30,13 +30,8 @@ export const CloseButton = ({ className, color, ...props }) => (
     strokeWidth='2'
     viewBox='0 0 25 25'
     {...props}>
-    {[45, -45].map((deg) =>
-      <line
-        className={classNames('cui__illustration__stroke')}
-        style={{transformOrigin: '50% 50%', transform: `rotate(${deg}deg)`}}
-        key={deg} x1='3.3' x2='21.7' y1='12.5' y2='12.5'
-      />
-    )}
+    <line x1='6' x2='19' y1='6' y2='19' className={classNames('cui__illustration__stroke')} />
+    <line x1='19' x2='6' y1='6' y2='19' className={classNames('cui__illustration__stroke')} />
   </svg>
 )
 

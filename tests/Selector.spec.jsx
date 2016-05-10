@@ -23,8 +23,8 @@ describe('Selector', () => {
       equal(selector.type, 'div')
     })
 
-    it("has className 'cui__selector--direct'", () => {
-      equal(selector.props.className, 'cui__selector--direct')
+    it("has className 'cui__selector--direct title'", () => {
+      equal(selector.props.className, 'cui__selector--direct title')
     })
 
     it('first option is not selected', () => {
