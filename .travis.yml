@@ -5,4 +5,4 @@ before_script:
   - npm install
 script:
   - npm run lint
-  - BROWSER=SL_Chrome,PhantomJS npm test
+  - BROWSER=SL_IE_8,SL_IE_10,SL_IE_11,SL_IE_13 npm test

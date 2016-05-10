@@ -46,6 +46,84 @@ module.exports = function (config) {
       SL_Chrome: {
         base: 'SauceLabs',
         browserName: 'chrome'
+      },
+      SL_IE_8: {
+        base: 'SauceLabs',
+        browserName: 'Internet Explorer',
+        platform: 'Windows 7',
+        version: '8'
+      },
+      SL_IE_10: {
+        base: 'SauceLabs',
+        browserName: 'Internet Explorer',
+        platform: 'Windows 8',
+        version: '10'
+      },
+      SL_IE_11: {
+        base: 'SauceLabs',
+        browserName: 'Internet Explorer',
+        platform: 'Windows 8.1',
+        version: '11'
+      },
+      SL_IE_13: {
+        base: 'SauceLabs',
+        browserName: 'Internet Explorer',
+        platform: 'Windows 10',
+        version: '13'
+      },
+      SL_Android_4_2: {
+        base: 'SauceLabs',
+        browserName: 'Android',
+        platform: 'Linux',
+        version: '4.2'
+      },
+      SL_Android_4_3: {
+        base: 'SauceLabs',
+        browserName: 'Android',
+        platform: 'Linux',
+        version: '4.3'
+      },
+      SL_Android_4_4: {
+        base: 'SauceLabs',
+        browserName: 'Android',
+        platform: 'Linux',
+        version: '4.4'
+      },
+      SL_Android_5_0: {
+        base: 'SauceLabs',
+        browserName: 'Android',
+        platform: 'Linux',
+        version: '5.0'
+      },
+      SL_Android_5_1: {
+        base: 'SauceLabs',
+        browserName: 'Android',
+        platform: 'Linux',
+        version: '5.1'
+      },
+      SL_IOS_6: {
+        base: 'SauceLabs',
+        browserName: 'iPhone',
+        platform: 'OS X 10.8',
+        version: '6.1'
+      },
+      SL_IOS_7: {
+        base: 'SauceLabs',
+        browserName: 'iPhone',
+        platform: 'OS X 10.9',
+        version: '7.1'
+      },
+      SL_IOS_8: {
+        base: 'SauceLabs',
+        browserName: 'iPhone',
+        platform: 'OS X 10.10',
+        version: '8.1'
+      },
+      SL_IOS_9_2: {
+        base: 'SauceLabs',
+        browserName: 'iPhone',
+        platform: 'OS X 10.10',
+        version: '9.2'
       }
     },
 
