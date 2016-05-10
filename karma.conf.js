@@ -27,15 +27,18 @@ module.exports = function (config) {
     webpackMiddleware: {
       noInfo: true
     },
+
     reporters: ['spec', 'saucelabs'],
-    port: 9890,
+
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: argv.watch,
 
     sauceLabs: {
+      public: 'public',
       testName: 'klarna-react-components'
     },
+
     captureTimeout: 120000,
     browserNoActivityTimeout: 1000000,
 
