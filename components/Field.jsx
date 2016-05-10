@@ -1,120 +1,124 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/field.scss'
+import * as programmaticFocus from '../lib/features/programmaticFocus'
+import * as fieldStates from '../lib/features/fieldStates'
+import * as inlinedIcon from '../lib/features/inlinedIcon'
+import { position, size } from '../lib/features/stacking'
+import { handleKeyDown } from '../lib/features/keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
 
-export default class Field extends React.Component {
+export default class Field extends Component {
 
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      value: props.value || '',
-      focused: false
-    }
-
-    this.onChange = this.onChange.bind(this)
-    this.onFocus = this.onFocus.bind(this)
-    this.onBlur = this.onBlur.bind(this)
+  componentDidMount () {
+    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
   }
 
-  onChange (event) {
-    this.setState({value: event.target.value})
-  }
-
-  onFocus (event) {
-    this.setState({focused: true})
-    this.props.onFocus && this.props.onFocus()
-    event.target.scrollIntoViewIfNeeded()
-  }
-
-  onBlur (event) {
-    this.setState({focused: false})
-  }
-
-  hasIcon () {
-    return !!this.props.children
-  }
-
-  renderIcon () {
-    if (!this.hasIcon()) {
-      return null
-    }
-
-    const { children, disabled, error, warning } = this.props
-
-    let iconColor
-    switch (true) {
-      case !!error:
-        iconColor = 'red'
-        break
-      case !!warning:
-        iconColor = 'orange'
-        break
-      case disabled:
-        iconColor = 'gray'
-        break
-      case this.state.focused:
-        iconColor = 'blue'
-        break
-    }
-
-    return React.cloneElement(React.Children.only(children), {className: styles['cui__field--icon__icon'], color: iconColor})
+  componentDidUpdate () {
+    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
   }
 
   render () {
-    const { name, type = 'text', size, disabled = false, error, warning, label } = this.props
+    const {
+      big,
+      className,
+      centered,
+      disabled,
+      icon,
+      label,
+      loading,
+      onBlur,
+      onChange,
+      onClick,
+      onFocus,
+      square,
+      value,
+      ...props
+    } = this.props
 
-    const baseClassName = this.hasIcon() ? 'cui__field--icon' : 'cui__field'
-
-    const cls = classNames(baseClassName, {
-      'is-filled': !!this.state.value,
-      'is-focused': this.state.focused,
-      'big': size === 'big',
-      'is-error': !!error,
-      'is-warning': !!warning,
-      'is-disabled': !!disabled
-    })
+    const classes = {
+      field: classNames(
+        (icon ? 'cui__field--icon' : 'cui__field'), {
+          big,
+          'is-centered': centered,
+          'is-filled': value != null && value !== '',
+          'is-loading': loading,
+          square
+        },
+        fieldStates.getClassName(this.props),
+        programmaticFocus.getClassName(this.props),
+        size.getClassName(this.props),
+        position.getClassName(this.props),
+        className),
+      label: classNames(
+        icon
+          ? 'cui__field--icon__label'
+          : 'cui__field__label'
+      ),
+      input: classNames(
+        icon
+          ? 'cui__field--icon__input'
+          : 'cui__field__input'
+      )
+    }
 
     return (
-      <div className={cls}>
-        {this.renderIcon()}
-        <label className={styles[`${baseClassName}__label`]}>
-          {error || warning || label}
-        </label>
+      <div
+        className={classes.field}
+        onClick={onClick}
+      >
+        {
+          inlinedIcon.renderInlinedIcon(this.props, {
+            icon: classNames('cui__field--icon__icon'),
+            fill: classNames('cui__field--icon__icon__fill'),
+            stroke: classNames('cui__field--icon__icon__stroke')
+          })
+        }
+
+        <label className={classes.label}>{label}</label>
+
         <input
-          name={name}
-          type={type}
+          className={classes.input}
           disabled={disabled}
-          value={this.state.value}
-          onChange={this.onChange}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          className={styles[`${baseClassName}__input`]} />
+          value={value || ''}
+          onBlur={onBlur}
+          onChange={onChange || function () {}}
+          onKeyDown={handleKeyDown(this.props)}
+          onFocus={onFocus}
+          ref='input'
+          {...props}
+        />
       </div>
     )
   }
 }
 
-Field.sizes = ['big']
-Field.types = ['text', 'password', 'number', 'email', 'search', 'url']
-
 Field.defaultProps = {
-  type: 'text',
-  disabled: false,
-  value: ''
+  big: false,
+  centered: false,
+  loading: false,
+  ...inlinedIcon.defaultProps,
+  ...fieldStates.defaultProps,
+  ...position.defaultProps,
+  ...handleKeyDown.defaultProps,
+  ...size.defaultProps
 }
 
 Field.propTypes = {
-  children: PropTypes.element,
-  disabled: PropTypes.bool,
-  error: PropTypes.string,
-  label: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  big: PropTypes.bool,
+  centered: PropTypes.bool,
+  loading: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
   onFocus: PropTypes.func,
-  size: PropTypes.oneOf(Field.sizes),
-  type: PropTypes.oneOf(Field.types),
   value: PropTypes.string,
-  warning: PropTypes.string
+  ...inlinedIcon.propTypes,
+  ...fieldStates.propTypes,
+  ...handleKeyDown.propTypes,
+  ...position.propTypes,
+  ...programmaticFocus.propTypes,
+  ...size.propTypes
 }

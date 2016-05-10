@@ -1,166 +1,240 @@
 /* global describe it */
 
-import React from 'react'
 import Field from '../components/Field'
-import assert, { equal } from 'assert'
-import { renderer, shallow } from './helpers'
-import { spy } from 'sinon'
+import { equal, ok } from 'assert'
+import { renderer } from './helpers'
 
 const render = renderer(Field)
-const scrollIntoViewIfNeeded = spy()
 
-const icon = (field) => field.props.children[0]
-const label = (field) => field.props.children[1]
 const input = (field) => field.props.children[2]
 
 describe('Field', () => {
   describe('default', () => {
-    const field = render({ name: 'test', label: 'Test' })
+    const field = render({
+      label: 'Given Name'
+    })
 
-    it('renders cui__field', () => {
+    it("renders tag 'div'", () => {
       equal(field.type, 'div')
+    })
+
+    it("has className 'cui__field'", () => {
       equal(field.props.className, 'cui__field')
     })
 
-    it('does not render icon', () => {
-      assert(icon(field) === null)
+    describe('label', () => {
+      const label = field.props.children[1]
+
+      it("renders tag 'label'", () => {
+        equal(label.type, 'label')
+      })
+
+      it("has className 'cui__field__label'", () => {
+        equal(label.props.className, 'cui__field__label')
+      })
+
+      it('has the label text', () => (
+        equal(label.props.children, 'Given Name')
+      ))
     })
 
-    it('renders a label', () => {
-      equal(label(field).type, 'label')
-      equal(label(field).props.children, 'Test')
-      equal(label(field).props.className, 'cui__field__label')
-    })
+    describe('input', () => {
+      it("renders tag 'input'", () => (
+        equal(input(field).type, 'input')
+      ))
 
-    it('renders an enabled text input', () => {
-      equal(input(field).type, 'input')
-      equal(input(field).props.type, 'text')
-      equal(input(field).props.value, '')
-      equal(input(field).props.name, 'test')
-      equal(input(field).props.className, 'cui__field__input')
-      assert(input(field).props.disabled === false)
-    })
-  })
-
-  describe('sizes', () => {
-    it("when 'big' has className 'big'", () => {
-      const field = render({ size: 'big', name: 'test', label: 'Test' })
-
-      equal(field.props.className, 'cui__field big')
-    })
-  })
-
-  describe('filled', () => {
-    it("when has initial value has className 'is-filled'", () => {
-      const field = render({ value: 'something', name: 'filled', label: 'Filled' })
-
-      equal(field.props.className, 'cui__field is-filled')
-    })
-
-    it("when changed with value has className 'is-filled'", () => {
-      const renderer = shallow(Field, { name: 'focused', label: 'Focused' })
-      input(renderer.getRenderOutput()).props.onChange({target: {value: 'something'}})
-      equal(renderer.getRenderOutput().props.className, 'cui__field is-filled')
-      input(renderer.getRenderOutput()).props.onChange({target: {value: ''}})
-      equal(renderer.getRenderOutput().props.className, 'cui__field')
+      it("has className 'cui__field__input'", () => (
+        equal(input(field).props.className, 'cui__field__input')
+      ))
     })
   })
 
   describe('focused', () => {
-    it("has className 'is-focused'", () => {
-      const renderer = shallow(Field, { name: 'focused', label: 'Focused' })
-      input(renderer.getRenderOutput()).props.onFocus({ target: { scrollIntoViewIfNeeded } })
-      equal(renderer.getRenderOutput().props.className, 'cui__field is-focused')
-      assert(scrollIntoViewIfNeeded.called)
-      input(renderer.getRenderOutput()).props.onBlur()
-      equal(renderer.getRenderOutput().props.className, 'cui__field')
+    const field = render({
+      label: 'Password',
+      focus: true
+    })
+
+    it("has className 'is-focused'", () => (
+      ok(field.props.className.match('is-focused'))
+    ))
+  })
+
+  describe('with value', () => {
+    const field = render({
+      label: 'Billing Address',
+      value: 'Some value'
+    })
+
+    it("has className 'is-filled'", () => (
+      ok(field.props.className.match('is-filled'))
+    ))
+
+    describe('input', () => {
+      it('has the value', () => {
+        equal(input(field).props.value, 'Some value')
+      })
     })
   })
 
   describe('error', () => {
-    const field = render({ error: 'Ooops', name: 'filled', label: 'Filled' })
-
-    it("has className 'is-error'", () => {
-      equal(field.props.className, 'cui__field is-error')
+    const field = render({
+      label: 'Something',
+      error: true
     })
 
-    it('error is in the label', () => {
-      equal(label(field).props.children, 'Ooops')
-    })
+    it("has className 'is-error'", () => (
+      ok(field.props.className.match('is-error'))
+    ))
   })
 
   describe('warning', () => {
-    const field = render({ warning: 'Hey!', name: 'filled', label: 'Filled' })
-
-    it("has className 'is-warning'", () => {
-      equal(field.props.className, 'cui__field is-warning')
+    const field = render({
+      label: 'Something',
+      warning: true
     })
 
-    it('warning is in the label', () => {
-      equal(label(field).props.children, 'Hey!')
-    })
+    it("has className 'is-warning'", () => (
+      ok(field.props.className.match('is-warning'))
+    ))
   })
 
   describe('disabled', () => {
-    const field = render({ disabled: true, name: 'filled', label: 'Filled' })
-
-    it("has className 'is-disabled'", () => {
-      equal(field.props.className, 'cui__field is-disabled')
+    const field = render({
+      label: 'Something',
+      disabled: true
     })
 
-    it('input is disabled', () => {
-      assert(input(field).props.disabled === true)
+    it("has className 'is-disabled'", () => (
+      ok(field.props.className.match('is-disabled'))
+    ))
+
+    describe('input', () => {
+      it('is disabled', () => (
+        ok(input(field).props.disabled)
+      ))
     })
   })
 
-  describe('icon', () => {
-    const field = render({ name: 'filled', label: 'Filled' }, <span />)
-
-    it('has icon', () => {
-      equal(icon(field).type, 'span')
+  describe('add a className', () => {
+    const field = render({
+      className: 'extra__className',
+      label: 'Given Name'
     })
 
-    it('icon state is undefined', () => {
-      assert(icon(field).props.state === undefined)
+    it('has the extra className', () => {
+      ok(field.props.className.match('extra__className'))
+    })
+  })
+
+  describe('loading', () => {
+    const field = render({
+      label: 'Something',
+      loading: true
     })
 
-    it('adds icon to className', () => {
-      equal(field.props.className, 'cui__field--icon')
+    it("has className 'is-loading'", () => (
+      ok(field.props.className.match('is-loading'))
+    ))
+  })
+
+  describe('centered', () => {
+    const field = render({
+      label: 'Something',
+      centered: true
     })
 
-    it('label adds icon to className', () => {
-      equal(label(field).props.className, 'cui__field--icon__label')
+    it("has className 'is-centered'", () => (
+      ok(field.props.className.match('is-centered'))
+    ))
+  })
+
+  describe('big', () => {
+    const field = render({
+      label: 'Something',
+      big: true
     })
 
-    it('input adds icon to className', () => {
-      equal(input(field).props.className, 'cui__field--icon__input')
+    it("has className 'big'", () => (
+      ok(field.props.className.match('big'))
+    ))
+  })
+
+  describe('square', () => {
+    const field = render({
+      label: 'Something',
+      square: true
     })
 
-    describe('states', () => {
-      it('error', () => {
-        const field = render({ error: 'Ooops', name: 'filled', label: 'Filled' }, <span />)
+    it("has className 'square'", () => (
+      ok(field.props.className.match('square'))
+    ))
+  })
 
-        equal(icon(field).props.color, 'red')
+  describe('stacked', () => {
+    describe('positions', () => {
+      [
+        'bottom',
+        'center',
+        'left',
+        'right',
+        'top'
+      ].forEach((position) => {
+        describe(`when in position ${position}`, () => {
+          const field = render({
+            label: `Stacked in ${position}`,
+            [position]: true
+          })
+          it(`has className '${position}'`, () => (
+            ok(field.props.className.match(position))
+          ))
+        })
       })
 
-      it('warning', () => {
-        const field = render({ warning: 'Hey!', name: 'filled', label: 'Filled' }, <span />)
+      return [ 'left', 'right' ].forEach((x) => {
+        [ 'bottom', 'top' ].forEach((y) => {
+          describe(`when in position ${y} ${x}`, () => {
+            const field = render({
+              label: `Stacked in ${y} ${x}`,
+              [x]: true,
+              [y]: true
+            })
 
-        equal(icon(field).props.color, 'orange')
+            it(`has className '${y}-${x}'`, () => (
+              ok(field.props.className.match(`${y}-${x}`))
+            ))
+          })
+        })
       })
+    })
 
-      it('disabled', () => {
-        const field = render({ disabled: true, name: 'filled', label: 'Filled' }, <span />)
+    describe('sizes', () => {
+      const sizesMap = {
+        '1/2': 'half',
+        '1/3': 'third',
+        '2/3': 'two-thirds',
+        '1/4': 'quarter',
+        '2/4': 'half',
+        '3/4': 'three-quarters',
+        '1/5': 'twenty',
+        '2/5': 'forty',
+        '3/5': 'sixty',
+        '4/5': 'eighty'
+      }
 
-        equal(icon(field).props.color, 'gray')
-      })
+      Object.keys(sizesMap).map((size) => {
+        const className = sizesMap[size]
 
-      it('focused', () => {
-        const renderer = shallow(Field, { name: 'focused', label: 'Focused' }, <span />)
-        input(renderer.getRenderOutput()).props.onFocus({ target: { scrollIntoViewIfNeeded } })
-        equal(icon(renderer.getRenderOutput()).props.color, 'blue')
-        input(renderer.getRenderOutput()).props.onBlur()
-        assert(icon(renderer.getRenderOutput()).props.color === undefined)
+        describe(size, () => {
+          const field = render({
+            label: 'The half',
+            size
+          })
+
+          it(`has className '${className}'`, () => {
+            ok(field.props.className.match(className))
+          })
+        })
       })
     })
   })

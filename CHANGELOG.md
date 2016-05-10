@@ -1,3 +1,17 @@
+# 0.8.4
+
+- Merge 0.7.5 into 0.8.3
+
+# 0.8.0
+
+- New approach using decorators for adding the Uncontrolled versions
+Complete rewrite of the icon approach (needs review since some icons are clearly - meant for buttons)
+- Update naming convention (from stateless/stateful to controlled/uncontrolled)
+Add support for Field and Input stacking (buggy in the case of Input, but that's - probably due to ui-css-components shortcomings)
+- Add support for declarative focus in Field and Input
+- Cleanup composition of features in Field and Input
+- Added propType for fractional props
+
 # 0.7.5
 
 - Using ui-css-components to v5.6.5 to get some minor margins improvements

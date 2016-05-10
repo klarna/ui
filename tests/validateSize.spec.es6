@@ -1,6 +1,6 @@
 /* global describe it */
 
-import validateSize from 'lib/validateSize'
+import validateSize from 'propTypes/validateSize'
 import assert from 'assert'
 
 const invalidSizes = [1, {}, [], '1.', '', 'px', '1p', '%', 'wrong', 'em2']

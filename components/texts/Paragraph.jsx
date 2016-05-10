@@ -18,7 +18,7 @@ export default function Paragraph ({ children, className, color, condensed, desi
 Paragraph.designs = ['primary', 'secondary', 'legal']
 
 Paragraph.defaultProps = {
-  color: 'black',
+  color: undefined,
   condensed: false,
   design: 'primary'
 }
