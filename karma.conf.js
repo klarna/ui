@@ -47,73 +47,73 @@ module.exports = function (config) {
         base: 'SauceLabs',
         browserName: 'chrome'
       },
+      SL_MAC_SAFARI_9_0: {
+        base: 'SauceLabs',
+        browserName: 'safari',
+        platform: 'OS X 10.11',
+        version: '9.0'
+      },
       SL_IE_8: {
         base: 'SauceLabs',
-        browserName: 'Internet Explorer',
-        platform: 'Windows 7',
-        version: '8'
+        browserName: 'internet explorer',
+        platform: 'Windows XP',
+        version: '8.0'
       },
       SL_IE_10: {
         base: 'SauceLabs',
-        browserName: 'Internet Explorer',
+        browserName: 'internet explorer',
         platform: 'Windows 8',
-        version: '10'
+        version: '10.0'
       },
       SL_IE_11: {
         base: 'SauceLabs',
-        browserName: 'Internet Explorer',
+        browserName: 'internet explorer',
         platform: 'Windows 8.1',
-        version: '11'
+        version: '11.0'
       },
       SL_IE_13: {
         base: 'SauceLabs',
-        browserName: 'Internet Explorer',
+        browserName: 'internet explorer',
         platform: 'Windows 10',
-        version: '13'
+        version: '13.10586'
       },
       SL_Android_4_2: {
         base: 'SauceLabs',
-        browserName: 'Android',
+        browserName: 'android',
         platform: 'Linux',
         version: '4.2'
       },
       SL_Android_4_3: {
         base: 'SauceLabs',
-        browserName: 'Android',
+        browserName: 'android',
         platform: 'Linux',
         version: '4.3'
       },
       SL_Android_4_4: {
         base: 'SauceLabs',
-        browserName: 'Android',
+        browserName: 'android',
         platform: 'Linux',
         version: '4.4'
       },
       SL_Android_5_0: {
         base: 'SauceLabs',
-        browserName: 'Android',
+        browserName: 'android',
         platform: 'Linux',
         version: '5.0'
       },
       SL_Android_5_1: {
         base: 'SauceLabs',
-        browserName: 'Android',
+        browserName: 'android',
         platform: 'Linux',
         version: '5.1'
       },
-      SL_IOS_6: {
+      SL_IOS_8_0: {
         base: 'SauceLabs',
         browserName: 'iPhone',
-        platform: 'OS X 10.8',
-        version: '6.1'
+        platform: 'OS X 10.10',
+        version: '8.0'
       },
-      SL_IOS_7: {
-        base: 'SauceLabs',
-        browserName: 'iPhone',
-        platform: 'OS X 10.9',
-        version: '7.1'
-      },
-      SL_IOS_8: {
+      SL_IOS_8_1: {
         base: 'SauceLabs',
         browserName: 'iPhone',
         platform: 'OS X 10.10',
