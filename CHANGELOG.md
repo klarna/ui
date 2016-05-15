@@ -1,3 +1,7 @@
+# 0.8.4
+
+- Merge 0.7.5 into 0.8.3
+
 # 0.8.0
 
 - New approach using decorators for adding the Uncontrolled versions
@@ -7,6 +11,14 @@ Add support for Field and Input stacking (buggy in the case of Input, but that's
 - Add support for declarative focus in Field and Input
 - Cleanup composition of features in Field and Input
 - Added propType for fractional props
+
+# 0.7.5
+
+- Using ui-css-components to v5.6.5 to get some minor margins improvements
+
+# 0.7.4
+
+- Selector onChange callback called with an object instead of id
 
 # 0.7.2 & 0.7.3
 

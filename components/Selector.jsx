@@ -10,15 +10,15 @@ export default function Selector (props) {
   const baseClass = 'cui__selector--direct'
   const cls = classNames(baseClass, 'title', className)
 
-  const options = data.map(({id, label}) => {
+  const options = data.map((d) => {
     const optionClass = classNames(`${baseClass}__item`)
     const labelClass = classNames(`${baseClass}__label`)
     const iconClass = classNames(`${baseClass}__icon`)
 
     return (
-      <div key={id} className={optionClass} onClick={() => onChange(id)}>
-        <div className={labelClass} style={{display: 'block'}}>{label}</div>
-        {id === selected ? <Checkmark className={iconClass} color='blue'/> : null}
+      <div key={d.id} className={optionClass} onClick={() => onChange(d)}>
+        <div className={labelClass} style={{display: 'block'}}>{d.label}</div>
+        {d.id === selected ? <Checkmark className={iconClass} color='blue'/> : null}
       </div>
     )
   })

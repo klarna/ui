@@ -17,6 +17,7 @@ This package doesn't have a build, so you must have a Babel pipeline to use it. 
 ```javascript
 test: /\.(jsx|es6)$/
 loader: 'babel'
+
 test: /\.scss$/,
 loaders: [
   'style',
@@ -97,7 +98,6 @@ BROWSER=PhantomJS,Chrome,Firefox npm test
 ## License
 
 Please check the [LICENSE](LICENSE) file.
-
 
 ## Contributing
 
