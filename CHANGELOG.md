@@ -1,3 +1,7 @@
+# 0.9.0
+
+- Add Checklist component
+
 # 0.8.6
 
 - Added white loaders
