@@ -33,6 +33,14 @@ describe('Loader', () => {
     })
   })
 
+  describe('color', () => {
+    it("when 'white' has className 'white'", () => {
+      const loader = render({ color: 'white' })
+
+      equal('cui__loader white', loader.props.className)
+    })
+  })
+
   describe('size', () => {
     it("when 'big' has className 'big'", () => {
       const loader = render({ size: 'big' })
