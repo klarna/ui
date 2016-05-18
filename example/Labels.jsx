@@ -22,7 +22,7 @@ export default function Labels () {
           ))
         }
 
-        <div style={{background: '#00a'}}>
+        <div style={{background: '#0074c8'}}>
           <Label inverted style={{margin: '5px'}}>
             inverted
           </Label>

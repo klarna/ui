@@ -11,7 +11,7 @@ export default function Loader ({className, color, size}) {
 }
 
 Loader.sizes = ['big', 'small', 'tiny']
-Loader.colors = ['blue']
+Loader.colors = ['blue', 'white']
 
 Loader.propTypes = {
   className: PropTypes.string,

@@ -20,6 +20,16 @@ export default function Loaders () {
         <Loader color='blue' size='small' />
         <Loader color='blue' size='tiny' />
       </Code>
+
+      <h3>White</h3>
+      <Code>
+        <div style={{background: '#0074c8'}}>
+          <Loader color='white' size='big' />
+          <Loader color='white' />
+          <Loader color='white' size='small' />
+          <Loader color='white' size='tiny' />
+        </div>
+      </Code>
     </div>
   )
 }
