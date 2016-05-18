@@ -1,3 +1,7 @@
+# 0.8.6
+
+- Added white loaders
+
 # 0.8.4
 
 - Merge 0.7.5 into 0.8.3
