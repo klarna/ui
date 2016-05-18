@@ -58,7 +58,7 @@ describe('Checklist', () => {
   })
 
   describe('chromeless', () => {
-    const checklist = renderChecklist({ chromeless: true },[])
+    const checklist = renderChecklist({ chromeless: true }, [])
 
     it('has class chromeless', () => {
       ok(checklist.props.className.match('chromeless'))

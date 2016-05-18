@@ -1,7 +1,7 @@
 import React from 'react'
 import Code from './Code'
 import Checklist from '../components/Checklist'
-import { PrimaryTitle, Subtitle, Paragraph } from '../components/Text'
+import { PrimaryTitle } from '../components/Text'
 
 export default function Checklists () {
   return (
