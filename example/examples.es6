@@ -1,6 +1,7 @@
 export Buttons from './Buttons'
 export ContextMenus from './ContextMenus'
 export Dialogs from './Dialogs'
+export Checklists from './Checklists'
 export Fields from './Fields'
 export Icons from './Icons'
 export Inputs from './Inputs'
