@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Code from './Code'
 import Button from '../components/Button'
 import Dialog from '../components/Dialog'
 import { CloseButton } from '../components/IconButton'
