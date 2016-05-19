@@ -1,22 +1,42 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Code from './Code'
 import Button from '../components/Button'
 import Dialog from '../components/Dialog'
+import { CloseButton } from '../components/IconButton'
 import { PrimaryTitle, Subtitle, Paragraph } from '../components/Text'
 
-export default function Dialogs () {
-  return (
-    <div>
-      <PrimaryTitle small blue>Long viewport</PrimaryTitle>
-      <Paragraph>
-        For example, an iPhone 6
-      </Paragraph>
+export default class Dialogs extends Component {
+  constructor () {
+    super()
 
-      <Code width={395}>
-        <div style={{height: 667, width: 375}}>
+    this.state = {
+      dialog: {
+        open: false
+      }
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        <Paragraph>
+          Dialogs are full screen. Please click the button to show it.
+        </Paragraph>
+
+        <Button onClick={() => this.setState({
+          dialog: {
+            open: true
+          }
+        })}>
+          Show Dialog
+        </Button>
+
+        <Dialog.Overlay show={this.state.dialog.open}>
           <Dialog>
             <Dialog.Icon>
-              X
+              <CloseButton
+                onClick={() => this.setState({ dialog: { open: false } })}
+              />
             </Dialog.Icon>
 
             <Dialog.Content>
@@ -26,34 +46,11 @@ export default function Dialogs () {
             </Dialog.Content>
 
             <Dialog.Footer>
-              <Button>Make dialogs great again</Button>
+              <Button onClick={() => this.setState({ dialog: { open: false } })} >Close the nice dialog</Button>
             </Dialog.Footer>
           </Dialog>
-        </div>
-      </Code>
-
-      <PrimaryTitle small blue>Small viewport</PrimaryTitle>
-      <Paragraph>
-        For example, an iPhone 4 in landscape
-      </Paragraph>
-
-      <Code width={500}>
-        <div style={{overflow: 'scroll', height: 320, width: 480}}>
-          <Dialog>
-            <Dialog.Content>
-              <PrimaryTitle>The title is primary</PrimaryTitle>
-              <Subtitle>Just trying to fill up space</Subtitle>
-              <Paragraph design='secondary'>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</Paragraph>
-
-              <Paragraph>Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.</Paragraph>
-            </Dialog.Content>
-
-            <Dialog.Footer>
-              <Button size='small'>Make dialogs great again</Button>
-            </Dialog.Footer>
-          </Dialog>
-        </div>
-      </Code>
-    </div>
-  )
+        </Dialog.Overlay>
+      </div>
+    )
+  }
 }
