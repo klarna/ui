@@ -61,3 +61,19 @@ Dialog.Footer.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string
 }
+
+Dialog.Overlay = ({ children, className, show, ...props }) => (
+  <div
+    className={classNames('cui__dialog__overlay', { 'is-visible': show }, className)}>
+    <div
+      className={classNames('cui__dialog__wrapper')}>
+      {children}
+    </div>
+  </div>
+)
+
+Dialog.Overlay.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  show: PropTypes.bool
+}

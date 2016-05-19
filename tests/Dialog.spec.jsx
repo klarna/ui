@@ -8,6 +8,7 @@ const render = renderer(Dialog)
 const renderIcon = renderer(Dialog.Icon)
 const renderContent = renderer(Dialog.Content)
 const renderFooter = renderer(Dialog.Footer)
+const renderOverlay = renderer(Dialog.Overlay)
 
 describe('Dialog', () => {
   describe('default', () => {
@@ -91,6 +92,41 @@ describe('Dialog', () => {
 
       it('has the content', () => {
         ok(dialogFooterInner.props.children.match('Some text'))
+      })
+    })
+  })
+
+  describe('overlay', () => {
+    const dialogOverlay = renderOverlay({}, 'Some text')
+    const dialogWrapper = dialogOverlay.props.children
+
+    it("renders tag 'div'", () => {
+      equal(dialogOverlay.type, 'div')
+    })
+
+    it("has className 'cui__dialog__overlay'", () => {
+      equal(dialogOverlay.props.className, 'cui__dialog__overlay')
+    })
+
+    describe('wrapper', () => {
+      it("renders tag 'div'", () => {
+        equal(dialogWrapper.type, 'div')
+      })
+
+      it("has className 'cui__dialog__footer--inner'", () => {
+        equal(dialogWrapper.props.className, 'cui__dialog__wrapper')
+      })
+
+      it('has the content', () => {
+        ok(dialogWrapper.props.children.match('Some text'))
+      })
+    })
+
+    describe('show', () => {
+      const dialogOverlay = renderOverlay({ show: true })
+
+      it('has class "is-visible"', () => {
+        ok(dialogOverlay.props.className.match('is-visible'))
       })
     })
   })
