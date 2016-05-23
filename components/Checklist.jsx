@@ -46,7 +46,7 @@ Checklist.Item.displayName = 'Checklist.Item'
 Checklist.Item.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  styles: PropTypes.obj
+  styles: PropTypes.object
 }
 
 Checklist.Item.defaultProps = {
