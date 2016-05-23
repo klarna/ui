@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/text.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
 import palette from './palette'
 
-const classNames = classNamesBind.bind(styles)
-
-export default function Paragraph ({ children, className, color, condensed, design, ...props }) {
+export default function Paragraph ({ children, className, color, condensed, design, styles, ...props }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })  
   const cls = classNames(`cui__paragraph--${design}`, color, className, { condensed })
 
   return (
@@ -20,7 +19,8 @@ Paragraph.designs = ['primary', 'secondary', 'legal']
 Paragraph.defaultProps = {
   color: undefined,
   condensed: false,
-  design: 'primary'
+  design: 'primary',
+  styles: {}
 }
 
 Paragraph.propTypes = {
@@ -28,5 +28,6 @@ Paragraph.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   condensed: PropTypes.bool,
-  design: PropTypes.oneOf(Paragraph.designs)
+  design: PropTypes.oneOf(Paragraph.designs),
+  styles: PropTypes.object
 }
