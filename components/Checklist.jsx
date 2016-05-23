@@ -17,7 +17,7 @@ Checklist.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   chromeless: PropTypes.bool,
-  styles: PropTypes.obj
+  styles: PropTypes.object
 }
 
 Checklist.defaultProps = {
