@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/text.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
 import palette from './palette'
 
-const classNames = classNamesBind.bind(styles)
-
-export default function Amount ({ children, className, color, ...remainingProps }) {
+export default function Amount ({ children, className, color, styles, ...remainingProps }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('cui__amount-text', color, className)
 
   return (
@@ -16,11 +15,13 @@ export default function Amount ({ children, className, color, ...remainingProps 
 }
 
 Amount.defaultProps = {
-  color: 'black'
+  color: 'black',
+  styles: {}
 }
 
 Amount.propTypes = {
   color: PropTypes.oneOf(palette),
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  styles: PropTypes.object
 }
