@@ -38,6 +38,11 @@ export default function Switches () {
         <Switch design='checkbox'>This is a toggle switch with checkbox design</Switch>
       </Code>
 
+      <h5>Checkbox with legal size text</h5>
+      <Code>
+        <Switch design='checkbox' legal>This is a toggle switch with checkbox design and legal size text that usually will fold into multiple lines</Switch>
+      </Code>
+
       <h5>In a form</h5>
       <Code>
         <form onSubmit={(event) => {
