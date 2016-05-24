@@ -1,3 +1,7 @@
+# 0.10.0
+
+- Add legal variation of the Switch component 
+
 # 0.9.0
 
 - Add Checklist component
