@@ -89,7 +89,7 @@ Menu.designs = ['tab', 'segmented']
 Menu.tabDisplays = ['fluid', 'static']
 
 Menu.optionsSchema = PropTypes.shape({
-  label: PropTypes.string.isRequired,
+  label: PropTypes.node.isRequired,
   key: PropTypes.string.isRequired
 })
 

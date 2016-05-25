@@ -1,6 +1,7 @@
 import React from 'react'
 import Menu from '../components/Menu'
 import AnimatedMenu from '../components/AnimatedMenu'
+import Label from '../components/Label'
 import { PrimaryTitle, Subtitle, Paragraph } from '../components/Text'
 import Code from './Code'
 
@@ -8,6 +9,11 @@ const options = [
   { key: 'home', label: 'Home' },
   { key: 'faq', label: 'FAQ' },
   { key: 'archive', label: 'Archive' }
+]
+
+const optionsWithComponents = [
+  { key: 'home', label: <div>Home</div> },
+  { key: 'faq', label: <div>To do <Label design='warning'>urgent</Label></div> }
 ]
 
 class AddableMenu extends React.Component {
@@ -160,6 +166,18 @@ export default function Menus () {
           options={options} />
       </Code>
 
+      <Subtitle>Options with components</Subtitle>
+      <Paragraph>
+        Options also support components as labels.
+      </Paragraph>
+      <Code>
+        <Menu
+          onChange={(key) => console.log('You selected', key)}
+          tabDisplay='static'
+          name='options-with-components'
+          selected='home'
+          options={optionsWithComponents} />
+      </Code>
     </div>
   )
 }
