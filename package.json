@@ -1,6 +1,6 @@
 {
   "name": "@klarna/ui-react-components",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Klarna's UI React Components",
   "repository": "https://github.com/klarna/ui-react-components",
   "license": "SEE LICENSE IN LICENSE",
