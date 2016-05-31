@@ -2,13 +2,12 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
 
-export default function TextLabel (props) {
-  const {
-    className,
-    children,
-    styles,
-    ...remainingProps } = props
-
+export default function TextLabel ({
+  className,
+  children,
+  styles,
+  ...remainingProps
+}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('cui__text-label', className)
 

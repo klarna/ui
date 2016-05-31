@@ -1,14 +1,14 @@
 import React, { PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/field.scss'
-
-const classNames = classNamesBind.bind(styles)
+import defaultStyles from '@klarna/ui-css-components/src/components/field.scss'
 
 export default function Fieldset (props) {
   const {
     className,
     children,
+    styles,
     ...remainingProps } = props
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames('cui__fieldset', className)
 
@@ -19,5 +19,6 @@ export default function Fieldset (props) {
 
 Fieldset.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  styles: PropTypes.object
 }

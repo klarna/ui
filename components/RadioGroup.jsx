@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/dropdown.scss'
-
-const classNames = classNamesBind.bind(styles)
+import defaultStyles from '@klarna/ui-css-components/src/components/dropdown.scss'
 
 export default function RadioGroup (props) {
-  const { selected, onChange, className, data, ...remainingProps } = props
+  const { selected, onChange, className, data, styles, ...remainingProps } = props
   const baseClass = 'cui__dropdown--radio'
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames(baseClass, className)
 
   const options = data.map(({id, label, description}) => {
@@ -42,5 +41,6 @@ RadioGroup.propTypes = {
   selected: React.PropTypes.any.isRequired,
   onChange: React.PropTypes.func.isRequired,
   className: PropTypes.string,
-  data: PropTypes.arrayOf(RadioGroup.optionSchema).isRequired
+  data: PropTypes.arrayOf(RadioGroup.optionSchema).isRequired,
+  styles: PropTypes.object
 }

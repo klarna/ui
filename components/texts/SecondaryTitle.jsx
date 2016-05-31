@@ -5,7 +5,7 @@ import palette from './palette'
 
 export default function SecondaryTitle ({ className, color, condensed, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  
+
   const cls = classNames('cui__title--secondary', color, className, { condensed })
 
   return (

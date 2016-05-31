@@ -5,7 +5,7 @@ import palette from './palette'
 
 export default function PrimaryTitle ({ className, color, small, strong, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  
+
   const cls = classNames('cui__title--primary', color, className, {
     small,
     strong

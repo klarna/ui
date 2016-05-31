@@ -5,7 +5,7 @@ import palette from './palette'
 
 export default function Subtitle ({ children, className, color, condensed, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  
+
   const cls = classNames('cui__subtitle', color, className, { condensed })
 
   return (

@@ -4,7 +4,7 @@ import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
 import palette from './palette'
 
 export default function Paragraph ({ children, className, color, condensed, design, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })  
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames(`cui__paragraph--${design}`, color, className, { condensed })
 
   return (
