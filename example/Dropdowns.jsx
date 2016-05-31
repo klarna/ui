@@ -80,12 +80,14 @@ export default function Dropdowns () {
         <Dropdown label='Something is incorect' warning data={data} selected={1} />
       </Code>
 
-      <Subtitle>Layouts</Subtitle>
+      <SecondaryTitle>Layouts</SecondaryTitle>
+      <Subtitle>Simple</Subtitle>
       <Code>
         <Dropdown size='1/2' left label='Lorem ipsum' data={data} />
         <Dropdown size='1/2' right label='Lorem ipsum' data={data} selected={1} />
       </Code>
 
+      <Subtitle>Complex</Subtitle>
       <Code>
         <Dropdown top left size='1/2' label='Given name' data={data} />
         <Dropdown center size='1/4' label='Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name' data={data} />
