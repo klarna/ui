@@ -41,11 +41,12 @@ export default function Dropdown (props) {
 
   const baseClass = 'cui__dropdown--native'
 
-  const options = data.map(({id, label, description}) => {
+  const options = data.map(({value, label}) => {
     return (
       <option
-        key={id}
-        value={id}>
+        key={value}
+        value={value}
+      >
         {label}
       </option>
     )
@@ -70,7 +71,7 @@ export default function Dropdown (props) {
       {
         selected && (
           <div className={styles[`${baseClass}__current-option`]}>
-            {getSelectedLabel(data, selected)}
+            {getSelectedOptionLabel(data, selected)}
           </div>
         )
       }
@@ -84,13 +85,21 @@ export default function Dropdown (props) {
   )
 }
 
-function getSelectedLabel (data, selected) {
-  const selectedItem = data.find((item) => String(item.id) === String(selected))
-  return selectedItem ? selectedItem.label : ''
+function getSelectedOptionLabel (data, selected) {
+  const selectedOption = data.find((option) => String(option.value) === String(selected))
+  return selectedOption ? selectedOption.label : ''
+}
+
+function renderLabel () {
+  //TODO
+}
+
+function renderValue () {
+  //TODO
 }
 
 Dropdown.optionSchema = PropTypes.shape({
-  id: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
   label: PropTypes.string.isRequired
 })
 

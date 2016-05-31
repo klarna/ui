@@ -10,8 +10,8 @@ import Dropdown from '../components/Dropdown'
 
 export default function Dropdowns () {
   const data = [
-    {id: 1, label: 'Lorem' },
-    {id: 2, label: 'Ipsum' }
+    {value: 1, label: 'Lorem' },
+    {value: 2, label: 'Ipsum' }
   ]
 
   return (
@@ -28,6 +28,16 @@ export default function Dropdowns () {
       <Subtitle>With Selected Value</Subtitle>
       <Code>
         <Dropdown label='Lorem ipsum' data={data} selected={1} />
+      </Code>
+
+      <SecondaryTitle>Big</SecondaryTitle>
+      <Code>
+        <Dropdown big label='Lorem ipsum' data={data} />
+      </Code>
+
+      <Subtitle>With Selected Value</Subtitle>
+      <Code>
+        <Dropdown big label='Lorem ipsum' data={data} selected={1} />
       </Code>
 
       <SecondaryTitle>Focused</SecondaryTitle>
