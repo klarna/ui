@@ -34,7 +34,7 @@ export default function Selectors () {
       <Code>
         <Dropdown label='Lorem ipsum' data={data} />
         <Dropdown label='Lorem ipsum' data={data} selected={1} />
-        <Dropdown label='Lorem ipsum' data={data} selected={2} />
+        <Dropdown label='Lorem ipsum' big data={data} selected={2} />
       </Code>
 
       <h5>Focused</h5>

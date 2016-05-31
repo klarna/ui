@@ -2,34 +2,44 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/dropdown.scss'
 
+import * as programmaticFocus from '../lib/features/programmaticFocus'
+import * as fieldStates from '../lib/features/fieldStates'
+import { position, size } from '../lib/features/stacking'
+
 const classNames = classNamesBind.bind(styles)
 
 export default function Dropdown (props) {
   const {
-    selected,
-    name,
-    error,
-    warning,
-    label,
-    onChange,
     className,
-    data,
-    loading,
-    focused,
+    big,
     disabled,
-    size,
-    position,
-    ...remainingProps } = props
+    label,
+    loading,
+    onChange,
+    square,
+    selected,
+    data,
+    ...remainingProps
+  } = props
+
+  const classes = {
+    field: classNames('cui__dropdown--native', {
+        big,
+        'is-loading': loading,
+        'is-selected': selected,
+        square
+      },
+      fieldStates.getClassName(props),
+      programmaticFocus.getClassName(props),
+      size.getClassName(props),
+      position.getClassName(props),
+      className),
+    label: classNames(
+      'cui__dropdown--native__label'
+    )
+  }
 
   const baseClass = 'cui__dropdown--native'
-  const cls = classNames(baseClass, className, size, position, {
-    'is-selected': selected,
-    'is-loading': loading,
-    'is-focused': focused,
-    'is-disabled': disabled,
-    'is-error': !!error,
-    'is-warning': !!warning
-  })
 
   const options = data.map(({id, label, description}) => {
     return (
@@ -41,10 +51,10 @@ export default function Dropdown (props) {
     )
   })
 
-  const problem = error || warning
+  const problem = props.error || props.warning
 
   return (
-    <div className={cls} {...remainingProps}>
+    <div className={classes.field} {...remainingProps}>
       {
         problem && (
           <div className={styles[`${baseClass}__floating-label`]}>
@@ -54,9 +64,7 @@ export default function Dropdown (props) {
       }
       {
         label && !(problem && selected) && (
-          <div className={styles[`${baseClass}__label`]}>
-            {label}
-          </div>
+          <label className={classes.label}>{label}</label>
         )
       }
       {
@@ -67,7 +75,6 @@ export default function Dropdown (props) {
         )
       }
       <select className={styles[`${baseClass}__select`]}
-        name={name}
         onChange={onChange && ((e) => onChange(e.target.value))}
         defaultValue={selected}
         disabled={loading || disabled}>
