@@ -10,8 +10,8 @@ import Dropdown from '../components/Dropdown'
 
 export default function Dropdowns () {
   const data = [
-    {id: 1, label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
-    {id: 2, label: 'Ipsum', description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
+    {id: 1, label: 'Lorem' },
+    {id: 2, label: 'Ipsum' }
   ]
 
   return (
@@ -87,15 +87,15 @@ export default function Dropdowns () {
       </Code>
 
       <Code>
-        <Dropdown top left size='1/2' label='Given name' data={[]} />
-        <Dropdown center size='1/4' label='Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name' data={[]} />
-        <Dropdown top right size='1/4' label='Last name' data={[]} />
-        <Dropdown left square size='1/5' label='Number' data={[]} />
-        <Dropdown right square size='4/5' label='Street Address' data={[]} />
-        <Dropdown left square size='1/3' label='Your favorite pokémon' data={[]} />
-        <Dropdown right square size='2/3' label='Android or iPhone: please explain' data={[]} />
-        <Dropdown left bottom size='2/5' label='Date of Birth' data={[]} />
-        <Dropdown right bottom size='3/5' label='Mobile phone number' data={[]} />
+        <Dropdown top left size='1/2' label='Given name' data={data} />
+        <Dropdown center size='1/4' label='Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name' data={data} />
+        <Dropdown top right size='1/4' label='Last name' data={data} />
+        <Dropdown left square size='1/5' label='Number' data={data} />
+        <Dropdown right square size='4/5' label='Street Address' data={data} />
+        <Dropdown left square size='1/3' label='Your favorite pokémon' data={data} />
+        <Dropdown right square size='2/3' label='Android or iPhone: please explain' data={data} />
+        <Dropdown left bottom size='2/5' label='Date of Birth' data={data} />
+        <Dropdown right bottom size='3/5' label='Mobile phone number' data={data} />
       </Code>
     </div>
   )
