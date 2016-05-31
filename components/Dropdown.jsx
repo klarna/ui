@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import styles from '@klarna/ui-css-components/src/components/dropdown.scss'
-import find from 'lodash/collection/find'
 
 const classNames = classNamesBind.bind(styles)
 
@@ -63,7 +62,7 @@ export default function Dropdown (props) {
       {
         selected && (
           <div className={styles[`${baseClass}__current-option`]}>
-            {find(data, (item) => String(item.id) === String(selected)).label}
+            {getSelectedLabel(data, selected)}
           </div>
         )
       }
@@ -76,6 +75,11 @@ export default function Dropdown (props) {
       </select>
     </div>
   )
+}
+
+function getSelectedLabel (data, selected) {
+  const selectedItem = data.find((item) => String(item.id) === String(selected))
+  return selectedItem ? selectedItem.label : ''
 }
 
 Dropdown.optionSchema = PropTypes.shape({
