@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/block.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/block.scss'
 
-const classNames = classNamesBind.bind(styles)
-
-export default function Block ({className, blue, children, ...remainingProps}) {
+export default function Block ({className, blue, children, styles, ...remainingProps}) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('cui__block', { blue }, className)
 
   return (
@@ -17,5 +16,6 @@ export default function Block ({className, blue, children, ...remainingProps}) {
 Block.propTypes = {
   blue: PropTypes.bool,
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  styles: PropTypes.object
 }
