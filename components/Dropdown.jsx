@@ -58,7 +58,7 @@ export default function Dropdown (props) {
       {
         problem && (
           <div className={styles[`${baseClass}__floating-label`]}>
-            {problem}
+            {label}
           </div>
         )
       }
@@ -94,8 +94,12 @@ Dropdown.optionSchema = PropTypes.shape({
   label: PropTypes.string.isRequired
 })
 
-Dropdown.sizes = ['quarter', 'half']
-Dropdown.positions = ['top', 'bottom', 'center', 'square', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right']
+Dropdown.defaultProps = {
+  loading: false,
+  ...fieldStates.defaultProps,
+  ...position.defaultProps,
+  ...size.defaultProps
+}
 
 Dropdown.propTypes = {
   label: React.PropTypes.string.isRequired,
@@ -107,8 +111,8 @@ Dropdown.propTypes = {
   loading: PropTypes.bool,
   focused: PropTypes.bool,
   disabled: PropTypes.bool,
-  error: PropTypes.string,
-  warning: PropTypes.string,
-  size: PropTypes.oneOf(Dropdown.sizes),
-  position: PropTypes.oneOf(Dropdown.positions)
+  error: PropTypes.bool,
+  warning: PropTypes.bool,
+  ...position.propTypes,
+  ...size.propTypes
 }
