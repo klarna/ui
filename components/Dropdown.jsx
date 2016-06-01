@@ -1,113 +1,131 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/dropdown.scss'
-
+import styles from '@klarna/ui-css-components/src/components/input.scss'
 import * as programmaticFocus from '../lib/features/programmaticFocus'
 import * as fieldStates from '../lib/features/fieldStates'
+import * as inlinedIcon from '../lib/features/inlinedIcon'
 import { position, size } from '../lib/features/stacking'
 
 const classNames = classNamesBind.bind(styles)
 
-export default function Dropdown (props) {
-  const {
-    className,
-    data,
-    disabled,
-    label,
-    loading,
-    onChange,
-    selected,
-    square,
-    ...remainingProps
-  } = props
+export default class Dropdown extends Component {
 
-  const baseClass = 'cui__dropdown--native'
-
-  const classes = {
-    field: classNames('cui__dropdown--native',
-      {
-        'is-loading': loading,
-        'is-selected': selected,
-        square
-      },
-      fieldStates.getClassName(props),
-      programmaticFocus.getClassName(props),
-      size.getClassName(props),
-      position.getClassName(props),
-      className),
-    label: classNames(
-      'cui__dropdown--native__label'
-    )
+  componentDidMount () {
+    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.select)
   }
 
-  const problem = props.error || props.warning
+  componentDidUpdate () {
+    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.select)
+  }
 
-  return (
-    <div className={classes.field} {...remainingProps}>
-      {
-        problem
-          ? <div className={styles[`${baseClass}__floating-label`]}>
-            {label}
-          </div>
-          : <label className={classes.label}>
-            {label}
-          </label>
-      }
-      {
-        selected && (
-          <div className={styles[`${baseClass}__current-option`]}>
-            {getSelectedOptionLabel(data, selected)}
-          </div>
-        )
-      }
-      <select className={styles[`${baseClass}__select`]}
-        onChange={onChange && ((e) => onChange(e.target.value))}
-        defaultValue={selected}
-        disabled={loading || disabled}>
-        {getOptions(data)}
-      </select>
-    </div>
-  )
-}
+  render () {
+    const {
+      big,
+      centered,
+      className,
+      disabled,
+      giant,
+      icon,
+      label,
+      loading,
+      onBlur,
+      onChange,
+      onClick,
+      onFocus,
+      options,
+      square,
+      value,
+      ...props
+    } = this.props
 
-function getSelectedOptionLabel (data, selected) {
-  const selectedOption = data.find((option) => String(option.value) === String(selected))
-  return selectedOption ? selectedOption.label : ''
-}
+    const problem = props.error || props.warning
+    const selectedOption = options.find((option) => String(option.value) === String(value))
 
-function getOptions (data) {
-  return data.map(({value, label}) => {
+    const classes = {
+      dropdown: classNames('cui__dropdown--native', {
+          'is-centered': centered,
+          'is-loading': loading,
+          'is-selected': value != null && value !== '',
+          big,
+          giant,
+          square
+        },
+        fieldStates.getClassName(this.props),
+        position.getClassName(this.props),
+        programmaticFocus.getClassName(this.props),
+        size.getClassName(this.props),
+        className),
+      label: classNames(problem ? 'cui__dropdown--native__floating-label' : 'cui__dropdown--native__label'),
+      currentOption: classNames('cui__dropdown--native__current-option'),
+      select: classNames('cui__dropdown--native__select')
+    }
+
     return (
-      <option key={value} value={value}>
-        {label}
-      </option>
+      <div
+        className={classes.dropdown}
+        onClick={onClick}
+      >
+        <label className={classes.label}>{label}</label>
+        {
+          value &&
+          <div className={classes.currentOption}>{selectedOption.label}</div>
+        }
+        <select
+          className={classes.select}
+          defaultValue={value || ''}
+          disabled={disabled}
+          onBlur={onBlur}
+          onChange={onChange || function () {}}
+          onFocus={onFocus}
+          ref='select'
+          {...props}
+        >
+          {
+            options.map(({value, label}) => {
+              return (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              )
+            })
+          }
+        </select>
+      </div>
     )
-  })
+  }
 }
 
-Dropdown.optionSchema = PropTypes.shape({
+Dropdown.optionShape = PropTypes.shape({
   label: PropTypes.string.isRequired,
   value: PropTypes.any.isRequired
 })
 
+Dropdown.propTypes = {
+  big: PropTypes.bool,
+  centered: PropTypes.bool,
+  giant: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
+  options: PropTypes.arrayOf(Dropdown.optionShape),
+  value: PropTypes.any,
+  ...inlinedIcon.propTypes,
+  ...fieldStates.propTypes,
+  ...position.propTypes,
+  ...programmaticFocus.propTypes,
+  ...size.propTypes
+}
+
 Dropdown.defaultProps = {
+  big: false,
+  centered: false,
+  giant: false,
+  loading: false,
+  ...inlinedIcon.defaultProps,
   ...fieldStates.defaultProps,
   ...position.defaultProps,
   ...size.defaultProps
-}
-
-Dropdown.propTypes = {
-  className: PropTypes.string,
-  data: PropTypes.arrayOf(Dropdown.optionSchema),
-  disabled: PropTypes.bool,
-  error: PropTypes.bool,
-  focused: PropTypes.bool,
-  label: React.PropTypes.string.isRequired,
-  loading: PropTypes.bool,
-  name: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  selected: React.PropTypes.any,
-  warning: PropTypes.bool,
-  ...position.propTypes,
-  ...size.propTypes
 }
