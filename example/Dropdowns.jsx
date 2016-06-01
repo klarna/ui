@@ -17,11 +17,6 @@ export default function Dropdowns () {
 
   return (
     <div>
-      <Paragraph>
-        Dropdown allow the user to pick one option among many
-        with a design similar to HTML's select.
-      </Paragraph>
-
       <Code>
         <Dropdown label='Lorem ipsum' data={data} />
       </Code>
