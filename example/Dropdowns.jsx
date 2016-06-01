@@ -30,24 +30,19 @@ export default function Dropdowns () {
         <Dropdown label='Lorem ipsum' data={data} selected={1} />
       </Code>
 
-      <SecondaryTitle>Big</SecondaryTitle>
-      <Code>
-        <Dropdown big label='Lorem ipsum' data={data} />
-      </Code>
-
-      <Subtitle>With Selected Value</Subtitle>
-      <Code>
-        <Dropdown big label='Lorem ipsum' data={data} selected={1} />
-      </Code>
-
       <SecondaryTitle>Focused</SecondaryTitle>
       <Code>
-        <Dropdown focused label='Lorem ipsum' data={data} />
+        <Dropdown focus label='Lorem ipsum' data={data} />
       </Code>
 
       <Subtitle>With Selected Value</Subtitle>
       <Code>
-        <Dropdown focused label='Lorem ipsum' data={data} selected={1} />
+        <Dropdown focus label='Lorem ipsum' data={data} selected={1} />
+      </Code>
+
+      <Subtitle>With Fake Focus</Subtitle>
+      <Code>
+        <Dropdown focus='fake' label='Lorem ipsum' data={data} selected={1} />
       </Code>
 
       <SecondaryTitle>Loading</SecondaryTitle>

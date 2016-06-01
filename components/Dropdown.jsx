@@ -11,7 +11,6 @@ const classNames = classNamesBind.bind(styles)
 export default function Dropdown (props) {
   const {
     className,
-    big,
     disabled,
     label,
     loading,
@@ -24,7 +23,6 @@ export default function Dropdown (props) {
 
   const classes = {
     field: classNames('cui__dropdown--native', {
-        big,
         'is-loading': loading,
         'is-selected': selected,
         square
