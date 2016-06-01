@@ -5,6 +5,7 @@ import * as programmaticFocus from '../lib/features/programmaticFocus'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import { position, size } from '../lib/features/stacking'
+import { handleKeyDown } from '../lib/features/keyboardEvents'
 
 const classNames = classNamesBind.bind(styles)
 
@@ -77,6 +78,7 @@ export default class Dropdown extends Component {
           onBlur={onBlur}
           onChange={onChange || function () {}}
           onFocus={onFocus}
+          onKeyDown={handleKeyDown(this.props)}
           ref='select'
           {...props}
         >
@@ -114,6 +116,7 @@ Dropdown.propTypes = {
   value: PropTypes.any,
   ...inlinedIcon.propTypes,
   ...fieldStates.propTypes,
+  ...handleKeyDown.propTypes,
   ...position.propTypes,
   ...programmaticFocus.propTypes,
   ...size.propTypes
@@ -127,5 +130,6 @@ Dropdown.defaultProps = {
   ...inlinedIcon.defaultProps,
   ...fieldStates.defaultProps,
   ...position.defaultProps,
+  ...handleKeyDown.defaultProps,
   ...size.defaultProps
 }
