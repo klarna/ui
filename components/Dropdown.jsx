@@ -11,15 +11,17 @@ const classNames = classNamesBind.bind(styles)
 export default function Dropdown (props) {
   const {
     className,
+    data,
     disabled,
     label,
     loading,
     onChange,
-    square,
     selected,
-    data,
+    square,
     ...remainingProps
   } = props
+
+  const baseClass = 'cui__dropdown--native'
 
   const classes = {
     field: classNames('cui__dropdown--native', {
@@ -37,34 +39,18 @@ export default function Dropdown (props) {
     )
   }
 
-  const baseClass = 'cui__dropdown--native'
-
-  const options = data.map(({value, label}) => {
-    return (
-      <option
-        key={value}
-        value={value}
-      >
-        {label}
-      </option>
-    )
-  })
-
   const problem = props.error || props.warning
 
   return (
     <div className={classes.field} {...remainingProps}>
       {
-        problem && (
+        problem ?
           <div className={styles[`${baseClass}__floating-label`]}>
             {label}
-          </div>
-        )
-      }
-      {
-        label && !(problem && selected) && (
-          <label className={classes.label}>{label}</label>
-        )
+          </div> :
+          <label className={classes.label}>
+            {label}
+          </label>
       }
       {
         selected && (
@@ -77,7 +63,7 @@ export default function Dropdown (props) {
         onChange={onChange && ((e) => onChange(e.target.value))}
         defaultValue={selected}
         disabled={loading || disabled}>
-        {options}
+        {getOptions(data)}
       </select>
     </div>
   )
@@ -88,37 +74,38 @@ function getSelectedOptionLabel (data, selected) {
   return selectedOption ? selectedOption.label : ''
 }
 
-function renderLabel () {
-  //TODO
-}
-
-function renderValue () {
-  //TODO
+function getOptions (data) {
+  return data.map(({value, label}) => {
+    return (
+      <option key={value} value={value}>
+        {label}
+      </option>
+    )
+  })
 }
 
 Dropdown.optionSchema = PropTypes.shape({
-  value: PropTypes.any.isRequired,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  value: PropTypes.any.isRequired
 })
 
 Dropdown.defaultProps = {
-  loading: false,
   ...fieldStates.defaultProps,
   ...position.defaultProps,
   ...size.defaultProps
 }
 
 Dropdown.propTypes = {
-  label: React.PropTypes.string.isRequired,
-  name: React.PropTypes.string,
-  selected: React.PropTypes.any,
-  onChange: React.PropTypes.func,
   className: PropTypes.string,
-  data: PropTypes.arrayOf(Dropdown.optionSchema).isRequired,
-  loading: PropTypes.bool,
-  focused: PropTypes.bool,
+  data: PropTypes.arrayOf(Dropdown.optionSchema),
   disabled: PropTypes.bool,
   error: PropTypes.bool,
+  focused: PropTypes.bool,
+  label: React.PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  name: React.PropTypes.string,
+  onChange: React.PropTypes.func,
+  selected: React.PropTypes.any,
   warning: PropTypes.bool,
   ...position.propTypes,
   ...size.propTypes

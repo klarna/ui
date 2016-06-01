@@ -1,12 +1,13 @@
 /* globals alert */
 
 import React from 'react'
-import UncontrolledRadioGroup from '../components/uncontrolled/RadioGroup'
-import Selector from '../components/Selector'
-import Button from '../components/Button'
 import { SecondaryTitle, Subtitle, Paragraph } from '../components/Text'
+import Button from '../components/Button'
 import Code from './Code'
 import Dropdown from '../components/Dropdown'
+import Fieldset from '../components/Fieldset'
+import Selector from '../components/Selector'
+import UncontrolledRadioGroup from '../components/uncontrolled/RadioGroup'
 
 export default function Dropdowns () {
   const data = [
@@ -42,7 +43,7 @@ export default function Dropdowns () {
 
       <Subtitle>With Fake Focus</Subtitle>
       <Code>
-        <Dropdown focus='fake' label='Lorem ipsum' data={data} selected={1} />
+        <Dropdown focus='fake' label='Lorem ipsum' data={data} />
       </Code>
 
       <SecondaryTitle>Loading</SecondaryTitle>
@@ -88,21 +89,25 @@ export default function Dropdowns () {
       <SecondaryTitle>Layouts</SecondaryTitle>
       <Subtitle>Simple</Subtitle>
       <Code>
-        <Dropdown size='1/2' left label='Lorem ipsum' data={data} />
-        <Dropdown size='1/2' right label='Lorem ipsum' data={data} selected={1} />
+        <Fieldset>
+          <Dropdown size='1/2' left label='Lorem ipsum' data={data} />
+          <Dropdown size='1/2' right label='Lorem ipsum' data={data} selected={1} />
+        </Fieldset>
       </Code>
 
       <Subtitle>Complex</Subtitle>
       <Code>
-        <Dropdown top left size='1/2' label='Given name' data={data} />
-        <Dropdown center size='1/4' label='Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name' data={data} />
-        <Dropdown top right size='1/4' label='Last name' data={data} />
-        <Dropdown left square size='1/5' label='Number' data={data} />
-        <Dropdown right square size='4/5' label='Street Address' data={data} />
-        <Dropdown left square size='1/3' label='Your favorite pokémon' data={data} />
-        <Dropdown right square size='2/3' label='Android or iPhone: please explain' data={data} />
-        <Dropdown left bottom size='2/5' label='Date of Birth' data={data} />
-        <Dropdown right bottom size='3/5' label='Mobile phone number' data={data} />
+        <Fieldset>
+          <Dropdown top left size='1/2' label='Given name' data={data} />
+          <Dropdown center size='1/4' label='Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name Middle name' data={data} />
+          <Dropdown top right size='1/4' label='Last name' data={data} />
+          <Dropdown left square size='1/5' label='Number' data={data} />
+          <Dropdown right square size='4/5' label='Street Address' data={data} />
+          <Dropdown left square size='1/3' label='Your favorite pokémon' data={data} />
+          <Dropdown right square size='2/3' label='Android or iPhone: please explain' data={data} />
+          <Dropdown left bottom size='2/5' label='Date of Birth' data={data} />
+          <Dropdown right bottom size='3/5' label='Mobile phone number' data={data} />
+        </Fieldset>
       </Code>
     </div>
   )
