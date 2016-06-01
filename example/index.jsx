@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { PrimaryTitle } from '../components/Text'
 import * as examples from './examples'
+import 'normalize.css'
 import styles from './index.scss'
 
 function Root () {
