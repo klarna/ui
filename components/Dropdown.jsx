@@ -66,10 +66,11 @@ export default class Dropdown extends Component {
         className={classes.dropdown}
         onClick={onClick}
       >
-        <label className={classes.label}>{label}</label>
+        {!problem && <label className={classes.label}>{label}</label>}
+        {problem && <div className={classes.label}>{label}</div>}
         {
           value &&
-          <div className={classes.currentOption}>{selectedOption.label}</div>
+            <div className={classes.currentOption}>{selectedOption.label}</div>
         }
         <select
           className={classes.select}
