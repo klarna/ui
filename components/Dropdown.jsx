@@ -112,7 +112,7 @@ Dropdown.propTypes = {
   onChange: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
-  options: PropTypes.arrayOf(Dropdown.optionShape),
+  options: PropTypes.arrayOf(Dropdown.optionShape).isRequired,
   value: PropTypes.any,
   ...inlinedIcon.propTypes,
   ...fieldStates.propTypes,
