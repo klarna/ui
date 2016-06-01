@@ -1,18 +1,13 @@
-/* globals alert */
-
 import React from 'react'
-import { SecondaryTitle, Subtitle, Paragraph } from '../components/Text'
-import Button from '../components/Button'
+import { SecondaryTitle, Subtitle } from '../components/Text'
 import Code from './Code'
 import Dropdown from '../components/Dropdown'
 import Fieldset from '../components/Fieldset'
-import Selector from '../components/Selector'
-import UncontrolledRadioGroup from '../components/uncontrolled/RadioGroup'
 
 export default function Dropdowns () {
   const data = [
-    {value: 1, label: 'Lorem' },
-    {value: 2, label: 'Ipsum' }
+    { value: 1, label: 'Lorem' },
+    { value: 2, label: 'Ipsum' }
   ]
 
   return (

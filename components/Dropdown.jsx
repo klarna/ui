@@ -24,7 +24,8 @@ export default function Dropdown (props) {
   const baseClass = 'cui__dropdown--native'
 
   const classes = {
-    field: classNames('cui__dropdown--native', {
+    field: classNames('cui__dropdown--native',
+      {
         'is-loading': loading,
         'is-selected': selected,
         square
@@ -44,11 +45,11 @@ export default function Dropdown (props) {
   return (
     <div className={classes.field} {...remainingProps}>
       {
-        problem ?
-          <div className={styles[`${baseClass}__floating-label`]}>
+        problem
+          ? <div className={styles[`${baseClass}__floating-label`]}>
             {label}
-          </div> :
-          <label className={classes.label}>
+          </div>
+          : <label className={classes.label}>
             {label}
           </label>
       }
