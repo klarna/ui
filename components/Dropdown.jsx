@@ -40,7 +40,7 @@ export default class Dropdown extends Component {
     } = this.props
 
     const problem = props.error || props.warning
-    const selectedOption = options.find((option) => String(option.value) === String(value))
+    const selectedOption = options && options.find((option) => String(option.value) === String(value))
 
     const classes = {
       dropdown: classNames('cui__dropdown--native', {
@@ -66,10 +66,11 @@ export default class Dropdown extends Component {
         className={classes.dropdown}
         onClick={onClick}
       >
-        {!problem && <label className={classes.label}>{label}</label>}
-        {problem && <div className={classes.label}>{label}</div>}
         {
-          value &&
+          <label className={classes.label}>{label}</label>
+        }
+        {
+          selectedOption &&
             <div className={classes.currentOption}>{selectedOption.label}</div>
         }
         <select
@@ -84,7 +85,7 @@ export default class Dropdown extends Component {
           {...props}
         >
           {
-            options.map(({value, label}) => {
+            options && options.map(({value, label}) => {
               return (
                 <option key={value} value={value}>
                   {label}
@@ -113,7 +114,7 @@ Dropdown.propTypes = {
   onChange: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
-  options: PropTypes.arrayOf(Dropdown.optionShape).isRequired,
+  options: PropTypes.arrayOf(Dropdown.optionShape),
   value: PropTypes.any,
   ...inlinedIcon.propTypes,
   ...fieldStates.propTypes,
