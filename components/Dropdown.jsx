@@ -56,7 +56,10 @@ export default class Dropdown extends Component {
         programmaticFocus.getClassName(this.props),
         size.getClassName(this.props),
         className),
-      label: classNames(problem ? 'cui__dropdown--native__floating-label' : 'cui__dropdown--native__label'),
+      label: classNames({
+        'cui__dropdown--native__floating-label': problem,
+        'cui__dropdown--native__label': !problem
+      }),
       currentOption: classNames('cui__dropdown--native__current-option'),
       select: classNames('cui__dropdown--native__select')
     }
