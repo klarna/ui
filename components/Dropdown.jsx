@@ -66,11 +66,21 @@ export default class Dropdown extends Component {
         className={classes.dropdown}
         onClick={onClick}
       >
-        {!problem && <label className={classes.label}>{label}</label>}
-        {problem && <div className={classes.label}>{label}</div>}
         {
-          value &&
-            <div className={classes.currentOption}>{selectedOption.label}</div>
+          problem
+            ? <div className={styles['cui__dropdown--native__floating-label']}>
+              {label}
+            </div>
+            : <label className={classes.label}>
+              {label}
+            </label>
+        }
+        {
+          selectedOption && (
+            <div className={styles['cui__dropdown--native__current-option']}>
+              {selectedOption.label}
+            </div>
+       )
         }
         <select
           className={classes.select}
