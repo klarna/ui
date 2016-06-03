@@ -1,6 +1,15 @@
+# 0.10.2
+
+- Add pad lock icon
+- Updated the css component version to support ie9 fields
+
+# 0.10.1
+
+- Change prop type of menu label to node
+
 # 0.10.0
 
-- Add legal variation of the Switch component 
+- Add legal variation of the Switch component
 
 # 0.9.0
 
