@@ -15,6 +15,7 @@ import Logout from '../components/icons/Logout'
 import Mail from '../components/icons/Mail'
 import NotFound from '../components/icons/NotFound'
 import OpenLetter from '../components/icons/OpenLetter'
+import PadLock from '../components/icons/PadLock'
 import Password from '../components/icons/Password'
 import Person from '../components/icons/Person'
 import Phone from '../components/icons/Phone'
@@ -37,6 +38,7 @@ const icons = {
     Error,
     Letter,
     OpenLetter,
+    PadLock,
     NotFound,
     Time,
     SMS,
