@@ -8,7 +8,7 @@ export default function Preview ({ className, children, styles }) {
 
   return (
     <div className={cls}>
-      <div className={styles['cui__preview__content']}>
+      <div className={classNames('cui__preview__content')}>
         {children}
       </div>
     </div>
@@ -43,7 +43,7 @@ export function PreviewLink ({ children, className, styles, ...remainingProps })
   const cls = classNames('cui__preview__footer__link', className)
 
   return (
-    <div className={styles['cui__preview__footer']}>
+    <div className={classNames('cui__preview__footer')}>
       <a className={cls} {...remainingProps}>
         {children}
       </a>

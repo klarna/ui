@@ -18,7 +18,6 @@ describe('Checklist', () => {
     const checklist = renderChecklist(
       {},
       items.map((item, index) =>
-        (console.log(index), true) &&
         renderChecklistItem({ key: index }, item))
     )
 

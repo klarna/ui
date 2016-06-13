@@ -17,7 +17,7 @@ export default function PayButton ({
   return (
     <Button className={cls} loading={loading} {...remainingProps}>
       {children}
-      <span className={styles['cui__button__price']}>
+      <span className={classNames('cui__button__price')}>
         {price}
       </span>
     </Button>
