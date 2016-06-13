@@ -1,18 +1,23 @@
 import React, { PropTypes } from 'react'
-import styles from '@klarna/ui-css-components/src/components/button.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/button.scss'
 import Button from './Button'
 import classNamesBind from 'classnames/bind'
 
-const classNames = classNamesBind.bind(styles)
-
-export default function PayButton (props) {
-  const { price, children, className, loading, ...remainingProps } = props
+export default function PayButton ({
+  price,
+  children,
+  className,
+  loading,
+  styles,
+  ...remainingProps
+}) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames(loading || 'has-price', className)
 
   return (
     <Button className={cls} loading={loading} {...remainingProps}>
       {children}
-      <span className={styles['cui__button__price']}>
+      <span className={classNames('cui__button__price')}>
         {price}
       </span>
     </Button>

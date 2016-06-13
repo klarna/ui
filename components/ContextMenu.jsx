@@ -1,54 +1,76 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/context-menu.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/context-menu.scss'
 
-const classNames = classNamesBind.bind(styles)
 const baseClass = 'cui__context-menu'
 
-const ContextMenu = ({ className, children, ...props }) => (
-  <ol className={classNames(baseClass, className)} {...props}>
-    {children}
-  </ol>
-)
+const ContextMenu = ({ className, children, styles, ...props }) => {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-ContextMenu.Link = ({ className, children, ...props }) => (
-  <li>
-    <a className={classNames(`${baseClass}__item`, className)} {...props}>
+  return (
+    <ol className={classNames(baseClass, className)} {...props}>
       {children}
-    </a>
-  </li>
-)
+    </ol>
+  )
+}
+
+ContextMenu.Link = ({ className, children, styles, ...props }) => {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+  return (
+    <li>
+      <a className={classNames(`${baseClass}__item`, className)} {...props}>
+        {children}
+      </a>
+    </li>
+  )
+}
 ContextMenu.Link.displayName = 'ContextMenu.Link'
 
-ContextMenu.Item = ({ className, children, ...props }) => (
-  <li className={classNames(`${baseClass}__item`, className)} {...props}>
+ContextMenu.Item = ({ className, children, styles, ...props }) => {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+  return (
+    <li className={classNames(`${baseClass}__item`, className)} {...props}>
     {children}
-  </li>
-)
+    </li>
+  )
+}
 ContextMenu.Item.displayName = 'ContextMenu.Item'
 
 ContextMenu.propTypes = ContextMenu.Link.propTypes = ContextMenu.Item.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  styles: PropTypes.object
 }
 
-ContextMenu.Separator = ({ className, ...props }) => (
-  <li className={classNames(`${baseClass}__separator`, className)} {...props} />
-)
+ContextMenu.Separator = ({ className, styles, ...props }) => {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+  return (
+    <li className={classNames(`${baseClass}__separator`, className)} {...props} />
+  )
+}
 ContextMenu.Separator.displayName = 'ContextMenu.Separator'
 ContextMenu.Separator.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  styles: PropTypes.object
 }
 
-ContextMenu.Icon = ({ className, children }) => (
-  React.cloneElement(React.Children.only(children), {
-    className: classNames(`${baseClass}__icon`, className)
-  })
-)
+ContextMenu.Icon = ({ className, children, styles }) => {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+  return (
+    React.cloneElement(React.Children.only(children), {
+      className: classNames(`${baseClass}__icon`, className)
+    })
+  )
+}
 ContextMenu.Icon.displayName = 'ContextMenu.Icon'
 ContextMenu.Icon.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.element
+  children: PropTypes.element,
+  styles: PropTypes.object
 }
 
 export default ContextMenu

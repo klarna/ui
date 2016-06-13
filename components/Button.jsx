@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/button.scss'
-
-const classNames = classNamesBind.bind(styles)
+import defaultStyles from '@klarna/ui-css-components/src/components/button.scss'
 
 export default function Button (props) {
   const {
@@ -13,10 +11,13 @@ export default function Button (props) {
     size,
     success,
     disabled,
+    styles,
     ...remainingProps } = props
 
   const content =
     success && '✔' || !loading && children
+
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(`cui__button--${design}`, size, {
     'is-disabled': disabled,
@@ -47,5 +48,6 @@ Button.propTypes = {
   size: PropTypes.oneOf(Button.sizes),
   loading: PropTypes.bool,
   success: PropTypes.bool,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  styles: PropTypes.object
 }

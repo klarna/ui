@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/text.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
 
-const classNames = classNamesBind.bind(styles)
-
-export default function TextLabel (props) {
-  const {
-    className,
-    children,
-    ...remainingProps } = props
-
+export default function TextLabel ({
+  className,
+  children,
+  styles,
+  ...remainingProps
+}) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('cui__text-label', className)
 
   return (
@@ -17,7 +16,12 @@ export default function TextLabel (props) {
   )
 }
 
+TextLabel.defaultProps = {
+  styles: {}
+}
+
 TextLabel.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  styles: PropTypes.object
 }

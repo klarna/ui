@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/link.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/link.scss'
 import palette from './texts/palette'
 
-const classNames = classNamesBind.bind(styles)
-
-export default function Link ({className, color, children, ...props}) {
+export default function Link ({className, color, children, styles, ...props}) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('cui__link', color, className)
 
   return (
@@ -18,5 +17,6 @@ export default function Link ({className, color, children, ...props}) {
 Link.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  color: PropTypes.oneOf(palette)
+  color: PropTypes.oneOf(palette),
+  styles: PropTypes.object
 }

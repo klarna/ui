@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/text.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
 import palette from './palette'
 
-const classNames = classNamesBind.bind(styles)
+export default function Subtitle ({ children, className, color, condensed, styles, ...props }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-export default function Subtitle ({ children, className, color, condensed, ...props }) {
   const cls = classNames('cui__subtitle', color, className, { condensed })
 
   return (
@@ -17,11 +17,13 @@ export default function Subtitle ({ children, className, color, condensed, ...pr
 
 Subtitle.defaultProps = {
   color: 'black',
-  condensed: false
+  condensed: false,
+  styles: {}
 }
 
 Subtitle.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  color: PropTypes.oneOf(palette)
+  color: PropTypes.oneOf(palette),
+  styles: PropTypes.object
 }
