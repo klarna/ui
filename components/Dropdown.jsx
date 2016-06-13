@@ -78,7 +78,6 @@ export default class Dropdown extends Component {
         }
         <select
           className={classes.select}
-          defaultValue={value}
           disabled={disabled}
           onBlur={onBlur}
           onChange={onChange || function () {}}
