@@ -46,7 +46,7 @@ export default class Dropdown extends Component {
       dropdown: classNames('cui__dropdown--native', {
           'is-centered': centered,
           'is-loading': loading,
-          'is-selected': value != null && value !== '',
+          'is-selected': value != null,
           big,
           giant,
           square
@@ -78,7 +78,7 @@ export default class Dropdown extends Component {
         }
         <select
           className={classes.select}
-          defaultValue={value || ''}
+          defaultValue={value}
           disabled={disabled}
           onBlur={onBlur}
           onChange={onChange || function () {}}
@@ -88,12 +88,8 @@ export default class Dropdown extends Component {
           {...props}
         >
           {
-            options && options.map(({value, label}) => {
-              return (
-                <option key={value} value={value}>
-                  {label}
-                </option>
-              )
+            options && options.map((attributes) => {
+              return <option {...attributes} key={attributes.value} />
             })
           }
         </select>
@@ -104,7 +100,7 @@ export default class Dropdown extends Component {
 
 Dropdown.optionShape = PropTypes.shape({
   label: PropTypes.string.isRequired,
-  value: PropTypes.any
+  value: PropTypes.any.isRequired
 })
 
 Dropdown.propTypes = {
