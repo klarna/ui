@@ -185,53 +185,53 @@ export default function Fields () {
       <PrimaryTitle small blue>Icons</PrimaryTitle>
       <Code>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='card'
             label='Please enter your credit card number' />
         </Fieldset>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='calendar'
             label='Date of Birth' />
         </Fieldset>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='lock'
             type='password'
             label='Password' />
         </Fieldset>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='person'
             label='Enter your user name' />
         </Fieldset>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='email'
             label='Enter your email address' />
         </Fieldset>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='phone'
             label='Mobile number' />
         </Fieldset>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='close'
             label='Enter an incorrect value (?)' />
         </Fieldset>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='question'
             label='Are we sure about these being field icons?' />
         </Fieldset>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='check'
             label='These look like button icons really' />
         </Fieldset>
         <Fieldset>
-          <Field
+          <UncontrolledField
             icon='logout'
             label='Write something to log out' />
         </Fieldset>

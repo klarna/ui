@@ -137,4 +137,12 @@ describe('Switch', () => {
       equal(_switch.props.onMouseDown, false)
     })
   })
+
+  describe('legal', () => {
+    const _switch = render({ legal: true }, 'Toggle me')
+
+    it("has class 'legal'", () => {
+      ok(_switch.props.className.match('legal'))
+    })
+  })
 })
