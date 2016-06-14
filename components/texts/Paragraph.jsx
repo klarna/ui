@@ -20,7 +20,7 @@ export default function Paragraph ({
     className,
     {
       condensed,
-      defaultMargins
+      'default-margins': defaultMargins
     }
   )
 

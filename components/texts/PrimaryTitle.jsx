@@ -20,7 +20,7 @@ export default function PrimaryTitle ({
     color,
     className,
     {
-      defaultMargins,
+      'default-margins': defaultMargins,
       small,
       strong
     }

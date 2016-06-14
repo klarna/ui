@@ -20,7 +20,7 @@ export default function SecondaryTitle ({
     className,
     {
       condensed,
-      defaultMargins
+      'default-margins': defaultMargins
     }
   )
 

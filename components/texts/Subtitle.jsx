@@ -20,7 +20,7 @@ export default function Subtitle ({
     className,
     {
       condensed,
-      defaultMargins
+      'default-margins': defaultMargins
     }
   )
 

@@ -14,7 +14,7 @@ export default function TextLabel ({
     'cui__text-label',
     className,
     {
-      defaultMargins
+      'default-margins': defaultMargins
     }
   )
 
