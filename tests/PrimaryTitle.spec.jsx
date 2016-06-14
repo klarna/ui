@@ -41,4 +41,12 @@ describe('PrimaryTitle', () => {
       ok(primaryTitle.props.className.match('strong'))
     })
   })
+
+  describe('defaultMargins', () => {
+    const primaryTitle = render({defaultMargins: true}, 'LoremIpsum')
+
+    it("has class 'defaultMargins'", () => {
+      ok(primaryTitle.props.className.match('defaultMargins'))
+    })
+  })
 })

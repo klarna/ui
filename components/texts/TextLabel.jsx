@@ -5,11 +5,18 @@ import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
 export default function TextLabel ({
   className,
   children,
+  defaultMargins,
   styles,
   ...remainingProps
 }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('cui__text-label', className)
+  const cls = classNames(
+    'cui__text-label',
+    className,
+    {
+      defaultMargins
+    }
+  )
 
   return (
     <h4 className={cls} {...remainingProps}>{children}</h4>
@@ -17,11 +24,13 @@ export default function TextLabel ({
 }
 
 TextLabel.defaultProps = {
+  defaultMargins: false,
   styles: {}
 }
 
 TextLabel.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  defaultMargins: PropTypes.bool,
   styles: PropTypes.object
 }

@@ -33,4 +33,12 @@ describe('Subtitle', () => {
       ok(subtitle.props.className.match('condensed'))
     })
   })
+
+  describe('defaultMargins', () => {
+    const subtitle = render({defaultMargins: true}, 'LoremIpsum')
+
+    it("has class 'defaultMargins'", () => {
+      ok(subtitle.props.className.match('defaultMargins'))
+    })
+  })
 })
