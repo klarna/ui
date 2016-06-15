@@ -30,6 +30,8 @@ import { PrimaryTitle, SecondaryTitle } from '../components/Text'
 import Code from './Code'
 import { colors } from '../components/icons/Icon'
 
+import newColorNames from '../components/icons/constants/colors'
+
 const icons = {
   big: [
     AccountActivated,
@@ -80,10 +82,11 @@ export default function Icons () {
                   <SecondaryTitle>{Icon.displayName}</SecondaryTitle>
                   <Code>
                     {
-                      colorNames.map((color) => (
+                      colorNames.concat(newColorNames).map((color) => (
                         <Icon color={color} key={color} />
                       ))
                     }
+                    <Icon color='inverse' style={{background: '#0074c8'}} />
                     <Icon color='white' style={{background: '#0074c8'}} />
                   </Code>
                 </div>
