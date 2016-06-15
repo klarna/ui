@@ -64,5 +64,11 @@
     "webpack-dev-server": "^1.12.1",
     "webpack-error-notification": "^0.1.6",
     "yargs": "^3.31.0"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
+    ]
   }
 }
