@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/preview.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/preview.scss'
 
-const classNames = classNamesBind.bind(styles)
-
-export default function Preview ({ className, children }) {
+export default function Preview ({ className, children, styles }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('cui__preview', className)
 
   return (
     <div className={cls}>
-      <div className={styles['cui__preview__content']}>
+      <div className={classNames('cui__preview__content')}>
         {children}
       </div>
     </div>
@@ -18,10 +17,12 @@ export default function Preview ({ className, children }) {
 
 Preview.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  styles: PropTypes.object
 }
 
-export function PreviewTitle ({ children, className }) {
+export function PreviewTitle ({ children, className, styles }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('cui__preview__title', className)
 
   return (
@@ -33,19 +34,16 @@ export function PreviewTitle ({ children, className }) {
 
 PreviewTitle.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  styles: PropTypes.object
 }
 
-export function PreviewLink (props) {
-  const {
-    children,
-    className,
-    ...remainingProps } = props
-
+export function PreviewLink ({ children, className, styles, ...remainingProps }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('cui__preview__footer__link', className)
 
   return (
-    <div className={styles['cui__preview__footer']}>
+    <div className={classNames('cui__preview__footer')}>
       <a className={cls} {...remainingProps}>
         {children}
       </a>
@@ -55,5 +53,6 @@ export function PreviewLink (props) {
 
 PreviewLink.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  styles: PropTypes.object
 }

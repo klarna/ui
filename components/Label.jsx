@@ -1,10 +1,17 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/label.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/label.scss'
 
-const classNames = classNamesBind.bind(styles)
-
-export default function Label ({ children, className, design, outline, inverted, ...props }) {
+export default function Label ({
+  children,
+  className,
+  design,
+  outline,
+  inverted,
+  styles,
+  ...props
+}) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('cui__label', design, className, {
     outline,
     inverted
@@ -36,5 +43,6 @@ Label.propTypes = {
   className: PropTypes.string,
   design: PropTypes.oneOf(Label.designs),
   inverted: PropTypes.bool,
-  outline: PropTypes.bool
+  outline: PropTypes.bool,
+  styles: PropTypes.object
 }

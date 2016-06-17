@@ -2,12 +2,10 @@ import React from 'react'
 import Code from './Code'
 import ContextMenu from '../components/ContextMenu'
 import Logout from '../components/icons/Logout'
-import { PrimaryTitle } from '../components/Text'
 
 export default function ContextMenus () {
   return (
     <div>
-      <PrimaryTitle small blue>Default</PrimaryTitle>
       <Code>
         <ContextMenu>
           <ContextMenu.Link href='#buttons'>Buttons</ContextMenu.Link>

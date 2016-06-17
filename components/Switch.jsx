@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/switch.scss'
-
-const classNames = classNamesBind.bind(styles)
+import defaultStyles from '@klarna/ui-css-components/src/components/switch.scss'
 
 export default class Switch extends React.Component {
   constructor (props) {
@@ -42,12 +40,14 @@ export default class Switch extends React.Component {
       error,
       legal,
       name,
+      styles,
       ...remainingProps } = this.props
 
     const {
       checked,
       pressed } = this.state
 
+    const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const cls = classNames('cui__switch', {
       'is-checked': checked,
       'is-pressed': pressed,
@@ -95,5 +95,6 @@ Switch.propTypes = {
   name: PropTypes.string,
   align: PropTypes.oneOf(Switch.alignments),
   design: PropTypes.oneOf(Switch.designs),
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  styles: PropTypes.object
 }

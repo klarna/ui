@@ -33,4 +33,12 @@ describe('SecondaryTitle', () => {
       ok(secondaryTitle.props.className.match('condensed'))
     })
   })
+
+  describe('margins', () => {
+    const secondaryTitle = render({margins: true}, 'LoremIpsum')
+
+    it("has class 'default-margins'", () => {
+      ok(secondaryTitle.props.className.match('default-margins'))
+    })
+  })
 })

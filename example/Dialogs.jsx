@@ -18,7 +18,7 @@ export default class Dialogs extends Component {
   render () {
     return (
       <div>
-        <Paragraph>
+        <Paragraph margins>
           Dialogs are full screen. Please click the button to show it.
         </Paragraph>
 
@@ -39,9 +39,9 @@ export default class Dialogs extends Component {
             </Dialog.Icon>
 
             <Dialog.Content>
-              <PrimaryTitle>The title is primary</PrimaryTitle>
-              <Subtitle>Just trying to fill up space</Subtitle>
-              <Paragraph design='secondary'>Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.</Paragraph>
+              <PrimaryTitle margins>The title is primary</PrimaryTitle>
+              <Subtitle margins>Just trying to fill up space</Subtitle>
+              <Paragraph design='secondary' margins>Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.</Paragraph>
             </Dialog.Content>
 
             <Dialog.Footer>

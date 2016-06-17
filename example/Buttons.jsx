@@ -5,37 +5,31 @@ import Button from '../components/Button'
 import PayButton from '../components/PayButton'
 import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../components/IconButton'
 import Block from '../components/Block'
+import { SecondaryTitle, Subtitle } from '../components/Text'
 import Code from './Code'
 
 export default function Buttons () {
   return (
     <div>
-      <h2>Primary</h2>
+      <SecondaryTitle color='blue' margins>Primary</SecondaryTitle>
 
-      <h5>Regular</h5>
+      <Subtitle margins>Regular</Subtitle>
       <Code>
         <Button size='small'>Click me!</Button>
         <Button>Click me!</Button>
         <Button size='big'>Click me!</Button>
       </Code>
 
-      <h5>Loading</h5>
-      <Code>
-        <Button loading size='small'>Click me!</Button>
-        <Button loading>Click me!</Button>
-        <Button loading size='big'>Click me!</Button>
-      </Code>
+      <SecondaryTitle color='blue' margins>Secondary</SecondaryTitle>
 
-      <h2>Secondary</h2>
-
-      <h5>Regular</h5>
+      <Subtitle margins>Regular</Subtitle>
       <Code>
         <Button design='secondary' size='small'>Click me!</Button>
         <Button design='secondary'>Click me!</Button>
         <Button design='secondary' size='big'>Click me!</Button>
       </Code>
 
-      <h3>Disabled</h3>
+      <SecondaryTitle color='blue' margins>Disabled</SecondaryTitle>
       <Code>
         <Button disabled size='small'>Click me!</Button>
         <Button disabled>Click me!</Button>
@@ -46,7 +40,7 @@ export default function Buttons () {
         <Button design='secondary' disabled size='big'>Click me!</Button>
       </Code>
 
-      <h3>Loading</h3>
+      <SecondaryTitle color='blue' margins>Loading</SecondaryTitle>
       <Code>
         <Button loading size='small'>Click me!</Button>
         <Button loading>Click me!</Button>
@@ -59,30 +53,30 @@ export default function Buttons () {
         <Button design='secondary' loading size='big'>Click me!</Button>
       </Code>
 
-      <h3>Success</h3>
+      <SecondaryTitle color='blue' margins>Success</SecondaryTitle>
       <Code>
         <Button success size='small'>Click me!</Button>
         <Button success>Click me!</Button>
         <Button success size='big'>Click me!</Button>
       </Code>
 
-      <h3>Button with price</h3>
-      <h5>Primary</h5>
+      <SecondaryTitle color='blue' margins>Button with price</SecondaryTitle>
+      <Subtitle margins>Primary</Subtitle>
       <Code>
         <PayButton price='$12.0'>Pay now!</PayButton>
         <PayButton price='14:-' size='big'>Pay now!</PayButton>
         <PayButton price='14:-' loading style={{width: '200px'}}>Pay now!</PayButton>
       </Code>
 
-      <h5>Secondary</h5>
+      <Subtitle margins>Secondary</Subtitle>
       <Code>
         <PayButton design='secondary' price='$12.0'>Pay now!</PayButton>
         <PayButton design='secondary' price='14:-' size='big'>Pay now!</PayButton>
         <PayButton design='secondary' price='14:-' loading style={{width: '200px'}}>Pay now!</PayButton>
       </Code>
 
-      <h3>Iconic Buttons</h3>
-      <h5>Default color scheme</h5>
+      <SecondaryTitle color='blue' margins>Iconic Buttons</SecondaryTitle>
+      <Subtitle margins>Default color scheme</Subtitle>
       <Code>
         <BackButton />
         <CloseButton />
@@ -91,7 +85,7 @@ export default function Buttons () {
         <SearchButton />
       </Code>
 
-      <h5>Gray color scheme</h5>
+      <Subtitle margins>Gray color scheme</Subtitle>
       <Code>
         <BackButton color='gray' />
         <CloseButton color='gray' />
@@ -100,7 +94,7 @@ export default function Buttons () {
         <SearchButton color='gray' />
       </Code>
 
-      <h5>Inverse color scheme</h5>
+      <Subtitle margins>Inverse color scheme</Subtitle>
       <Code>
         <Block blue style={{padding: 20}}>
           <BackButton onClick={() => alert('lala')} color='inverse' />
