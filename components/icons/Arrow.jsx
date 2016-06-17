@@ -8,10 +8,8 @@ export default function Arrow ({ color, styles, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', color)}
+      className={classNames('cui__illustration', 'tiny', color)}
       viewBox='0 0 21 21'
-      height='21px'
-      width='21px'
       {...props}>
       <path
         className={classNames('cui__illustration__stroke')}

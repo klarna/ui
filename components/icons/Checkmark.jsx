@@ -1,19 +1,31 @@
-import React from 'react'
-import Icon, { icon } from './Icon'
+import React, { PropTypes } from 'react'
+import classNamesBind from 'classnames/bind'
+import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import colors from './constants/colors'
 
-const Checkmark = (hexColor, props) => {
+export default function Checkmark ({ color, styles, ...props }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
   return (
-    <Icon
-      stroke={hexColor}
+    <svg
       strokeLinecap='round'
       strokeWidth='2'
-      size='25px'
+      className={classNames('cui__illustration', 'tiny', color)}
       viewBox='0 0 25 25'
-      fill='none'
       {...props}>
-      <path d='M5 13.69l4.49 4.23L19.37 8'/>
-    </Icon>
+      <path
+        d='M5 13.69l4.49 4.23L19.37 8'
+        className={classNames('cui__illustration__stroke')} />
+    </svg>
   )
 }
 
-export default icon(Checkmark)
+Checkmark.defaultProps = {
+  color: 'blue',
+  styles: {}
+}
+
+Checkmark.propTypes = {
+  color: PropTypes.oneOf(colors),
+  styles: PropTypes.object
+}
