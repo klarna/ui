@@ -10,6 +10,7 @@ import styles from './index.scss'
 function Root () {
   const anchor = window.location.hash.substring(1)
   const Example = anchor && examples[anchor] || Object.values(examples)[0]
+
   return (
     <main>
       <aside>
@@ -27,7 +28,7 @@ function Root () {
         </nav>
       </aside>
       <div className={styles.example}>
-        <PrimaryTitle>{Example.name}</PrimaryTitle>
+        <PrimaryTitle margins>{Example.name}</PrimaryTitle>
         <Example />
       </div>
     </main>

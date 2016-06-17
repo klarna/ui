@@ -7,7 +7,6 @@ import { PrimaryTitle } from '../components/Text'
 export default function ContextMenus () {
   return (
     <div>
-      <PrimaryTitle small blue>Default</PrimaryTitle>
       <Code>
         <ContextMenu>
           <ContextMenu.Link href='#buttons'>Buttons</ContextMenu.Link>
