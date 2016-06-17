@@ -8,7 +8,7 @@ export default function Paragraph ({
   className,
   color,
   condensed,
-  defaultMargins,
+  margins,
   design,
   styles,
   ...props
@@ -20,7 +20,7 @@ export default function Paragraph ({
     className,
     {
       condensed,
-      'default-margins': defaultMargins
+      'default-margins': margins
     }
   )
 
@@ -36,7 +36,7 @@ Paragraph.designs = ['primary', 'secondary', 'legal']
 Paragraph.defaultProps = {
   color: undefined,
   condensed: false,
-  defaultMargins: false,
+  margins: false,
   design: 'primary',
   styles: {}
 }
@@ -46,7 +46,7 @@ Paragraph.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   condensed: PropTypes.bool,
-  defaultMargins: PropTypes.bool,
+  margins: PropTypes.bool,
   design: PropTypes.oneOf(Paragraph.designs),
   styles: PropTypes.object
 }

@@ -8,7 +8,7 @@ export default function SecondaryTitle ({
   color,
   condensed,
   children,
-  defaultMargins,
+  margins,
   styles,
   ...props
 }) {
@@ -20,7 +20,7 @@ export default function SecondaryTitle ({
     className,
     {
       condensed,
-      'default-margins': defaultMargins
+      'default-margins': margins
     }
   )
 
@@ -34,7 +34,7 @@ export default function SecondaryTitle ({
 SecondaryTitle.defaultProps = {
   color: 'black',
   condensed: false,
-  defaultMargins: false,
+  margins: false,
   styles: {}
 }
 
@@ -43,6 +43,6 @@ SecondaryTitle.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   condensed: PropTypes.bool,
-  defaultMargins: PropTypes.bool,
+  margins: PropTypes.bool,
   styles: PropTypes.object
 }

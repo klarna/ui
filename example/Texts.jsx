@@ -13,7 +13,7 @@ export default function Texts () {
         <PrimaryTitle color='blue'>Primary Title in blue</PrimaryTitle>
         <PrimaryTitle small>Primary Title in small</PrimaryTitle>
         <PrimaryTitle strong small>Primary Title in strong</PrimaryTitle>
-        <PrimaryTitle defaultMargins>Primary Title with default text margins</PrimaryTitle>
+        <PrimaryTitle margins>Primary Title with default text margins</PrimaryTitle>
         <Block blue>
           <PrimaryTitle color='white'>Primary Title in white</PrimaryTitle>
         </Block>
@@ -24,7 +24,7 @@ export default function Texts () {
         <SecondaryTitle>Secondary Title</SecondaryTitle>
         <SecondaryTitle color='blue'>Secondary Title in blue</SecondaryTitle>
         <SecondaryTitle condensed>Secondary Title in condensed</SecondaryTitle>
-        <SecondaryTitle defaultMargins>Secondary Title with default text margins</SecondaryTitle>
+        <SecondaryTitle margins>Secondary Title with default text margins</SecondaryTitle>
         <Block blue>
           <SecondaryTitle color='white'>Secondary Title in white</SecondaryTitle>
         </Block>
@@ -35,7 +35,7 @@ export default function Texts () {
         <Subtitle>Subtitle</Subtitle>
         <Subtitle color='blue'>Subtitle in blue</Subtitle>
         <Subtitle condensed>Subtitle in condensed</Subtitle>
-        <Subtitle defaultMargins>Subtitle with default text margins</Subtitle>
+        <Subtitle margins>Subtitle with default text margins</Subtitle>
         <Block blue>
           <Subtitle color='white'>Subtitle in white</Subtitle>
         </Block>
@@ -47,9 +47,9 @@ export default function Texts () {
         <Paragraph condensed>Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed </Paragraph>
         <Paragraph design='secondary'>Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph </Paragraph>
         <Paragraph design='legal'>Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text </Paragraph>
-        <Paragraph defaultMargins>Primary paragraph with default margins</Paragraph>
-        <Paragraph defaultMargins design='secondary'>Secondary paragraph with default margins</Paragraph>
-        <Paragraph defaultMargins design='legal'>Legal paragraph with default margins</Paragraph>
+        <Paragraph margins>Primary paragraph with default margins</Paragraph>
+        <Paragraph margins design='secondary'>Secondary paragraph with default margins</Paragraph>
+        <Paragraph margins design='legal'>Legal paragraph with default margins</Paragraph>
         <Block blue>
           <Paragraph color='white'>Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph </Paragraph>
           <Paragraph design='legal' color='white'>Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text </Paragraph>
@@ -59,7 +59,7 @@ export default function Texts () {
       <PrimaryTitle small color='blue'>Text Label</PrimaryTitle>
       <Code>
         <TextLabel>Klarna ID</TextLabel>
-        <TextLabel defaultMargins>Klarna ID with default margins</TextLabel>
+        <TextLabel margins>Klarna ID with default margins</TextLabel>
       </Code>
 
       <PrimaryTitle small color='blue'>Link</PrimaryTitle>

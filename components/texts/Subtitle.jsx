@@ -8,7 +8,7 @@ export default function Subtitle ({
   className,
   color,
   condensed,
-  defaultMargins,
+  margins,
   styles,
   ...props
 }) {
@@ -20,7 +20,7 @@ export default function Subtitle ({
     className,
     {
       condensed,
-      'default-margins': defaultMargins
+      'default-margins': margins
     }
   )
 
@@ -34,7 +34,7 @@ export default function Subtitle ({
 Subtitle.defaultProps = {
   color: 'black',
   condensed: false,
-  defaultMargins: false,
+  margins: false,
   styles: {}
 }
 
@@ -42,6 +42,6 @@ Subtitle.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
-  defaultMargins: PropTypes.bool,
+  margins: PropTypes.bool,
   styles: PropTypes.object
 }

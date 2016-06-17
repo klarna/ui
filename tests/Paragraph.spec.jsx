@@ -34,8 +34,8 @@ describe('Paragraph', () => {
     })
   })
 
-  describe('defaultMargins', () => {
-    const paragraph = render({defaultMargins: true}, 'LoremIpsum')
+  describe('margins', () => {
+    const paragraph = render({margins: true}, 'LoremIpsum')
 
     it("has class 'default-margins'", () => {
       ok(paragraph.props.className.match('default-margins'))
