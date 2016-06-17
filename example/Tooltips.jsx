@@ -1,25 +1,26 @@
 import React from 'react'
 import Tooltip from '../components/Tooltip'
+import { SecondaryTitle } from '../components/Text'
 import Code from './Code'
 
 export default function Tooltips () {
   return (
     <div>
-      <h5>Simple</h5>
+      <SecondaryTitle margins color='blue'>Simple</SecondaryTitle>
       <Code>
         <Tooltip>
           Lorem Ipsum is simply dummy text of the printing industry.
         </Tooltip>
       </Code>
 
-      <h5>Small</h5>
+      <SecondaryTitle margins color='blue'>Small</SecondaryTitle>
       <Code>
         <Tooltip>
           Lorem Ipsum
         </Tooltip>
       </Code>
 
-      <h5>Arrows</h5>
+      <SecondaryTitle margins color='blue'>Arrows</SecondaryTitle>
       <Code>
         <Tooltip arrow='top-left'>
           Lorem Ipsum is simply dummy text of the printing industry.
@@ -70,21 +71,21 @@ export default function Tooltips () {
         </Tooltip>
       </Code>
 
-      <h5>Simple with border</h5>
+      <SecondaryTitle margins color='blue'>Simple with border</SecondaryTitle>
       <Code>
         <Tooltip border>
           Lorem Ipsum is simply dummy text of the printing industry.
         </Tooltip>
       </Code>
 
-      <h5>Small</h5>
+      <SecondaryTitle margins color='blue'>Small</SecondaryTitle>
       <Code>
         <Tooltip border>
           Lorem Ipsum
         </Tooltip>
       </Code>
 
-      <h5>Arrows</h5>
+      <SecondaryTitle margins color='blue'>Arrows</SecondaryTitle>
       <Code>
         <Tooltip border arrow='top-left'>
           Lorem Ipsum is simply dummy text of the printing industry.

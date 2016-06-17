@@ -5,7 +5,7 @@ import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
 export default function TextLabel ({
   className,
   children,
-  defaultMargins,
+  margins,
   styles,
   ...remainingProps
 }) {
@@ -14,7 +14,7 @@ export default function TextLabel ({
     'cui__text-label',
     className,
     {
-      'default-margins': defaultMargins
+      'default-margins': margins
     }
   )
 
@@ -24,13 +24,13 @@ export default function TextLabel ({
 }
 
 TextLabel.defaultProps = {
-  defaultMargins: false,
+  margins: false,
   styles: {}
 }
 
 TextLabel.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  defaultMargins: PropTypes.bool,
+  margins: PropTypes.bool,
   styles: PropTypes.object
 }

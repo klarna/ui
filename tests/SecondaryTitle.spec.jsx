@@ -34,8 +34,8 @@ describe('SecondaryTitle', () => {
     })
   })
 
-  describe('defaultMargins', () => {
-    const secondaryTitle = render({defaultMargins: true}, 'LoremIpsum')
+  describe('margins', () => {
+    const secondaryTitle = render({margins: true}, 'LoremIpsum')
 
     it("has class 'default-margins'", () => {
       ok(secondaryTitle.props.className.match('default-margins'))

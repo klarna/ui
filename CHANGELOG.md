@@ -1,3 +1,9 @@
+# 0.11.0
+
+- Update CSS components with default margins to 0
+- Add the `margins` flag to text components so text margins can be re enabled
+- Use components consistently throughout the showroom
+
 # 0.10.2
 
 - Add pad lock icon

@@ -7,7 +7,7 @@ export default function PrimaryTitle ({
   children,
   className,
   color,
-  defaultMargins,
+  margins,
   small,
   strong,
   styles,
@@ -20,7 +20,7 @@ export default function PrimaryTitle ({
     color,
     className,
     {
-      'default-margins': defaultMargins,
+      'default-margins': margins,
       small,
       strong
     }
@@ -37,7 +37,7 @@ PrimaryTitle.defaultProps = {
   color: 'black',
   small: false,
   strong: false,
-  defaultMargins: false,
+  margins: false,
   styles: {}
 }
 
@@ -45,7 +45,7 @@ PrimaryTitle.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
-  defaultMargins: PropTypes.bool,
+  margins: PropTypes.bool,
   small: PropTypes.bool,
   strong: PropTypes.bool,
   styles: PropTypes.object
