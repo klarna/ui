@@ -6,13 +6,9 @@ import Code from './Code'
 export default function Links () {
   return (
     <div>
-      <PrimaryTitle>Link</PrimaryTitle>
-
-      <Subtitle>Regular</Subtitle>
       <Code>
         <Link>Click me!</Link>
       </Code>
-
     </div>
   )
 }

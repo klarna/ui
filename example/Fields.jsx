@@ -76,31 +76,6 @@ export default function Fields () {
         </Fieldset>
       </Code>
 
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        <Fieldset>
-          <Field big top left size='1/2' label='Given name' />
-          <Field big center size='1/4' label='Middle name' />
-          <Field big top right size='1/4' label='Last name' />
-          <Field big left square size='1/5' label='Number' />
-          <Field big right square size='4/5' label='Street Address' />
-          <Field big left square size='1/3' label='Your favorite pokémon' />
-          <Field big right square size='2/3' label='Android or iPhone: please explain' />
-          <Field big left bottom size='2/5' label='Date of Birth' />
-          <Field big right bottom size='3/5' label='Mobile phone number' />
-        </Fieldset>
-      </Code>
-
-      <PrimaryTitle margins small color='blue'>Sizes</PrimaryTitle>
-      <Code>
-        <Fieldset>
-          <Field name='email' label='Enter your email' />
-        </Fieldset>
-        <Fieldset>
-          <Field big name='email' label='Enter your email' />
-        </Fieldset>
-      </Code>
-
       <PrimaryTitle margins small color='blue'>Types</PrimaryTitle>
       <Code>
         <Fieldset>

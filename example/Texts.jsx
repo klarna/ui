@@ -7,7 +7,7 @@ import Link from '../components/Link'
 export default function Texts () {
   return (
     <div>
-      <PrimaryTitle small color='blue'>Primary Title</PrimaryTitle>
+      <SecondaryTitle small color='blue' margins>Primary Title</SecondaryTitle>
       <Code>
         <PrimaryTitle>Primary Title</PrimaryTitle>
         <PrimaryTitle color='blue'>Primary Title in blue</PrimaryTitle>
@@ -19,7 +19,7 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <PrimaryTitle small color='blue'>Secondary Title</PrimaryTitle>
+      <SecondaryTitle small color='blue' margins>Secondary Title</SecondaryTitle>
       <Code>
         <SecondaryTitle>Secondary Title</SecondaryTitle>
         <SecondaryTitle color='blue'>Secondary Title in blue</SecondaryTitle>
@@ -30,7 +30,7 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <PrimaryTitle small color='blue'>Subtitle</PrimaryTitle>
+      <SecondaryTitle small color='blue' margins>Subtitle</SecondaryTitle>
       <Code>
         <Subtitle>Subtitle</Subtitle>
         <Subtitle color='blue'>Subtitle in blue</Subtitle>
@@ -41,7 +41,7 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <PrimaryTitle small color='blue'>Paragraphs</PrimaryTitle>
+      <SecondaryTitle small color='blue' margins>Paragraphs</SecondaryTitle>
       <Code>
         <Paragraph>Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph </Paragraph>
         <Paragraph condensed>Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed </Paragraph>
@@ -56,13 +56,13 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <PrimaryTitle small color='blue'>Text Label</PrimaryTitle>
+      <SecondaryTitle small color='blue' margins>Text Label</SecondaryTitle>
       <Code>
         <TextLabel>Klarna ID</TextLabel>
         <TextLabel margins>Klarna ID with default margins</TextLabel>
       </Code>
 
-      <PrimaryTitle small color='blue'>Link</PrimaryTitle>
+      <SecondaryTitle small color='blue' margins>Link</SecondaryTitle>
       <Code>
         <Subtitle>
           Some subtitle with <Link onClick={window.alert} href='#'>a link.</Link>
@@ -79,7 +79,7 @@ export default function Texts () {
 
       </Code>
 
-      <PrimaryTitle small color='blue'>Amount</PrimaryTitle>
+      <SecondaryTitle small color='blue' margins>Amount</SecondaryTitle>
       <Code>
         <Amount>1500€</Amount>
         <Amount>$1500</Amount>

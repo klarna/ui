@@ -16,24 +16,24 @@ export default function Selectors () {
 
   return (
     <div>
-      <SecondaryTitle>RadioGroup</SecondaryTitle>
-      <Paragraph>
+      <SecondaryTitle margins>RadioGroup</SecondaryTitle>
+      <Paragraph margins>
         RadioGroups allow the user to pick one option among many
         with a design similar to HTML's input type radio.
       </Paragraph>
 
-      <Subtitle>Stateless</Subtitle>
-      <Paragraph>
-        Stateless RadioGroups shall be used when you will control
+      <Subtitle margins>Controlled</Subtitle>
+      <Paragraph margins>
+        Controlled RadioGroups shall be used when you will control
         it's selected value. Therefore, you're in charge of
         implementing the props <b>onChange</b> and <b>selected</b>.
       </Paragraph>
-      <Paragraph>
+      <Paragraph margins>
         As a rule of thumb, you'll use the stateless component if
         the RadioGroup is not in a form, and you wanna trigger
         something on every change of this component.
       </Paragraph>
-      <Paragraph>
+      <Paragraph margins>
         An example implementation of how you should consume the
         RadioGroup is the UncontrolledRadioGroup itself.
       </Paragraph>
@@ -41,9 +41,9 @@ export default function Selectors () {
         <RadioGroup selected={1} onChange={alert} data={data} />
       </Code>
 
-      <Subtitle>Statefull</Subtitle>
-      <Paragraph>
-        Use the statefull selector if you don't wanna control
+      <Subtitle margins>Uncontrolled</Subtitle>
+      <Paragraph margins>
+        Use the stateful selector if you don't wanna control
         the selector, or you're using it on a form, passing the
         prop <b>name</b>.
       </Paragraph>
@@ -51,7 +51,7 @@ export default function Selectors () {
         <UncontrolledRadioGroup data={data} />
       </Code>
 
-      <Subtitle>Statefull in a form</Subtitle>
+      <Subtitle margins>Uncontrolled in a form</Subtitle>
       <Code>
         <form onSubmit={(event) => {
           event.preventDefault()
@@ -61,8 +61,8 @@ export default function Selectors () {
           <Button size='small'>Try me</Button>
         </form>
       </Code>
-      <SecondaryTitle>Selector</SecondaryTitle>
-      <Paragraph>
+      <SecondaryTitle margins>Selector</SecondaryTitle>
+      <Paragraph margins>
         Same as RadioGroups with different style.
       </Paragraph>
 
