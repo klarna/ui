@@ -26,21 +26,13 @@ import SMS from '../components/icons/SMS'
 import Warning from '../components/icons/Warning'
 import Wrong from '../components/icons/Wrong'
 
-import { PrimaryTitle, SecondaryTitle } from '../components/Text'
+import { PrimaryTitle, SecondaryTitle, Paragraph } from '../components/Text'
 import Code from './Code'
 import { colors } from '../components/icons/Icon'
 
 import newColorNames from '../components/icons/constants/colors'
 
 const icons = {
-  big: [
-    NotFound,
-    Time,
-    SMS,
-    Warning,
-    Wrong
-  ],
-
   tiny: [
     Arrow,
     Checkmark,
@@ -58,16 +50,22 @@ const icons = {
   ]
 }
 
-const migratedIcons = [
-  AccountActivated,
-  AllSet,
-  Done,
-  Error,
-  Letter,
-  NotFound,
-  OpenLetter,
-  PadLock
-]
+const migratedIcons = {
+  big: [
+    AccountActivated,
+    AllSet,
+    Done,
+    Error,
+    Letter,
+    NotFound,
+    OpenLetter,
+    PadLock,
+    SMS,
+    Time,
+    Warning,
+    Wrong
+  ]
+}
 
 const colorNames = Object.keys(colors)
 // remove white from list
@@ -76,20 +74,31 @@ colorNames.pop()
 export default function Icons () {
   return (
     <div style={{width: '740px'}}>
-      <Code>
-        {migratedIcons.map((Icon) =>
-          newColorNames.map((name) =>
-            <Icon
-              key={`${Icon.displayName}-${name}`}
-              color={name}
-              style={name === 'inverse'
-                ? { background: '#0074c8' }
-                : {}
-              }
-            />
-          )
-        )}
-      </Code>
+      <Paragraph defaultMargins>
+        Each type of icon is designed for the size that it is displayed in. Resizing the icons is possible since they are SVG, but it's not recommended since they are drawn to have the line widths matching the line styles of the rest of the components.
+      </Paragraph>
+
+      <PrimaryTitle color='blue' defaultMargins>Big icons</PrimaryTitle>
+      {migratedIcons.big.map((Icon) => (
+        <div key={Icon.name}>
+          <SecondaryTitle defaultMargins>
+            {Icon.name}
+          </SecondaryTitle>
+
+          <Code>
+            {newColorNames.map((name) =>
+                <Icon
+                  key={`${Icon.name}-${name}`}
+                  color={name}
+                  style={name === 'inverse'
+                    ? { background: '#0074c8' }
+                    : undefined
+                  }
+                />
+            )}
+          </Code>
+        </div>
+      ))}
 
       {
         Object.keys(icons).map((size) => (
