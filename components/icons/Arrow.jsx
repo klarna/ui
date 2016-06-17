@@ -1,16 +1,32 @@
-import React from 'react'
-import Icon, { icon } from './Icon.jsx'
+import React, { PropTypes } from 'react'
+import classNamesBind from 'classnames/bind'
+import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import colors from './constants/colors'
 
-const Arrow = (hexColor, props) => (
-  <Icon stroke={hexColor}
-    size='21px'
-    viewBox='0 0 21 21'
-    {...props}>
-    <path
-      d='M6.5,9.3l4,4l4,-4'
-      fill='none'
-      strokeLinecap='round' />
-  </Icon>
-)
+export default function Arrow ({ color, styles, ...props }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-export default icon(Arrow)
+  return (
+    <svg
+      className={classNames('cui__illustration', color)}
+      viewBox='0 0 21 21'
+      height='21px'
+      width='21px'
+      {...props}>
+      <path
+        className={classNames('cui__illustration__stroke')}
+        d='M6.5,9.3l4,4l4,-4'
+        strokeLinecap='round' />
+    </svg>
+  )
+}
+
+Arrow.defaultProps = {
+  color: 'blue',
+  styles: {}
+}
+
+Arrow.propTypes = {
+  color: PropTypes.oneOf(colors),
+  styles: PropTypes.object
+}

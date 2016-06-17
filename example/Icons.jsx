@@ -64,6 +64,10 @@ const migratedIcons = {
     Time,
     Warning,
     Wrong
+  ],
+
+  tiny: [
+    Arrow
   ]
 }
 
@@ -80,6 +84,28 @@ export default function Icons () {
 
       <PrimaryTitle color='blue' defaultMargins>Big icons</PrimaryTitle>
       {migratedIcons.big.map((Icon) => (
+        <div key={Icon.name}>
+          <SecondaryTitle defaultMargins>
+            {Icon.name}
+          </SecondaryTitle>
+
+          <Code>
+            {newColorNames.map((name) =>
+                <Icon
+                  key={`${Icon.name}-${name}`}
+                  color={name}
+                  style={name === 'inverse'
+                    ? { background: '#0074c8' }
+                    : undefined
+                  }
+                />
+            )}
+          </Code>
+        </div>
+      ))}
+
+      <PrimaryTitle color='blue' defaultMargins>Tiny icons</PrimaryTitle>
+      {migratedIcons.tiny.map((Icon) => (
         <div key={Icon.name}>
           <SecondaryTitle defaultMargins>
             {Icon.name}
