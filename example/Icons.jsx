@@ -34,8 +34,6 @@ import newColorNames from '../components/icons/constants/colors'
 
 const icons = {
   big: [
-    OpenLetter,
-    PadLock,
     NotFound,
     Time,
     SMS,
@@ -65,7 +63,10 @@ const migratedIcons = [
   AllSet,
   Done,
   Error,
-  Letter
+  Letter,
+  NotFound,
+  OpenLetter,
+  PadLock
 ]
 
 const colorNames = Object.keys(colors)
