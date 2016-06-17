@@ -4,6 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { PrimaryTitle } from '../components/Text'
+import Link from '../components/Link'
 import * as examples from './examples'
 import styles from './index.scss'
 
@@ -17,12 +18,12 @@ function Root () {
         <nav>
           {
             Object.values(examples).map(({ name }) => (
-              <a
+              <Link
                 href={`#${name}`}
                 className={classNames({selected: Example.name === name})}
                 key={name}>
                 {name}
-              </a>
+              </Link>
             ))
           }
         </nav>

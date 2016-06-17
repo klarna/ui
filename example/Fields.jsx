@@ -30,12 +30,12 @@ export default function Fields () {
         <UncontrolledField label='Enter your email' onTab={() => alert('tab')} onEnter={() => alert('enter')} />
       </Code>
 
-      <Subtitle margins>Big</Subtitle>
+      <SecondaryTitle margins>Big</SecondaryTitle>
       <Code>
         <Field label='Enter your email' big />
       </Code>
 
-      <Subtitle margins>Focused</Subtitle>
+      <SecondaryTitle margins>Focused</SecondaryTitle>
       <Code>
         <Field label='Enter your email' focus />
       </Code>
@@ -46,51 +46,18 @@ export default function Fields () {
       </Code>
 
       <SecondaryTitle margins>Error</SecondaryTitle>
-
-      <Subtitle margins>Normal</Subtitle>
       <Code>
         <Field label='Invalid email' error value='invalid@' />
       </Code>
 
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        <Field label='Invalid email' error value='invalid@' big />
-      </Code>
-
       <SecondaryTitle margins>Warning</SecondaryTitle>
-
-      <Subtitle margins>Normal</Subtitle>
       <Code>
         <Field label='Are you sure the domain is exanple?' warning value='email@exanple.com' />
       </Code>
 
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        <Field label='Are you sure the domain is exanple?' warning value='email@exanple.com' big />
-      </Code>
-
       <SecondaryTitle margins>Disabled</SecondaryTitle>
-
-      <Subtitle margins>Normal</Subtitle>
       <Code>
         <Field disabled label='Address' value='16, Corn street' />
-      </Code>
-
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        <Field disabled label='Address' value='16, Corn street' big />
-      </Code>
-
-      <SecondaryTitle margins>Focused</SecondaryTitle>
-
-      <Subtitle margins>Normal</Subtitle>
-      <Code>
-        <Field focus label='Address' value='16, Corn street' />
-      </Code>
-
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        <Field focus label='Address' value='16, Corn street' big />
       </Code>
 
       <SecondaryTitle margins>Stacked</SecondaryTitle>
@@ -124,133 +91,111 @@ export default function Fields () {
         </Fieldset>
       </Code>
 
-      <Subtitle margins>Uncontrolled</Subtitle>
-      <Subtitle margins>Normal</Subtitle>
-      <Code>
-        <UncontrolledField name='email' label='Enter your email' />
-      </Code>
-
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        <UncontrolledField name='email' label='Enter your email' big />
-      </Code>
-
-      <SecondaryTitle margins>Error</SecondaryTitle>
-
-      <Subtitle margins>Normal</Subtitle>
-      <Code>
-        <UncontrolledField name='email' error label='Invalid email' value='invalid@' />
-      </Code>
-
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        <UncontrolledField name='email' error label='Invalid email' value='invalid@' big />
-      </Code>
-
-      <SecondaryTitle margins>Warning</SecondaryTitle>
-
-      <Subtitle margins>Normal</Subtitle>
-      <Code>
-        <UncontrolledField name='email' warning label='Are you sure the domain is exanple?' value='email@exanple.com' />
-      </Code>
-
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        <UncontrolledField name='email' warning label='Are you sure the domain is exanple?' value='email@exanple.com' big />
-      </Code>
-
-      <SecondaryTitle margins>Disabled</SecondaryTitle>
-
-      <Subtitle margins>Normal</Subtitle>
-      <Code>
-        <UncontrolledField name='address' disabled label='Address' value='16, Corn street' />
-      </Code>
-
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        <UncontrolledField name='address' disabled label='Address' value='16, Corn street' big />
-      </Code>
-
       <PrimaryTitle margins small color='blue'>Sizes</PrimaryTitle>
       <Code>
-        <Field name='email' label='Enter your email' />
-        <Field big name='email' label='Enter your email' />
+        <Fieldset>
+          <Field name='email' label='Enter your email' />
+        </Fieldset>
+        <Fieldset>
+          <Field big name='email' label='Enter your email' />
+        </Fieldset>
       </Code>
 
       <PrimaryTitle margins small color='blue'>Types</PrimaryTitle>
       <Code>
-        <Field type='text' name='text' label='Text' />
-        <Field type='password' name='password' label='Password' />
-        <Field type='number' name='number' label='Number' />
-        <Field type='email' name='email' label='Email' />
-        <Field type='search' name='search' label='Search' />
-        <Field type='url' name='url' label='URL' />
+        <Fieldset>
+          <Field type='text' name='text' label='Text' />
+        </Fieldset>
+        <Fieldset>
+          <Field type='password' name='password' label='Password' />
+        </Fieldset>
+        <Fieldset>
+          <Field type='number' name='number' label='Number' />
+        </Fieldset>
+        <Fieldset>
+          <Field type='email' name='email' label='Email' />
+        </Fieldset>
+        <Fieldset>
+          <Field type='search' name='search' label='Search' />
+        </Fieldset>
+        <Fieldset>
+          <Field type='url' name='url' label='URL' />
+        </Fieldset>
       </Code>
 
       <PrimaryTitle margins small color='blue'>States</PrimaryTitle>
       <Code>
-        <Field error label='Invalid email' name='email' value='invalid@' />
-        <Field big error label='Invalid email' name='email' value='invalid@' />
-        <Field warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
-        <Field big warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
-        <Field disabled name='address' label='Address' value='16, Corn street' />
+        <Fieldset>
+          <Field error label='Invalid email' name='email' value='invalid@' />
+        </Fieldset>
+        <Fieldset>
+          <Field big error label='Invalid email' name='email' value='invalid@' />
+        </Fieldset>
+        <Fieldset>
+          <Field warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
+        </Fieldset>
+        <Fieldset>
+          <Field big warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
+        </Fieldset>
+        <Fieldset>
+          <Field disabled name='address' label='Address' value='16, Corn street' />
+        </Fieldset>
       </Code>
 
       <PrimaryTitle margins small color='blue'>Icons</PrimaryTitle>
       <Code>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='card'
             label='Please enter your credit card number' />
         </Fieldset>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='calendar'
             label='Date of Birth' />
         </Fieldset>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='lock'
             type='password'
             label='Password' />
         </Fieldset>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='person'
             label='Enter your user name' />
         </Fieldset>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='email'
             label='Enter your email address' />
         </Fieldset>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='phone'
             label='Mobile number' />
         </Fieldset>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='close'
             label='Enter an incorrect value (?)' />
         </Fieldset>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='question'
             label='Are we sure about these being field icons?' />
         </Fieldset>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='check'
             label='These look like button icons really' />
         </Fieldset>
         <Fieldset>
-          <UncontrolledField
+          <Field
             icon='logout'
             label='Write something to log out' />
         </Fieldset>
       </Code>
-
     </div>
   )
 }
