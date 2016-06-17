@@ -3,4 +3,8 @@ import statefulValue from '../../lib/decorators/statefulValue'
 import statefulFocus from '../../lib/decorators/statefulFocus'
 import Input from '../Input'
 
-export default compose(statefulFocus, statefulValue)(Input)
+const UncontrolledInput = compose(statefulFocus, statefulValue)(Input)
+
+UncontrolledInput.displayName = 'UncontrolledInput'
+
+export default UncontrolledInput

@@ -22,4 +22,12 @@ describe('TextLabel', () => {
       ok(textLabel.props.children.match('LoremIpsum'))
     })
   })
+
+  describe('margins', () => {
+    const textLabel = render({margins: true}, 'LoremIpsum')
+
+    it("has class 'default-margins'", () => {
+      ok(textLabel.props.className.match('default-margins'))
+    })
+  })
 })
