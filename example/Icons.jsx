@@ -66,12 +66,12 @@ const icons = {
 export default function Icons () {
   return (
     <div style={{width: '740px'}}>
-      <Paragraph defaultMargins>
+      <Paragraph margins>
         Each type of icon is designed for the size that it is displayed in. Resizing the icons is possible since they are SVG, but it's not recommended since they are drawn to have the line widths matching the line styles of the rest of the components.
       </Paragraph>
 
-      <SecondaryTitle color='blue' defaultMargins>Colors</SecondaryTitle>
-      <Subtitle defaultMargins>Big</Subtitle>
+      <SecondaryTitle color='blue' margins>Colors</SecondaryTitle>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         {colors.map((name) =>
           <AllSet
@@ -85,7 +85,7 @@ export default function Icons () {
         )}
       </Code>
 
-      <Subtitle defaultMargins>Tiny</Subtitle>
+      <Subtitle margins>Tiny</Subtitle>
       <Code>
         {colors.map((name) =>
           <Person
@@ -99,12 +99,12 @@ export default function Icons () {
         )}
       </Code>
 
-      <SecondaryTitle color='blue' defaultMargins>Big icons</SecondaryTitle>
+      <SecondaryTitle color='blue' margins>Big icons</SecondaryTitle>
       <Code>
         {icons.big.map((Icon) => <Icon key={Icon.name} />)}
       </Code>
 
-      <SecondaryTitle color='blue' defaultMargins>Tiny icons</SecondaryTitle>
+      <SecondaryTitle color='blue' margins>Tiny icons</SecondaryTitle>
       <Code>
         {icons.tiny.map((Icon) => <Icon key={Icon.name} />)}
       </Code>
