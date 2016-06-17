@@ -2,85 +2,99 @@
 import React from 'react'
 import Field from '../components/Field'
 import Fieldset from '../components/Fieldset'
+import Link from '../components/Link'
 import UncontrolledField from '../components/uncontrolled/Field'
-import { PrimaryTitle, SecondaryTitle, Subtitle } from '../components/Text'
+import {
+  Paragraph,
+  PrimaryTitle,
+  SecondaryTitle,
+  Subtitle
+} from '../components/Text'
 import Code from './Code'
 
 export default function Fields () {
   return (
     <div>
-      <SecondaryTitle>Regular</SecondaryTitle>
-      <Subtitle>Controlled</Subtitle>
-      <h5>Normal</h5>
+      <Paragraph margins>
+        Fields are by default <Link href='https://facebook.github.io/react/docs/forms.html#controlled-components'>Controlled components</Link>, which means that the <code>onChange</code> needs to be handled for the user to be able to interact and focus needs to be set manually as a <code>prop</code>. This is the recommended approach for declarative applications, but some times it's too restrictive: for those cases, you can use an Uncontrolled version which is provided as well.
+      </Paragraph>
+
+      <PrimaryTitle color='blue' small margins>Regular</PrimaryTitle>
+      <SecondaryTitle margins>Normal</SecondaryTitle>
       <Code>
         <Field label='Enter your email' onTab={() => alert('tab')} onEnter={() => alert('enter')} />
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Uncontrolled</Subtitle>
+      <Code>
+        <UncontrolledField label='Enter your email' onTab={() => alert('tab')} onEnter={() => alert('enter')} />
+      </Code>
+
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <Field label='Enter your email' big />
       </Code>
 
-      <h5>Focused</h5>
+      <Subtitle margins>Focused</Subtitle>
       <Code>
         <Field label='Enter your email' focus />
       </Code>
 
-      <h5>Fake focused</h5>
+      <Subtitle margins>Fake focused</Subtitle>
       <Code>
         <Field label='Enter your email' focus='fake' />
       </Code>
 
-      <h2>Error</h2>
+      <SecondaryTitle margins>Error</SecondaryTitle>
 
-      <h5>Normal</h5>
+      <Subtitle margins>Normal</Subtitle>
       <Code>
         <Field label='Invalid email' error value='invalid@' />
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <Field label='Invalid email' error value='invalid@' big />
       </Code>
 
-      <h2>Warning</h2>
+      <SecondaryTitle margins>Warning</SecondaryTitle>
 
-      <h5>Normal</h5>
+      <Subtitle margins>Normal</Subtitle>
       <Code>
         <Field label='Are you sure the domain is exanple?' warning value='email@exanple.com' />
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <Field label='Are you sure the domain is exanple?' warning value='email@exanple.com' big />
       </Code>
 
-      <h2>Disabled</h2>
+      <SecondaryTitle margins>Disabled</SecondaryTitle>
 
-      <h5>Normal</h5>
+      <Subtitle margins>Normal</Subtitle>
       <Code>
         <Field disabled label='Address' value='16, Corn street' />
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <Field disabled label='Address' value='16, Corn street' big />
       </Code>
 
-      <h2>Focused</h2>
+      <SecondaryTitle margins>Focused</SecondaryTitle>
 
-      <h5>Normal</h5>
+      <Subtitle margins>Normal</Subtitle>
       <Code>
         <Field focus label='Address' value='16, Corn street' />
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <Field focus label='Address' value='16, Corn street' big />
       </Code>
 
-      <h2>Stacked</h2>
-      <h5>Normal</h5>
+      <SecondaryTitle margins>Stacked</SecondaryTitle>
+      <Subtitle margins>Normal</Subtitle>
       <Code>
         <Fieldset>
           <Field top left size='1/2' label='Given name' />
@@ -95,7 +109,7 @@ export default function Fields () {
         </Fieldset>
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <Fieldset>
           <Field big top left size='1/2' label='Given name' />
@@ -110,60 +124,60 @@ export default function Fields () {
         </Fieldset>
       </Code>
 
-      <Subtitle>Uncontrolled</Subtitle>
-      <h5>Normal</h5>
+      <Subtitle margins>Uncontrolled</Subtitle>
+      <Subtitle margins>Normal</Subtitle>
       <Code>
         <UncontrolledField name='email' label='Enter your email' />
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <UncontrolledField name='email' label='Enter your email' big />
       </Code>
 
-      <h2>Error</h2>
+      <SecondaryTitle margins>Error</SecondaryTitle>
 
-      <h5>Normal</h5>
+      <Subtitle margins>Normal</Subtitle>
       <Code>
         <UncontrolledField name='email' error label='Invalid email' value='invalid@' />
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <UncontrolledField name='email' error label='Invalid email' value='invalid@' big />
       </Code>
 
-      <h2>Warning</h2>
+      <SecondaryTitle margins>Warning</SecondaryTitle>
 
-      <h5>Normal</h5>
+      <Subtitle margins>Normal</Subtitle>
       <Code>
         <UncontrolledField name='email' warning label='Are you sure the domain is exanple?' value='email@exanple.com' />
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <UncontrolledField name='email' warning label='Are you sure the domain is exanple?' value='email@exanple.com' big />
       </Code>
 
-      <h2>Disabled</h2>
+      <SecondaryTitle margins>Disabled</SecondaryTitle>
 
-      <h5>Normal</h5>
+      <Subtitle margins>Normal</Subtitle>
       <Code>
         <UncontrolledField name='address' disabled label='Address' value='16, Corn street' />
       </Code>
 
-      <h5>Big</h5>
+      <Subtitle margins>Big</Subtitle>
       <Code>
         <UncontrolledField name='address' disabled label='Address' value='16, Corn street' big />
       </Code>
 
-      <PrimaryTitle small blue>Sizes</PrimaryTitle>
+      <PrimaryTitle margins small color='blue'>Sizes</PrimaryTitle>
       <Code>
         <Field name='email' label='Enter your email' />
         <Field big name='email' label='Enter your email' />
       </Code>
 
-      <PrimaryTitle small blue>Types</PrimaryTitle>
+      <PrimaryTitle margins small color='blue'>Types</PrimaryTitle>
       <Code>
         <Field type='text' name='text' label='Text' />
         <Field type='password' name='password' label='Password' />
@@ -173,7 +187,7 @@ export default function Fields () {
         <Field type='url' name='url' label='URL' />
       </Code>
 
-      <PrimaryTitle small blue>States</PrimaryTitle>
+      <PrimaryTitle margins small color='blue'>States</PrimaryTitle>
       <Code>
         <Field error label='Invalid email' name='email' value='invalid@' />
         <Field big error label='Invalid email' name='email' value='invalid@' />
@@ -182,7 +196,7 @@ export default function Fields () {
         <Field disabled name='address' label='Address' value='16, Corn street' />
       </Code>
 
-      <PrimaryTitle small blue>Icons</PrimaryTitle>
+      <PrimaryTitle margins small color='blue'>Icons</PrimaryTitle>
       <Code>
         <Fieldset>
           <UncontrolledField
