@@ -34,11 +34,6 @@ import newColorNames from '../components/icons/constants/colors'
 
 const icons = {
   big: [
-    AccountActivated,
-    AllSet,
-    Done,
-    Error,
-    Letter,
     OpenLetter,
     PadLock,
     NotFound,
@@ -65,6 +60,14 @@ const icons = {
   ]
 }
 
+const migratedIcons = [
+  AccountActivated,
+  AllSet,
+  Done,
+  Error,
+  Letter
+]
+
 const colorNames = Object.keys(colors)
 // remove white from list
 colorNames.pop()
@@ -72,6 +75,21 @@ colorNames.pop()
 export default function Icons () {
   return (
     <div style={{width: '740px'}}>
+      <Code>
+        {migratedIcons.map((Icon) =>
+          newColorNames.map((name) =>
+            <Icon
+              key={`${Icon.displayName}-${name}`}
+              color={name}
+              style={name === 'inverse'
+                ? { background: '#0074c8' }
+                : {}
+              }
+            />
+          )
+        )}
+      </Code>
+
       {
         Object.keys(icons).map((size) => (
           <div key={size}>

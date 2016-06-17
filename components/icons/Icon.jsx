@@ -18,13 +18,11 @@ export default function Icon (props) {
 }
 
 export const colors = {
-  black: '#221F20',  // regular
   gray: '#cbcbcd',   // disabled
   red: '#e63200',    // error
   green: '#7ED321',  // success
   blue: '#0074c8',   // focused
   orange: '#e0a644', // warning
-  white: '#fff'     // to be used with blue background
 }
 
 Icon.defaultProps = {

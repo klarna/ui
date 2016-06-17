@@ -30,11 +30,11 @@ export default function AccountActivated ({ color, styles, ...props }) {
 }
 
 AccountActivated.defaultProps = {
-  color: PropTypes.oneOf(colors),
+  color: 'blue',
   styles: {}
 }
 
 AccountActivated.propTypes = {
-  color: 'blue',
+  color: PropTypes.oneOf(colors),
   styles: PropTypes.object
 }
