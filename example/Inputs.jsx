@@ -1,3 +1,4 @@
+/* global alert */
 import React from 'react'
 import Input from '../components/Input'
 import UncontrolledInput from '../components/uncontrolled/Input'

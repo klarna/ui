@@ -5,7 +5,7 @@ import Button from '../components/Button'
 import PayButton from '../components/PayButton'
 import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../components/IconButton'
 import Block from '../components/Block'
-import { PrimaryTitle, SecondaryTitle, Subtitle } from '../components/Text'
+import { SecondaryTitle, Subtitle } from '../components/Text'
 import Code from './Code'
 
 export default function Buttons () {
