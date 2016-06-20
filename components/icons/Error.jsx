@@ -11,6 +11,7 @@ export default function Error ({ color, styles, ...props }) {
     <svg
       className={classNames('cui__illustration', 'big', color)}
       strokeWidth='2'
+      viewBox='0 0 100 100'
       {...props}>
       <g className={classNames('cui__illustration__stroke')}>
         <Circle />

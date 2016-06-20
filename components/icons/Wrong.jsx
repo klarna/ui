@@ -10,6 +10,7 @@ export default function Wrong ({ color, styles, ...props }) {
   return (
     <svg
       className={classNames('cui__illustration', 'big', color)}
+      viewBox='0 0 100 100'
       {...props}>
       <g
         className={classNames('cui__illustration__fill')}
