@@ -1,3 +1,8 @@
+# 0.12.0
+
+- Update all icons to use the CSS classes
+- Remove the icon HOC
+
 # 0.11.0
 
 - Update CSS components with default margins to 0
