@@ -1,13 +1,18 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import styles from '@klarna/ui-css-components/src/components/selector.scss'
+import defaultStyles from '@klarna/ui-css-components/src/components/selector.scss'
 import Checkmark from './icons/Checkmark'
 
-const classNames = classNamesBind.bind(styles)
-
-export default function Selector (props) {
-  const { selected, onChange, className, data, ...remainingProps } = props
+export default function Selector ({
+  selected,
+  onChange,
+  className,
+  data,
+  styles,
+  ...remainingProps
+}) {
   const baseClass = 'cui__selector--direct'
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames(baseClass, 'title', className)
 
   const options = data.map((d) => {
@@ -40,5 +45,6 @@ Selector.propTypes = {
   selected: React.PropTypes.any.isRequired,
   onChange: React.PropTypes.func.isRequired,
   className: PropTypes.string,
-  data: PropTypes.arrayOf(Selector.optionSchema).isRequired
+  data: PropTypes.arrayOf(Selector.optionSchema).isRequired,
+  styles: PropTypes.object
 }

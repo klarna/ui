@@ -9,7 +9,10 @@ main {
 }
 
 aside {
+  -webkit-font-smoothing: antialiased;
   display: table-cell;
+  font-size: 13px;
+  font-weight: normal;
   padding: 10px 0 0 10px;
   width: 200px;
 }
@@ -18,7 +21,6 @@ nav {
   position: fixed;
 
   a {
-    color: black;
     display: block;
     padding: 5px;
     text-decoration: none;

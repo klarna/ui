@@ -1,11 +1,12 @@
 import React from 'react'
 import Loader from '../components/Loader'
+import { SecondaryTitle } from '../components/Text'
 import Code from './Code'
 
 export default function Loaders () {
   return (
     <div>
-      <h3>Primary</h3>
+      <SecondaryTitle color='blue' margins>Primary</SecondaryTitle>
       <Code>
         <Loader size='big' />
         <Loader />
@@ -13,7 +14,7 @@ export default function Loaders () {
         <Loader size='tiny' />
       </Code>
 
-      <h3>Secondary</h3>
+      <SecondaryTitle color='blue' margins>Secondary</SecondaryTitle>
       <Code>
         <Loader color='blue' size='big' />
         <Loader color='blue' />
@@ -21,7 +22,7 @@ export default function Loaders () {
         <Loader color='blue' size='tiny' />
       </Code>
 
-      <h3>White</h3>
+      <SecondaryTitle color='blue' margins>White</SecondaryTitle>
       <Code>
         <div style={{background: '#0074c8'}}>
           <Loader color='white' size='big' />
