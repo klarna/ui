@@ -26,9 +26,9 @@ import SMS from '../components/icons/SMS'
 import Warning from '../components/icons/Warning'
 import Wrong from '../components/icons/Wrong'
 
-import { PrimaryTitle, SecondaryTitle } from '../components/Text'
+import { SecondaryTitle, Subtitle, Paragraph } from '../components/Text'
 import Code from './Code'
-import { colors } from '../components/icons/Icon'
+import colors from '../components/icons/constants/colors'
 
 const icons = {
   big: [
@@ -37,11 +37,11 @@ const icons = {
     Done,
     Error,
     Letter,
+    NotFound,
     OpenLetter,
     PadLock,
-    NotFound,
-    Time,
     SMS,
+    Time,
     Warning,
     Wrong
   ],
@@ -63,35 +63,51 @@ const icons = {
   ]
 }
 
-const colorNames = Object.keys(colors)
-// remove white from list
-colorNames.pop()
-
 export default function Icons () {
   return (
     <div style={{width: '740px'}}>
-      {
-        Object.keys(icons).map((size) => (
-          <div key={size}>
-            <PrimaryTitle small blue>{size}</PrimaryTitle>
-            {
-              icons[size].map((Icon) => (
-                <div key={Icon.displayName}>
-                  <SecondaryTitle>{Icon.displayName}</SecondaryTitle>
-                  <Code>
-                    {
-                      colorNames.map((color) => (
-                        <Icon color={color} key={color} />
-                      ))
-                    }
-                    <Icon color='white' style={{background: '#0074c8'}} />
-                  </Code>
-                </div>
-              ))
+      <Paragraph margins>
+        Each type of icon is designed for the size that it is displayed in. Resizing the icons is possible since they are SVG, but it's not recommended since they are drawn to have the line widths matching the line styles of the rest of the components.
+      </Paragraph>
+
+      <SecondaryTitle color='blue' margins>Colors</SecondaryTitle>
+      <Subtitle margins>Big</Subtitle>
+      <Code>
+        {colors.map((name) =>
+          <AllSet
+            key={`${name}`}
+            color={name}
+            style={name === 'inverse'
+              ? { background: '#0074c8' }
+              : undefined
             }
-          </div>
-        ))
-      }
+          />
+        )}
+      </Code>
+
+      <Subtitle margins>Tiny</Subtitle>
+      <Code>
+        {colors.map((name) =>
+          <Person
+            key={`${name}`}
+            color={name}
+            style={name === 'inverse'
+              ? { background: '#0074c8' }
+              : undefined
+            }
+          />
+        )}
+      </Code>
+
+      <SecondaryTitle color='blue' margins>Big icons</SecondaryTitle>
+      <Code>
+        {icons.big.map((Icon) => <Icon key={Icon.name} />)}
+      </Code>
+
+      <SecondaryTitle color='blue' margins>Tiny icons</SecondaryTitle>
+      <Code>
+        {icons.tiny.map((Icon) => <Icon key={Icon.name} />)}
+      </Code>
     </div>
   )
 }
