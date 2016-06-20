@@ -1,3 +1,7 @@
+# 0.12.1
+
+- Add `viewBox` property to all icons
+
 # 0.12.0
 
 - Update all icons to use the CSS classes
