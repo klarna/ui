@@ -9,6 +9,7 @@ export default function AccountActivated ({ color, styles, ...props }) {
   return (
     <svg
       className={classNames('cui__illustration', 'big', color)}
+      viewBox='0 0 100 100'
       {...props}>
       <g transform='translate(28, 14)'>
         <path

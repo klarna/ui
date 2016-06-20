@@ -12,6 +12,7 @@ export default function Done ({ color, styles, ...props }) {
       className={classNames('cui__illustration', 'big', color)}
       strokeWidth='2'
       strokeLinecap='round'
+      viewBox='0 0 100 100'
       {...props}>
       <g className={classNames('cui__illustration__stroke')}>
         <Circle />

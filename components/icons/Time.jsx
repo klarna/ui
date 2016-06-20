@@ -12,6 +12,7 @@ export default function Time ({ color, styles, ...props }) {
       className={classNames('cui__illustration', 'big', color)}
       strokeLinecap='round'
       strokeWidth='2'
+      viewBox='0 0 100 100'
       {...props}>
       <g className={classNames('cui__illustration__stroke')}>
         <Circle />
