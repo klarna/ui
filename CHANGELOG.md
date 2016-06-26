@@ -1,3 +1,7 @@
+# 0.12.2
+
+- Add Cancel icon
+
 # 0.12.1
 
 - Add `viewBox` property to all icons
