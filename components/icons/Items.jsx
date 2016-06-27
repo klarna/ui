@@ -3,12 +3,12 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
 import colors from './constants/colors'
 
-export default function Items ({ color, styles, ...props }) {
+export default function Items ({ color, styles, className, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <svg
-      className={classNames('cui__illustration', 'tiny', color)}
+      className={classNames('cui__illustration', 'tiny', color, className)}
       strokeLinecap='round'
       viewBox='0 0 22 22'
       {...props}>

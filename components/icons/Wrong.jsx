@@ -4,12 +4,12 @@ import defaultStyles from '@klarna/ui-css-components/src/components/illustration
 import colors from './constants/colors'
 import File from './parts/File.jsx'
 
-export default function Wrong ({ color, styles, ...props }) {
+export default function Wrong ({ color, styles, className, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <svg
-      className={classNames('cui__illustration', 'big', color)}
+      className={classNames('cui__illustration', 'big', color, className)}
       viewBox='0 0 100 100'
       {...props}>
       <g
