@@ -1,3 +1,7 @@
+# 0.12.3
+
+- Icons can receive `className` prop
+
 # 0.12.2
 
 - Add Cancel icon
