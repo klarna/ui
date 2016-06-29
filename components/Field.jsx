@@ -82,7 +82,7 @@ export default class Field extends Component {
           disabled={disabled}
           value={value || ''}
           onBlur={onBlur}
-          onChange={onChange || function () {}}
+          onChange={onChange}
           onKeyDown={handleKeyDown(this.props)}
           onFocus={onFocus}
           ref='input'
@@ -97,6 +97,7 @@ Field.defaultProps = {
   big: false,
   centered: false,
   loading: false,
+  onChange: function () {},
   ...inlinedIcon.defaultProps,
   ...fieldStates.defaultProps,
   ...position.defaultProps,

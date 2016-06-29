@@ -73,7 +73,7 @@ export default class Dropdown extends Component {
           className={classes.select}
           disabled={disabled}
           onBlur={onBlur}
-          onChange={onChange || function () {}}
+          onChange={onChange}
           onFocus={onFocus}
           onKeyDown={handleKeyDown(this.props)}
           ref='select'
@@ -118,6 +118,7 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   loading: false,
+  onChange: function () {},
   ...inlinedIcon.defaultProps,
   ...fieldStates.defaultProps,
   ...position.defaultProps,
