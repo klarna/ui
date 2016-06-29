@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/button.scss'
+import defaultStyles from './styles.scss'
 
 export default function Button (props) {
   const {
