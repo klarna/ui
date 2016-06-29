@@ -19,7 +19,7 @@ export default function Button (props) {
 
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  const cls = classNames(`cui__button--${design}`, size, {
+  const cls = classNames(`button--${design}`, size, {
     'is-disabled': disabled,
     'is-loading': loading
   }, className)

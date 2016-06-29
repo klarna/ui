@@ -1,7 +1,7 @@
 @import '../../css/settings';
 @import '../../css/mixins/index';
 
-.cui__button--primary {
+.button--primary {
     @include button(
         $background: map-get($colors, klarna-blue),
         $text-color: white,
@@ -9,7 +9,7 @@
         $darken-attributes: (background-color, border-color)
     );
 
-    .cui__button__price {
+    .button__price {
         @include button__price(
             $border-color: white
         );
@@ -27,7 +27,7 @@
     }
 }
 
-.cui__button--secondary {
+.button--secondary {
     @include button(
         $background: white,
         $text-color: map-get($colors, klarna-blue),
@@ -35,7 +35,7 @@
         $darken-attributes: (background-color, border-color)
     );
 
-    .cui__button__price {
+    .button__price {
         @include button__price(
             $border-color: map-get($colors, klarna-blue)
         );
@@ -64,7 +64,7 @@
         color: #fff;
     }
 
-    .cui__button--primary.right + &.right {
+    .button--primary.right + &.right {
         margin-top: ($grid * 4);
 
         @include respond-to-wide {
@@ -111,7 +111,7 @@
     }
 }
 
-.cui__button__menu {
+.button__menu {
     padding-bottom: ($grid * 4);
 
     &::after {
@@ -121,6 +121,6 @@
     }
 }
 
-.cui__button__label {
+.button__label {
     @include button__label;
 }

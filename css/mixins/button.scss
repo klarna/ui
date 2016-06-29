@@ -159,7 +159,7 @@
     transition: color .2s ease;
     z-index: 1;
 
-    .cui__button--secondary &--alt:after {
+    .button--secondary &--alt:after {
         content: attr(title);
         left: 0;
         opacity: 0;
@@ -169,7 +169,7 @@
         z-index: 2;
     }
 
-    .dynamic-styling.cui__button--secondary:not(.is-disabled):hover & {
+    .dynamic-styling.button--secondary:not(.is-disabled):hover & {
         color: rgba(0,0,0,0);
 
         &--alt:after {
@@ -177,8 +177,8 @@
         }
     }
 
-    .dynamic-styling.cui__button--secondary:not(.is-disabled):active &,
-    .dynamic-styling.cui__button--secondary:not(.is-disabled):focus & {
+    .dynamic-styling.button--secondary:not(.is-disabled):active &,
+    .dynamic-styling.button--secondary:not(.is-disabled):focus & {
         color: rgba(0,0,0,0);
 
         &--alt:after {

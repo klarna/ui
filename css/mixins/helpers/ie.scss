@@ -31,7 +31,7 @@
     $selectors: ();
     @each $version in $versions {
         $selectors: append($selectors, unquote('.ie#{$version} &'), comma);
-        $selectors: append($selectors, unquote('.cui__browser--ie#{$version} &'), comma);
+        $selectors: append($selectors, unquote('.browser--ie#{$version} &'), comma);
     }
 
     #{$selectors} {
