@@ -100,6 +100,11 @@ export default function Dropdowns () {
           <Dropdown right bottom size='3/5' label='Mobile phone number' options={options} />
         </Fieldset>
       </Code>
+
+      <Subtitle margins>No options</Subtitle>
+      <Code>
+        <Dropdown label='No options really' />
+      </Code>
     </div>
   )
 }

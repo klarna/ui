@@ -21,12 +21,8 @@ export default class Dropdown extends Component {
 
   render () {
     const {
-      big,
-      centered,
       className,
       disabled,
-      giant,
-      icon,
       label,
       loading,
       onBlur,
@@ -43,19 +39,19 @@ export default class Dropdown extends Component {
     const selectedOption = options && options.find((option) => String(option.value) === String(value))
 
     const classes = {
-      dropdown: classNames('cui__dropdown--native', {
-          'is-centered': centered,
+      dropdown: classNames(
+        'cui__dropdown--native',
+        {
           'is-loading': loading,
           'is-selected': value != null,
-          big,
-          giant,
           square
         },
         fieldStates.getClassName(this.props),
         position.getClassName(this.props),
         programmaticFocus.getClassName(this.props),
         size.getClassName(this.props),
-        className),
+        className
+      ),
       label: classNames({
         'cui__dropdown--native__floating-label': problem,
         'cui__dropdown--native__label': !problem
@@ -69,9 +65,7 @@ export default class Dropdown extends Component {
         className={classes.dropdown}
         onClick={onClick}
       >
-        {
-          <label className={classes.label}>{label}</label>
-        }
+        <label className={classes.label}>{label}</label>
         {
           selectedOption &&
             <div className={classes.currentOption}>{selectedOption.label}</div>
@@ -84,16 +78,15 @@ export default class Dropdown extends Component {
           onFocus={onFocus}
           onKeyDown={handleKeyDown(this.props)}
           ref='select'
+          value={value || ''}
           {...props}
         >
           {
-            options && options.map((attributes) => {
-              return (
-                <option key={attributes.value} {...attributes}>
-                  {attributes.label}
-                </option>
-              )
-            })
+            options && options.map(({ label, value }) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))
           }
         </select>
       </div>
@@ -107,9 +100,6 @@ Dropdown.optionShape = PropTypes.shape({
 })
 
 Dropdown.propTypes = {
-  big: PropTypes.bool,
-  centered: PropTypes.bool,
-  giant: PropTypes.bool,
   label: PropTypes.string.isRequired,
   loading: PropTypes.bool,
   onBlur: PropTypes.func,
@@ -127,9 +117,6 @@ Dropdown.propTypes = {
 }
 
 Dropdown.defaultProps = {
-  big: false,
-  centered: false,
-  giant: false,
   loading: false,
   ...inlinedIcon.defaultProps,
   ...fieldStates.defaultProps,
