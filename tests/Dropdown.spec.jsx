@@ -35,7 +35,6 @@ describe('Dropdown', () => {
 
     describe('select', () => {
       it("renders tag 'select'", () => {
-        console.log(dropdown.props.children)
         equal(select(dropdown).type, 'select')
       })
 
