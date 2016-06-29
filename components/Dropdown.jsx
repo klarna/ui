@@ -8,7 +8,6 @@ import { position, size } from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 
 export default class Dropdown extends Component {
-
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.select)
   }
