@@ -8,7 +8,6 @@ import { position, size } from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 
 export default class Field extends Component {
-
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
   }
@@ -83,7 +82,7 @@ export default class Field extends Component {
           disabled={disabled}
           value={value || ''}
           onBlur={onBlur}
-          onChange={onChange || function () {}}
+          onChange={onChange}
           onKeyDown={handleKeyDown(this.props)}
           onFocus={onFocus}
           ref='input'
@@ -98,6 +97,7 @@ Field.defaultProps = {
   big: false,
   centered: false,
   loading: false,
+  onChange: function () {},
   ...inlinedIcon.defaultProps,
   ...fieldStates.defaultProps,
   ...position.defaultProps,
