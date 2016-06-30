@@ -1,3 +1,7 @@
+# 0.12.4
+
+- Add a field with details icon inside
+
 # 0.12.3
 
 - Icons can receive `className` prop
