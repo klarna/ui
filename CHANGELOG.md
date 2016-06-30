@@ -1,3 +1,7 @@
+# 0.12.5
+
+- Add `Dropdown` component
+
 # 0.12.4
 
 - Add a field with details icon inside
