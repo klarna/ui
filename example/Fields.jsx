@@ -170,6 +170,11 @@ export default function Fields () {
             icon='logout'
             label='Write something to log out' />
         </Fieldset>
+        <Fieldset>
+          <Field
+            icon='details'
+            label='This is for writing some details here' />
+        </Fieldset>
       </Code>
     </div>
   )
