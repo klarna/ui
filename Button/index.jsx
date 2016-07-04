@@ -1,6 +1,13 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import Loader from '../Loader'
+
+const ButtonLoader = ({ design, size }) => (
+  <Loader
+    size={size}
+    color={design === 'primary' ? 'white' : 'blue'} />
+)
 
 export default function Button (props) {
   const {
@@ -15,7 +22,9 @@ export default function Button (props) {
     ...remainingProps } = props
 
   const content =
-    success && '✔' || !loading && children
+    success && '✔' || (loading
+      ? <ButtonLoader design={design} size={size} />
+      : children)
 
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 

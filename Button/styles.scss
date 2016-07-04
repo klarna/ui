@@ -1,5 +1,5 @@
-@import '../../css/settings';
-@import '../../css/mixins/index';
+@import '../css/settings';
+@import '../css/mixins/index';
 
 .button--primary {
     @include button(
@@ -13,13 +13,6 @@
         @include button__price(
             $border-color: white
         );
-    }
-
-    &.is-loading {
-        &:after {
-            @include button__loader('button--primary__loader');
-            content: '';
-        }
     }
 
     &.dynamic-styling {
@@ -39,13 +32,6 @@
         @include button__price(
             $border-color: map-get($colors, klarna-blue)
         );
-    }
-
-    &.is-loading {
-        &:after {
-            @include button__loader('button--secondary__loader');
-            content: '';
-        }
     }
 
     &:hover,
