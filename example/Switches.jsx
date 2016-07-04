@@ -1,6 +1,6 @@
 import React from 'react'
 import Switch from '../components/Switch'
-import Button from '../components/Button'
+import Button from '../Button'
 import { SecondaryTitle } from '../components/Text'
 import Code from './Code'
 

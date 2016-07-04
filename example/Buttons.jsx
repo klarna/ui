@@ -1,7 +1,7 @@
 /* globals alert */
 
 import React from 'react'
-import Button from '../components/Button'
+import Button from '../Button'
 import PayButton from '../components/PayButton'
 import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../components/IconButton'
 import Block from '../components/Block'

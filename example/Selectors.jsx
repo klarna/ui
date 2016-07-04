@@ -4,7 +4,7 @@ import React from 'react'
 import UncontrolledRadioGroup from '../components/uncontrolled/RadioGroup'
 import RadioGroup from '../components/RadioGroup'
 import Selector from '../components/Selector'
-import Button from '../components/Button'
+import Button from '../Button'
 import { SecondaryTitle, Subtitle, Paragraph } from '../components/Text'
 import Code from './Code'
 

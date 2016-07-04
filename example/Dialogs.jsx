@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Button from '../components/Button'
+import Button from '../Button'
 import Dialog from '../components/Dialog'
 import { CloseButton } from '../components/IconButton'
 import { PrimaryTitle, Subtitle, Paragraph } from '../components/Text'
