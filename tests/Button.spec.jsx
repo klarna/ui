@@ -1,6 +1,6 @@
 /* global describe it */
 
-import Button from '../components/Button'
+import Button from '../Button'
 import { ok, equal, deepEqual } from 'assert'
 import { renderer } from './helpers'
 
@@ -14,8 +14,8 @@ describe('Button', () => {
       equal(button.type, 'button')
     })
 
-    it("has className 'cui__button--primary'", () => {
-      equal(button.props.className, 'cui__button--primary')
+    it("has className 'button--primary'", () => {
+      equal(button.props.className, 'button--primary')
     })
 
     it('is not disabled', () => {
@@ -50,10 +50,10 @@ describe('Button', () => {
   describe('secondary', () => {
     const button = render({ design: 'secondary' })
 
-    it("has className 'cui__button--secondary'", () => {
+    it("has className 'button--secondary'", () => {
       equal(
         button.props.className,
-        'cui__button--secondary'
+        'button--secondary'
       )
     })
   })
@@ -69,8 +69,8 @@ describe('Button', () => {
       ok(button.props.disabled)
     })
 
-    it('hides the content', () => {
-      ok(!button.props.children)
+    it('renders a Loader', () => {
+      equal('ButtonLoader', button.props.children.type.name)
     })
   })
 
@@ -90,13 +90,13 @@ describe('Button', () => {
     it("when 'small' has className 'small'", () => {
       const button = render({ size: 'small' })
 
-      equal('cui__button--primary small', button.props.className)
+      equal('button--primary small', button.props.className)
     })
 
     it("when 'big' has className 'big'", () => {
       const button = render({ size: 'big' })
 
-      equal('cui__button--primary big', button.props.className)
+      equal('button--primary big', button.props.className)
     })
   })
 
@@ -108,7 +108,7 @@ describe('Button', () => {
     it("allows passing custom 'className' without overriding defaults", () => {
       const button = render({ className: 'custom' })
 
-      equal('cui__button--primary custom', button.props.className)
+      equal('button--primary custom', button.props.className)
     })
 
     it('allows passing other props', () => {
