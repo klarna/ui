@@ -1,7 +1,6 @@
 /* global describe it */
 
 import PayButton from '../components/PayButton'
-import Button from '../components/Button'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 
@@ -12,7 +11,7 @@ describe('PayButton', () => {
     const payButton = render({ price: '10.15' }, 'Click me')
 
     it('renders element Button', () => {
-      equal(payButton.type, Button)
+      equal(payButton.type.name, 'Button')
     })
 
     it("has class 'has-price'", () => {
