@@ -32,8 +32,7 @@ Checklist.Item = ({ className, children, styles }) => {
       className={classNames('cui__checklist__item', className)}>
       <svg
         className={classNames('cui__checklist__checkmark')}
-        viewBox='0 0 25 25'
-        ariaLabelledby='Checkmark'>
+        viewBox='0 0 25 25'>
         <path d='M5 13.69l4.49 4.23L19.37 8'></path>
       </svg>
       {children}
