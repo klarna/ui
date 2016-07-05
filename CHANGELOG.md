@@ -1,3 +1,7 @@
+# 0.12.6
+
+- Update Switch "checked" state in `componentWillReceiveProps`, based on the "checked" prop.
+
 # 0.12.5
 
 - Add `Dropdown` component
