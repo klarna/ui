@@ -16,6 +16,14 @@ export default class Switch extends React.Component {
     this.release = this.release.bind(this)
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (this.state.checked !== nextProps.checked) {
+      this.setState({
+        checked: nextProps.checked
+      })
+    }
+  }
+
   toggle () {
     const checked = !this.state.checked
     this.props.onChange && this.props.onChange(checked)
