@@ -18,6 +18,7 @@ export default function Buttons () {
         <Button size='small'>Click me!</Button>
         <Button>Click me!</Button>
         <Button size='big'>Click me!</Button>
+        <Button customize={{textColor: 'red', backgroundColor: 'green'}}>Beautiful!</Button>
       </Code>
 
       <SecondaryTitle color='blue' margins>Secondary</SecondaryTitle>
@@ -27,6 +28,7 @@ export default function Buttons () {
         <Button design='secondary' size='small'>Click me!</Button>
         <Button design='secondary'>Click me!</Button>
         <Button design='secondary' size='big'>Click me!</Button>
+        <Button design='secondary' customize={{textColor: 'red', backgroundColor: 'green'}}>Beautiful!</Button>
       </Code>
 
       <SecondaryTitle color='blue' margins>Disabled</SecondaryTitle>
