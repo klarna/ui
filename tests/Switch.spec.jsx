@@ -145,4 +145,119 @@ describe('Switch', () => {
       ok(_switch.props.className.match('legal'))
     })
   })
+
+  describe('dynamic styling', () => {
+    describe('switch', () => {
+      const _switch = render({
+        customize: {
+          backgroundColor: 'red',
+          bulletColor: 'blue'
+        }
+      }, 'Toggle me')
+
+      it("renders tag 'div'", () => {
+        equal(_switch.type, 'div')
+      })
+
+      it("has className 'cui__switch dynamic-styling'", () => {
+        equal(_switch.props.className, 'cui__switch dynamic-styling')
+      })
+
+      it('should have the content', () => {
+        ok(_switch.props.children[2].match('Toggle me'))
+      })
+
+      describe('bullet', () => {
+        const bullet = _switch.props.children[0]
+
+        it('should be of type "div"', () => {
+          equal(bullet.type, 'div')
+        })
+
+        it('should have class "cui__switch__bullet"', () => {
+          equal(bullet.props.className, 'cui__switch__bullet')
+        })
+
+        it('should have customized styles', () => {
+          equal(bullet.props.style.backgroundColor, 'red')
+          equal(bullet.props.style.borderColor, 'red')
+        })
+      })
+
+      describe('checkmark', () => {
+        const checkmark = _switch.props.children[1]
+
+        it('should be of type "div"', () => {
+          equal(checkmark.type, 'div')
+        })
+
+        it('should have class "cui__switch__checkmark"', () => {
+          equal(checkmark.props.className, 'cui__switch__bullet__checkmark')
+        })
+
+        it('should have customized styles', () => {
+          equal(checkmark.props.style.backgroundColor, 'blue')
+        })
+      })
+    })
+
+    describe('checkbox', () => {
+      const _switch = render({
+        design: 'checkbox',
+        customize: {
+          backgroundColor: 'red',
+          bulletColor: 'blue'
+        }
+      }, 'Toggle me')
+
+      it("renders tag 'div'", () => {
+        equal(_switch.type, 'div')
+      })
+
+      it("has className 'cui__switch checkbox dynamic-styling'", () => {
+        equal(_switch.props.className, 'cui__switch checkbox dynamic-styling')
+      })
+
+      it('should have the content', () => {
+        ok(_switch.props.children[2].match('Toggle me'))
+      })
+
+      describe('bullet', () => {
+        const bullet = _switch.props.children[0]
+
+        it('should have type "div"', () => {
+          equal(bullet.type, 'div')
+        })
+
+        it('should have className "cui__switch__bullet"', () => {
+          equal(bullet.props.className, 'cui__switch__bullet')
+        })
+
+        it('should have customized styles', () => {
+          equal(bullet.props.style.backgroundColor, 'red')
+          equal(bullet.props.style.borderColor, 'red')
+        })
+      })
+
+      describe('checkmark', () => {
+        const checkmark = _switch.props.children[1]
+
+        it('should have type "div"', () => {
+          equal(checkmark.type, 'div')
+        })
+
+        it('should have className "cui__switch__bullet__checkmark"', () => {
+          equal(checkmark.props.className, 'cui__switch__bullet__checkmark')
+        })
+
+        describe('check', () => {
+          const check = checkmark.props.children.props.children.props.children[1]
+
+          it('should have customized styles', () => {
+            equal(check.props.stroke, 'blue')
+          })
+        })
+      })
+    })
+  })
 })
