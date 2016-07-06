@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Tooltip from '../components/Tooltip'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

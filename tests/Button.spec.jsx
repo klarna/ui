@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Button from '../components/Button'
 import { ok, equal, deepEqual } from 'assert'
 import { renderer } from './helpers'

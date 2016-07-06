@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Amount from '../components/texts/Amount'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Input from '../components/Input'
 import assert, { equal } from 'assert'
 import { renderer, shallow } from './helpers'

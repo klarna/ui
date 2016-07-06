@@ -1,5 +1,3 @@
-/* global describe it */
-
 import PrimaryTitle from '../components/texts/PrimaryTitle'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
