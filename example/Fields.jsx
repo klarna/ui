@@ -62,7 +62,7 @@ export default function Fields () {
 
       <SecondaryTitle margins>Dynamic styling</SecondaryTitle>
       <Code>
-        <UncontrolledField customize={{ borderColor: 'brown', borderColorSelected: 'pink' }} label='Favorite color' value='Brown' />
+        <UncontrolledField customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8' }} label='Favorite color' value='Purple' />
       </Code>
 
       <SecondaryTitle margins>Stacked</SecondaryTitle>
