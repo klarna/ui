@@ -60,6 +60,11 @@ export default function Fields () {
         <Field disabled label='Address' value='16, Corn street' />
       </Code>
 
+      <SecondaryTitle margins>Dynamic styling</SecondaryTitle>
+      <Code>
+        <UncontrolledField customize={{ borderColor: 'brown', borderColorSelected: 'pink' }} label='Favorite color' value='Brown' />
+      </Code>
+
       <SecondaryTitle margins>Stacked</SecondaryTitle>
       <Subtitle margins>Normal</Subtitle>
       <Code>
