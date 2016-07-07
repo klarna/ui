@@ -34,7 +34,7 @@ export default function Switches () {
 
       <SecondaryTitle margins>Dynamic styling</SecondaryTitle>
       <Code>
-        <Switch customize={{ backgroundColor: 'bisque', bulletColor: 'red' }}>This is a toggle switch with dynamic styling</Switch>
+        <Switch customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with dynamic styling</Switch>
       </Code>
 
       <SecondaryTitle margins>Checkbox</SecondaryTitle>
@@ -49,7 +49,7 @@ export default function Switches () {
 
       <SecondaryTitle margins>Checkbox with dynamic styling</SecondaryTitle>
       <Code>
-        <Switch design='checkbox' customize={{ backgroundColor: 'bisque', bulletColor: 'red' }}>This is a toggle switch with checkbox design and dynamic styling</Switch>
+        <Switch design='checkbox' customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with checkbox design and dynamic styling</Switch>
       </Code>
 
       <SecondaryTitle margins>In a form</SecondaryTitle>
