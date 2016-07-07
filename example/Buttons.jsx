@@ -47,12 +47,14 @@ export default function Buttons () {
         <Button loading size='small'>Click me!</Button>
         <Button loading>Click me!</Button>
         <Button loading size='big'>Click me!</Button>
+        <Button loading customize={{backgroundColor: 'red', textColor: 'green'}}/>
 
         <hr style={{border: 0, background: 0}} />
 
         <Button design='secondary' loading size='small'>Click me!</Button>
         <Button design='secondary' loading>Click me!</Button>
         <Button design='secondary' loading size='big'>Click me!</Button>
+        <Button design='secondary' loading customize={{backgroundColor: 'red', textColor: 'green'}}/>
       </Code>
 
       <SecondaryTitle color='blue' margins>Success</SecondaryTitle>

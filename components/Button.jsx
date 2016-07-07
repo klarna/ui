@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
+import Loader from './Loader'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '@klarna/ui-css-components/src/components/button.scss'
+import parseColor from 'parse-color'
 
 export default function Button (props) {
   const {
@@ -33,13 +35,19 @@ export default function Button (props) {
 
   const isDisabled = (loading || success || disabled)
 
+  const loaderColor = getLoaderColor(
+    design,
+    (customize || {}).textColor,
+    (customize || {}).backgroundColor
+  )
+
   const dynamicRenderer = design === 'primary'
     ? renderDynamicallyStyledPrimaryButton
     : renderDynamicallyStyledSecondaryButton
 
   return customize
-    ? dynamicRenderer(content, cls, labelCls, isDisabled, customize, {...remainingProps})
-    : renderButton(content, cls, isDisabled, {...remainingProps})
+    ? dynamicRenderer(content, cls, labelCls, isDisabled, loading, loaderColor, customize, {...remainingProps})
+    : renderButton(content, cls, isDisabled, loading, loaderColor, {...remainingProps})
 }
 
 Button.defaultProps = {
@@ -67,32 +75,32 @@ Button.propTypes = {
   styles: PropTypes.object
 }
 
-const renderButton = (content, classNames, disabled, remainingProps) => (
+const renderButton = (content, classNames, disabled, loading, loaderColor, remainingProps) => (
   <button className={classNames} disabled={disabled} {...remainingProps}>
-    {content}
+    {loading ? <Loader color={loaderColor}/> : content}
   </button>
 )
 
-const renderDynamicallyStyledPrimaryButton = (content, classNames, labelClassNames, disabled, {textColor, backgroundColor}, remainingProps) => (
+const renderDynamicallyStyledPrimaryButton = (content, classNames, labelClassNames, disabled, loading, loaderColor, {textColor, backgroundColor}, remainingProps) => (
   <button className={classNames} disabled={disabled} {...remainingProps} style={{
     color: textColor,
     backgroundColor: backgroundColor,
     borderColor: backgroundColor
   }}>
     <span className={labelClassNames.label}>
-      {content}
+      {loading ? <Loader color={loaderColor}/> : content}
     </span>
   </button>
 )
 
-const renderDynamicallyStyledSecondaryButton = (content, classNames, labelClassNames, disabled, {textColor, backgroundColor}, remainingProps) => (
+const renderDynamicallyStyledSecondaryButton = (content, classNames, labelClassNames, disabled, loading, loaderColor, {textColor, backgroundColor}, remainingProps) => (
   <button className={classNames} disabled={disabled} {...remainingProps} style={{
     color: backgroundColor,
-    backgroundColor: backgroundColor,
+    backgroundColor: loading ? undefined : backgroundColor,
     borderColor: backgroundColor
   }}>
     <div className={labelClassNames.label}>
-      {content}
+      {loading ? <Loader color={loaderColor}/> : content}
       {
         disabled ||
           <span
@@ -104,3 +112,12 @@ const renderDynamicallyStyledSecondaryButton = (content, classNames, labelClassN
     </div>
   </button>
 )
+
+const getLoaderColor = (design, textColor, backgroundColor) => {
+  if (textColor && backgroundColor) {
+    const { rgb } = parseColor(design === 'primary' ? textColor : backgroundColor)
+    return rgb
+  }
+
+  return design === 'primary' ? 'white' : 'blue'
+}
