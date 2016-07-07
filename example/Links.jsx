@@ -13,7 +13,7 @@ export default function Links () {
 
       <SecondaryTitle>Dynamic styling</SecondaryTitle>
       <Code>
-        <Link customize={{ textColor: 'lime' }}>Click me!</Link>
+        <Link customize={{ textColor: '#3500C8' }}>Click me!</Link>
       </Code>
     </div>
   )
