@@ -1,6 +1,6 @@
 import React from 'react'
 import Loader from '../components/Loader'
-import { SecondaryTitle } from '../components/Text'
+import { SecondaryTitle, Subtitle } from '../components/Text'
 import Code from './Code'
 
 export default function Loaders () {
@@ -12,6 +12,12 @@ export default function Loaders () {
         <Loader />
         <Loader size='small' />
         <Loader size='tiny' />
+      </Code>
+
+      <Subtitle>Inline</Subtitle>
+      <Code>
+        <Loader inline />
+        <Loader inline />
       </Code>
 
       <SecondaryTitle color='blue' margins>Secondary</SecondaryTitle>
