@@ -18,6 +18,7 @@ export default function Buttons () {
         <Button size='small'>Click me!</Button>
         <Button>Click me!</Button>
         <Button size='big'>Click me!</Button>
+        <Button customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button>
       </Code>
 
       <SecondaryTitle color='blue' margins>Secondary</SecondaryTitle>
@@ -27,6 +28,7 @@ export default function Buttons () {
         <Button design='secondary' size='small'>Click me!</Button>
         <Button design='secondary'>Click me!</Button>
         <Button design='secondary' size='big'>Click me!</Button>
+        <Button design='secondary' customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button>
       </Code>
 
       <SecondaryTitle color='blue' margins>Disabled</SecondaryTitle>
@@ -45,12 +47,14 @@ export default function Buttons () {
         <Button loading size='small'>Click me!</Button>
         <Button loading>Click me!</Button>
         <Button loading size='big'>Click me!</Button>
+        <Button loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
 
         <hr style={{border: 0, background: 0}} />
 
         <Button design='secondary' loading size='small'>Click me!</Button>
         <Button design='secondary' loading>Click me!</Button>
         <Button design='secondary' loading size='big'>Click me!</Button>
+        <Button design='secondary' loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
       </Code>
 
       <SecondaryTitle color='blue' margins>Success</SecondaryTitle>

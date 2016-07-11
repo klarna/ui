@@ -10,54 +10,36 @@ describe('Loader', () => {
   describe('default', () => {
     const loader = render()
 
-    it("renders tag 'div'", () => {
-      equal('div', loader.type)
+    it('renders tag "svg"', () => {
+      equal('svg', loader.type)
     })
 
-    it("has className 'cui__loader'", () => {
-      equal('cui__loader', loader.props.className)
+    it('has className "loader"', () => {
+      equal('loader', loader.props.className)
     })
   })
 
   it("allows passing custom 'className' without overriding defaults", () => {
     const loader = render({ className: 'custom' })
 
-    equal('cui__loader custom', loader.props.className)
-  })
-
-  describe('color', () => {
-    it("when 'blue' has className 'blue'", () => {
-      const loader = render({ color: 'blue' })
-
-      equal('cui__loader blue', loader.props.className)
-    })
-  })
-
-  describe('color', () => {
-    it("when 'white' has className 'white'", () => {
-      const loader = render({ color: 'white' })
-
-      equal('cui__loader white', loader.props.className)
-    })
+    equal('loader custom', loader.props.className)
   })
 
   describe('size', () => {
-    it("when 'big' has className 'big'", () => {
-      const loader = render({ size: 'big' })
-
-      equal('cui__loader big', loader.props.className)
+    it('has width 30 when size is "big"', () => {
+      equal(30, render({ size: 'big' }).props.width)
     })
 
-    it("when 'small' has className 'small'", () => {
-      const loader = render({ size: 'small' })
-
-      equal('cui__loader small', loader.props.className)
+    it('has width 20 when size is default', () => {
+      equal(20, render().props.width)
     })
 
-    it("when 'tiny' has className 'tiny'", () => {
-      const loader = render({ size: 'tiny' })
+    it('has width 15 when size is "small"', () => {
+      equal(15, render({ size: 'small' }).props.width)
+    })
 
-      equal('cui__loader tiny', loader.props.className)
+    it('has width 10 when size is "tiny"', () => {
+      equal(10, render({ size: 'tiny' }).props.width)
     })
   })
 })
