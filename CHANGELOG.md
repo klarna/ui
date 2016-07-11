@@ -1,3 +1,7 @@
+# 0.12.8
+
+- Add dynamic styling support to Field, Switch, Button and Link
+
 # 0.12.7
 
 - Fix 'aria-labelledby' attribute on SVG in Checklist component
