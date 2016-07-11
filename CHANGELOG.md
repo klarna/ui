@@ -1,3 +1,7 @@
+# 0.12.7
+
+- Fix 'aria-labelledby' attribute on SVG in Checklist component
+
 # 0.12.6
 
 - Update Switch "checked" state in `componentWillReceiveProps`, based on the "checked" prop.
