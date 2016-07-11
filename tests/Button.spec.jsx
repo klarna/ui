@@ -218,7 +218,6 @@ describe('Button', () => {
           const loader = loadingButton.props.children.props.children[0]
 
           it('is of type Loader', () => {
-            console.log(loader)
             equal(loader.type, Loader)
           })
 
