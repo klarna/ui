@@ -1,5 +1,3 @@
-/* global describe it */
-
 import { ok } from 'assert'
 import palette from '../components/texts/palette'
 

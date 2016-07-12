@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Link from '../components/Link'
 import { equal } from 'assert'
 import { renderer } from './helpers'
@@ -23,6 +21,18 @@ describe('Link', () => {
     const link = render({ className: 'custom' })
 
     equal('cui__link custom', link.props.className)
+  })
+
+  describe('customize', () => {
+    const link = render({ customize: { textColor: 'green' } })
+
+    it('has className "dynamic-styling"', () => {
+      equal('cui__link dynamic-styling', link.props.className)
+    })
+
+    it('has the correct customized styles', () => {
+      equal(link.props.style.color, 'green')
+    })
   })
 
   it('allows more props', () => {

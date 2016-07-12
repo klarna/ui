@@ -20,6 +20,7 @@ import Password from '../components/icons/Password'
 import Person from '../components/icons/Person'
 import Phone from '../components/icons/Phone'
 import Question from '../components/icons/Question'
+import Cancel from '../components/icons/Cancel'
 import Remind from '../components/icons/Remind'
 import Time from '../components/icons/Time'
 import SMS from '../components/icons/SMS'
@@ -59,6 +60,7 @@ const icons = {
     Person,
     Phone,
     Question,
+    Cancel,
     Remind
   ]
 }

@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Label from '../components/Label'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

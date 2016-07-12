@@ -71,6 +71,11 @@ export default function Texts () {
         <Paragraph>
           Some paragraph with <Link href='#'>a link</Link>.
         </Paragraph>
+
+        <Paragraph>
+          Some paragraph with <Link href='#' customize={{textColor: 'green'}}>a customized link</Link>.
+        </Paragraph>
+
         <Block blue>
           <Paragraph color='white'>
             Some paragraph with <Link color='white' href='#'>a link</Link>.

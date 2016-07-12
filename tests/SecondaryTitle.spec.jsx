@@ -1,5 +1,3 @@
-/* global describe it */
-
 import SecondaryTitle from '../components/texts/SecondaryTitle'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

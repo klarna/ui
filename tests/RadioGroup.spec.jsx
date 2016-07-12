@@ -1,5 +1,3 @@
-/* global describe it */
-
 import RadioGroup from '../components/RadioGroup'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
