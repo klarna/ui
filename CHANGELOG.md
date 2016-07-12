@@ -1,3 +1,8 @@
+# 0.12.10
+
+- Spread props in Dropdown options to be able to set hidden and disabled
+- Set `describe` and `it` as globals for standard in the package.json
+
 # 0.12.9
 
 - Fix horizontal positioning of the Loader inside a Button
