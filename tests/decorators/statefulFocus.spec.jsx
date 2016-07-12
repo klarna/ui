@@ -1,5 +1,3 @@
-/* global describe it */
-
 import React, { Component } from 'react'
 import statefulFocus from '../../lib/decorators/statefulFocus'
 import { shallow } from '../helpers'

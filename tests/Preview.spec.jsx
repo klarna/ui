@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Preview, { PreviewTitle, PreviewLink } from '../components/Preview'
 import { equal } from 'assert'
 import { renderer } from './helpers'

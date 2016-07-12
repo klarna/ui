@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Button from '../components/Button'
 import Loader from '../components/Loader'
 import { ok, equal, deepEqual } from 'assert'

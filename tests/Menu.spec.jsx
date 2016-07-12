@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Menu from '../components/Menu'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

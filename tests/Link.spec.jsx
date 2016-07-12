@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Link from '../components/Link'
 import { equal } from 'assert'
 import { renderer } from './helpers'

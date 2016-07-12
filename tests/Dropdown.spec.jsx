@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Dropdown from '../components/Dropdown'
 import { equal, ok } from 'assert'
 import { renderer } from './helpers'

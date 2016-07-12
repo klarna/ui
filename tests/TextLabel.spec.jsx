@@ -1,5 +1,3 @@
-/* global describe it */
-
 import TextLabel from '../components/texts/TextLabel'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

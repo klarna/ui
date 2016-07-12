@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Switch from '../components/Switch'
 import { ok, equal } from 'assert'
 import { renderer, shallow } from './helpers'

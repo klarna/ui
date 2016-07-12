@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Loader from '../components/Loader'
 import { equal, ok } from 'assert'
 import { renderer } from './helpers'

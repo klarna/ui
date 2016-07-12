@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Paragraph from '../components/texts/Paragraph'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
