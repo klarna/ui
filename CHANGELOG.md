@@ -1,3 +1,7 @@
+# 0.12.9
+
+- Fix horizontal positioning of the Loader inside a Button
+
 # 0.12.8
 
 - Add dynamic styling support to Field, Switch, Button and Link
