@@ -1,7 +1,7 @@
 /* global describe it */
 
 import Loader from '../components/Loader'
-import { equal } from 'assert'
+import { equal, ok } from 'assert'
 import { renderer } from './helpers'
 
 const render = renderer(Loader)
@@ -23,6 +23,14 @@ describe('Loader', () => {
     const loader = render({ className: 'custom' })
 
     equal('loader custom', loader.props.className)
+  })
+
+  describe('inline', () => {
+    const loader = render({ inline: true })
+
+    it('has class "inline"', () => {
+      ok(loader.props.className.match('inline'))
+    })
   })
 
   describe('size', () => {

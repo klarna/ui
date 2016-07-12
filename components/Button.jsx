@@ -77,7 +77,7 @@ Button.propTypes = {
 
 const renderButton = (content, classNames, disabled, loading, loaderColor, remainingProps) => (
   <button className={classNames} disabled={disabled} {...remainingProps}>
-    {loading ? <Loader color={loaderColor}/> : content}
+    {loading ? <Loader inline color={loaderColor}/> : content}
   </button>
 )
 
@@ -88,7 +88,7 @@ const renderDynamicallyStyledPrimaryButton = (content, classNames, labelClassNam
     borderColor: backgroundColor
   }}>
     <span className={labelClassNames.label}>
-      {loading ? <Loader color={loaderColor}/> : content}
+      {loading ? <Loader inline color={loaderColor}/> : content}
     </span>
   </button>
 )
@@ -100,7 +100,7 @@ const renderDynamicallyStyledSecondaryButton = (content, classNames, labelClassN
     borderColor: backgroundColor
   }}>
     <div className={labelClassNames.label}>
-      {loading ? <Loader color={loaderColor}/> : content}
+      {loading ? <Loader inline color={loaderColor}/> : content}
       {
         disabled ||
           <span

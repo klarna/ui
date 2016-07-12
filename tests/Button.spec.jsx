@@ -74,6 +74,10 @@ describe('Button', () => {
       it('is of type loader', () => {
         equal(button.props.children.type, Loader)
       })
+
+      it('is inline', () => {
+        equal(button.props.children.props.inline, true)
+      })
     })
   })
 
@@ -142,6 +146,10 @@ describe('Button', () => {
 
           it('is of type Loader', () => {
             equal(loader.type, Loader)
+          })
+
+          it('is inline', () => {
+            equal(loader.props.inline, true)
           })
 
           it('has the color of the text', () => {
@@ -219,6 +227,10 @@ describe('Button', () => {
 
           it('is of type Loader', () => {
             equal(loader.type, Loader)
+          })
+
+          it('is inline', () => {
+            equal(loader.props.inline, true)
           })
 
           it('has the color of the background', () => {
