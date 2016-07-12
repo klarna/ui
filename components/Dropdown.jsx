@@ -81,9 +81,9 @@ export default class Dropdown extends Component {
           {...props}
         >
           {
-            options && options.map(({ label, value }) => (
-              <option key={value} value={value}>
-                {label}
+            options && options.map((attributes) => (
+              <option key={attributes.value} {...attributes}>
+                {attributes.label}
               </option>
             ))
           }
