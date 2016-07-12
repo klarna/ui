@@ -1,3 +1,7 @@
+# 0.12.11
+
+- Add alert box
+
 # 0.12.10
 
 - Spread props in Dropdown options to be able to set hidden and disabled
