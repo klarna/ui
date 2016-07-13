@@ -1,4 +1,4 @@
-import TextLabel from '../components/texts/TextLabel'
+import TextLabel from './/TextLabel'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 

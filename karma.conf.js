@@ -12,11 +12,11 @@ module.exports = function (config) {
     frameworks: ['mocha'],
     files: [
       'node_modules/babel-polyfill/dist/polyfill.js',
-      'tests/**/*.spec.*'
+      '**/*.spec.*'
     ],
     exclude: [],
     preprocessors: {
-      'tests/**/*': ['webpack']
+      '**/*.spec.*': ['webpack']
     },
     webpack: {
       devtool: 'inline-source-map',

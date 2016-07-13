@@ -1,4 +1,4 @@
-import Fieldset from '../components/Fieldset'
+import Fieldset from './'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 

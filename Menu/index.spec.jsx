@@ -1,4 +1,4 @@
-import Menu from '../components/Menu'
+import Menu from './'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 import times from 'ramda/src/times'

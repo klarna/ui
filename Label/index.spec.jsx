@@ -1,4 +1,4 @@
-import Label from '../components/Label'
+import Label from './'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 

@@ -1,4 +1,4 @@
-import Input from '../components/Input'
+import Input from './'
 import assert, { equal } from 'assert'
 import { renderer, shallow } from './helpers'
 

@@ -1,4 +1,4 @@
-import Dialog from '../components/Dialog'
+import Dialog from './'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 

@@ -1,4 +1,4 @@
-import Dropdown from '../components/Dropdown'
+import Dropdown from './'
 import { equal, ok } from 'assert'
 import { renderer } from './helpers'
 

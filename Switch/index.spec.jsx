@@ -1,4 +1,4 @@
-import Switch from '../components/Switch'
+import Switch from './'
 import { ok, equal } from 'assert'
 import { renderer, shallow } from './helpers'
 import { spy } from 'sinon'

@@ -1,4 +1,4 @@
-import Selector from '../components/Selector'
+import Selector from './'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 import { spy } from 'sinon'

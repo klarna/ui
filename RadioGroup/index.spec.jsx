@@ -1,4 +1,4 @@
-import RadioGroup from '../components/RadioGroup'
+import RadioGroup from './'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 import { spy } from 'sinon'

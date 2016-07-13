@@ -1,4 +1,4 @@
-import Tooltip from '../components/Tooltip'
+import Tooltip from './'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 

@@ -1,4 +1,4 @@
-import Checklist from '../components/Checklist'
+import Checklist from './'
 import { equal, ok } from 'assert'
 import { renderer } from './helpers'
 

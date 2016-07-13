@@ -1,4 +1,4 @@
-import Link from '../components/Link'
+import Link from './'
 import { equal } from 'assert'
 import { renderer } from './helpers'
 

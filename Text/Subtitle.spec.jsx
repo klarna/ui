@@ -1,4 +1,4 @@
-import Subtitle from '../components/texts/Subtitle'
+import Subtitle from './/Subtitle'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 import describePalette from './describePalette'

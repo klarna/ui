@@ -1,4 +1,4 @@
-import Preview, { PreviewTitle, PreviewLink } from '../components/Preview'
+import Preview, { PreviewTitle, PreviewLink } from './'
 import { equal } from 'assert'
 import { renderer } from './helpers'
 

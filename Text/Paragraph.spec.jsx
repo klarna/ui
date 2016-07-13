@@ -1,4 +1,4 @@
-import Paragraph from '../components/texts/Paragraph'
+import Paragraph from './/Paragraph'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
 import describePalette from './describePalette'
