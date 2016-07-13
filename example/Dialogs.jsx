@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Button from '../Button'
-import Dialog from '../components/Dialog'
-import { CloseButton } from '../components/IconButton'
-import { PrimaryTitle, Subtitle, Paragraph } from '../components/Text'
+import Dialog from '../Dialog'
+import { CloseButton } from '../IconButton'
+import { PrimaryTitle, Subtitle, Paragraph } from '../Text'
 
 export default class Dialogs extends Component {
   constructor () {

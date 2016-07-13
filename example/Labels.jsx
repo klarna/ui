@@ -1,5 +1,5 @@
 import React from 'react'
-import Label from '../components/Label'
+import Label from '../Label'
 import Code from './Code'
 
 export default function Labels () {

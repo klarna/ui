@@ -2,10 +2,10 @@
 
 import React from 'react'
 import Button from '../Button'
-import RadioGroup from '../components/RadioGroup'
-import UncontrolledRadioGroup from '../components/uncontrolled/RadioGroup'
-import Selector from '../components/Selector'
-import { SecondaryTitle, Subtitle, Paragraph } from '../components/Text'
+import RadioGroup from '../RadioGroup'
+import UncontrolledRadioGroup from '../uncontrolled/RadioGroup'
+import Selector from '../Selector'
+import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
 import Code from './Code'
 
 export default function Selectors () {

@@ -1,8 +1,8 @@
 import React from 'react'
 import Code from './Code'
-import Block from '../components/Block'
-import { Amount, PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, TextLabel } from '../components/Text'
-import Link from '../components/Link'
+import Block from '../Block'
+import { Amount, PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, TextLabel } from '../Text'
+import Link from '../Link'
 
 export default function Texts () {
   return (

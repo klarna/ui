@@ -1,10 +1,10 @@
 /* globals alert */
 
 import React from 'react'
-import RadioGroup from '../components/RadioGroup'
-import UncontrolledRadioGroup from '../components/uncontrolled/RadioGroup'
+import RadioGroup from '../RadioGroup'
+import UncontrolledRadioGroup from '../uncontrolled/RadioGroup'
 import Button from '../Button'
-import { SecondaryTitle, Subtitle, Paragraph } from '../components/Text'
+import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
 import Code from './Code'
 
 export default function RadioGroups () {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Code from './Code'
-import { Subtitle } from '../components/Text'
-import Alert, { Title, Paragraph } from '../components/Alert'
+import { Subtitle } from '../Text'
+import Alert, { Title, Paragraph } from '../Alert'
 
 export default function Alerts () {
   return (

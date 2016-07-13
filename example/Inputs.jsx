@@ -1,15 +1,15 @@
 /* global alert */
 import React from 'react'
-import Input from '../components/Input'
-import UncontrolledInput from '../components/uncontrolled/Input'
-import Fieldset from '../components/Fieldset'
-import Link from '../components/Link'
+import Input from '../Input'
+import UncontrolledInput from '../uncontrolled/Input'
+import Fieldset from '../Fieldset'
+import Link from '../Link'
 import {
   Paragraph,
   PrimaryTitle,
   SecondaryTitle,
   Subtitle
-} from '../components/Text'
+} from '../Text'
 import Code from './Code'
 
 export default function Inputs () {

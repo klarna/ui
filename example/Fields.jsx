@@ -1,15 +1,15 @@
 /* global alert */
 import React from 'react'
-import Field from '../components/Field'
-import Fieldset from '../components/Fieldset'
-import Link from '../components/Link'
-import UncontrolledField from '../components/uncontrolled/Field'
+import Field from '../Field'
+import Fieldset from '../Fieldset'
+import Link from '../Link'
+import UncontrolledField from '../uncontrolled/Field'
 import {
   Paragraph,
   PrimaryTitle,
   SecondaryTitle,
   Subtitle
-} from '../components/Text'
+} from '../Text'
 import Code from './Code'
 
 export default function Fields () {
