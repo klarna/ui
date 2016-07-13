@@ -1,6 +1,6 @@
 import Dialog from './'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 
 const render = renderer(Dialog)
 const renderIcon = renderer(Dialog.Icon)

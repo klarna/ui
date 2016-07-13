@@ -1,6 +1,6 @@
 import Menu from './'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 import times from 'ramda/src/times'
 
 const render = renderer(Menu)

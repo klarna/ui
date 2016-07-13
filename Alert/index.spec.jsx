@@ -1,6 +1,6 @@
 import Alert, { Title, Paragraph } from './'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 
 const render = renderer(Alert)
 const renderTitle = renderer(Title)

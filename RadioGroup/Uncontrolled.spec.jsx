@@ -6,7 +6,7 @@
 
 import StatefulRadioGroup from '.././/RadioGroup'
 import { equal } from 'assert'
-import { shallow } from '../helpers'
+import { shallow } from '.../tests/helpers'
 
 const data = [
   {id: 1, label: 'option1'},

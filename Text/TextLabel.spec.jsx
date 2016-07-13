@@ -1,6 +1,6 @@
 import TextLabel from './/TextLabel'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 
 const render = renderer(TextLabel)
 

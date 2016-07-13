@@ -1,6 +1,6 @@
 import Input from './'
 import assert, { equal } from 'assert'
-import { renderer, shallow } from './helpers'
+import { renderer, shallow } from '../tests/helpers'
 
 const render = renderer(Input)
 

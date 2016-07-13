@@ -1,6 +1,6 @@
 import SecondaryTitle from './/SecondaryTitle'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 import describePalette from './describePalette'
 
 const render = renderer(SecondaryTitle)

@@ -1,6 +1,6 @@
 import Switch from './'
 import { ok, equal } from 'assert'
-import { renderer, shallow } from './helpers'
+import { renderer, shallow } from '../tests/helpers'
 import { spy } from 'sinon'
 
 const render = renderer(Switch)

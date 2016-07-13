@@ -1,6 +1,6 @@
 import Preview, { PreviewTitle, PreviewLink } from './'
 import { equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 
 describe('Preview', () => {
   const render = renderer(Preview)
