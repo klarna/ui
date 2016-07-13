@@ -3,7 +3,7 @@ import React from 'react'
 import Field from '../Field'
 import Fieldset from '../Fieldset'
 import Link from '../Link'
-import UncontrolledField from '../uncontrolled/Field'
+import UncontrolledField from '../Field/Uncontrolled'
 import {
   Paragraph,
   PrimaryTitle,

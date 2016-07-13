@@ -2,7 +2,7 @@
 
 import React from 'react'
 import RadioGroup from '../RadioGroup'
-import UncontrolledRadioGroup from '../uncontrolled/RadioGroup'
+import UncontrolledRadioGroup from '../RadioGroup/Uncontrolled'
 import Button from '../Button'
 import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
 import Code from './Code'

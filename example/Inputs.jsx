@@ -1,7 +1,7 @@
 /* global alert */
 import React from 'react'
 import Input from '../Input'
-import UncontrolledInput from '../uncontrolled/Input'
+import UncontrolledInput from '../Input/Uncontrolled'
 import Fieldset from '../Fieldset'
 import Link from '../Link'
 import {

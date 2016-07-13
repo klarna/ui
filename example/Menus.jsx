@@ -1,6 +1,6 @@
 import React from 'react'
 import Menu from '../Menu'
-import AnimatedMenu from '../AnimatedMenu'
+import AnimatedMenu from '../Menu/Animated'
 import Label from '../Label'
 import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
 import Code from './Code'
