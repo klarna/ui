@@ -1,8 +1,7 @@
 /* globals alert */
 
 import React from 'react'
-import Button from '../components/Button'
-import PayButton from '../components/PayButton'
+import Button, { Price } from '../Button'
 import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../components/IconButton'
 import Block from '../components/Block'
 import { SecondaryTitle, Subtitle } from '../components/Text'
@@ -67,16 +66,34 @@ export default function Buttons () {
       <SecondaryTitle color='blue' margins>Button with price</SecondaryTitle>
       <Subtitle margins>Primary</Subtitle>
       <Code>
-        <PayButton price='$12.0'>Pay now!</PayButton>
-        <PayButton price='14:-' size='big'>Pay now!</PayButton>
-        <PayButton price='14:-' loading style={{width: '200px'}}>Pay now!</PayButton>
+        <Button>
+          Pay now!
+          <Price>$12.0</Price>
+        </Button>
+        <Button size='big'>
+          Pay now!
+          <Price>14:-</Price>
+        </Button>
+        <Button loading style={{width: '200px'}}>
+          Pay now!
+          <Price>14:-</Price>
+        </Button>
       </Code>
 
       <Subtitle margins>Secondary</Subtitle>
       <Code>
-        <PayButton design='secondary' price='$12.0'>Pay now!</PayButton>
-        <PayButton design='secondary' price='14:-' size='big'>Pay now!</PayButton>
-        <PayButton design='secondary' price='14:-' loading style={{width: '200px'}}>Pay now!</PayButton>
+        <Button design='secondary'>
+          Pay now!
+          <Price>$12.0</Price>
+        </Button>
+        <Button design='secondary' size='big'>
+          Pay now!
+          <Price>14:-</Price>
+        </Button>
+        <Button design='secondary' loading style={{width: '200px'}}>
+          Pay now!
+          <Price>14:-</Price>
+        </Button>
       </Code>
 
       <SecondaryTitle color='blue' margins>Iconic Buttons</SecondaryTitle>

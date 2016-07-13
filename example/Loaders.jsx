@@ -1,5 +1,5 @@
 import React from 'react'
-import Loader from '../components/Loader'
+import Loader from '../Loader'
 import { SecondaryTitle, Subtitle } from '../components/Text'
 import Code from './Code'
 
@@ -30,7 +30,7 @@ export default function Loaders () {
 
       <SecondaryTitle color='blue' margins>White</SecondaryTitle>
       <Code>
-        <div style={{background: '#0074c8'}}>
+        <div style={{background: '#0074c8', padding: 20}}>
           <Loader color='white' size='big' />
           <Loader color='white' />
           <Loader color='white' size='small' />

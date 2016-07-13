@@ -1,8 +1,17 @@
 import React, { PropTypes } from 'react'
-import Loader from './Loader'
+import Loader from '../Loader'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/button.scss'
+import defaultStyles from './styles.scss'
 import parseColor from 'parse-color'
+import contains from '../lib/contains'
+
+export function Price (props) {
+  return (
+    <span className={defaultStyles['button__price']}>
+      {props.children}
+    </span>
+  )
+}
 
 export default function Button (props) {
   const {
@@ -17,20 +26,20 @@ export default function Button (props) {
     success,
     ...remainingProps } = props
 
-  const content =
-    success && '✔' || !loading && children
+  const content = success && '✔' || !loading && children
 
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  const cls = classNames(`cui__button--${design}`, size, {
+  const cls = classNames(`button--${design}`, size, {
     'is-disabled': disabled,
     'is-loading': loading,
-    'dynamic-styling': customize
+    'dynamic-styling': customize,
+    'has-price': contains(Price, children)
   }, className)
 
   const labelCls = {
-    label: classNames('cui__button__label'),
-    alt: classNames('cui__button__label--alt')
+    label: classNames('button__label'),
+    alt: classNames('button__label--alt')
   }
 
   const isDisabled = (loading || success || disabled)
@@ -121,3 +130,4 @@ const getLoaderColor = (design, textColor, backgroundColor) => {
 
   return design === 'primary' ? 'white' : 'blue'
 }
+

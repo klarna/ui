@@ -1,0 +1,112 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.button--primary {
+    @include button(
+        $background: map-get($colors, klarna-blue),
+        $text-color: white,
+        $darken-color: map-get($colors, klarna-blue),
+        $darken-attributes: (background-color, border-color)
+    );
+
+    .button__price {
+        @include button__price(
+            $border-color: white
+        );
+    }
+
+    &.dynamic-styling:not(.is-loading) {
+        @include button-dynamic-styling;
+    }
+}
+
+.button--secondary {
+    @include button(
+        $background: white,
+        $text-color: map-get($colors, klarna-blue),
+        $darken-color: map-get($colors, klarna-blue),
+        $darken-attributes: (background-color, border-color)
+    );
+
+    .button__price {
+        @include button__price(
+            $border-color: map-get($colors, klarna-blue)
+        );
+    }
+
+    &:hover,
+    &:focus {
+        background: map-get($colors, klarna-blue);
+        color: #fff;
+
+        &.is-disabled {
+            background: map-get($colors, white);
+            color: map-get($colors, klarna-blue);
+        }
+    }
+
+    &:active {
+        background: darken(map-get($colors, klarna-blue), 10.1);
+        color: #fff;
+    }
+
+    .button--primary.right + &.right {
+        margin-top: ($grid * 4);
+
+        @include respond-to-wide {
+            margin-top: 0;
+        }
+    }
+
+    &.dynamic-styling:not(.is-loading) {
+        @include button-dynamic-styling;
+
+        &:after {
+            background: white;
+            border-radius: $border-radius - ($grid * .2);
+            opacity: 1;
+        }
+
+        &:hover {
+            &:after {
+                opacity: 0;
+            }
+        }
+
+        &:focus, &:active {
+            &:after {
+                background: black;
+                opacity: .2;
+            }
+        }
+
+        &.is-disabled {
+            &:hover {
+                &:after {
+                    opacity: 1;
+                }
+            }
+
+            &:focus, &:active {
+                &:after {
+                    background: white;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.button__menu {
+    padding-bottom: ($grid * 4);
+
+    &::after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+}
+
+.button__label {
+    @include button__label;
+}

@@ -1,7 +1,7 @@
 /* globals alert */
 
 import React from 'react'
-import Button from '../components/Button'
+import Button from '../Button'
 import RadioGroup from '../components/RadioGroup'
 import UncontrolledRadioGroup from '../components/uncontrolled/RadioGroup'
 import Selector from '../components/Selector'

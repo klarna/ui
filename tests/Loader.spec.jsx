@@ -1,4 +1,4 @@
-import Loader from '../components/Loader'
+import Loader from '../Loader'
 import { equal, ok } from 'assert'
 import { renderer } from './helpers'
 

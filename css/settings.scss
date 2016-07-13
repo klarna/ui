@@ -1,0 +1,91 @@
+// ================================================================
+//  General
+// ================================================================
+$root: '../css/';
+
+// ================================================================
+//  Typography and baseline
+// ================================================================
+$base-font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$grid: 5px;
+$content-main-width: 102; // $grid * 102
+$dialog-padding: (
+    narrow: ($grid * 4),
+    wide: ($grid * 12)
+);
+
+// ================================================================
+//  Breakpoints
+// ================================================================
+$mobile-max-width: 569px;
+$mobile-narrow-max-width: 321px;
+
+// ================================================================
+//  General colors
+// ================================================================
+$colors: (
+    klarna-blue: #0074c8,
+    klarna-blue-hover: darken(#0074c8, 5.2),
+    morning-blue: #1a8cdc,
+    black: #3c3c3e,
+    block-hover: #f9f9f9,
+    grey-text: #9e9ea0,
+    grey-icon: #a9a9a9,
+    grey-lines: #cbcbcd,
+    grey-selector-lines: #e5e5e6,
+    light-grey: #f5f5f7,
+    modal: #46505a,
+    white: #fff,
+    cello: #364759,
+    red: #f52727,
+    orange: #ff8932,
+    non-standard-orange: #e0a644,
+    green: #23ba73,
+    brown: #b3815f,
+    purple: #ac71ca,
+    light-blue: #61b2eb,
+    ultramarine: #2cc4b0,
+    yellow: #ffc000,
+    grey-label: #617788,
+    grey-active-background: #f6f6f6,
+    blue-hover: #66aae0,
+    blue-focus: rgba(26, 140, 220, .8),
+    blue-shadow: rgba(26, 140, 220, .6),
+    blue-active-background: #f2f8fd,
+    error: #e63200,
+    error-hover: #ef8b6f,
+    error-border: #e6bebe,
+    error-shadow: rgba(230, 55, 6, .4),
+    error-text: #e63200,
+    error-background: #fff8f7,
+    warning: #ecb800,
+    warning-hover: #e2af4a,
+    warning-border: #e6c88c
+);
+
+// ================================================================
+//  Open Sans' weights
+// ================================================================
+$font-weights: (
+    light: 300,
+    regular: 400,
+    semi-bold: 600,
+    bold: 700
+);
+
+// ================================================================
+//  Borders
+// ================================================================
+$border-radius: $grid;
+$border-radius-checkbox: ($grid * .4);
+$border-color: map-get($colors, grey-lines);
+
+// ================================================================
+//  General webkit autocomplete override (aka yellow background)
+// ================================================================
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}

@@ -1,0 +1,40 @@
+/*******************************************************************************
+.some-css-selector1,
+.some-css-selector2 {
+    padding: 20px;
+
+    @include respond-to-ie { // Targets all IE browsers
+        padding-top: 22px;
+    }
+}
+
+.some-css-selector1,
+.some-css-selector2 {
+    padding: 20px;
+
+    @include respond-to-ie(8) { // Targets only IE 8
+        padding-top: 22px;
+    }
+}
+
+.some-css-selector1,
+.some-css-selector2 {
+    padding: 20px;
+
+    @include respond-to-ie((8,9)) { // Targets both IE 8 and IE 9
+        padding-top: 22px;
+    }
+}
+*******************************************************************************/
+
+@mixin respond-to-ie($versions: ('')) {
+    $selectors: ();
+    @each $version in $versions {
+        $selectors: append($selectors, unquote('.ie#{$version} &'), comma);
+        $selectors: append($selectors, unquote('.browser--ie#{$version} &'), comma);
+    }
+
+    #{$selectors} {
+        @content;
+    }
+}
