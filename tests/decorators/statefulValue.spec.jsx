@@ -1,5 +1,3 @@
-/* global describe it */
-
 import React, { Component } from 'react'
 import statefulValue from '../../lib/decorators/statefulValue'
 import { shallow } from '../helpers'

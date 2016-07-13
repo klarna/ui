@@ -32,6 +32,11 @@ export default function Switches () {
         <Switch disabled>This is a toggle switch disabled</Switch>
       </Code>
 
+      <SecondaryTitle margins>Dynamic styling</SecondaryTitle>
+      <Code>
+        <Switch customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with dynamic styling</Switch>
+      </Code>
+
       <SecondaryTitle margins>Checkbox</SecondaryTitle>
       <Code>
         <Switch design='checkbox'>This is a toggle switch with checkbox design</Switch>
@@ -40,6 +45,11 @@ export default function Switches () {
       <SecondaryTitle margins>Checkbox with legal size text</SecondaryTitle>
       <Code>
         <Switch design='checkbox' legal>This is a toggle switch with checkbox design and legal size text that usually will fold into multiple lines</Switch>
+      </Code>
+
+      <SecondaryTitle margins>Checkbox with dynamic styling</SecondaryTitle>
+      <Code>
+        <Switch design='checkbox' customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with checkbox design and dynamic styling</Switch>
       </Code>
 
       <SecondaryTitle margins>In a form</SecondaryTitle>

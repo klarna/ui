@@ -1,5 +1,3 @@
-/* global describe it */
-
 /*
  * The default behaviour here is defined by
  * RadioGroup, so the tests focus on

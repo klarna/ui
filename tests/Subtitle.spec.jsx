@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Subtitle from '../components/texts/Subtitle'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

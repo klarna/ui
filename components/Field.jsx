@@ -8,6 +8,13 @@ import { position, size } from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 
 export default class Field extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      hover: false
+    }
+  }
 
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
@@ -17,13 +24,30 @@ export default class Field extends Component {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
   }
 
+  onMouseEnter () {
+    this.setState({
+      ...this.state,
+      hover: true
+    })
+  }
+
+  onMouseLeave () {
+    this.setState({
+      ...this.state,
+      hover: false
+    })
+  }
+
   render () {
     const {
       big,
       className,
       centered,
+      customize,
       disabled,
+      error,
       icon,
+      focus,
       label,
       loading,
       onBlur,
@@ -33,6 +57,7 @@ export default class Field extends Component {
       square,
       value,
       styles,
+      warning,
       ...props
     } = this.props
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
@@ -63,10 +88,23 @@ export default class Field extends Component {
       )
     }
 
+    const hasNonDefaultState = disabled || warning || error
+    const useDynamicStyles = customize && !hasNonDefaultState
+
+    const dynamicStyles = useDynamicStyles
+    ? {
+      borderColor: this.state.hover || focus ? customize.borderColorSelected : customize.borderColor,
+      boxShadow: `0 0 4px ${customize.borderColorSelected}`
+    }
+    : undefined
+
     return (
       <div
         className={classes.field}
         onClick={onClick}
+        style={dynamicStyles}
+        onMouseEnter={this.onMouseEnter.bind(this)}
+        onMouseLeave={this.onMouseLeave.bind(this)}
       >
         {
           inlinedIcon.renderInlinedIcon(this.props, {
@@ -83,7 +121,7 @@ export default class Field extends Component {
           disabled={disabled}
           value={value || ''}
           onBlur={onBlur}
-          onChange={onChange || function () {}}
+          onChange={onChange}
           onKeyDown={handleKeyDown(this.props)}
           onFocus={onFocus}
           ref='input'
@@ -98,6 +136,7 @@ Field.defaultProps = {
   big: false,
   centered: false,
   loading: false,
+  onChange: function () {},
   ...inlinedIcon.defaultProps,
   ...fieldStates.defaultProps,
   ...position.defaultProps,
@@ -108,6 +147,11 @@ Field.defaultProps = {
 Field.propTypes = {
   big: PropTypes.bool,
   centered: PropTypes.bool,
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string.isRequired,
+    borderColorSelected: PropTypes.string.isRequired,
+    boxShadow: PropTypes.string.isRequired
+  }),
   loading: PropTypes.bool,
   label: PropTypes.string.isRequired,
   onBlur: PropTypes.func,

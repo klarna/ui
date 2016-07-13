@@ -1,8 +1,7 @@
 /* globals alert */
 
 import React from 'react'
-import Button from '../Button'
-import PayButton from '../components/PayButton'
+import Button, { Price } from '../Button'
 import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../components/IconButton'
 import Block from '../components/Block'
 import { SecondaryTitle, Subtitle } from '../components/Text'
@@ -18,6 +17,7 @@ export default function Buttons () {
         <Button size='small'>Click me!</Button>
         <Button>Click me!</Button>
         <Button size='big'>Click me!</Button>
+        <Button customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button>
       </Code>
 
       <SecondaryTitle color='blue' margins>Secondary</SecondaryTitle>
@@ -27,6 +27,7 @@ export default function Buttons () {
         <Button design='secondary' size='small'>Click me!</Button>
         <Button design='secondary'>Click me!</Button>
         <Button design='secondary' size='big'>Click me!</Button>
+        <Button design='secondary' customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button>
       </Code>
 
       <SecondaryTitle color='blue' margins>Disabled</SecondaryTitle>
@@ -45,12 +46,14 @@ export default function Buttons () {
         <Button loading size='small'>Click me!</Button>
         <Button loading>Click me!</Button>
         <Button loading size='big'>Click me!</Button>
+        <Button loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
 
         <hr style={{border: 0, background: 0}} />
 
         <Button design='secondary' loading size='small'>Click me!</Button>
         <Button design='secondary' loading>Click me!</Button>
         <Button design='secondary' loading size='big'>Click me!</Button>
+        <Button design='secondary' loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
       </Code>
 
       <SecondaryTitle color='blue' margins>Success</SecondaryTitle>
@@ -63,16 +66,34 @@ export default function Buttons () {
       <SecondaryTitle color='blue' margins>Button with price</SecondaryTitle>
       <Subtitle margins>Primary</Subtitle>
       <Code>
-        <PayButton price='$12.0'>Pay now!</PayButton>
-        <PayButton price='14:-' size='big'>Pay now!</PayButton>
-        <PayButton price='14:-' loading style={{width: '200px'}}>Pay now!</PayButton>
+        <Button>
+          Pay now!
+          <Price>$12.0</Price>
+        </Button>
+        <Button size='big'>
+          Pay now!
+          <Price>14:-</Price>
+        </Button>
+        <Button loading style={{width: '200px'}}>
+          Pay now!
+          <Price>14:-</Price>
+        </Button>
       </Code>
 
       <Subtitle margins>Secondary</Subtitle>
       <Code>
-        <PayButton design='secondary' price='$12.0'>Pay now!</PayButton>
-        <PayButton design='secondary' price='14:-' size='big'>Pay now!</PayButton>
-        <PayButton design='secondary' price='14:-' loading style={{width: '200px'}}>Pay now!</PayButton>
+        <Button design='secondary'>
+          Pay now!
+          <Price>$12.0</Price>
+        </Button>
+        <Button design='secondary' size='big'>
+          Pay now!
+          <Price>14:-</Price>
+        </Button>
+        <Button design='secondary' loading style={{width: '200px'}}>
+          Pay now!
+          <Price>14:-</Price>
+        </Button>
       </Code>
 
       <SecondaryTitle color='blue' margins>Iconic Buttons</SecondaryTitle>

@@ -1,3 +1,36 @@
+# 0.12.11
+
+- Add alert box
+
+# 0.12.10
+
+- Spread props in Dropdown options to be able to set hidden and disabled
+- Set `describe` and `it` as globals for standard in the package.json
+
+# 0.12.9
+
+- Fix horizontal positioning of the Loader inside a Button
+
+# 0.12.8
+
+- Add dynamic styling support to Field, Switch, Button and Link
+
+# 0.12.7
+
+- Fix 'aria-labelledby' attribute on SVG in Checklist component
+
+# 0.12.6
+
+- Update Switch "checked" state in `componentWillReceiveProps`, based on the "checked" prop.
+
+# 0.12.5
+
+- Add `Dropdown` component
+
+# 0.12.4
+
+- Add a field with details icon inside
+
 # 0.12.3
 
 - Icons can receive `className` prop

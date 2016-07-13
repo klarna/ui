@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Field from '../components/Field'
 import { equal, ok } from 'assert'
 import { renderer } from './helpers'

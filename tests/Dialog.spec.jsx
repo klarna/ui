@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Dialog from '../components/Dialog'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

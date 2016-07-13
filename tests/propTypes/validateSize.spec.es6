@@ -1,5 +1,3 @@
-/* global describe it */
-
 import validateSize from '../../propTypes/validateSize'
 import assert, { ok } from 'assert'
 

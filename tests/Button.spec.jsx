@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Button from '../Button'
 import { ok, equal, deepEqual } from 'assert'
 import { renderer } from './helpers'
@@ -69,8 +67,14 @@ describe('Button', () => {
       ok(button.props.disabled)
     })
 
-    it('renders a Loader', () => {
-      equal('ButtonLoader', button.props.children.type.name)
+    describe('Loader', () => {
+      it('is of type loader', () => {
+        equal(button.props.children.type.name, 'Loader')
+      })
+
+      it('is inline', () => {
+        equal(button.props.children.props.inline, true)
+      })
     })
   })
 
@@ -97,6 +101,141 @@ describe('Button', () => {
       const button = render({ size: 'big' })
 
       equal('button--primary big', button.props.className)
+    })
+  })
+
+  describe('customize', () => {
+    describe('primary', () => {
+      const button = render({
+        customize: {
+          textColor: 'red',
+          backgroundColor: 'brown'
+        }
+      }, 'Click me')
+
+      describe('span', () => {
+        it('is of type span', () => {
+          equal(button.props.children.type, 'span')
+        })
+
+        it('has className cui__button__label', () => {
+          equal(button.props.children.props.className, 'cui__button__label')
+        })
+      })
+
+      it('has the correct customized styles', () => {
+        equal(button.props.style.color, 'red')
+        equal(button.props.style.backgroundColor, 'brown')
+        equal(button.props.style.borderColor, 'brown')
+      })
+
+      describe('loading', () => {
+        const loadingButton = render({
+          loading: true,
+          customize: {
+            textColor: 'red',
+            backgroundColor: 'brown'
+          }
+        }, 'Click me')
+
+        describe('loader', () => {
+          const loader = loadingButton.props.children.props.children
+
+          it('is of type Loader', () => {
+            equal(loader.type.name, 'Loader')
+          })
+
+          it('is inline', () => {
+            equal(loader.props.inline, true)
+          })
+
+          it('has the color of the text', () => {
+            const red = [255, 0, 0]
+            deepEqual(loader.props.color, red)
+          })
+        })
+      })
+    })
+
+    describe('secondary', () => {
+      const button = render({
+        design: 'secondary',
+        customize: {
+          textColor: 'yellow',
+          backgroundColor: 'bisque'
+        }
+      }, 'Click me')
+
+      describe('div', () => {
+        it('is of type div', () => {
+          equal(button.props.children.type, 'div')
+        })
+
+        it('has className cui__button__label', () => {
+          equal(button.props.children.props.className, 'cui__button__label')
+        })
+      })
+
+      describe('span', () => {
+        const span = button.props.children.props.children[1]
+
+        it('is of type span', () => {
+          equal(span.type, 'span')
+        })
+
+        it('has className cui__button__label--alt', () => {
+          equal(span.props.className, 'cui__button__label--alt')
+        })
+      })
+
+      it('has the correct customized styles', () => {
+        equal(button.props.style.color, 'bisque')
+        equal(button.props.style.backgroundColor, 'bisque')
+        equal(button.props.style.borderColor, 'bisque')
+      })
+
+      describe('disabled', () => {
+        const button = render({
+          design: 'secondary',
+          disabled: true,
+          customize: {
+            textColor: 'yellow',
+            backgroundColor: 'bisque'
+          }
+        }, 'Click me')
+
+        it('should not have a span', () => {
+          equal(button.props.children.props.children[1].type, undefined)
+        })
+      })
+
+      describe('loading', () => {
+        const loadingButton = render({
+          loading: true,
+          design: 'secondary',
+          customize: {
+            textColor: 'yellow',
+            backgroundColor: 'bisque'
+          }
+        }, 'Click me')
+
+        describe('loader', () => {
+          const loader = loadingButton.props.children.props.children[0]
+
+          it('is of type Loader', () => {
+            equal(loader.type.name, 'Loader')
+          })
+
+          it('is inline', () => {
+            equal(loader.props.inline, true)
+          })
+
+          it('has the color of the background', () => {
+            const bisque = [ 255, 228, 196 ]
+            deepEqual(loader.props.color, bisque)
+          })
+        })
+      })
     })
   })
 

@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Fieldset from '../components/Fieldset'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

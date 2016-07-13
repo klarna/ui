@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Checklist from '../components/Checklist'
 import { equal, ok } from 'assert'
 import { renderer } from './helpers'

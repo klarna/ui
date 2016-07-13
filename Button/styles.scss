@@ -15,7 +15,7 @@
         );
     }
 
-    &.dynamic-styling {
+    &.dynamic-styling:not(.is-loading) {
         @include button-dynamic-styling;
     }
 }
@@ -58,7 +58,7 @@
         }
     }
 
-    &.dynamic-styling {
+    &.dynamic-styling:not(.is-loading) {
         @include button-dynamic-styling;
 
         &:after {

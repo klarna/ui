@@ -1,5 +1,3 @@
-/* global describe it */
-
 import Selector from '../components/Selector'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'

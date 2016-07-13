@@ -26,10 +26,10 @@ const gradients = [
   {x1: '0', y1: '0', x2: '1', y2: '1'}
 ]
 
-export default function Loader ({ className, color, size, styles }) {
+export default function Loader ({ className, color, inline, size, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  const _color = colors[color] || colors.default
+  const _color = Array.isArray(color) ? color : colors[color] || colors.default
   const _size = sizes[size] || sizes.default
   const step = 0.2
   const stroke = 2
@@ -38,11 +38,11 @@ export default function Loader ({ className, color, size, styles }) {
   const corner = _size * 0.433
 
   return (
-    <svg width={_size} height={_size} className={classNames('loader', className)} viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}>
+    <svg width={_size} height={_size} className={classNames('loader', className, { inline })} viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}>
       <defs>
         {
           gradients.map((props, index) => (
-            <linearGradient key={`gradient-${index}`} id={`gradient-${index}`} gradientUnits='objectBoundingBox' {...props}>
+            <linearGradient key={`gradient-${index}`} id={`gradient-${_color.join('-')}-${index}`} gradientUnits='objectBoundingBox' {...props}>
               <stop offset='0%' stopColor={`rgba(${_color}, ${step * index})`} />
               <stop offset='100%' stopColor={`rgba(${_color}, ${step * (index + 1)})`} />
             </linearGradient>
@@ -50,12 +50,12 @@ export default function Loader ({ className, color, size, styles }) {
         }
       </defs>
       <g fill='none' strokeWidth={stroke} transform={`translate(${half},${half})`}>
-        <path d={`M ${corner},-${quarter} A ${half},${half} 0 0,1 ${corner},${quarter}`} stroke='url(#gradient-0)'/>
-        <path d={`M ${corner},${quarter} A ${half},${half} 0 0,1 0,${half}`} stroke='url(#gradient-1)'/>
-        <path d={`M 0,${half} A ${half},${half} 0 0,1 -${corner},${quarter}`} stroke='url(#gradient-2)'/>
-        <path d={`M -${corner},${quarter} A ${half},${half} 0 0,1 -${corner},-${quarter}`} stroke='url(#gradient-3)'/>
-        <path d={`M -${corner},-${quarter} A ${half},${half} 0 0,1 0,-${half}`} stroke='url(#gradient-4)'/>
-        <path d={`M 0,-${half} A ${half},${half} 0 0,1 ${corner},-${quarter}`} stroke='url(#gradient-5)' strokeLinecap='round'/>
+        <path d={`M ${corner},-${quarter} A ${half},${half} 0 0,1 ${corner},${quarter}`} stroke={`url(#gradient-${_color.join('-')}-0)`} />
+        <path d={`M ${corner},${quarter} A ${half},${half} 0 0,1 0,${half}`} stroke={`url(#gradient-${_color.join('-')}-1)`} />
+        <path d={`M 0,${half} A ${half},${half} 0 0,1 -${corner},${quarter}`} stroke={`url(#gradient-${_color.join('-')}-2)`} />
+        <path d={`M -${corner},${quarter} A ${half},${half} 0 0,1 -${corner},-${quarter}`} stroke={`url(#gradient-${_color.join('-')}-3)`} />
+        <path d={`M -${corner},-${quarter} A ${half},${half} 0 0,1 0,-${half}`} stroke={`url(#gradient-${_color.join('-')}-4)`} />
+        <path d={`M 0,-${half} A ${half},${half} 0 0,1 ${corner},-${quarter}`} stroke={`url(#gradient-${_color.join('-')}-5)`} strokeLinecap='round'/>
       </g>
     </svg>
   )
@@ -63,7 +63,11 @@ export default function Loader ({ className, color, size, styles }) {
 
 Loader.propTypes = {
   className: PropTypes.string,
-  color: PropTypes.oneOf(Object.keys(colors)),
+  color: PropTypes.oneOfType([
+    PropTypes.oneOf(Object.keys(colors)),
+    PropTypes.array
+  ]),
+  inline: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes)),
   styles: PropTypes.object
 }

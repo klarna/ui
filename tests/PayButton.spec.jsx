@@ -1,5 +1,3 @@
-/* global describe it */
-
 import PayButton from '../components/PayButton'
 import { ok, equal } from 'assert'
 import { renderer } from './helpers'
