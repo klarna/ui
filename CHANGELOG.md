@@ -1,3 +1,7 @@
+# 0.13.0
+
+- Update `Dialog` component
+
 # 0.12.11
 
 - Add alert box
