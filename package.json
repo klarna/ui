@@ -13,7 +13,7 @@
   },
   "author": "Klarna front end people",
   "dependencies": {
-    "@klarna/ui-css-components": "git://github.com/klarna/ui-css-components.git#fix-long-dialog",
+    "@klarna/ui-css-components": "9.0.0",
     "classnames": "2.2.5",
     "parse-color": "1.0.0"
   },
