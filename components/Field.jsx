@@ -94,7 +94,7 @@ export default class Field extends Component {
     const dynamicStyles = useDynamicStyles
     ? {
       borderColor: this.state.hover || focus ? customize.borderColorSelected : customize.borderColor,
-      boxShadow: `0 0 4px ${customize.borderColorSelected}`
+      boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
     }
     : undefined
 
