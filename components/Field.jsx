@@ -149,8 +149,7 @@ Field.propTypes = {
   centered: PropTypes.bool,
   customize: PropTypes.shape({
     borderColor: PropTypes.string.isRequired,
-    borderColorSelected: PropTypes.string.isRequired,
-    boxShadow: PropTypes.string.isRequired
+    borderColorSelected: PropTypes.string.isRequired
   }),
   loading: PropTypes.bool,
   label: PropTypes.string.isRequired,
