@@ -169,6 +169,59 @@ describe('Field', () => {
     ))
   })
 
+  describe('customize', () => {
+    describe('unhovered, unfocused', () => {
+      const field = render({
+        customize: {
+          borderColor: 'red',
+          borderColorSelected: 'pink'
+        },
+        label: 'Mandatory label'
+      })
+
+      it('has the border color and no box shadow', () => {
+        equal(field.props.style.borderColor, 'red')
+        equal(field.props.style.boxShadow, undefined)
+      })
+    })
+
+    describe('hover', () => {
+      const field = render({
+        customize: {
+          borderColor: 'red',
+          borderColorSelected: 'pink'
+        },
+        label: 'Mandatory label'
+      })
+
+      // Skipped because the shallow renderer does not have the capability
+      // to set the state. This points to two issues:
+      // - State should be avoided as much as possible, ideally only added in
+      //   HOCs when absolutely necessary
+      // - We will eventually need to switch to enzyme
+      it.skip('has the selected border color and no box shadow', () => {
+        equal(field.props.style.borderColor, 'pink')
+        equal(field.props.style.boxShadow, undefined)
+      })
+    })
+
+    describe('focus', () => {
+      const field = render({
+        customize: {
+          borderColor: 'red',
+          borderColorSelected: 'pink'
+        },
+        focus: true,
+        label: 'Mandatory label'
+      })
+
+      it('has the selected border color and box shadow', () => {
+        equal(field.props.style.borderColor, 'pink')
+        equal(field.props.style.boxShadow, '0 0 4px pink')
+      })
+    })
+  })
+
   describe('stacked', () => {
     describe('positions', () => {
       [
