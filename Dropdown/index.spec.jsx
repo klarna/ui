@@ -1,6 +1,6 @@
-import Dropdown from '../components/Dropdown'
+import Dropdown from './'
 import { equal, ok } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 
 const render = renderer(Dropdown)
 
@@ -17,8 +17,8 @@ describe('Dropdown', () => {
       equal(dropdown.type, 'div')
     })
 
-    it("has className 'cui__dropdown--native'", () => {
-      equal(dropdown.props.className, 'cui__dropdown--native')
+    it("has className 'dropdown--native'", () => {
+      equal(dropdown.props.className, 'dropdown--native')
     })
 
     describe('label', () => {
@@ -26,8 +26,8 @@ describe('Dropdown', () => {
         equal(label(dropdown).type, 'label')
       })
 
-      it("has className 'cui__dropdown--native__label'", () => {
-        equal(label(dropdown).props.className, 'cui__dropdown--native__label')
+      it("has className 'dropdown--native__label'", () => {
+        equal(label(dropdown).props.className, 'dropdown--native__label')
       })
     })
 
@@ -36,8 +36,8 @@ describe('Dropdown', () => {
         equal(select(dropdown).type, 'select')
       })
 
-      it("has className 'cui__dropdown--native__select'", () => {
-        equal(select(dropdown).props.className, 'cui__dropdown--native__select')
+      it("has className 'dropdown--native__select'", () => {
+        equal(select(dropdown).props.className, 'dropdown--native__select')
       })
     })
   })
@@ -81,8 +81,8 @@ describe('Dropdown', () => {
     })
 
     describe('label', () => {
-      it("has className 'cui__dropdown--native__floating-label'", () => {
-        equal(label(dropdown).props.className, 'cui__dropdown--native__floating-label')
+      it("has className 'dropdown--native__floating-label'", () => {
+        equal(label(dropdown).props.className, 'dropdown--native__floating-label')
       })
     })
   })
@@ -98,8 +98,8 @@ describe('Dropdown', () => {
     })
 
     describe('label', () => {
-      it("has className 'cui__dropdown--native__floating-label'", () => {
-        equal(label(dropdown).props.className, 'cui__dropdown--native__floating-label')
+      it("has className 'dropdown--native__floating-label'", () => {
+        equal(label(dropdown).props.className, 'dropdown--native__floating-label')
       })
     })
   })

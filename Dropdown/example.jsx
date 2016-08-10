@@ -1,7 +1,7 @@
 import React from 'react'
 import { SecondaryTitle, Subtitle } from '../components/Text'
-import Code from './Code'
-import Dropdown from '../components/Dropdown'
+import Code from '../example/Code'
+import Dropdown from './'
 import Fieldset from '../components/Fieldset'
 
 export default function Dropdowns () {

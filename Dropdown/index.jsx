@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/dropdown.scss'
+import defaultStyles from './styles.scss'
 import * as programmaticFocus from '../lib/features/programmaticFocus'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
@@ -39,7 +39,7 @@ export default class Dropdown extends Component {
 
     const classes = {
       dropdown: classNames(
-        'cui__dropdown--native',
+        'dropdown--native',
         {
           'is-loading': loading,
           'is-selected': value != null,
@@ -52,11 +52,11 @@ export default class Dropdown extends Component {
         className
       ),
       label: classNames({
-        'cui__dropdown--native__floating-label': problem,
-        'cui__dropdown--native__label': !problem
+        'dropdown--native__floating-label': problem,
+        'dropdown--native__label': !problem
       }),
-      currentOption: classNames('cui__dropdown--native__current-option'),
-      select: classNames('cui__dropdown--native__select')
+      currentOption: classNames('dropdown--native__current-option'),
+      select: classNames('dropdown--native__select')
     }
 
     return (
