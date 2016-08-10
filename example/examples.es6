@@ -1,4 +1,4 @@
-export Alerts from './Alerts'
+export Alerts from '../Alert/example'
 export Buttons from '../Button/example'
 export Checklists from '../Checklist/example'
 export ContextMenus from './ContextMenus'
