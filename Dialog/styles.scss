@@ -1,0 +1,30 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.dialog {
+    @include dialog;
+}
+
+.dialog__content {
+    @include dialog__content;
+}
+
+.dialog__cell {
+    @include dialog__cell;
+}
+
+.dialog__footer {
+    @include dialog__footer;
+}
+
+.dialog__icon {
+    @include dialog__icon;
+}
+
+.dialog__overlay {
+    @include dialog__overlay;
+}
+
+.dialog__table {
+    @include dialog__table;
+}
