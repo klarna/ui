@@ -1,4 +1,4 @@
-import Alert, { Title, Paragraph } from '../Alert'
+import Alert, { Title, Paragraph } from './'
 import { ok, equal } from 'assert'
 import { renderer } from '../tests/helpers'
 

@@ -1,6 +1,6 @@
-import Button from '../Button'
+import Button from './'
 import { ok, equal, deepEqual } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 
 const render = renderer(Button)
 
@@ -118,8 +118,8 @@ describe('Button', () => {
           equal(button.props.children.type, 'span')
         })
 
-        it('has className cui__button__label', () => {
-          equal(button.props.children.props.className, 'cui__button__label')
+        it('has className button__label', () => {
+          equal(button.props.children.props.className, 'button__label')
         })
       })
 
@@ -171,8 +171,8 @@ describe('Button', () => {
           equal(button.props.children.type, 'div')
         })
 
-        it('has className cui__button__label', () => {
-          equal(button.props.children.props.className, 'cui__button__label')
+        it('has className button__label', () => {
+          equal(button.props.children.props.className, 'button__label')
         })
       })
 
@@ -183,8 +183,8 @@ describe('Button', () => {
           equal(span.type, 'span')
         })
 
-        it('has className cui__button__label--alt', () => {
-          equal(span.props.className, 'cui__button__label--alt')
+        it('has className button__label--alt', () => {
+          equal(span.props.className, 'button__label--alt')
         })
       })
 
