@@ -1,0 +1,14 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.checklist {
+    @include checklist;
+
+    &__item {
+        @include checklist__item;
+    }
+
+    &__checkmark {
+        @include checklist__checkmark;
+    }
+}
