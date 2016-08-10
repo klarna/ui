@@ -1,3 +1,7 @@
+# 0.13.2
+
+- Fix dynamic styling of input border
+
 # 0.13.0
 
 - Update `Dialog` component
