@@ -85,8 +85,11 @@ Dialog.Overlay = ({ children, className, show, styles, ...props }) => {
     <div
       className={classNames('cui__dialog__overlay', { 'is-visible': show }, className)}>
       <div
-        className={classNames('cui__dialog__wrapper')}>
-        {children}
+        className={classNames('cui__dialog__table')}>
+        <div
+          className={classNames('cui__dialog__cell')}>
+          {children}
+        </div>
       </div>
     </div>
   )

@@ -96,7 +96,8 @@ describe('Dialog', () => {
 
   describe('overlay', () => {
     const dialogOverlay = renderOverlay({}, 'Some text')
-    const dialogWrapper = dialogOverlay.props.children
+    const dialogTable = dialogOverlay.props.children
+    const dialogCell = dialogTable.props.children
 
     it("renders tag 'div'", () => {
       equal(dialogOverlay.type, 'div')
@@ -106,17 +107,27 @@ describe('Dialog', () => {
       equal(dialogOverlay.props.className, 'cui__dialog__overlay')
     })
 
-    describe('wrapper', () => {
+    describe('table', () => {
       it("renders tag 'div'", () => {
-        equal(dialogWrapper.type, 'div')
+        equal(dialogTable.type, 'div')
       })
 
-      it("has className 'cui__dialog__footer--inner'", () => {
-        equal(dialogWrapper.props.className, 'cui__dialog__wrapper')
+      it("has className 'cui__dialog__table'", () => {
+        equal(dialogTable.props.className, 'cui__dialog__table')
+      })
+    })
+
+    describe('cell', () => {
+      it("renders tag 'div'", () => {
+        equal(dialogCell.type, 'div')
+      })
+
+      it("has className 'cui__dialog__cell'", () => {
+        equal(dialogCell.props.className, 'cui__dialog__cell')
       })
 
       it('has the content', () => {
-        ok(dialogWrapper.props.children.match('Some text'))
+        ok(dialogCell.props.children.match('Some text'))
       })
     })
 
