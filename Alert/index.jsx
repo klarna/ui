@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/alert.scss'
+import defaultStyles from './styles.scss'
 
 export function Title ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('cui__alert__title', className)
+  const cls = classNames('alert__title', className)
 
   return (
     <h1 className={cls} {...remainingProps}>
@@ -26,7 +26,7 @@ Title.defaultProps = {
 
 export function Paragraph ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('cui__alert__paragraph', className)
+  const cls = classNames('alert__paragraph', className)
 
   return (
     <p className={cls} {...remainingProps}>
@@ -48,7 +48,7 @@ Paragraph.defaultProps = {
 
 export default function Alert ({ children, className, styles, design, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames(`cui__alert--${design}`, className)
+  const cls = classNames(`alert--${design}`, className)
 
   return (
     <div className={cls} {...remainingProps}>
