@@ -1,5 +1,5 @@
 export Alerts from './Alerts'
-export Buttons from './Buttons'
+export Buttons from '../Button/example'
 export Checklists from '../Checklist/example'
 export ContextMenus from './ContextMenus'
 export Dialogs from './Dialogs'

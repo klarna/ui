@@ -1,11 +1,11 @@
 /* globals alert */
 
 import React from 'react'
-import Button, { Price } from '../Button'
+import Button, { Price } from './'
 import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../components/IconButton'
 import Block from '../components/Block'
 import { SecondaryTitle, Subtitle } from '../components/Text'
-import Code from './Code'
+import Code from '../example/Code'
 
 export default function Buttons () {
   return (
