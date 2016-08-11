@@ -3,14 +3,15 @@ import React from 'react'
 import Field from '../Field'
 import Fieldset from '../Fieldset'
 import Link from '../Link'
-import UncontrolledField from '../Field/Uncontrolled'
+import UncontrolledField from '../uncontrolled/Field'
 import {
   Paragraph,
   PrimaryTitle,
   SecondaryTitle,
   Subtitle
+<<<<<<< HEAD:example/Fields.jsx
 } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 
 export default function Fields () {
   return (

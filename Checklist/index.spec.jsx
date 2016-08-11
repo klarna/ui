@@ -23,8 +23,8 @@ describe('Checklist', () => {
       equal(checklist.type, 'ul')
     })
 
-    it('has class ".cui__checklist"', () => {
-      equal(checklist.props.className, 'cui__checklist')
+    it('has class ".checklist"', () => {
+      equal(checklist.props.className, 'checklist')
     })
 
     items.forEach((item, index) => {
@@ -35,16 +35,16 @@ describe('Checklist', () => {
           equal(renderedItem.type, 'li')
         })
 
-        it('has class ".cui__checklist__item"', () => {
-          equal(renderedItem.props.className, 'cui__checklist__item')
+        it('has class ".checklist__item"', () => {
+          equal(renderedItem.props.className, 'checklist__item')
         })
 
         it('has svg icon', () => {
           equal(renderedItem.props.children[0].type, 'svg')
         })
 
-        it('icon has class "cui__checklist__checkmark"', () => {
-          equal(renderedItem.props.children[0].props.className, 'cui__checklist__checkmark')
+        it('icon has class "checklist__checkmark"', () => {
+          equal(renderedItem.props.children[0].props.className, 'checklist__checkmark')
         })
 
         it('has content of the first item', () => {

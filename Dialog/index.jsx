@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/dialog.scss'
+import defaultStyles from './styles.scss'
 
 export default function Dialog ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <div className={classNames('cui__dialog', className)} {...props}>
+    <div className={classNames('dialog', className)} {...props}>
       {children}
     </div>
   )
@@ -22,7 +22,7 @@ Dialog.Icon = ({ children, className, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <div className={classNames('cui__dialog__icon', className)} {...props}>
+    <div className={classNames('dialog__icon', className)} {...props}>
       {children}
     </div>
   )
@@ -40,8 +40,8 @@ Dialog.Content = ({ children, className, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <div className={classNames('cui__dialog__content', className)} {...props}>
-      <div className={classNames('cui__dialog__content--inner')}>
+    <div className={classNames('dialog__content', className)} {...props}>
+      <div className={classNames('dialog__content--inner')}>
         {children}
       </div>
     </div>
@@ -61,9 +61,9 @@ Dialog.Footer = ({ children, className, styles, ...props }) => {
 
   return (
     <div
-      className={classNames('cui__dialog__footer', className)} {...props}>
+      className={classNames('dialog__footer', className)} {...props}>
       <div
-        className={classNames('cui__dialog__footer--inner')}>
+        className={classNames('dialog__footer--inner')}>
         {children}
       </div>
     </div>
@@ -83,10 +83,13 @@ Dialog.Overlay = ({ children, className, show, styles, ...props }) => {
 
   return (
     <div
-      className={classNames('cui__dialog__overlay', { 'is-visible': show }, className)}>
+      className={classNames('dialog__overlay', { 'is-visible': show }, className)}>
       <div
-        className={classNames('cui__dialog__wrapper')}>
-        {children}
+        className={classNames('dialog__table')}>
+        <div
+          className={classNames('dialog__cell')}>
+          {children}
+        </div>
       </div>
     </div>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import Switch from '../Switch'
 import Button from '../Button'
 import { SecondaryTitle } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 
 export default function Switches () {
   return (

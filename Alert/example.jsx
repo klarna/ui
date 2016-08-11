@@ -1,5 +1,5 @@
 import React from 'react'
-import Code from './Code'
+import Code from '../Code'
 import { Subtitle } from '../Text'
 import Alert, { Title, Paragraph } from '../Alert'
 

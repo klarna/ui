@@ -1,5 +1,5 @@
 import React from 'react'
-import Code from './Code'
+import Code from '../Code'
 import ContextMenu from '../ContextMenu'
 import Logout from '../icons/Logout'
 

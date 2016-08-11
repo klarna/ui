@@ -13,8 +13,8 @@ describe('Switch', () => {
       equal(_switch.type, 'div')
     })
 
-    it("has className 'cui__switch'", () => {
-      equal(_switch.props.className, 'cui__switch')
+    it("has className 'switch'", () => {
+      equal(_switch.props.className, 'switch')
     })
 
     it('should have the content', () => {
@@ -157,8 +157,8 @@ describe('Switch', () => {
         equal(_switch.type, 'div')
       })
 
-      it("has className 'cui__switch dynamic-styling'", () => {
-        equal(_switch.props.className, 'cui__switch dynamic-styling')
+      it("has className 'switch dynamic-styling'", () => {
+        equal(_switch.props.className, 'switch dynamic-styling')
       })
 
       it('should have the content', () => {
@@ -172,8 +172,8 @@ describe('Switch', () => {
           equal(bullet.type, 'div')
         })
 
-        it('should have class "cui__switch__bullet"', () => {
-          equal(bullet.props.className, 'cui__switch__bullet')
+        it('should have class "switch__bullet"', () => {
+          equal(bullet.props.className, 'switch__bullet')
         })
 
         it('should have customized styles', () => {
@@ -189,8 +189,8 @@ describe('Switch', () => {
           equal(checkmark.type, 'div')
         })
 
-        it('should have class "cui__switch__checkmark"', () => {
-          equal(checkmark.props.className, 'cui__switch__bullet__checkmark')
+        it('should have class "switch__checkmark"', () => {
+          equal(checkmark.props.className, 'switch__bullet__checkmark')
         })
 
         it('should have customized styles', () => {
@@ -212,8 +212,8 @@ describe('Switch', () => {
         equal(_switch.type, 'div')
       })
 
-      it("has className 'cui__switch checkbox dynamic-styling'", () => {
-        equal(_switch.props.className, 'cui__switch checkbox dynamic-styling')
+      it("has className 'switch checkbox dynamic-styling'", () => {
+        equal(_switch.props.className, 'switch checkbox dynamic-styling')
       })
 
       it('should have the content', () => {
@@ -227,8 +227,8 @@ describe('Switch', () => {
           equal(bullet.type, 'div')
         })
 
-        it('should have className "cui__switch__bullet"', () => {
-          equal(bullet.props.className, 'cui__switch__bullet')
+        it('should have className "switch__bullet"', () => {
+          equal(bullet.props.className, 'switch__bullet')
         })
 
         it('should have customized styles', () => {
@@ -244,8 +244,8 @@ describe('Switch', () => {
           equal(checkmark.type, 'div')
         })
 
-        it('should have className "cui__switch__bullet__checkmark"', () => {
-          equal(checkmark.props.className, 'cui__switch__bullet__checkmark')
+        it('should have className "switch__bullet__checkmark"', () => {
+          equal(checkmark.props.className, 'switch__bullet__checkmark')
         })
 
         describe('check', () => {

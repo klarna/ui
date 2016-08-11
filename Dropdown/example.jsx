@@ -1,6 +1,6 @@
 import React from 'react'
 import { SecondaryTitle, Subtitle } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 import Dropdown from '../Dropdown'
 import Fieldset from '../Fieldset'
 

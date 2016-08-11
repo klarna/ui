@@ -1,4 +1,4 @@
-import Button from '../Button'
+import Button from './'
 import { ok, equal, deepEqual } from 'assert'
 import { renderer } from '../tests/helpers'
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import Code from './Code'
-import Checklist from '../Checklist'
+import Code from '../Code'
+import Checklist from './'
 import { SecondaryTitle } from '../Text'
 
 export default function Checklists () {

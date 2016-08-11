@@ -1,0 +1,43 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.context-menu {
+    background: map-get($colors, white);
+    border: ($grid * .2) solid map-get($colors, grey-lines);
+    border-radius: $border-radius;
+    box-shadow: 0 0 0 3px rgba(map-get($colors, grey-lines), 0.2);
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: ($grid * 1.8) 0;
+    position: relative;
+
+    &__separator {
+        border-top: 1px solid map-get($colors, grey-selector-lines);
+        box-sizing: border-box;
+        // since the height must be 20,
+        // adds 9.5 as margin
+        margin: ($grid * 1.9) 0;
+    }
+
+    &__item {
+        @include paragraph--primary;
+
+        display: block;
+        line-height: 40px;
+        padding: 0 20px;
+        text-decoration: none;
+
+        &:hover {
+            background: map-get($colors, block-hover);
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        height: 20px;
+        margin: 0 10px 2px 0;
+        vertical-align: middle;
+        width: 20px;
+    }
+}

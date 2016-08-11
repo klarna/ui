@@ -16,8 +16,8 @@ describe('Dialog', () => {
       equal(dialog.type, 'div')
     })
 
-    it("has className 'cui__dialog'", () => {
-      equal(dialog.props.className, 'cui__dialog')
+    it("has className 'dialog'", () => {
+      equal(dialog.props.className, 'dialog')
     })
   })
 
@@ -29,8 +29,8 @@ describe('Dialog', () => {
       equal(dialogIcon.type, 'div')
     })
 
-    it("has className 'cui__dialog__icon'", () => {
-      equal(dialogIcon.props.className, 'cui__dialog__icon')
+    it("has className 'dialog__icon'", () => {
+      equal(dialogIcon.props.className, 'dialog__icon')
     })
 
     it('has the content', () => {
@@ -47,8 +47,8 @@ describe('Dialog', () => {
       equal(dialogContent.type, 'div')
     })
 
-    it("has className 'cui__dialog__content'", () => {
-      equal(dialogContent.props.className, 'cui__dialog__content')
+    it("has className 'dialog__content'", () => {
+      equal(dialogContent.props.className, 'dialog__content')
     })
 
     describe('inner', () => {
@@ -56,8 +56,8 @@ describe('Dialog', () => {
         equal(dialogContentInner.type, 'div')
       })
 
-      it("has className 'cui__dialog__content--inner'", () => {
-        equal(dialogContentInner.props.className, 'cui__dialog__content--inner')
+      it("has className 'dialog__content--inner'", () => {
+        equal(dialogContentInner.props.className, 'dialog__content--inner')
       })
 
       it('has the content', () => {
@@ -75,8 +75,8 @@ describe('Dialog', () => {
       equal(dialogFooter.type, 'div')
     })
 
-    it("has className 'cui__dialog__footer'", () => {
-      equal(dialogFooter.props.className, 'cui__dialog__footer')
+    it("has className 'dialog__footer'", () => {
+      equal(dialogFooter.props.className, 'dialog__footer')
     })
 
     describe('inner', () => {
@@ -84,8 +84,8 @@ describe('Dialog', () => {
         equal(dialogFooterInner.type, 'div')
       })
 
-      it("has className 'cui__dialog__footer--inner'", () => {
-        equal(dialogFooterInner.props.className, 'cui__dialog__footer--inner')
+      it("has className 'dialog__footer--inner'", () => {
+        equal(dialogFooterInner.props.className, 'dialog__footer--inner')
       })
 
       it('has the content', () => {
@@ -96,27 +96,38 @@ describe('Dialog', () => {
 
   describe('overlay', () => {
     const dialogOverlay = renderOverlay({}, 'Some text')
-    const dialogWrapper = dialogOverlay.props.children
+    const dialogTable = dialogOverlay.props.children
+    const dialogCell = dialogTable.props.children
 
     it("renders tag 'div'", () => {
       equal(dialogOverlay.type, 'div')
     })
 
-    it("has className 'cui__dialog__overlay'", () => {
-      equal(dialogOverlay.props.className, 'cui__dialog__overlay')
+    it("has className 'dialog__overlay'", () => {
+      equal(dialogOverlay.props.className, 'dialog__overlay')
     })
 
-    describe('wrapper', () => {
+    describe('table', () => {
       it("renders tag 'div'", () => {
-        equal(dialogWrapper.type, 'div')
+        equal(dialogTable.type, 'div')
       })
 
-      it("has className 'cui__dialog__footer--inner'", () => {
-        equal(dialogWrapper.props.className, 'cui__dialog__wrapper')
+      it("has className 'dialog__table'", () => {
+        equal(dialogTable.props.className, 'dialog__table')
+      })
+    })
+
+    describe('cell', () => {
+      it("renders tag 'div'", () => {
+        equal(dialogCell.type, 'div')
+      })
+
+      it("has className 'dialog__cell'", () => {
+        equal(dialogCell.props.className, 'dialog__cell')
       })
 
       it('has the content', () => {
-        ok(dialogWrapper.props.children.match('Some text'))
+        ok(dialogCell.props.children.match('Some text'))
       })
     })
 

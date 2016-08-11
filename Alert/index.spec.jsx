@@ -19,8 +19,8 @@ describe('Alert', () => {
       equal(alert.type, 'div')
     })
 
-    it("has className 'cui__alert--error'", () => {
-      ok(alert.props.className.match('cui__alert--error'))
+    it("has className 'alert--error'", () => {
+      ok(alert.props.className.match('alert--error'))
     })
 
     it('should have the content', () => {
@@ -38,8 +38,8 @@ describe('Alert', () => {
       equal(title.type, 'h1')
     })
 
-    it("has className 'cui__alert__title'", () => {
-      ok(title.props.className.match('cui__alert__title'))
+    it("has className 'alert__title'", () => {
+      ok(title.props.className.match('alert__title'))
     })
 
     it('should have the content', () => {
@@ -55,8 +55,8 @@ describe('Alert', () => {
       equal(paragraph.type, 'p')
     })
 
-    it("has className 'cui__alert__paragraph'", () => {
-      ok(paragraph.props.className.match('cui__alert__paragraph'))
+    it("has className 'alert__paragraph'", () => {
+      ok(paragraph.props.className.match('alert__paragraph'))
     })
 
     it('should have the content', () => {

@@ -1,6 +1,6 @@
 {
   "name": "@klarna/ui-react-components",
-  "version": "0.12.11",
+  "version": "0.13.2",
   "description": "Klarna's UI React Components",
   "repository": "https://github.com/klarna/ui-react-components",
   "license": "SEE LICENSE IN LICENSE",
@@ -13,7 +13,7 @@
   },
   "author": "Klarna front end people",
   "dependencies": {
-    "@klarna/ui-css-components": "8.0.3",
+    "@klarna/ui-css-components": "9.0.1",
     "classnames": "2.2.5",
     "parse-color": "1.0.0"
   },

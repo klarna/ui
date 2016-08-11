@@ -1,7 +1,7 @@
 /* globals alert */
 
 import React from 'react'
-import Button, { Price } from '../Button'
+import Button, { Price } from './'
 import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../IconButton'
 import Block from '../Block'
 import { SecondaryTitle, Subtitle } from '../Text'

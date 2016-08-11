@@ -1,0 +1,176 @@
+@mixin palette-colors ($default-color: map-get($colors, black)) {
+    color: $default-color;
+
+    &.black {
+        color: map-get($colors, black);
+    }
+
+    &.blue {
+        color: map-get($colors, klarna-blue);
+    }
+
+    &.white {
+        color: map-get($colors, white);
+    }
+}
+
+@mixin title--primary {
+    @include typography(($grid * 5.2), light);
+    @include palette-colors();
+
+    line-height: ($grid * 7);
+    margin: 0;
+    padding: ($grid * .4) 0 ($grid * .6);
+
+    &.small {
+        @include typography(($grid * 4.4), light);
+
+        padding: ($grid * .6) 0 ($grid * .4);
+
+        &.strong {
+            @include typography(($grid * 4.4), regular);
+        }
+    }
+
+    &.default-margins {
+        padding: ($grid * 3.6) 0 ($grid * 3.4);
+
+        &.small {
+            padding: ($grid * 3.8) 0 ($grid * 3.2);
+        }
+    }
+}
+
+@mixin title--secondary {
+    @include typography(($grid * 3), semi-bold);
+    @include palette-colors();
+
+    line-height: ($grid * 3);
+    margin: 0;
+    padding: ($grid * .4) 0 ($grid * .6);
+
+    &.condensed {
+        padding: ($grid * .4) 0 ($grid * 1.6);
+    }
+
+    &.default-margins {
+        padding: ($grid * 4.4) 0 ($grid * 2.6);
+
+        &.condensed {
+            padding: ($grid * .4) 0 ($grid * 1.6);
+        }
+    }
+}
+
+@mixin subtitle {
+    @include typography(($grid * 2.4), semi-bold);
+    @include palette-colors();
+
+    height: ($grid * 4);
+    line-height: ($grid * 4);
+    margin: 0;
+    padding: ($grid * .2) 0 ($grid * .8);
+    text-transform: uppercase;
+
+    &.condensed {
+        padding: ($grid * .2) 0 ($grid * 1.8);
+    }
+
+    &.default-margins {
+        padding: ($grid * 3.2) 0 ($grid * 1.8);
+    }
+}
+
+@mixin paragraph {
+    line-height: ($grid * 5);
+    margin: 0;
+    padding: ($grid * .6) 0 ($grid * .4);
+
+    &.default-margins {
+        padding: ($grid * .6) 0 ($grid * 3.4);
+    }
+}
+
+@mixin paragraph-condensed {
+    line-height: ($grid * 4);
+    padding-bottom: ($grid * 3);
+    padding-top: 0;
+}
+
+@mixin paragraph--primary {
+    @include paragraph;
+    @include typography(($grid * 2.6), regular);
+    @include palette-colors();
+}
+
+@mixin paragraph--primary-condensed {
+    @include paragraph-condensed;
+    @include typography(($grid * 2.6), regular);
+    @include palette-colors();
+}
+
+@mixin paragraph--secondary {
+    @include paragraph;
+    @include typography(($grid * 2.6), regular);
+    @include palette-colors(map-get($colors, grey-text));
+}
+
+@mixin paragraph--secondary-condensed {
+    @include paragraph-condensed;
+    @include typography(($grid * 2.6), regular);
+    @include palette-colors(map-get($colors, grey-text));
+}
+
+@mixin paragraph--legal {
+    @include typography(($grid * 2.2), regular);
+    @include palette-colors(map-get($colors, grey-text));
+
+    line-height: ($grid * 4);
+    margin: 0;
+    padding: ($grid * .2) 0 ($grid * .8);
+
+    &.default-margins {
+        padding: ($grid * .2) 0 ($grid * 2.8);
+    }
+}
+
+@mixin promo-label {
+    @include typography(($grid * 2), semi-bold);
+
+    background: map-get($colors, klarna-blue);
+    border-radius: $border-radius;
+    bottom: ($grid * .2);
+    color: white;
+    display: inline-block;
+    left: ($grid * .8);
+    line-height: ($grid * 3);
+    padding: 0 ($grid * 1);
+    position: relative;
+    text-transform: uppercase;
+
+    .is-disabled & {
+        background: map-get($colors, grey-lines);
+    }
+}
+
+@mixin text-label {
+    @include typography(($grid * 2.4), regular);
+
+    @include palette-colors(map-get($colors, grey-text));
+    line-height: ($grid * 3);
+    margin: 0;
+    padding: ($grid * .6) 0 ($grid * .4);
+
+    &.default-margins {
+        padding: ($grid * 1.6) 0 ($grid * .4);
+    }
+}
+
+@mixin amount-text {
+    @include typography(($grid * 9.6), light);
+    @include palette-colors();
+
+    line-height: ($grid * 10);
+    margin: 0;
+    padding: ($grid * 1.2) 0 ($grid * .8);
+}

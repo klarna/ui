@@ -1,0 +1,89 @@
+@mixin options($hover: false) {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-transition: all .2s ease;
+    border: ($grid * .2) solid $border-color;
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    margin-bottom: ($grid * .6);
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    transition: all .2s ease;
+
+    @if $hover == true {
+        &:hover {
+            border-color: map-get($colors, blue-hover);
+            z-index: 10;
+        }
+    }
+
+    &.borderless {
+        border: 0;
+        padding-bottom: $grid * .2;
+        padding-top: $grid * .2;
+    }
+
+    &.is-disabled {
+        background: #fafafa;
+        color: map-get($colors, grey-lines);
+        cursor: default;
+        pointer-events: none;
+
+        &:hover {
+            border-color: $border-color;
+        }
+
+        &::after {
+            @include opacity(.2);
+        }
+    }
+}
+
+@mixin option() {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-transition: all .2s ease;
+    -webkit-user-select: none;
+    background: white;
+    overflow: hidden;
+    padding-bottom: ($grid * 2.2);
+    padding-top: ($grid * 1.8);
+    position: relative;
+    transition: all .2s ease;
+
+    .borderless & {
+        border-radius: $border-radius;
+
+        &:first-child {
+            padding-top: ($grid * 1.8);
+        }
+
+        &:last-child {
+            padding-bottom: ($grid * 2.2);
+        }
+    }
+
+    &:hover {
+        background: map-get($colors, block-hover);
+
+        .is-disabled & {
+            &::before {
+                border-color: $border-color;
+            }
+        }
+    }
+
+    &:first-child {
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        padding-top: ($grid * 2.8);
+    }
+
+    &:last-child {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        padding-bottom: ($grid * 3.2);
+    }
+}

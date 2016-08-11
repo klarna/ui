@@ -16,7 +16,7 @@ module.exports = function (config) {
     ],
     exclude: [],
     preprocessors: {
-      '**/*.spec.*': ['webpack']
+      '**/index.spec.jsx': ['webpack']
     },
     webpack: {
       devtool: 'inline-source-map',
