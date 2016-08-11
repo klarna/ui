@@ -1,6 +1,6 @@
 import React from 'react'
-import Code from './Code'
-import ContextMenu from '../components/ContextMenu'
+import Code from '../example/Code'
+import ContextMenu from './'
 import Logout from '../components/icons/Logout'
 
 export default function ContextMenus () {

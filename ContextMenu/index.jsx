@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/context-menu.scss'
+import defaultStyles from './styles.scss'
 
-const baseClass = 'cui__context-menu'
+const baseClass = 'context-menu'
 
 const ContextMenu = ({ className, children, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
