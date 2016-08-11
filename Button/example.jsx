@@ -2,10 +2,10 @@
 
 import React from 'react'
 import Button, { Price } from './'
-import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../components/IconButton'
-import Block from '../components/Block'
-import { SecondaryTitle, Subtitle } from '../components/Text'
-import Code from '../example/Code'
+import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../IconButton'
+import Block from '../Block'
+import { SecondaryTitle, Subtitle } from '../Text'
+import Code from './Code'
 
 export default function Buttons () {
   return (

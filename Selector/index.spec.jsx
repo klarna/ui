@@ -1,6 +1,6 @@
-import Selector from '../components/Selector'
+import Selector from './'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 import { spy } from 'sinon'
 
 const render = renderer(Selector)

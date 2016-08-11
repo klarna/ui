@@ -1,0 +1,6 @@
+export { default as Amount } from './Amount'
+export { default as Paragraph } from './Paragraph'
+export { default as PrimaryTitle } from './PrimaryTitle'
+export { default as SecondaryTitle } from './SecondaryTitle'
+export { default as Subtitle } from './Subtitle'
+export { default as TextLabel } from './TextLabel'

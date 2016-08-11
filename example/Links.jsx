@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from '../components/Link'
+import Link from '../Link'
 import Code from './Code'
-import { SecondaryTitle } from '../components/Text'
+import { SecondaryTitle } from '../Text'
 
 export default function Links () {
   return (

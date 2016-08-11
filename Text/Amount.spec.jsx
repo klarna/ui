@@ -1,6 +1,6 @@
-import Amount from '../components/texts/Amount'
+import Amount from './/Amount'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 import describePalette from './describePalette'
 
 const render = renderer(Amount)

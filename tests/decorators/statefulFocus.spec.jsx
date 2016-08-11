@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import statefulFocus from '../../lib/decorators/statefulFocus'
-import { shallow } from '../helpers'
+import { shallow } from '.../tests/helpers'
 import { equal } from 'assert'
 
 class TestComponent extends Component {

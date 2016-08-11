@@ -4,9 +4,9 @@
  * the state of the object
  */
 
-import StatefulRadioGroup from '../../components/uncontrolled/RadioGroup'
+import StatefulRadioGroup from './'
 import { equal } from 'assert'
-import { shallow } from '../helpers'
+import { shallow } from '../../tests/helpers'
 
 const data = [
   {id: 1, label: 'option1'},

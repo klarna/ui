@@ -1,6 +1,6 @@
 import React from 'react'
-import Preview, { PreviewTitle, PreviewLink } from '../components/Preview'
-import { SecondaryTitle } from '../components/Text'
+import Preview, { PreviewTitle, PreviewLink } from '../Preview'
+import { SecondaryTitle } from '../Text'
 import Code from './Code'
 
 export default function Previews () {

@@ -1,8 +1,8 @@
 import React from 'react'
-import { SecondaryTitle, Subtitle } from '../components/Text'
-import Code from '../example/Code'
-import Dropdown from './'
-import Fieldset from '../components/Fieldset'
+import { SecondaryTitle, Subtitle } from '../Text'
+import Code from '../Code'
+import Dropdown from '../Dropdown'
+import Fieldset from '../Fieldset'
 
 export default function Dropdowns () {
   const options = [

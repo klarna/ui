@@ -1,5 +1,5 @@
 import { ok } from 'assert'
-import palette from '../components/texts/palette'
+import palette from './/palette'
 
 export default (render) => {
   describe('palette', () => {

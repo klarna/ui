@@ -1,8 +1,8 @@
 import React from 'react'
-import Menu from '../components/Menu'
-import AnimatedMenu from '../components/AnimatedMenu'
-import Label from '../components/Label'
-import { SecondaryTitle, Subtitle, Paragraph } from '../components/Text'
+import Menu from '../Menu'
+import AnimatedMenu from '../Menu/Animated'
+import Label from '../Label'
+import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
 import Code from './Code'
 
 const options = [

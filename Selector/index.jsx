@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '@klarna/ui-css-components/src/components/selector.scss'
-import Checkmark from './icons/Checkmark'
+import Checkmark from '../icons/Checkmark'
 
 export default function Selector ({
   selected,

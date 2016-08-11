@@ -1,6 +1,6 @@
-import Tooltip from '../components/Tooltip'
+import Tooltip from './'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 
 const render = renderer(Tooltip)
 

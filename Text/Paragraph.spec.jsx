@@ -1,6 +1,6 @@
-import Paragraph from '../components/texts/Paragraph'
+import Paragraph from './/Paragraph'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 import describePalette from './describePalette'
 
 const render = renderer(Paragraph)

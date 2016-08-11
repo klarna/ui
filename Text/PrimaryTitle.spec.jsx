@@ -1,6 +1,6 @@
-import PrimaryTitle from '../components/texts/PrimaryTitle'
+import PrimaryTitle from './/PrimaryTitle'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 import describePalette from './describePalette'
 
 const render = renderer(PrimaryTitle)

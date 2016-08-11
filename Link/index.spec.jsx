@@ -1,6 +1,6 @@
-import Link from '../components/Link'
+import Link from './'
 import { equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 
 const render = renderer(Link)
 

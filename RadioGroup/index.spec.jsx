@@ -1,6 +1,6 @@
-import RadioGroup from '../components/RadioGroup'
+import RadioGroup from './'
 import { ok, equal } from 'assert'
-import { renderer } from './helpers'
+import { renderer } from '../tests/helpers'
 import { spy } from 'sinon'
 
 const render = renderer(RadioGroup)
