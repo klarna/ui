@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/switch.scss'
+import defaultStyles from './styles.scss'
 
 export default class Switch extends React.Component {
   constructor (props) {
@@ -57,7 +57,7 @@ export default class Switch extends React.Component {
       pressed } = this.state
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-    const cls = classNames('cui__switch', {
+    const cls = classNames('switch', {
       'is-checked': checked,
       'is-pressed': pressed,
       'is-disabled': disabled,
@@ -69,8 +69,8 @@ export default class Switch extends React.Component {
     }, className)
     const childCls = customize
       ? {
-        bullet: classNames('cui__switch__bullet'),
-        checkmark: classNames('cui__switch__bullet__checkmark')
+        bullet: classNames('switch__bullet'),
+        checkmark: classNames('switch__bullet__checkmark')
       }
       : undefined
 
