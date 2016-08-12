@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/field.scss'
+import defaultStyles from './styles.scss'
 import * as programmaticFocus from '../lib/features/programmaticFocus'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
@@ -64,7 +64,7 @@ export default class Field extends Component {
 
     const classes = {
       field: classNames(
-        (icon ? 'cui__field--icon' : 'cui__field'), {
+        (icon ? 'field--icon' : 'field'), {
           big,
           'is-centered': centered,
           'is-filled': value != null && value !== '',
@@ -78,13 +78,13 @@ export default class Field extends Component {
         className),
       label: classNames(
         icon
-          ? 'cui__field--icon__label'
-          : 'cui__field__label'
+          ? 'field--icon__label'
+          : 'field__label'
       ),
       input: classNames(
         icon
-          ? 'cui__field--icon__input'
-          : 'cui__field__input'
+          ? 'field--icon__input'
+          : 'field__input'
       )
     }
 
@@ -108,9 +108,9 @@ export default class Field extends Component {
       >
         {
           inlinedIcon.renderInlinedIcon(this.props, {
-            icon: classNames('cui__field--icon__icon'),
-            fill: classNames('cui__field--icon__icon__fill'),
-            stroke: classNames('cui__field--icon__icon__stroke')
+            icon: classNames('field--icon__icon'),
+            fill: classNames('field--icon__icon__fill'),
+            stroke: classNames('field--icon__icon__stroke')
           })
         }
 

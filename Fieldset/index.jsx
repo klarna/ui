@@ -1,6 +1,6 @@
 import React, { PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/field.scss'
+import defaultStyles from './styles.scss'
 
 export default function Fieldset (props) {
   const {
@@ -10,7 +10,7 @@ export default function Fieldset (props) {
     ...remainingProps } = props
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  const cls = classNames('cui__fieldset', className)
+  const cls = classNames('fieldset', className)
 
   return (
     <div className={cls} {...remainingProps}>{children}</div>

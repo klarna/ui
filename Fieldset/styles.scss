@@ -1,0 +1,13 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.fieldset {
+    padding-bottom: ($grid * 5);
+    position: relative;
+
+    &::after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+}
