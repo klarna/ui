@@ -1,7 +1,8 @@
 import React from 'react'
-import { SecondaryTitle, Subtitle } from '../Text'
+import { Title, Subtitle } from '../Text'
 import Code from '../Code'
 import Dropdown from '../Dropdown'
+import UncontrolledDropdown from '../uncontrolled/Dropdown'
 import Fieldset from '../Fieldset'
 
 export default function Dropdowns () {
@@ -17,12 +18,17 @@ export default function Dropdowns () {
         <Dropdown label='Lorem ipsum' options={options} />
       </Code>
 
+      <Subtitle margins>Uncontrolled</Subtitle>
+      <Code>
+        <UncontrolledDropdown label='Lorem ipsum' options={options} value={2} />
+      </Code>
+
       <Subtitle margins>With Selected Value</Subtitle>
       <Code>
         <Dropdown label='Lorem ipsum' options={options} value={2} />
       </Code>
 
-      <SecondaryTitle margins>Focused</SecondaryTitle>
+      <Title.Secondary margins>Focused</Title.Secondary>
       <Code>
         <Dropdown focus label='Lorem ipsum' options={options} />
       </Code>
@@ -37,7 +43,7 @@ export default function Dropdowns () {
         <Dropdown focus='fake' label='Lorem ipsum' options={options} />
       </Code>
 
-      <SecondaryTitle margins>Loading</SecondaryTitle>
+      <Title.Secondary margins>Loading</Title.Secondary>
       <Code>
         <Dropdown label='Wait...' loading options={options} />
       </Code>
@@ -47,7 +53,7 @@ export default function Dropdowns () {
         <Dropdown label='Wait...' loading options={options} value={2} />
       </Code>
 
-      <SecondaryTitle margins>Disabled</SecondaryTitle>
+      <Title.Secondary margins>Disabled</Title.Secondary>
       <Code>
         <Dropdown disabled label='Disabled' options={options} />
       </Code>
@@ -57,7 +63,7 @@ export default function Dropdowns () {
         <Dropdown disabled label='Disabled' options={options} value={2} />
       </Code>
 
-      <SecondaryTitle margins>Error</SecondaryTitle>
+      <Title.Secondary margins>Error</Title.Secondary>
       <Code>
         <Dropdown label='Something went wrong' error options={options} />
       </Code>
@@ -67,7 +73,7 @@ export default function Dropdowns () {
         <Dropdown label='Something went wrong' error options={options} value={2} />
       </Code>
 
-      <SecondaryTitle margins>Warning</SecondaryTitle>
+      <Title.Secondary margins>Warning</Title.Secondary>
       <Code>
         <Dropdown label='Something is incorect' warning options={options} />
       </Code>
@@ -77,7 +83,7 @@ export default function Dropdowns () {
         <Dropdown label='Something is incorect' warning options={options} value={2} />
       </Code>
 
-      <SecondaryTitle margins>Layouts</SecondaryTitle>
+      <Title.Secondary margins>Layouts</Title.Secondary>
       <Subtitle margins>Simple</Subtitle>
       <Code>
         <Fieldset>
