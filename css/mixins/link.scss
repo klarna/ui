@@ -1,0 +1,27 @@
+@mixin link {
+    @include palette-colors(map-get($colors, klarna-blue));
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-transition: all .2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .2s ease;
+
+    &:hover {
+        color: #005694;
+
+        &.black {
+            color: map-get($colors, black);
+        }
+
+        &.white {
+            color: map-get($colors, white);
+        }
+    }
+
+    &.dynamic-styling {
+        &:hover, &:focus, &:active {
+            text-decoration: underline;
+        }
+    }
+}

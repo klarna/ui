@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/link.scss'
+import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
 
 export default function Link ({className, color, children, styles, customize, ...props}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('cui__link', color, className, {
+  const cls = classNames('link', color, className, {
     'dynamic-styling': customize
   })
 
