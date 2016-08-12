@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Button, { Price } from './'
-import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../IconButton'
+import { Back, Close, Hamburger, Options, Search } from '../IconButton'
 import Block from '../Block'
 import { Title, Subtitle } from '../Text'
 import Code from '../Code'
@@ -99,30 +99,30 @@ export default function Buttons () {
       <Title.Secondary color='blue' margins>Iconic Buttons</Title.Secondary>
       <Subtitle margins>Default color scheme</Subtitle>
       <Code>
-        <BackButton />
-        <CloseButton />
-        <HamburgerButton />
-        <OptionsButton />
-        <SearchButton />
+        <Back />
+        <Close />
+        <Hamburger />
+        <Options />
+        <Search />
       </Code>
 
       <Subtitle margins>Gray color scheme</Subtitle>
       <Code>
-        <BackButton color='gray' />
-        <CloseButton color='gray' />
-        <HamburgerButton color='gray' />
-        <OptionsButton color='gray' />
-        <SearchButton color='gray' />
+        <Back color='gray' />
+        <Close color='gray' />
+        <Hamburger color='gray' />
+        <Options color='gray' />
+        <Search color='gray' />
       </Code>
 
       <Subtitle margins>Inverse color scheme</Subtitle>
       <Code>
         <Block blue style={{padding: 20}}>
-          <BackButton onClick={() => alert('lala')} color='inverse' />
-          <CloseButton color='inverse' />
-          <HamburgerButton color='inverse' />
-          <OptionsButton color='inverse' />
-          <SearchButton color='inverse' />
+          <Back onClick={() => alert('lala')} color='inverse' />
+          <Close color='inverse' />
+          <Hamburger color='inverse' />
+          <Options color='inverse' />
+          <Search color='inverse' />
         </Block>
       </Code>
 

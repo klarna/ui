@@ -1,0 +1,53 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.illustration {
+    &.button {
+        @include illustration(map-get($colors, klarna-blue));
+
+        -webkit-transition: all .3s ease;
+        background: transparent;
+        border: ($grid * 2) solid transparent;
+        border-radius: 100%;
+        cursor: pointer;
+        height: ($grid * 4);
+        margin: ($grid * -2);
+        transition: all .3s ease;
+        width: ($grid * 4);
+
+        &:hover {
+            @include illustration(map-get($colors, klarna-blue-hover));
+        }
+
+        &:active {
+            background: map-get($colors, blue-active-background);
+            border-color: map-get($colors, blue-active-background);
+        }
+
+        &.gray {
+            @include illustration(map-get($colors, grey-lines));
+
+            &:hover {
+                @include illustration(map-get($colors, black));
+            }
+
+            &:active {
+                background: map-get($colors, grey-active-background);
+                border-color: map-get($colors, grey-active-background);
+            }
+        }
+
+        &.inverse {
+            @include illustration(map-get($colors, white));
+
+            &:hover {
+                @include illustration(map-get($colors, white));
+            }
+
+            &:active {
+                background: map-get($colors, klarna-blue-hover);
+                border-color: map-get($colors, klarna-blue-hover);
+            }
+        }
+    }
+}
