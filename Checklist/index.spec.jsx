@@ -1,8 +1,8 @@
-import Checklist from './'
+import * as Checklist from './'
 import { equal, ok } from 'assert'
 import { renderer } from '../tests/helpers'
 
-const renderChecklist = renderer(Checklist)
+const renderChecklist = renderer(Checklist.Main)
 const renderChecklistItem = renderer(Checklist.Item)
 
 const items = [

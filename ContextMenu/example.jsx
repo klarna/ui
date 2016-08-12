@@ -1,13 +1,13 @@
 import React from 'react'
 import Code from '../Code'
-import ContextMenu from '../ContextMenu'
+import * as ContextMenu from '../ContextMenu'
 import Logout from '../icons/Logout'
 
 export default function ContextMenus () {
   return (
     <div>
       <Code>
-        <ContextMenu>
+        <ContextMenu.Main>
           <ContextMenu.Link href='#buttons'>Buttons</ContextMenu.Link>
           <ContextMenu.Link href='#icons'>Icons</ContextMenu.Link>
           <ContextMenu.Link href='#labels'>Labels</ContextMenu.Link>
@@ -19,12 +19,12 @@ export default function ContextMenus () {
             <ContextMenu.Icon><Logout /></ContextMenu.Icon>
             Logout
           </ContextMenu.Link>
-        </ContextMenu>
+        </ContextMenu.Main>
       </Code>
 
       <Code>
         <div style={{background: '#0074c8', padding: 20}}>
-          <ContextMenu>
+          <ContextMenu.Main>
             <ContextMenu.Link href='#buttons'>Buttons</ContextMenu.Link>
             <ContextMenu.Link href='#icons'>Icons</ContextMenu.Link>
             <ContextMenu.Link href='#labels'>Labels</ContextMenu.Link>
@@ -33,7 +33,7 @@ export default function ContextMenus () {
               <ContextMenu.Icon><Logout /></ContextMenu.Icon>
               Logout
             </ContextMenu.Link>
-          </ContextMenu>
+          </ContextMenu.Main>
         </div>
       </Code>
     </div>

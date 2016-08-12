@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
-export default function Checklist ({ chromeless, className, children, styles }) {
+export function Main ({ chromeless, className, children, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -13,18 +13,20 @@ export default function Checklist ({ chromeless, className, children, styles }) 
   )
 }
 
-Checklist.propTypes = {
+Main.displayName = 'Checklist.Main'
+
+Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   chromeless: PropTypes.bool,
   styles: PropTypes.object
 }
 
-Checklist.defaultProps = {
+Main.defaultProps = {
   styles: {}
 }
 
-Checklist.Item = ({ className, children, styles }) => {
+export function Item ({ className, children, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -41,14 +43,14 @@ Checklist.Item = ({ className, children, styles }) => {
   )
 }
 
-Checklist.Item.displayName = 'Checklist.Item'
+Item.displayName = 'Checklist.Item'
 
-Checklist.Item.propTypes = {
+Item.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   styles: PropTypes.object
 }
 
-Checklist.Item.defaultProps = {
+Item.defaultProps = {
   styles: {}
 }

@@ -4,7 +4,7 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'context-menu'
 
-const ContextMenu = ({ className, children, styles, ...props }) => {
+export function Main ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -13,8 +13,9 @@ const ContextMenu = ({ className, children, styles, ...props }) => {
     </ol>
   )
 }
+Main.displayName = 'ContextMenu.Main'
 
-ContextMenu.Link = ({ className, children, styles, ...props }) => {
+export function Link ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -25,9 +26,9 @@ ContextMenu.Link = ({ className, children, styles, ...props }) => {
     </li>
   )
 }
-ContextMenu.Link.displayName = 'ContextMenu.Link'
+Link.displayName = 'ContextMenu.Link'
 
-ContextMenu.Item = ({ className, children, styles, ...props }) => {
+export function Item ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -36,28 +37,29 @@ ContextMenu.Item = ({ className, children, styles, ...props }) => {
     </li>
   )
 }
-ContextMenu.Item.displayName = 'ContextMenu.Item'
+Item.displayName = 'ContextMenu.Item'
 
-ContextMenu.propTypes = ContextMenu.Link.propTypes = ContextMenu.Item.propTypes = {
+Main.propTypes = Link.propTypes = Item.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   styles: PropTypes.object
 }
 
-ContextMenu.Separator = ({ className, styles, ...props }) => {
+export function Separator ({ className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <li className={classNames(`${baseClass}__separator`, className)} {...props} />
   )
 }
-ContextMenu.Separator.displayName = 'ContextMenu.Separator'
-ContextMenu.Separator.propTypes = {
+Separator.displayName = 'ContextMenu.Separator'
+
+Separator.propTypes = {
   className: PropTypes.string,
   styles: PropTypes.object
 }
 
-ContextMenu.Icon = ({ className, children, styles }) => {
+export function Icon ({ className, children, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -66,11 +68,10 @@ ContextMenu.Icon = ({ className, children, styles }) => {
     })
   )
 }
-ContextMenu.Icon.displayName = 'ContextMenu.Icon'
-ContextMenu.Icon.propTypes = {
+Icon.displayName = 'ContextMenu.Icon'
+
+Icon.propTypes = {
   className: PropTypes.string,
   children: PropTypes.element,
   styles: PropTypes.object
 }
-
-export default ContextMenu
