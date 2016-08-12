@@ -1,7 +1,7 @@
 import React from 'react'
 import Tooltip from '../Tooltip'
 import { SecondaryTitle } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 
 export default function Tooltips () {
   return (

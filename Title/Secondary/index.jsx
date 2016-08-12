@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
-import palette from './palette'
+import palette from '../../lib/palette'
 
-export default function SecondaryTitle ({
+export default function Secondary ({
   className,
   color,
   condensed,
@@ -31,14 +31,14 @@ export default function SecondaryTitle ({
   )
 }
 
-SecondaryTitle.defaultProps = {
+Secondary.defaultProps = {
   color: 'black',
   condensed: false,
   margins: false,
   styles: {}
 }
 
-SecondaryTitle.propTypes = {
+Secondary.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),

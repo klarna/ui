@@ -1,7 +1,7 @@
 import React from 'react'
 import Loader from '../Loader'
 import { SecondaryTitle, Subtitle } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 
 export default function Loaders () {
   return (

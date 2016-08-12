@@ -9,7 +9,6 @@ import {
   PrimaryTitle,
   SecondaryTitle,
   Subtitle
-<<<<<<< HEAD:example/Fields.jsx
 } from '../Text'
 import Code from '../Code'
 

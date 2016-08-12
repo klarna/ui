@@ -1,4 +1,4 @@
-import Paragraph from './/Paragraph'
+import Paragraph from '../Paragraph'
 import { ok, equal } from 'assert'
 import { renderer } from '../tests/helpers'
 import describePalette from './describePalette'

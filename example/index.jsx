@@ -3,10 +3,12 @@ import 'normalize.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
-import { PrimaryTitle } from '../Text'
+import { Title } from '../Text'
 import Link from '../Link'
 import * as examples from './examples'
 import styles from './index.scss'
+
+console.log('Title', Title)
 
 function Root () {
   const anchor = window.location.hash.substring(1)
@@ -29,7 +31,7 @@ function Root () {
         </nav>
       </aside>
       <div className={styles.example}>
-        <PrimaryTitle margins>{Example.name}</PrimaryTitle>
+        <Title.Primary margins>{Example.name}</Title.Primary>
         <Example />
       </div>
     </main>

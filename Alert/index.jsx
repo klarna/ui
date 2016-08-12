@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
+const designs = ['error']
+
 export function Title ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames('alert__title', className)
@@ -16,7 +18,7 @@ export function Title ({ children, className, styles, ...remainingProps }) {
 Title.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  design: PropTypes.oneOf(Alert.designs),
+  design: PropTypes.oneOf(designs),
   styles: PropTypes.object
 }
 
@@ -38,7 +40,7 @@ export function Paragraph ({ children, className, styles, ...remainingProps }) {
 Paragraph.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  design: PropTypes.oneOf(Alert.designs),
+  design: PropTypes.oneOf(designs),
   styles: PropTypes.object
 }
 
@@ -57,7 +59,7 @@ export default function Alert ({ children, className, styles, design, ...remaini
   )
 }
 
-Alert.designs = ['error']
+Alert.designs = designs
 
 Alert.defaultProps = {
   design: 'error',
@@ -67,6 +69,6 @@ Alert.defaultProps = {
 Alert.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  design: PropTypes.oneOf(Alert.designs),
+  design: PropTypes.oneOf(designs),
   styles: PropTypes.object
 }

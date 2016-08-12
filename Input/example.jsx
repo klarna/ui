@@ -1,7 +1,7 @@
 /* global alert */
 import React from 'react'
 import Input from '../Input'
-import UncontrolledInput from '../Input/Uncontrolled'
+import UncontrolledInput from '../uncontrolled/Input'
 import Fieldset from '../Fieldset'
 import Link from '../Link'
 import {
@@ -10,7 +10,7 @@ import {
   SecondaryTitle,
   Subtitle
 } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 
 export default function Inputs () {
   return (

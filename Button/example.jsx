@@ -5,7 +5,7 @@ import Button, { Price } from './'
 import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../IconButton'
 import Block from '../Block'
 import { SecondaryTitle, Subtitle } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 
 export default function Buttons () {
   return (

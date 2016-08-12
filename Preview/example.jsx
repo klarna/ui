@@ -1,7 +1,7 @@
 import React from 'react'
 import Preview, { PreviewTitle, PreviewLink } from '../Preview'
 import { SecondaryTitle } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 
 export default function Previews () {
   return (

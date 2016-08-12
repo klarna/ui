@@ -1,7 +1,7 @@
-import PrimaryTitle from './/PrimaryTitle'
+import PrimaryTitle from './'
 import { ok, equal } from 'assert'
-import { renderer } from '../tests/helpers'
-import describePalette from './describePalette'
+import { renderer } from '../../tests/helpers'
+import describePalette from '../../lin/describePalette'
 
 const render = renderer(PrimaryTitle)
 

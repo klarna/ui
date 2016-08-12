@@ -28,7 +28,7 @@ import Warning from '../icons/Warning'
 import Wrong from '../icons/Wrong'
 
 import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 import colors from '../icons/constants/colors'
 
 const icons = {
