@@ -27,7 +27,7 @@ import SMS from '../icons/SMS'
 import Warning from '../icons/Warning'
 import Wrong from '../icons/Wrong'
 
-import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
+import { Title, Subtitle, Paragraph } from '../Text'
 import Code from '../Code'
 import colors from '../icons/constants/colors'
 
@@ -72,7 +72,7 @@ export default function Icons () {
         Each type of icon is designed for the size that it is displayed in. Resizing the icons is possible since they are SVG, but it's not recommended since they are drawn to have the line widths matching the line styles of the rest of the components.
       </Paragraph>
 
-      <SecondaryTitle color='blue' margins>Colors</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Colors</Title.Secondary>
       <Subtitle margins>Big</Subtitle>
       <Code>
         {colors.map((name) =>
@@ -101,12 +101,12 @@ export default function Icons () {
         )}
       </Code>
 
-      <SecondaryTitle color='blue' margins>Big icons</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Big icons</Title.Secondary>
       <Code>
         {icons.big.map((Icon) => <Icon key={Icon.name} />)}
       </Code>
 
-      <SecondaryTitle color='blue' margins>Tiny icons</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Tiny icons</Title.Secondary>
       <Code>
         {icons.tiny.map((Icon) => <Icon key={Icon.name} />)}
       </Code>
