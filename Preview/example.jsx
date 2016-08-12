@@ -1,12 +1,12 @@
 import React from 'react'
 import Preview, { PreviewTitle, PreviewLink } from '../Preview'
-import { SecondaryTitle } from '../Text'
+import { Title } from '../Text'
 import Code from '../Code'
 
 export default function Previews () {
   return (
     <div>
-      <SecondaryTitle margins>Default</SecondaryTitle>
+      <Title.Secondary margins>Default</Title.Secondary>
       <Code>
         <Preview>
           <PreviewTitle>John Smith</PreviewTitle>
@@ -17,7 +17,7 @@ export default function Previews () {
         </Preview>
       </Code>
 
-      <SecondaryTitle margins>With link</SecondaryTitle>
+      <Title.Secondary margins>With link</Title.Secondary>
       <Code>
         <Preview>
           <PreviewTitle>John Smith</PreviewTitle>
