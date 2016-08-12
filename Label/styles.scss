@@ -1,0 +1,6 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.label {
+    @include label;
+}

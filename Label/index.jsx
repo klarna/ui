@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/label.scss'
+import defaultStyles from './styles.scss'
 
 export default function Label ({
   children,
@@ -12,7 +12,7 @@ export default function Label ({
   ...props
 }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('cui__label', design, className, {
+  const cls = classNames('label', design, className, {
     outline,
     inverted
   })
