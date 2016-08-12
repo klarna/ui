@@ -1,58 +1,58 @@
 import React from 'react'
 import Switch from '../Switch'
 import Button from '../Button'
-import { SecondaryTitle } from '../Text'
+import { Title } from '../Text'
 import Code from '../Code'
 
 export default function Switches () {
   return (
     <div>
-      <SecondaryTitle margins>Regular</SecondaryTitle>
+      <Title.Secondary margins>Regular</Title.Secondary>
       <Code>
         <Switch>This is a toggle switch</Switch>
       </Code>
 
-      <SecondaryTitle margins>Checked</SecondaryTitle>
+      <Title.Secondary margins>Checked</Title.Secondary>
       <Code>
         <Switch checked>This is a toggle switch checked</Switch>
       </Code>
 
-      <SecondaryTitle margins>Error</SecondaryTitle>
+      <Title.Secondary margins>Error</Title.Secondary>
       <Code>
         <Switch error>This is a toggle switch in an error state</Switch>
       </Code>
 
-      <SecondaryTitle margins>Right</SecondaryTitle>
+      <Title.Secondary margins>Right</Title.Secondary>
       <Code>
         <Switch align='right'>This is a toggle switch on the right side</Switch>
       </Code>
 
-      <SecondaryTitle margins>Disabled</SecondaryTitle>
+      <Title.Secondary margins>Disabled</Title.Secondary>
       <Code>
         <Switch disabled>This is a toggle switch disabled</Switch>
       </Code>
 
-      <SecondaryTitle margins>Dynamic styling</SecondaryTitle>
+      <Title.Secondary margins>Dynamic styling</Title.Secondary>
       <Code>
         <Switch customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with dynamic styling</Switch>
       </Code>
 
-      <SecondaryTitle margins>Checkbox</SecondaryTitle>
+      <Title.Secondary margins>Checkbox</Title.Secondary>
       <Code>
         <Switch design='checkbox'>This is a toggle switch with checkbox design</Switch>
       </Code>
 
-      <SecondaryTitle margins>Checkbox with legal size text</SecondaryTitle>
+      <Title.Secondary margins>Checkbox with legal size text</Title.Secondary>
       <Code>
         <Switch design='checkbox' legal>This is a toggle switch with checkbox design and legal size text that usually will fold into multiple lines</Switch>
       </Code>
 
-      <SecondaryTitle margins>Checkbox with dynamic styling</SecondaryTitle>
+      <Title.Secondary margins>Checkbox with dynamic styling</Title.Secondary>
       <Code>
         <Switch design='checkbox' customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with checkbox design and dynamic styling</Switch>
       </Code>
 
-      <SecondaryTitle margins>In a form</SecondaryTitle>
+      <Title.Secondary margins>In a form</Title.Secondary>
       <Code>
         <form onSubmit={(event) => {
           event.preventDefault()
@@ -63,7 +63,7 @@ export default function Switches () {
         </form>
       </Code>
 
-      <SecondaryTitle margins>Outside a form (using a callback)</SecondaryTitle>
+      <Title.Secondary margins>Outside a form (using a callback)</Title.Secondary>
       <Code>
         <Switch onChange={(value) => {
           window.alert(value)
