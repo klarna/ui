@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
 export default function Checkmark ({ color, styles, className, ...props }) {
@@ -10,12 +10,12 @@ export default function Checkmark ({ color, styles, className, ...props }) {
     <svg
       strokeLinecap='round'
       strokeWidth='2'
-      className={classNames('cui__illustration', 'tiny', color, className)}
+      className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 25 25'
       {...props}>
       <path
         d='M5 13.69l4.49 4.23L19.37 8'
-        className={classNames('cui__illustration__stroke')} />
+        className={classNames('illustration__stroke')} />
     </svg>
   )
 }

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
 export default function ExtendDate ({ color, styles, className, ...props }) {
@@ -8,11 +8,11 @@ export default function ExtendDate ({ color, styles, className, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', 'tiny', color, className)}
+      className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 22 22'
       {...props}>
       <g
-        className={classNames('cui__illustration__fill')}
+        className={classNames('illustration__fill')}
         transform='translate(2, 2)'>
         <path
           d='M10,0 C9.72,0 9.5,0.22 9.5,0.5 C9.5,0.78 9.72,1 10,1 C14.41,1 18,4.59 18,9 C18,13.41 14.41,17 10,17 C5.59,17 2,13.41 2,9 C2,9.0 2.0,8.99 2.0,8.99 L2.97,8.99 L1.44,6.56 L0,8.99 L1.0,8.99 C1.0,8.99 1,9.0 1,9 C1,13.96 5.04,18 10,18 C14.96,18 19,13.96 19,9 C19,4.04 14.96,0 10,0' />

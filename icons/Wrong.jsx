@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 import File from './parts/File.jsx'
 
@@ -9,11 +9,11 @@ export default function Wrong ({ color, styles, className, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', 'big', color, className)}
+      className={classNames('illustration', 'big', color, className)}
       viewBox='0 0 100 100'
       {...props}>
       <g
-        className={classNames('cui__illustration__fill')}
+        className={classNames('illustration__fill')}
         transform='translate(24, 22)'>
         <File />
         <path

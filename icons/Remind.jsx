@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
 export default function Remind ({ color, styles, className, ...props }) {
@@ -8,11 +8,11 @@ export default function Remind ({ color, styles, className, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', 'tiny', color, className)}
+      className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 22 22'
       {...props}>
       <g
-        className={classNames('cui__illustration__fill')}
+        className={classNames('illustration__fill')}
         transform='translate(1, 2)'>
         <path
           d='M3.01,9.77 C3.01,5.91 6.15,2.77 10.01,2.77 C13.87,2.77 17.01,5.91 17.01,9.77 C17.01,13.63 13.87,16.77 10.01,16.77 C6.15,16.77 3.01,13.63 3.01,9.77 L3.01,9.77 Z M15.92,15.14 C17.21,13.72 18.01,11.84 18.01,9.77 C18.01,5.36 14.42,1.77 10.01,1.77 C5.6,1.77 2.01,5.36 2.01,9.77 C2.01,11.8 2.77,13.64 4.02,15.05 L1.92,17.15 C1.73,17.34 1.73,17.66 1.92,17.85 C2.02,17.95 2.15,18.0 2.28,18.0 C2.4,18.0 2.53,17.95 2.63,17.85 L4.72,15.76 C6.13,17.01 7.98,17.77 10.01,17.77 C11.99,17.77 13.8,17.04 15.2,15.84 L17.2,17.83 C17.29,17.93 17.42,17.98 17.55,17.98 C17.68,17.98 17.81,17.93 17.9,17.83 C18.1,17.64 18.1,17.32 17.9,17.12 L15.92,15.14 Z' />

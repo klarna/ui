@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 import Circle from './parts/Circle.jsx'
 
@@ -9,12 +9,12 @@ export default function Done ({ color, styles, className, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', 'big', color, className)}
+      className={classNames('illustration', 'big', color, className)}
       strokeWidth='2'
       strokeLinecap='round'
       viewBox='0 0 100 100'
       {...props}>
-      <g className={classNames('cui__illustration__stroke')}>
+      <g className={classNames('illustration__stroke')}>
         <Circle />
         <path d='M34.5,54l9.5,7.5l21.5,-23' />
       </g>

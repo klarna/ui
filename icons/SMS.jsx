@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
 export default function SMS ({ color, styles, className, ...props }) {
@@ -8,11 +8,11 @@ export default function SMS ({ color, styles, className, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', 'big', color, className)}
+      className={classNames('illustration', 'big', color, className)}
       viewBox='0 0 100 100'
       {...props}>
       <g
-        className={classNames('cui__illustration__fill')}
+        className={classNames('illustration__fill')}
         transform='translate(23, 22)'>
         <path
           d='M53,28 C53,29.654 51.654,31 50,31 L34.596,31 L29,36.414 L29,16 C29,14.346 30.346,13 32,13 L50,13 C51.654,13 53,14.346 53,16 L53,28 Z M40,44 L2,44 L2,9 C2,8.66 2.033,8.328 2.08,8 L39.92,8 C39.967,8.328 40,8.66 40,9 L40,11 L32,11 C29.243,11 27,13.243 27,16 L27,41.133 L35.404,33 L40,33 L40,44 Z M33,55 L9,55 C5.141,55 2,51.859 2,48 L2,46 L40,46 L40,48 C40,51.859 36.859,55 33,55 L33,55 Z M9,2 L33,2 C35.785,2 38.188,3.639 39.315,6 L2.685,6 C3.812,3.639 6.215,2 9,2 L9,2 Z M50,11 L42,11 L42,9 C42,4.037 37.963,0 33,0 L9,0 C4.037,0 0,4.037 0,9 L0,48 C0,52.963 4.037,57 9,57 L33,57 C37.963,57 42,52.963 42,48 L42,33 L50,33 C52.757,33 55,30.757 55,28 L55,16 C55,13.243 52.757,11 50,11 L50,11 Z' />

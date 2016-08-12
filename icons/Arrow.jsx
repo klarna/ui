@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
 export default function Arrow ({ color, styles, className, ...props }) {
@@ -8,11 +8,11 @@ export default function Arrow ({ color, styles, className, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', 'tiny', color, className)}
+      className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 21 21'
       {...props}>
       <path
-        className={classNames('cui__illustration__stroke')}
+        className={classNames('illustration__stroke')}
         d='M6.5,9.3l4,4l4,-4'
         strokeLinecap='round' />
     </svg>

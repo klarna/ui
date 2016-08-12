@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
 export default function Letter ({ color, styles, className, ...props }) {
@@ -8,11 +8,11 @@ export default function Letter ({ color, styles, className, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', 'big', color, className)}
+      className={classNames('illustration', 'big', color, className)}
       viewBox='0 0 100 100'
       strokeWidth='2'
       {...props}>
-      <g className={classNames('cui__illustration__stroke')}>
+      <g className={classNames('illustration__stroke')}>
         <rect x='20' y='36' width='60' height='40' rx='4' ry='4' />
         <path d='M20,42L51,63L80.2,42' />
         <line x1='20' y1='74' x2='44' y2='59' />

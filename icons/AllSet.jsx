@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
 export default function AllSet ({ color, styles, className, ...props }) {
@@ -8,11 +8,11 @@ export default function AllSet ({ color, styles, className, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', 'big', color, className)}
+      className={classNames('illustration', 'big', color, className)}
       viewBox='0 0 100 100'
       {...props}>
       <g
-        className={classNames('cui__illustration__fill')}
+        className={classNames('illustration__fill')}
         transform='translate(24, 20)'>
         <path
           d='M37.837,27.661 L20.32,45.348 L13.24,38.624 C12.836,38.244 12.204,38.26 11.822,38.66 C11.442,39.061 11.46,39.69 11.86,40.075 L20.36,48.1471 L39.259,29.069 C39.648,28.677 39.644,28.043 39.252,27.654 C38.858,27.266 38.227,27.269 37.837,27.661'></path>

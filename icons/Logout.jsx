@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/illustration.scss'
+import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
 export default function Logout ({ color, styles, className, ...props }) {
@@ -8,11 +8,11 @@ export default function Logout ({ color, styles, className, ...props }) {
 
   return (
     <svg
-      className={classNames('cui__illustration', 'tiny', color, className)}
+      className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 21 21'
       {...props}>
       <g
-        className={classNames('cui__illustration__fill')}
+        className={classNames('illustration__fill')}
         transform='translate(3, 4)'>
         <path
           d='M8.5,9 C8.224,9 8,9.224 8,9.5 C8,10.878 6.879,12 5.5,12 L3.5,12 C2.121,12 1,10.878 1,9.5 L1,3.5 C1,2.122 2.121,1 3.5,1 L5.5,1 C6.879,1 8,2.122 8,3.5 C8,3.776 8.224,4 8.5,4 C8.776,4 9,3.776 9,3.5 C9,1.57 7.43,0 5.5,0 L3.5,0 C1.57,0 0,1.57 0,3.5 L0,9.5 C0,11.43 1.57,13 3.5,13 L5.5,13 C7.43,13 9,11.43 9,9.5 C9,9.224 8.776,9 8.5,9' />
