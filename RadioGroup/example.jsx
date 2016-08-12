@@ -4,7 +4,7 @@ import React from 'react'
 import RadioGroup from '../RadioGroup'
 import UncontrolledRadioGroup from '../uncontrolled/RadioGroup'
 import Button from '../Button'
-import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
+import { Title, Subtitle, Paragraph } from '../Text'
 import Code from '../Code'
 
 export default function RadioGroups () {
@@ -20,7 +20,7 @@ export default function RadioGroups () {
         with a design similar to HTML's input type radio.
       </Paragraph>
 
-      <SecondaryTitle>Stateless</SecondaryTitle>
+      <Title.Secondary>Stateless</Title.Secondary>
       <Paragraph>
         Stateless RadioGroups shall be used when you will control
         it's selected value. Therefore, you're in charge of
@@ -39,7 +39,7 @@ export default function RadioGroups () {
         <RadioGroup selected={1} onChange={alert} data={data} />
       </Code>
 
-      <SecondaryTitle>Statefull</SecondaryTitle>
+      <Title.Secondary>Stateful</Title.Secondary>
       <Paragraph>
         Use the statefull selector if you don't want to control
         the selector, or you're using it on a form, passing the
