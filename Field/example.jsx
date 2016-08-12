@@ -4,12 +4,7 @@ import Field from '../Field'
 import Fieldset from '../Fieldset'
 import Link from '../Link'
 import UncontrolledField from '../uncontrolled/Field'
-import {
-  Paragraph,
-  PrimaryTitle,
-  SecondaryTitle,
-  Subtitle
-} from '../Text'
+import { Paragraph, Title, Subtitle } from '../Text'
 import Code from '../Code'
 
 export default function Fields () {
@@ -19,8 +14,8 @@ export default function Fields () {
         Fields are by default <Link href='https://facebook.github.io/react/docs/forms.html#controlled-components'>Controlled components</Link>, which means that the <code>onChange</code> needs to be handled for the user to be able to interact and focus needs to be set manually as a <code>prop</code>. This is the recommended approach for declarative applications, but some times it's too restrictive: for those cases, you can use an Uncontrolled version which is provided as well.
       </Paragraph>
 
-      <PrimaryTitle color='blue' small margins>Regular</PrimaryTitle>
-      <SecondaryTitle margins>Normal</SecondaryTitle>
+      <Title.Primary color='blue' small margins>Regular</Title.Primary>
+      <Title.Secondary margins>Normal</Title.Secondary>
       <Code>
         <Field label='Enter your email' onTab={() => alert('tab')} onEnter={() => alert('enter')} />
       </Code>
@@ -30,12 +25,12 @@ export default function Fields () {
         <UncontrolledField label='Enter your email' onTab={() => alert('tab')} onEnter={() => alert('enter')} />
       </Code>
 
-      <SecondaryTitle margins>Big</SecondaryTitle>
+      <Title.Secondary margins>Big</Title.Secondary>
       <Code>
         <Field label='Enter your email' big />
       </Code>
 
-      <SecondaryTitle margins>Focused</SecondaryTitle>
+      <Title.Secondary margins>Focused</Title.Secondary>
       <Code>
         <Field label='Enter your email' focus />
       </Code>
@@ -45,27 +40,27 @@ export default function Fields () {
         <Field label='Enter your email' focus='fake' />
       </Code>
 
-      <SecondaryTitle margins>Error</SecondaryTitle>
+      <Title.Secondary margins>Error</Title.Secondary>
       <Code>
         <Field label='Invalid email' error value='invalid@' />
       </Code>
 
-      <SecondaryTitle margins>Warning</SecondaryTitle>
+      <Title.Secondary margins>Warning</Title.Secondary>
       <Code>
         <Field label='Are you sure the domain is exanple?' warning value='email@exanple.com' />
       </Code>
 
-      <SecondaryTitle margins>Disabled</SecondaryTitle>
+      <Title.Secondary margins>Disabled</Title.Secondary>
       <Code>
         <Field disabled label='Address' value='16, Corn street' />
       </Code>
 
-      <SecondaryTitle margins>Dynamic styling</SecondaryTitle>
+      <Title.Secondary margins>Dynamic styling</Title.Secondary>
       <Code>
         <UncontrolledField customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8' }} label='Favorite color' value='Purple' />
       </Code>
 
-      <SecondaryTitle margins>Stacked</SecondaryTitle>
+      <Title.Secondary margins>Stacked</Title.Secondary>
       <Subtitle margins>Normal</Subtitle>
       <Code>
         <Fieldset>
@@ -81,7 +76,7 @@ export default function Fields () {
         </Fieldset>
       </Code>
 
-      <PrimaryTitle margins small color='blue'>Types</PrimaryTitle>
+      <Title.Primary margins small color='blue'>Types</Title.Primary>
       <Code>
         <Fieldset>
           <Field type='text' name='text' label='Text' />
@@ -103,7 +98,7 @@ export default function Fields () {
         </Fieldset>
       </Code>
 
-      <PrimaryTitle margins small color='blue'>States</PrimaryTitle>
+      <Title.Primary margins small color='blue'>States</Title.Primary>
       <Code>
         <Fieldset>
           <Field error label='Invalid email' name='email' value='invalid@' />
@@ -122,7 +117,7 @@ export default function Fields () {
         </Fieldset>
       </Code>
 
-      <PrimaryTitle margins small color='blue'>Icons</PrimaryTitle>
+      <Title.Primary margins small color='blue'>Icons</Title.Primary>
       <Code>
         <Fieldset>
           <Field
