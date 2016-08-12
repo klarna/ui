@@ -1,26 +1,26 @@
 import React from 'react'
 import Tooltip from '../Tooltip'
-import { SecondaryTitle } from '../Text'
+import { Title } from '../Text'
 import Code from '../Code'
 
 export default function Tooltips () {
   return (
     <div>
-      <SecondaryTitle margins color='blue'>Simple</SecondaryTitle>
+      <Title.Secondary margins color='blue'>Simple</Title.Secondary>
       <Code>
         <Tooltip>
           Lorem Ipsum is simply dummy text of the printing industry.
         </Tooltip>
       </Code>
 
-      <SecondaryTitle margins color='blue'>Small</SecondaryTitle>
+      <Title.Secondary margins color='blue'>Small</Title.Secondary>
       <Code>
         <Tooltip>
           Lorem Ipsum
         </Tooltip>
       </Code>
 
-      <SecondaryTitle margins color='blue'>Arrows</SecondaryTitle>
+      <Title.Secondary margins color='blue'>Arrows</Title.Secondary>
       <Code>
         <Tooltip arrow='top-left'>
           Lorem Ipsum is simply dummy text of the printing industry.
@@ -71,21 +71,21 @@ export default function Tooltips () {
         </Tooltip>
       </Code>
 
-      <SecondaryTitle margins color='blue'>Simple with border</SecondaryTitle>
+      <Title.Secondary margins color='blue'>Simple with border</Title.Secondary>
       <Code>
         <Tooltip border>
           Lorem Ipsum is simply dummy text of the printing industry.
         </Tooltip>
       </Code>
 
-      <SecondaryTitle margins color='blue'>Small</SecondaryTitle>
+      <Title.Secondary margins color='blue'>Small</Title.Secondary>
       <Code>
         <Tooltip border>
           Lorem Ipsum
         </Tooltip>
       </Code>
 
-      <SecondaryTitle margins color='blue'>Arrows</SecondaryTitle>
+      <Title.Secondary margins color='blue'>Arrows</Title.Secondary>
       <Code>
         <Tooltip border arrow='top-left'>
           Lorem Ipsum is simply dummy text of the printing industry.
