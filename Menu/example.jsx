@@ -2,7 +2,7 @@ import React from 'react'
 import Menu from '../Menu'
 import AnimatedMenu from '../Menu/Animated'
 import Label from '../Label'
-import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
+import { Title, Subtitle, Paragraph } from '../Text'
 import Code from '../Code'
 
 const options = [
@@ -67,7 +67,7 @@ class AddableMenu extends React.Component {
 export default function Menus () {
   return (
     <div>
-      <SecondaryTitle margins small color='blue'>Tabs</SecondaryTitle>
+      <Title.Secondary margins small color='blue'>Tabs</Title.Secondary>
 
       <Subtitle margins>Fluid</Subtitle>
       <Paragraph margins>
@@ -111,7 +111,7 @@ export default function Menus () {
         </div>
       </Code>
 
-      <SecondaryTitle margins small color='blue'>Animated</SecondaryTitle>
+      <Title.Secondary margins small color='blue'>Animated</Title.Secondary>
 
       <Paragraph margins>
         Animated menus must be controlled. On implementation reference can be found in examples/Menus.jsx.
@@ -136,7 +136,7 @@ export default function Menus () {
         </div>
       </Code>
 
-      <SecondaryTitle margins small color='blue'>Segmented</SecondaryTitle>
+      <Title.Secondary margins small color='blue'>Segmented</Title.Secondary>
 
       <Subtitle margins>Fluid</Subtitle>
       <Paragraph margins>
