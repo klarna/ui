@@ -4,12 +4,7 @@ import Input from '../Input'
 import UncontrolledInput from '../uncontrolled/Input'
 import Fieldset from '../Fieldset'
 import Link from '../Link'
-import {
-  Paragraph,
-  PrimaryTitle,
-  SecondaryTitle,
-  Subtitle
-} from '../Text'
+import { Paragraph, Title, Subtitle } from '../Text'
 import Code from '../Code'
 
 export default function Inputs () {
@@ -19,8 +14,8 @@ export default function Inputs () {
         Inputs are by default <Link href='https://facebook.github.io/react/docs/forms.html#controlled-components'>Controlled components</Link>, which means that the <code>onChange</code> needs to be handled for the user to be able to interact and focus needs to be set manually as a <code>prop</code>. This is the recommended approach for declarative applications, but some times it's too restrictive: for those cases, you can use an Uncontrolled version which is provided as well.
       </Paragraph>
 
-      <PrimaryTitle color='blue' small margins>Regular</PrimaryTitle>
-      <SecondaryTitle margins>Normal</SecondaryTitle>
+      <Title.Primary color='blue' small margins>Regular</Title.Primary>
+      <Title.Secondary margins>Normal</Title.Secondary>
       <Code>
         <Input label='Enter your email' onTab={() => alert('tab')} onEnter={() => alert('enter')} />
       </Code>
@@ -30,17 +25,17 @@ export default function Inputs () {
         <UncontrolledInput label='Enter your email' onTab={() => alert('tab')} onEnter={() => alert('enter')} />
       </Code>
 
-      <SecondaryTitle margins>Big</SecondaryTitle>
+      <Title.Secondary margins>Big</Title.Secondary>
       <Code>
         <Input label='Enter your email' big />
       </Code>
 
-      <SecondaryTitle margins>Giant</SecondaryTitle>
+      <Title.Secondary margins>Giant</Title.Secondary>
       <Code>
         <Input label='Enter your email' big />
       </Code>
 
-      <SecondaryTitle margins>Focused</SecondaryTitle>
+      <Title.Secondary margins>Focused</Title.Secondary>
       <Code>
         <Input label='Enter your email' focus />
       </Code>
@@ -50,17 +45,17 @@ export default function Inputs () {
         <Input label='Enter your email' focus='fake' />
       </Code>
 
-      <SecondaryTitle margins>Error</SecondaryTitle>
+      <Title.Secondary margins>Error</Title.Secondary>
       <Code>
         <Input label='Invalid email' error value='invalid@' />
       </Code>
 
-      <SecondaryTitle margins>Warning</SecondaryTitle>
+      <Title.Secondary margins>Warning</Title.Secondary>
       <Code>
         <Input label='Are you sure the domain is exanple?' warning value='email@exanple.com' />
       </Code>
 
-      <SecondaryTitle margins>Disabled</SecondaryTitle>
+      <Title.Secondary margins>Disabled</Title.Secondary>
       <Code>
         <Input disabled label='Address' value='16, Corn street' />
       </Code>
@@ -80,7 +75,7 @@ export default function Inputs () {
         </Fieldset>
       </Code>
 
-      <PrimaryTitle margins small color='blue'>Types</PrimaryTitle>
+      <Title.Primary margins small color='blue'>Types</Title.Primary>
       <Code>
         <Fieldset>
           <Input type='text' name='text' label='Text' />
@@ -102,7 +97,7 @@ export default function Inputs () {
         </Fieldset>
       </Code>
 
-      <PrimaryTitle margins small color='blue'>States</PrimaryTitle>
+      <Title.Primary margins small color='blue'>States</Title.Primary>
       <Code>
         <Fieldset>
           <Input error label='Invalid email' name='email' value='invalid@' />
@@ -121,7 +116,7 @@ export default function Inputs () {
         </Fieldset>
       </Code>
 
-      <PrimaryTitle margins small color='blue'>Icons</PrimaryTitle>
+      <Title.Primary margins small color='blue'>Icons</Title.Primary>
       <Code>
         <Fieldset>
           <Input
