@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
-export default function Dialog ({ children, className, styles, ...props }) {
+export function Main ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -12,13 +12,13 @@ export default function Dialog ({ children, className, styles, ...props }) {
   )
 }
 
-Dialog.propTypes = {
+Main.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   styles: PropTypes.object
 }
 
-Dialog.Icon = ({ children, className, styles, ...props }) => {
+export function Icon ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -28,15 +28,16 @@ Dialog.Icon = ({ children, className, styles, ...props }) => {
   )
 }
 
-Dialog.Icon.propTypes = {
+Icon.displayName = 'Dialog.Icon'
+
+Icon.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   styles: PropTypes.object
 }
 
-Dialog.Icon.displayName = 'Dialog.Icon'
 
-Dialog.Content = ({ children, className, styles, ...props }) => {
+export function Content ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -48,15 +49,15 @@ Dialog.Content = ({ children, className, styles, ...props }) => {
   )
 }
 
-Dialog.Content.displayName = 'Dialog.Content'
+Content.displayName = 'Dialog.Content'
 
-Dialog.Content.propTypes = {
+Content.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   styles: PropTypes.object
 }
 
-Dialog.Footer = ({ children, className, styles, ...props }) => {
+export function Footer ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -70,15 +71,15 @@ Dialog.Footer = ({ children, className, styles, ...props }) => {
   )
 }
 
-Dialog.Footer.displayName = 'Dialog.Footer'
+Footer.displayName = 'Dialog.Footer'
 
-Dialog.Footer.propTypes = {
+Footer.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   styles: PropTypes.object
 }
 
-Dialog.Overlay = ({ children, className, show, styles, ...props }) => {
+export function Overlay ({ children, className, show, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -95,7 +96,7 @@ Dialog.Overlay = ({ children, className, show, styles, ...props }) => {
   )
 }
 
-Dialog.Overlay.propTypes = {
+Overlay.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   show: PropTypes.bool,
