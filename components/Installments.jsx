@@ -10,7 +10,7 @@ export default function Installments (props) {
     options,
     name,
     onChange,
-    selected,
+    value: selected,
     styles,
     ...remainingProps } = props
 
@@ -29,10 +29,12 @@ export default function Installments (props) {
         className={classNames(`${baseClass}__input`)}
         type='radio'
         name={name}
+        key={`input-${id}`}
         id={id}
         onChange={onChange && (() => onChange(key))}
-        defaultChecked={key === selected} />),
+        checked={key === selected} />),
       (<label
+        key={`label-${id}`}
         className={classNames(`${baseClass}__label`, 'third')}
         htmlFor={id}>
         <span className={classNames(`${baseClass}__label__value`)}>{value}</span>
@@ -60,5 +62,5 @@ Installments.propTypes = {
   className: PropTypes.string,
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
-  selected: PropTypes.string
+  value: PropTypes.string
 }
