@@ -1,12 +1,12 @@
 import React from 'react'
 import Code from '../Code'
 import Checklist from './'
-import { SecondaryTitle } from '../Text'
+import { Title } from '../Text'
 
 export default function Checklists () {
   return (
     <div>
-      <SecondaryTitle color='blue' margins>Regular</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Regular</Title.Secondary>
 
       <Code>
         <Checklist>
@@ -16,7 +16,7 @@ export default function Checklists () {
         </Checklist>
       </Code>
 
-      <SecondaryTitle color='blue' margins>Chromeless</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Chromeless</Title.Secondary>
       <Code>
         <Checklist chromeless>
           <Checklist.Item>Just one click and you're done</Checklist.Item>

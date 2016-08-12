@@ -1,6 +1,6 @@
 export Alerts from '../Alert/example'
 export Buttons from '../Button/example'
-// export Checklists from '../Checklist/example'
+export Checklists from '../Checklist/example'
 // export ContextMenus from '../ContextMenu/example'
 // export Dialogs from '../Dialog/example'
 // export Dropdowns from '../Dropdown/example'
