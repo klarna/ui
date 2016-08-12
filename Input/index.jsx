@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/input.scss'
+import defaultStyles from './styles.scss'
 import * as programmaticFocus from '../lib/features/programmaticFocus'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
@@ -39,7 +39,7 @@ export default class Input extends Component {
 
     const classes = {
       field: classNames(
-        (icon ? 'cui__input--icon' : 'cui__input'), {
+        (icon ? 'input--icon' : 'input'), {
           big,
           giant,
           'is-centered': centered,
@@ -54,13 +54,13 @@ export default class Input extends Component {
         className),
       label: classNames(
         icon
-          ? 'cui__input--icon__label'
-          : 'cui__input__label'
+          ? 'input--icon__label'
+          : 'input__label'
       ),
       input: classNames(
         icon
-          ? 'cui__input--icon__input'
-          : 'cui__input__input'
+          ? 'input--icon__input'
+          : 'input__input'
       )
     }
 
@@ -71,9 +71,9 @@ export default class Input extends Component {
       >
         {
           inlinedIcon.renderInlinedIcon(this.props, {
-            icon: classNames('cui__input--icon__icon'),
-            fill: classNames('cui__input--icon__icon__fill'),
-            stroke: classNames('cui__input--icon__icon__stroke')
+            icon: classNames('input--icon__icon'),
+            fill: classNames('input--icon__icon__fill'),
+            stroke: classNames('input--icon__icon__stroke')
           })
         }
 
