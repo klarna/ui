@@ -7,8 +7,8 @@
     animation: spin .8s linear infinite;
     display: block;
     margin: 0;
-}
 
-.inline {
-  margin: 0 auto;
+    &.inline {
+      margin: 0 auto;
+    }
 }
