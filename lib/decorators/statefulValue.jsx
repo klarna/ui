@@ -19,7 +19,10 @@ export default (Target) => {
 
     handleChange (onChange, e) {
       this.setState({
-        value: e.target.value
+        value:
+          e && e.target
+            ? e.target.value
+            : e
       })
 
       onChange && onChange(e)

@@ -1,6 +1,7 @@
 import React from 'react'
 import InstallmentsComponent from '../components/Installments'
-import { SecondaryTitle } from '../components/Text'
+import UncontrolledInstallments from '../components/uncontrolled/Installments'
+import { SecondaryTitle, Subtitle } from '../components/Text'
 import Code from './Code'
 
 const options = [
@@ -12,12 +13,22 @@ const options = [
 export default function Installments () {
   return (
     <div>
-      <SecondaryTitle margins small color='blue'>Installments</SecondaryTitle>
+      <Subtitle>Regular</Subtitle>
       <Code>
         <InstallmentsComponent
           onChange={(key) => console.log('You selected', key)}
           name='installments'
-          selected='installments_12'
+          value='installments_12'
+          options={options}
+        />
+      </Code>
+
+      <Subtitle>Uncontrolled</Subtitle>
+      <Code>
+        <UncontrolledInstallments
+          onChange={(key) => console.log('You selected', key)}
+          name='installments2'
+          value='installments_24'
           options={options}
         />
       </Code>
