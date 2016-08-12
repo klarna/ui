@@ -1,7 +1,7 @@
 import React from 'react'
 import InstallmentsComponent from '../components/Installments'
 import UncontrolledInstallments from '../components/uncontrolled/Installments'
-import { SecondaryTitle, Subtitle } from '../components/Text'
+import { Subtitle } from '../components/Text'
 import Code from './Code'
 
 const options = [
