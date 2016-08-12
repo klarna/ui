@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
-import palette from './palette'
+import palette from '../lib/palette'
 
 export default function Amount ({ children, className, color, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })

@@ -1,4 +1,4 @@
-import Amount from './/Amount'
+import Amount from '../Amount'
 import { ok, equal } from 'assert'
 import { renderer } from '../tests/helpers'
 import describePalette from './describePalette'

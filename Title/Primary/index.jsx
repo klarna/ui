@@ -1,47 +1,52 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
-import palette from './palette'
+import palette from '../../lib/palette'
 
-export default function Subtitle ({
+export default function Primary ({
   children,
   className,
   color,
-  condensed,
   margins,
+  small,
+  strong,
   styles,
   ...props
 }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(
-    'cui__subtitle',
+    'cui__title--primary',
     color,
     className,
     {
-      condensed,
-      'default-margins': margins
+      'default-margins': margins,
+      small,
+      strong
     }
   )
 
   return (
-    <h3 className={cls} {...props}>
+    <h1 className={cls} {...props}>
       {children}
-    </h3>
+    </h1>
   )
 }
 
-Subtitle.defaultProps = {
+Primary.defaultProps = {
   color: 'black',
-  condensed: false,
+  small: false,
+  strong: false,
   margins: false,
   styles: {}
 }
 
-Subtitle.propTypes = {
+Primary.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   margins: PropTypes.bool,
+  small: PropTypes.bool,
+  strong: PropTypes.bool,
   styles: PropTypes.object
 }

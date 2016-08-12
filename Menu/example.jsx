@@ -3,7 +3,7 @@ import Menu from '../Menu'
 import AnimatedMenu from '../Menu/Animated'
 import Label from '../Label'
 import { SecondaryTitle, Subtitle, Paragraph } from '../Text'
-import Code from './Code'
+import Code from '../Code'
 
 const options = [
   { key: 'home', label: 'Home' },

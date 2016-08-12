@@ -1,36 +1,36 @@
 import React from 'react'
-import Code from './Code'
+import Code from '../Code'
 import Block from '../Block'
-import { Amount, PrimaryTitle, SecondaryTitle, Subtitle, Paragraph, TextLabel } from '../Text'
+import { Amount, Title, Subtitle, Paragraph, TextLabel } from '../Text'
 import Link from '../Link'
 
 export default function Texts () {
   return (
     <div>
-      <SecondaryTitle small color='blue' margins>Primary Title</SecondaryTitle>
+      <Title.Secondary small color='blue' margins>Primary Title</Title.Secondary>
       <Code>
-        <PrimaryTitle>Primary Title</PrimaryTitle>
-        <PrimaryTitle color='blue'>Primary Title in blue</PrimaryTitle>
-        <PrimaryTitle small>Primary Title in small</PrimaryTitle>
-        <PrimaryTitle strong small>Primary Title in strong</PrimaryTitle>
-        <PrimaryTitle margins>Primary Title with default text margins</PrimaryTitle>
+        <Title.Primary>Primary Title</Title.Primary>
+        <Title.Primary color='blue'>Primary Title in blue</Title.Primary>
+        <Title.Primary small>Primary Title in small</Title.Primary>
+        <Title.Primary strong small>Primary Title in strong</Title.Primary>
+        <Title.Primary margins>Primary Title with default text margins</Title.Primary>
         <Block blue>
-          <PrimaryTitle color='white'>Primary Title in white</PrimaryTitle>
+          <Title.Primary color='white'>Primary Title in white</Title.Primary>
         </Block>
       </Code>
 
-      <SecondaryTitle small color='blue' margins>Secondary Title</SecondaryTitle>
+      <Title.Secondary small color='blue' margins>Secondary Title</Title.Secondary>
       <Code>
-        <SecondaryTitle>Secondary Title</SecondaryTitle>
-        <SecondaryTitle color='blue'>Secondary Title in blue</SecondaryTitle>
-        <SecondaryTitle condensed>Secondary Title in condensed</SecondaryTitle>
-        <SecondaryTitle margins>Secondary Title with default text margins</SecondaryTitle>
+        <Title.Secondary>Secondary Title</Title.Secondary>
+        <Title.Secondary color='blue'>Secondary Title in blue</Title.Secondary>
+        <Title.Secondary condensed>Secondary Title in condensed</Title.Secondary>
+        <Title.Secondary margins>Secondary Title with default text margins</Title.Secondary>
         <Block blue>
-          <SecondaryTitle color='white'>Secondary Title in white</SecondaryTitle>
+          <Title.Secondary color='white'>Secondary Title in white</Title.Secondary>
         </Block>
       </Code>
 
-      <SecondaryTitle small color='blue' margins>Subtitle</SecondaryTitle>
+      <Title.Secondary small color='blue' margins>Subtitle</Title.Secondary>
       <Code>
         <Subtitle>Subtitle</Subtitle>
         <Subtitle color='blue'>Subtitle in blue</Subtitle>
@@ -41,7 +41,7 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <SecondaryTitle small color='blue' margins>Paragraphs</SecondaryTitle>
+      <Title.Secondary small color='blue' margins>Paragraphs</Title.Secondary>
       <Code>
         <Paragraph>Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph </Paragraph>
         <Paragraph condensed>Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed </Paragraph>
@@ -56,13 +56,13 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <SecondaryTitle small color='blue' margins>Text Label</SecondaryTitle>
+      <Title.Secondary small color='blue' margins>Text Label</Title.Secondary>
       <Code>
         <TextLabel>Klarna ID</TextLabel>
         <TextLabel margins>Klarna ID with default margins</TextLabel>
       </Code>
 
-      <SecondaryTitle small color='blue' margins>Link</SecondaryTitle>
+      <Title.Secondary small color='blue' margins>Link</Title.Secondary>
       <Code>
         <Subtitle>
           Some subtitle with <Link onClick={window.alert} href='#'>a link.</Link>
@@ -84,7 +84,7 @@ export default function Texts () {
 
       </Code>
 
-      <SecondaryTitle small color='blue' margins>Amount</SecondaryTitle>
+      <Title.Secondary small color='blue' margins>Amount</Title.Secondary>
       <Code>
         <Amount>1500€</Amount>
         <Amount>$1500</Amount>

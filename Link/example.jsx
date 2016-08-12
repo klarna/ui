@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../Link'
-import Code from './Code'
+import Code from '../Code'
 import { SecondaryTitle } from '../Text'
 
 export default function Links () {
