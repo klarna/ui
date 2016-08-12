@@ -1,0 +1,22 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.paragraph--primary {
+    @include paragraph--primary;
+
+    &.condensed {
+        @include paragraph--primary-condensed;
+    }
+}
+
+.paragraph--secondary {
+    @include paragraph--secondary;
+
+    &.condensed {
+        @include paragraph--secondary-condensed;
+    }
+}
+
+.paragraph--legal {
+    @include paragraph--legal;
+}
