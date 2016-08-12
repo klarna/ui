@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import segmentedStyles from '@klarna/ui-css-components/src/components/segmentedcontrol.scss'
-import tabStyles from '@klarna/ui-css-components/src/components/tab-menu.scss'
+import segmentedStyles from './segmentedControlStyles.scss'
+import tabStyles from './tabMenuStyles.scss'
 
 const designs = {
   tab: {
-    baseClass: 'cui__tab-menu',
+    baseClass: 'tab-menu',
     styles: tabStyles
   },
   segmented: {
-    baseClass: 'cui__segmentedcontrol',
+    baseClass: 'segmentedcontrol',
     styles: segmentedStyles
   }
 }

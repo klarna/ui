@@ -1,0 +1,97 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.tab-menu {
+    border-bottom: ($grid * .2) solid map-get($colors, grey-lines);
+    box-sizing: border-box;
+    position: relative;
+
+    &:after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+
+    &.white {
+        border-bottom: ($grid * .2) solid rgba(map-get($colors, white), .3);
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__button {
+        @include typography(($grid * 2.8), regular);
+        @include stackable();
+
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        color: map-get($colors, grey-text);
+        cursor: pointer;
+        display: inline-block;
+        float: left;
+        height: ($grid * 6);
+        line-height: ($grid * 6);
+        padding: $grid 0;
+        position: relative;
+        text-align: center;
+        transition: color .2s ease, border-color .4s ease;
+        z-index: 10;
+
+        .white & {
+            color: rgba(map-get($colors, white), .8);
+        }
+
+        .fluid & {
+            margin: 0 ($grid * 4);
+            padding: ($grid * 2) 0;
+
+            &:nth-child(2) {
+                margin-left: 0;
+            }
+        }
+
+        &:hover {
+            color: map-get($colors, klarna-blue);
+
+            .white & {
+                color: map-get($colors, white);
+            }
+        }
+    }
+}
+
+%selected {
+    background: map-get($colors, klarna-blue);
+    bottom: ($grid * -.2);
+    display: block;
+    height: ($grid * .4);
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.tab-menu__selected {
+    @extend %selected;
+
+    .white & {
+        background: map-get($colors, white);
+    }
+}
+
+.tab-menu__input:checked + .tab-menu__button {
+    color: map-get($colors, klarna-blue);
+
+    .is-selectable &:after {
+        @extend %selected;
+
+        content: '';
+    }
+
+    .white & {
+        color: map-get($colors, white);
+    }
+
+    .is-selectable.white &:after {
+        background: map-get($colors, white);
+    }
+}
