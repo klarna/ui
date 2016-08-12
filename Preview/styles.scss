@@ -1,0 +1,39 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.preview {
+    @include preview;
+}
+
+.preview__title {
+    @include preview__title;
+}
+
+.preview__content {
+    @include preview__content;
+}
+
+.preview__footer {
+    display: block;
+    margin-bottom: ($grid * -5);
+    text-align: center;
+}
+
+.preview__footer__link {
+    @include typography(($grid * 2.6), regular);
+    @include link;
+
+    background: white;
+    display: inline-block;
+    line-height: ($grid * 4);
+    margin: 0 auto;
+    padding: 0 ($grid * 1);
+}
+
+.preview__border {
+    @include preview__border;
+}
+
+.preview__border--selected {
+    @include preview__border--selected;
+}

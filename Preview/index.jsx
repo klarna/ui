@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/preview.scss'
+import defaultStyles from './styles.scss'
 
 export default function Preview ({ className, children, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('cui__preview', className)
+  const cls = classNames('preview', className)
 
   return (
     <div className={cls}>
-      <div className={classNames('cui__preview__content')}>
+      <div className={classNames('preview__content')}>
         {children}
       </div>
     </div>
@@ -23,7 +23,7 @@ Preview.propTypes = {
 
 export function PreviewTitle ({ children, className, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('cui__preview__title', className)
+  const cls = classNames('preview__title', className)
 
   return (
     <h2 className={cls}>
@@ -40,10 +40,10 @@ PreviewTitle.propTypes = {
 
 export function PreviewLink ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('cui__preview__footer__link', className)
+  const cls = classNames('preview__footer__link', className)
 
   return (
-    <div className={classNames('cui__preview__footer')}>
+    <div className={classNames('preview__footer')}>
       <a className={cls} {...remainingProps}>
         {children}
       </a>
