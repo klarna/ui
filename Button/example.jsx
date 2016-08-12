@@ -4,13 +4,13 @@ import React from 'react'
 import Button, { Price } from './'
 import { BackButton, CloseButton, HamburgerButton, OptionsButton, SearchButton } from '../IconButton'
 import Block from '../Block'
-import { SecondaryTitle, Subtitle } from '../Text'
+import { Title, Subtitle } from '../Text'
 import Code from '../Code'
 
 export default function Buttons () {
   return (
     <div>
-      <SecondaryTitle color='blue' margins>Primary</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Primary</Title.Secondary>
 
       <Subtitle margins>Regular</Subtitle>
       <Code>
@@ -20,7 +20,7 @@ export default function Buttons () {
         <Button customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button>
       </Code>
 
-      <SecondaryTitle color='blue' margins>Secondary</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Secondary</Title.Secondary>
 
       <Subtitle margins>Regular</Subtitle>
       <Code>
@@ -30,7 +30,7 @@ export default function Buttons () {
         <Button design='secondary' customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button>
       </Code>
 
-      <SecondaryTitle color='blue' margins>Disabled</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Disabled</Title.Secondary>
       <Code>
         <Button disabled size='small'>Click me!</Button>
         <Button disabled>Click me!</Button>
@@ -41,7 +41,7 @@ export default function Buttons () {
         <Button design='secondary' disabled size='big'>Click me!</Button>
       </Code>
 
-      <SecondaryTitle color='blue' margins>Loading</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Loading</Title.Secondary>
       <Code>
         <Button loading size='small'>Click me!</Button>
         <Button loading>Click me!</Button>
@@ -56,14 +56,14 @@ export default function Buttons () {
         <Button design='secondary' loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
       </Code>
 
-      <SecondaryTitle color='blue' margins>Success</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Success</Title.Secondary>
       <Code>
         <Button success size='small'>Click me!</Button>
         <Button success>Click me!</Button>
         <Button success size='big'>Click me!</Button>
       </Code>
 
-      <SecondaryTitle color='blue' margins>Button with price</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Button with price</Title.Secondary>
       <Subtitle margins>Primary</Subtitle>
       <Code>
         <Button>
@@ -96,7 +96,7 @@ export default function Buttons () {
         </Button>
       </Code>
 
-      <SecondaryTitle color='blue' margins>Iconic Buttons</SecondaryTitle>
+      <Title.Secondary color='blue' margins>Iconic Buttons</Title.Secondary>
       <Subtitle margins>Default color scheme</Subtitle>
       <Code>
         <BackButton />

@@ -8,8 +8,6 @@ import Link from '../Link'
 import * as examples from './examples'
 import styles from './index.scss'
 
-console.log('Title', Title)
-
 function Root () {
   const anchor = window.location.hash.substring(1)
   const Example = anchor && examples[anchor] || Object.values(examples)[0]
