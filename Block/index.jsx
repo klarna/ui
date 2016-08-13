@@ -2,12 +2,15 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
+const baseClass = 'block'
+
 export default function Block ({className, blue, children, styles, ...remainingProps}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('block', { blue }, className)
 
   return (
-    <div className={cls} {...remainingProps}>
+    <div
+      className={classNames(baseClass, { blue }, className)}
+      {...remainingProps}>
       {children}
     </div>
   )
