@@ -8,10 +8,11 @@ const designs = ['error']
 
 export function Main ({ children, className, styles, design, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames(`${baseClass}--${design}`, className)
 
   return (
-    <div className={cls} {...remainingProps}>
+    <div
+      className={classNames(`${baseClass}--${design}`, className)}
+      {...remainingProps}>
       {children}
     </div>
   )
@@ -35,10 +36,11 @@ Main.propTypes = {
 
 export function Title ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames(`${baseClass}__title`, className)
 
   return (
-    <h1 className={cls} {...remainingProps}>
+    <h1
+      className={classNames(`${baseClass}__title`, className)}
+      {...remainingProps}>
       {children}
     </h1>
   )
@@ -59,10 +61,11 @@ Title.defaultProps = {
 
 export function Paragraph ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames(`${baseClass}__paragraph`, className)
 
   return (
-    <p className={cls} {...remainingProps}>
+    <p
+      className={classNames(`${baseClass}__paragraph`, className)}
+      {...remainingProps}>
       {children}
     </p>
   )
