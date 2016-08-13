@@ -1,0 +1,164 @@
+@mixin top($border-bottom-color, $top){
+    border-bottom: $grid solid;
+    border-bottom-color: $border-bottom-color;
+    border-left: $grid solid transparent;
+    border-right: $grid solid transparent;
+    top: $top;
+}
+
+@mixin bottom($border-top-color, $top){
+    border-left: $grid solid transparent;
+    border-right: $grid solid transparent;
+    border-top: $grid solid;
+    border-top-color: $border-top-color;
+    top: $top;
+}
+
+@mixin right($border-left-color, $right){
+    border-bottom: $grid solid transparent;
+    border-left: $grid solid;
+    border-left-color: $border-left-color;
+    border-top: $grid solid transparent;
+    right: $right;
+}
+
+@mixin left($border-right-color, $left){
+    border-bottom: $grid solid transparent;
+    border-right: $grid solid;
+    border-right-color: $border-right-color;
+    border-top: $grid solid transparent;
+    left: $left;
+}
+
+@mixin tooltip {
+    @include typography($grid * 2.6, regular);
+
+    background: map-get($colors, cello);
+    border-radius: 6px;
+    color: white;
+    display: inline-block;
+    line-height: $grid * 3;
+    margin: 0;
+    max-width: 250px;
+    padding: ($grid * 1.5) ($grid * 4);
+    position: relative;
+    text-align: center;
+
+    &:after {
+        content: '';
+        height: 0;
+        position: absolute;
+        width: 0;
+    }
+}
+
+@mixin tooltip-border {
+    @include typography($grid * 2.6, regular);
+
+    background: map-get($colors, light-grey);
+    border: 1px solid $border-color;
+    color: map-get($colors, black);
+
+    &:before {
+        content: '';
+        height: 0;
+        position: absolute;
+        width: 0;
+    }
+}
+
+%top {
+    @include top(map-get($colors, cello), 0);
+}
+
+%bottom {
+    @include bottom(map-get($colors, cello), 100%);
+}
+
+%right {
+    @include right(map-get($colors, cello), -$grid);
+}
+
+%left {
+    border-bottom: $grid solid transparent;
+    border-right: $grid solid map-get($colors, cello);
+    border-top: $grid solid transparent;
+    left: -$grid;
+}
+
+%-left {
+    left: 0;
+}
+
+%-center {
+    left: 50%;
+}
+
+%-right {
+    left: 100%;
+}
+
+// scss-lint:disable PropertySortOrder
+%-top {
+    top: 0%;
+    transform: translate(0, $grid);
+    -ms-transform: translate(0, $grid);
+}
+
+// scss-lint:disable PropertySortOrder
+%-middle {
+    top: 50%;
+    transform: translate(0, -$grid);
+    -ms-transform: translate(0, -$grid);
+}
+
+// scss-lint:disable PropertySortOrder
+%-bottom {
+    top: 100%;
+    transform: translate(0, -$grid * 3);
+    -ms-transform: translate(0, -$grid * 3);
+}
+
+%top-border {
+    &:after {
+        border-bottom-color: map-get($colors, light-grey);
+        top: 1px;
+    }
+
+    &:before {
+        @include top($border-color, 0);
+    }
+}
+
+%right-border {
+    &:after {
+        border-left-color: map-get($colors, light-grey);
+        right: -$grid+1;
+    }
+
+    &:before {
+        @include right($border-color, -$grid);
+    }
+}
+
+%bottom-border {
+    &:after {
+        border-top-color: map-get($colors, light-grey);
+        top: 98%;
+    }
+
+    &:before {
+        @include bottom($border-color, 100%);
+    }
+}
+
+%left-border {
+    &:after {
+        border-right-color: map-get($colors, light-grey);
+        left: -$grid+1;
+    }
+
+    &:before {
+        @include left($border-color, -$grid);
+    }
+}

@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/tooltip.scss'
+import defaultStyles from './styles.scss'
 
 export default function Tooltip ({ className, arrow, children, border, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('cui__tooltip', arrow, className, { border })
+  const cls = classNames('tooltip', arrow, className, { border })
 
   return (
     <div className={cls}>
