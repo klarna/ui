@@ -4,7 +4,6 @@ import Price from '../Price'
 import classNamesBind from 'classnames/bind'
 import parseColor from 'parse-color'
 import contains from '../../lib/contains'
-import getLoaderColor from '../getLoaderColor'
 import defaultStyles from '../styles.scss'
 
 export default function Secondary (props) {
@@ -37,11 +36,9 @@ export default function Secondary (props) {
 
   const isDisabled = (loading || success || disabled)
 
-  const loaderColor = getLoaderColor(
-    'secondary',
-    (customize || {}).textColor,
-    (customize || {}).backgroundColor
-  )
+  const loaderColor = (customize || {}).textColor && (customize || {}).backgroundColor
+    ? parseColor(customize.backgroundColor).rgb
+    : 'blue'
 
   return customize
     ? renderDynamicallyStyled(content, cls, labelCls, isDisabled, loading, loaderColor, customize, {...remainingProps})

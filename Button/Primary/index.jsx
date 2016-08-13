@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import Loader from '../../Loader'
 import contains from '../../lib/contains'
-import getLoaderColor from '../getLoaderColor'
 import defaultStyles from '../styles.scss'
+import parseColor from 'parse-color'
 import Price from '../Price'
 
 export default function Primary (props) {
@@ -36,11 +36,9 @@ export default function Primary (props) {
 
   const isDisabled = (loading || success || disabled)
 
-  const loaderColor = getLoaderColor(
-    'primary',
-    (customize || {}).textColor,
-    (customize || {}).backgroundColor
-  )
+  const loaderColor = (customize || {}).textColor && (customize || {}).backgroundColor
+    ? parseColor(customize.textColor).rgb
+    : 'white'
 
   return customize
     ? renderDynamicallyStyled(content, cls, labelClass, isDisabled, loading, loaderColor, customize, {...remainingProps})
