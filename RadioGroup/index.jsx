@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/dropdown.scss'
+import defaultStyles from './styles.scss'
 
 export default function RadioGroup (props) {
   const { selected, onChange, className, data, styles, ...remainingProps } = props
-  const baseClass = 'cui__dropdown--radio'
+  const baseClass = 'dropdown--radio'
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames(baseClass, className)
 

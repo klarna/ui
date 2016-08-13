@@ -2,7 +2,7 @@
 
 import React from 'react'
 import RadioGroup from '../RadioGroup'
-import UncontrolledRadioGroup from '../uncontrolled/RadioGroup'
+// import UncontrolledRadioGroup from '../uncontrolled/RadioGroup'
 import Button from '../Button'
 import { Title, Subtitle, Paragraph } from '../Text'
 import Code from '../Code'
@@ -38,7 +38,7 @@ export default function RadioGroups () {
       <Code>
         <RadioGroup selected={1} onChange={alert} data={data} />
       </Code>
-
+{/*
       <Title.Secondary>Stateful</Title.Secondary>
       <Paragraph>
         Use the statefull selector if you don't want to control
@@ -58,7 +58,7 @@ export default function RadioGroups () {
           <UncontrolledRadioGroup name='lorem' data={data} />
           <Button size='small'>Try me</Button>
         </form>
-      </Code>
+      </Code> */}
     </div>
   )
 }
