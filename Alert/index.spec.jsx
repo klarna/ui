@@ -1,10 +1,10 @@
-import Alert, { Title, Paragraph } from './'
+import * as Alert from './'
 import { ok, equal } from 'assert'
 import { renderer } from '../tests/helpers'
 
-const render = renderer(Alert)
-const renderTitle = renderer(Title)
-const renderParagraph = renderer(Paragraph)
+const render = renderer(Alert.Main)
+const renderTitle = renderer(Alert.Title)
+const renderParagraph = renderer(Alert.Paragraph)
 
 describe('Alert', () => {
   describe('error', () => {
