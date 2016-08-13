@@ -20,7 +20,7 @@ export default function Dropdowns () {
 
       <Subtitle margins>Uncontrolled</Subtitle>
       <Code>
-        <UncontrolledDropdown label='Lorem ipsum' options={options} value={2} />
+        <UncontrolledDropdown label='Lorem ipsum' options={options} />
       </Code>
 
       <Subtitle margins>With Selected Value</Subtitle>

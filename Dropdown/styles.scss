@@ -112,18 +112,32 @@
     line-height: ($grid * 10);
     padding: 0 ($grid * 4);
     position: absolute;
-
-    .is-error &,
-    .is-warning & {
-        height: ($grid * 9);
-        top: ($grid * 1);
-    }
+    transition: all .2s ease;
+    white-space: nowrap;
 
     .is-selected & {
         @include typography(($grid * 2.2), regular);
 
         transform: translate(0, ($grid * -2));
         -ms-transform: translate(0, ($grid * -2));
+
+        .is-error &,
+        .is-warning & {
+            @include typography(($grid * 2.2), regular);
+
+            left: 0;
+            top: 0;
+            transform: translate(0, ($grid * -2));
+            -ms-transform: translate(0, ($grid * -2));
+        }
+    }
+
+    .is-error & {
+        color: map-get($colors, error);
+    }
+
+    .is-warning & {
+        color: map-get($colors, warning);
     }
 
     .is-disabled & {
@@ -144,41 +158,6 @@
     .is-warning & {
         height: ($grid * 9);
         top: ($grid * 1.2);
-    }
-
-    .is-disabled & {
-        color: map-get($colors, grey-lines);
-    }
-}
-
-.dropdown__floating-label {
-    @include typography(($grid * 2.8), regular);
-
-    left: 0;
-    line-height: ($grid * 10);
-    overflow: hidden;
-    padding: 0 ($grid * 4);
-    position: absolute;
-    text-overflow: ellipsis;
-    top: 0;
-    white-space: nowrap;
-    width: calc(100% - #{($grid * 8)});
-
-    .is-error &,
-    .is-warning & {
-        @include typography(($grid * 2.2), regular);
-
-        transform: translate(0, ($grid * -2));
-        -ms-transform: translate(0, ($grid * -2));
-    }
-
-
-    .is-error & {
-        color: map-get($colors, error);
-    }
-
-    .is-warning & {
-        color: map-get($colors, warning);
     }
 
     .is-disabled & {
