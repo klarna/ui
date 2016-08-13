@@ -3,12 +3,15 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
 
+const baseClass = 'amount-text'
+
 export default function Amount ({ children, className, color, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('amount-text', color, className)
 
   return (
-    <p className={cls} {...remainingProps}>
+    <p
+      className={classNames(baseClass, color, className)}
+      {...remainingProps}>
       {children}
     </p>
   )
