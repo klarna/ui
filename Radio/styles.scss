@@ -1,11 +1,11 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
-.dropdown--radio {
+.radio {
     @include options();
 }
 
-.dropdown--radio__option {
+.radio__option {
     @include option();
     @include radio();
 
@@ -13,12 +13,13 @@
     padding-right: ($grid * 4);
 }
 
-.dropdown--radio__option__heading {
+.radio__option__heading {
     @include typography(($grid * 2.8), semi-bold);
+    display: block;
     line-height: ($grid * 4);
 }
 
-.dropdown--radio__option__description {
+.radio__option__description {
     @include typography(($grid * 2.6), regular);
     color: map-get($colors, grey-text);
     line-height: ($grid * 4);
