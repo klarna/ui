@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/text.scss'
+import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 
 export default function Primary ({
@@ -16,7 +16,7 @@ export default function Primary ({
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(
-    'cui__title--primary',
+    'title--primary',
     color,
     className,
     {
