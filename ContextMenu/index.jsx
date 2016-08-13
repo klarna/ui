@@ -4,6 +4,12 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'context-menu'
 
+const classes = {
+  icon: `${baseClass}__icon`,
+  item: `${baseClass}__item`,
+  separator: `${baseClass}__separator`
+}
+
 export function Main ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
@@ -13,33 +19,48 @@ export function Main ({ className, children, styles, ...props }) {
     </ol>
   )
 }
+
 Main.displayName = 'ContextMenu.Main'
+
+Main.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  styles: PropTypes.object
+}
 
 export function Link ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <li>
-      <a className={classNames(`${baseClass}__item`, className)} {...props}>
+      <a className={classNames(classes.item, className)} {...props}>
         {children}
       </a>
     </li>
   )
 }
+
 Link.displayName = 'ContextMenu.Link'
+
+Link.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  styles: PropTypes.object
+}
 
 export function Item ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <li className={classNames(`${baseClass}__item`, className)} {...props}>
+    <li className={classNames(classes.item, className)} {...props}>
     {children}
     </li>
   )
 }
+
 Item.displayName = 'ContextMenu.Item'
 
-Main.propTypes = Link.propTypes = Item.propTypes = {
+Item.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   styles: PropTypes.object
@@ -49,9 +70,13 @@ export function Separator ({ className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <li className={classNames(`${baseClass}__separator`, className)} {...props} />
+    <li
+      className={classNames(classes.separator, className)}
+      {...props}
+    />
   )
 }
+
 Separator.displayName = 'ContextMenu.Separator'
 
 Separator.propTypes = {
@@ -68,6 +93,7 @@ export function Icon ({ className, children, styles }) {
     })
   )
 }
+
 Icon.displayName = 'ContextMenu.Icon'
 
 Icon.propTypes = {

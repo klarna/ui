@@ -2,11 +2,24 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
+const baseClass = 'dialog'
+
+const classes = {
+  cell: `${baseClass}__cell`,
+  content: `${baseClass}__content`,
+  contentInner: `${baseClass}__content--inner`,
+  footer: `${baseClass}__footer`,
+  footerInner: `${baseClass}__footer--inner`,
+  icon: `${baseClass}__icon`,
+  overlay: `${baseClass}__overlay`,
+  table: `${baseClass}__table`
+}
+
 export function Main ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <div className={classNames('dialog', className)} {...props}>
+    <div className={classNames(baseClass, className)} {...props}>
       {children}
     </div>
   )
@@ -22,7 +35,7 @@ export function Icon ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <div className={classNames('dialog__icon', className)} {...props}>
+    <div className={classNames(classes.icon, className)} {...props}>
       {children}
     </div>
   )
@@ -41,8 +54,10 @@ export function Content ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <div className={classNames('dialog__content', className)} {...props}>
-      <div className={classNames('dialog__content--inner')}>
+    <div
+      className={classNames(classes.content, className)}
+      {...props}>
+      <div className={classNames(classes.contentInner)}>
         {children}
       </div>
     </div>
@@ -62,9 +77,9 @@ export function Footer ({ children, className, styles, ...props }) {
 
   return (
     <div
-      className={classNames('dialog__footer', className)} {...props}>
+      className={classNames(classes.footer, className)} {...props}>
       <div
-        className={classNames('dialog__footer--inner')}>
+        className={classNames(classes.footerInner)}>
         {children}
       </div>
     </div>
@@ -84,17 +99,19 @@ export function Overlay ({ children, className, show, styles, ...props }) {
 
   return (
     <div
-      className={classNames('dialog__overlay', { 'is-visible': show }, className)}>
+      className={classNames(classes.overlay, { 'is-visible': show }, className)}>
       <div
-        className={classNames('dialog__table')}>
+        className={classNames(classes.table)}>
         <div
-          className={classNames('dialog__cell')}>
+          className={classNames(classes.cell)}>
           {children}
         </div>
       </div>
     </div>
   )
 }
+
+Overlay.displayName = 'Dialog.Overlay'
 
 Overlay.propTypes = {
   children: PropTypes.node,

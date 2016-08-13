@@ -1,7 +1,7 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
-.dropdown--native {
+.dropdown {
     @include stackable();
 
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -105,7 +105,7 @@
     }
 }
 
-.dropdown--native__label {
+.dropdown__label {
     @include typography(($grid * 2.8), regular);
 
     color: map-get($colors, 'grey-text');
@@ -131,7 +131,7 @@
     }
 }
 
-.dropdown--native__current-option {
+.dropdown__current-option {
     @include typography(($grid * 2.8), semi-bold);
 
     color: map-get($colors, black);
@@ -151,7 +151,7 @@
     }
 }
 
-.dropdown--native__floating-label {
+.dropdown__floating-label {
     @include typography(($grid * 2.8), regular);
 
     left: 0;
@@ -186,7 +186,7 @@
     }
 }
 
-.dropdown--native__select {
+.dropdown__select {
     @include opacity(0);
 
     appearance: none;
