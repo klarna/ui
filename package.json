@@ -1,8 +1,8 @@
 {
-  "name": "@klarna/ui-react-components",
-  "version": "0.13.3",
-  "description": "Klarna's UI React Components",
-  "repository": "https://github.com/klarna/ui-react-components",
+  "name": "@klarna/ui",
+  "version": "0.1.0",
+  "description": "Klarna's UI Components",
+  "repository": "https://github.com/klarna/ui",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "start": "webpack-dev-server --port 7777 --host 0.0.0.0 --history-api-fallback",
@@ -13,7 +13,6 @@
   },
   "author": "Klarna front end people",
   "dependencies": {
-    "@klarna/ui-css-components": "9.1.0",
     "classnames": "2.2.5",
     "parse-color": "1.0.0"
   },
