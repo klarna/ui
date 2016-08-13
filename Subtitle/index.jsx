@@ -17,11 +17,11 @@ export default function Subtitle ({
   const cls = classNames(
     'subtitle',
     color,
-    className,
     {
       condensed,
       'default-margins': margins
-    }
+    },
+    className
   )
 
   return (

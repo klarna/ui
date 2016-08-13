@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react'
+import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import * as programmaticFocus from '../lib/features/programmaticFocus'
@@ -7,36 +7,71 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import { position, size } from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 
-export default class Field extends Component {
-  constructor () {
-    super()
+export default React.createClass({
+  displayName: 'Field',
 
-    this.state = {
+  defaultProps: {
+    big: false,
+    centered: false,
+    loading: false,
+    onChange: function () {},
+    ...inlinedIcon.defaultProps,
+    ...fieldStates.defaultProps,
+    ...position.defaultProps,
+    ...handleKeyDown.defaultProps,
+    ...size.defaultProps
+  },
+
+  propTypes: {
+    big: PropTypes.bool,
+    centered: PropTypes.bool,
+    customize: PropTypes.shape({
+      borderColor: PropTypes.string.isRequired,
+      borderColorSelected: PropTypes.string.isRequired
+    }),
+    loading: PropTypes.bool,
+    label: PropTypes.string.isRequired,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
+    onFocus: PropTypes.func,
+    value: PropTypes.string,
+    styles: PropTypes.object,
+    ...inlinedIcon.propTypes,
+    ...fieldStates.propTypes,
+    ...handleKeyDown.propTypes,
+    ...position.propTypes,
+    ...programmaticFocus.propTypes,
+    ...size.propTypes
+  },
+
+  getInitialState () {
+    return {
       hover: false
     }
-  }
+  },
 
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
-  }
+  },
 
   componentDidUpdate () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
-  }
+  },
 
   onMouseEnter () {
     this.setState({
       ...this.state,
       hover: true
     })
-  }
+  },
 
   onMouseLeave () {
     this.setState({
       ...this.state,
       hover: false
     })
-  }
+  },
 
   render () {
     const {
@@ -130,39 +165,4 @@ export default class Field extends Component {
       </div>
     )
   }
-}
-
-Field.defaultProps = {
-  big: false,
-  centered: false,
-  loading: false,
-  onChange: function () {},
-  ...inlinedIcon.defaultProps,
-  ...fieldStates.defaultProps,
-  ...position.defaultProps,
-  ...handleKeyDown.defaultProps,
-  ...size.defaultProps
-}
-
-Field.propTypes = {
-  big: PropTypes.bool,
-  centered: PropTypes.bool,
-  customize: PropTypes.shape({
-    borderColor: PropTypes.string.isRequired,
-    borderColorSelected: PropTypes.string.isRequired
-  }),
-  loading: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onClick: PropTypes.func,
-  onFocus: PropTypes.func,
-  value: PropTypes.string,
-  styles: PropTypes.object,
-  ...inlinedIcon.propTypes,
-  ...fieldStates.propTypes,
-  ...handleKeyDown.propTypes,
-  ...position.propTypes,
-  ...programmaticFocus.propTypes,
-  ...size.propTypes
-}
+})

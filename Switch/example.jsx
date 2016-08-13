@@ -1,6 +1,6 @@
 import React from 'react'
 import Switch from '../Switch'
-import Button from '../Button'
+import * as Button from '../Button'
 import { Title } from '../Text'
 import Code from '../Code'
 
@@ -59,7 +59,7 @@ export default function Switches () {
           window.alert(event.target.fries.value)
         }}>
           <Switch name='fries'>Would you like fries?</Switch>
-          <Button size='small'>Try me</Button>
+          <Button.Primary size='small'>Try me</Button.Primary>
         </form>
       </Code>
 
