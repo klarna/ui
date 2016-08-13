@@ -2,18 +2,15 @@ import React, { PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
-export default function Fieldset (props) {
-  const {
-    className,
-    children,
-    styles,
-    ...remainingProps } = props
+export default function Fieldset ({ className, children, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  const cls = classNames('fieldset', className)
-
   return (
-    <div className={cls} {...remainingProps}>{children}</div>
+    <div
+      className={classNames('fieldset', className)}
+      {...remainingProps}>
+      {children}
+    </div>
   )
 }
 
