@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '@klarna/ui-css-components/src/components/selector.scss'
+import defaultStyles from './styles.scss'
 import Checkmark from '../icons/Checkmark'
 
 export default function Selector ({
@@ -11,7 +11,7 @@ export default function Selector ({
   styles,
   ...remainingProps
 }) {
-  const baseClass = 'cui__selector--direct'
+  const baseClass = 'selector--direct'
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames(baseClass, 'title', className)
 

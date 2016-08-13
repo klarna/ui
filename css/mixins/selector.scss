@@ -1,0 +1,107 @@
+@mixin selector {
+    margin: 0;
+}
+
+@mixin selector__item {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    border-bottom: ($grid * .2) solid map-get($colors, grey-selector-lines);
+    border-top: ($grid * .2) solid map-get($colors, grey-selector-lines);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: ($grid * -.2) 0 0 0;
+    padding: ($grid * 3.2) 0 ($grid * 3.6) 0;
+    position: relative;
+
+    &::before {
+        border-bottom: ($grid * .2) solid transparent;
+        border-top: ($grid * .2) solid transparent;
+        bottom: ($grid * -.2);
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: ($grid * -.2);
+        transition: all .2s ease;
+        z-index: 10;
+    }
+
+    &:hover {
+        &::before {
+            border-bottom: ($grid * .2) solid map-get($colors, blue-hover);
+            border-top: ($grid * .2) solid map-get($colors, blue-hover);
+            bottom: ($grid * -.2);
+            content: "";
+            display: block;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: ($grid * -.2);
+            z-index: 10;
+        }
+    }
+    &:first-child {
+        margin: 0;
+    }
+
+    &:last-child {
+        margin-bottom: ($grid * -.2);
+    }
+
+    .selector--direct:not(.title) & {
+        &:first-child {
+            border-top: ($grid * .2) solid transparent;
+
+            &:hover {
+                &::before {
+                    border-top: ($grid * .2) solid transparent;
+                }
+            }
+        }
+
+        &:last-child {
+            border-bottom: ($grid * .2) solid transparent;
+
+            &:hover {
+                &::before {
+                    border-bottom: ($grid * .2) solid transparent;
+                }
+            }
+        }
+    }
+}
+
+@mixin selector__label {
+    @include typography(($grid * 2.8), semi-bold);
+}
+
+@mixin selector__value {
+    @include typography(($grid * 2.6), regular);
+
+    color: map-get($colors, klarna-blue);
+    position: absolute;
+    right: ($grid * 5);
+    top: ($grid * 3.4);
+}
+
+@mixin selector__icon {
+    height: ($grid * 4);
+    margin-top: ($grid * -2);
+    position: absolute;
+    right: ($grid * -1);
+    top: 50%;
+    width: ($grid * 4);
+}
+
+@mixin selector__description {
+    @include typography(($grid * 2.6), regular);
+
+    color: map-get($colors, grey-text);
+    line-height: ($grid * 4);
+    margin: ($grid * -.4) 0 ($grid * .4) 0;
+    width: 60%;
+
+    .promo-label:first-child {
+        left: 0;
+    }
+}
