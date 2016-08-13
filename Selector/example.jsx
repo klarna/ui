@@ -1,11 +1,9 @@
 /* globals alert */
-
 import React from 'react'
 import Button from '../Button'
-import RadioGroup from '../RadioGroup'
-// import UncontrolledRadioGroup from '../uncontrolled/RadioGroup'
 import Selector from '../Selector'
-import { Title, Subtitle, Paragraph } from '../Text'
+import UncontrolledSelector from '../uncontrolled/Selector'
+import { Title } from '../Text'
 import Code from '../Code'
 
 export default function Selectors () {
@@ -16,58 +14,14 @@ export default function Selectors () {
 
   return (
     <div>
-      <Title.Secondary margins>RadioGroup</Title.Secondary>
-      <Paragraph margins>
-        RadioGroups allow the user to pick one option among many
-        with a design similar to HTML's input type radio.
-      </Paragraph>
-
-      <Subtitle margins>Controlled</Subtitle>
-      <Paragraph margins>
-        Controlled RadioGroups shall be used when you will control
-        it's selected value. Therefore, you're in charge of
-        implementing the props <b>onChange</b> and <b>selected</b>.
-      </Paragraph>
-      <Paragraph margins>
-        As a rule of thumb, you'll use the stateless component if
-        the RadioGroup is not in a form, and you wanna trigger
-        something on every change of this component.
-      </Paragraph>
-      <Paragraph margins>
-        An example implementation of how you should consume the
-        RadioGroup is the UncontrolledRadioGroup itself.
-      </Paragraph>
+      <Title.Secondary margins>Controlled</Title.Secondary>
       <Code>
-        <RadioGroup selected={1} onChange={alert} data={data} />
-      </Code>
-{/*
-      <Subtitle margins>Uncontrolled</Subtitle>
-      <Paragraph margins>
-        Use the stateful selector if you don't wanna control
-        the selector, or you're using it on a form, passing the
-        prop <b>name</b>.
-      </Paragraph>
-      <Code>
-        <UncontrolledRadioGroup data={data} />
+        <Selector value={1} onChange={alert} data={data} />
       </Code>
 
-      <Subtitle margins>Uncontrolled in a form</Subtitle>
+      <Title.Secondary margins>Uncontrolled</Title.Secondary>
       <Code>
-        <form onSubmit={(event) => {
-          event.preventDefault()
-          window.alert(event.target.lorem.value)
-        }}>
-          <UncontrolledRadioGroup name='lorem' data={data} />
-          <Button size='small'>Try me</Button>
-        </form>
-      </Code> */}
-
-      <Title.Secondary margins>Selector</Title.Secondary>
-      <Paragraph margins>
-        Same as RadioGroups with different style.
-      </Paragraph>
-      <Code>
-        <Selector selected={1} onChange={alert} data={data} />
+        <UncontrolledSelector data={data} />
       </Code>
     </div>
   )
