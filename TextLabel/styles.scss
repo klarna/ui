@@ -1,0 +1,9 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.text-label {
+    @include text-label;
+    + .title--secondary {
+        padding-top: ($grid * .4);
+    }
+}
