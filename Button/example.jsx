@@ -1,11 +1,11 @@
 /* globals alert */
 
 import React from 'react'
-import Button, { Price } from './'
 import { Back, Close, Hamburger, Options, Search } from '../IconButton'
 import Block from '../Block'
 import { Title, Subtitle } from '../Text'
 import Code from '../Code'
+import * as Button from '../Button'
 
 export default function Buttons () {
   return (
@@ -14,86 +14,86 @@ export default function Buttons () {
 
       <Subtitle margins>Regular</Subtitle>
       <Code>
-        <Button size='small'>Click me!</Button>
-        <Button>Click me!</Button>
-        <Button size='big'>Click me!</Button>
-        <Button customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button>
+        <Button.Primary size='small'>Click me!</Button.Primary>
+        <Button.Primary>Click me!</Button.Primary>
+        <Button.Primary size='big'>Click me!</Button.Primary>
+        <Button.Primary customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button.Primary>
       </Code>
 
       <Title.Secondary color='blue' margins>Secondary</Title.Secondary>
 
       <Subtitle margins>Regular</Subtitle>
       <Code>
-        <Button design='secondary' size='small'>Click me!</Button>
-        <Button design='secondary'>Click me!</Button>
-        <Button design='secondary' size='big'>Click me!</Button>
-        <Button design='secondary' customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button>
+        <Button.Secondary size='small'>Click me!</Button.Secondary>
+        <Button.Secondary>Click me!</Button.Secondary>
+        <Button.Secondary size='big'>Click me!</Button.Secondary>
+        <Button.Secondary customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button.Secondary>
       </Code>
 
       <Title.Secondary color='blue' margins>Disabled</Title.Secondary>
       <Code>
-        <Button disabled size='small'>Click me!</Button>
-        <Button disabled>Click me!</Button>
-        <Button disabled size='big'>Click me!</Button>
+        <Button.Primary disabled size='small'>Click me!</Button.Primary>
+        <Button.Primary disabled>Click me!</Button.Primary>
+        <Button.Primary disabled size='big'>Click me!</Button.Primary>
 
-        <Button design='secondary' disabled size='small'>Click me!</Button>
-        <Button design='secondary' disabled>Click me!</Button>
-        <Button design='secondary' disabled size='big'>Click me!</Button>
+        <Button.Secondary disabled size='small'>Click me!</Button.Secondary>
+        <Button.Secondary disabled>Click me!</Button.Secondary>
+        <Button.Secondary disabled size='big'>Click me!</Button.Secondary>
       </Code>
 
       <Title.Secondary color='blue' margins>Loading</Title.Secondary>
       <Code>
-        <Button loading size='small'>Click me!</Button>
-        <Button loading>Click me!</Button>
-        <Button loading size='big'>Click me!</Button>
-        <Button loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
+        <Button.Primary loading size='small'>Click me!</Button.Primary>
+        <Button.Primary loading>Click me!</Button.Primary>
+        <Button.Primary loading size='big'>Click me!</Button.Primary>
+        <Button.Primary loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
 
         <hr style={{border: 0, background: 0}} />
 
-        <Button design='secondary' loading size='small'>Click me!</Button>
-        <Button design='secondary' loading>Click me!</Button>
-        <Button design='secondary' loading size='big'>Click me!</Button>
-        <Button design='secondary' loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
+        <Button.Secondary loading size='small'>Click me!</Button.Secondary>
+        <Button.Secondary loading>Click me!</Button.Secondary>
+        <Button.Secondary loading size='big'>Click me!</Button.Secondary>
+        <Button.Secondary loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
       </Code>
 
       <Title.Secondary color='blue' margins>Success</Title.Secondary>
       <Code>
-        <Button success size='small'>Click me!</Button>
-        <Button success>Click me!</Button>
-        <Button success size='big'>Click me!</Button>
+        <Button.Primary success size='small'>Click me!</Button.Primary>
+        <Button.Primary success>Click me!</Button.Primary>
+        <Button.Primary success size='big'>Click me!</Button.Primary>
       </Code>
 
       <Title.Secondary color='blue' margins>Button with price</Title.Secondary>
       <Subtitle margins>Primary</Subtitle>
       <Code>
-        <Button>
+        <Button.Primary>
           Pay now!
-          <Price>$12.0</Price>
-        </Button>
-        <Button size='big'>
+          <Button.Price>$12.0</Button.Price>
+        </Button.Primary>
+        <Button.Primary size='big'>
           Pay now!
-          <Price>14:-</Price>
-        </Button>
-        <Button loading style={{width: '200px'}}>
+          <Button.Price>14:-</Button.Price>
+        </Button.Primary>
+        <Button.Primary loading style={{width: '200px'}}>
           Pay now!
-          <Price>14:-</Price>
-        </Button>
+          <Button.Price>14:-</Button.Price>
+        </Button.Primary>
       </Code>
 
       <Subtitle margins>Secondary</Subtitle>
       <Code>
-        <Button design='secondary'>
+        <Button.Secondary>
           Pay now!
-          <Price>$12.0</Price>
-        </Button>
-        <Button design='secondary' size='big'>
+          <Button.Price>$12.0</Button.Price>
+        </Button.Secondary>
+        <Button.Secondary size='big'>
           Pay now!
-          <Price>14:-</Price>
-        </Button>
-        <Button design='secondary' loading style={{width: '200px'}}>
+          <Button.Price>14:-</Button.Price>
+        </Button.Secondary>
+        <Button.Secondary loading style={{width: '200px'}}>
           Pay now!
-          <Price>14:-</Price>
-        </Button>
+          <Button.Price>14:-</Button.Price>
+        </Button.Secondary>
       </Code>
 
       <Title.Secondary color='blue' margins>Iconic Buttons</Title.Secondary>
