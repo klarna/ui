@@ -4,33 +4,33 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'alert'
 
-const designs = ['error']
+const classes = {
+  error: `${baseClass}--error`,
+  paragraph: `${baseClass}__paragraph`,
+  title: `${baseClass}__title`
+}
 
-export function Main ({ children, className, styles, design, ...remainingProps }) {
+export function Error ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <div
-      className={classNames(`${baseClass}--${design}`, className)}
+      className={classNames(classes.error, className)}
       {...remainingProps}>
       {children}
     </div>
   )
 }
 
-Main.displayName = 'Alert.Main'
+Error.displayName = 'Alert.Error'
 
-Main.designs = designs
-
-Main.defaultProps = {
-  design: 'error',
+Error.defaultProps = {
   styles: {}
 }
 
-Main.propTypes = {
+Error.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  design: PropTypes.oneOf(designs),
   styles: PropTypes.object
 }
 
@@ -39,7 +39,7 @@ export function Title ({ children, className, styles, ...remainingProps }) {
 
   return (
     <h1
-      className={classNames(`${baseClass}__title`, className)}
+      className={classNames(classes.title, className)}
       {...remainingProps}>
       {children}
     </h1>
@@ -51,7 +51,6 @@ Title.displayName = 'Alert.Title'
 Title.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  design: PropTypes.oneOf(designs),
   styles: PropTypes.object
 }
 
@@ -64,7 +63,7 @@ export function Paragraph ({ children, className, styles, ...remainingProps }) {
 
   return (
     <p
-      className={classNames(`${baseClass}__paragraph`, className)}
+      className={classNames(classes.paragraph, className)}
       {...remainingProps}>
       {children}
     </p>
@@ -76,7 +75,6 @@ Paragraph.displayName = 'Alert.Paragraph'
 Paragraph.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  design: PropTypes.oneOf(designs),
   styles: PropTypes.object
 }
 

@@ -67,8 +67,7 @@ export default class Input extends Component {
     return (
       <div
         className={classes.field}
-        onClick={onClick}
-      >
+        onClick={onClick}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
             icon: classNames('input--icon__icon'),
