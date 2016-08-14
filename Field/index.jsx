@@ -7,6 +7,19 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import { position, size } from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 
+const baseClass = 'field'
+
+const classes = {
+  icon: `${baseClass}--icon`,
+  iconIcon: `${baseClass}--icon__icon`,
+  iconIconFill: `${baseClass}--icon__icon__fill`,
+  iconIconStroke: `${baseClass}--icon__icon__stroke`,
+  iconInput: `${baseClass}--icon__input`,
+  iconLabel: `${baseClass}--icon__label`,
+  input: `${baseClass}__input`,
+  label: `${baseClass}__label`
+}
+
 export default React.createClass({
   displayName: 'Field',
 
@@ -99,7 +112,7 @@ export default React.createClass({
 
     const classes = {
       field: classNames(
-        (icon ? 'field--icon' : 'field'), {
+        (icon ? classes.icon : baseClass), {
           big,
           'is-centered': centered,
           'is-filled': value != null && value !== '',
@@ -113,13 +126,13 @@ export default React.createClass({
         className),
       label: classNames(
         icon
-          ? 'field--icon__label'
-          : 'field__label'
+          ? classes.iconLabel
+          : classes.label
       ),
       input: classNames(
         icon
-          ? 'field--icon__input'
-          : 'field__input'
+          ? classes.iconInput
+          : classes.input
       )
     }
 
@@ -143,9 +156,9 @@ export default React.createClass({
       >
         {
           inlinedIcon.renderInlinedIcon(this.props, {
-            icon: classNames('field--icon__icon'),
-            fill: classNames('field--icon__icon__fill'),
-            stroke: classNames('field--icon__icon__stroke')
+            icon: classNames(classes.iconIcon),
+            fill: classNames(classes.iconIconFill),
+            stroke: classNames(classes.iconIconStroke)
           })
         }
 

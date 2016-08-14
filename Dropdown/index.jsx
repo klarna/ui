@@ -76,7 +76,8 @@ export default React.createClass({
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const problem = props.error || props.warning
-    const selectedOption = options && options.find((option) => String(option.value) === String(value))
+    const selectedOption = options &&
+      options.find((option) => String(option.value) === String(value))
 
     const cls = classNames(
       baseClass,

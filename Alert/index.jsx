@@ -24,10 +24,6 @@ export function Error ({ children, className, styles, ...remainingProps }) {
 
 Error.displayName = 'Alert.Error'
 
-Error.defaultProps = {
-  styles: {}
-}
-
 Error.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
@@ -54,10 +50,6 @@ Title.propTypes = {
   styles: PropTypes.object
 }
 
-Title.defaultProps = {
-  styles: {}
-}
-
 export function Paragraph ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
@@ -76,8 +68,4 @@ Paragraph.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   styles: PropTypes.object
-}
-
-Paragraph.defaultProps = {
-  styles: {}
 }

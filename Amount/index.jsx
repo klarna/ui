@@ -18,8 +18,7 @@ export default function Amount ({ children, className, color, styles, ...remaini
 }
 
 Amount.defaultProps = {
-  color: 'black',
-  styles: {}
+  color: 'black'
 }
 
 Amount.propTypes = {

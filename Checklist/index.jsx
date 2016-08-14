@@ -29,10 +29,6 @@ Main.propTypes = {
   styles: PropTypes.object
 }
 
-Main.defaultProps = {
-  styles: {}
-}
-
 export function Item ({ className, children, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
@@ -56,8 +52,4 @@ Item.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   styles: PropTypes.object
-}
-
-Item.defaultProps = {
-  styles: {}
 }

@@ -25,6 +25,8 @@ export function Main ({ children, className, styles, ...props }) {
   )
 }
 
+Main.displayName = 'Dialog.Main'
+
 Main.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
@@ -35,7 +37,9 @@ export function Icon ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <div className={classNames(classes.icon, className)} {...props}>
+    <div
+      className={classNames(classes.icon, className)}
+      {...props}>
       {children}
     </div>
   )
@@ -77,7 +81,8 @@ export function Footer ({ children, className, styles, ...props }) {
 
   return (
     <div
-      className={classNames(classes.footer, className)} {...props}>
+      className={classNames(classes.footer, className)}
+      {...props}>
       <div
         className={classNames(classes.footerInner)}>
         {children}
@@ -99,7 +104,8 @@ export function Overlay ({ children, className, show, styles, ...props }) {
 
   return (
     <div
-      className={classNames(classes.overlay, { 'is-visible': show }, className)}>
+      className={classNames(classes.overlay, { 'is-visible': show }, className)}
+      {...props}>
       <div
         className={classNames(classes.table)}>
         <div

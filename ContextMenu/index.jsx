@@ -89,7 +89,7 @@ export function Icon ({ className, children, styles }) {
 
   return (
     React.cloneElement(React.Children.only(children), {
-      className: classNames(`${baseClass}__icon`, className)
+      className: classNames(classes.icon, className)
     })
   )
 }
