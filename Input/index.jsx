@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react'
+import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import * as programmaticFocus from '../lib/features/programmaticFocus'
@@ -7,14 +7,62 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import { position, size } from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 
-export default class Input extends Component {
+const baseClass = 'input'
+
+const classes = {
+  icon: `${baseClass}--icon`,
+  iconIcon: `${baseClass}--icon__icon`,
+  iconIconFill: `${baseClass}--icon__icon__fill`,
+  iconIconStroke: `${baseClass}--icon__icon__stroke`,
+  iconInput: `${baseClass}--icon__input`,
+  iconLabel: `${baseClass}--icon__label`,
+  input: `${baseClass}__input`,
+  label: `${baseClass}__label`
+}
+
+export default React.createClass({
+  displayName: 'Input',
+
+  defaultProps: {
+    big: false,
+    centered: false,
+    giant: false,
+    loading: false,
+    onChange: function () {},
+    ...inlinedIcon.defaultProps,
+    ...fieldStates.defaultProps,
+    ...position.defaultProps,
+    ...handleKeyDown.defaultProps,
+    ...size.defaultProps
+  },
+
+  propTypes: {
+    big: PropTypes.bool,
+    centered: PropTypes.bool,
+    giant: PropTypes.bool,
+    loading: PropTypes.bool,
+    label: PropTypes.string.isRequired,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
+    onFocus: PropTypes.func,
+    value: PropTypes.string,
+    styles: PropTypes.object,
+    ...inlinedIcon.propTypes,
+    ...fieldStates.propTypes,
+    ...handleKeyDown.propTypes,
+    ...position.propTypes,
+    ...programmaticFocus.propTypes,
+    ...size.propTypes
+  },
+
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
-  }
+  },
 
   componentDidUpdate () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
-  }
+  },
 
   render () {
     const {
@@ -37,49 +85,41 @@ export default class Input extends Component {
     } = this.props
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-    const classes = {
-      field: classNames(
-        (icon ? 'input--icon' : 'input'), {
-          big,
-          giant,
-          'is-centered': centered,
-          'is-filled': value != null && value !== '',
-          'is-loading': loading,
-          square
-        },
-        fieldStates.getClassName(this.props),
-        programmaticFocus.getClassName(this.props),
-        size.getClassName(this.props),
-        position.getClassName(this.props),
-        className),
-      label: classNames(
-        icon
-          ? 'input--icon__label'
-          : 'input__label'
-      ),
-      input: classNames(
-        icon
-          ? 'input--icon__input'
-          : 'input__input'
-      )
-    }
+    const cls = classNames(
+      (icon ? classes.icon : baseClass), {
+        big,
+        giant,
+        'is-centered': centered,
+        'is-filled': value != null && value !== '',
+        'is-loading': loading,
+        square
+      },
+      fieldStates.getClassName(this.props),
+      programmaticFocus.getClassName(this.props),
+      size.getClassName(this.props),
+      position.getClassName(this.props),
+      className
+    )
 
     return (
       <div
-        className={classes.field}
+        className={cls}
         onClick={onClick}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
-            icon: classNames('input--icon__icon'),
-            fill: classNames('input--icon__icon__fill'),
-            stroke: classNames('input--icon__icon__stroke')
+            icon: classNames(classes.iconIcon),
+            fill: classNames(classes.iconIconFill),
+            stroke: classNames(classes.iconIconStroke)
           })
         }
 
-        <label className={classes.label}>{label}</label>
+        <label
+          className={classNames(icon ? classes.iconLabel : classes.label )}>
+          {label}
+        </label>
 
         <input
-          className={classes.input}
+          className={classNames(icon ? classes.iconInput : classes.input)}
           disabled={disabled}
           value={value || ''}
           onBlur={onBlur}
@@ -92,37 +132,4 @@ export default class Input extends Component {
       </div>
     )
   }
-}
-
-Input.defaultProps = {
-  big: false,
-  centered: false,
-  giant: false,
-  loading: false,
-  onChange: function () {},
-  ...inlinedIcon.defaultProps,
-  ...fieldStates.defaultProps,
-  ...position.defaultProps,
-  ...handleKeyDown.defaultProps,
-  ...size.defaultProps
-}
-
-Input.propTypes = {
-  big: PropTypes.bool,
-  centered: PropTypes.bool,
-  giant: PropTypes.bool,
-  loading: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onClick: PropTypes.func,
-  onFocus: PropTypes.func,
-  value: PropTypes.string,
-  styles: PropTypes.object,
-  ...inlinedIcon.propTypes,
-  ...fieldStates.propTypes,
-  ...handleKeyDown.propTypes,
-  ...position.propTypes,
-  ...programmaticFocus.propTypes,
-  ...size.propTypes
-}
+})

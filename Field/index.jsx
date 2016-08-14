@@ -110,31 +110,20 @@ export default React.createClass({
     } = this.props
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-    const classes = {
-      field: classNames(
-        (icon ? classes.icon : baseClass), {
-          big,
-          'is-centered': centered,
-          'is-filled': value != null && value !== '',
-          'is-loading': loading,
-          square
-        },
-        fieldStates.getClassName(this.props),
-        programmaticFocus.getClassName(this.props),
-        size.getClassName(this.props),
-        position.getClassName(this.props),
-        className),
-      label: classNames(
-        icon
-          ? classes.iconLabel
-          : classes.label
-      ),
-      input: classNames(
-        icon
-          ? classes.iconInput
-          : classes.input
-      )
-    }
+    const cls = classNames(
+      (icon ? classes.icon : baseClass), {
+        big,
+        'is-centered': centered,
+        'is-filled': value != null && value !== '',
+        'is-loading': loading,
+        square
+      },
+      fieldStates.getClassName(this.props),
+      programmaticFocus.getClassName(this.props),
+      size.getClassName(this.props),
+      position.getClassName(this.props),
+      className
+    )
 
     const hasNonDefaultState = disabled || warning || error
     const useDynamicStyles = customize && !hasNonDefaultState
@@ -148,7 +137,7 @@ export default React.createClass({
 
     return (
       <div
-        className={classes.field}
+        className={cls}
         onClick={onClick}
         style={dynamicStyles}
         onMouseEnter={this.onMouseEnter.bind(this)}
@@ -162,10 +151,13 @@ export default React.createClass({
           })
         }
 
-        <label className={classes.label}>{label}</label>
+        <label
+          className={classNames(icon ? classes.iconLabel: classes.label)}>
+          {label}
+        </label>
 
         <input
-          className={classes.input}
+          className={classNames(icon ? classes.iconInput : classes.input)}
           disabled={disabled}
           value={value || ''}
           onBlur={onBlur}
