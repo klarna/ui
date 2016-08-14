@@ -6,43 +6,61 @@ import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import Price from '../Price'
 
-export default function Primary (props) {
-  const {
-    children,
-    className,
-    customize,
-    disabled,
-    loading,
-    size,
-    styles,
-    success,
-    ...remainingProps } = props
+const baseClass = 'button'
 
-  const content = success && '✔' || !loading && children
+const classes = {
+  primary: `${baseClass}--primary`,
+  label: `${baseClass}__label`
+}
 
+export default function Primary ({
+  children,
+  className,
+  customize,
+  disabled,
+  loading,
+  size,
+  styles,
+  success,
+  ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  const cls = classNames(`button--primary`, size, {
+  const cls = classNames(classes.primary, size, {
     'is-disabled': disabled,
     'is-loading': loading,
     'dynamic-styling': customize,
     'has-price': contains(Price, children)
   }, className)
 
-  const labelClass = {
-    label: classNames('button__label'),
-    alt: classNames('button__label--alt')
-  }
-
-  const isDisabled = (loading || success || disabled)
-
   const loaderColor = (customize || {}).textColor && (customize || {}).backgroundColor
     ? parseColor(customize.textColor).rgb
     : 'white'
 
-  return customize
-    ? renderDynamicallyStyled(content, cls, labelClass, isDisabled, loading, loaderColor, customize, {...remainingProps})
-    : render(content, cls, isDisabled, loading, loaderColor, {...remainingProps})
+  const loadingOrContent = loading
+    ? <Loader inline color={loaderColor}/>
+    : (success ? '✔' : children)
+
+  return (
+    <button
+      className={cls}
+      disabled={loading || success || disabled}
+      style={customize && {
+        color: customize.textColor,
+        backgroundColor: customize.backgroundColor,
+        borderColor: customize.backgroundColor
+      }}
+      {...remainingProps}>
+      {
+        customize
+          ? (
+            <span className={classNames(classes.label)}>
+              {loadingOrContent}
+            </span>
+          )
+          : loadingOrContent
+      }
+    </button>
+  )
 }
 
 Primary.displayName = 'Button.Primary'
@@ -68,21 +86,3 @@ Primary.propTypes = {
   disabled: PropTypes.bool,
   styles: PropTypes.object
 }
-
-const render = (content, classNames, disabled, loading, loaderColor, remainingProps) => (
-  <button className={classNames} disabled={disabled} {...remainingProps}>
-    {loading ? <Loader inline color={loaderColor}/> : content}
-  </button>
-)
-
-const renderDynamicallyStyled = (content, classNames, labelClassNames, disabled, loading, loaderColor, {textColor, backgroundColor}, remainingProps) => (
-  <button className={classNames} disabled={disabled} {...remainingProps} style={{
-    color: textColor,
-    backgroundColor: backgroundColor,
-    borderColor: backgroundColor
-  }}>
-    <span className={labelClassNames.label}>
-      {loading ? <Loader inline color={loaderColor}/> : content}
-    </span>
-  </button>
-)
