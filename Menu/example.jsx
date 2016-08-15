@@ -16,54 +16,6 @@ const optionsWithComponents = [
   { key: 'faq', label: <div>To do <Label design='warning'>urgent</Label></div> }
 ]
 
-class AddableMenu extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.newTabs = [
-      'Lorem ipsum',
-      'dolor sit amet',
-      'elit'
-    ]
-
-    this.state = {
-      options: [{ key: 'home', label: 'Home' }],
-      value: 'home'
-    }
-
-    this.add = this.add.bind(this)
-    this.onChange = this.onChange.bind(this)
-  }
-
-  add (e) {
-    const newTab = this.newTabs.shift()
-    if (!newTab) return
-
-    this.setState({
-      options: [
-        ...this.state.options,
-        { key: newTab, label: newTab }
-      ]
-    })
-  }
-
-  onChange (value) {
-    this.setState({ ...this.state, value })
-  }
-
-  render () {
-    return (
-      <div>
-        <Menu.Tab
-          {...this.props}
-          value={this.state.value}
-          onChange={this.onChange}
-          options={this.state.options} />
-        <button onClick={this.add}>Add</button>
-      </div>
-    )
-  }
-}
 export default function Menus () {
   return (
     <div>
@@ -127,6 +79,7 @@ export default function Menus () {
       <Code>
         <UncontrolledMenu.Tab
           name='uncontrolled-tab'
+          tabDisplay='fluid'
           value='home'
           options={options} />
       </Code>
