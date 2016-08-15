@@ -62,7 +62,7 @@ export default function Inputs () {
 
       <Subtitle>Stacked</Subtitle>
       <Code>
-        <Fieldset>
+        <Fieldset margins>
           <Input top left size='1/2' label='Given name' />
           <Input center size='1/4' label='Middle name' />
           <Input top right size='1/4' label='Last name' />
@@ -77,94 +77,94 @@ export default function Inputs () {
 
       <Title.Primary margins small color='blue'>Types</Title.Primary>
       <Code>
-        <Fieldset>
+        <Fieldset margins>
           <Input type='text' name='text' label='Text' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input type='password' name='password' label='Password' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input type='number' name='number' label='Number' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input type='email' name='email' label='Email' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input type='search' name='search' label='Search' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input type='url' name='url' label='URL' />
         </Fieldset>
       </Code>
 
       <Title.Primary margins small color='blue'>States</Title.Primary>
       <Code>
-        <Fieldset>
+        <Fieldset margins>
           <Input error label='Invalid email' name='email' value='invalid@' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input big error label='Invalid email' name='email' value='invalid@' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input big warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input disabled name='address' label='Address' value='16, Corn street' />
         </Fieldset>
       </Code>
 
       <Title.Primary margins small color='blue'>Icons</Title.Primary>
       <Code>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='card'
             label='Please enter your credit card number' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='calendar'
             label='Date of Birth' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='lock'
             type='password'
             label='Password' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='person'
             label='Enter your user name' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='email'
             label='Enter your email address' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='phone'
             label='Mobile number' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='close'
             label='Enter an incorrect value (?)' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='question'
             label='Are we sure about these being field icons?' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='check'
             label='These look like button icons really' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Input
             icon='logout'
             label='Write something to log out' />

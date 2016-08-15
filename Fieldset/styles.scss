@@ -2,8 +2,11 @@
 @import '../css/mixins/index';
 
 .fieldset {
-    padding-bottom: ($grid * 5);
     position: relative;
+
+    &.default-margins {
+      padding-bottom: ($grid * 5);
+    }
 
     &::after {
         clear: both;

@@ -63,7 +63,7 @@ export default function Fields () {
       <Title.Secondary margins>Stacked</Title.Secondary>
       <Subtitle margins>Normal</Subtitle>
       <Code>
-        <Fieldset>
+        <Fieldset margins>
           <Field top left size='1/2' label='Given name' />
           <Field center size='1/4' label='Middle name' />
           <Field top right size='1/4' label='Last name' />
@@ -78,99 +78,99 @@ export default function Fields () {
 
       <Title.Primary margins small color='blue'>Types</Title.Primary>
       <Code>
-        <Fieldset>
+        <Fieldset margins>
           <Field type='text' name='text' label='Text' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field type='password' name='password' label='Password' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field type='number' name='number' label='Number' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field type='email' name='email' label='Email' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field type='search' name='search' label='Search' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field type='url' name='url' label='URL' />
         </Fieldset>
       </Code>
 
       <Title.Primary margins small color='blue'>States</Title.Primary>
       <Code>
-        <Fieldset>
+        <Fieldset margins>
           <Field error label='Invalid email' name='email' value='invalid@' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field big error label='Invalid email' name='email' value='invalid@' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field big warning label='Are you sure the domain is exanple?' name='email' value='email@exanple.com' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field disabled name='address' label='Address' value='16, Corn street' />
         </Fieldset>
       </Code>
 
       <Title.Primary margins small color='blue'>Icons</Title.Primary>
       <Code>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='card'
             label='Please enter your credit card number' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='calendar'
             label='Date of Birth' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='lock'
             type='password'
             label='Password' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='person'
             label='Enter your user name' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='email'
             label='Enter your email address' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='phone'
             label='Mobile number' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='close'
             label='Enter an incorrect value (?)' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='question'
             label='Are we sure about these being field icons?' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='check'
             label='These look like button icons really' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='logout'
             label='Write something to log out' />
         </Fieldset>
-        <Fieldset>
+        <Fieldset margins>
           <Field
             icon='details'
             label='This is for writing some details here' />
