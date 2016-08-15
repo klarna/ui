@@ -68,9 +68,9 @@ const icons = {
 export default function Icons () {
   return (
     <div style={{width: '740px'}}>
-      <Paragraph margins>
+      <Paragraph.Primary margins>
         Each type of icon is designed for the size that it is displayed in. Resizing the icons is possible since they are SVG, but it's not recommended since they are drawn to have the line widths matching the line styles of the rest of the components.
-      </Paragraph>
+      </Paragraph.Primary>
 
       <Title.Secondary color='blue' margins>Colors</Title.Secondary>
       <Subtitle margins>Big</Subtitle>

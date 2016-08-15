@@ -1,57 +1,83 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import contains from '../lib/contains'
 import defaultStyles from './styles.scss'
 
-export default function Preview ({ className, children, styles }) {
+const baseClass = 'preview'
+
+const classes = {
+  content: `${baseClass}__content`,
+  footer: `${baseClass}__footer`,
+  footerLink: `${baseClass}__footer__link`,
+  title: `${baseClass}__title`
+}
+
+export function Main ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('preview', className)
+  const cls = classNames(
+    baseClass,
+    { 'has-link': contains(Link, children) },
+    className
+  )
 
   return (
-    <div className={cls}>
-      <div className={classNames('preview__content')}>
-        {children}
-      </div>
+    <div className={cls} {...props}>
+      {children}
     </div>
   )
 }
 
-Preview.propTypes = {
+Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   styles: PropTypes.object
 }
 
-export function PreviewTitle ({ children, className, styles }) {
+export function Content ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('preview__title', className)
 
   return (
-    <h2 className={cls}>
+    <div className={classNames(classes.content)} {...props}>
+      {children}
+    </div>
+  )
+}
+
+Content.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  styles: PropTypes.object
+}
+
+export function Title ({ children, className, styles, ...props }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+  return (
+    <h2 className={classNames(classes.title, className)} {...props}>
       {children}
     </h2>
   )
 }
 
-PreviewTitle.propTypes = {
+Title.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   styles: PropTypes.object
 }
 
-export function PreviewLink ({ children, className, styles, ...remainingProps }) {
+export function Link ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('preview__footer__link', className)
 
   return (
-    <div className={classNames('preview__footer')}>
-      <a className={cls} {...remainingProps}>
+    <div className={classNames(classes.footer)}>
+      <a className={classNames(classes.footerLink, className)} {...props}>
         {children}
       </a>
     </div>
   )
 }
 
-PreviewLink.propTypes = {
+Link.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   styles: PropTypes.object

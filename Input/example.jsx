@@ -10,9 +10,9 @@ import Code from '../Code'
 export default function Inputs () {
   return (
     <div>
-      <Paragraph margins>
+      <Paragraph.Primary margins>
         Inputs are by default <Link href='https://facebook.github.io/react/docs/forms.html#controlled-components'>Controlled components</Link>, which means that the <code>onChange</code> needs to be handled for the user to be able to interact and focus needs to be set manually as a <code>prop</code>. This is the recommended approach for declarative applications, but some times it's too restrictive: for those cases, you can use an Uncontrolled version which is provided as well.
-      </Paragraph>
+      </Paragraph.Primary>
 
       <Title.Primary color='blue' small margins>Regular</Title.Primary>
       <Title.Secondary margins>Normal</Title.Secondary>

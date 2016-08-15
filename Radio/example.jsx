@@ -15,36 +15,36 @@ export default function Radios () {
 
   return (
     <div>
-      <Paragraph>
+      <Paragraph.Primary margins>
         Radios allow the user to pick one option among many
         with a design similar to HTML's input type radio.
-      </Paragraph>
+      </Paragraph.Primary>
 
-      <Title.Secondary>Controlled</Title.Secondary>
-      <Paragraph>
+      <Title.Secondary margins>Controlled</Title.Secondary>
+      <Paragraph.Primary margins>
         Stateless Radios shall be used when you will control
         it's selected value. Therefore, you're in charge of
         implementing the props <strong>onChange</strong> and <strong>selected</strong>.
-      </Paragraph>
-      <Paragraph>
+      </Paragraph.Primary>
+      <Paragraph.Primary margins>
         As a rule of thumb, you'll use the stateless component if
         the Radio is not in a form, and you want to trigger
         something on every change of this component.
-      </Paragraph>
-      <Paragraph>
+      </Paragraph.Primary>
+      <Paragraph.Primary margins>
         An example implementation of how you should consume the
         Radio is the UncontrolledRadio itself.
-      </Paragraph>
+      </Paragraph.Primary>
       <Code>
         <Radio value={1} onChange={alert} data={data} />
       </Code>
 
-      <Title.Secondary>Uncontrolled</Title.Secondary>
-      <Paragraph>
+      <Title.Secondary margins>Uncontrolled</Title.Secondary>
+      <Paragraph.Primary margins>
         Use the statefull selector if you don't want to control
         the selector, or you're using it on a form, passing the
         prop <b>name</b>.
-      </Paragraph>
+      </Paragraph.Primary>
       <Code>
         <UncontrolledRadio data={data} />
       </Code>

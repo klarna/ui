@@ -69,12 +69,16 @@ export default function Menus () {
     <div>
       <Title.Secondary margins small color='blue'>Tabs</Title.Secondary>
       <Subtitle margins>Fluid</Subtitle>
-      <Paragraph margins>Click "Add" and check it out</Paragraph>
+      <Paragraph.Primary margins>
+        Click "Add" and check it out
+      </Paragraph.Primary>
       <Code>
         <AddableMenu name='addable-fluid' />
       </Code>
 
-      <Paragraph margins>Click "Add" and check it out</Paragraph>
+      <Paragraph.Primary margins>
+        Click "Add" and check it out
+      </Paragraph.Primary>
       <Subtitle margins>Static</Subtitle>
       <Code>
         <AddableMenu name='addable-static' tabDisplay='static' />
@@ -88,37 +92,35 @@ export default function Menus () {
       </Code>
 
       <Subtitle margins>Options with components</Subtitle>
-      <Paragraph margins>
-      Options also support components as labels.
-      </Paragraph>
+      <Paragraph.Primary margins>
+        Options also support components as labels.
+      </Paragraph.Primary>
       <Code>
-      <Menu.Tab
-      onChange={(key) => console.log('You selected', key)}
-      tabDisplay='static'
-      name='options-with-components'
-      value='home'
-      options={optionsWithComponents} />
+        <Menu.Tab
+          onChange={(key) => console.log('You selected', key)}
+          tabDisplay='static'
+          name='options-with-components'
+          value='home'
+          options={optionsWithComponents} />
       </Code>
 
       <Title.Secondary margins small color='blue'>Segmented</Title.Secondary>
-
       <Subtitle margins>Fluid</Subtitle>
-      <Paragraph margins>
+      <Paragraph.Primary margins>
         Click and check your console.
-      </Paragraph>
+      </Paragraph.Primary>
       <Code>
         <Menu.Segmented
           onChange={(key) => console.log('You selected', key)}
           name='segmented-fluid'
           value='home'
-          options={options}
-        />
+          options={options} />
       </Code>
 
       <Subtitle margins>Static</Subtitle>
-      <Paragraph margins>
+      <Paragraph.Primary margins>
         Click and check your console.
-      </Paragraph>
+      </Paragraph.Primary>
       <Code>
         <Menu.Segmented
           onChange={(key) => console.log('You selected', key)}
