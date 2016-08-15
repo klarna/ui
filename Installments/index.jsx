@@ -2,7 +2,15 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
-const baseClass = 'selector--installments'
+const baseClass = 'installments'
+
+const classes = {
+  input: `${baseClass}__input`,
+  label: `${baseClass}__label`,
+  labelConnector: `${baseClass}__label__connector`,
+  labelInfo: `${baseClass}__label__info`,
+  labelValue: `${baseClass}__label__value`
+}
 
 export default function Installments (props) {
   const {
@@ -21,32 +29,32 @@ export default function Installments (props) {
 
   const cls = classNames(baseClass, className)
 
-  const items = options.map(({ key, value, info, connector }, index) => {
-    const id = `${name}-${key}`
-
-    return [
-      (<input
-        className={classNames(`${baseClass}__input`)}
-        type='radio'
-        name={name}
-        key={`input-${id}`}
-        id={id}
-        onChange={onChange && (() => onChange(key))}
-        checked={key === selected} />),
-      (<label
-        key={`label-${id}`}
-        className={classNames(`${baseClass}__label`, 'third')}
-        htmlFor={id}>
-        <span className={classNames(`${baseClass}__label__value`)}>{value}</span>
-        <span className={classNames(`${baseClass}__label__connector`)}>{connector}</span>
-        <span className={classNames(`${baseClass}__label__info`)}>{info}</span>
-      </label>)
-    ]
-  })
-
   return (
     <div className={cls} {...remainingProps}>
-      {items.reduce((a, b) => a.concat(b), [])}
+      {options
+        .map(({ key, value, info, connector }, index) => {
+          const id = `${name}-${key}`
+
+          return [
+            (<input
+              className={classNames(classes.input)}
+              type='radio'
+              name={name}
+              key={`input-${id}`}
+              id={id}
+              onChange={onChange && (() => onChange(key))}
+              checked={key === selected} />),
+            (<label
+              key={`label-${id}`}
+              className={classNames(classes.label, 'third')}
+              htmlFor={id}>
+              <span className={classNames(classes.labelValue)}>{value}</span>
+              <span className={classNames(classes.labelConnector)}>{connector}</span>
+              <span className={classNames(classes.labelInfo)}>{info}</span>
+            </label>)
+          ]
+        })
+        .reduce((a, b) => a.concat(b), [])}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
-.selector--installments {
+.installments {
     border: ($grid * .2) solid $border-color;
     border-radius: 5px;
 
@@ -11,11 +11,11 @@
         display: block;
     }
 
-    .selector--installments__input {
+    .installments__input {
         display: none;
     }
 
-    .selector--installments__label {
+    .installments__label {
         @include stackable;
         @include typography(($grid * 2.8), semi-bold);
 
@@ -52,12 +52,12 @@
         }
     }
 
-    .selector--installments__label:hover {
+    .installments__label:hover {
         color: map-get($colors, klarna-blue);
     }
 
-    .selector--installments__input:checked +
-    .selector--installments__label {
+    .installments__input:checked +
+    .installments__label {
         border-top: 0;
         margin-top: 0;
 
@@ -67,8 +67,8 @@
         }
     }
 
-    .selector--installments__input:checked +
-    .selector--installments__label:after {
+    .installments__input:checked +
+    .installments__label:after {
         border: ($grid * .4) solid map-get($colors, klarna-blue);
         border-radius: 5px;
         bottom: -1px;
@@ -81,10 +81,10 @@
         z-index: 5;
     }
 
-    .selector--installments__input:checked +
-    .selector--installments__label +
-    .selector--installments__input +
-    .selector--installments__label {
+    .installments__input:checked +
+    .installments__label +
+    .installments__input +
+    .installments__label {
         border-top: 0;
         margin-top: 0;
 
@@ -94,14 +94,14 @@
         }
     }
 
-    .selector--installments__label__connector {
+    .installments__label__connector {
         @include respond-to-wide {
             display: none;
         }
     }
 
-    .selector--installments__label__value,
-    .selector--installments__label__info {
+    .installments__label__value,
+    .installments__label__info {
         @include respond-to-wide {
             display: block;
         }
