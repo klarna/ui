@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Menu from '../Menu'
+import * as UncontrolledMenu from '../uncontrolled/Menu'
 import Label from '../Label'
 import { Title, Subtitle, Paragraph } from '../Text'
 import Code from '../Code'
@@ -27,7 +28,7 @@ class AddableMenu extends React.Component {
 
     this.state = {
       options: [{ key: 'home', label: 'Home' }],
-      selected: 'home'
+      value: 'home'
     }
 
     this.add = this.add.bind(this)
@@ -46,8 +47,8 @@ class AddableMenu extends React.Component {
     })
   }
 
-  onChange (selected) {
-    this.setState({ ...this.state, selected })
+  onChange (value) {
+    this.setState({ ...this.state, value })
   }
 
   render () {
@@ -55,7 +56,7 @@ class AddableMenu extends React.Component {
       <div>
         <Menu.Tab
           {...this.props}
-          selected={this.state.selected}
+          value={this.state.value}
           onChange={this.onChange}
           options={this.state.options} />
         <button onClick={this.add}>Add</button>
@@ -86,6 +87,19 @@ export default function Menus () {
         </div>
       </Code>
 
+      <Subtitle margins>Options with components</Subtitle>
+      <Paragraph margins>
+      Options also support components as labels.
+      </Paragraph>
+      <Code>
+      <Menu.Tab
+      onChange={(key) => console.log('You selected', key)}
+      tabDisplay='static'
+      name='options-with-components'
+      value='home'
+      options={optionsWithComponents} />
+      </Code>
+
       <Title.Secondary margins small color='blue'>Segmented</Title.Secondary>
 
       <Subtitle margins>Fluid</Subtitle>
@@ -96,7 +110,7 @@ export default function Menus () {
         <Menu.Segmented
           onChange={(key) => console.log('You selected', key)}
           name='segmented-fluid'
-          selected='home'
+          value='home'
           options={options}
         />
       </Code>
@@ -110,21 +124,16 @@ export default function Menus () {
           onChange={(key) => console.log('You selected', key)}
           tabDisplay='static'
           name='segmented-static'
-          selected='home'
+          value='home'
           options={options} />
       </Code>
 
-      <Subtitle margins>Options with components</Subtitle>
-      <Paragraph margins>
-        Options also support components as labels.
-      </Paragraph>
+      <Subtitle margins>Uncontrolled</Subtitle>
       <Code>
-        <Menu.Tab
-          onChange={(key) => console.log('You selected', key)}
-          tabDisplay='static'
-          name='options-with-components'
-          selected='home'
-          options={optionsWithComponents} />
+        <UncontrolledMenu.Segmented
+          name='uncontrolled-segmented'
+          value='home'
+          options={options} />
       </Code>
     </div>
   )
