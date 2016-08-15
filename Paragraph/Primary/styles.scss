@@ -1,0 +1,10 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.paragraph--primary {
+    @include paragraph--primary;
+
+    &.condensed {
+        @include paragraph--primary-condensed;
+    }
+}

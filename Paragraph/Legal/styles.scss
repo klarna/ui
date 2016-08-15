@@ -1,0 +1,6 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.paragraph--legal {
+    @include paragraph--legal;
+}

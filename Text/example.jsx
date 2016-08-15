@@ -43,16 +43,35 @@ export default function Texts () {
 
       <Title.Secondary small color='blue' margins>Paragraphs</Title.Secondary>
       <Code>
-        <Paragraph>Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph </Paragraph>
-        <Paragraph condensed>Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed </Paragraph>
-        <Paragraph design='secondary'>Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph </Paragraph>
-        <Paragraph design='legal'>Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text </Paragraph>
-        <Paragraph margins>Primary paragraph with default margins</Paragraph>
-        <Paragraph margins design='secondary'>Secondary paragraph with default margins</Paragraph>
-        <Paragraph margins design='legal'>Legal paragraph with default margins</Paragraph>
+        <Paragraph.Primary>
+          Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph
+        </Paragraph.Primary>
+        <Paragraph.Primary condensed>
+          Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed
+        </Paragraph.Primary>
+        <Paragraph.Secondary>
+          Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph
+        </Paragraph.Secondary>
+        <Paragraph.Legal>
+          Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text
+        </Paragraph.Legal>
+        <Paragraph.Primary margins>
+          Primary paragraph with default margins
+        </Paragraph.Primary>
+        <Paragraph.Secondary margins>
+          Secondary paragraph with default margins
+        </Paragraph.Secondary>
+        <Paragraph.Legal margins>
+          Legal paragraph with default margins
+        </Paragraph.Legal>
+
         <Block blue>
-          <Paragraph color='white'>Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph </Paragraph>
-          <Paragraph design='legal' color='white'>Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text </Paragraph>
+          <Paragraph.Primary color='white'>
+            Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph
+          </Paragraph.Primary>
+          <Paragraph.Legal color='white'>
+            Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text
+          </Paragraph.Legal>
         </Block>
       </Code>
 
@@ -68,18 +87,18 @@ export default function Texts () {
           Some subtitle with <Link onClick={window.alert} href='#'>a link.</Link>
 
         </Subtitle>
-        <Paragraph>
+        <Paragraph.Primary>
           Some paragraph with <Link href='#'>a link</Link>.
-        </Paragraph>
+        </Paragraph.Primary>
 
-        <Paragraph>
+        <Paragraph.Primary>
           Some paragraph with <Link href='#' customize={{textColor: 'green'}}>a customized link</Link>.
-        </Paragraph>
+        </Paragraph.Primary>
 
         <Block blue>
-          <Paragraph color='white'>
+          <Paragraph.Primary color='white'>
             Some paragraph with <Link color='white' href='#'>a link</Link>.
-          </Paragraph>
+          </Paragraph.Primary>
         </Block>
 
       </Code>
