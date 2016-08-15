@@ -2,29 +2,9 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
-export default function Label ({
-  children,
-  className,
-  design,
-  outline,
-  inverted,
-  styles,
-  ...props
-}) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('label', design, className, {
-    outline,
-    inverted
-  })
+const baseClass = 'label'
 
-  return (
-    <span className={cls} {...props}>
-      {children}
-    </span>
-  )
-}
-
-Label.designs = [
+export const designs = [
   'information',
   'warning',
   'notice',
@@ -37,6 +17,26 @@ Label.designs = [
   'grey',
   'black'
 ]
+
+export default function Label ({
+  children,
+  className,
+  design,
+  outline,
+  inverted,
+  styles,
+  ...props
+}) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+  return (
+    <span
+      className={classNames(baseClass, design, { outline, inverted }, className)}
+      {...props}>
+      {children}
+    </span>
+  )
+}
 
 Label.propTypes = {
   children: PropTypes.node,

@@ -12,25 +12,24 @@ const classes = {
   labelValue: `${baseClass}__label__value`
 }
 
-export default function Installments (props) {
-  const {
-    className,
-    options,
-    name,
-    onChange,
-    value: selected,
-    styles,
-    ...remainingProps } = props
+export default function Installments ({
+  className,
+  options,
+  name,
+  onChange,
+  value: selected,
+  styles,
+  ...remainingProps }) {
 
   const classNames = classNamesBind.bind({
     ...defaultStyles,
     ...styles
   })
 
-  const cls = classNames(baseClass, className)
-
   return (
-    <div className={cls} {...remainingProps}>
+    <div
+      className={classNames(baseClass, className)}
+      {...remainingProps}>
       {options
         .map(({ key, value, info, connector }, index) => {
           const id = `${name}-${key}`

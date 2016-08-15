@@ -13,7 +13,7 @@ const options = [
 export default function Installments () {
   return (
     <div>
-      <Subtitle>Regular</Subtitle>
+      <Subtitle margins>Regular</Subtitle>
       <Code>
         <InstallmentsComponent
           onChange={(key) => console.log('You selected', key)}
@@ -23,7 +23,7 @@ export default function Installments () {
         />
       </Code>
 
-      <Subtitle>Uncontrolled</Subtitle>
+      <Subtitle margins>Uncontrolled</Subtitle>
       <Code>
         <UncontrolledInstallments
           onChange={(key) => console.log('You selected', key)}

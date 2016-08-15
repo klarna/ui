@@ -1,5 +1,6 @@
 import React from 'react'
 import Menu from '../Menu'
+import Segmented from './Segmented'
 import AnimatedMenu from '../Menu/Animated'
 import Label from '../Label'
 import { Title, Subtitle, Paragraph } from '../Text'
@@ -143,8 +144,7 @@ export default function Menus () {
         Click and check your console.
       </Paragraph>
       <Code>
-        <Menu
-          design='segmented'
+        <Segmented
           onChange={(key) => console.log('You selected', key)}
           name='segmented-fluid'
           selected='home'
@@ -157,8 +157,7 @@ export default function Menus () {
         Click and check your console.
       </Paragraph>
       <Code>
-        <Menu
-          design='segmented'
+        <Segmented
           onChange={(key) => console.log('You selected', key)}
           tabDisplay='static'
           name='segmented-static'

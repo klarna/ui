@@ -1,22 +1,16 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import segmentedStyles from './segmentedControlStyles.scss'
-import tabStyles from './tabMenuStyles.scss'
+import defaultStyles from './styles.scss'
 
-const designs = {
-  tab: {
-    baseClass: 'tab-menu',
-    styles: tabStyles
-  },
-  segmented: {
-    baseClass: 'segmentedcontrol',
-    styles: segmentedStyles
-  }
+const baseClass = 'segmented'
+
+const classes = {
+  button: `${baseClass}__button`,
+  input: `${baseClass}__input`
 }
 
-export default function Menu ({
+export default function Segmented ({
   className,
-  design,
   tabDisplay,
   options,
   name,
@@ -26,10 +20,9 @@ export default function Menu ({
   selectable,
   white,
   children,
+  styles,
   ...remainingProps }) {
-
-  const { baseClass, styles } = designs[design]
-  const classNames = classNamesBind.bind(styles)
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(baseClass, tabDisplay, className, {
     'is-selectable': selectable,
@@ -43,7 +36,7 @@ export default function Menu ({
   const items = options.map(({ key, label }, index) => {
     const id = `${name}-${key}`
 
-    const tabClass = classNames(`${baseClass}__button`, {
+    const tabClass = classNames(classes.button, {
       left: index === 0,
       center: index > 0 && index < options.length - 1,
       right: index === options.length - 1
@@ -52,7 +45,7 @@ export default function Menu ({
     return (
       <div key={index} style={{boxSizing: 'content-box'}}>
         <input
-          className={styles[`${baseClass}__input`]}
+          className={classNames(classes.input)}
           type='radio'
           name={name}
           id={id}
@@ -78,25 +71,22 @@ export default function Menu ({
   )
 }
 
-Menu.defaultProps = {
-  design: 'tab',
+Segmented.defaultProps = {
   tabDisplay: 'fluid',
   selectable: true
 }
 
-Menu.designs = ['tab', 'segmented']
-Menu.tabDisplays = ['fluid', 'static']
+Segmented.tabDisplays = ['fluid', 'static']
 
-Menu.optionsSchema = PropTypes.shape({
+Segmented.optionsSchema = PropTypes.shape({
   label: PropTypes.node.isRequired,
   key: PropTypes.string.isRequired
 })
 
-Menu.propTypes = {
-  options: PropTypes.arrayOf(Menu.optionsSchema).isRequired,
+Segmented.propTypes = {
+  options: PropTypes.arrayOf(Segmented.optionsSchema).isRequired,
   className: PropTypes.string,
-  design: PropTypes.oneOf(Menu.designs),
-  tabDisplay: PropTypes.oneOf(Menu.tabDisplays),
+  tabDisplay: PropTypes.oneOf(Segmented.tabDisplays),
   onChange: PropTypes.func,
   onClick: PropTypes.func,
   name: PropTypes.string.isRequired,

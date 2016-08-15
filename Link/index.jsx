@@ -3,20 +3,16 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
 
+const baseClass = 'link'
+
 export default function Link ({className, color, children, styles, customize, ...props}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const cls = classNames('link', color, className, {
-    'dynamic-styling': customize
-  })
-
-  const customizedStyles = customize
-    ? {
-      color: customize.textColor
-    }
-    : undefined
 
   return (
-    <a className={cls} style={customizedStyles} {...props}>
+    <a
+      className={classNames(baseClass, color, {'dynamic-styling': customize}, className)}
+      style={customize && { color: customize.textColor }}
+      {...props}>
       {children}
     </a>
   )

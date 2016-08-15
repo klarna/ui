@@ -4,10 +4,13 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
+const baseClass = 'loader'
+
 const colors = {
   blue: [0, 116, 200],
   white: [255, 255, 255]
 }
+
 colors.default = [158, 158, 160]
 
 const sizes = {
@@ -15,6 +18,7 @@ const sizes = {
   small: 15,
   tiny: 10
 }
+
 sizes.default = 20
 
 const gradients = [
@@ -38,18 +42,28 @@ export default function Loader ({ className, color, inline, size, styles }) {
   const corner = _size * 0.433
 
   return (
-    <svg width={_size} height={_size} className={classNames('loader', className, { inline })} viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}>
+    <svg
+      width={_size}
+      height={_size}
+      className={classNames(baseClass, className, {inline})}
+      viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}>
       <defs>
         {
           gradients.map((props, index) => (
-            <linearGradient key={`gradient-${index}`} id={`gradient-${_color.join('-')}-${index}`} gradientUnits='objectBoundingBox' {...props}>
+            <linearGradient
+              key={`gradient-${index}`}
+              id={`gradient-${_color.join('-')}-${index}`}
+              gradientUnits='objectBoundingBox' {...props}>
               <stop offset='0%' stopColor={`rgba(${_color}, ${step * index})`} />
               <stop offset='100%' stopColor={`rgba(${_color}, ${step * (index + 1)})`} />
             </linearGradient>
           ))
         }
       </defs>
-      <g fill='none' strokeWidth={stroke} transform={`translate(${half},${half})`}>
+      <g
+        fill='none'
+        strokeWidth={stroke}
+        transform={`translate(${half},${half})`}>
         <path d={`M ${corner},-${quarter} A ${half},${half} 0 0,1 ${corner},${quarter}`} stroke={`url(#gradient-${_color.join('-')}-0)`} />
         <path d={`M ${corner},${quarter} A ${half},${half} 0 0,1 0,${half}`} stroke={`url(#gradient-${_color.join('-')}-1)`} />
         <path d={`M 0,${half} A ${half},${half} 0 0,1 -${corner},${quarter}`} stroke={`url(#gradient-${_color.join('-')}-2)`} />
