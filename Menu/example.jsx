@@ -70,24 +70,43 @@ export default function Menus () {
       <Title.Secondary margins small color='blue'>Tabs</Title.Secondary>
       <Subtitle margins>Fluid</Subtitle>
       <Paragraph.Primary margins>
-        Click "Add" and check it out
+        Click and check your console.
       </Paragraph.Primary>
       <Code>
-        <AddableMenu name='addable-fluid' />
+        <Menu.Tab
+          onChange={(key) => console.log('You selected', key)}
+          tabDisplay='fluid'
+          name='tab-fluid'
+          value='home'
+          options={options} />
       </Code>
 
-      <Paragraph.Primary margins>
-        Click "Add" and check it out
-      </Paragraph.Primary>
       <Subtitle margins>Static</Subtitle>
+      <Paragraph.Primary margins>
+        Click and check your console.
+      </Paragraph.Primary>
       <Code>
-        <AddableMenu name='addable-static' tabDisplay='static' />
+        <Menu.Tab
+          onChange={(key) => console.log('You selected', key)}
+          tabDisplay='static'
+          name='tab-static'
+          value='home'
+          options={options} />
       </Code>
 
       <Subtitle margins>White</Subtitle>
+      <Paragraph.Primary margins>
+        Click and check your console.
+      </Paragraph.Primary>
       <Code>
         <div style={{background: '#0074c8', padding: '20px'}}>
-          <AddableMenu white name='addable-white' tabDisplay='static' />
+          <Menu.Tab
+            onChange={(key) => console.log('You selected', key)}
+            tabDisplay='static'
+            name='tab-static-white'
+            value='home'
+            white
+            options={options} />
         </div>
       </Code>
 
@@ -102,6 +121,14 @@ export default function Menus () {
           name='options-with-components'
           value='home'
           options={optionsWithComponents} />
+      </Code>
+
+      <Subtitle margins>Uncontrolled</Subtitle>
+      <Code>
+        <UncontrolledMenu.Tab
+          name='uncontrolled-tab'
+          value='home'
+          options={options} />
       </Code>
 
       <Title.Secondary margins small color='blue'>Segmented</Title.Secondary>

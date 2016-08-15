@@ -45,7 +45,7 @@
             margin: 0 ($grid * 4);
             padding: ($grid * 2) 0;
 
-            &:nth-child(2) {
+            &:nth-child(2), &:nth-child(3) {
                 margin-left: 0;
             }
         }

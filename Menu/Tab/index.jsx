@@ -5,6 +5,12 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'tab-menu'
 
+const classes = {
+  button: `${baseClass}__button`,
+  input: `${baseClass}__input`,
+  selected: `${baseClass}__selected`
+}
+
 export default function Menu ({
   className,
   tabDisplay,
@@ -12,12 +18,13 @@ export default function Menu ({
   name,
   onChange,
   onClick,
-  selected,
+  value,
   selectable,
   white,
   children,
   styles,
-  ...remainingProps }) {
+  ...remainingProps
+}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(baseClass, tabDisplay, className, {
@@ -25,44 +32,38 @@ export default function Menu ({
     white
   })
 
-  const tabStyle = tabDisplay === 'static'
-    ? {width: (100 / options.length) + '%'}
-    : {}
-
-  const items = options.map(({ key, label }, index) => {
-    const id = `${name}-${key}`
-
-    const tabClass = classNames(`${baseClass}__button`, {
-      left: index === 0,
-      center: index > 0 && index < options.length - 1,
-      right: index === options.length - 1
-    })
-
-    return (
-      <div key={index} style={{boxSizing: 'content-box'}}>
-        <input
-          className={classNames(`${baseClass}__input`)}
-          type='radio'
-          name={name}
-          id={id}
-          onChange={onChange && (() => onChange(key))}
-          defaultChecked={key === selected} />
-        <label
-          id={`${id}-tab`}
-          style={tabStyle}
-          className={tabClass}
-          onClick={onClick && ((event) => onClick(event))}
-          htmlFor={id}>
-          {label}
-        </label>
-      </div>
-    )
-  })
-
   return (
     <div className={cls} {...remainingProps}>
       {children}
-      {items}
+      {options.map(({ key, label }, index) => {
+        const id = `${name}-${key}`
+
+        const tabClass = classNames(classes.button, {
+          left: index === 0,
+          center: index > 0 && index < options.length - 1,
+          right: index === options.length - 1
+        })
+
+        return [
+          (<input
+            className={classNames(classes.input)}
+            type='radio'
+            name={name}
+            id={id}
+            onChange={onChange && (() => onChange(key))}
+            defaultChecked={key === value} />),
+          (<label
+            id={`${id}-tab`}
+            style={tabDisplay === 'static' ? {
+              width: `${(100 / options.length)}%`
+            } : undefined}
+            className={tabClass}
+            onClick={onClick && ((event) => onClick(event))}
+            htmlFor={id}>
+            {label}
+          </label>)
+        ]
+      }).concat((a, b) => a.concat(b), [])}
     </div>
   )
 }
@@ -86,7 +87,7 @@ Menu.propTypes = {
   onChange: PropTypes.func,
   onClick: PropTypes.func,
   name: PropTypes.string.isRequired,
-  selected: PropTypes.string,
+  value: PropTypes.string,
   selectable: PropTypes.bool,
   white: PropTypes.bool,
   children: PropTypes.node
@@ -94,7 +95,7 @@ Menu.propTypes = {
 
 const AnimatedSelectedBar = ({ width, left }) => (
   <Motion style={{left: spring(left), width: spring(width)}}>
-    {(style) => <div style={style} className={defaultStyles['tab-menu__selected']} />}
+    {(style) => <div style={style} className={defaultStyles[classes.selected]} />}
   </Motion>
 )
 
@@ -106,7 +107,7 @@ export default class AnimatedMenu extends React.Component {
   }
 
   update () {
-    const tab = document.getElementById(`${this.props.name}-${this.props.selected}-tab`)
+    const tab = document.getElementById(`${this.props.name}-${this.props.value}-tab`)
     const { left, width } = tab.getBoundingClientRect()
     const parentLeft = tab.parentNode.getBoundingClientRect().left
 
@@ -114,7 +115,7 @@ export default class AnimatedMenu extends React.Component {
   }
 
   componentDidUpdate (prevProps) {
-    if (this.props.options.length !== prevProps.options.length || this.props.selected !== prevProps.selected) {
+    if (this.props.options.length !== prevProps.options.length || this.props.value !== prevProps.value) {
       this.update()
     }
   }
@@ -132,7 +133,9 @@ export default class AnimatedMenu extends React.Component {
   }
 }
 
+AnimatedMenu.displayName = 'Menu.Tab'
+
 AnimatedMenu.propTypes = {
   onChange: PropTypes.func.isRequired,
-  selected: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired
 }
