@@ -1,5 +1,5 @@
-@import '../css/settings';
-@import '../css/mixins/index';
+@import '../../css/settings';
+@import '../../css/mixins/index';
 
 .tab-menu {
     border-bottom: ($grid * .2) solid map-get($colors, grey-lines);

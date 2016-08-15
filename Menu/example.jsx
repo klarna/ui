@@ -1,7 +1,5 @@
 import React from 'react'
-import Menu from '../Menu'
-import Segmented from './Segmented'
-import AnimatedMenu from '../Menu/Animated'
+import * as Menu from '../Menu'
 import Label from '../Label'
 import { Title, Subtitle, Paragraph } from '../Text'
 import Code from '../Code'
@@ -55,7 +53,7 @@ class AddableMenu extends React.Component {
   render () {
     return (
       <div>
-        <AnimatedMenu
+        <Menu.Tab
           {...this.props}
           selected={this.state.selected}
           onChange={this.onChange}
@@ -69,55 +67,6 @@ export default function Menus () {
   return (
     <div>
       <Title.Secondary margins small color='blue'>Tabs</Title.Secondary>
-
-      <Subtitle margins>Fluid</Subtitle>
-      <Paragraph margins>
-        Click and check your console.
-      </Paragraph>
-      <Code>
-        <Menu
-          onChange={(key) => console.log('You selected', key)}
-          name='tab-menu-fluid'
-          selected='home'
-          options={options}
-        />
-      </Code>
-
-      <Subtitle margins>Static</Subtitle>
-      <Paragraph margins>
-        Click and check your console.
-      </Paragraph>
-      <Code>
-        <Menu
-          onChange={(key) => console.log('You selected', key)}
-          tabDisplay='static'
-          name='tab-menu-static'
-          selected='home'
-          options={options} />
-      </Code>
-
-      <Subtitle margins>White</Subtitle>
-      <Paragraph margins>
-        Click and check your console.
-      </Paragraph>
-      <Code>
-        <div style={{background: '#0074c8', padding: '20px'}}>
-          <Menu
-            white
-            onChange={(key) => console.log('You selected', key)}
-            tabDisplay='static'
-            name='tab-menu-static-white'
-            selected='home'
-            options={options} />
-        </div>
-      </Code>
-
-      <Title.Secondary margins small color='blue'>Animated</Title.Secondary>
-
-      <Paragraph margins>
-        Animated menus must be controlled. On implementation reference can be found in examples/Menus.jsx.
-      </Paragraph>
-
       <Subtitle margins>Fluid</Subtitle>
       <Paragraph margins>Click "Add" and check it out</Paragraph>
       <Code>
@@ -144,7 +93,7 @@ export default function Menus () {
         Click and check your console.
       </Paragraph>
       <Code>
-        <Segmented
+        <Menu.Segmented
           onChange={(key) => console.log('You selected', key)}
           name='segmented-fluid'
           selected='home'
@@ -157,7 +106,7 @@ export default function Menus () {
         Click and check your console.
       </Paragraph>
       <Code>
-        <Segmented
+        <Menu.Segmented
           onChange={(key) => console.log('You selected', key)}
           tabDisplay='static'
           name='segmented-static'
@@ -170,7 +119,7 @@ export default function Menus () {
         Options also support components as labels.
       </Paragraph>
       <Code>
-        <Menu
+        <Menu.Tab
           onChange={(key) => console.log('You selected', key)}
           tabDisplay='static'
           name='options-with-components'
