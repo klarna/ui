@@ -3,6 +3,8 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
 
+const baseClass = 'subtitle'
+
 export default function Subtitle ({
   children,
   className,
@@ -15,7 +17,7 @@ export default function Subtitle ({
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(
-    'subtitle',
+    baseClass,
     color,
     {
       condensed,
@@ -34,8 +36,7 @@ export default function Subtitle ({
 Subtitle.defaultProps = {
   color: 'black',
   condensed: false,
-  margins: false,
-  styles: {}
+  margins: false
 }
 
 Subtitle.propTypes = {

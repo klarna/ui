@@ -3,6 +3,8 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 
+const baseClass = 'title--primary'
+
 export default function Primary ({
   children,
   className,
@@ -16,7 +18,7 @@ export default function Primary ({
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(
-    'title--primary',
+    baseClass,
     color,
     className,
     {
@@ -32,6 +34,8 @@ export default function Primary ({
     </h1>
   )
 }
+
+Primary.displayName = 'Title.Primary'
 
 Primary.defaultProps = {
   color: 'black',

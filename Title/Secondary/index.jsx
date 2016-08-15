@@ -3,6 +3,8 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 
+const baseClass = 'title--secondary'
+
 export default function Secondary ({
   className,
   color,
@@ -15,7 +17,7 @@ export default function Secondary ({
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(
-    'title--secondary',
+    baseClass,
     color,
     className,
     {
@@ -30,6 +32,8 @@ export default function Secondary ({
     </h2>
   )
 }
+
+Secondary.displayName = 'Title.Secondary'
 
 Secondary.defaultProps = {
   color: 'black',
