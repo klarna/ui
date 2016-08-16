@@ -1,0 +1,48 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.block--installments {
+    background: map-get($colors, light-grey);
+    border-radius: $border-radius;
+    display: block;
+    overflow: auto;
+    padding: ($grid * 3) 10% ($grid * 3) 10%;
+}
+
+.block--installments__title {
+    @include subtitle;
+
+    text-align: center;
+}
+
+.block--installments__values {
+    padding-top: $grid;
+}
+
+.block--installments__value {
+    display: block;
+    float: left;
+    text-align: center;
+    width: 50%;
+}
+
+.block--installments__value__title {
+    @include text-label;
+    @include typography(($grid * 2.2), semi-bold);
+}
+
+.block--installments__value__content {
+    @include typography(($grid * 2.8), semi-bold);
+
+    line-height: ($grid * 3);
+    margin: 0;
+    padding: ($grid * .4) 0 ($grid * .6) 0;
+}
+
+.block--installments__value__content__clarification {
+    @include typography(($grid * 2), regular);
+
+    color: map-get($colors, grey-text);
+    position: relative;
+    top: ($grid * -.8);
+}
