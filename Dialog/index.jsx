@@ -53,7 +53,6 @@ Icon.propTypes = {
   styles: PropTypes.object
 }
 
-
 export function Content ({ children, className, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 

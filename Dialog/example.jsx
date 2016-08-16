@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import * as Button from '../Button'
 import * as Dialog from '../Dialog'
 import { Close } from '../IconButton'

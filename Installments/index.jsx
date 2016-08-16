@@ -19,8 +19,8 @@ export default function Installments ({
   onChange,
   value: selected,
   styles,
-  ...remainingProps }) {
-
+  ...remainingProps
+}) {
   const classNames = classNamesBind.bind({
     ...defaultStyles,
     ...styles

@@ -1,6 +1,5 @@
 /* globals alert */
 import React from 'react'
-import Button from '../Button'
 import Selector from '../Selector'
 import UncontrolledSelector from '../uncontrolled/Selector'
 import { Title } from '../Text'

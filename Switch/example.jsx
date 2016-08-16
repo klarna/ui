@@ -1,7 +1,6 @@
 import React from 'react'
 import * as Switch from '../Switch'
 import * as UncontrolledSwitch from '../uncontrolled/Switch'
-import * as Button from '../Button'
 import { Title, Subtitle } from '../Text'
 import Code from '../Code'
 
@@ -15,12 +14,12 @@ export default function Switches () {
 
       <Subtitle margins>Checked</Subtitle>
       <Code>
-        <Switch.Toggle value={true}>This is a toggle switch checked</Switch.Toggle>
+        <Switch.Toggle value>This is a toggle switch checked</Switch.Toggle>
       </Code>
 
       <Subtitle margins>Uncontrolled</Subtitle>
       <Code>
-        <UncontrolledSwitch.Toggle value={true}>
+        <UncontrolledSwitch.Toggle value>
           This is an uncontrolled toggle switch checked
         </UncontrolledSwitch.Toggle>
       </Code>
@@ -43,13 +42,13 @@ export default function Switches () {
       <Subtitle margins>Dynamic styling</Subtitle>
       <Code>
         <Switch.Toggle customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with dynamic styling</Switch.Toggle>
-        <Switch.Toggle value={true} customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with dynamic styling</Switch.Toggle>
+        <Switch.Toggle value customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with dynamic styling</Switch.Toggle>
       </Code>
 
       <Title.Secondary margins>Checkbox</Title.Secondary>
       <Code>
         <Switch.Checkbox>This is a toggle switch with checkbox design</Switch.Checkbox>
-        <Switch.Checkbox value={true}>This is a toggle switch with checkbox design</Switch.Checkbox>
+        <Switch.Checkbox value>This is a toggle switch with checkbox design</Switch.Checkbox>
       </Code>
 
       <Subtitle>Uncontrolled</Subtitle>
@@ -67,7 +66,7 @@ export default function Switches () {
       <Subtitle margins>Checkbox with dynamic styling</Subtitle>
       <Code>
         <Switch.Checkbox customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with checkbox design and dynamic styling</Switch.Checkbox>
-        <Switch.Checkbox value={true} customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with checkbox design and dynamic styling</Switch.Checkbox>
+        <Switch.Checkbox value customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with checkbox design and dynamic styling</Switch.Checkbox>
       </Code>
     </div>
   )

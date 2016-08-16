@@ -72,7 +72,6 @@ export default React.createClass({
       onClick,
       value,
       white,
-      children,
       styles,
       ...remainingProps
     } = this.props

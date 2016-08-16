@@ -151,7 +151,7 @@ export default React.createClass({
         }
 
         <label
-          className={classNames(icon ? classes.iconLabel: classes.label)}>
+          className={classNames(icon ? classes.iconLabel : classes.label)}>
           {label}
         </label>
 

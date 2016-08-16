@@ -14,12 +14,10 @@ export const arrows = [
 export default function Tooltip ({ className, arrow, children, border, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return (
-    <div 
-      className={classNames(baseClass, arrow, className, { border })}>
-      {children}
-    </div>
-  )
+  return (<div
+    className={classNames(baseClass, arrow, className, { border })}>
+    {children}
+  </div>)
 }
 
 Tooltip.propTypes = {

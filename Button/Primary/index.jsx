@@ -22,7 +22,8 @@ export default function Primary ({
   size,
   styles,
   success,
-  ...remainingProps }) {
+  ...remainingProps
+}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(classes.primary, size, {
@@ -50,15 +51,12 @@ export default function Primary ({
         borderColor: customize.backgroundColor
       }}
       {...remainingProps}>
-      {
-        customize
-          ? (
-            <span className={classNames(classes.label)}>
-              {loadingOrContent}
-            </span>
-          )
-          : loadingOrContent
-      }
+      {customize ? (
+        <span className={classNames(classes.label)}>
+          {loadingOrContent}
+        </span>
+      )
+      : loadingOrContent}
     </button>
   )
 }

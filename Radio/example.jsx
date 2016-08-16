@@ -3,8 +3,7 @@
 import React from 'react'
 import Radio from '../Radio'
 import UncontrolledRadio from '../uncontrolled/Radio'
-import Button from '../Button'
-import { Title, Subtitle, Paragraph } from '../Text'
+import { Title, Paragraph } from '../Text'
 import Code from '../Code'
 
 export default function Radios () {

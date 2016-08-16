@@ -85,38 +85,34 @@ export default React.createClass({
     const onMouseUp = !disabled && release(this)
 
     return customize
-      ? (
+      ? (<div
+        className={cls}
+        onClick={onClick}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+        {...remainingProps}>
         <div
-          className={cls}
-          onClick={onClick}
-          onMouseDown={onMouseDown}
-          onMouseUp={onMouseUp}
-          {...remainingProps}>
-          <div
-            className={childCls.bullet}
-            style={{
-              backgroundColor: customize.backgroundColor,
-              borderColor: customize.backgroundColor
-            }}></div>
-          <div
-            className={childCls.checkmark}
-            style={{
-              backgroundColor: customize.bulletColor
-            }}></div>
-          {children}
-        </div>
-      )
-      : (
+          className={childCls.bullet}
+          style={{
+            backgroundColor: customize.backgroundColor,
+            borderColor: customize.backgroundColor
+          }}></div>
         <div
-          className={cls}
-          onClick={onClick}
-          onMouseDown={onMouseDown}
-          onMouseUp={onMouseUp}
-          {...remainingProps}>
-          {children}
-          {name &&
-            <input name={name} type='hidden' value={value} />}
-        </div>
-      )
+          className={childCls.checkmark}
+          style={{
+            backgroundColor: customize.bulletColor
+          }}></div>
+        {children}
+      </div>)
+      : (<div
+        className={cls}
+        onClick={onClick}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+        {...remainingProps}>
+        {children}
+        {name &&
+          <input name={name} type='hidden' value={value} />}
+      </div>)
   }
 })

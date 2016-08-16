@@ -4,7 +4,13 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'text-label'
 
-export default function TextLabel ({className, children, margins, styles, ...props }) {
+export default function TextLabel ({
+  className,
+  children,
+  margins,
+  styles,
+  ...props
+}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
