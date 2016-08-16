@@ -140,8 +140,8 @@ export default React.createClass({
         className={cls}
         onClick={onClick}
         style={dynamicStyles}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}>
+        onMouseEnter={this.onMouseEnter}
+        onMouseLeave={this.onMouseLeave}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
             icon: classNames(classes.iconIcon),
