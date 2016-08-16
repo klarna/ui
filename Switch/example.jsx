@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Switch from '../Switch'
+import * as UncontrolledSwitch from '../uncontrolled/Switch'
 import * as Button from '../Button'
 import { Title, Subtitle } from '../Text'
 import Code from '../Code'
@@ -15,6 +16,13 @@ export default function Switches () {
       <Subtitle margins>Checked</Subtitle>
       <Code>
         <Switch.Toggle value={true}>This is a toggle switch checked</Switch.Toggle>
+      </Code>
+
+      <Subtitle margins>Uncontrolled</Subtitle>
+      <Code>
+        <UncontrolledSwitch.Toggle value={true}>
+          This is an uncontrolled toggle switch checked
+        </UncontrolledSwitch.Toggle>
       </Code>
 
       <Subtitle margins>Error</Subtitle>
@@ -42,6 +50,13 @@ export default function Switches () {
       <Code>
         <Switch.Checkbox>This is a toggle switch with checkbox design</Switch.Checkbox>
         <Switch.Checkbox value={true}>This is a toggle switch with checkbox design</Switch.Checkbox>
+      </Code>
+
+      <Subtitle>Uncontrolled</Subtitle>
+      <Code>
+        <UncontrolledSwitch.Checkbox>
+          This is an uncontrolled checkbox switch
+        </UncontrolledSwitch.Checkbox>
       </Code>
 
       <Subtitle margins>Checkbox with legal size text</Subtitle>
