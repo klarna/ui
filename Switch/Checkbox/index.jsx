@@ -87,7 +87,37 @@ export default React.createClass({
     const onMouseUp = !disabled && release(this)
 
     return customize
-      ? renderDynamicallyStyledCheckbox(name, value, children, cls, childCls, onClick, onMouseDown, onMouseUp, customize, {...remainingProps})
+      ? (
+        <div
+          className={cls}
+          onClick={onClick}
+          onMouseDown={onMouseDown}
+          onMouseUp={onMouseUp}
+          {...remainingProps}>
+          <div
+            className={childCls.bullet}
+            style={{
+              backgroundColor: customize.backgroundColor,
+              borderColor: customize.backgroundColor
+            }}></div>
+          <div
+            className={childCls.checkmark}>
+            <svg
+              width='14px'
+              height='14px'
+              viewBox='0 0 14 14'
+              version='1.1'
+              xmlns='http://www.w3.org/2000/svg'>
+              <g fill='none' fill-rule='evenodd'>
+                <rect x='0' y='0' width='14' height='14' rx='2'></rect>
+                <path d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
+                  stroke={customize.bulletColor} stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'></path>
+              </g>
+            </svg>
+          </div>
+          {children}
+        </div>
+      )
       : (
         <div
           className={cls}
@@ -103,34 +133,4 @@ export default React.createClass({
   }
 })
 
-const renderDynamicallyStyledCheckbox = (name, checked, children, classNames, childClassNames, onClick, onMouseDown, onMouseUp, { backgroundColor, bulletColor }, remainingProps) => (
-  <div
-    className={classNames}
-    onClick={onClick}
-    onMouseDown={onMouseDown}
-    onMouseUp={onMouseUp}
-    {...remainingProps}>
-    <div
-      className={childClassNames.bullet}
-      style={{
-        backgroundColor: backgroundColor,
-        borderColor: backgroundColor
-      }}></div>
-    <div
-      className={childClassNames.checkmark}>
-      <svg
-        width='14px'
-        height='14px'
-        viewBox='0 0 14 14'
-        version='1.1'
-        xmlns='http://www.w3.org/2000/svg'>
-        <g fill='none' fill-rule='evenodd'>
-          <rect x='0' y='0' width='14' height='14' rx='2'></rect>
-          <path d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
-            stroke={bulletColor} stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'></path>
-        </g>
-      </svg>
-    </div>
-    {children}
-  </div>
-)
+/*  style={/*{backgroundColor: customize.bulletColor} */

@@ -85,7 +85,27 @@ export default React.createClass({
     const onMouseUp = !disabled && release(this)
 
     return customize
-      ? renderDynamicallyStyledSwitch(name, value, children, cls, childCls, onClick, onMouseDown, onMouseUp, customize, {...remainingProps})
+      ? (
+        <div
+          className={cls}
+          onClick={onClick}
+          onMouseDown={onMouseDown}
+          onMouseUp={onMouseUp}
+          {...remainingProps}>
+          <div
+            className={childCls.bullet}
+            style={{
+              backgroundColor: customize.backgroundColor,
+              borderColor: customize.backgroundColor
+            }}></div>
+          <div
+            className={childCls.checkmark}
+            style={{
+              backgroundColor: customize.bulletColor
+            }}></div>
+          {children}
+        </div>
+      )
       : (
         <div
           className={cls}
@@ -100,25 +120,3 @@ export default React.createClass({
       )
   }
 })
-
-const renderDynamicallyStyledSwitch = (name, checked, children, classNames, childClassNames, onClick, onMouseDown, onMouseUp, { backgroundColor, bulletColor }, remainingProps) => (
-  <div
-    className={classNames}
-    onClick={onClick}
-    onMouseDown={onMouseDown}
-    onMouseUp={onMouseUp}
-    {...remainingProps}>
-    <div
-      className={childClassNames.bullet}
-      style={{
-        backgroundColor: backgroundColor,
-        borderColor: backgroundColor
-      }}></div>
-    <div
-      className={childClassNames.checkmark}
-      style={{
-        backgroundColor: bulletColor
-      }}></div>
-    {children}
-  </div>
-)
