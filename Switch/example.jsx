@@ -8,7 +8,7 @@ import Code from '../Code'
 export default function Switches () {
   return (
     <div>
-      <Title.Secondary margins>Regular</Title.Secondary>
+      <Title.Secondary margins>Toggle</Title.Secondary>
       <Code>
         <Switch.Toggle>This is a toggle switch</Switch.Toggle>
       </Code>
