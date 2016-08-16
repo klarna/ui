@@ -9,41 +9,44 @@ const classes = {
   bulletCheckmark: `${baseClass}__bullet__checkmark`
 }
 
-export default class Switch extends React.Component {
-  constructor (props) {
-    super(props)
+const press = (component) => () => component.setState({ pressed: true })
+const release = (component) => () => component.setState({ pressed: false })
 
-    this.state = {
-      checked: props.checked,
+export const alignments = ['left', 'right']
+
+export default React.createClass({
+  displayName: 'Switch.Checkbox',
+
+  defaultProps: {
+    error: false,
+    disabled: false,
+    align: 'left',
+    legal: false,
+    value: false
+  },
+
+  propTypes: {
+    align: PropTypes.oneOf(alignments),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    customize: PropTypes.shape({
+      backgroundColor: PropTypes.string.isRequired,
+      bulletColor: PropTypes.string.isRequired
+    }),
+    disabled: PropTypes.bool,
+    error: PropTypes.bool,
+    legal: PropTypes.bool,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    styles: PropTypes.object,
+    value: PropTypes.bool
+  },
+
+  getInitialState () {
+    return {
       pressed: false
     }
-
-    this.toggle = this.toggle.bind(this)
-    this.press = this.press.bind(this)
-    this.release = this.release.bind(this)
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (this.state.checked !== nextProps.checked) {
-      this.setState({
-        checked: nextProps.checked
-      })
-    }
-  }
-
-  toggle () {
-    const checked = !this.state.checked
-    this.props.onChange && this.props.onChange(checked)
-    this.setState({checked: checked})
-  }
-
-  press () {
-    this.setState({pressed: true})
-  }
-
-  release () {
-    this.setState({pressed: false})
-  }
+  },
 
   render () {
     const {
@@ -55,16 +58,16 @@ export default class Switch extends React.Component {
       error,
       legal,
       name,
+      onChange,
+      value,
       styles,
       ...remainingProps } = this.props
 
-    const {
-      checked,
-      pressed } = this.state
+    const { pressed } = this.state
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const cls = classNames(baseClass, 'checkbox', {
-      'is-checked': checked,
+      'is-checked': value,
       'is-pressed': pressed,
       'is-disabled': disabled,
       'is-error': error,
@@ -79,55 +82,26 @@ export default class Switch extends React.Component {
       }
       : undefined
 
-    const onClick = !disabled && this.toggle
-    const onMouseDown = !disabled && this.press
-    const onMouseUp = !disabled && this.release
+    const onClick = !disabled && onChange && (() => onChange(!value))
+    const onMouseDown = !disabled && press(this)
+    const onMouseUp = !disabled && release(this)
 
     return customize
-      ? renderDynamicallyStyledCheckbox(name, checked, children, cls, childCls, onClick, onMouseDown, onMouseUp, customize, {...remainingProps})
-      : renderSwitch(name, checked, children, cls, onClick, onMouseDown, onMouseUp, {...remainingProps})
+      ? renderDynamicallyStyledCheckbox(name, value, children, cls, childCls, onClick, onMouseDown, onMouseUp, customize, {...remainingProps})
+      : (
+        <div
+          className={cls}
+          onClick={onClick}
+          onMouseDown={onMouseDown}
+          onMouseUp={onMouseUp}
+          {...remainingProps}>
+          {children}
+          {name &&
+            <input name={name} type='hidden' value={value} />}
+        </div>
+      )
   }
-}
-
-Switch.alignments = ['left', 'right']
-
-Switch.defaultProps = {
-  checked: false,
-  error: false,
-  disabled: false,
-  align: 'left',
-  legal: false
-}
-
-Switch.propTypes = {
-  children: PropTypes.node,
-  checked: PropTypes.bool,
-  className: PropTypes.string,
-  customize: PropTypes.shape({
-    backgroundColor: PropTypes.string.isRequired,
-    bulletColor: PropTypes.string.isRequired
-  }),
-  disabled: PropTypes.bool,
-  error: PropTypes.bool,
-  legal: PropTypes.bool,
-  name: PropTypes.string,
-  align: PropTypes.oneOf(Switch.alignments),
-  onChange: PropTypes.func,
-  styles: PropTypes.object
-}
-
-const renderSwitch = (name, checked, children, classNames, onClick, onMouseDown, onMouseUp, remainingProps) => (
-  <div
-    className={classNames}
-    onClick={onClick}
-    onMouseDown={onMouseDown}
-    onMouseUp={onMouseUp}
-    {...remainingProps}>
-    {children}
-    {name &&
-      <input name={name} type='hidden' value={checked} />}
-  </div>
-)
+})
 
 const renderDynamicallyStyledCheckbox = (name, checked, children, classNames, childClassNames, onClick, onMouseDown, onMouseUp, { backgroundColor, bulletColor }, remainingProps) => (
   <div

@@ -9,6 +9,12 @@ const classes = {
   bulletCheckmark: `${baseClass}__bullet__checkmark`
 }
 
+const toggle = (component) => () => {
+  const checked = !component.state.checked
+  component.props.onChange && component.props.onChange(checked)
+  component.setState({ checked })
+}
+
 export default class Switch extends React.Component {
   constructor (props) {
     super(props)
@@ -18,7 +24,6 @@ export default class Switch extends React.Component {
       pressed: false
     }
 
-    this.toggle = this.toggle.bind(this)
     this.press = this.press.bind(this)
     this.release = this.release.bind(this)
   }
@@ -29,12 +34,6 @@ export default class Switch extends React.Component {
         checked: nextProps.checked
       })
     }
-  }
-
-  toggle () {
-    const checked = !this.state.checked
-    this.props.onChange && this.props.onChange(checked)
-    this.setState({checked: checked})
   }
 
   press () {
@@ -79,7 +78,7 @@ export default class Switch extends React.Component {
       }
       : undefined
 
-    const onClick = !disabled && this.toggle
+    const onClick = !disabled && toggle(this)
     const onMouseDown = !disabled && this.press
     const onMouseUp = !disabled && this.release
 
