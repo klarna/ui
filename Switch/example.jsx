@@ -14,7 +14,7 @@ export default function Switches () {
 
       <Subtitle margins>Checked</Subtitle>
       <Code>
-        <Switch.Toggle checked>This is a toggle switch checked</Switch.Toggle>
+        <Switch.Toggle value={true}>This is a toggle switch checked</Switch.Toggle>
       </Code>
 
       <Subtitle margins>Error</Subtitle>
@@ -35,6 +35,7 @@ export default function Switches () {
       <Subtitle margins>Dynamic styling</Subtitle>
       <Code>
         <Switch.Toggle customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with dynamic styling</Switch.Toggle>
+        <Switch.Toggle value={true} customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with dynamic styling</Switch.Toggle>
       </Code>
 
       <Title.Secondary margins>Checkbox</Title.Secondary>
