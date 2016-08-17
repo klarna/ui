@@ -1,35 +1,22 @@
-# Klarna UI React Components
+# Klarna UI Components
 
-[![Build Status](https://travis-ci.org/klarna/ui-react-components.svg)](https://travis-ci.org/klarna/ui-react-components)
-[![Code Climate](https://codeclimate.com/github/klarna/ui-react-components/badges/gpa.svg)](https://codeclimate.com/github/klarna/ui-react-components)
-[![npm version](https://img.shields.io/npm/v/@klarna/ui-react-components.svg?maxAge=2592000)](https://www.npmjs.com/package/@klarna/ui-react-components)
+[![Build Status](https://travis-ci.org/klarna/ui.svg)](https://travis-ci.org/klarna/ui)
+[![Code Climate](https://codeclimate.com/github/klarna/ui/badges/gpa.svg)](https://codeclimate.com/github/klarna/ui)
+[![npm version](https://img.shields.io/npm/v/@klarna/ui.svg?maxAge=2592000)](https://www.npmjs.com/package/@klarna/ui)
 
-This library is a [React](https://facebook.github.io/react/) wrapper on top of [ui-css-components](https://github.com/klarna/ui-css-components).
+This library contains the basic set of components used by multiple front end projects across Klarna. It exposes [React](https://facebook.github.io/react/) components as well as CSS modules.
 
 ## Install
 
 ```sh
-npm install @klarna/ui-react-components --save
+npm install @klarna/ui --save
 ```
 
-This package doesn't have a build, so you must have a Babel pipeline to use it. The minimal set of loaders is:
+This package doesn't have a build, so you must have a Babel pipeline to use it. [Read more about how to config it](https://github.com/klarna/ui/wiki/Webpack-config).
 
-```javascript
-test: /\.(jsx|es6)$/
-loader: 'babel'
+## Wiki
 
-test: /\.scss$/,
-loaders: [
-  'style',
-  'css?modules,localIdentName=[local]',
-  'sass'
-]
-
-test: /\.(jpe?g|png|gif|svg|ico|eot|woff|ttf|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
-loader: 'file' // or url
-```
-
-You can see more in the project's `webpack.config.js`.
+There are plenty of articles in our wiki. [Check it out](https://github.com/klarna/ui/wiki)
 
 ## Run locally
 
@@ -43,57 +30,6 @@ npm start
 ```
 
 Open [localhost:7777](http://localhost:7777/).
-
-## Using locally
-
-Most of the time you'll want to change things in `ui-react-components` and see how they reflect in your project. To do that without having to push and publish versions, you need to create a global symlink from `ui-react-components` and then use this symlink in your project.
-
-So first, create the global symlink by doing:
-
-```sh
-cd path/to/ui-react-components
-npm link
-```
-
-Then go to your project and:
-
-```
-npm link @klarna/ui-react-components
-UV_THREADPOOL_SIZE=100 npm start
-```
-
-This uses the global symlink of `ui-react-components` that points to our local git copy. Replace `npm start` with the command you use to start your app, if you use something different.
-
-The `UV_THREADPOOL_SIZE=100` solves a problem you may encounter with symlinks when importing Sass files [https://github.com/jtangelder/sass-loader/issues/100](https://github.com/jtangelder/sass-loader/issues/100).
-
-### Running the tests in PhantomJS locally
-
-```sh
-npm test
-```
-
-## Running the tests in different browsers
-
-### Prerequisites
-
-First install the required npm packages.
-```sh
-npm install karma-chrome-launcher
-npm install karma-firefox-launcher
-npm install karma-ie-launcher
-npm install karma-safari-launcher
-npm install karma-webdriver-launcher
-```
-
-### Run the tests on OS X
-```sh
-BROWSER=PhantomJS,Chrome,Safari,Firefox npm test
-```
-
-### Run the tests on Windows
-```sh
-BROWSER=PhantomJS,Chrome,Firefox npm test
-```
 
 ## License
 
