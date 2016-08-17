@@ -1,20 +1,14 @@
 import React from 'react'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import asString from 'react-to-jsx'
+import CodeBlock from './Block'
+import styles from './styles.scss'
 
-export default function Code ({ children, width }) {
-  const code = React.Children.map(children, (item) => {
-    return asString(item, { indent: '  ' })
-  }).join('')
-
-  return (
-    <section style={width && { width }}>
-      <article>
-        {children}
-      </article>
-      <SyntaxHighlighter language='xml' stylesheet='github-gist'>
-        {code}
-      </SyntaxHighlighter>
-    </section>
-  )
-}
+export default ({ children, width }) => (
+  <section className={styles.variation} style={width && { width }}>
+    <article className={styles.live}>
+      {children}
+    </article>
+    <CodeBlock>
+      {children}
+    </CodeBlock>
+  </section>
+)
