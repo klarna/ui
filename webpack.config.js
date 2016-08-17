@@ -19,8 +19,9 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.(jsx|es6)$/,
-        loader: 'babel'
+        test: /\.(jsx?|es6)$/,
+        loader: 'babel',
+        exclude: [/node_modules/],
       },
       {
         test: /\.scss$/,
@@ -53,15 +54,9 @@ module.exports = {
       template: 'example/index.html'
     })
   ],
-  resolveLoader: {
-    fallback: [path.join(__dirname, 'node_modules')]
-  },
   resolve: {
-    fallback: [path.join(__dirname, 'node_modules')],
-    modulesDirectories: [
-      './node_modules'
-    ],
     root: path.join(__dirname),
+    exclude: /node_modules/,
     extensions: ['', '.js', '.jsx', '.es6']
   }
 }
