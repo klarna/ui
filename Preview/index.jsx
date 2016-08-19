@@ -27,6 +27,8 @@ export function Main ({ className, children, styles, ...props }) {
   )
 }
 
+Main.displayName = 'Preview.Main'
+
 Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
@@ -43,6 +45,8 @@ export function Content ({ children, className, styles, ...props }) {
   )
 }
 
+Content.displayName = 'Preview.Content'
+
 Content.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
@@ -58,6 +62,8 @@ export function Title ({ children, className, styles, ...props }) {
     </h2>
   )
 }
+
+Title.displayName = 'Preview.Title'
 
 Title.propTypes = {
   className: PropTypes.string,
@@ -76,6 +82,8 @@ export function Link ({ children, className, styles, ...props }) {
     </div>
   )
 }
+
+Link.displayName = 'Preview.Link'
 
 Link.propTypes = {
   className: PropTypes.string,
