@@ -4,32 +4,56 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { Title } from '../Text'
-import Link from '../Link'
 import * as examples from './examples'
+import * as icons from './icons'
+
 import styles from './index.scss'
+import K from './K'
+
+const getCurrentExample = () => {
+  const anchor = window.location.hash.substring(1)
+  return anchor && examples[anchor] || Object.values(examples)[0]
+}
+
+const getCurrentIcon = () => {
+  const anchor = window.location.hash.substring(1)
+  return anchor && icons[anchor] || Object.values(icons)[0]
+}
+
+const selected = (path) => ({selected: getCurrentExample().name === path})
 
 function Root () {
-  const anchor = window.location.hash.substring(1)
-  const Example = anchor && examples[anchor] || Object.values(examples)[0]
-
+  const Example = getCurrentExample()
+  const Icon = getCurrentIcon()
   return (
     <main>
-      <aside>
+      <aside className={styles.sidebar}>
         <nav>
+          <K className={styles.k}/>
+          <a href='#/' className={classNames(styles.menuTitle, selected('/'))} >
+            Getting started
+          </a>
+          <a href='#/components' className={classNames(styles.menuTitle, selected('/components'))} >
+            Components
+          </a>
+
           {
             Object.values(examples).map(({ name }) => (
-              <Link
+              <a
                 href={`#${name}`}
-                className={classNames({selected: Example.name === name})}
+                className={classNames(styles.menuItem, selected(name))}
                 key={name}>
                 {name}
-              </Link>
+              </a>
             ))
           }
         </nav>
       </aside>
       <div className={styles.example}>
-        <Title.Primary margins>{Example.name}</Title.Primary>
+        <header>
+          <Icon />
+          <Title.Primary margins>{Example.name}</Title.Primary>
+        </header>
         <Example />
       </div>
     </main>
