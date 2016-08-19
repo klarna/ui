@@ -104,9 +104,7 @@ export default React.createClass({
           <svg
             width='14px'
             height='14px'
-            viewBox='0 0 14 14'
-            version='1.1'
-            xmlns='http://www.w3.org/2000/svg'>
+            viewBox='0 0 14 14'>
             <g fill='none' fill-rule='evenodd'>
               <rect x='0' y='0' width='14' height='14' rx='2'></rect>
               <path d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'

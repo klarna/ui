@@ -24,6 +24,8 @@ export const Back = ({ className, color, styles, ...props }) => {
       strokeLinecap='round'
       strokeWidth='2'
       viewBox='0 0 25 25'
+      height='20px'
+      width='20px'
       {...props}>
       <path
         className={classNames(classes.stroke)}
@@ -42,6 +44,8 @@ export const Close = ({ className, color, styles, ...props }) => {
       strokeLinecap='round'
       strokeWidth='2'
       viewBox='0 0 25 25'
+      height='20px'
+      width='20px'
       {...props}>
       <line x1='6' x2='19' y1='6' y2='19'
         className={classNames(classes.stroke)} />
@@ -60,6 +64,8 @@ export const Hamburger = ({ className, color, styles, ...props }) => {
       viewBox='0 0 25 25'
       strokeLinecap='round'
       strokeWidth='2'
+      height='20px'
+      width='20px'
       {...props}>
       {[8, 13, 18].map((y) =>
         <line
@@ -78,6 +84,8 @@ export const Options = ({ className, color, styles, ...props }) => {
     <svg
       className={classNames(baseClass, 'button', color, className)}
       viewBox='0 0 25 25'
+      height='20px'
+      width='20px'
       {...props}>
       {[7, 13, 19].map((y) =>
         <circle
@@ -98,6 +106,8 @@ export const Search = ({ className, color, styles, ...props }) => {
       viewBox='0 0 25 25'
       strokeWidth='2'
       strokeLinecap='round'
+      height='20px'
+      width='20px'
       {...props}>
       <circle
         className={classNames(classes.stroke)}

@@ -11,6 +11,8 @@ export default function Password ({ color, styles, className, ...props }) {
       className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 100 100'
       strokeWidth='5'
+      height='20px'
+      width='20px'
       {...props}>
       <g className={classNames('illustration__stroke')}>
         <rect x='20' y='35' width='60' height='45' rx='6' />

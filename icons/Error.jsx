@@ -12,6 +12,8 @@ export default function Error ({ color, styles, className, ...props }) {
       className={classNames('illustration', 'big', color, className)}
       strokeWidth='2'
       viewBox='0 0 100 100'
+      height='100px'
+      width='100px'
       {...props}>
       <g className={classNames('illustration__stroke')}>
         <Circle />

@@ -10,6 +10,8 @@ export default function OpenLetter ({ color, styles, className, ...props }) {
     <svg
       className={classNames('illustration', 'big', color, className)}
       viewBox='0 0 100 100'
+      height='100px'
+      width='100px'
       {...props}>
       <g
         className={classNames('illustration__fill')}
