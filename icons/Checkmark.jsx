@@ -12,6 +12,8 @@ export default function Checkmark ({ color, styles, className, ...props }) {
       strokeWidth='2'
       className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 25 25'
+      height='20px'
+      width='20px'
       {...props}>
       <path
         d='M5 13.69l4.49 4.23L19.37 8'

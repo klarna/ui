@@ -10,6 +10,8 @@ export default function AccountActivated ({ color, styles, className, ...props }
     <svg
       className={classNames('illustration', 'big', color, className)}
       viewBox='0 0 100 100'
+      height='100px'
+      width='100px'
       {...props}>
       <g transform='translate(28, 14)'>
         <path

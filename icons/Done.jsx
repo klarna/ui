@@ -13,6 +13,8 @@ export default function Done ({ color, styles, className, ...props }) {
       strokeWidth='2'
       strokeLinecap='round'
       viewBox='0 0 100 100'
+      height='100px'
+      width='100px'
       {...props}>
       <g className={classNames('illustration__stroke')}>
         <Circle />

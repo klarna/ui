@@ -10,6 +10,8 @@ export default function Question ({ color, styles, className, ...props }) {
     <svg
       className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 21 21'
+      height='20px'
+      width='20px'
       {...props}>
       <circle
         className={classNames('illustration__stroke')}

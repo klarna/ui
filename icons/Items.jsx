@@ -11,6 +11,8 @@ export default function Items ({ color, styles, className, ...props }) {
       className={classNames('illustration', 'tiny', color, className)}
       strokeLinecap='round'
       viewBox='0 0 22 22'
+      height='20px'
+      width='20px'
       {...props}>
       {[6.5, 11.5, 16.5].map((y) => (
         <g

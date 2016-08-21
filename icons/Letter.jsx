@@ -11,6 +11,8 @@ export default function Letter ({ color, styles, className, ...props }) {
       className={classNames('illustration', 'big', color, className)}
       viewBox='0 0 100 100'
       strokeWidth='2'
+      height='100px'
+      width='100px'
       {...props}>
       <g className={classNames('illustration__stroke')}>
         <rect x='20' y='36' width='60' height='40' rx='4' ry='4' />

@@ -38,7 +38,9 @@ export function Item ({ className, children, styles }) {
       <svg
         className={classNames(classes.checkmark)}
         viewBox='0 0 25 25'
-        aria-labelledby='Checkmark'>
+        aria-labelledby='Checkmark'
+        height='20px'
+        width='20px'>
         <path d='M5 13.69l4.49 4.23L19.37 8'></path>
       </svg>
       {children}
