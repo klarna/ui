@@ -6,11 +6,16 @@ export default function ProgressBars () {
   return (
     <div>
       <Code>
-        <div>
-          <ProgressBar percentage={50} fillColor={"error"}/>
-
-          <ProgressBar percentage={33}/>
-        </div>
+        <ProgressBar percentage={50}/>
+      </Code>
+      <Code>
+        <ProgressBar percentage={33} fillColor={"blue"}/>
+      </Code>
+      <Code>
+        <ProgressBar percentage={80} borderColor={'light-blue'} fillColor={"gray"}/>
+      </Code>
+      <Code>
+        <ProgressBar percentage={50} style={{height: '20px', width: '70%'}}/>
       </Code>
     </div>
   )
