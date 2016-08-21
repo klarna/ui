@@ -1,0 +1,66 @@
+@mixin progressbar() {
+  border: 0.5px solid;
+  border-radius: $border-radius * 5;
+  height: 10px;
+  
+  &.blue {
+    border-color: map-get($colors, klarna-blue);
+  }
+
+  &.gray {
+    border-color: map-get($colors, grey-lines);
+  }
+
+  &.error {
+    border-color: map-get($colors, error);
+  }
+
+  &.success {
+    border-color: map-get($colors, green);
+  }
+
+  &.warning {
+    border-color: map-get($colors, non-standard-orange);
+  }
+
+  &.black {
+    border-color: map-get($colors, black);
+  }
+
+  &.inverse {
+    border-color: map-get($colors, white);
+  }
+}
+
+@mixin progressbar-fill() {
+    border-radius: $border-radius * 5;
+    height: 100%;
+
+    &.blue {
+      background-color: map-get($colors, klarna-blue);
+    }
+
+    &.gray {
+      background-color: map-get($colors, grey-lines);
+    }
+
+    &.error {
+      background-color: map-get($colors, error);
+    }
+
+    &.success {
+      background-color: map-get($colors, green);
+    }
+
+    &.warning {
+      background-color: map-get($colors, non-standard-orange);
+    }
+
+    &.black {
+      background-color: map-get($colors, black);
+    }
+
+    &.inverse {
+      background-color: map-get($colors, white);
+    } 
+}
