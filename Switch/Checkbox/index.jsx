@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
-const baseClass = 'switch'
+const baseClass = 'switch--checkbox'
 
 const classes = {
   bullet: `${baseClass}__bullet`,
@@ -75,55 +75,40 @@ export default React.createClass({
       'dynamic-styling': customize,
       legal
     }, className)
-    const childCls = customize
-      ? {
-        bullet: classNames(classes.bullet),
-        checkmark: classNames(classes.bulletCheckmark)
-      }
-      : undefined
 
     const onClick = !disabled && onChange && (() => onChange(!value))
     const onMouseDown = !disabled && press(this)
     const onMouseUp = !disabled && release(this)
 
-    return customize
-      ? (<div
-        className={cls}
-        onClick={onClick}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        {...remainingProps}>
-        <div
-          className={childCls.bullet}
-          style={{
-            backgroundColor: customize.backgroundColor,
-            borderColor: customize.backgroundColor
-          }}></div>
-        <div
-          className={childCls.checkmark}>
-          <svg
-            width='14px'
-            height='14px'
-            viewBox='0 0 14 14'>
-            <g fill='none'>
-              <rect x='0' y='0' width='14' height='14' rx='2'></rect>
-              <path d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
-                stroke={customize.bulletColor}></path>
-            </g>
-          </svg>
-        </div>
-        {children}
-      </div>)
-      : (<div
-        className={cls}
-        onClick={onClick}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        {...remainingProps}>
-        {children}
-        {name &&
-          <input name={name} type='hidden' value={value} />}
-      </div>)
+    return (<div
+      className={cls}
+      onClick={onClick}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      {...remainingProps}>
+      <div
+        className={classNames(classes.bullet)}
+        style={customize ? {
+          backgroundColor: customize.backgroundColor,
+          borderColor: customize.backgroundColor
+        } : undefined}></div>
+      <div
+        className={classNames(classes.bulletCheckmark)}>
+        <svg
+          width='14px'
+          height='14px'
+          viewBox='0 0 14 14'>
+          <g fill='none'>
+            <rect x='0' y='0' width='14' height='14' rx='2'></rect>
+            <path
+              d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
+              stroke={customize ? customize.bulletColor : undefined}
+            />
+          </g>
+        </svg>
+      </div>
+      {children}
+    </div>)
   }
 })
 

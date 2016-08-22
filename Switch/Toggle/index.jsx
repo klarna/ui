@@ -17,12 +17,14 @@ export const alignments = ['left', 'right']
 export default React.createClass({
   displayName: 'Switch.Toggle',
 
-  defaultProps: {
-    error: false,
-    disabled: false,
-    align: 'left',
-    legal: false,
-    value: false
+  getDefaultProps () {
+    return {
+      error: false,
+      disabled: false,
+      align: 'left',
+      legal: false,
+      value: false
+    }
   },
 
   propTypes: {
@@ -70,49 +72,31 @@ export default React.createClass({
       'is-disabled': disabled,
       'is-error': error,
       'right': align === 'right',
-      'dynamic-styling': customize,
       legal
     }, className)
-    const childCls = customize
-      ? {
-        bullet: classNames(classes.bullet),
-        checkmark: classNames(classes.bulletCheckmark)
-      }
-      : undefined
 
     const onClick = !disabled && onChange && (() => onChange(!value))
     const onMouseDown = !disabled && press(this)
     const onMouseUp = !disabled && release(this)
 
-    return customize
-      ? (<div
-        className={cls}
-        onClick={onClick}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        {...remainingProps}>
-        <div
-          className={childCls.bullet}
-          style={{
-            backgroundColor: customize.backgroundColor,
-            borderColor: customize.backgroundColor
-          }}></div>
-        <div
-          className={childCls.checkmark}
-          style={{
-            backgroundColor: customize.bulletColor
-          }}></div>
-        {children}
-      </div>)
-      : (<div
-        className={cls}
-        onClick={onClick}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        {...remainingProps}>
-        {children}
-        {name &&
-          <input name={name} type='hidden' value={value} />}
-      </div>)
+    return (<div
+      className={cls}
+      onClick={onClick}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      {...remainingProps}>
+      <div
+        className={classNames(classes.bullet)}
+        style={customize && value ? {
+          backgroundColor: customize.backgroundColor,
+          borderColor: customize.backgroundColor
+        } : undefined}></div>
+      <div
+        className={classNames(classes.bulletCheckmark)}
+        style={customize ? {
+          backgroundColor: customize.bulletColor
+        } : undefined}></div>
+      {children}
+    </div>)
   }
 })
