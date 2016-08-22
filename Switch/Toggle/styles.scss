@@ -3,6 +3,10 @@
 
 .switch {
   position: relative;
+
+  &.is-disabled {
+    opacity: .2;
+  }
 }
 
 .switch__label {
@@ -27,6 +31,10 @@
   .is-focused & {
     color: map-get($colors, klarna-blue);
   }
+
+  .right & {
+    padding-left: 0;
+  }
 }
 
 .switch__input {
@@ -50,6 +58,11 @@
   .is-checked & {
     background: map-get($colors, klarna-blue);
     border-color: map-get($colors, klarna-blue);
+  }
+
+  .right & {
+    left: auto;
+    right: 0;
   }
 }
 
@@ -77,54 +90,24 @@
     left: ($grid * 2.2);
     width: ($grid * 5);
   }
-//         .right & {
-//             left: auto;
-//             right: ($grid * 6.2);
-//         }
+
+  .right & {
+    left: auto;
+    right: ($grid * 3.2);
+  }
+
+  .right.is-pressed & {
+    left: auto;
+    right: ($grid * 2.2);
+  }
+
+  .right.is-checked & {
+    left: auto;
+    right: ($grid * .2);
+  }
+
+  .right.is-pressed.is-checked & {
+    left: auto;
+    right: ($grid * .2);
+  }
 }
-
-
-//
-// &.right {
-//     padding-left: 0;
-//     padding-right: ($grid * 10);
-// }
-//
-// &.is-pressed {
-//     .switch__bullet__checkmark {
-//         width: ($grid * 5);
-//
-//         .right & {
-//             left: auto;
-//             right: ($grid * 6.2);
-//         }
-//     }
-// }
-//
-//
-// &.is-checked {
-//     .switch__bullet__checkmark {
-//         left: ($grid * 3.2);
-//
-//         .right & {
-//             left: auto;
-//             right: ($grid * 4.2);
-//         }
-//     }
-//
-//     .switch__bullet {
-//         background: map-get($colors, klarna-blue);
-//         border-color: map-get($colors, klarna-blue);
-//     }
-//
-//     &.is-pressed {
-//         .switch__bullet__checkmark {
-//             left: ($grid * 2.2);
-//
-//             .right & {
-//                 left: auto;
-//                 right: ($grid * 4.2);
-//             }
-//         }
-//     }
-// }

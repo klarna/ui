@@ -20,6 +20,12 @@ export default function Switches () {
         <UncontrolledSwitch.Toggle value name='toggle-switch-uncontrolled'>
           This is an uncontrolled toggle switch checked
         </UncontrolledSwitch.Toggle>
+
+        <UncontrolledSwitch.Toggle
+          align='right'
+          name='toggle-switch-uncontrolled-right'>
+          This is an uncontrolled toggle switch on the right
+        </UncontrolledSwitch.Toggle>
       </Code>
 
       <Subtitle margins>Checked</Subtitle>
@@ -43,17 +49,14 @@ export default function Switches () {
         </Switch.Toggle>
       </Code>
 
-      <Subtitle margins>Right</Subtitle>
-      <Code>
-        <Switch.Toggle align='right' name='toggle-switch-right'>
-          This is a toggle switch on the right side
-        </Switch.Toggle>
-      </Code>
-
       <Subtitle margins>Disabled</Subtitle>
       <Code>
         <Switch.Toggle disabled name='toggle-switch-disabled'>
           This is a toggle switch disabled
+        </Switch.Toggle>
+
+        <Switch.Toggle disabled value name='toggle-switch-disabled-checked'>
+          This is a toggle switch checked and disabled
         </Switch.Toggle>
       </Code>
 
@@ -85,6 +88,16 @@ export default function Switches () {
             bulletColor: '#F9FF3C'
           }}>
           This is an uncontrolled toggle switch with dynamic styling
+        </UncontrolledSwitch.Toggle>
+
+        <UncontrolledSwitch.Toggle
+          align='right'
+          name='toggle-switch-dynamic-uncontrolled-right'
+          customize={{
+            backgroundColor: '#3500C8',
+            bulletColor: '#F9FF3C'
+          }}>
+          This is an uncontrolled toggle switch with dynamic styling on the right
         </UncontrolledSwitch.Toggle>
       </Code>
 {/*
