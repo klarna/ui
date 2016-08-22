@@ -17,7 +17,11 @@
     }
 
     &__input {
-        display: none;
+        display: block;
+        height: 0;
+        opacity: 0;
+        position: absolute;
+        width: 0;
     }
 
     &__button {
@@ -50,7 +54,8 @@
             }
         }
 
-        &:hover {
+        &:hover,
+        &.is-focused {
             color: map-get($colors, klarna-blue);
 
             .white & {

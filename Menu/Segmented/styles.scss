@@ -5,7 +5,11 @@
     overflow: auto;
 
     .segmented__input {
-        display: none;
+        display: block;
+        height: 0;
+        opacity: 0;
+        position: absolute;
+        width: 0;
     }
 
     .segmented__button {
@@ -28,7 +32,8 @@
         vertical-align: top;
     }
 
-    .segmented__button:hover {
+    .segmented__button:hover,
+    .segmented__button.is-focused {
         color: map-get($colors, klarna-blue);
     }
 

@@ -106,6 +106,7 @@ export default function Menus () {
           onChange={(key) => console.log('You selected', key)}
           tabDisplay='static'
           name='segmented-static'
+          focus='faq'
           value='home'
           options={options} />
       </Code>
@@ -114,6 +115,7 @@ export default function Menus () {
       <Code>
         <UncontrolledMenu.Segmented
           name='uncontrolled-segmented'
+          focus='faq'
           value='home'
           options={options} />
       </Code>

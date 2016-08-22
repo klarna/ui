@@ -83,7 +83,7 @@ export default React.createClass({
             id={id}
             onBlur={onBlur}
             onChange={onChange && (() => onChange(key))}
-            onFocus={(e) => onFocus(key, e)}
+            onFocus={(e) => onFocus && onFocus(key, e)}
             checked={key === selected} />),
           (<label
             key={`label-${id}`}
