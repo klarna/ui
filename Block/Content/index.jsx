@@ -4,10 +4,10 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'block--content'
 
-export default function Content ({ children }) {
+export default function Content ({ children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return (<div className={classNames(baseClass)}>
+  return (<div className={classNames(baseClass)} {...props}>
     {children}
   </div>)
 }
