@@ -39,7 +39,7 @@ export default React.createClass({
     onFocus: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.string.isRequired,
-      value: PropTypes.any.isRequired
+      key: PropTypes.any.isRequired
     })),
     styles: PropTypes.object,
     value: PropTypes.any,
@@ -89,7 +89,7 @@ export default React.createClass({
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const selectedOption = options &&
-      options.find((option) => String(option.value) === String(value))
+      options.find((option) => String(option.key) === String(value))
 
     const cls = classNames(
       baseClass,
@@ -132,7 +132,7 @@ export default React.createClass({
           value={value || ''}
           {...props}>
           {options && options.map((attributes) => (
-            <option key={attributes.value} {...attributes}>
+            <option key={attributes.key} value={attributes.key} {...attributes}>
               {attributes.label}
             </option>
           ))}
