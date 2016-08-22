@@ -6,7 +6,8 @@ const baseClass = 'switch--checkbox'
 
 const classes = {
   bullet: `${baseClass}__bullet`,
-  bulletCheckmark: `${baseClass}__bullet__checkmark`
+  bulletCheckmark: `${baseClass}__bullet__checkmark`,
+  bulletCheckmarkStroke: `${baseClass}__bullet__checkmark__stroke`
 }
 
 const press = (component) => () => component.setState({ pressed: true })
@@ -88,7 +89,7 @@ export default React.createClass({
       {...remainingProps}>
       <div
         className={classNames(classes.bullet)}
-        style={customize ? {
+        style={customize && value ? {
           backgroundColor: customize.backgroundColor,
           borderColor: customize.backgroundColor
         } : undefined}></div>
@@ -101,6 +102,7 @@ export default React.createClass({
           <g fill='none'>
             <rect x='0' y='0' width='14' height='14' rx='2'></rect>
             <path
+              className={classNames(classes.bulletCheckmarkStroke)}
               d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
               stroke={customize ? customize.bulletColor : undefined}
             />

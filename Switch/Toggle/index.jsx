@@ -6,7 +6,9 @@ const baseClass = 'switch'
 
 const classes = {
   bullet: `${baseClass}__bullet`,
-  bulletCheckmark: `${baseClass}__bullet__checkmark`
+  bulletCheckmark: `${baseClass}__bullet__checkmark`,
+  label: `${baseClass}__label`,
+  input: `${baseClass}__input`
 }
 
 const press = (component) => () => component.setState({ pressed: true })
@@ -37,11 +39,25 @@ export default React.createClass({
     disabled: PropTypes.bool,
     error: PropTypes.bool,
     legal: PropTypes.bool,
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
     align: PropTypes.oneOf(alignments),
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
+    onFocus: PropTypes.func,
     styles: PropTypes.object,
     value: PropTypes.bool
+  },
+
+  componentDidMount () {
+    if (this.props.focus) {
+      this.refs.input.focus()
+    }
+  },
+
+  componentDidUpdate () {
+    if (this.props.focus) {
+      this.refs.input.focus()
+    }
   },
 
   getInitialState () {
@@ -56,18 +72,23 @@ export default React.createClass({
       customize,
       disabled,
       error,
+      focus,
       legal,
       name,
+      onBlur,
       onChange,
+      onFocus,
       styles,
       value,
-      ...remainingProps } = this.props
+      ...remainingProps
+    } = this.props
 
     const { pressed } = this.state
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const cls = classNames(baseClass, {
       'is-checked': value,
+      'is-focused': focus,
       'is-pressed': pressed,
       'is-disabled': disabled,
       'is-error': error,
@@ -75,28 +96,41 @@ export default React.createClass({
       legal
     }, className)
 
-    const onClick = !disabled && onChange && (() => onChange(!value))
     const onMouseDown = !disabled && press(this)
     const onMouseUp = !disabled && release(this)
 
     return (<div
       className={cls}
-      onClick={onClick}
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       {...remainingProps}>
-      <div
+      <input
+        className={classNames(classes.input)}
+        id={name}
+        name={name}
+        type='checkbox'
+        checked={value}
+        onBlur={onBlur}
+        onChange={() => !disabled && onChange && onChange(!value)}
+        onFocus={onFocus}
+        ref='input'
+      />
+      <label
+        className={classNames(classes.label)}
+        htmlFor={name}>
+        <div
         className={classNames(classes.bullet)}
         style={customize && value ? {
           backgroundColor: customize.backgroundColor,
           borderColor: customize.backgroundColor
         } : undefined}></div>
-      <div
+        <div
         className={classNames(classes.bulletCheckmark)}
         style={customize ? {
           backgroundColor: customize.bulletColor
         } : undefined}></div>
-      {children}
+        {children}
+      </label>
     </div>)
   }
 })

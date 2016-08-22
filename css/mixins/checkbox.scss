@@ -3,80 +3,45 @@
     padding-right: $padding;
     position: relative;
 
-    &::before {
-        background: white;
-        border: $grid * .2 solid $border-color;
-        border-radius: $border-radius-checkbox;
-        box-sizing: border-box;
-        content: '';
-        display: block;
-        height: $grid * 2.8;
-        left: $padding - ($grid * 2);
-        position: absolute;
-        top: $top;
-        transform: translateY(0);
-        -ms-transform: translateY(0);
-        -webkit-transition: all .2s ease;
-        transition: all .2s ease;
-        width: ($grid * 2.8);
-    }
-
-    &::after {
-        @include opacity(0);
-
-        background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTRweCIgaGVpZ2h0PSIxNHB4IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03MjAsIC0xNTA4KSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzAwLCAxNDU3KSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwgMzMpIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMCwgMTQpIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLCA0KSI+PGc+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMiI+PC9yZWN0PjxwYXRoIGQ9Ik0zLjgsNi42NzU4MzM2MSBMNi40MDQ4NDQ4Myw5LjU5ODI4MjQgTDEwLjcyNzk1MTcsNC4yIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9zdmc+');
-        content: '';
-        display: block;
-        height: ($grid * 2.8);
-        left: $padding - ($grid * 2);
-        position: absolute;
-        top: ($grid * 6);
-        transform: translateY(0);
-        -ms-transform: translateY(0);
-        -webkit-transition: all .2s ease;
-        transition: all .2s ease;
-        width: ($grid * 2.8);
-    }
-
-    &:hover {
-        &::before {
+    &:hover:not(.dynamic-styling) {
+        .switch--checkbox__bullet {
             border-color: map-get($colors, blue-hover);
         }
 
         .is-disabled &,
         &.is-disabled {
-            &::before {
+            .switch--checkbox__bullet {
                 border-color: $border-color;
             }
         }
     }
 
     &.is-pressed {
-        &::after {
+        .switch--checkbox__bullet__checkmark {
             left: $padding - ($grid * 2);
             width: ($grid * 2.8);
         }
     }
 
     &.is-checked {
-        &::before {
+        .switch--checkbox__bullet {
             background: map-get($colors, klarna-blue);
             border-color: map-get($colors, klarna-blue);
         }
 
-        &::after {
+        .switch--checkbox__bullet__checkmark {
             @include opacity(1);
 
             top: $top;
         }
 
         &.is-disabled {
-            &::before {
+            .switch--checkbox__bullet {
                 background: map-get($colors, grey-lines);
                 border-color: map-get($colors, grey-lines);
             }
 
-            &::after {
+            .switch--checkbox__bullet__checkmark {
                 @include opacity(1);
 
                 top: $top;
@@ -84,72 +49,51 @@
         }
     }
 
-    &.dynamic-styling {
-        &:before {
-            opacity: 1;
-        }
+    .switch--checkbox__bullet__checkmark__stroke {
+      stroke: map-get($colors, white);
+    }
 
-        &:after {
-            opacity: 0;
-        }
-        &:hover {
-            &::before {
-                border-color: $border-color;
-            }
-        }
+    .switch--checkbox__bullet {
+        -webkit-transition: all .2s ease;
+        background: white;
+        border: $grid * .2 solid $border-color;
+        border-radius: $border-radius-checkbox;
+        box-sizing: border-box;
+        display: block;
+        height: $grid * 2.8;
+        left: $padding - ($grid * 2);
+        position: absolute;
+        top: $top;
+        transform: translateY(0);
+        -ms-transform: translateY(0);
+        transition: all .2s ease;
+        width: ($grid * 2.8);
 
-        .switch__bullet {
-            -webkit-transition: all .2s ease;
-            background: white;
-            border: $grid * .2 solid $border-color;
-            border-radius: $border-radius-checkbox;
-            box-sizing: border-box;
-            content: '';
-            display: block;
-            height: $grid * 2.8;
-            left: $padding - ($grid * 2);
-            position: absolute;
-            top: $top;
-            transform: translateY(0);
-            -ms-transform: translateY(0);
-            transition: all .2s ease;
-            width: ($grid * 2.8);
+        .switch--checkbox:hover & {
+            border-color: map-get($colors, klarna-blue);
         }
+    }
 
-        .switch__bullet__checkmark {
-            background: none;
+    .switch--checkbox__bullet__checkmark {
+        background: none;
+        border: 0;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: $top + ($grid * 4);
+    }
+
+    &.is-pressed.is-checked {
+        .switch--checkbox__bullet__checkmark {
             left: 0;
-            opacity: 0;
-            position: absolute;
-            top: $top + ($grid * 4);
         }
+    }
 
-        &.is-pressed {
-            .switch__bullet__checkmark {
-                left: 0;
-            }
-        }
-
-        &.is-checked {
-            .switch__bullet__checkmark {
-                @include opacity(1);
-                left: 0;
-                top: $top + ($grid * 1.8);
-            }
-        }
-
-        &.switch--multiple__option {
-            .switch__bullet__checkmark {
-                left: ($grid * 4);
-                top: $top + ($grid * 4);
-            }
-
-            &.is-checked {
-                .switch__bullet__checkmark {
-                    left: ($grid * 4);
-                    top: $top + ($grid * 1.4);
-                }
-            }
+    &.is-checked {
+        .switch--checkbox__bullet__checkmark {
+            left: 0;
+            opacity: 1;
+            top: $top + ($grid * 1.8);
         }
     }
 }
