@@ -7,7 +7,7 @@ import Link from '../Link'
 export default function Texts () {
   return (
     <div>
-      <Title.Secondary small color='blue' margins>Primary Title</Title.Secondary>
+      <Title.Secondary color='blue' margins>Primary Title</Title.Secondary>
       <Code>
         <Title.Primary>Primary Title</Title.Primary>
         <Title.Primary color='blue'>Primary Title in blue</Title.Primary>
@@ -19,7 +19,7 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <Title.Secondary small color='blue' margins>Secondary Title</Title.Secondary>
+      <Title.Secondary color='blue' margins>Secondary Title</Title.Secondary>
       <Code>
         <Title.Secondary>Secondary Title</Title.Secondary>
         <Title.Secondary color='blue'>Secondary Title in blue</Title.Secondary>
@@ -30,7 +30,7 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <Title.Secondary small color='blue' margins>Subtitle</Title.Secondary>
+      <Title.Secondary color='blue' margins>Subtitle</Title.Secondary>
       <Code>
         <Subtitle>Subtitle</Subtitle>
         <Subtitle color='blue'>Subtitle in blue</Subtitle>
@@ -41,7 +41,7 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <Title.Secondary small color='blue' margins>Paragraphs</Title.Secondary>
+      <Title.Secondary color='blue' margins>Paragraphs</Title.Secondary>
       <Code>
         <Paragraph.Primary>
           Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph
@@ -75,13 +75,13 @@ export default function Texts () {
         </Block>
       </Code>
 
-      <Title.Secondary small color='blue' margins>Text Label</Title.Secondary>
+      <Title.Secondary color='blue' margins>Text Label</Title.Secondary>
       <Code>
         <TextLabel>Klarna ID</TextLabel>
         <TextLabel margins>Klarna ID with default margins</TextLabel>
       </Code>
 
-      <Title.Secondary small color='blue' margins>Link</Title.Secondary>
+      <Title.Secondary color='blue' margins>Link</Title.Secondary>
       <Code>
         <Subtitle>
           Some subtitle with <Link onClick={window.alert} href='#'>a link.</Link>
@@ -103,7 +103,7 @@ export default function Texts () {
 
       </Code>
 
-      <Title.Secondary small color='blue' margins>Amount</Title.Secondary>
+      <Title.Secondary color='blue' margins>Amount</Title.Secondary>
       <Code>
         <Amount>1500€</Amount>
         <Amount>$1500</Amount>

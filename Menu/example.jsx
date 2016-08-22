@@ -19,7 +19,7 @@ const optionsWithComponents = [
 export default function Menus () {
   return (
     <div>
-      <Title.Secondary margins small color='blue'>Tabs</Title.Secondary>
+      <Title.Secondary margins color='blue'>Tabs</Title.Secondary>
       <Subtitle margins>Fluid</Subtitle>
       <Paragraph.Primary margins>
         Click and check your console.
@@ -84,7 +84,7 @@ export default function Menus () {
           options={options} />
       </Code>
 
-      <Title.Secondary margins small color='blue'>Segmented</Title.Secondary>
+      <Title.Secondary margins color='blue'>Segmented</Title.Secondary>
       <Subtitle margins>Fluid</Subtitle>
       <Paragraph.Primary margins>
         Click and check your console.

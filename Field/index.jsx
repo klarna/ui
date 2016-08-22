@@ -4,7 +4,7 @@ import defaultStyles from './styles.scss'
 import * as programmaticFocus from '../lib/features/programmaticFocus'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
-import { position, size } from '../lib/features/stacking'
+import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 
 const baseClass = 'field'
@@ -23,17 +23,19 @@ const classes = {
 export default React.createClass({
   displayName: 'Field',
 
-  defaultProps: {
-    big: false,
-    centered: false,
-    loading: false,
-    onChange: function () {},
-    responsive: true,
-    ...inlinedIcon.defaultProps,
-    ...fieldStates.defaultProps,
-    ...position.defaultProps,
-    ...handleKeyDown.defaultProps,
-    ...size.defaultProps
+  getDefaultProps () {
+    return {
+      big: false,
+      centered: false,
+      loading: false,
+      onChange: function () {},
+      responsive: true,
+      ...inlinedIcon.defaultProps,
+      ...fieldStates.defaultProps,
+      ...stacking.position.defaultProps,
+      ...handleKeyDown.defaultProps,
+      ...stacking.size.defaultProps
+    }
   },
 
   propTypes: {
@@ -55,9 +57,9 @@ export default React.createClass({
     ...inlinedIcon.propTypes,
     ...fieldStates.propTypes,
     ...handleKeyDown.propTypes,
-    ...position.propTypes,
+    ...stacking.position.propTypes,
     ...programmaticFocus.propTypes,
-    ...size.propTypes
+    ...stacking.size.propTypes
   },
 
   getInitialState () {
@@ -91,6 +93,8 @@ export default React.createClass({
   render () {
     const {
       big,
+      bottom, // eslint-disable-line no-unused-vars
+      center, // eslint-disable-line no-unused-vars
       className,
       centered,
       customize,
@@ -99,15 +103,21 @@ export default React.createClass({
       icon,
       focus,
       label,
+      left, // eslint-disable-line no-unused-vars
       loading,
       onBlur,
       onChange,
       onClick,
+      onEnter, // eslint-disable-line no-unused-vars
       onFocus,
+      onTab, // eslint-disable-line no-unused-vars
       responsive,
+      right, // eslint-disable-line no-unused-vars
       square,
       value,
+      size, // eslint-disable-line no-unused-vars
       styles,
+      top, // eslint-disable-line no-unused-vars
       warning,
       ...props
     } = this.props
@@ -124,8 +134,8 @@ export default React.createClass({
       },
       fieldStates.getClassName(this.props),
       programmaticFocus.getClassName(this.props),
-      size.getClassName(this.props),
-      position.getClassName(this.props),
+      stacking.size.getClassName(this.props),
+      stacking.position.getClassName(this.props),
       className
     )
 

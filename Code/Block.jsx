@@ -4,9 +4,9 @@ import asString from 'react-to-jsx'
 import solarized from './highlight'
 
 export default function CodeBlock ({ children }) {
-  const code = React.Children.map(children, (item) => {
-    return asString(item, { indent: '  ' })
-  }).join('')
+  const code = React.Children.map(children,
+    (item) => asString(item, { indent: '  ' })
+  ).join('')
 
   return (
     <SyntaxHighlighter language='xml' style={solarized}>

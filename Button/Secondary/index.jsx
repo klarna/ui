@@ -14,6 +14,8 @@ const classes = {
   labelAlt: `${baseClass}__label--alt`
 }
 
+export const sizes = ['small', 'big']
+
 export default function Secondary (props) {
   const {
     children,
@@ -84,8 +86,6 @@ Secondary.defaultProps = {
   disabled: false
 }
 
-Secondary.sizes = ['small', 'big']
-
 Secondary.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
@@ -93,7 +93,7 @@ Secondary.propTypes = {
     textColor: PropTypes.string.isRequired,
     backgroundColor: PropTypes.string.isRequired
   }),
-  size: PropTypes.oneOf(Secondary.sizes),
+  size: PropTypes.oneOf(sizes),
   loading: PropTypes.bool,
   success: PropTypes.bool,
   disabled: PropTypes.bool,

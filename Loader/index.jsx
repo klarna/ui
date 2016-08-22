@@ -45,7 +45,7 @@ export default function Loader ({ className, color, inline, size, styles }) {
     <svg
       width={_size}
       height={_size}
-      className={classNames(baseClass, className, {inline})}
+      className={classNames(baseClass, {inline}, className)}
       viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}>
       <defs>
         {

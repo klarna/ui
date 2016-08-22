@@ -28,7 +28,7 @@ export default function Radio ({ value, onChange, className, data, styles, ...re
 }
 
 Radio.propTypes = {
-  value: React.PropTypes.any.isRequired,
+  value: React.PropTypes.any,
   onChange: React.PropTypes.func.isRequired,
   className: PropTypes.string,
   data: PropTypes.array.isRequired,

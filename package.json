@@ -22,6 +22,7 @@
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
     "babel-core": "^6.7.4",
+    "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.0.16",
     "babel-preset-es2015": "^6.1.2",
@@ -70,6 +71,7 @@
     "globals": [
       "describe",
       "it"
-    ]
+    ],
+    "parser": "babel-eslint"
   }
 }

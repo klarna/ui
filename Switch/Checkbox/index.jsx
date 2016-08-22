@@ -105,10 +105,10 @@ export default React.createClass({
             width='14px'
             height='14px'
             viewBox='0 0 14 14'>
-            <g fill='none' fill-rule='evenodd'>
+            <g fill='none'>
               <rect x='0' y='0' width='14' height='14' rx='2'></rect>
               <path d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
-                stroke={customize.bulletColor} stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'></path>
+                stroke={customize.bulletColor}></path>
             </g>
           </svg>
         </div>
