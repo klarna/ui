@@ -62,7 +62,7 @@ export default function Segmented ({
             {label}
           </label>)
         ]
-      }).concat((a, b) => a.concat(b), [])}
+      })}
     </div>
   )
 }

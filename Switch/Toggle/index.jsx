@@ -49,13 +49,13 @@ export default React.createClass({
   },
 
   componentDidMount () {
-    if (this.props.focus) {
+    if (this.props.focus && document.activeElement !== this.refs.input) {
       this.refs.input.focus()
     }
   },
 
   componentDidUpdate () {
-    if (this.props.focus) {
+    if (this.props.focus && document.activeElement !== this.refs.input) {
       this.refs.input.focus()
     }
   },

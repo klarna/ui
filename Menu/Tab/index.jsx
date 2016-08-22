@@ -112,7 +112,7 @@ export default React.createClass({
               {label}
             </label>)
           ]
-        }).concat((a, b) => a.concat(b), [])}
+        })}
       </div>
     )
   }
