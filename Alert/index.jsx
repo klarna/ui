@@ -7,7 +7,8 @@ const baseClass = 'alert'
 const classes = {
   error: `${baseClass}--error`,
   paragraph: `${baseClass}__paragraph`,
-  title: `${baseClass}__title`
+  title: `${baseClass}__title`,
+  warning: `${baseClass}--warning`
 }
 
 export function Error ({ children, className, styles, ...remainingProps }) {
@@ -25,6 +26,26 @@ export function Error ({ children, className, styles, ...remainingProps }) {
 Error.displayName = 'Alert.Error'
 
 Error.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  styles: PropTypes.object
+}
+
+export function Warning ({ children, className, styles, ...remainingProps }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+  return (
+    <div
+      className={classNames(classes.warning, className)}
+      {...remainingProps}>
+      {children}
+    </div>
+  )
+}
+
+Warning.displayName = 'Alert.Warning'
+
+Warning.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   styles: PropTypes.object
