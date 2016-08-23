@@ -20,7 +20,6 @@ export default React.createClass({
     name: PropTypes.string.isRequired,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
-    onClick: PropTypes.func,
     onFocus: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.node.isRequired,
@@ -106,14 +105,15 @@ export default React.createClass({
               onBlur={onBlur}
               onChange={onChange && (() => onChange(key))}
               onFocus={(e) => onFocus && onFocus(key, e)}
-              checked={key === value} />),
+              checked={key === value}
+              value={key}
+            />),
             (<label
               id={`${id}-tab`}
               style={tabDisplay === 'static' ? {
                 width: `${(100 / options.length)}%`
               } : undefined}
               className={tabClass}
-              onClick={onClick && ((event) => onClick(event))}
               htmlFor={id}>
               {label}
             </label>)

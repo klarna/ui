@@ -39,8 +39,9 @@ export default React.createClass({
     })).isRequired,
     className: PropTypes.string,
     tabDisplay: PropTypes.oneOf(tabDisplays),
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
-    onClick: PropTypes.func,
+    onFocus: PropTypes.func,
     name: PropTypes.string.isRequired,
     value: PropTypes.string,
     white: PropTypes.bool
@@ -110,7 +111,7 @@ export default React.createClass({
             left: index === 0,
             center: index > 0 && index < options.length - 1,
             right: index === options.length - 1,
-            'is-focused': focus
+            'is-focused': focus === key
           })
 
           return [
@@ -120,15 +121,18 @@ export default React.createClass({
               name={name}
               ref={key}
               id={id}
+              onBlur={onBlur}
               onChange={onChange && (() => onChange(key))}
-              defaultChecked={key === value} />),
+              onFocus={(e) => onFocus && onFocus(key, e)}
+              checked={key === value}
+              value={key}
+            />),
             (<label
               id={`${id}-tab`}
               style={tabDisplay === 'static' ? {
                 width: `${(100 / options.length)}%`
               } : undefined}
               className={tabClass}
-              onClick={onClick && ((event) => onClick(event))}
               htmlFor={id}>
               {label}
             </label>)
