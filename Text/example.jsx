@@ -79,6 +79,10 @@ export default function Texts () {
       <Code>
         <TextLabel>Klarna ID</TextLabel>
         <TextLabel margins>Klarna ID with default margins</TextLabel>
+
+        <Block blue>
+          <TextLabel color='white'>Given Name</TextLabel>
+        </Block>
       </Code>
 
       <Title.Secondary color='blue' margins>Link</Title.Secondary>
