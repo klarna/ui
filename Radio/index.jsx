@@ -4,12 +4,12 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'radio'
 
-export default function Radio ({ value, onChange, className, data, styles, ...remainingProps }) {
+export default function Radio ({ borderless, value, onChange, className, data, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <div
-      className={classNames(baseClass, className)}
+      className={classNames(baseClass, { borderless }, className)}
       {...remainingProps}>
       {
         data.map(({id, label, description}) => (
