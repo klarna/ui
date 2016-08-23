@@ -144,7 +144,9 @@ export default React.createClass({
             <path
               className={classNames(classes.bulletCheckmarkStroke)}
               d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
-              stroke={customize ? customize.bulletColor : undefined}
+              style={customize ? {
+                stroke: customize.bulletColor 
+              } : undefined}
             />
           </g>
         </svg>

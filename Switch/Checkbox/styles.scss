@@ -40,8 +40,17 @@
   }
 
   .right & {
-    padding-left: 0;    
+    padding-left: 0;
     padding-right: ($grid * 10);
+  }
+
+  @include respond-to-wide {
+    padding-left: ($grid * 6);
+
+    .right & {
+      padding-left: auto;
+      padding-right: ($grid * 6);
+    }
   }
 }
 
@@ -65,10 +74,19 @@
     left: auto;
     right: 0;
   }
+
+  @include respond-to-wide {
+    background: map-get($colors, white);
+    border: ($grid * .2) solid map-get($colors, grey-lines);;
+    border-radius: $border-radius-checkbox;
+    height: ($grid * 2.4);
+    top: ($grid * 1.4);
+    width: ($grid * 2.4);
+  }
 }
 
 .switch--checkbox__bullet__toggle {
-  background: white;
+  background: map-get($colors, white);
   border-radius: ($grid * 5);
   cursor: pointer;
   display: block;
@@ -111,32 +129,33 @@
     left: auto;
     right: ($grid * .2);
   }
+
+  @include respond-to-wide {
+    display: none;
+  }
 }
 
 .switch--checkbox__bullet__checkmark {
   display: none;
+
+  @include respond-to-wide {
+    display: block;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    top: ($grid * 1.4);
+
+    .is-checked & {
+      opacity: 1;
+    }
+
+    .right & {
+      left: auto;
+      right: 0;
+    }
+  }
 }
 
-//
-// .switch--checkbox {
-//     @include typography(($grid * 2.8), regular);
-//     @include switch(0);
-//
-//     line-height: ($grid * 4);
-//     padding-bottom: ($grid * 1);
-//     padding-top: ($grid * 1);
-//
-//     &.right {
-//         @include switch(0, right);
-//     }
-//
-//     &.legal {
-//         @include typography(($grid * 2.2), regular);
-//         padding-bottom: ($grid * .8);
-//         padding-top: ($grid * 1.2);
-//     }
-//
-//     @include respond-to-wide() {
-//         @include checkbox(($grid * 2), ($grid * 1.6));
-//     }
-// }
+.switch--checkbox__bullet__checkmark__stroke {
+  stroke: map-get($colors, white);
+}
