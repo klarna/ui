@@ -62,16 +62,30 @@ export default function Inputs () {
 
       <Subtitle>Stacked</Subtitle>
       <Code>
+        <Subtitle>Name and last name</Subtitle>
         <Fieldset margins>
-          <Input top left size='1/2' label='Given name' />
-          <Input center size='1/4' label='Middle name' />
-          <Input top right size='1/4' label='Last name' />
-          <Input left square size='1/5' label='Number' />
-          <Input right square size='4/5' label='Street Address' />
-          <Input left square size='1/3' label='Your favorite pokémon' />
-          <Input right square size='2/3' label='Android or iPhone: please explain' />
-          <Input left bottom size='2/5' label='Date of Birth' />
-          <Input right bottom size='3/5' label='Mobile phone number' />
+          <UncontrolledInput left size='1/2' label='Given name' />
+          <UncontrolledInput right size='1/2' label='Middle name' />
+        </Fieldset>
+
+        <Subtitle>Card details</Subtitle>
+        <Fieldset margins>
+          <UncontrolledInput label='Card number' />
+          <UncontrolledInput left size='1/2' label='MM / YY' />
+          <UncontrolledInput right size='1/2' label='CCV' />
+        </Fieldset>
+
+        <Subtitle>Address fieldset</Subtitle>
+        <Fieldset margins>
+          <UncontrolledInput left size='1/2' label='Given name' />
+          <UncontrolledInput center size='1/4' label='Middle name' />
+          <UncontrolledInput right size='1/4' label='Last name' />
+          <UncontrolledInput left size='1/5' label='Number' />
+          <UncontrolledInput right size='4/5' label='Street Address' />
+          <UncontrolledInput left size='1/3' label='Your favorite pokémon' />
+          <UncontrolledInput right size='2/3' label='Android or iPhone: please explain' />
+          <UncontrolledInput left size='2/5' label='Date of Birth' />
+          <UncontrolledInput right size='3/5' label='Mobile phone number' />
         </Fieldset>
       </Code>
 

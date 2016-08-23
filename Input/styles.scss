@@ -29,7 +29,7 @@ $stackable-border-width: $grid * .2;
     }
 
     &.sixty {
-        @include partial-width-input(66%);
+        @include partial-width-input(60%);
     }
 
     &.half {
