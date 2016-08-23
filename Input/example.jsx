@@ -119,55 +119,61 @@ export default function Inputs () {
       <Title.Primary margins small color='blue'>Icons</Title.Primary>
       <Code>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='card'
             label='Please enter your credit card number' />
         </Fieldset>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='calendar'
             label='Date of Birth' />
         </Fieldset>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='lock'
             type='password'
             label='Password' />
         </Fieldset>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='person'
             label='Enter your user name' />
         </Fieldset>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='email'
             label='Enter your email address' />
         </Fieldset>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='phone'
             label='Mobile number' />
         </Fieldset>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='close'
             label='Enter an incorrect value (?)' />
         </Fieldset>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='question'
             label='Are we sure about these being field icons?' />
         </Fieldset>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='check'
             label='These look like button icons really' />
         </Fieldset>
         <Fieldset margins>
-          <Input
+          <UncontrolledInput
             icon='logout'
             label='Write something to log out' />
+        </Fieldset>
+        <Fieldset margins>
+          <UncontrolledInput
+            giant
+            icon='phone'
+            label='Line number' />
         </Fieldset>
       </Code>
     </div>
