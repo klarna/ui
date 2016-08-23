@@ -38,7 +38,7 @@ export default function Switches () {
       <Subtitle margins>Focused</Subtitle>
       <Code>
         <Switch.Toggle focus value name='toggle-switch-focused'>
-          This is a toggle switch checked
+          This is a toggle switch focused
         </Switch.Toggle>
       </Code>
 
@@ -100,30 +100,83 @@ export default function Switches () {
           This is an uncontrolled toggle switch with dynamic styling on the right
         </UncontrolledSwitch.Toggle>
       </Code>
-{/*
+
       <Title.Secondary margins>Checkbox</Title.Secondary>
       <Code>
-        <Switch.Checkbox>This is a toggle switch with checkbox design</Switch.Checkbox>
-        <Switch.Checkbox value>This is a toggle switch with checkbox design</Switch.Checkbox>
+        <Switch.Checkbox name='checkbox-unchecked'>
+          This is a toggle switch with checkbox design
+        </Switch.Checkbox>
+        <Switch.Checkbox name='checkbox-checked' value>
+          This is a toggle switch with checkbox design
+        </Switch.Checkbox>
       </Code>
 
       <Subtitle>Uncontrolled</Subtitle>
       <Code>
-        <UncontrolledSwitch.Checkbox>
+        <UncontrolledSwitch.Checkbox name='checkbox-uncontrolled'>
           This is an uncontrolled checkbox switch
+        </UncontrolledSwitch.Checkbox>
+        <UncontrolledSwitch.Checkbox
+          align='right'
+          name='checkbox-uncontrolled-right'>
+          This is an uncontrolled checkbox switch on the right
         </UncontrolledSwitch.Checkbox>
       </Code>
 
       <Subtitle margins>Checkbox with legal size text</Subtitle>
       <Code>
-        <Switch.Checkbox legal>This is a toggle switch with checkbox design and legal size text that usually will fold into multiple lines</Switch.Checkbox>
+        <Switch.Checkbox name='checkbox-legal' legal>
+          This is a toggle switch with checkbox design and legal size text that usually will fold into multiple lines
+        </Switch.Checkbox>
+      </Code>
+
+      <Subtitle margins>Right</Subtitle>
+      <Code>
+        <Switch.Checkbox name='checkbox-right' align='right' legal>This is a toggle switch with checkbox design and legal size text that usually will fold into multiple lines</Switch.Checkbox>
+      </Code>
+
+      <Subtitle margins>Disabled</Subtitle>
+      <Code>
+        <Switch.Checkbox name='checkbox-disabled' legal>This is a toggle switch with checkbox design and legal size text that usually will fold into multiple lines</Switch.Checkbox>
       </Code>
 
       <Subtitle margins>Checkbox with dynamic styling</Subtitle>
       <Code>
-        <Switch.Checkbox customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with checkbox design and dynamic styling</Switch.Checkbox>
-        <Switch.Checkbox value customize={{ backgroundColor: '#3500C8', bulletColor: '#F9FF3C' }}>This is a toggle switch with checkbox design and dynamic styling</Switch.Checkbox>
-      </Code> */}
+        <Switch.Checkbox
+          name='checkbox-dynamic-styling'
+          customize={{
+            backgroundColor: '#3500C8',
+            bulletColor: '#F9FF3C'
+          }}>
+          This is a toggle switch with checkbox design and dynamic styling
+        </Switch.Checkbox>
+        <Switch.Checkbox
+          name='checkbox-dynamic-styling-checked'
+          value
+          customize={{
+            backgroundColor: '#3500C8',
+            bulletColor: '#F9FF3C'
+          }}>
+          This is a toggle switch with checkbox design and dynamic styling
+        </Switch.Checkbox>
+        <UncontrolledSwitch.Checkbox
+          name='checkbox-dynamic-styling-uncontrolled'
+          customize={{
+            backgroundColor: '#3500C8',
+            bulletColor: '#F9FF3C'
+          }}>
+          This is a dynamically styled, uncontrolled checkbox switch
+        </UncontrolledSwitch.Checkbox>
+        <UncontrolledSwitch.Checkbox
+          align='right'
+          name='checkbox-dynamic-styling-uncontrolled-right'
+          customize={{
+            backgroundColor: '#3500C8',
+            bulletColor: '#F9FF3C'
+          }}>
+          This is a dynamically styled, uncontrolled checkbox switch on the right
+        </UncontrolledSwitch.Checkbox>
+      </Code>
     </div>
   )
 }

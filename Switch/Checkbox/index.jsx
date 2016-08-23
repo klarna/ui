@@ -7,7 +7,10 @@ const baseClass = 'switch--checkbox'
 const classes = {
   bullet: `${baseClass}__bullet`,
   bulletCheckmark: `${baseClass}__bullet__checkmark`,
-  bulletCheckmarkStroke: `${baseClass}__bullet__checkmark__stroke`
+  bulletCheckmarkStroke: `${baseClass}__bullet__checkmark__stroke`,
+  bulletToggle: `${baseClass}__bullet__toggle`,
+  label: `${baseClass}__label`,
+  input: `${baseClass}__input`
 }
 
 const press = (component) => () => component.setState({ pressed: true })
@@ -18,12 +21,14 @@ export const alignments = ['left', 'right']
 export default React.createClass({
   displayName: 'Switch.Checkbox',
 
-  defaultProps: {
-    error: false,
-    disabled: false,
-    align: 'left',
-    legal: false,
-    value: false
+  getDefaultProps () {
+    return {
+      error: false,
+      disabled: false,
+      align: 'left',
+      legal: false,
+      value: false
+    }
   },
 
   propTypes: {
@@ -36,17 +41,30 @@ export default React.createClass({
     }),
     disabled: PropTypes.bool,
     error: PropTypes.bool,
+    focus: PropTypes.bool,
     legal: PropTypes.bool,
     name: PropTypes.string,
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
+    onFocus: PropTypes.func,
     styles: PropTypes.object,
     value: PropTypes.bool
   },
 
-  getInitialState () {
-    return {
-      pressed: false
+  componentDidMount () {
+    if (this.props.focus && document.activeElement !== this.refs.input) {
+      this.refs.input.focus()
     }
+  },
+
+  componentDidUpdate () {
+    if (this.props.focus && document.activeElement !== this.refs.input) {
+      this.refs.input.focus()
+    }
+  },
+
+  getInitialState () {
+    return { pressed: false }
   },
 
   render () {
@@ -57,18 +75,23 @@ export default React.createClass({
       customize,
       disabled,
       error,
+      focus,
       legal,
       name,
+      onBlur,
       onChange,
+      onFocus,
       value,
       styles,
-      ...remainingProps } = this.props
+      ...remainingProps
+    } = this.props
 
     const { pressed } = this.state
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-    const cls = classNames(baseClass, 'checkbox', {
+    const cls = classNames(baseClass, {
       'is-checked': value,
+      'is-focused': focus,
       'is-pressed': pressed,
       'is-disabled': disabled,
       'is-error': error,
@@ -77,25 +100,42 @@ export default React.createClass({
       legal
     }, className)
 
-    const onClick = !disabled && onChange && (() => onChange(!value))
     const onMouseDown = !disabled && press(this)
     const onMouseUp = !disabled && release(this)
 
     return (<div
       className={cls}
-      onClick={onClick}
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       {...remainingProps}>
-      <div
-        className={classNames(classes.bullet)}
-        style={customize && value ? {
-          backgroundColor: customize.backgroundColor,
-          borderColor: customize.backgroundColor
-        } : undefined}></div>
-      <div
-        className={classNames(classes.bulletCheckmark)}>
+      <input
+        className={classNames(classes.input)}
+        id={name}
+        name={name}
+        type='checkbox'
+        checked={value}
+        onBlur={onBlur}
+        onChange={() => !disabled && onChange && onChange(!value)}
+        onFocus={onFocus}
+        ref='input'
+      />
+      <label
+        className={classNames(classes.label)}
+        htmlFor={name}>
+        <div
+          className={classNames(classes.bullet)}
+          style={customize && value ? {
+            backgroundColor: customize.backgroundColor,
+            borderColor: customize.backgroundColor
+          } : undefined}></div>
+        <div
+          className={classNames(classes.bulletToggle)}
+          style={customize ? {
+            backgroundColor: customize.bulletColor
+          } : undefined}
+        />
         <svg
+          className={classNames(classes.bulletCheckmark)}
           width='14px'
           height='14px'
           viewBox='0 0 14 14'>
@@ -108,8 +148,8 @@ export default React.createClass({
             />
           </g>
         </svg>
-      </div>
-      {children}
+        {children}
+      </label>
     </div>)
   }
 })

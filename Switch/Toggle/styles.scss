@@ -9,6 +9,13 @@
   }
 }
 
+.switch__input {
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
 .switch__label {
   @include typography(($grid * 2.8), regular);
 
@@ -34,14 +41,8 @@
 
   .right & {
     padding-left: 0;
+    padding-right: ($grid * 10);
   }
-}
-
-.switch__input {
-  height: 0;
-  opacity: 0;
-  position: absolute;
-  width: 0;
 }
 
 .switch__bullet {
@@ -66,7 +67,7 @@
   }
 }
 
-.switch__bullet__checkmark {
+.switch__bullet__toggle {
   background: white;
   border-radius: ($grid * 5);
   cursor: pointer;

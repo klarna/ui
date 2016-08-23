@@ -6,7 +6,7 @@ const baseClass = 'switch'
 
 const classes = {
   bullet: `${baseClass}__bullet`,
-  bulletCheckmark: `${baseClass}__bullet__checkmark`,
+  bulletToggle: `${baseClass}__bullet__toggle`,
   label: `${baseClass}__label`,
   input: `${baseClass}__input`
 }
@@ -38,6 +38,7 @@ export default React.createClass({
     }),
     disabled: PropTypes.bool,
     error: PropTypes.bool,
+    focus: PropTypes.bool,
     legal: PropTypes.bool,
     name: PropTypes.string.isRequired,
     align: PropTypes.oneOf(alignments),
@@ -119,16 +120,18 @@ export default React.createClass({
         className={classNames(classes.label)}
         htmlFor={name}>
         <div
-        className={classNames(classes.bullet)}
-        style={customize && value ? {
-          backgroundColor: customize.backgroundColor,
-          borderColor: customize.backgroundColor
-        } : undefined}></div>
+          className={classNames(classes.bullet)}
+          style={customize && value ? {
+            backgroundColor: customize.backgroundColor,
+            borderColor: customize.backgroundColor
+          } : undefined}
+        />
         <div
-        className={classNames(classes.bulletCheckmark)}
-        style={customize ? {
-          backgroundColor: customize.bulletColor
-        } : undefined}></div>
+          className={classNames(classes.bulletToggle)}
+          style={customize ? {
+            backgroundColor: customize.bulletColor
+          } : undefined}
+        />
         {children}
       </label>
     </div>)
