@@ -4,6 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { Title } from '../Text'
+import Link from '../Link'
 import * as examples from './examples'
 import * as icons from './icons'
 
@@ -22,13 +23,49 @@ const getCurrentIcon = () => {
 
 const selected = (path) => ({selected: getCurrentExample().name === path})
 
+const Page = ({example}) => (
+  <article className={styles.content}>
+    <header>
+      <Title.Primary margins>{example.title}</Title.Primary>
+      <nav>
+        {
+          example.variations.map((variation) => (
+            <Link
+              key={`#${example.title}/${variation.title}`}
+              href={`#${example.title}/${variation.title}`}>
+              {variation.title}
+            </Link>
+          ))
+        }
+      </nav>
+    </header>
+    {
+      example.variations.map((variation) => (
+        <section key={variation.title}>
+          <Title.Primary className={styles.variationTitle} margins>{variation.title}</Title.Primary>
+          {
+            Object.keys(variation).filter((section) => section !== 'title').map((section) => (
+              <section key={section}>
+                <Title.Secondary margins>
+                  {section}
+                </Title.Secondary>
+                {variation[section]}
+              </section>
+            ))
+          }
+        </section>
+      ))
+    }
+  </article>
+)
+
 function Root () {
-  const Example = getCurrentExample()
+  const example = getCurrentExample()
   const Icon = getCurrentIcon()
   return (
     <main>
       <aside className={styles.sidebar}>
-        <nav>
+        <nav className={styles.sidebarNav}>
           <K className={styles.k}/>
           <a href='#/' className={classNames(styles.menuTitle, selected('/'))} >
             Getting started
@@ -38,24 +75,18 @@ function Root () {
           </a>
 
           {
-            Object.values(examples).map(({ name }) => (
+            Object.values(examples).map(({ title }) => (
               <a
-                href={`#${name}`}
-                className={classNames(styles.menuItem, selected(name))}
-                key={name}>
-                {name}
+                href={`#${title}`}
+                className={classNames(styles.menuItem, selected(title))}
+                key={title}>
+                {title}
               </a>
             ))
           }
         </nav>
       </aside>
-      <div className={styles.example}>
-        <header>
-          <Icon />
-          <Title.Primary margins>{Example.name}</Title.Primary>
-        </header>
-        <Example />
-      </div>
+      <Page example={example} />
     </main>
   )
 }

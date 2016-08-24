@@ -8,10 +8,8 @@ body {
 }
 
 main {
-  display: box;
-  display: -webkit-box;
-  // min-height: 100vh;
-  box-orient: horizontal;
+  display: flex;
+  flex-direction: row;
   height: 100%;
 }
 
@@ -20,36 +18,27 @@ main {
 }
 
 .sidebar {
-  box-flex: 0;
-  width: 200px;
+  width: 180px;
   min-height: 100vh;
-
   -webkit-font-smoothing: antialiased;
   font-size: 13px;
   font-weight: normal;
-//  width: 180px;
 }
 
-.example {
-  -webkit-boz-flex: 1;
-  box-flex: 1;
+.content {
+  flex: 1;
+  padding: 90px;
 }
 
-
-
-nav {
+.sidebarNav {
   position: fixed;
   background: #363636;
   width: 140px;
   padding: 20px 0 0 20px;
   min-height: 100vh;
-
-  a {
-  }
 }
 
 header {
-  margin-top: 90px;
   text-align: center;
 }
 
@@ -71,6 +60,9 @@ header {
 
   &.selected {
     font-weight: 900;
-
   }
+}
+
+.variationTitle {
+  text-align: center;
 }

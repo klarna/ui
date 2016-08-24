@@ -2,6 +2,8 @@ pre {
   background: #363636 !important;
   margin: 0;
   padding: 1em;
+  min-width: 400px;
+
   code {
     font-weight: 100;
     font-family: 'Fira Mono', 'Fira Code' !important;
@@ -9,14 +11,9 @@ pre {
 }
 
 .variation {
-  border-radius: 6px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
-  box-sizing: border-box;
   margin-bottom: 1em;
   overflow: hidden;
 }
 
 .live {
-  padding: 1em;
 }
-
