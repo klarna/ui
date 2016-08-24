@@ -2,11 +2,15 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
-const baseClass = 'switch'
+const baseClass = 'switch--checkbox'
 
 const classes = {
   bullet: `${baseClass}__bullet`,
-  bulletCheckmark: `${baseClass}__bullet__checkmark`
+  bulletCheckmark: `${baseClass}__bullet__checkmark`,
+  bulletCheckmarkStroke: `${baseClass}__bullet__checkmark__stroke`,
+  bulletToggle: `${baseClass}__bullet__toggle`,
+  label: `${baseClass}__label`,
+  input: `${baseClass}__input`
 }
 
 const press = (component) => () => component.setState({ pressed: true })
@@ -17,12 +21,14 @@ export const alignments = ['left', 'right']
 export default React.createClass({
   displayName: 'Switch.Checkbox',
 
-  defaultProps: {
-    error: false,
-    disabled: false,
-    align: 'left',
-    legal: false,
-    value: false
+  getDefaultProps () {
+    return {
+      error: false,
+      disabled: false,
+      align: 'left',
+      legal: false,
+      value: false
+    }
   },
 
   propTypes: {
@@ -35,17 +41,30 @@ export default React.createClass({
     }),
     disabled: PropTypes.bool,
     error: PropTypes.bool,
+    focus: PropTypes.bool,
     legal: PropTypes.bool,
     name: PropTypes.string,
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
+    onFocus: PropTypes.func,
     styles: PropTypes.object,
     value: PropTypes.bool
   },
 
-  getInitialState () {
-    return {
-      pressed: false
+  componentDidMount () {
+    if (this.props.focus && document.activeElement !== this.refs.input) {
+      this.refs.input.focus()
     }
+  },
+
+  componentDidUpdate () {
+    if (this.props.focus && document.activeElement !== this.refs.input) {
+      this.refs.input.focus()
+    }
+  },
+
+  getInitialState () {
+    return { pressed: false }
   },
 
   render () {
@@ -56,18 +75,23 @@ export default React.createClass({
       customize,
       disabled,
       error,
+      focus,
       legal,
       name,
+      onBlur,
       onChange,
+      onFocus,
       value,
       styles,
-      ...remainingProps } = this.props
+      ...remainingProps
+    } = this.props
 
     const { pressed } = this.state
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-    const cls = classNames(baseClass, 'checkbox', {
+    const cls = classNames(baseClass, {
       'is-checked': value,
+      'is-focused': focus,
       'is-pressed': pressed,
       'is-disabled': disabled,
       'is-error': error,
@@ -75,57 +99,60 @@ export default React.createClass({
       'dynamic-styling': customize,
       legal
     }, className)
-    const childCls = customize
-      ? {
-        bullet: classNames(classes.bullet),
-        checkmark: classNames(classes.bulletCheckmark)
-      }
-      : undefined
 
-    const onClick = !disabled && onChange && (() => onChange(!value))
     const onMouseDown = !disabled && press(this)
     const onMouseUp = !disabled && release(this)
 
-    return customize
-      ? (<div
-        className={cls}
-        onClick={onClick}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        {...remainingProps}>
+    return (<div
+      className={cls}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      {...remainingProps}>
+      <input
+        className={classNames(classes.input)}
+        id={name}
+        name={name}
+        type='checkbox'
+        checked={value}
+        onBlur={onBlur}
+        onChange={() => !disabled && onChange && onChange(!value)}
+        onFocus={onFocus}
+        ref='input'
+      />
+      <label
+        className={classNames(classes.label)}
+        htmlFor={name}>
         <div
-          className={childCls.bullet}
-          style={{
+          className={classNames(classes.bullet)}
+          style={customize && value ? {
             backgroundColor: customize.backgroundColor,
             borderColor: customize.backgroundColor
-          }}></div>
+          } : undefined}></div>
         <div
-          className={childCls.checkmark}>
-          <svg
-            width='14px'
-            height='14px'
-            viewBox='0 0 14 14'
-            version='1.1'
-            xmlns='http://www.w3.org/2000/svg'>
-            <g fill='none' fill-rule='evenodd'>
-              <rect x='0' y='0' width='14' height='14' rx='2'></rect>
-              <path d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
-                stroke={customize.bulletColor} stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'></path>
-            </g>
-          </svg>
-        </div>
+          className={classNames(classes.bulletToggle)}
+          style={customize ? {
+            backgroundColor: customize.bulletColor
+          } : undefined}
+        />
+        <svg
+          className={classNames(classes.bulletCheckmark)}
+          width='14px'
+          height='14px'
+          viewBox='0 0 14 14'>
+          <g fill='none'>
+            <rect x='0' y='0' width='14' height='14' rx='2'></rect>
+            <path
+              className={classNames(classes.bulletCheckmarkStroke)}
+              d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
+              style={customize ? {
+                stroke: customize.bulletColor 
+              } : undefined}
+            />
+          </g>
+        </svg>
         {children}
-      </div>)
-      : (<div
-        className={cls}
-        onClick={onClick}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        {...remainingProps}>
-        {children}
-        {name &&
-          <input name={name} type='hidden' value={value} />}
-      </div>)
+      </label>
+    </div>)
   }
 })
 

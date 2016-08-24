@@ -29,7 +29,6 @@ Primary.Big = (
 
 )
 
-/*
 Primary.Custom = (
   <Code>
     <Button.Primary customize={{textColor: '#F9FF3C', backgroundColor: '#3500C8'}}>Beautiful!</Button.Primary>
@@ -155,10 +154,9 @@ Iconic['Inverse color scheme'] = (
   </Code>
   )
 
-, Secondary, Iconic
-*/
+
 export default {
   title: 'Button',
   icon: 'Button',
-  variations: [Primary]
+  variations: [Primary, Secondary, Iconic]
 }

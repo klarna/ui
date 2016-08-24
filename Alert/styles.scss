@@ -5,6 +5,10 @@
     &--error {
         @include alert(map-get($colors, error-background), map-get($colors, error-hover), map-get($colors, error-text));
     }
+
+    &--warning {
+        @include alert(map-get($colors, warning-background), map-get($colors, warning-hover), map-get($colors, warning-text));
+    }
 }
 
 .alert__paragraph {

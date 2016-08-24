@@ -4,6 +4,7 @@ import React from 'react'
 import Radio from '../Radio'
 import UncontrolledRadio from '../uncontrolled/Radio'
 import { Title, Paragraph } from '../Text'
+import Subtitle from '../Subtitle'
 import Code from '../Code'
 
 export default function Radios () {
@@ -36,6 +37,11 @@ export default function Radios () {
       </Paragraph.Primary>
       <Code>
         <Radio value={1} onChange={alert} data={data} />
+      </Code>
+
+      <Subtitle>Borderless</Subtitle>
+      <Code>
+        <Radio borderless value={1} onChange={alert} data={data} />
       </Code>
 
       <Title.Secondary margins>Uncontrolled</Title.Secondary>

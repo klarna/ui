@@ -1,5 +1,6 @@
 import React from 'react'
 import InstallmentsComponent from '../Installments'
+import UncontrolledField from '../uncontrolled/Field'
 import UncontrolledInstallments from '../uncontrolled/Installments'
 import { Subtitle } from '../Text'
 import Code from '../Code'
@@ -23,12 +24,24 @@ export default function Installments () {
         />
       </Code>
 
+      <Subtitle margins>Focused</Subtitle>
+      <Code>
+        <InstallmentsComponent
+          onChange={(key) => console.log('You selected', key)}
+          name='installments'
+          value='installments_12'
+          focus='installments_6'
+          options={options}
+        />
+      </Code>
+
       <Subtitle margins>Uncontrolled</Subtitle>
       <Code>
         <UncontrolledInstallments
           onChange={(key) => console.log('You selected', key)}
           name='installments2'
           value='installments_24'
+          focus='installments_6'
           options={options}
         />
       </Code>

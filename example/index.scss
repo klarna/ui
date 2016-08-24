@@ -25,9 +25,16 @@ main {
   font-weight: normal;
 }
 
+<<<<<<< HEAD
 .content {
   flex: 1;
   padding: 90px;
+=======
+.example {
+  -webkit-boz-flex: 1;
+  box-flex: 1;
+  width: 60%;
+>>>>>>> @{-1}
 }
 
 .sidebarNav {

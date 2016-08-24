@@ -1,9 +1,9 @@
 import compose from '../../lib/compose'
 import statefulValue from '../../lib/decorators/statefulValue'
-import statefulFocus from '../../lib/decorators/statefulFocus'
+import statefulOptionFocus from '../../lib/decorators/statefulOptionFocus'
 import Segmented from '../../Menu/Segmented'
 
-const UncontrolledSegmented = compose(statefulFocus, statefulValue)(Segmented)
+const UncontrolledSegmented = compose(statefulOptionFocus, statefulValue)(Segmented)
 
 UncontrolledSegmented.displayName = 'UncontrolledMenu.Segmented'
 

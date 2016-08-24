@@ -10,6 +10,8 @@ export default function Details ({ color, styles, className, ...props }) {
     <svg
       className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 22 22'
+      height='20px'
+      width='20px'
       {...props}>
       <g
         className={classNames('illustration__fill')}

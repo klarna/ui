@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import * as TheInstallments from './Installments'
+export { default as Content } from './Content'
 
 const baseClass = 'block'
 

@@ -11,79 +11,115 @@ const classes = {
 
 export const tabDisplays = ['fluid', 'static']
 
-export default function Segmented ({
-  className,
-  children,
-  onChange,
-  onClick,
-  options,
-  name,
-  selectable,
-  styles,
-  tabDisplay,
-  value,
-  white,
-  ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export default React.createClass({
+  displayName: 'Segmented',
 
-  const cls = classNames(baseClass, tabDisplay, className, {
-    'is-selectable': selectable,
-    white
-  })
+  propTypes: {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.node.isRequired,
+      key: PropTypes.string.isRequired
+    })).isRequired,
+    selectable: PropTypes.bool,
+    tabDisplay: PropTypes.oneOf(tabDisplays),
+    value: PropTypes.string,
+    white: PropTypes.bool
+  },
 
-  return (
-    <div className={cls} {...props}>
-      {children}
-      {options.map(({ key, label }, index) => {
-        const id = `${name}-${key}`
+  componentDidMount () {
+    if (
+      this.props.focus &&
+      document.activeElement !== this.refs[this.props.focus]
+    ) {
+      this.refs[this.props.focus].focus()
+    }
+  },
 
-        const tabClass = classNames(classes.button, {
-          left: index === 0,
-          center: index > 0 && index < options.length - 1,
-          right: index === options.length - 1
-        })
+  componentDidUpdate () {
+    if (
+      this.props.focus &&
+      document.activeElement !== this.refs[this.props.focus]
+    ) {
+      this.refs[this.props.focus].focus()
+    }
+  },
 
-        return [
-          (<input
-            className={classNames(classes.input)}
-            type='radio'
-            name={name}
-            id={id}
-            onChange={onChange && (() => onChange(key))}
-            checked={key === value} />),
-          (<label
-            id={`${id}-tab`}
-            style={tabDisplay === 'static' ? {
-              width: `${(100 / options.length)}%`
-            } : undefined}
-            className={tabClass}
-            onClick={onClick && ((event) => onClick(event))}
-            htmlFor={id}>
-            {label}
-          </label>)
-        ]
-      }).concat((a, b) => a.concat(b), [])}
-    </div>
-  )
-}
+  getDefaultProps () {
+    return {
+      selectable: true,
+      tabDisplay: 'fluid'
+    }
+  },
 
-Segmented.defaultProps = {
-  selectable: true,
-  tabDisplay: 'fluid'
-}
+  render () {
+    const {
+      className,
+      children,
+      focus,
+      onBlur,
+      onChange,
+      onClick,
+      onFocus,
+      options,
+      name,
+      selectable,
+      styles,
+      tabDisplay,
+      value,
+      white,
+      ...props
+    } = this.props
 
-Segmented.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  onClick: PropTypes.func,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.node.isRequired,
-    key: PropTypes.string.isRequired
-  })).isRequired,
-  selectable: PropTypes.bool,
-  tabDisplay: PropTypes.oneOf(tabDisplays),
-  value: PropTypes.string,
-  white: PropTypes.bool
-}
+    const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+    const cls = classNames(baseClass, tabDisplay, className, {
+      'is-selectable': selectable,
+      white
+    })
+
+    return (
+      <div className={cls} {...props}>
+        {children}
+        {options.map(({ key, label }, index) => {
+          const id = `${name}-${key}`
+
+          const tabClass = classNames(classes.button, {
+            left: index === 0,
+            center: index > 0 && index < options.length - 1,
+            right: index === options.length - 1,
+            'is-focused': focus === key
+          })
+
+          return [
+            (<input
+              className={classNames(classes.input)}
+              type='radio'
+              ref={key}
+              name={name}
+              id={id}
+              onBlur={onBlur}
+              onChange={onChange && (() => onChange(key))}
+              onFocus={(e) => onFocus && onFocus(key, e)}
+              checked={key === value}
+              value={key}
+            />),
+            (<label
+              id={`${id}-tab`}
+              style={tabDisplay === 'static' ? {
+                width: `${(100 / options.length)}%`
+              } : undefined}
+              className={tabClass}
+              htmlFor={id}>
+              {label}
+            </label>)
+          ]
+        })}
+      </div>
+    )
+  }
+})

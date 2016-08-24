@@ -11,6 +11,8 @@ export default function Mail ({ color, styles, className, ...props }) {
       strokeWidth='5'
       className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 100 100'
+      height='20px'
+      width='20px'
       {...props}>
       <g className={classNames('illustration__stroke')}>
         <rect x='12' y='22' width='76' height='56' rx='12' ry='12' />

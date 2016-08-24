@@ -13,6 +13,8 @@ const classes = {
   label: `${baseClass}__label`
 }
 
+export const sizes = ['small', 'big']
+
 export default function Primary ({
   children,
   className,
@@ -69,8 +71,6 @@ Primary.defaultProps = {
   disabled: false
 }
 
-Primary.sizes = ['small', 'big']
-
 Primary.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
@@ -78,7 +78,7 @@ Primary.propTypes = {
     textColor: PropTypes.string.isRequired,
     backgroundColor: PropTypes.string.isRequired
   }),
-  size: PropTypes.oneOf(Primary.sizes),
+  size: PropTypes.oneOf(sizes),
   loading: PropTypes.bool,
   success: PropTypes.bool,
   disabled: PropTypes.bool,

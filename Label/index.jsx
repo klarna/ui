@@ -41,7 +41,7 @@ export default function Label ({
 Label.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  design: PropTypes.oneOf(Label.designs),
+  design: PropTypes.oneOf(designs),
   inverted: PropTypes.bool,
   outline: PropTypes.bool,
   styles: PropTypes.object

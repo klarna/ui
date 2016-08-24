@@ -26,8 +26,10 @@ const update = (component) => {
 export default React.createClass({
   displayName: 'Menu.Tab',
 
-  defaultProps: {
-    tabDisplay: 'fluid'
+  getDefaultProps () {
+    return {
+      tabDisplay: 'fluid'
+    }
   },
 
   propTypes: {
@@ -37,8 +39,9 @@ export default React.createClass({
     })).isRequired,
     className: PropTypes.string,
     tabDisplay: PropTypes.oneOf(tabDisplays),
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
-    onClick: PropTypes.func,
+    onFocus: PropTypes.func,
     name: PropTypes.string.isRequired,
     value: PropTypes.string,
     white: PropTypes.bool
@@ -54,10 +57,24 @@ export default React.createClass({
       this.props.value !== prevProps.value) {
       setTimeout(() => update(this))
     }
+
+    if (
+      this.props.focus &&
+      document.activeElement !== this.refs[this.props.focus]
+    ) {
+      this.refs[this.props.focus].focus()
+    }
   },
 
   componentDidMount (prevProps) {
     setTimeout(() => update(this))
+
+    if (
+      this.props.focus &&
+      document.activeElement !== this.refs[this.props.focus]
+    ) {
+      this.refs[this.props.focus].focus()
+    }
   },
 
   render () {
@@ -65,11 +82,14 @@ export default React.createClass({
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const {
       className,
+      focus,
       tabDisplay,
       options,
       name,
+      onBlur,
       onChange,
       onClick,
+      onFocus,
       value,
       white,
       styles,
@@ -90,7 +110,8 @@ export default React.createClass({
           const tabClass = classNames(classes.button, {
             left: index === 0,
             center: index > 0 && index < options.length - 1,
-            right: index === options.length - 1
+            right: index === options.length - 1,
+            'is-focused': focus === key
           })
 
           return [
@@ -98,21 +119,25 @@ export default React.createClass({
               className={classNames(classes.input)}
               type='radio'
               name={name}
+              ref={key}
               id={id}
+              onBlur={onBlur}
               onChange={onChange && (() => onChange(key))}
-              defaultChecked={key === value} />),
+              onFocus={(e) => onFocus && onFocus(key, e)}
+              checked={key === value}
+              value={key}
+            />),
             (<label
               id={`${id}-tab`}
               style={tabDisplay === 'static' ? {
                 width: `${(100 / options.length)}%`
               } : undefined}
               className={tabClass}
-              onClick={onClick && ((event) => onClick(event))}
               htmlFor={id}>
               {label}
             </label>)
           ]
-        }).concat((a, b) => a.concat(b), [])}
+        })}
       </div>
     )
   }

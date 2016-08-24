@@ -12,7 +12,11 @@
     }
 
     .installments__input {
-        display: none;
+        display: block;
+        height: 0;
+        opacity: 0;
+        position: absolute;
+        width: 0;
     }
 
     .installments__label {
@@ -52,7 +56,8 @@
         }
     }
 
-    .installments__label:hover {
+    .installments__label:hover,
+    .installments__label.is-focused {
         color: map-get($colors, klarna-blue);
     }
 

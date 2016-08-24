@@ -7,9 +7,9 @@ import Fieldset from '../Fieldset'
 
 export default function Dropdowns () {
   const options = [
-    { value: '', label: 'Pick one!', disabled: true, hidden: true },
-    { value: 1, label: 'Lorem' },
-    { value: 2, label: 'Ipsum' }
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 1, label: 'Lorem' },
+    { key: 2, label: 'Ipsum' }
   ]
 
   return (

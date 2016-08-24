@@ -20,7 +20,7 @@ var config = {
   module: {
     loaders: [
       {
-        test: /\.(jsx|es6)$/,
+        test: /\.(jsx?|es6)$/,
         loader: 'babel'
       },
       {

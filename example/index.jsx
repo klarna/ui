@@ -23,44 +23,46 @@ const getCurrentIcon = () => {
 
 const selected = (path) => ({selected: getCurrentExample().name === path})
 
-const Page = ({example}) => (
-  <article className={styles.content}>
-    <header>
-      <Title.Primary margins>{example.title}</Title.Primary>
-      <nav>
-        {
-          example.variations.map((variation) => (
-            <Link
-              key={`#${example.title}/${variation.title}`}
-              href={`#${example.title}/${variation.title}`}>
-              {variation.title}
-            </Link>
-          ))
-        }
-      </nav>
-    </header>
-    {
-      example.variations.map((variation) => (
-        <section key={variation.title}>
-          <Title.Primary className={styles.variationTitle} margins>{variation.title}</Title.Primary>
-          {
-            Object.keys(variation).filter((section) => section !== 'title').map((section) => (
-              <section key={section}>
-                {icons[example.icon]}
-                =={example.icon}==
+const Page = ({example}) => {
+  const Icon = icons[example.icon]
 
-                <Title.Secondary margins>
-                  {section}
-                </Title.Secondary>
-                {variation[section]}
-              </section>
+  return (
+    <article className={styles.content}>
+      <header>
+        <Icon />
+        <Title.Primary margins>{example.title}</Title.Primary>
+        <nav>
+          {
+            example.variations.map((variation) => (
+              <Link
+                key={`#${example.title}/${variation.title}`}
+                href={`#${example.title}/${variation.title}`}>
+                {variation.title}
+              </Link>
             ))
           }
-        </section>
-      ))
-    }
-  </article>
-)
+        </nav>
+      </header>
+      {
+        example.variations.map((variation) => (
+          <section key={variation.title}>
+            <Title.Primary className={styles.variationTitle} margins>{variation.title}</Title.Primary>
+            {
+              Object.keys(variation).filter((section) => section !== 'title').map((section) => (
+                <section key={section}>
+                  <Title.Secondary margins>
+                    {section}
+                  </Title.Secondary>
+                  {variation[section]}
+                </section>
+              ))
+            }
+          </section>
+        ))
+      }
+    </article>
+  )
+}
 
 function Root () {
   const example = getCurrentExample()

@@ -6,7 +6,9 @@ const baseClass = 'switch'
 
 const classes = {
   bullet: `${baseClass}__bullet`,
-  bulletCheckmark: `${baseClass}__bullet__checkmark`
+  bulletToggle: `${baseClass}__bullet__toggle`,
+  label: `${baseClass}__label`,
+  input: `${baseClass}__input`
 }
 
 const press = (component) => () => component.setState({ pressed: true })
@@ -17,12 +19,14 @@ export const alignments = ['left', 'right']
 export default React.createClass({
   displayName: 'Switch.Toggle',
 
-  defaultProps: {
-    error: false,
-    disabled: false,
-    align: 'left',
-    legal: false,
-    value: false
+  getDefaultProps () {
+    return {
+      error: false,
+      disabled: false,
+      align: 'left',
+      legal: false,
+      value: false
+    }
   },
 
   propTypes: {
@@ -34,12 +38,27 @@ export default React.createClass({
     }),
     disabled: PropTypes.bool,
     error: PropTypes.bool,
+    focus: PropTypes.bool,
     legal: PropTypes.bool,
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
     align: PropTypes.oneOf(alignments),
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
+    onFocus: PropTypes.func,
     styles: PropTypes.object,
     value: PropTypes.bool
+  },
+
+  componentDidMount () {
+    if (this.props.focus && document.activeElement !== this.refs.input) {
+      this.refs.input.focus()
+    }
+  },
+
+  componentDidUpdate () {
+    if (this.props.focus && document.activeElement !== this.refs.input) {
+      this.refs.input.focus()
+    }
   },
 
   getInitialState () {
@@ -54,65 +73,67 @@ export default React.createClass({
       customize,
       disabled,
       error,
+      focus,
       legal,
       name,
+      onBlur,
       onChange,
+      onFocus,
       styles,
       value,
-      ...remainingProps } = this.props
+      ...remainingProps
+    } = this.props
 
     const { pressed } = this.state
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const cls = classNames(baseClass, {
       'is-checked': value,
+      'is-focused': focus,
       'is-pressed': pressed,
       'is-disabled': disabled,
       'is-error': error,
       'right': align === 'right',
-      'dynamic-styling': customize,
       legal
     }, className)
-    const childCls = customize
-      ? {
-        bullet: classNames(classes.bullet),
-        checkmark: classNames(classes.bulletCheckmark)
-      }
-      : undefined
 
-    const onClick = !disabled && onChange && (() => onChange(!value))
     const onMouseDown = !disabled && press(this)
     const onMouseUp = !disabled && release(this)
 
-    return customize
-      ? (<div
-        className={cls}
-        onClick={onClick}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        {...remainingProps}>
+    return (<div
+      className={cls}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      {...remainingProps}>
+      <input
+        className={classNames(classes.input)}
+        id={name}
+        name={name}
+        type='checkbox'
+        checked={value}
+        onBlur={onBlur}
+        onChange={() => !disabled && onChange && onChange(!value)}
+        onFocus={onFocus}
+        ref='input'
+      />
+      <label
+        className={classNames(classes.label)}
+        htmlFor={name}>
         <div
-          className={childCls.bullet}
-          style={{
+          className={classNames(classes.bullet)}
+          style={customize && value ? {
             backgroundColor: customize.backgroundColor,
             borderColor: customize.backgroundColor
-          }}></div>
+          } : undefined}
+        />
         <div
-          className={childCls.checkmark}
-          style={{
+          className={classNames(classes.bulletToggle)}
+          style={customize ? {
             backgroundColor: customize.bulletColor
-          }}></div>
+          } : undefined}
+        />
         {children}
-      </div>)
-      : (<div
-        className={cls}
-        onClick={onClick}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        {...remainingProps}>
-        {children}
-        {name &&
-          <input name={name} type='hidden' value={value} />}
-      </div>)
+      </label>
+    </div>)
   }
 })

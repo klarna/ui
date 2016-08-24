@@ -1,12 +1,14 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import palette from '../lib/palette'
 
 const baseClass = 'text-label'
 
 export default function TextLabel ({
   className,
   children,
+  color,
   margins,
   styles,
   ...props
@@ -15,7 +17,7 @@ export default function TextLabel ({
 
   return (
     <h4
-      className={classNames(baseClass, className, {'default-margins': margins})}
+      className={classNames(baseClass, color, {'default-margins': margins}, className)}
       {...props}>
       {children}
     </h4>
@@ -30,6 +32,7 @@ TextLabel.defaultProps = {
 TextLabel.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  color: PropTypes.oneOf(palette),
   margins: PropTypes.bool,
   styles: PropTypes.object
 }

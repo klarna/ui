@@ -40,7 +40,7 @@ export default function Selector ({
 
 Selector.propTypes = {
   // Allows any type to be an id, as long as it is comparable
-  value: React.PropTypes.any.isRequired,
+  value: React.PropTypes.any,
   onChange: React.PropTypes.func.isRequired,
   className: PropTypes.string,
   data: PropTypes.array.isRequired,

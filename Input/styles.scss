@@ -29,7 +29,7 @@ $stackable-border-width: $grid * .2;
     }
 
     &.sixty {
-        @include partial-width-input(66%);
+        @include partial-width-input(60%);
     }
 
     &.half {
@@ -359,7 +359,7 @@ $stackable-border-width: $grid * .2;
 
 .input--icon__label,
 .input--icon__input {
-    padding-left: ($grid * 8.4);
+    padding-left: ($grid * 6);
 
     .giant & {
         padding-left: ($grid * 7);
@@ -370,7 +370,7 @@ $stackable-border-width: $grid * .2;
     display: block;
     fill-rule: evenodd;
     height: ($grid * 4);
-    margin: ($grid * 3) 0 0 ($grid * 2.4);
+    margin: ($grid * 3) 0 0 0;
     position: absolute;
     width: ($grid * 4);
 

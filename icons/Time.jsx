@@ -13,6 +13,8 @@ export default function Time ({ color, styles, className, ...props }) {
       strokeLinecap='round'
       strokeWidth='2'
       viewBox='0 0 100 100'
+      height='100px'
+      width='100px'
       {...props}>
       <g className={classNames('illustration__stroke')}>
         <Circle />
