@@ -46,6 +46,9 @@ const Page = ({example}) => (
           {
             Object.keys(variation).filter((section) => section !== 'title').map((section) => (
               <section key={section}>
+                {icons[example.icon]}
+                =={example.icon}==
+
                 <Title.Secondary margins>
                   {section}
                 </Title.Secondary>
@@ -91,12 +94,8 @@ function Root () {
   )
 }
 
-const render = () => (
-  ReactDOM.render(
-    <Root />,
-    document.getElementById('root')
-  )
-)
+const render = () =>
+  ReactDOM.render(<Root />, document.getElementById('root'))
 
 window.onhashchange = render
 render()

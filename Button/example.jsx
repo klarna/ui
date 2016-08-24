@@ -159,5 +159,6 @@ Iconic['Inverse color scheme'] = (
 */
 export default {
   title: 'Button',
+  icon: 'Button',
   variations: [Primary]
 }
