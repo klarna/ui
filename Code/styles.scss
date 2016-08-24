@@ -1,8 +1,11 @@
 pre {
   background: #363636 !important;
   margin: 0;
-  padding: 1em;
+  padding: 2%;
   min-width: 400px;
+  display: inline-block;
+  width: 56%;
+  border-radius: 4px;
 
   code {
     font-weight: 100;
@@ -16,4 +19,12 @@ pre {
 }
 
 .live {
+  display: inline-block;
+  width: 38%;
+  padding-right: 2%;
+  vertical-align: top;
+
+  .block {
+    border-radius: 4px;
+  }  
 }

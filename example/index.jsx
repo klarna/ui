@@ -7,6 +7,7 @@ import { Title } from '../Text'
 import Link from '../Link'
 import * as examples from './examples'
 import * as icons from './icons'
+import Code from '../Code'
 
 import styles from './index.scss'
 import K from './K'
@@ -31,7 +32,7 @@ const Page = ({example}) => {
       <header>
         <Icon />
         <Title.Primary margins>{example.title}</Title.Primary>
-        <nav>
+        <nav className={styles.pageNav}>
           {
             example.variations.map((variation) => (
               <Link
@@ -45,15 +46,18 @@ const Page = ({example}) => {
       </header>
       {
         example.variations.map((variation) => (
-          <section key={variation.title}>
-            <Title.Primary className={styles.variationTitle} margins>{variation.title}</Title.Primary>
+          <section key={`#${example.title}/${variation.title}`}>
+            <a name={`${example.title}/${variation.title}`}></a>
+            <Title.Primary className={styles.designTitle} margins>{variation.title}</Title.Primary>
             {
               Object.keys(variation).filter((section) => section !== 'title').map((section) => (
                 <section key={section}>
-                  <Title.Secondary margins>
+                  <Title.Secondary margins className={styles.variationTitle}>
                     {section}
                   </Title.Secondary>
-                  {variation[section]}
+                  <Code>
+                    {variation[section]}
+                  </Code>
                 </section>
               ))
             }

@@ -25,16 +25,9 @@ main {
   font-weight: normal;
 }
 
-<<<<<<< HEAD
 .content {
   flex: 1;
   padding: 90px;
-=======
-.example {
-  -webkit-boz-flex: 1;
-  box-flex: 1;
-  width: 60%;
->>>>>>> @{-1}
 }
 
 .sidebarNav {
@@ -70,6 +63,21 @@ header {
   }
 }
 
-.variationTitle {
+.designTitle {
+  margin: 40px;
   text-align: center;
+}
+
+.variationTitle {
+  margin-left: 40%;
+}
+
+
+.pageNav {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 40px;
+
+  a {
+    padding: 10px;
+  }
 }
