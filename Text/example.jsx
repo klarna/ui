@@ -1,6 +1,6 @@
 import React from 'react'
 import Code from '../Code'
-import Block from '../Block'
+import * as Block from '../Block'
 import { Amount, Title, Subtitle, Paragraph, TextLabel } from '../Text'
 import Link from '../Link'
 
@@ -14,9 +14,9 @@ export default function Texts () {
         <Title.Primary small>Primary Title in small</Title.Primary>
         <Title.Primary strong small>Primary Title in strong</Title.Primary>
         <Title.Primary margins>Primary Title with default text margins</Title.Primary>
-        <Block blue>
+        <Block.Plain blue>
           <Title.Primary color='white'>Primary Title in white</Title.Primary>
-        </Block>
+        </Block.Plain>
       </Code>
 
       <Title.Secondary color='blue' margins>Secondary Title</Title.Secondary>
@@ -25,9 +25,9 @@ export default function Texts () {
         <Title.Secondary color='blue'>Secondary Title in blue</Title.Secondary>
         <Title.Secondary condensed>Secondary Title in condensed</Title.Secondary>
         <Title.Secondary margins>Secondary Title with default text margins</Title.Secondary>
-        <Block blue>
+        <Block.Plain blue>
           <Title.Secondary color='white'>Secondary Title in white</Title.Secondary>
-        </Block>
+        </Block.Plain>
       </Code>
 
       <Title.Secondary color='blue' margins>Subtitle</Title.Secondary>
@@ -36,9 +36,9 @@ export default function Texts () {
         <Subtitle color='blue'>Subtitle in blue</Subtitle>
         <Subtitle condensed>Subtitle in condensed</Subtitle>
         <Subtitle margins>Subtitle with default text margins</Subtitle>
-        <Block blue>
+        <Block.Plain blue>
           <Subtitle color='white'>Subtitle in white</Subtitle>
-        </Block>
+        </Block.Plain>
       </Code>
 
       <Title.Secondary color='blue' margins>Paragraphs</Title.Secondary>
@@ -65,14 +65,14 @@ export default function Texts () {
           Legal paragraph with default margins
         </Paragraph.Legal>
 
-        <Block blue>
+        <Block.Plain blue>
           <Paragraph.Primary color='white'>
             Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph
           </Paragraph.Primary>
           <Paragraph.Legal color='white'>
             Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text
           </Paragraph.Legal>
-        </Block>
+        </Block.Plain>
       </Code>
 
       <Title.Secondary color='blue' margins>Text Label</Title.Secondary>
@@ -80,9 +80,9 @@ export default function Texts () {
         <TextLabel>Klarna ID</TextLabel>
         <TextLabel margins>Klarna ID with default margins</TextLabel>
 
-        <Block blue>
+        <Block.Plain blue>
           <TextLabel color='white'>Given Name</TextLabel>
-        </Block>
+        </Block.Plain>
       </Code>
 
       <Title.Secondary color='blue' margins>Link</Title.Secondary>
@@ -99,11 +99,11 @@ export default function Texts () {
           Some paragraph with <Link href='#' customize={{textColor: 'green'}}>a customized link</Link>.
         </Paragraph.Primary>
 
-        <Block blue>
+        <Block.Plain blue>
           <Paragraph.Primary color='white'>
             Some paragraph with <Link color='white' href='#'>a link</Link>.
           </Paragraph.Primary>
-        </Block>
+        </Block.Plain>
 
       </Code>
 
@@ -112,9 +112,9 @@ export default function Texts () {
         <Amount>1500€</Amount>
         <Amount>$1500</Amount>
         <Amount color='blue'>1500₪</Amount>
-        <Block blue>
+        <Block.Plain blue>
           <Amount color='white'>1500€</Amount>
-        </Block>
+        </Block.Plain>
       </Code>
     </div>
   )

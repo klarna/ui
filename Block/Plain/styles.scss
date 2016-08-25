@@ -1,5 +1,5 @@
-@import '../css/settings';
-@import '../css/mixins/index';
+@import '../../css/settings';
+@import '../../css/mixins/index';
 
 .block {
     @include block(map-get($colors, white), map-get($colors, black));

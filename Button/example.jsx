@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Back, Close, Hamburger, Options, Search } from '../IconButton'
-import Block from '../Block'
+import * as Block from '../Block'
 import { Title, Subtitle } from '../Text'
 import Code from '../Code'
 import * as Button from '../Button'
@@ -117,13 +117,13 @@ export default function Buttons () {
 
       <Subtitle margins>Inverse color scheme</Subtitle>
       <Code>
-        <Block blue style={{padding: 20}}>
+        <Block.Plain blue style={{padding: 20}}>
           <Back onClick={() => alert('lala')} color='inverse' />
           <Close color='inverse' />
           <Hamburger color='inverse' />
           <Options color='inverse' />
           <Search color='inverse' />
-        </Block>
+        </Block.Plain>
       </Code>
 
     </div>
