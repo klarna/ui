@@ -27,6 +27,14 @@ import * as TheText from './Text'
 export { default as TextLabel } from './TextLabel'
 import * as TheTitle from './Title'
 export { default as Tooltip } from './Tooltip'
+import * as TheUncontrolledMenu from './uncontrolled/Menu'
+import * as TheUncontrolledSwitch from './uncontrolled/Switch'
+export { default as UncontrolledDropdown } from './uncontrolled/Dropdown'
+export { default as UncontrolledField } from './uncontrolled/Field'
+export { default as UncontrolledInput } from './uncontrolled/Input'
+export { default as UncontrolledInstallments } from './uncontrolled/Installments'
+export { default as UncontrolledRadio } from './uncontrolled/Radio'
+export { default as UncontrolledSelector } from './uncontrolled/Selector'
 
 export const Alert = TheAlert
 export const Block = TheBlock
@@ -42,3 +50,5 @@ export const Preview = ThePreview
 export const Switch = TheSwitch
 export const Text = TheText
 export const Title = TheTitle
+export const UncontrolledMenu = TheUncontrolledMenu
+export const UncontrolledSwitch = TheUncontrolledSwitch
