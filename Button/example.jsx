@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Back, Close, Hamburger, Options, Search } from '../IconButton'
-import Block from '../Block'
+import * as Block from '../Block'
 import * as Button from '../Button'
 
 const Primary = {}
@@ -93,33 +93,33 @@ const Iconic = {}
 Iconic.title = 'Iconic Buttons'
 
 Iconic['Default color scheme'] = (
-  <Block>
+  <Block.Plain>
     <Back />
     <Close />
     <Hamburger />
     <Options />
     <Search />
-  </Block>
+  </Block.Plain>
 )
 
 Iconic['Gray color scheme'] = (
-  <Block>
+  <Block.Plain>
     <Back color='gray' />
     <Close color='gray' />
     <Hamburger color='gray' />
     <Options color='gray' />
     <Search color='gray' />
-  </Block>
+  </Block.Plain>
 )
 
 Iconic['Inverse color scheme'] = (
-  <Block blue style={{padding: 20}}>
+  <Block.Plain blue style={{padding: 20}}>
     <Back onClick={() => alert('lala')} color='inverse' />
     <Close color='inverse' />
     <Hamburger color='inverse' />
     <Options color='inverse' />
     <Search color='inverse' />
-  </Block>
+  </Block.Plain>
 )
 
 export default {

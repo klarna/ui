@@ -1,27 +1,27 @@
 import React from 'react'
 import Code from '../Code'
 import { Subtitle } from '../Text'
-import { Installments as BlockInstallments } from '../Block'
+import * as Block from '../Block'
 
 export default function Blocks () {
   return (
     <div>
       <Subtitle>Installments</Subtitle>
       <Code>
-        <BlockInstallments.Main>
-          <BlockInstallments.Title>Your Installments</BlockInstallments.Title>
-          <BlockInstallments.Content>
-            <BlockInstallments.Value
+        <Block.Installments.Main>
+          <Block.Installments.Title>Your Installments</Block.Installments.Title>
+          <Block.Installments.Content>
+            <Block.Installments.Value
               title='Estimated total'
               value='€100'
             />
-            <BlockInstallments.Value
+            <Block.Installments.Value
               clarification='†'
               title='APR'
               value='9.99%'
             />
-          </BlockInstallments.Content>
-        </BlockInstallments.Main>
+          </Block.Installments.Content>
+        </Block.Installments.Main>
       </Code>
     </div>
   )
