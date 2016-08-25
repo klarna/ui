@@ -4,7 +4,7 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'block'
 
-export default function Block ({className, blue, children, styles, ...props}) {
+export default function Plain ({className, blue, children, styles, ...props}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -16,7 +16,9 @@ export default function Block ({className, blue, children, styles, ...props}) {
   )
 }
 
-Block.propTypes = {
+Plain.displayName = 'Block.Plain'
+
+Plain.propTypes = {
   blue: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
