@@ -1,6 +1,5 @@
 import React from 'react'
 import InstallmentsComponent from '../Installments'
-import UncontrolledField from '../uncontrolled/Field'
 import UncontrolledInstallments from '../uncontrolled/Installments'
 import { Subtitle } from '../Text'
 import Code from '../Code'

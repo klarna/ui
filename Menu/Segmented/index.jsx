@@ -63,7 +63,6 @@ export default React.createClass({
       focus,
       onBlur,
       onChange,
-      onClick,
       onFocus,
       options,
       name,

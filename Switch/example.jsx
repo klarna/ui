@@ -1,5 +1,4 @@
 import React from 'react'
-import UncontrolledField from '../uncontrolled/Field'
 import * as Switch from '../Switch'
 import * as UncontrolledSwitch from '../uncontrolled/Switch'
 import { Title, Subtitle } from '../Text'

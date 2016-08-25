@@ -145,7 +145,7 @@ export default React.createClass({
               className={classNames(classes.bulletCheckmarkStroke)}
               d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
               style={customize ? {
-                stroke: customize.bulletColor 
+                stroke: customize.bulletColor
               } : undefined}
             />
           </g>
