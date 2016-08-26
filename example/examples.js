@@ -1,4 +1,4 @@
-// export Alerts from '../Alert/example'
+export Alerts from '../Alert/example'
 // export Blocks from '../Block/example'
 export Button from '../Button/example'
 // export Checklists from '../Checklist/example'
