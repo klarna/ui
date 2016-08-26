@@ -1,7 +1,11 @@
 pre {
   background: #363636;
+  border-radius: 4px;
+  display: inline-block;
   margin: 0;
-  padding: 1em;
+  min-width: 400px;
+  padding: 2%;
+  width: 56%;
 
   code {
     font-family: 'Fira Mono', 'Fira Code';
@@ -10,13 +14,17 @@ pre {
 }
 
 .variation {
-  border-radius: 6px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
-  box-sizing: border-box;
   margin-bottom: 1em;
   overflow: hidden;
 }
 
 .live {
-  padding: 1em;
+  display: inline-block;
+  padding-right: 2%;
+  vertical-align: top;
+  width: 38%;
+
+  .block {
+    border-radius: 4px;
+  }
 }

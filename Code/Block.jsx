@@ -1,16 +1,10 @@
 import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import asString from 'react-to-jsx'
-import solarized from './highlight'
+import highlight from './highlight'
+import asCode from './asCode'
 
-export default function CodeBlock ({ children }) {
-  const code = React.Children.map(children,
-    (item) => asString(item, { indent: '  ' })
-  ).join('')
-
-  return (
-    <SyntaxHighlighter language='xml' style={solarized}>
-      {code}
-    </SyntaxHighlighter>
-  )
-}
+export default ({ children }) => (
+  <SyntaxHighlighter language='xml' style={highlight}>
+    {asCode(children)}
+  </SyntaxHighlighter>
+)

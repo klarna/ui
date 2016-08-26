@@ -8,10 +8,8 @@ body {
 }
 
 main {
-  // min-height: 100vh;
-  box-orient: horizontal;
-  display: box;
-  display: -webkit-box;
+  display: flex;
+  flex-direction: row;
   height: 100%;
 }
 
@@ -25,26 +23,21 @@ main {
   font-size: 13px;
   font-weight: normal;
   min-height: 100vh;
-  width: 200px;
-  // width: 180px;
+  width: 180px;
 }
 
-.example {
-  -webkit-boz-flex: 1;
-  box-flex: 1;
-  width: 60%;
+.content {
+  flex: 1;
+  padding: 90px;
 }
 
-nav {
+.sidebarNav {
   background: #363636;
   min-height: 100vh;
-  padding: 20px 0 0 20px;
   position: fixed;
-  width: 140px;
 }
 
 header {
-  margin-top: 90px;
   text-align: center;
 }
 
@@ -66,5 +59,24 @@ header {
 
   &.selected {
     font-weight: 900;
+  }
+}
+
+.designTitle {
+  margin: 40px;
+  text-align: center;
+}
+
+.variationTitle {
+  margin-left: 40%;
+}
+
+
+.pageNav {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 40px;
+
+  a {
+    padding: 10px;
   }
 }
