@@ -2,7 +2,7 @@
   border: 0.5px solid;
   border-radius: $border-radius * 5;
   height: 10px;
-  
+
   &.light-blue {
     border-color: map-get($colors, light-blue);
   }
@@ -17,18 +17,18 @@
 }
 
 @mixin progressbar-fill() {
-    border-radius: $border-radius * 5;
-    height: 100%;
+  border-radius: $border-radius * 5;
+  height: 100%;
 
-    &.light-blue {
-      background-color: map-get($colors, light-blue);
-    }
+  &.light-blue {
+    background-color: map-get($colors, light-blue);
+  }
 
-    &.blue {
-      background-color: map-get($colors, klarna-blue);
-    }
+  &.blue {
+    background-color: map-get($colors, klarna-blue);
+  }
 
-    &.gray {
-      background-color: map-get($colors, grey-lines);
-    }
+  &.gray {
+    background-color: map-get($colors, grey-lines);
+  }
 }

@@ -3,15 +3,15 @@
 body {
   font-family: 'Open Sans';
   height: 100%;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 main {
-  display: box;
-  display: -webkit-box;
   // min-height: 100vh;
   box-orient: horizontal;
+  display: box;
+  display: -webkit-box;
   height: 100%;
 }
 
@@ -20,14 +20,13 @@ main {
 }
 
 .sidebar {
-  box-flex: 0;
-  width: 200px;
-  min-height: 100vh;
-
   -webkit-font-smoothing: antialiased;
+  box-flex: 0;
   font-size: 13px;
   font-weight: normal;
-//  width: 180px;
+  min-height: 100vh;
+  width: 200px;
+  // width: 180px;
 }
 
 .example {
@@ -36,17 +35,12 @@ main {
   width: 60%;
 }
 
-
-
 nav {
-  position: fixed;
   background: #363636;
-  width: 140px;
-  padding: 20px 0 0 20px;
   min-height: 100vh;
-
-  a {
-  }
+  padding: 20px 0 0 20px;
+  position: fixed;
+  width: 140px;
 }
 
 header {
@@ -72,6 +66,5 @@ header {
 
   &.selected {
     font-weight: 900;
-
   }
 }

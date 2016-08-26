@@ -1,10 +1,11 @@
 pre {
-  background: #363636 !important;
+  background: #363636;
   margin: 0;
   padding: 1em;
+
   code {
+    font-family: 'Fira Mono', 'Fira Code';
     font-weight: 100;
-    font-family: 'Fira Mono', 'Fira Code' !important;
   }
 }
 
@@ -19,4 +20,3 @@ pre {
 .live {
   padding: 1em;
 }
-

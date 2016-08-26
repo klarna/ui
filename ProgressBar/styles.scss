@@ -2,9 +2,9 @@
 @import '../css/mixins/index';
 
 .progressbar {
-    @include progressbar;
+  @include progressbar;
 }
 
 .progressbar-fill {
-    @include progressbar-fill;
+  @include progressbar-fill;
 }

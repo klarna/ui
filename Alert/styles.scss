@@ -2,19 +2,19 @@
 @import '../css/mixins/index';
 
 .alert {
-    &--error {
-        @include alert(map-get($colors, error-background), map-get($colors, error-hover), map-get($colors, error-text));
-    }
+  &--error {
+    @include alert(map-get($colors, error-background), map-get($colors, error-hover), map-get($colors, error-text));
+  }
 
-    &--warning {
-        @include alert(map-get($colors, warning-background), map-get($colors, warning-hover), map-get($colors, warning-text));
-    }
+  &--warning {
+    @include alert(map-get($colors, warning-background), map-get($colors, warning-hover), map-get($colors, warning-text));
+  }
 }
 
 .alert__paragraph {
-    @include alert__paragraph;
+  @include alert__paragraph;
 }
 
 .alert__title {
-    @include alert__title;
+  @include alert__title;
 }

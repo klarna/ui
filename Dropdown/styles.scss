@@ -2,177 +2,176 @@
 @import '../css/mixins/index';
 
 .dropdown {
-    @include stackable();
+  @include stackable();
 
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-transition: all .2s ease;
-    border: ($grid * .2) solid $border-color;
-    border-radius: $border-radius;
-    box-sizing: border-box;
-    clear: both;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-transition: all .2s ease;
+  border: ($grid * .2) solid $border-color;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  height: ($grid * 10.2);
+  margin-bottom: ($grid * -.2);
+  position: relative;
+  text-align: left;
+  top: ($grid * -.2);
+  transition: all .2s ease;
+
+  &:after {
+    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMTRweCIgaGVpZ2h0PSIxNHB4IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGcgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ4OCwgLTQyOCkiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4OCwgNDI5KSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0Ij48L3JlY3Q+PHBhdGggZD0iTTExLDUgTDcsOSBMMyw1IiBzdHJva2U9IiMzQzNDM0UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==');
+    content: '';
     display: block;
-    height: ($grid * 10.2);
-    margin-bottom: ($grid * -.2);
-    position: relative;
-    text-align: left;
-    top: ($grid * -.2);
-    transition: all .2s ease;
+    height: ($grid * 2.8);
+    position: absolute;
+    right: ($grid * 3.4);
+    top: ($grid * 3.4);
+    width: ($grid * 2.8);
+  }
 
-    &:after {
-        background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMTRweCIgaGVpZ2h0PSIxNHB4IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGcgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ4OCwgLTQyOCkiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4OCwgNDI5KSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0Ij48L3JlY3Q+PHBhdGggZD0iTTExLDUgTDcsOSBMMyw1IiBzdHJva2U9IiMzQzNDM0UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==');
-        content: '';
-        display: block;
-        height: ($grid * 2.8);
-        position: absolute;
-        right: ($grid * 3.4);
-        top: ($grid * 3.4);
-        width: ($grid * 2.8);
-    }
+  &.is-hidden {
+    display: none;
+  }
 
-    &.is-hidden {
-        display: none;
-    }
+  &:focus {
+    outline: none;
+  }
 
-    &:focus {
-        outline: none;
-    }
+  &:hover {
+    border-color: map-get($colors, blue-hover);
+    z-index: 10;
+  }
+
+  &.is-focused {
+    border-color: map-get($colors, blue-focus);
+    box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
+    z-index: 20;
+  }
+
+  &.is-error {
+    background-color: #fff8f7;
+    border-color: map-get($colors, error-border);
+    box-shadow: none;
+    z-index: 5;
 
     &:hover {
-        border-color: map-get($colors, blue-hover);
-        z-index: 10;
+      border-color: map-get($colors, error-hover);
+      z-index: 10;
     }
 
     &.is-focused {
-        border-color: map-get($colors, blue-focus);
-        box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
-        z-index: 20;
+      border-color: map-get($colors, error);
+      box-shadow: 0 0 ($grid * .8) map-get($colors, error-shadow);
+      z-index: 20;
+    }
+  }
+
+  &.is-warning {
+    background-color: #fffaf0;
+    border-color: map-get($colors, warning-border);
+    box-shadow: none;
+    z-index: 5;
+
+    &:hover {
+      border-color: map-get($colors, warning-hover);
+      z-index: 10;
     }
 
-    &.is-error {
-        background-color: #fff8f7;
-        border-color: map-get($colors, error-border);
-        box-shadow: none;
-        z-index: 5;
-
-        &:hover {
-            border-color: map-get($colors, error-hover);
-            z-index: 10;
-        }
-
-        &.is-focused {
-            border-color: map-get($colors, error);
-            box-shadow: 0 0 ($grid * .8) map-get($colors, error-shadow);
-            z-index: 20;
-        }
+    &.is-focused {
+      border-color: map-get($colors, warning-hover);
+      box-shadow: 0 0 ($grid * .8) map-get($colors, warning-border);
+      z-index: 20;
     }
+  }
 
-    &.is-warning {
-        background-color: #fffaf0;
-        border-color: map-get($colors, warning-border);
-        box-shadow: none;
-        z-index: 5;
+  &.is-disabled {
+    background-color: #fafafa;
+    border-color: map-get($colors, grey-lines);
 
-        &:hover {
-            border-color: map-get($colors, warning-hover);
-            z-index: 10;
-        }
-
-        &.is-focused {
-            border-color: map-get($colors, warning-hover);
-            box-shadow: 0 0 ($grid * .8) map-get($colors, warning-border);
-            z-index: 20;
-        }
+    &:hover {
+      border-color: map-get($colors, grey-lines);
     }
+  }
 
-    &.is-disabled {
-        background-color: #fafafa;
-        border-color: map-get($colors, grey-lines);
-
-        &:hover {
-            border-color: map-get($colors, grey-lines);
-        }
+  &.is-loading {
+    &:after {
+      @include button__loader;
+      content: '';
+      margin-top: -10px;
+      position: absolute;
+      right: 15px;
+      top: 50%;
     }
-
-    &.is-loading {
-        &:after {
-            @include button__loader;
-            content: '';
-            margin-top: -10px;
-            position: absolute;
-            right: 15px;
-            top: 50%;
-        }
-    }
+  }
 }
 
 .dropdown__label {
-    @include typography(($grid * 2.8), regular);
+  @include typography(($grid * 2.8), regular);
 
-    color: map-get($colors, 'grey-text');
-    line-height: ($grid * 10);
-    padding: 0 ($grid * 4);
-    position: absolute;
-    transition: all .2s ease;
-    white-space: nowrap;
+  color: map-get($colors, 'grey-text');
+  line-height: ($grid * 10);
+  padding: 0 ($grid * 4);
+  position: absolute;
+  transition: all .2s ease;
+  white-space: nowrap;
 
-    .is-selected & {
-        @include typography(($grid * 2.2), regular);
+  .is-selected & {
+    @include typography(($grid * 2.2), regular);
 
-        transform: translate(0, ($grid * -2));
-        -ms-transform: translate(0, ($grid * -2));
+    transform: translate(0, ($grid * -2));
+    -ms-transform: translate(0, ($grid * -2));
 
-        .is-error &,
-        .is-warning & {
-            @include typography(($grid * 2.2), regular);
-
-            left: 0;
-            top: 0;
-            transform: translate(0, ($grid * -2));
-            -ms-transform: translate(0, ($grid * -2));
-        }
-    }
-
-    .is-error & {
-        color: map-get($colors, error);
-    }
-
+    .is-error &,
     .is-warning & {
-        color: map-get($colors, warning);
-    }
+      @include typography(($grid * 2.2), regular);
 
-    .is-disabled & {
-        color: map-get($colors, grey-lines);
+      left: 0;
+      top: 0;
+      transform: translate(0, ($grid * -2));
+      -ms-transform: translate(0, ($grid * -2));
     }
+  }
+
+  .is-error & {
+    color: map-get($colors, error);
+  }
+
+  .is-warning & {
+    color: map-get($colors, warning);
+  }
+
+  .is-disabled & {
+    color: map-get($colors, grey-lines);
+  }
 }
 
 .dropdown__current-option {
-    @include typography(($grid * 2.8), semi-bold);
+  @include typography(($grid * 2.8), semi-bold);
 
-    color: map-get($colors, black);
-    line-height: ($grid * 10);
-    padding: 0 ($grid * 4);
-    position: absolute;
+  color: map-get($colors, black);
+  line-height: ($grid * 10);
+  padding: 0 ($grid * 4);
+  position: absolute;
 
-    .is-selected &,
-    .is-error &,
-    .is-warning & {
-        height: ($grid * 9);
-        top: ($grid * 1.2);
-    }
+  .is-selected &,
+  .is-error &,
+  .is-warning & {
+    height: ($grid * 9);
+    top: ($grid * 1.2);
+  }
 
-    .is-disabled & {
-        color: map-get($colors, grey-lines);
-    }
+  .is-disabled & {
+    color: map-get($colors, grey-lines);
+  }
 }
 
 .dropdown__select {
-    @include opacity(0);
-
-    appearance: none;
-    cursor: pointer;
-    height: ($grid * 10.2);
-    outline: none;
-    position: absolute;
-    width: 100%;
-    z-index: 2;
+  appearance: none;
+  cursor: pointer;
+  height: ($grid * 10.2);
+  opacity: 0;
+  outline: none;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
 }

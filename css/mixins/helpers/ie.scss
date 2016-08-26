@@ -28,13 +28,13 @@
 *******************************************************************************/
 
 @mixin respond-to-ie($versions: ('')) {
-    $selectors: ();
-    @each $version in $versions {
-        $selectors: append($selectors, unquote('.ie#{$version} &'), comma);
-        $selectors: append($selectors, unquote('.browser--ie#{$version} &'), comma);
-    }
+  $selectors: ();
+  @each $version in $versions {
+    $selectors: append($selectors, unquote('.ie#{$version} &'), comma);
+    $selectors: append($selectors, unquote('.browser--ie#{$version} &'), comma);
+  }
 
-    #{$selectors} {
-        @content;
-    }
+  #{$selectors} {
+    @content;
+  }
 }

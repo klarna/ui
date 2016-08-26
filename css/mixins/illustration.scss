@@ -1,53 +1,53 @@
 @mixin illustration__stroke ($color) {
-    -webkit-transition: all .2s ease;
-    fill: none;
-    stroke: $color;
-    transition: all .2s ease;
+  -webkit-transition: all .2s ease;
+  fill: none;
+  stroke: $color;
+  transition: all .2s ease;
 }
 
 @mixin illustration__fill ($color) {
-    -webkit-transition: all .2s ease;
-    fill: $color;
-    transition: all .2s ease;
+  -webkit-transition: all .2s ease;
+  fill: $color;
+  transition: all .2s ease;
 }
 
 @mixin illustration($color) {
-    .illustration__fill {
-        @include illustration__fill($color);
-    }
+  .illustration__fill {
+    @include illustration__fill($color);
+  }
 
-    .illustration__stroke {
-        @include illustration__stroke($color);
-    }
+  .illustration__stroke {
+    @include illustration__stroke($color);
+  }
 }
 
 @mixin colored-illustration ($size) {
-    @include illustration(map-get($colors, klarna-blue));
+  @include illustration(map-get($colors, klarna-blue));
 
-    height: $size;
-    width: $size;
+  height: $size;
+  width: $size;
 
-    &.gray {
-        @include illustration(map-get($colors, grey-lines));
-    }
+  &.gray {
+    @include illustration(map-get($colors, grey-lines));
+  }
 
-    &.error {
-        @include illustration(map-get($colors, error));
-    }
+  &.error {
+    @include illustration(map-get($colors, error));
+  }
 
-    &.success {
-        @include illustration(map-get($colors, green));
-    }
+  &.success {
+    @include illustration(map-get($colors, green));
+  }
 
-    &.warning {
-        @include illustration(map-get($colors, non-standard-orange));
-    }
+  &.warning {
+    @include illustration(map-get($colors, non-standard-orange));
+  }
 
-    &.black {
-        @include illustration(map-get($colors, black));
-    }
+  &.black {
+    @include illustration(map-get($colors, black));
+  }
 
-    &.inverse {
-        @include illustration(map-get($colors, white));
-    }
+  &.inverse {
+    @include illustration(map-get($colors, white));
+  }
 }

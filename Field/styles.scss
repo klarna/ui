@@ -2,330 +2,330 @@
 @import '../css/mixins/index';
 
 %field {
-    @include stackable();
+  @include stackable();
 
-    border: ($grid * .2) solid $border-color;
-    border-radius: $border-radius;
-    box-sizing: border-box;
-    clear: both;
-    display: block;
-    height: ($grid * 10.2);
-    margin-bottom: ($grid * -.2);
-    position: relative;
-    text-align: left;
-    top: ($grid * -.2);
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
+  border: ($grid * .2) solid $border-color;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  clear: both;
+  display: block;
+  height: ($grid * 10.2);
+  margin-bottom: ($grid * -.2);
+  position: relative;
+  text-align: left;
+  top: ($grid * -.2);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
 
-    &.big {
-        height: ($grid * 12.2);
-    }
+  &.big {
+    height: ($grid * 12.2);
+  }
 
-    &.is-hidden {
-        display: none;
-    }
+  &.is-hidden {
+    display: none;
+  }
 
-    &:focus {
-        outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    border-color: map-get($colors, blue-hover);
+    z-index: 10;
+  }
+
+  &.is-focused {
+    border-color: map-get($colors, blue-focus);
+    box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
+    z-index: 20;
+  }
+
+  &.is-error {
+    background-color: #fff8f7;
+    border-color: map-get($colors, error-border);
+    box-shadow: none;
+    z-index: 5;
 
     &:hover {
-        border-color: map-get($colors, blue-hover);
-        z-index: 10;
+      border-color: map-get($colors, error-hover);
+      z-index: 10;
     }
 
     &.is-focused {
-        border-color: map-get($colors, blue-focus);
-        box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
-        z-index: 20;
+      border-color: map-get($colors, error);
+      box-shadow: 0 0 ($grid * .8) map-get($colors, error-shadow);
+      z-index: 20;
+    }
+  }
+
+  &.is-warning {
+    background-color: #fffaf0;
+    border-color: map-get($colors, warning-border);
+    box-shadow: none;
+    z-index: 5;
+
+    &:hover {
+      border-color: map-get($colors, warning-hover);
+      z-index: 10;
     }
 
-    &.is-error {
-        background-color: #fff8f7;
-        border-color: map-get($colors, error-border);
-        box-shadow: none;
-        z-index: 5;
+    &.is-focused {
+      border-color: map-get($colors, warning-hover);
+      box-shadow: 0 0 ($grid * .8) map-get($colors, warning-border);
+      z-index: 20;
+    }
+  }
 
-        &:hover {
-            border-color: map-get($colors, error-hover);
-            z-index: 10;
-        }
+  &.is-disabled {
+    background-color: #fafafa;
+    border-color: map-get($colors, grey-lines);
 
-        &.is-focused {
-            border-color: map-get($colors, error);
-            box-shadow: 0 0 ($grid * .8) map-get($colors, error-shadow);
-            z-index: 20;
-        }
+    &:hover {
+      border-color: map-get($colors, grey-lines);
+    }
+  }
+
+  &.is-centered {
+    .field__label {
+      padding: 0;
+      width: 100%;
     }
 
-    &.is-warning {
-        background-color: #fffaf0;
-        border-color: map-get($colors, warning-border);
-        box-shadow: none;
-        z-index: 5;
-
-        &:hover {
-            border-color: map-get($colors, warning-hover);
-            z-index: 10;
-        }
-
-        &.is-focused {
-            border-color: map-get($colors, warning-hover);
-            box-shadow: 0 0 ($grid * .8) map-get($colors, warning-border);
-            z-index: 20;
-        }
+    .field--icon__input {
+      padding: 0 40px;
     }
 
-    &.is-disabled {
-        background-color: #fafafa;
-        border-color: map-get($colors, grey-lines);
-
-        &:hover {
-            border-color: map-get($colors, grey-lines);
-        }
+    .field__input,
+    .field__label {
+      text-align: center;
     }
+  }
 
-    &.is-centered {
-        .field__label {
-            padding: 0;
-            width: 100%;
-        }
-
-        .field--icon__input {
-            padding: 0 40px;
-        }
-
-        .field__input,
-        .field__label {
-            text-align: center;
-        }
+  &.is-loading {
+    &:after {
+      @include button__loader;
+      content: '';
+      margin-top: -10px;
+      position: absolute;
+      right: 15px;
+      top: 50%;
     }
-
-    &.is-loading {
-        &:after {
-            @include button__loader;
-            content: '';
-            margin-top: -10px;
-            position: absolute;
-            right: 15px;
-            top: 50%;
-        }
-    }
+  }
 }
 
 %field__label {
-    @include typography(($grid * 2.8), regular);
+  @include typography(($grid * 2.8), regular);
 
-    -webkit-transition: all .2s ease;
+  -webkit-transition: all .2s ease;
+  color: map-get($colors, 'grey-text');
+  line-height: ($grid * 10);
+  overflow: hidden;
+  padding: 0 ($grid * 4);
+  position: absolute;
+  text-overflow: ellipsis;
+  transition: all .2s ease;
+  white-space: nowrap;
+  width: calc(100% - #{($grid * 8)});
+
+  .big & {
+    line-height: ($grid * 12);
+  }
+
+  .big.is-filled &,
+  .big.is-error &,
+  .big.is-warning & {
+    margin-top: ($grid * -2.2);
+  }
+
+  .is-filled &,
+  .is-error &,
+  .is-warning & {
+    @include typography(($grid * 2.2), regular);
+
+    margin-top: ($grid * -2.2);
+  }
+
+  .is-filled & {
     color: map-get($colors, 'grey-text');
-    line-height: ($grid * 10);
-    overflow: hidden;
-    padding: 0 ($grid * 4);
-    position: absolute;
-    text-overflow: ellipsis;
-    transition: all .2s ease;
-    white-space: nowrap;
-    width: calc(100% - #{($grid * 8)});
+  }
 
-    .big & {
-        line-height: ($grid * 12);
-    }
+  .is-error & {
+    color: map-get($colors, error);
+  }
 
-    .big.is-filled &,
-    .big.is-error &,
-    .big.is-warning & {
-        margin-top: ($grid * -2.2);
-    }
+  .is-warning & {
+    color: map-get($colors, warning);
+  }
 
-    .is-filled &,
-    .is-error &,
-    .is-warning & {
-        @include typography(($grid * 2.2), regular);
-
-        margin-top: ($grid * -2.2);
-    }
-
-    .is-filled & {
-        color: map-get($colors, 'grey-text');
-    }
-
-    .is-error & {
-        color: map-get($colors, error);
-    }
-
-    .is-warning & {
-        color: map-get($colors, warning);
-    }
-
-    .is-disabled & {
-        color: map-get($colors, grey-lines);
-    }
+  .is-disabled & {
+    color: map-get($colors, grey-lines);
+  }
 }
 
 %field__input {
-    @include typography(($grid * 2.8), semi-bold);
+  @include typography(($grid * 2.8), semi-bold);
 
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    appearance: none;
-    background-color: transparent;
-    border: 0;
-    box-sizing: border-box;
-    color: map-get($colors, black);
-    height: ($grid * 10);
-    outline: none;
-    padding: 0 ($grid * 4);
-    position: absolute;
-    width: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  box-sizing: border-box;
+  color: map-get($colors, black);
+  height: ($grid * 10);
+  outline: none;
+  padding: 0 ($grid * 4);
+  position: absolute;
+  width: 100%;
 
-    // Disable clear field icon for IE10+
-    &::-ms-clear {
-        height: 0;
-        width : 0;
-    }
+  // Disable clear field icon for IE10+
+  &::-ms-clear {
+    height: 0;
+    width : 0;
+  }
 
-    .ie9 & {
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=');
-        position: relative;
-        top: ($grid * 3);
-        z-index: 10;
-    }
+  .ie9 & {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=');
+    position: relative;
+    top: ($grid * 3);
+    z-index: 10;
+  }
 
-    .big & {
-        height: ($grid * 12);
-    }
+  .big & {
+    height: ($grid * 12);
+  }
 
-    .big.is-filled &,
-    .big.is-error &,
-    .big.is-warning & {
-        height: ($grid * 9.8);
-        top: ($grid * 2.2);
-    }
+  .big.is-filled &,
+  .big.is-error &,
+  .big.is-warning & {
+    height: ($grid * 9.8);
+    top: ($grid * 2.2);
+  }
 
-    .is-filled &,
-    .is-error &,
-    .is-warning & {
-        height: ($grid * 9);
-        top: ($grid * 1.6);
-    }
+  .is-filled &,
+  .is-error &,
+  .is-warning & {
+    height: ($grid * 9);
+    top: ($grid * 1.6);
+  }
 
-    .is-disabled & {
-        color: map-get($colors, grey-lines);
-        /* Override webkit font color change */
-        -webkit-text-fill-color: map-get($colors, grey-lines);
-        -webkit-opacity: 1;
-    }
+  .is-disabled & {
+    color: map-get($colors, grey-lines);
+    /* Override webkit font color change */
+    -webkit-text-fill-color: map-get($colors, grey-lines);
+    -webkit-opacity: 1;
+  }
 
-    .safari &,
-    .ios & {
-        -webkit-transform: translate3d(0, 0, 0);
-    }
+  .safari &,
+  .ios & {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
 }
 
 .field {
-    @extend %field;
+  @extend %field;
 }
 
 .field__label {
-    @extend %field__label;
+  @extend %field__label;
 }
 
 .field__input {
-    @extend %field__input;
+  @extend %field__input;
 }
 
 .field--icon {
-    @extend %field;
+  @extend %field;
 }
 
 .field--icon__label {
-    @extend %field__label;
+  @extend %field__label;
 }
 
 .field--icon__input {
-    @extend %field__input;
+  @extend %field__input;
 }
 
 .field--icon__label,
 .field--icon__input {
-    padding-left: ($grid * 8.4);
+  padding-left: ($grid * 8.4);
 }
 
 .field--icon__icon {
-    display: block;
-    fill-rule: evenodd;
-    height: ($grid * 4);
-    margin: ($grid * 3) 0 0 ($grid * 2.4);
-    position: absolute;
-    width: ($grid * 4);
+  display: block;
+  fill-rule: evenodd;
+  height: ($grid * 4);
+  margin: ($grid * 3) 0 0 ($grid * 2.4);
+  position: absolute;
+  width: ($grid * 4);
 
-    .big & {
-        margin-top: ($grid * 4);
-    }
+  .big & {
+    margin-top: ($grid * 4);
+  }
 
-    &__fill {
-        @include illustration__fill(map-get($colors, grey-icon));
-    }
+  &__fill {
+    @include illustration__fill(map-get($colors, grey-icon));
+  }
 
-    .field--icon:hover &__fill {
-        @include illustration__fill(map-get($colors, blue-hover));
-    }
+  .field--icon:hover &__fill {
+    @include illustration__fill(map-get($colors, blue-hover));
+  }
 
-    .field--icon.is-focused &__fill {
-        @include illustration__fill(map-get($colors, blue-hover));
-    }
+  .field--icon.is-focused &__fill {
+    @include illustration__fill(map-get($colors, blue-hover));
+  }
 
-    .field--icon.is-error &__fill {
-        @include illustration__fill(map-get($colors, red));
-    }
+  .field--icon.is-error &__fill {
+    @include illustration__fill(map-get($colors, red));
+  }
 
-    .field--icon.is-warning &__fill {
-        @include illustration__fill(map-get($colors, warning-border));
-    }
+  .field--icon.is-warning &__fill {
+    @include illustration__fill(map-get($colors, warning-border));
+  }
 
-    .field--icon.is-disabled &__fill {
-        @include illustration__fill(map-get($colors, grey-lines));
-    }
+  .field--icon.is-disabled &__fill {
+    @include illustration__fill(map-get($colors, grey-lines));
+  }
 
-    &__stroke {
-        @include illustration__stroke(map-get($colors, grey-icon));
-    }
+  &__stroke {
+    @include illustration__stroke(map-get($colors, grey-icon));
+  }
 
-    .field--icon:hover &__stroke {
-        @include illustration__stroke(map-get($colors, blue-hover));
-    }
+  .field--icon:hover &__stroke {
+    @include illustration__stroke(map-get($colors, blue-hover));
+  }
 
-    .field--icon.is-focused &__stroke {
-        @include illustration__stroke(map-get($colors, blue-hover));
-    }
+  .field--icon.is-focused &__stroke {
+    @include illustration__stroke(map-get($colors, blue-hover));
+  }
 
-    .field--icon.is-error &__stroke {
-        @include illustration__stroke(map-get($colors, red));
-    }
+  .field--icon.is-error &__stroke {
+    @include illustration__stroke(map-get($colors, red));
+  }
 
-    .field--icon.is-warning &__stroke {
-        @include illustration__stroke(map-get($colors, warning-border));
-    }
+  .field--icon.is-warning &__stroke {
+    @include illustration__stroke(map-get($colors, warning-border));
+  }
 
-    .field--icon.is-disabled &__stroke {
-        @include illustration__stroke(map-get($colors, grey-lines));
-    }
+  .field--icon.is-disabled &__stroke {
+    @include illustration__stroke(map-get($colors, grey-lines));
+  }
 }
 
 .field--icon__placeholder {
-    background: map-get($colors, grey-lines);
-    display: block;
-    height: ($grid * 4);
-    width: ($grid * 4);
+  background: map-get($colors, grey-lines);
+  display: block;
+  height: ($grid * 4);
+  width: ($grid * 4);
 
-    .is-focused & {
-        background: map-get($colors, klarna-blue);
-    }
+  .is-focused & {
+    background: map-get($colors, klarna-blue);
+  }
 
-    .is-error & {
-        background: map-get($colors, error-border);
-    }
+  .is-error & {
+    background: map-get($colors, error-border);
+  }
 
-    .is-warning & {
-        background: map-get($colors, warning-border);
-    }
+  .is-warning & {
+    background: map-get($colors, warning-border);
+  }
 }

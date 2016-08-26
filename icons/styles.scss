@@ -2,13 +2,13 @@
 @import '../css/mixins/index';
 
 .illustration {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 
-    &.tiny {
-        @include colored-illustration($grid * 4);
-    }
+  &.tiny {
+    @include colored-illustration($grid * 4);
+  }
 
-    &.big {
-        @include colored-illustration($grid * 20);
-    }
+  &.big {
+    @include colored-illustration($grid * 20);
+  }
 }

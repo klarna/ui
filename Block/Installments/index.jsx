@@ -23,7 +23,7 @@ export function Main ({ className, children, styles, ...props }) {
   )
 }
 
-Main.displayName = 'BlockInstallments.Main'
+Main.displayName = 'Block.Installments.Main'
 
 Main.propTypes = {
   className: PropTypes.string,
@@ -41,7 +41,7 @@ export function Title ({ className, children, styles, ...props }) {
   )
 }
 
-Title.displayName = 'BlockInstallments.Title'
+Title.displayName = 'Block.Installments.Title'
 
 Title.propTypes = {
   className: PropTypes.string,
@@ -59,7 +59,7 @@ export function Content ({ className, children, styles, ...props }) {
   )
 }
 
-Content.displayName = 'BlockInstallments.Content'
+Content.displayName = 'Block.Installments.Content'
 
 Content.propTypes = {
   className: PropTypes.string,
@@ -88,7 +88,7 @@ export function Value ({ className, clarification, children, title, styles, valu
   )
 }
 
-Value.displayName = 'BlockInstallments.Value'
+Value.displayName = 'Block.Installments.Value'
 
 Value.propTypes = {
   clarification: PropTypes.string,

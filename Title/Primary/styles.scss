@@ -2,9 +2,9 @@
 @import '../../css/mixins/index';
 
 .title--primary {
-    @include title--primary;
+  @include title--primary;
 
-    + .subtitle {
-        margin-top: ($grid * -2);
-    }
+  + .subtitle {
+    margin-top: ($grid * -2);
+  }
 }

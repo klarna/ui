@@ -10,158 +10,158 @@ $bottom-right-position: 'right', -$grid * 3, 0;
 
 
 @mixin tranform-translate($x, $y) {
-    transform: translate($x, $y);
-    -ms-transform: translate($x, $y);
+  transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
 }
 
 @mixin align-transform($position) {
-    $align: nth($position, 1);
-    @if $align == 'left'{
-        @extend %-left;
-    } @else if $align == 'center'{
-        @extend %-center;
-    } @else if $align == 'right'{
-        @extend %-right;
-    }
-    @include tranform-translate(nth($position, 2), nth($position, 3));
+  $align: nth($position, 1);
+  @if $align == 'left'{
+    @extend %-left;
+  } @else if $align == 'center'{
+    @extend %-center;
+  } @else if $align == 'right'{
+    @extend %-right;
+  }
+  @include tranform-translate(nth($position, 2), nth($position, 3));
 }
 
 .tooltip {
-    @include tooltip;
+  @include tooltip;
 
-    // scss-lint:disable PropertySortOrder
-    &.top-left:after {
-        @extend %top;
-        @include align-transform($top-left-position);
-    }
+  // scss-lint:disable PropertySortOrder
+  &.top-left:after {
+    @extend %top;
+    @include align-transform($top-left-position);
+  }
 
-    // scss-lint:disable PropertySortOrder
-    &.top:after {
-        @extend %top;
-        @include align-transform($top-center-position);
-    }
+  // scss-lint:disable PropertySortOrder
+  &.top:after {
+    @extend %top;
+    @include align-transform($top-center-position);
+  }
 
-    // scss-lint:disable PropertySortOrder
-    &.top-right:after {
-        @extend %top;
-        @include align-transform($top-right-position);
-    }
+  // scss-lint:disable PropertySortOrder
+  &.top-right:after {
+    @extend %top;
+    @include align-transform($top-right-position);
+  }
 
-    &.right-top:after {
-        @extend %right, %-top;
-    }
+  &.right-top:after {
+    @extend %right, %-top;
+  }
 
-    &.right:after {
-        @extend %right, %-middle;
-    }
+  &.right:after {
+    @extend %right, %-middle;
+  }
 
-    &.right-bottom:after {
-        @extend %right, %-bottom;
-    }
+  &.right-bottom:after {
+    @extend %right, %-bottom;
+  }
 
-    // scss-lint:disable PropertySortOrder
-    &.bottom-left:after {
-        @extend %bottom;
-        @include align-transform($bottom-left-position);
-    }
+  // scss-lint:disable PropertySortOrder
+  &.bottom-left:after {
+    @extend %bottom;
+    @include align-transform($bottom-left-position);
+  }
 
-    // scss-lint:disable PropertySortOrder
-    &.bottom:after {
-        @extend %bottom;
-        @include align-transform($bottom-center-position);
-    }
+  // scss-lint:disable PropertySortOrder
+  &.bottom:after {
+    @extend %bottom;
+    @include align-transform($bottom-center-position);
+  }
 
-    // scss-lint:disable PropertySortOrder
-    &.bottom-right:after {
-        @extend %bottom;
-        @include align-transform($bottom-right-position);
-    }
+  // scss-lint:disable PropertySortOrder
+  &.bottom-right:after {
+    @extend %bottom;
+    @include align-transform($bottom-right-position);
+  }
 
-    &.left-top:after {
-        @extend %left, %-top;
-    }
+  &.left-top:after {
+    @extend %left, %-top;
+  }
 
-    &.left:after {
-        @extend %left, %-middle;
-    }
+  &.left:after {
+    @extend %left, %-middle;
+  }
 
-    &.left-bottom:after {
-        @extend %left, %-bottom;
-    }
+  &.left-bottom:after {
+    @extend %left, %-bottom;
+  }
 }
 
 .tooltip.border {
-    @include tooltip-border;
+  @include tooltip-border;
 
-    &.top-left:after, &.top-left:before,
-    &.top:after, &.top:before,
-    &.top-right:after, &.top-right:before {
-        @extend %top-border;
-    }
+  &.top-left:after, &.top-left:before,
+  &.top:after, &.top:before,
+  &.top-right:after, &.top-right:before {
+    @extend %top-border;
+  }
 
-    &.top-left:before {
-        @include align-transform($top-left-position);
-    }
+  &.top-left:before {
+    @include align-transform($top-left-position);
+  }
 
-    &.top:before {
-        @include align-transform($top-center-position);
-    }
+  &.top:before {
+    @include align-transform($top-center-position);
+  }
 
-    &.top-right:before {
-        @include align-transform($top-right-position);
-    }
+  &.top-right:before {
+    @include align-transform($top-right-position);
+  }
 
-    &.right-top:after, &.right-top:before,
-    &.right:after, &.right:before,
-    &.right-bottom:after, &.right-bottom:before {
-        @extend %right-border;
-    }
+  &.right-top:after, &.right-top:before,
+  &.right:after, &.right:before,
+  &.right-bottom:after, &.right-bottom:before {
+    @extend %right-border;
+  }
 
-    &.right-top:before {
-        @extend %-top;
-    }
+  &.right-top:before {
+    @extend %-top;
+  }
 
-    &.right:before {
-        @extend %-middle;
-    }
+  &.right:before {
+    @extend %-middle;
+  }
 
-    &.right-bottom:before {
-        @extend %-bottom;
-    }
+  &.right-bottom:before {
+    @extend %-bottom;
+  }
 
-    &.bottom-left:after, &.bottom-left:before,
-    &.bottom:after, &.bottom:before,
-    &.bottom-right:after, &.bottom-right:before {
-        @extend %bottom-border;
-    }
+  &.bottom-left:after, &.bottom-left:before,
+  &.bottom:after, &.bottom:before,
+  &.bottom-right:after, &.bottom-right:before {
+    @extend %bottom-border;
+  }
 
-    &.bottom-left:before {
-        @include align-transform($bottom-left-position);
-    }
+  &.bottom-left:before {
+    @include align-transform($bottom-left-position);
+  }
 
-    &.bottom:before {
-        @include align-transform($bottom-center-position);
-    }
+  &.bottom:before {
+    @include align-transform($bottom-center-position);
+  }
 
-    &.bottom-right:before {
-        @include align-transform($bottom-right-position);
-    }
+  &.bottom-right:before {
+    @include align-transform($bottom-right-position);
+  }
 
-    &.left-top:after, &.left-top:before,
-    &.left:after, &.left:before,
-    &.left-bottom:after, &.left-bottom:before {
-        @extend %left-border;
-    }
+  &.left-top:after, &.left-top:before,
+  &.left:after, &.left:before,
+  &.left-bottom:after, &.left-bottom:before {
+    @extend %left-border;
+  }
 
-    &.left-top:before {
-        @extend %-top;
-    }
+  &.left-top:before {
+    @extend %-top;
+  }
 
-    &.left:before {
-        @extend %-middle;
-    }
+  &.left:before {
+    @extend %-middle;
+  }
 
-    &.left-bottom:before {
-        @extend %-bottom;
-    }
+  &.left-bottom:before {
+    @extend %-bottom;
+  }
 }

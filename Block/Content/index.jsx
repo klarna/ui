@@ -11,3 +11,5 @@ export default function Content ({ children, styles, ...props }) {
     {children}
   </div>)
 }
+
+Content.displayName = 'Block.Content'
