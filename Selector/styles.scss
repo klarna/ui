@@ -2,31 +2,31 @@
 @import '../css/mixins/index';
 
 .selector--direct__item {
-    @include selector__item;
+  @include selector__item;
 }
 
 .selector--direct__label {
-    @include selector__label;
-    display: block;
+  @include selector__label;
+  display: block;
 }
 
 .selector--direct__value {
-    @include selector__value;
+  @include selector__value;
 }
 
 .selector--direct__icon {
-    @include selector__icon;
+  @include selector__icon;
 }
 
 .selector--direct__description {
-    @include selector__description;
+  @include selector__description;
 }
 
 .selector--direct__description + .selector--direct__description {
-    margin: ($grid * 1) 0 ($grid * .4) 0;
+  margin: ($grid * 1) 0 ($grid * .4) 0;
 }
 
 .selector--direct__title {
-    @include subtitle;
-    margin-bottom: ($grid * 1.2);
+  @include subtitle;
+  margin-bottom: ($grid * 1.2);
 }

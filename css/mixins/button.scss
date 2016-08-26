@@ -1,207 +1,207 @@
 @mixin button($background, $text-color, $darken-color, $darken-attributes) {
-    @include typography(($grid * 2.8), semi-bold);
+  @include typography(($grid * 2.8), semi-bold);
 
-    -webkit-transition: all .2s ease;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    appearance: none;
-    background: $background;
-    border: ($grid * .2) solid map-get($colors, klarna-blue);
-    border-radius: $border-radius;
-    box-sizing: border-box;
-    color: $text-color;
-    cursor: pointer;
-    line-height: ($grid * 10) - ($grid * .4);
-    height: ($grid * 10);
-    outline: none;
-    padding: 0 ($grid * 9);
-    text-align: center;
-    text-decoration: none;
-    transition: all .2s ease;
-    vertical-align: top;
+  -webkit-transition: all .2s ease;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  appearance: none;
+  background: $background;
+  border: ($grid * .2) solid map-get($colors, klarna-blue);
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  color: $text-color;
+  cursor: pointer;
+  height: ($grid * 10);
+  line-height: ($grid * 10) - ($grid * .4);
+  outline: none;
+  padding: 0 ($grid * 9);
+  text-align: center;
+  text-decoration: none;
+  transition: all .2s ease;
+  vertical-align: top;
 
-    &.small {
-        font-size: ($grid * 2.8);
-        line-height: ($grid * 8) - ($grid * .4);
-        height: ($grid * 8);
-        padding: 0 ($grid * 5.6);
+  &.small {
+    font-size: ($grid * 2.8);
+    height: ($grid * 8);
+    line-height: ($grid * 8) - ($grid * .4);
+    padding: 0 ($grid * 5.6);
+  }
+
+  &.big {
+    height: ($grid * 12);
+    letter-spacing: ($grid * .01);
+    line-height: ($grid * 12) - ($grid * .4);
+    padding: 0 ($grid * 14);
+    text-transform: uppercase;
+  }
+
+  &.right {
+    width: 100%;
+
+    @include respond-to-wide {
+      float: right;
+      margin-left: ($grid * 4);
+      width: auto;
     }
+  }
 
-    &.big {
-        height: ($grid * 12);
-        letter-spacing: ($grid * .01);
-        line-height: ($grid * 12) - ($grid * .4);
-        padding: 0 ($grid * 14);
-        text-transform: uppercase;
+  &.left {
+    float: left;
+  }
+
+  &.has-price {
+    padding: 0 ($grid * 4);
+    text-align: left;
+  }
+
+  &:hover,
+  &:focus {
+    @each $attribute in $darken-attributes {
+      #{$attribute}: darken($darken-color, 5.2);
     }
+  }
 
-    &.right {
-        width: 100%;
-
-        @include respond-to-wide {
-            float: right;
-            margin-left: ($grid * 4);
-            width: auto;
-        }
+  &:active {
+    @each $attribute in $darken-attributes {
+      #{$attribute}: darken($darken-color, 10.1);
     }
+  }
 
-    &.left {
-        float: left;
-    }
+  &.is-disabled {
+    cursor: default;
+    opacity: .2;
+    pointer-events: none;
 
-    &.has-price {
-        padding: 0 ($grid * 4);
-        text-align: left;
-    }
-
-    &:hover,
-    &:focus {
-        @each $attribute in $darken-attributes {
-            #{$attribute}: darken($darken-color, 5.2);
-        }
+    &:hover {
+      background: $background;
     }
 
     &:active {
-        @each $attribute in $darken-attributes {
-            #{$attribute}: darken($darken-color, 10.1);
-        }
+      background: $background;
     }
 
-    &.is-disabled {
-        @include opacity(.2);
-        cursor: default;
-        pointer-events: none;
+    &:focus {
+      background: $background;
+    }
+  }
 
-        &:hover {
-            background: $background;
-        }
+  &.is-loading {
+    cursor: progress;
 
-        &:active {
-            background: $background;
-        }
-
-        &:focus {
-            background: $background;
-        }
+    &:hover {
+      background: $background;
+      border-color: map-get($colors, klarna-blue);
     }
 
-    &.is-loading {
-        cursor: progress;
-
-        &:hover {
-            background: $background;
-            border-color: map-get($colors, klarna-blue);
-        }
-
-        &:active {
-            background: $background;
-            border-color: map-get($colors, klarna-blue);
-        }
-
-        &:focus {
-            background: $background;
-            border-color: map-get($colors, klarna-blue);
-        }
+    &:active {
+      background: $background;
+      border-color: map-get($colors, klarna-blue);
     }
+
+    &:focus {
+      background: $background;
+      border-color: map-get($colors, klarna-blue);
+    }
+  }
 }
 
 @mixin button-dynamic-styling {
-    position: relative;
+  position: relative;
 
+  &:after {
+    background: black;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity .2s ease;
+    width: 100%;
+  }
+
+  &:hover {
     &:after {
-        background: black;
-        bottom: 0;
-        content: "";
-        display: block;
-        height: 100%;
-        left: 0;
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transition: opacity .2s ease;
-        width: 100%;
+      opacity: .2;
     }
+  }
 
-    &:hover {
-        &:after {
-            opacity: .2;
-        }
+  &:focus {
+    &:after {
+      opacity: .3;
     }
+  }
 
-    &:focus {
-        &:after {
-            opacity: .3;
-        }
+  &:active {
+    &:after {
+      opacity: .3;
     }
-
-    &:active {
-        &:after {
-            opacity: .3;
-        }
-    }
+  }
 }
 
 @mixin button__price ($border-color) {
-    float: right;
-    margin-left: $grid * 4;
-    padding-left: $grid * 4;
+  float: right;
+  margin-left: $grid * 4;
+  padding-left: $grid * 4;
 
-    &:before {
-        border-left: 1px solid rgba($border-color, .1);
-        content: ' ';
-        height: 20px;
-        position: relative;
-        right: 20px;
-        top: 1px;
-    }
+  &:before {
+    border-left: 1px solid rgba($border-color, .1);
+    content: ' ';
+    height: 20px;
+    position: relative;
+    right: 20px;
+    top: 1px;
+  }
 }
 
 @mixin button__label {
-    position: relative;
-    transition: color .2s ease;
-    z-index: 1;
+  position: relative;
+  transition: color .2s ease;
+  z-index: 1;
 
-    .button--secondary &--alt:after {
-        content: attr(title);
-        left: 0;
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        transition: opacity .2s ease;
-        z-index: 2;
+  .button--secondary &--alt:after {
+    content: attr(title);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity .2s ease;
+    z-index: 2;
+  }
+
+  .dynamic-styling.button--secondary:not(.is-disabled):hover & {
+    color: rgba(0,0,0,0);
+
+    &--alt:after {
+      opacity: 1;
     }
+  }
 
-    .dynamic-styling.button--secondary:not(.is-disabled):hover & {
-        color: rgba(0,0,0,0);
+  .dynamic-styling.button--secondary:not(.is-disabled):active &,
+  .dynamic-styling.button--secondary:not(.is-disabled):focus & {
+    color: rgba(0, 0, 0, 0);
 
-        &--alt:after {
-            opacity: 1;
-        }
+    &--alt:after {
+      opacity: 1;
     }
-
-    .dynamic-styling.button--secondary:not(.is-disabled):active &,
-    .dynamic-styling.button--secondary:not(.is-disabled):focus & {
-        color: rgba(0, 0, 0, 0);
-
-        &--alt:after {
-            opacity: 1;
-        }
-    }
+  }
 }
 
 @mixin button__loader {
-    animation: spin .8s linear infinite;
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICB3aWR0aD0iMjAiCiAgaGVpZ2h0PSIyMCIKICB2aWV3Qm94PSItMSAtMSAyMiAyMiIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudC0wIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMCkiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMC4yKSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICBpZD0iZ3JhZGllbnQtMSIKICAgICAgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSIxIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLDExNiwyMDAsIDAuMikiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMC40KSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQtMiIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSIxIiB5MT0iMSIgeDI9IjAiIHkyPSIwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLDExNiwyMDAsIDAuNCkiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMC42KSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQtMyIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSIwIiB5MT0iMSIgeDI9IjAiIHkyPSIwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLDExNiwyMDAsIDAuNikiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMC44KSI+PC9zdG9wPjwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50LTQiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiB4MT0iMCIgeTE9IjEiIHgyPSIxIiB5Mj0iMCI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9InJnYmEoMCwxMTYsMjAwLCAwLjgpIj48L3N0b3A+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgwLDExNiwyMDAsIDEpIj48L3N0b3A+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudC01IiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMSkiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMS4yKSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAsMTApIj4KICAgIDxwYXRoIGQ9Ik0gOC42NiwtNSBBIDEwLDEwIDAgMCwxIDguNjYsNSIgc3Ryb2tlPSJ1cmwoI2dyYWRpZW50LTApIj48L3BhdGg+CiAgICA8cGF0aCBkPSJNIDguNjYsNSBBIDEwLDEwIDAgMCwxIDAsMTAiIHN0cm9rZT0idXJsKCNncmFkaWVudC0xKSI+PC9wYXRoPgogICAgPHBhdGggZD0iTSAwLDEwIEEgMTAsMTAgMCAwLDEgLTguNjYsNSIgc3Ryb2tlPSJ1cmwoI2dyYWRpZW50LTIpIj48L3BhdGg+CiAgICA8cGF0aCBkPSJNIC04LjY2LDUgQSAxMCwxMCAwIDAsMSAtOC42NiwtNSIgc3Ryb2tlPSJ1cmwoI2dyYWRpZW50LTMpIj48L3BhdGg+CiAgICA8cGF0aCBkPSJNIC04LjY2LC01IEEgMTAsMTAgMCAwLDEgMCwtMTAiIHN0cm9rZT0idXJsKCNncmFkaWVudC00KSI+PC9wYXRoPgogICAgPHBhdGggZD0iTSAwLC0xMCBBIDEwLDEwIDAgMCwxIDguNjYsLTUiIHN0cm9rZT0idXJsKCNncmFkaWVudC01KSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48L3BhdGg+CiAgPC9nPgo8L3N2Zz4K');
-    display: inline-block;
-    font-size: 0;
-    height: ($grid * 4);
-    position: relative;
-    top: 1px;
-    vertical-align: text-bottom;
-    width: ($grid * 4);
+  animation: spin .8s linear infinite;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICB3aWR0aD0iMjAiCiAgaGVpZ2h0PSIyMCIKICB2aWV3Qm94PSItMSAtMSAyMiAyMiIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudC0wIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMCkiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMC4yKSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICBpZD0iZ3JhZGllbnQtMSIKICAgICAgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSIxIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLDExNiwyMDAsIDAuMikiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMC40KSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQtMiIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSIxIiB5MT0iMSIgeDI9IjAiIHkyPSIwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLDExNiwyMDAsIDAuNCkiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMC42KSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQtMyIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSIwIiB5MT0iMSIgeDI9IjAiIHkyPSIwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLDExNiwyMDAsIDAuNikiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMC44KSI+PC9zdG9wPjwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50LTQiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiB4MT0iMCIgeTE9IjEiIHgyPSIxIiB5Mj0iMCI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9InJnYmEoMCwxMTYsMjAwLCAwLjgpIj48L3N0b3A+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgwLDExNiwyMDAsIDEpIj48L3N0b3A+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudC01IiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMSkiPjwvc3RvcD4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsMTE2LDIwMCwgMS4yKSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAsMTApIj4KICAgIDxwYXRoIGQ9Ik0gOC42NiwtNSBBIDEwLDEwIDAgMCwxIDguNjYsNSIgc3Ryb2tlPSJ1cmwoI2dyYWRpZW50LTApIj48L3BhdGg+CiAgICA8cGF0aCBkPSJNIDguNjYsNSBBIDEwLDEwIDAgMCwxIDAsMTAiIHN0cm9rZT0idXJsKCNncmFkaWVudC0xKSI+PC9wYXRoPgogICAgPHBhdGggZD0iTSAwLDEwIEEgMTAsMTAgMCAwLDEgLTguNjYsNSIgc3Ryb2tlPSJ1cmwoI2dyYWRpZW50LTIpIj48L3BhdGg+CiAgICA8cGF0aCBkPSJNIC04LjY2LDUgQSAxMCwxMCAwIDAsMSAtOC42NiwtNSIgc3Ryb2tlPSJ1cmwoI2dyYWRpZW50LTMpIj48L3BhdGg+CiAgICA8cGF0aCBkPSJNIC04LjY2LC01IEEgMTAsMTAgMCAwLDEgMCwtMTAiIHN0cm9rZT0idXJsKCNncmFkaWVudC00KSI+PC9wYXRoPgogICAgPHBhdGggZD0iTSAwLC0xMCBBIDEwLDEwIDAgMCwxIDguNjYsLTUiIHN0cm9rZT0idXJsKCNncmFkaWVudC01KSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48L3BhdGg+CiAgPC9nPgo8L3N2Zz4K');
+  display: inline-block;
+  font-size: 0;
+  height: ($grid * 4);
+  position: relative;
+  top: 1px;
+  vertical-align: text-bottom;
+  width: ($grid * 4);
 
-    // IE9 doesn't support CSS animations, show the loader text instead.
-    @include respond-to-ie(9) {
-        @include font-size(($grid * 3));
-    }
+  // IE9 doesn't support CSS animations, show the loader text instead.
+  @include respond-to-ie(9) {
+    @include font-size(($grid * 3));
+  }
 }

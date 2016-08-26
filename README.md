@@ -1,7 +1,6 @@
 # Klarna UI Components
 
-[![Build Status](https://travis-ci.org/klarna/ui.svg)](https://travis-ci.org/klarna/ui)
-[![Code Climate](https://codeclimate.com/github/klarna/ui/badges/gpa.svg)](https://codeclimate.com/github/klarna/ui)
+[![Build Status](https://travis-ci.org/klarna/ui.svg?branch=master)](https://travis-ci.org/klarna/ui)
 [![npm version](https://img.shields.io/npm/v/@klarna/ui.svg?maxAge=2592000)](https://www.npmjs.com/package/@klarna/ui)
 
 This library contains the basic set of components used by multiple front end projects across Klarna. It exposes [React](https://facebook.github.io/react/) components as well as CSS modules.

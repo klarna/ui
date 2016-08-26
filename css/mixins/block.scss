@@ -1,6 +1,6 @@
 @mixin block ($background, $color) {
-    @include typography(($grid * 2.6), regular);
+  @include typography(($grid * 2.6), regular);
 
-    background-color: $background;
-    color: $color;
+  background-color: $background;
+  color: $color;
 }

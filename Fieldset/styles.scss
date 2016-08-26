@@ -2,15 +2,15 @@
 @import '../css/mixins/index';
 
 .fieldset {
-    position: relative;
+  position: relative;
 
-    &.default-margins {
-      padding-bottom: ($grid * 5);
-    }
+  &.default-margins {
+    padding-bottom: ($grid * 5);
+  }
 
-    &::after {
-        clear: both;
-        content: '';
-        display: block;
-    }
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
 }

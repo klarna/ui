@@ -2,8 +2,8 @@
 @import '../css/mixins/index';
 
 .text-label {
-    @include text-label;
-    + .title--secondary {
-        padding-top: ($grid * .4);
-    }
+  @include text-label;
+  + .title--secondary {
+    padding-top: ($grid * .4);
+  }
 }

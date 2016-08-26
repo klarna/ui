@@ -3,8 +3,8 @@
 body {
   font-family: 'Open Sans';
   height: 100%;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 main {
@@ -18,11 +18,12 @@ main {
 }
 
 .sidebar {
-  width: 180px;
-  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  box-flex: 0;
   font-size: 13px;
   font-weight: normal;
+  min-height: 100vh;
+  width: 180px;
 }
 
 .content {
@@ -31,11 +32,9 @@ main {
 }
 
 .sidebarNav {
-  position: fixed;
   background: #363636;
-  width: 140px;
-  padding: 20px 0 0 20px;
   min-height: 100vh;
+  position: fixed;
 }
 
 header {

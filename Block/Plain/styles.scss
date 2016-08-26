@@ -2,9 +2,9 @@
 @import '../../css/mixins/index';
 
 .block {
-    @include block(map-get($colors, white), map-get($colors, black));
+  @include block(map-get($colors, white), map-get($colors, black));
 
-    &.blue {
-        @include block(map-get($colors, klarna-blue), map-get($colors, white));
-    }
+  &.blue {
+    @include block(map-get($colors, klarna-blue), map-get($colors, white));
+  }
 }

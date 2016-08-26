@@ -2,9 +2,9 @@
 @import '../../css/mixins/index';
 
 .paragraph--secondary {
-    @include paragraph--secondary;
+  @include paragraph--secondary;
 
-    &.condensed {
-        @include paragraph--secondary-condensed;
-    }
+  &.condensed {
+    @include paragraph--secondary-condensed;
+  }
 }

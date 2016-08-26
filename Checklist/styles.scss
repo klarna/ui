@@ -2,13 +2,13 @@
 @import '../css/mixins/index';
 
 .checklist {
-    @include checklist;
+  @include checklist;
 
-    &__item {
-        @include checklist__item;
-    }
+  &__item {
+    @include checklist__item;
+  }
 
-    &__checkmark {
-        @include checklist__checkmark;
-    }
+  &__checkmark {
+    @include checklist__checkmark;
+  }
 }

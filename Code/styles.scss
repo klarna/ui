@@ -1,15 +1,15 @@
 pre {
-  background: #363636 !important;
-  margin: 0;
-  padding: 2%;
-  min-width: 400px;
-  display: inline-block;
-  width: 56%;
+  background: #363636;
   border-radius: 4px;
+  display: inline-block;
+  margin: 0;
+  min-width: 400px;
+  padding: 2%;
+  width: 56%;
 
   code {
+    font-family: 'Fira Mono', 'Fira Code';
     font-weight: 100;
-    font-family: 'Fira Mono', 'Fira Code' !important;
   }
 }
 
@@ -20,11 +20,11 @@ pre {
 
 .live {
   display: inline-block;
-  width: 38%;
   padding-right: 2%;
   vertical-align: top;
+  width: 38%;
 
   .block {
     border-radius: 4px;
-  }  
+  }
 }

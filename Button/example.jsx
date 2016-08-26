@@ -66,7 +66,7 @@ Primary['Loading with customization'] =
   <Button.Primary loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>
 
 Secondary.Loading =
-    <Button.Secondary loading>Click me!</Button.Secondary>
+  <Button.Secondary loading>Click me!</Button.Secondary>
 
 Secondary['Loading with customization'] =
   <Button.Secondary loading customize={{backgroundColor: '#3500C8', textColor: '#F9FF3C'}}/>

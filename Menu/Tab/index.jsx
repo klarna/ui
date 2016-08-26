@@ -88,7 +88,6 @@ export default React.createClass({
       name,
       onBlur,
       onChange,
-      onClick,
       onFocus,
       value,
       white,

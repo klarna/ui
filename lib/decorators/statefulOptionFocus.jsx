@@ -31,7 +31,7 @@ const handleBlur = (component, onBlur) => (e) => {
   onBlur && onBlur(e)
 }
 
-const handleFocus = (component, onFocus) => (key, e)  => {
+const handleFocus = (component, onFocus) => (key, e) => {
   component.setState({ focus: key })
 
   onFocus && onFocus(key, e)

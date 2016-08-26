@@ -17,11 +17,6 @@ const getCurrentExample = () => {
   return anchor && examples[anchor] || Object.values(examples)[0]
 }
 
-const getCurrentIcon = () => {
-  const anchor = window.location.hash.substring(1)
-  return anchor && icons[anchor] || Object.values(icons)[0]
-}
-
 const selected = (path) => ({selected: getCurrentExample().name === path})
 
 const Page = ({example}) => {
@@ -70,7 +65,6 @@ const Page = ({example}) => {
 
 function Root () {
   const example = getCurrentExample()
-  const Icon = getCurrentIcon()
   return (
     <main>
       <aside className={styles.sidebar}>
