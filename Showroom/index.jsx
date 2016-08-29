@@ -1,25 +1,26 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { PropTypes } from 'react'
 import * as examples from './examples'
 import Page from './Page'
 import Sidebar from './Sidebar'
 
 import styles from './index.scss'
 
-const getCurrentExample = () => {
-  const anchor = window.location.hash.substring(1)
-  return anchor && examples[anchor] || Object.values(examples)[0]
-}
+const getCurrentExample = ([anchor]) =>
+  anchor
+    ? examples[anchor]
+    : Object.values(examples)[0]
 
-const selected = (path) => ({selected: getCurrentExample().name === path})
-
-export default function Showroom () {
-  const example = getCurrentExample()
+export default function Showroom ({route}) {
+  const example = getCurrentExample(route)
 
   return (
     <main>
-      <Sidebar examples={examples} selected={selected} />
+      <Sidebar examples={examples} />
       <Page example={example} />
     </main>
   )
+}
+
+Showroom.propTypes = {
+  route: PropTypes.arrayOf(PropTypes.string)
 }

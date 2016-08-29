@@ -1,11 +1,15 @@
 import 'babel-polyfill'
 import 'normalize.css'
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import Showroom from './Showroom'
+import router from 'zen-router'
 
-const render = () =>
-  ReactDOM.render(<Showroom />, document.getElementById('root'))
+const parseRoute = (route) => route.split('/')
 
-window.onhashchange = render
-render()
+router((route) => {
+  render(
+    <Showroom route={parseRoute(route)} />,
+    document.getElementById('root')
+  )
+})
