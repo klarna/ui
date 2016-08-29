@@ -12,7 +12,7 @@ export default function Page ({example}) {
   return (
     <article className={styles.content}>
       <header>
-        <Icon />
+        {example.icon && <Icon />}
         <UI.Title.Primary margins>
           {example.title}
         </UI.Title.Primary>
