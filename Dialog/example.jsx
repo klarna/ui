@@ -2,11 +2,10 @@ import React from 'react'
 import * as Button from '../Button'
 import * as Dialog from '../Dialog'
 import { Close } from '../IconButton'
-import { Title, Subtitle, Paragraph } from '../Text'
-import Code from '../Code'
+import { Title, Paragraph, Subtitle } from '../Text'
 
-const Examples = React.createClass({
-  displayName: 'Dialogs',
+const Example = React.createClass({
+  displayName: 'Dialog',
 
   getInitialState () {
     return {
@@ -22,46 +21,48 @@ const Examples = React.createClass({
 
     return (
       <div>
-        <Paragraph.Primary margins>
-          Dialogs are full screen. Please click the button to show it.
-        </Paragraph.Primary>
+        <Button.Primary onClick={open}>
+          Show Dialog
+        </Button.Primary>
 
-        <Code>
-          <Button.Primary onClick={open}>
-            Show Dialog
-          </Button.Primary>
+        <Dialog.Overlay show={this.state.dialog.open}>
+          <Dialog.Main>
+            <Dialog.Icon>
+              <Close onClick={close} />
+            </Dialog.Icon>
 
-          <Dialog.Overlay show={this.state.dialog.open}>
-            <Dialog.Main>
-              <Dialog.Icon>
-                <Close onClick={close} />
-              </Dialog.Icon>
+            <Dialog.Content>
+              <Title.Primary margins>
+                The title is primary
+              </Title.Primary>
+              <Subtitle margins>
+                Just trying to fill up space
+              </Subtitle>
+              <Paragraph.Secondary margins>
+                Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+              </Paragraph.Secondary>
+            </Dialog.Content>
 
-              <Dialog.Content>
-                <Title.Primary margins>
-                  The title is primary
-                </Title.Primary>
-                <Subtitle margins>
-                  Just trying to fill up space
-                </Subtitle>
-                <Paragraph.Secondary margins>
-                  Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
-                </Paragraph.Secondary>
-              </Dialog.Content>
-
-              <Dialog.Footer>
-                <Button.Primary onClick={close}>
-                  Close the nice dialog
-                </Button.Primary>
-              </Dialog.Footer>
-            </Dialog.Main>
-          </Dialog.Overlay>
-        </Code>
+            <Dialog.Footer>
+              <Button.Primary
+                onClick={close}
+                style={{width: '100%'}}>
+                Close the nice dialog
+              </Button.Primary>
+            </Dialog.Footer>
+          </Dialog.Main>
+        </Dialog.Overlay>
       </div>
     )
   }
 })
 
-export default function Dialogs () {
-  return <Examples />
+export default {
+  title: 'Dialog',
+  variations: [{
+    title: 'Dialog',
+    Regular: (
+      <Example />
+    )
+  }]
 }
