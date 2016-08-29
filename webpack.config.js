@@ -12,7 +12,7 @@ module.exports = {
   },
   output: {
     path: './',
-    filename: '[name].js',
+    filename: 'example-built.js',
     chunkFilename: '[id].js',
     publicPath: '/'
   },

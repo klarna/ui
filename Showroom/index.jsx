@@ -3,6 +3,7 @@ import * as examples from './examples'
 import Page from './Page'
 import Sidebar from './Sidebar'
 
+import 'normalize.css'
 import styles from './index.scss'
 
 const getCurrentExample = ([anchor]) =>

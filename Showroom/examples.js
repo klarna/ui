@@ -1,7 +1,7 @@
 export Alert from '../Alert/example'
 export Block from '../Block/example'
 export Button from '../Button/example'
-// export Checklists from '../Checklist/example'
+export Checklist from '../Checklist/example'
 // export ContextMenus from '../ContextMenu/example'
 // export Dialogs from '../Dialog/example'
 // export Dropdowns from '../Dropdown/example'
