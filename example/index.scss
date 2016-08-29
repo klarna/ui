@@ -1,4 +1,5 @@
 @import url('//fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+@import './settings.scss';
 
 body {
   font-family: 'Open Sans';
@@ -19,11 +20,12 @@ main {
 
 .sidebar {
   -webkit-font-smoothing: antialiased;
-  box-flex: 0;
+  background: map-get($colors, sidebar-blue);
   font-size: 13px;
   font-weight: normal;
   min-height: 100vh;
-  width: 180px;
+  padding: 30px;
+  width: 120px;
 }
 
 .content {
@@ -32,7 +34,6 @@ main {
 }
 
 .sidebarNav {
-  background: #363636;
   min-height: 100vh;
   position: fixed;
 }
