@@ -7,7 +7,7 @@ export default function Footer () {
     <footer className={styles.footer}>
       <div className={styles.copyright}>
         <svg
-          className={styles.k}
+          className={styles.footerK}
           width='22' height='30' viewBox='0 0 20 27'>
           <title>K</title>
           <g fill='#0074C8'>
