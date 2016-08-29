@@ -41,7 +41,6 @@ export default function Page ({example}) {
   )
 }
 
-
 export function Variation ({ exampleTitle, title, ...sections }) {
   return (
     <section key={`#${exampleTitle}/${title}`}>
