@@ -4,7 +4,7 @@ import Page from './Page'
 import Sidebar from './Sidebar'
 
 import 'normalize.css'
-import styles from './index.scss'
+import './index.scss'
 
 const getCurrentExample = ([anchor]) =>
   anchor

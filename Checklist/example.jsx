@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Checklist from './'
-import { Title } from '../Text'
 
 export default {
   title: 'Checklist',
