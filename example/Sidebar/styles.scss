@@ -1,22 +1,4 @@
-@import url('//fonts.googleapis.com/css?family=Open+Sans:300,400,600');
-@import './settings.scss';
-
-body {
-  font-family: 'Open Sans';
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-main {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
-
-.k {
-  margin-bottom: 10px;
-}
+@import '../settings.scss';
 
 .sidebar {
   -webkit-font-smoothing: antialiased;
@@ -33,8 +15,8 @@ main {
   position: fixed;
 }
 
-header {
-  text-align: center;
+.k {
+  margin-bottom: 10px;
 }
 
 .menuTitle, .menuItem {

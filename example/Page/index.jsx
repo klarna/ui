@@ -1,9 +1,9 @@
 import React from 'react'
 import * as icons from './icons'
-import * as UI from '../'
-import Code from '../Code'
+import * as UI from '../../'
+import Code from '../../Code'
 
-import styles from './index.scss'
+import styles from './styles.scss'
 
 export default function Page ({example}) {
   const Icon = icons[example.icon]
