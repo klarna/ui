@@ -1,5 +1,3 @@
-import 'babel-polyfill'
-import 'normalize.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as examples from './examples'
@@ -15,7 +13,7 @@ const getCurrentExample = () => {
 
 const selected = (path) => ({selected: getCurrentExample().name === path})
 
-function Root () {
+export default function Showroom () {
   const example = getCurrentExample()
 
   return (
@@ -25,9 +23,3 @@ function Root () {
     </main>
   )
 }
-
-const render = () =>
-  ReactDOM.render(<Root />, document.getElementById('root'))
-
-window.onhashchange = render
-render()

@@ -28,3 +28,13 @@ pre {
     border-radius: 4px;
   }
 }
+
+@media screen and (max-width: 800px) {
+  pre {
+    display: none;
+  }
+
+  .live {
+    width: calc(100vw - 360px);
+  }
+}

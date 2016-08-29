@@ -36,7 +36,7 @@ const Warning = {
 }
 
 export default {
-  title: 'Alerts',
+  title: 'Alert',
   icon: 'Alert',
   variations: [Error, Warning]
 }

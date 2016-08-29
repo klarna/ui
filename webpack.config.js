@@ -8,7 +8,7 @@ module.exports = {
   debug: true,
   devtool: 'source-map',
   entry: {
-    example: './example/index'
+    example: './example'
   },
   output: {
     path: './',
@@ -50,8 +50,9 @@ module.exports = {
     new WebpackErrorNotificationPlugin(),
     new Webpack.NoErrorsPlugin(),
     new WebpackHtmlWebpackPlugin({
-      title: 'UI React components example',
-      template: 'example/index.html'
+      favicon: './favicon.ico',
+      title: 'Klarna UI components',
+      template: 'example.html'
     })
   ],
   resolve: {

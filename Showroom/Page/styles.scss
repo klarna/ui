@@ -18,5 +18,17 @@
 }
 
 .variationTitle {
-  margin-left: 40%;
+  margin-left: calc(39.4vw - 180px);
+}
+
+
+@media screen and (max-width: 800px) {
+  .variationTitle {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .designTitle {
+    margin-bottom: 0px;
+  }
 }

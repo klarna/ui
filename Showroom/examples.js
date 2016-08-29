@@ -1,5 +1,5 @@
-export Alerts from '../Alert/example'
-export Blocks from '../Block/example'
+export Alert from '../Alert/example'
+export Block from '../Block/example'
 export Button from '../Button/example'
 // export Checklists from '../Checklist/example'
 // export ContextMenus from '../ContextMenu/example'
