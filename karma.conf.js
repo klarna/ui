@@ -11,6 +11,7 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['mocha'],
     files: [
+      'node_modules/phantomjs-polyfill/bind-polyfill.js',
       'tests.js'
     ],
     exclude: [],

@@ -51,6 +51,7 @@
     "normalize.css": "^4.1.1",
     "null-loader": "^0.1.1",
     "phantomjs": "^1.9.19",
+    "phantomjs-polyfill": "0.0.2",
     "ramda": "^0.21.0",
     "react": "^15.0.2",
     "react-addons-test-utils": "^15.0.2",
