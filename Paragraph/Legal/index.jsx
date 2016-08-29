@@ -11,7 +11,6 @@ export default function Legal ({
   color,
   condensed,
   margins,
-  design,
   styles,
   ...props
 }) {

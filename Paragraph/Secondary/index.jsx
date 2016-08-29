@@ -11,7 +11,6 @@ export default function Secondary ({
   color,
   condensed,
   margins,
-  design,
   styles,
   ...props
 }) {

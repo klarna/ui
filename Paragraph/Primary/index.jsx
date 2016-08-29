@@ -11,7 +11,6 @@ export default function Primary ({
   color,
   condensed,
   margins,
-  design,
   styles,
   ...props
 }) {

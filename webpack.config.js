@@ -14,7 +14,7 @@ module.exports = {
     path: './',
     filename: 'example-built.js',
     chunkFilename: '[id].js',
-    publicPath: '/'
+    publicPath: '/ui/'
   },
   module: {
     loaders: [
