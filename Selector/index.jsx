@@ -25,13 +25,13 @@ export default function Selector ({
     <div
       className={classNames(baseClass, 'title', className)}
       {...remainingProps}>
-      {data.map(({ id, label }) => (
+      {data.map(({ key, label }) => (
         <Option
-          key={id}
+          key={key}
           classNames={classNames}
           label={label}
-          onClick={() => onChange(id)}
-          selected={id === value}
+          onClick={() => onChange(key)}
+          selected={key === value}
         />
       ))}
     </div>
@@ -39,7 +39,7 @@ export default function Selector ({
 }
 
 Selector.propTypes = {
-  // Allows any type to be an id, as long as it is comparable
+  // Allows any type to be an key, as long as it is comparable
   value: React.PropTypes.any,
   onChange: React.PropTypes.func.isRequired,
   className: PropTypes.string,
