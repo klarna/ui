@@ -65,6 +65,7 @@ const icons = {
 
 export default {
   title: 'Icons',
+  icon: 'Icon',
   variations: [{
     title: 'Colors',
     Big: (
