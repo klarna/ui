@@ -27,8 +27,6 @@ import SMS from '../icons/SMS'
 import Warning from '../icons/Warning'
 import Wrong from '../icons/Wrong'
 
-import { Title, Subtitle, Paragraph } from '../Text'
-import Code from '../Code'
 import colors from '../icons/constants/colors'
 
 const icons = {
@@ -65,51 +63,41 @@ const icons = {
   ]
 }
 
-export default function Icons () {
-  return (
-    <div style={{width: '740px'}}>
-      <Paragraph.Primary margins>
-        Each type of icon is designed for the size that it is displayed in. Resizing the icons is possible since they are SVG, but it's not recommended since they are drawn to have the line widths matching the line styles of the rest of the components.
-      </Paragraph.Primary>
-
-      <Title.Secondary color='blue' margins>Colors</Title.Secondary>
-      <Subtitle margins>Big</Subtitle>
-      <Code>
-        {colors.map((name) =>
-          <AllSet
-            key={`${name}`}
-            color={name}
-            style={name === 'inverse'
-              ? { background: '#0074c8' }
-              : undefined
-            }
-          />
-        )}
-      </Code>
-
-      <Subtitle margins>Tiny</Subtitle>
-      <Code>
-        {colors.map((name) =>
-          <Person
-            key={`${name}`}
-            color={name}
-            style={name === 'inverse'
-              ? { background: '#0074c8' }
-              : undefined
-            }
-          />
-        )}
-      </Code>
-
-      <Title.Secondary color='blue' margins>Big icons</Title.Secondary>
-      <Code>
-        {icons.big.map((Icon) => <Icon key={Icon.name} />)}
-      </Code>
-
-      <Title.Secondary color='blue' margins>Tiny icons</Title.Secondary>
-      <Code>
-        {icons.tiny.map((Icon) => <Icon key={Icon.name} />)}
-      </Code>
-    </div>
-  )
+export default {
+  title: 'Icons',
+  variations: [{
+    title: 'Colors',
+    Big: (
+      colors.map((name) =>
+        <AllSet
+          key={`${name}`}
+          color={name}
+          style={name === 'inverse'
+          ? { background: '#0074c8' }
+          : undefined
+        }
+        />
+      )
+    ),
+    Small: (
+      colors.map((name) =>
+        <Person
+          key={`${name}`}
+          color={name}
+          style={name === 'inverse'
+            ? { background: '#0074c8' }
+            : undefined
+          }
+        />
+      )
+    )
+  }, {
+    title: 'Types',
+    Big: (
+      icons.big.map((Icon) => <Icon key={Icon.name} />)
+    ),
+    Small: (
+      icons.tiny.map((Icon) => <Icon key={Icon.name} />)
+    )
+  }]
 }
