@@ -1,15 +1,22 @@
 pre {
-  background: #363636;
-  border-radius: 4px;
-  display: inline-block;
   margin: 0;
-  min-width: 400px;
-  padding: 2%;
-  width: calc(56vw - 180px);
 
   code {
     font-family: 'Fira Mono', 'Fira Code', monospace;
     font-weight: 100;
+  }
+}
+
+.code {
+  background: #363636;
+  border-radius: 4px;
+  display: inline-block;
+  min-width: 400px;
+  padding: 2%;
+  width: calc(56vw - 180px);
+
+  &.narrow {
+    width: calc(38vw - 180px);
   }
 }
 
@@ -26,6 +33,10 @@ pre {
 
   .block {
     border-radius: 4px;
+  }
+
+  &.wide {
+    width: calc(53vw - 180px);
   }
 }
 

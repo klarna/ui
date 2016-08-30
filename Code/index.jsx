@@ -1,14 +1,18 @@
 import React from 'react'
 import CodeBlock from './Block'
+import classNames from 'classnames'
 import styles from './styles.scss'
 
-export default ({ children, width }) => (
+export default ({ children, width, wide }) => (
   <section className={styles.variation} style={width && { width }}>
-    <article className={styles.live}>
+    <article className={classNames(styles.live, { [styles.wide]: wide })}>
       {children}
     </article>
-    <CodeBlock>
-      {children}
-    </CodeBlock>
+
+    <div className={classNames(styles.code, { [styles.narrow]: wide })}>
+      <CodeBlock>
+        {children}
+      </CodeBlock>
+    </div>
   </section>
 )

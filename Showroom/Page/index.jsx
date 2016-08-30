@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import * as icons from './icons'
 import * as UI from '../../'
 import Code from '../../Code'
@@ -49,16 +50,31 @@ export function Variation ({ exampleTitle, title, ...sections }) {
         {title}
       </UI.Title.Primary>
       {
-        Object.keys(sections).map((section) => (
-          <section key={section}>
-            <UI.Title.Secondary margins className={styles.variationTitle}>
-              {section}
-            </UI.Title.Secondary>
-            <Code>
-              {sections[section]}
-            </Code>
-          </section>
-        ))
+        Object.keys(sections).map((section) =>
+          sections[section].example
+            ? (
+              <section key={section}>
+                <UI.Title.Secondary margins
+                  className={classNames(styles.variationTitle, styles.wide)}>
+                  {section}
+                </UI.Title.Secondary>
+
+                <Code wide>
+                  {sections[section].example}
+                </Code>
+              </section>
+            )
+            : (
+              <section key={section}>
+                <UI.Title.Secondary margins className={styles.variationTitle}>
+                  {section}
+                </UI.Title.Secondary>
+                <Code>
+                  {sections[section]}
+                </Code>
+              </section>
+            )
+        )
       }
     </section>
   )
