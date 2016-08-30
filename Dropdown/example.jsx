@@ -1,6 +1,4 @@
 import React from 'react'
-import { Title, Subtitle } from '../Text'
-import Code from '../Code'
 import Dropdown from '../Dropdown'
 import UncontrolledDropdown from '../uncontrolled/Dropdown'
 import Fieldset from '../Fieldset'
@@ -13,9 +11,11 @@ const options = [
 
 const Single = {
   title: 'Single',
+
   Regular: (
     <Dropdown label='Lorem ipsum' options={options} />
   ),
+
   Uncontrolled: (
     <UncontrolledDropdown
       label='Lorem ipsum'
@@ -55,11 +55,11 @@ const Single = {
     <Dropdown disabled label='Disabled' options={options} />
   ),
 
-  Error: (
+  'With error': (
     <Dropdown label='Something went wrong' error options={options} />
   ),
 
-  Warning: (
+  'With warning': (
     <Dropdown label='Something is incorect' warning options={options} />
   )
 }
