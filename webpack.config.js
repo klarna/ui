@@ -53,6 +53,10 @@ module.exports = {
       favicon: './favicon.ico',
       title: 'Klarna UI components',
       template: 'example.html'
+    }),
+    new Webpack.DefinePlugin({
+      "process.env.REACT_SYNTAX_HIGHLIGHTER_LIGHT_BUILD": true,
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
     })
   ],
   resolve: {

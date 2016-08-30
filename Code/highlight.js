@@ -1,111 +1,103 @@
 export default {
-  hljs: {
-    color: '#FFFFFF',
-    fontFamily: 'Fira Code'
-  },
-  hljsComment: {
-    color: '#586e75'
-  },
-  hljsQuote: {
-    color: '#586e75'
-  },
-  hljsKeyword: {
-    color: '#859900'
-  },
-  hljsSelectorTag: {
-    color: '#DBA7F5'
-  },
-  hljsAddition: {
-    color: '#859900'
-  },
-  hljsNumber: {
-    color: '#2aa198'
-  },
-  hljsString: {
-    color: '#F9E922'
-  },
-  'hljsMeta .hljsMetaString': {
-    color: '#2aa198'
-  },
-  hljsLiteral: {
-    color: '#2aa198'
-  },
-  hljsDoctag: {
-    color: '#2aa198'
-  },
-  hljsRegexp: {
-    color: '#2aa198'
-  },
-  hljsTitle: {
-    color: '#268bd2'
-  },
-  hljsSection: {
-    color: '#DBA7F5'
-  },
-  hljsName: {
-    color: '#DBA7F5'
-  },
-  hljsSelectorId: {
-    color: '#268bd2'
-  },
-  hljsSelectorClass: {
-    color: '#268bd2'
-  },
-  hljsAttribute: {
-    color: '#5CE6CD'
-  },
-  hljsAttr: {
-    color: '#5CE6CD'
-  },
-  hljsVariable: {
-    color: '#b58900'
-  },
-  hljsTemplateVariable: {
-    color: '#b58900'
-  },
-  'hljsClass .hljsTitle': {
-    color: '#b58900'
-  },
-  hljsType: {
-    color: '#b58900'
-  },
-  hljsSymbol: {
-    color: '#cb4b16'
-  },
-  hljsBullet: {
-    color: '#cb4b16'
-  },
-  hljsSubst: {
-    color: '#cb4b16'
-  },
-  hljsMeta: {
-    color: '#cb4b16'
-  },
-  'hljsMeta .hljsKeyword': {
-    color: '#cb4b16'
-  },
-  hljsSelectorAttr: {
-    color: '#cb4b16'
-  },
-  hljsSelectorPseudo: {
-    color: '#cb4b16'
-  },
-  hljsLink: {
-    color: '#cb4b16'
-  },
-  hljsBuiltIn: {
-    color: '#dc322f'
-  },
-  hljsDeletion: {
-    color: '#dc322f'
-  },
-  hljsFormula: {
-    background: '#073642'
-  },
-  hljsEmphasis: {
-    fontStyle: 'italic'
-  },
-  hljsStrong: {
-    fontWeight: 'bold'
-  }
+    "hljs-title": {
+        "color": "#D191F2"
+    },
+    "hljs": {
+    },
+    "hljs-string": {
+        "color": "#F9E922"
+    },
+    "hljs-regexp": {
+        "color": "#2aa198"
+    },
+    "hljs-meta": {
+        "color": "#cb4b16"
+    },
+    "hljs-emphasis": {
+        "fontStyle": "italic"
+    },
+    "hljs-type": {
+        "color": "#b58900"
+    },
+    "hljs-section": {
+        "color": "#D191F2"
+    },
+    "hljs-deletion": {
+        "color": "#dc322f"
+    },
+    "hljs-subst": {
+        "color": "#cb4b16"
+    },
+    "hljs-addition": {
+        "color": "#859900"
+    },
+    "hljs-name": {
+        "color": "#D191F2"
+    },
+    "hljs-meta .hljs-meta-string": {
+        "color": "#2aa198"
+    },
+    "hljs-class .hljs-title": {
+        "color": "#b58900"
+    },
+    "hljs-variable": {
+        "color": "#b58900"
+    },
+    "hljs-bullet": {
+        "color": "#cb4b16"
+    },
+    "hljs-number": {
+        "color": "#2aa198"
+    },
+    "hljs-selector-id": {
+        "color": "#D191F2"
+    },
+    "hljs-symbol": {
+        "color": "#cb4b16"
+    },
+    "hljs-attribute": {
+        "color": "#5CE6CD"
+    },
+    "hljs-formula": {
+        "background": "#073642"
+    },
+    "hljs-attr": {
+        "color": "#5CE6CD"
+    },
+    "hljs-selector-pseudo": {
+        "color": "#cb4b16"
+    },
+    "hljs-keyword": {
+        "color": "#859900"
+    },
+    "hljs-literal": {
+        "color": "#2aa198"
+    },
+    "hljs-meta .hljs-keyword": {
+        "color": "#cb4b16"
+    },
+    "hljs-comment": {
+        "color": "#586e75"
+    },
+    "hljs-quote": {
+        "color": "#586e75"
+    },
+    "hljs-selector-class": {
+        "color": "#D191F2"
+    },
+    "hljs-doctag": {
+        "color": "#2aa198"
+    },
+    "hljs-template-variable": {
+        "color": "#b58900"
+    },
+    "hljs-built_in": {
+        "color": "#dc322f"
+    },
+    "hljs-link": {
+        "color": "#cb4b16"
+    },
+    "hljs-strong": {
+        "fontWeight": "bold"
+    }
 }
