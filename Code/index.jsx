@@ -12,7 +12,9 @@ export default ({ customCode, children, width, wide }) => (
 
     <div className={classNames(styles.code, { [styles.narrow]: wide })}>
       <CodeBlock>
-        {customCode || asCode(children)}
+        {
+          customCode || asCode(children)
+        }
       </CodeBlock>
     </div>
   </section>
