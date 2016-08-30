@@ -4,6 +4,7 @@ import { Amount, Title, Subtitle, Paragraph, TextLabel } from '../Text'
 import Link from '../Link'
 
 export default {
+  icon: 'Text',
   title: 'Text',
   variations: [{
     title: 'Titles',

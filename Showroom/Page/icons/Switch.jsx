@@ -2,7 +2,7 @@ import React from 'react'
 import Base, {Page} from './Base'
 
 export default () => (
-  <Base title='Icon' circleFill='#1E5399'>
+  <Base title='Switch' circleFill='#1E5399'>
     <Page />
     <rect fill='#4F627F' x='25' y='30' width='20' height='2' rx='1'/>
     <rect fill='#4F627F' x='50' y='72' width='25' height='2' rx='1'/>
