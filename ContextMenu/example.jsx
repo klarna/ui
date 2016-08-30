@@ -4,6 +4,7 @@ import Logout from '../icons/Logout'
 
 export default {
   title: 'ContextMenu',
+  icon: 'Navigation',
   variations: [{
     title: 'ContextMenu',
     Regular: (
