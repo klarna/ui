@@ -123,7 +123,7 @@ export default React.createClass({
 
         <select
           className={classNames(classes.select)}
-          disabled={disabled}
+          disabled={disabled || loading}
           onBlur={onBlur}
           onChange={onChange}
           onFocus={onFocus}

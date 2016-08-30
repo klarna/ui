@@ -1,140 +1,93 @@
 import React from 'react'
 import Tooltip from '../Tooltip'
-import { Title } from '../Text'
-import Code from '../Code'
 
-export default function Tooltips () {
-  return (
-    <div>
-      <Title.Secondary margins color='blue'>Simple</Title.Secondary>
-      <Code>
-        <Tooltip>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-      </Code>
+export default {
+  title: 'Tooltip',
+  icon: 'Tooltip',
+  variations: [{
+    title: 'Arrows',
+    'Top left': (
+      <Tooltip arrow='top-left'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
 
-      <Title.Secondary margins color='blue'>Small</Title.Secondary>
-      <Code>
-        <Tooltip>
-          Lorem Ipsum
-        </Tooltip>
-      </Code>
+    Top: (
+      <Tooltip arrow='top'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
 
-      <Title.Secondary margins color='blue'>Arrows</Title.Secondary>
-      <Code>
-        <Tooltip arrow='top-left'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='top'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='top-right'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='right-top'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='right'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='right-bottom'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='bottom-right'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='bottom'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='bottom-left'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='left-bottom'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='left'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip arrow='left-top'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-      </Code>
+    'Top right': (
+      <Tooltip arrow='top-right'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
 
-      <Title.Secondary margins color='blue'>Simple with border</Title.Secondary>
-      <Code>
-        <Tooltip border>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-      </Code>
+    'Right top': (
+      <Tooltip arrow='right-top'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
 
-      <Title.Secondary margins color='blue'>Small</Title.Secondary>
-      <Code>
-        <Tooltip border>
-          Lorem Ipsum
-        </Tooltip>
-      </Code>
+    Right: (
+      <Tooltip arrow='right'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
 
-      <Title.Secondary margins color='blue'>Arrows</Title.Secondary>
-      <Code>
-        <Tooltip border arrow='top-left'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='top'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='top-right'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='right-top'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='right'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='right-bottom'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='bottom-right'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='bottom'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='bottom-left'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='left-bottom'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='left'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-        <hr />
-        <Tooltip border arrow='left-top'>
-          Lorem Ipsum is simply dummy text of the printing industry.
-        </Tooltip>
-      </Code>
-    </div>
-  )
+    'Right bottom': (
+      <Tooltip arrow='right-bottom'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
+
+    'Bottom right': (
+      <Tooltip arrow='bottom-right'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
+
+    Bottom: (
+      <Tooltip arrow='bottom'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
+
+    'Bottom left': (
+      <Tooltip arrow='bottom-left'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
+
+    'Left bottom': (
+      <Tooltip arrow='left-bottom'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
+
+    Left: (
+      <Tooltip arrow='left'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
+
+    'Left top': (
+      <Tooltip arrow='left-top'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    )
+  }, {
+    title: 'Colors',
+    Simple: (
+      <Tooltip>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    ),
+    Inverse: (
+      <Tooltip inverse>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>
+    )
+  }]
 }

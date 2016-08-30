@@ -90,13 +90,13 @@ $bottom-right-position: 'right', -$grid * 3, 0;
   }
 }
 
-.tooltip.border {
-  @include tooltip-border;
+.tooltip.inverse {
+  @include tooltip-inverse;
 
   &.top-left:after, &.top-left:before,
   &.top:after, &.top:before,
   &.top-right:after, &.top-right:before {
-    @extend %top-border;
+    @extend %top-inverse;
   }
 
   &.top-left:before {
@@ -114,7 +114,7 @@ $bottom-right-position: 'right', -$grid * 3, 0;
   &.right-top:after, &.right-top:before,
   &.right:after, &.right:before,
   &.right-bottom:after, &.right-bottom:before {
-    @extend %right-border;
+    @extend %right-inverse;
   }
 
   &.right-top:before {
@@ -132,7 +132,7 @@ $bottom-right-position: 'right', -$grid * 3, 0;
   &.bottom-left:after, &.bottom-left:before,
   &.bottom:after, &.bottom:before,
   &.bottom-right:after, &.bottom-right:before {
-    @extend %bottom-border;
+    @extend %bottom-inverse;
   }
 
   &.bottom-left:before {
@@ -150,7 +150,7 @@ $bottom-right-position: 'right', -$grid * 3, 0;
   &.left-top:after, &.left-top:before,
   &.left:after, &.left:before,
   &.left-bottom:after, &.left-bottom:before {
-    @extend %left-border;
+    @extend %left-inverse;
   }
 
   &.left-top:before {

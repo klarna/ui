@@ -1,121 +1,268 @@
 import React from 'react'
-import Code from '../Code'
 import * as Block from '../Block'
 import { Amount, Title, Subtitle, Paragraph, TextLabel } from '../Text'
 import Link from '../Link'
 
-export default function Texts () {
-  return (
-    <div>
-      <Title.Secondary color='blue' margins>Primary Title</Title.Secondary>
-      <Code>
-        <Title.Primary>Primary Title</Title.Primary>
-        <Title.Primary color='blue'>Primary Title in blue</Title.Primary>
-        <Title.Primary small>Primary Title in small</Title.Primary>
-        <Title.Primary strong small>Primary Title in strong</Title.Primary>
-        <Title.Primary margins>Primary Title with default text margins</Title.Primary>
+export default {
+  title: 'Text',
+  variations: [{
+    title: 'Titles',
+    Primary: {
+      example: [
+        <Title.Primary>Primary Title</Title.Primary>,
+        <Title.Primary color='blue'>Primary Title in blue</Title.Primary>,
         <Block.Plain blue>
           <Title.Primary color='white'>Primary Title in white</Title.Primary>
         </Block.Plain>
-      </Code>
+      ],
+      wide: true
+    },
 
-      <Title.Secondary color='blue' margins>Secondary Title</Title.Secondary>
-      <Code>
-        <Title.Secondary>Secondary Title</Title.Secondary>
-        <Title.Secondary color='blue'>Secondary Title in blue</Title.Secondary>
-        <Title.Secondary condensed>Secondary Title in condensed</Title.Secondary>
-        <Title.Secondary margins>Secondary Title with default text margins</Title.Secondary>
+    'Small primary title': {
+      example: (
+        <Title.Primary small>Small Primary Title</Title.Primary>
+      ),
+      wide: true
+    },
+
+    'Small and prominent primary title': {
+      example: (
+        <Title.Primary strong small>Small Primary Title in strong</Title.Primary>
+      ),
+      wide: true
+    },
+
+    'Primary with text margins': {
+      example: [
+        <Title.Primary margins>Primary Title</Title.Primary>,
+        <Paragraph.Primary margins>
+          Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
+        </Paragraph.Primary>
+      ],
+      wide: true
+    },
+
+    Secondary: {
+      example: [
+        <Title.Secondary>Secondary Title</Title.Secondary>,
+        <Title.Secondary color='blue'>Secondary Title in blue</Title.Secondary>,
         <Block.Plain blue>
           <Title.Secondary color='white'>Secondary Title in white</Title.Secondary>
         </Block.Plain>
-      </Code>
+      ],
+      wide: true
+    },
 
-      <Title.Secondary color='blue' margins>Subtitle</Title.Secondary>
-      <Code>
-        <Subtitle>Subtitle</Subtitle>
-        <Subtitle color='blue'>Subtitle in blue</Subtitle>
-        <Subtitle condensed>Subtitle in condensed</Subtitle>
-        <Subtitle margins>Subtitle with default text margins</Subtitle>
+    'Condensed secondary title': {
+      example: (
+        <Title.Secondary small>Condensed Secondary Title</Title.Secondary>
+      ),
+      wide: true
+    },
+
+    'Secondary with text margins': {
+      example: [
+        <Title.Secondary margins>Secondary Title</Title.Secondary>,
+        <Paragraph.Primary margins>
+          Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
+        </Paragraph.Primary>
+      ],
+      wide: true
+    },
+
+    Subtitle: {
+      example: [
+        <Subtitle>Subtitle</Subtitle>,
+        <Subtitle color='blue'>Subtitle in blue</Subtitle>,
         <Block.Plain blue>
           <Subtitle color='white'>Subtitle in white</Subtitle>
         </Block.Plain>
-      </Code>
+      ],
+      wide: true
+    },
 
-      <Title.Secondary color='blue' margins>Paragraphs</Title.Secondary>
-      <Code>
-        <Paragraph.Primary>
-          Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph
-        </Paragraph.Primary>
-        <Paragraph.Primary condensed>
-          Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed Primary Paragraph Condensed
-        </Paragraph.Primary>
-        <Paragraph.Secondary>
-          Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph Secondary Paragraph
-        </Paragraph.Secondary>
-        <Paragraph.Legal>
-          Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text
-        </Paragraph.Legal>
+    'Condensed subtitle': {
+      example: (
+        <Subtitle condensed>Condensed subtitle</Subtitle>
+      ),
+      wide: true
+    },
+
+    'Subtitle with text margins': {
+      example: [
+        <Subtitle margins>Secondary Title</Subtitle>,
         <Paragraph.Primary margins>
-          Primary paragraph with default margins
+          Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
         </Paragraph.Primary>
-        <Paragraph.Secondary margins>
-          Secondary paragraph with default margins
-        </Paragraph.Secondary>
-        <Paragraph.Legal margins>
-          Legal paragraph with default margins
-        </Paragraph.Legal>
-
+      ]
+    }
+  }, {
+    title: 'Paragraphs',
+    Primary: {
+      example: [
+        <Paragraph.Primary>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Primary>,
+        <Paragraph.Primary color='blue'>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Primary>,
         <Block.Plain blue>
           <Paragraph.Primary color='white'>
-            Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph Primary Paragraph
+            Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Primary>
+        </Block.Plain>
+      ],
+      wide: true
+    },
+
+    'Condensed primary paragraph': {
+      example: (
+        <Paragraph.Primary condensed>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Primary>
+      ),
+      wide: true
+    },
+
+    'Primary paragraph with text margins': {
+      example: [
+        <Paragraph.Primary margins>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Primary>,
+        <Paragraph.Primary margins>
+          Sed vestibulum nisl a urna lobortis tincidunt. Aenean vitae dolor sed elit semper aliquet. Suspendisse potenti.
+        </Paragraph.Primary>
+      ],
+      wide: true
+    },
+
+    Secondary: {
+      example: [
+        <Paragraph.Secondary>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Secondary>,
+        <Paragraph.Secondary color='blue'>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Secondary>,
+        <Block.Plain blue>
+          <Paragraph.Secondary color='white'>
+            Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+          </Paragraph.Secondary>
+        </Block.Plain>
+      ],
+      wide: true
+    },
+
+    'Condensed secondary paragraph': {
+      example: (
+        <Paragraph.Secondary condensed>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Secondary>
+      ),
+      wide: true
+    },
+
+    'Secondary paragraph with text margins': {
+      example: [
+        <Paragraph.Secondary margins>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Secondary>,
+        <Paragraph.Secondary margins>
+          Sed vestibulum nisl a urna lobortis tincidunt. Aenean vitae dolor sed elit semper aliquet. Suspendisse potenti.
+        </Paragraph.Secondary>
+      ],
+      wide: true
+    },
+
+    Legal: {
+      example: [
+        <Paragraph.Legal>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Legal>,
+        <Paragraph.Legal color='blue'>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Legal>,
+        <Block.Plain blue>
           <Paragraph.Legal color='white'>
-            Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text Legal Text
+            Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Legal>
         </Block.Plain>
-      </Code>
+      ],
+      wide: true
+    },
 
-      <Title.Secondary color='blue' margins>Text Label</Title.Secondary>
-      <Code>
-        <TextLabel>Klarna ID</TextLabel>
-        <TextLabel margins>Klarna ID with default margins</TextLabel>
-
+    'Legal paragraph with text margins': {
+      example: [
+        <Paragraph.Legal margins>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Legal>,
+        <Paragraph.Legal margins>
+          Sed vestibulum nisl a urna lobortis tincidunt. Aenean vitae dolor sed elit semper aliquet. Suspendisse potenti.
+        </Paragraph.Legal>
+      ],
+      wide: true
+    }
+  }, {
+    title: 'Text Labels',
+    Regular: {
+      example: [
+        <TextLabel>Klarna ID</TextLabel>,
+        <Paragraph.Primary>12312ae-13efa-23124-898b0ac0d</Paragraph.Primary>,
         <Block.Plain blue>
-          <TextLabel color='white'>Given Name</TextLabel>
-        </Block.Plain>
-      </Code>
-
-      <Title.Secondary color='blue' margins>Link</Title.Secondary>
-      <Code>
-        <Subtitle>
-          Some subtitle with <Link onClick={window.alert} href='#'>a link.</Link>
-
-        </Subtitle>
-        <Paragraph.Primary>
-          Some paragraph with <Link href='#'>a link</Link>.
-        </Paragraph.Primary>
-
-        <Paragraph.Primary>
-          Some paragraph with <Link href='#' customize={{textColor: 'green'}}>a customized link</Link>.
-        </Paragraph.Primary>
-
-        <Block.Plain blue>
+          <TextLabel color='white'>Klarna ID</TextLabel>
           <Paragraph.Primary color='white'>
-            Some paragraph with <Link color='white' href='#'>a link</Link>.
+            12312ae-13efa-23124-898b0ac0d
           </Paragraph.Primary>
         </Block.Plain>
+      ],
+      wide: true
+    },
 
-      </Code>
+    'Text Labels with text margins': {
+      example: [
+        <TextLabel margins>Klarna ID</TextLabel>,
+        <Paragraph.Primary margins>12312ae-13efa-23124-898b0ac0d</Paragraph.Primary>,
+        <TextLabel margins>City</TextLabel>,
+        <Paragraph.Primary margins>Wetzlar</Paragraph.Primary>
+      ],
+      wide: true
+    }
+  }, {
+    title: 'Link',
 
-      <Title.Secondary color='blue' margins>Amount</Title.Secondary>
-      <Code>
-        <Amount>1500€</Amount>
-        <Amount>$1500</Amount>
-        <Amount color='blue'>1500₪</Amount>
+    Regular: {
+      example: [
+        <Paragraph.Primary>All links go to <Link target='_blank' href='http://goo.gl/SsAhv'>Rome</Link></Paragraph.Primary>
+      ],
+      wide: true
+    },
+    'Link with customizations': {
+      example: (
+        <Paragraph.Primary>
+          But some links go to <Link
+            customize={{
+              textColor: '#3500C8'
+            }}
+            target='_blank'
+            href='http://goo.gl/XPU9kg'>
+            Paris
+          </Link>
+        </Paragraph.Primary>
+      ),
+      wide: true
+    }
+  }, {
+    title: 'Amount',
+    Regular: {
+      example: [
+        <Amount>1500€</Amount>,
+        <Amount>$1500</Amount>,
+        <Amount color='blue'>1500₪</Amount>,
         <Block.Plain blue>
           <Amount color='white'>1500€</Amount>
         </Block.Plain>
-      </Code>
-    </div>
-  )
+      ],
+      wide: true
+    }
+  }]
 }

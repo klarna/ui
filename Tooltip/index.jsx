@@ -11,11 +11,11 @@ export const arrows = [
   'right', 'right-top', 'right-bottom'
 ]
 
-export default function Tooltip ({ className, arrow, children, border, styles }) {
+export default function Tooltip ({ className, arrow, children, inverse, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (<div
-    className={classNames(baseClass, arrow, className, { border })}>
+    className={classNames(baseClass, arrow, className, { inverse })}>
     {children}
   </div>)
 }
@@ -24,6 +24,6 @@ Tooltip.propTypes = {
   className: PropTypes.string,
   arrow: PropTypes.oneOf(arrows),
   children: PropTypes.node,
-  border: PropTypes.bool,
+  inverse: PropTypes.bool,
   styles: PropTypes.object
 }
