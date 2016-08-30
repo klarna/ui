@@ -141,5 +141,6 @@ const Stacked = {
 
 export default {
   title: 'Field',
+  icon: 'Field',
   variations: [Single, WithIcons, Stacked]
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import Base from './Base'
 
 export default () => (
-  <Base title='Navigation' circleFill='#EA6146'>
+  <Base title='Dialog' circleFill='#EA6146'>
     <defs>
       <path d='M100 50c0 27.6-22.4 50-50 50S0 77.6 0 50 22.4 0 50 0s50 22.4 50 50' id='a'/>
     </defs>
