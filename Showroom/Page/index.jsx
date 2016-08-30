@@ -52,28 +52,24 @@ export function Variation ({ exampleTitle, title, ...sections }) {
       {
         Object.keys(sections).map((section) =>
           sections[section].example
-            ? (
-              <section key={section}>
-                <UI.Title.Secondary margins
-                  className={classNames(styles.variationTitle, styles.wide)}>
-                  {section}
-                </UI.Title.Secondary>
+            ? (<section key={section}>
+              <UI.Title.Secondary margins
+                className={classNames(styles.variationTitle, styles.wide)}>
+                {section}
+              </UI.Title.Secondary>
 
-                <Code wide>
-                  {sections[section].example}
-                </Code>
-              </section>
-            )
-            : (
-              <section key={section}>
-                <UI.Title.Secondary margins className={styles.variationTitle}>
-                  {section}
-                </UI.Title.Secondary>
-                <Code>
-                  {sections[section]}
-                </Code>
-              </section>
-            )
+              <Code wide>
+                {sections[section].example}
+              </Code>
+            </section>)
+            : (<section key={section}>
+              <UI.Title.Secondary margins className={styles.variationTitle}>
+                {section}
+              </UI.Title.Secondary>
+              <Code>
+                {sections[section]}
+              </Code>
+            </section>)
         )
       }
     </section>

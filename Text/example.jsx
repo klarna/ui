@@ -1,5 +1,4 @@
 import React from 'react'
-import Code from '../Code'
 import * as Block from '../Block'
 import { Amount, Title, Subtitle, Paragraph, TextLabel } from '../Text'
 import Link from '../Link'
@@ -211,7 +210,9 @@ export default {
         <Paragraph.Primary>12312ae-13efa-23124-898b0ac0d</Paragraph.Primary>,
         <Block.Plain blue>
           <TextLabel color='white'>Klarna ID</TextLabel>
-          <Paragraph.Primary  color='white'>12312ae-13efa-23124-898b0ac0d</Paragraph.Primary>
+          <Paragraph.Primary color='white'>
+            12312ae-13efa-23124-898b0ac0d
+          </Paragraph.Primary>
         </Block.Plain>
       ],
       wide: true
