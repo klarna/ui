@@ -1,6 +1,7 @@
 import React from 'react'
 import CodeBlock from './Block'
 import classNames from 'classnames'
+import asCode from './asCode'
 import styles from './styles.scss'
 
 export default ({ customCode, children, width, wide }) => (
@@ -10,12 +11,9 @@ export default ({ customCode, children, width, wide }) => (
     </article>
 
     <div className={classNames(styles.code, { [styles.narrow]: wide })}>
-      {customCode
-        ? (<pre style={{color: 'white', fontFamily: 'Fira Code'}}><code>{customCode}</code></pre>)
-        : (<CodeBlock>
-          {children}
-        </CodeBlock>)
-      }
+      <CodeBlock>
+        {customCode || asCode(children)}
+      </CodeBlock>
     </div>
   </section>
 )
