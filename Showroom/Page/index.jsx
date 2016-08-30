@@ -50,28 +50,44 @@ export function Variation ({ exampleTitle, title, ...sections }) {
         {title}
       </UI.Title.Primary>
       {
-        Object.keys(sections).map((section) =>
-          sections[section].example
-            ? (<section key={section}>
-              <UI.Title.Secondary margins
-                className={classNames(styles.variationTitle, styles.wide)}>
-                {section}
-              </UI.Title.Secondary>
+        Object.keys(sections).map((section) => {
+          const hasStructure = sections[section].example != null
+          const example = hasStructure
+            ? sections[section].example
+            : sections[section]
+          const wide = hasStructure
+            ? !!sections[section].wide
+            : false
+          const customCode = hasStructure && sections[section].code
 
-              <Code wide>
-                {sections[section].example}
-              </Code>
-            </section>)
-            : (<section key={section}>
-              <UI.Title.Secondary margins className={styles.variationTitle}>
-                {section}
-              </UI.Title.Secondary>
-              <Code>
-                {sections[section]}
-              </Code>
-            </section>)
-        )
+          return (
+            <Section
+              code={customCode}
+              key={section}
+              name={section} wide={wide}>
+              {example}
+            </Section>
+          )
+        })
       }
+    </section>
+  )
+}
+
+export function Section ({ code, children, name, wide }) {
+  const className = classNames(styles.variationTitle, {
+    [styles.wide]: wide
+  })
+
+  return (
+    <section>
+      <UI.Title.Secondary margins className={className}>
+        {name}
+      </UI.Title.Secondary>
+
+      <Code customCode={code} wide={wide}>
+        {children}
+      </Code>
     </section>
   )
 }
