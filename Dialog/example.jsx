@@ -59,6 +59,7 @@ const Example = React.createClass({
 
 export default {
   title: 'Dialog',
+  icon: 'Dialog',
   variations: [{
     title: 'Dialog',
     Regular: {
