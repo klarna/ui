@@ -106,5 +106,6 @@ const Stacked = {
 
 export default {
   title: 'Dropdown',
+  icon: 'Dropdown',
   variations: [Single, Stacked]
 }
