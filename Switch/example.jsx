@@ -4,6 +4,7 @@ import * as UncontrolledSwitch from '../uncontrolled/Switch'
 
 export default {
   title: 'Switch',
+  icon: 'Switch',
   variations: [{
     title: 'Toggle',
 
