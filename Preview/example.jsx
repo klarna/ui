@@ -3,6 +3,7 @@ import * as Preview from '../Preview'
 
 export default {
   title: 'Preview',
+  icon: 'Preview',
   variations: [{
     title: 'Preview',
     Regular: (
