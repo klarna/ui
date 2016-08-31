@@ -40,3 +40,22 @@
     margin-bottom: 0px;
   }
 }
+
+// GettingStarted
+
+.goals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    width: 29.3%;
+    padding: 2%;
+    vertical-align: top;
+
+    p {
+      margin-top: 20px;
+    }
+  }
+}
