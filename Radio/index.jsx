@@ -12,14 +12,14 @@ export default function Radio ({ borderless, value, onChange, className, data, s
       className={classNames(baseClass, { borderless }, className)}
       {...remainingProps}>
       {
-        data.map(({id, label, description}) => (
+        data.map(({key, label, description}) => (
           <Option
             classNames={classNames}
-            onClick={() => onChange(id)}
-            key={id}
+            onClick={() => onChange(key)}
+            key={key}
             label={label}
             description={description}
-            selected={id === value}
+            selected={key === value}
           />
         ))
       }
