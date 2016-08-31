@@ -30,6 +30,10 @@
   .variationTitle {
     margin: 0 auto;
     text-align: center;
+
+    &.wide {
+      margin: 0 auto;
+    }
   }
 
   .designTitle {
