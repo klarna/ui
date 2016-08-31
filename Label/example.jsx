@@ -3,6 +3,7 @@ import Label, { designs } from '../Label'
 
 export default {
   title: 'Label',
+  icon: 'Label',
   variations: [{
     title: 'Label',
     Regular: designs.map((design) => (
