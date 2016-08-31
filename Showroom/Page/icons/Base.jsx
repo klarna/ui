@@ -7,7 +7,7 @@ export default ({children, title, circleFill}) => (
       <circle cx='50' cy='50' r='50' fill='#EFF4F9' />
       {children}
     </g>
-    <circle fill={circleFill} cx='90' cy='15' r='10'/>
+    { circleFill && <circle fill={circleFill} cx='90' cy='15' r='10'/> }
   </svg>
 )
 

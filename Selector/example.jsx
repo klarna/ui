@@ -9,7 +9,7 @@ const data = [
 
 export default {
   title: 'Selector',
-  icon: 'Selector',
+  icon: 'Baseline',
   variations: [{
     title: 'Selector',
     Regular: (
