@@ -9,6 +9,7 @@ const data = [
 
 export default {
   title: 'Selector',
+  icon: 'Selector',
   variations: [{
     title: 'Selector',
     Regular: (
