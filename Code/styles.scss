@@ -43,8 +43,8 @@ pre {
   }
 }
 
-@media screen and (max-width: 800px) {
-  pre {
+@media screen and (max-width: 1000px) {
+  .code {
     display: none;
   }
 
