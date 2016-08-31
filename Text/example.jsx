@@ -54,13 +54,6 @@ export default {
       wide: true
     },
 
-    'Condensed secondary title': {
-      example: (
-        <Title.Secondary small>Condensed Secondary Title</Title.Secondary>
-      ),
-      wide: true
-    },
-
     'Secondary with text margins': {
       example: [
         <Title.Secondary margins>Secondary Title</Title.Secondary>,
