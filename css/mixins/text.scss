@@ -9,8 +9,25 @@
     color: map-get($colors, klarna-blue);
   }
 
-  &.white {
+  &.white,
+  &.inverse {
     color: map-get($colors, white);
+  }
+
+  &.gray {
+    color: map-get($colors, grey-lines);
+  }
+
+  &.error {
+    color: map-get($colors, error);
+  }
+
+  &.success {
+    color: map-get($colors, green);
+  }
+
+  &.warning {
+    color: map-get($colors, warning);
   }
 }
 
