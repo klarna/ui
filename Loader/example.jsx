@@ -4,6 +4,7 @@ import * as Block from '../Block'
 
 export default {
   title: 'Loader',
+  icon: 'Loader',
   variations: [{
     title: 'Primary',
     Big: [
