@@ -25,9 +25,9 @@
 
   background: white;
   display: inline-block;
-  line-height: ($grid * 4);
+  line-height: ($grid * 4.4);
   margin: 0 auto;
-  padding: 0 ($grid * 1);
+  padding: ($grid * 1) ($grid * 1) 0 ($grid * 1);
 }
 
 .preview__border {
