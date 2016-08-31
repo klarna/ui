@@ -5,6 +5,7 @@ import Fieldset from '../Fieldset'
 
 export default {
   title: 'Input',
+  icon: 'Input',
   variations: [{
     title: 'Single',
     Regular: [
