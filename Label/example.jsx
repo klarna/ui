@@ -1,5 +1,6 @@
 import React from 'react'
 import Label, { designs } from '../Label'
+import * as Block from '../Block'
 
 export default {
   title: 'Label',
@@ -19,13 +20,15 @@ export default {
     )),
 
     Inverted: [
-      <Label inverted style={{margin: '5px'}}>
-        inverted
-      </Label>,
+      <Block.Plain blue>
+        <Label inverted style={{margin: '5px'}}>
+          inverted
+        </Label>
 
-      <Label inverted outline style={{margin: '5px'}}>
-        inverted outline
-      </Label>
+        <Label inverted outline style={{margin: '5px'}}>
+          inverted outline
+        </Label>
+      </Block.Plain>
     ]
   }]
 }
