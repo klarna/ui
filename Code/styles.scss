@@ -50,5 +50,9 @@ pre {
 
   .live {
     width: calc(100vw - 360px);
+
+    &.wide {
+      width: calc(100vw - 360px);
+    }
   }
 }
