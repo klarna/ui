@@ -18,7 +18,7 @@ export default {
         onChange={alert}
         name='radio-regular'
         options={options}
-        value={'lorem'}
+        value='lorem'
       />
     ],
     Uncontrolled: [
@@ -30,25 +30,43 @@ export default {
     Borderless: [
       <Radio
         borderless
+        name='radio-borderless'
         onChange={alert}
         options={options}
-        value={'lorem'}
+        value='lorem'
+      />
+    ],
+    'Borderless uncontrolled': [
+      <UncontrolledRadio
+        borderless
+        name='radio-borderless-uncontrolled'
+        options={options}
       />
     ],
     Disabled: [
       <UncontrolledRadio
         disabled
+        name='radio-disabled'
         onChange={alert}
         options={options}
-        value={'lorem'}
+        value='lorem'
       />
     ],
     'Borderless and disabled': [
       <UncontrolledRadio
         borderless
         disabled
-        value={'lorem'}
+        name='radio-borderless-disabled'
         options={options}
+        value='lorem'
+      />
+    ],
+    'With focus': [
+      <Radio
+        focus='sit'
+        name='radio-focus'
+        options={options}
+        value='ipsum'
       />
     ]
   }]
