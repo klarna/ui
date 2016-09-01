@@ -28,7 +28,7 @@ npm install
 npm start
 ```
 
-Open [localhost:7777](http://localhost:7777/).
+Open [localhost:7777/ui](http://localhost:7777/ui).
 
 ## License
 
@@ -45,8 +45,8 @@ Make sure:
 
 Then:
 
-1. Send a PR to GitHub.
-2. Once approved:
+1. Send a PR.
+2. Once approved (with 👍 reaction or a _LGTM_ comment):
 	1. Merge to master
   2. Pull master locally
   3. Update the version using `npm version` (tag will have `v` prefix) & update `CHANGELOG.md`.
