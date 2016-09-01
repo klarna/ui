@@ -30,10 +30,6 @@
     &:hover {
       border-color: $border-color;
     }
-
-    &::after {
-      opacity: .2;
-    }
   }
 }
 
@@ -51,29 +47,11 @@
   position: relative;
   transition: all .2s ease;
 
-  .borderless & {
-    border-radius: $border-radius;
-
-    &:first-child {
-      padding-top: ($grid * 1.8);
-    }
-
-    &:last-child {
-      padding-bottom: ($grid * 2.2);
-    }
-  }
-
   &:hover {
     background: map-get($colors, block-hover);
-
-    .is-disabled & {
-      &::before {
-        border-color: $border-color;
-      }
-    }
   }
 
-  &:first-child {
+  &:first-of-type {
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
     padding-top: ($grid * 2.8);
@@ -85,114 +63,81 @@
     padding-bottom: ($grid * 3.2);
   }
 
-  &::before {
-    background: white;
-    border: ($grid * .2) solid $border-color;
-    border-radius: ($grid * 2.8);
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    height: ($grid * 2.8);
-    left: ($grid * 4);
-    position: absolute;
-    top: ($grid * 2.4);
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-    width: ($grid * 2.8);
-  }
+  .borderless & {
+    border-radius: $border-radius;
 
-  &::after {
-    background: white;
-    border-radius: ($grid * 1.2);
-    content: '';
-    display: block;
-    height: ($grid * .8);
-    left: ($grid * 5);
-    opacity: 0;
-    position: absolute;
+    &:first-of-type {
+      padding-top: ($grid * 1.8);
+    }
+
+    &:last-child {
+      padding-bottom: ($grid * 2.2);
+    }
+  }
+}
+
+.radio__option__input {
+  display: block;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+.radio__option__bullet {
+  background: white;
+  border: ($grid * .2) solid $border-color;
+  border-radius: ($grid * 2.8);
+  box-sizing: border-box;
+  display: block;
+  height: ($grid * 2.8);
+  left: ($grid * 4);
+  position: absolute;
+  top: ($grid * 2.4);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  width: ($grid * 2.8);
+
+  .radio:not(.borderless) .radio__option:first-of-type & {
     top: ($grid * 3.4);
-    transform: scale(3, 3);
-    -ms-transform: scale(3, 3);
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-    width: ($grid * .8);
   }
 
-  &:first-child {
-    &::before {
-      top: ($grid * 3.4);
-    }
-
-    &::after {
-      top: ($grid * 4.4);
-    }
-  }
-
-  .dynamic-styling & {
-    &:after {
-      display: block;
-      z-index: 10;
-    }
-
-    &:before {
-      display: block;
-      z-index: 10;
-    }
-  }
-
-  &.is-selected {
-    &::before {
-      background: map-get($colors, klarna-blue);
-      border-color: map-get($colors, klarna-blue);
-    }
-
-    &::after {
-      opacity: 1;
-      top: ($grid * 3.4);
-      transform: scale(1, 1);
-      -ms-transform: scale(1, 1);
-    }
-
-    &:first-child {
-      &::after {
-        top: ($grid * 4.4);
-      }
-    }
-
-    .dynamic-styling & {
-      &:before, &:after {
-        opacity: 0;
-      }
-    }
+  .is-selected & {
+    background: map-get($colors, klarna-blue);
+    border-color: map-get($colors, klarna-blue);
 
     .is-disabled & {
-      &::before {
-        background: map-get($colors, grey-lines);
-        border-color: map-get($colors, grey-lines);
-      }
-
-      &::after {
-        opacity: 1;
-        top: ($grid * 3.4);
-      }
-
-      &:first-child::after {
-        opacity: 1;
-        top: ($grid * 4.4);
-      }
+      background: map-get($colors, grey-lines);
+      border-color: map-get($colors, grey-lines);
     }
   }
+}
 
-  .borderless & {
-    &:first-child {
-      &::before {
-        top: ($grid * 2.4);
-      }
+.radio__option__checkmark {
+  background: white;
+  border-radius: ($grid * 1.2);
+  content: '';
+  display: block;
+  height: ($grid * .8);
+  left: ($grid * 5);
+  opacity: 0;
+  position: absolute;
+  top: ($grid * 3.4);
+  transform: scale(3, 3);
+  -ms-transform: scale(3, 3);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  width: ($grid * .8);
 
-      &::after {
-        top: ($grid * 3.4);
-      }
-    }
+  .radio:not(.borderless) .radio__option:first-of-type & {
+    top: ($grid * 4.4);
+  }
+
+  .is-selected & {
+    opacity: 1;
+    top: ($grid * 3.4);
+    transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
   }
 }
 
