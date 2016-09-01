@@ -18,43 +18,41 @@ export const Usage = () => (
 export const Implementation = () => (
   <Base title='Implementation'>
     <Page />
-    <g fill='none' fill-rule='evenodd'>
-      <g transform='translate(45 25)'>
-        <path d='M20 0H1C.4 0 0 .5 0 1v12c0 .6.5 1 1 1h33c.6 0 1-.5 1-1V6H25c-2.8 0-5-2.2-5-5V0z' fill='#233E66'/>
-        <rect fill='#B9B9EA' x='4' y='4' width='14' height='2' rx='1'/>
-        <rect fill='#17BBC3' x='4' y='8' width='27' height='2' rx='1'/>
-      </g>
-      <g transform='translate(45 46)'>
-        <rect fill='#233E66' width='35' height='18' rx='1'/>
-        <rect fill='#B9B9EA' x='4' y='8' width='10' height='2' rx='1'/>
-        <rect fill='#17BBC3' x='16' y='8' width='5' height='2' rx='1'/>
-        <rect fill='#EED419' x='23' y='8' width='8' height='2' rx='1'/>
-        <rect fill='#C3CFE2' x='4' y='4' width='15' height='2' rx='1'/>
-        <rect fill='#EED419' x='21' y='4' width='5' height='2' rx='1'/>
-        <rect fill='#B9B9EA' x='4' y='12' width='27' height='2' rx='1'/>
-      </g>
-      <g transform='translate(25 46)'>
-        <rect fill='#0074C8' width='15' height='10' rx='1'/>
-        <rect fill='#FFF' x='4' y='4' width='7' height='2' rx='1'/>
-      </g>
-      <g transform='translate(25 25)'>
-        <rect fill='#0074C8' width='15' height='10' rx='1'/>
-        <rect fill='#FFF' x='4' y='4' width='7' height='2' rx='1'/>
-      </g>
-      <g transform='translate(25 71)' fill='#0074C8'>
-        <path d='M0 1c0-.6.4-1 1-1h13c.5 0 1 .5 1 1v8c0 .6-.4 1-1 1H1c-.5 0-1-.5-1-1V1zm2 1h11v6H2V2z'/>
-        <rect x='4' y='4' width='7' height='2' rx='1'/>
-      </g>
-      <g transform='translate(45 71)'>
-        <rect fill='#233E66' width='35' height='14' rx='1'/>
-        <rect fill='#17BBC3' x='11' y='4' width='20' height='2' rx='1'/>
-        <rect fill='#B9B9EA' x='4' y='4' width='5' height='2' rx='1'/>
-        <rect fill='#EED419' x='4' y='8' width='17' height='2' rx='1'/>
-      </g>
-      <path d='M70 15c0 2.8.8 5.5 2 7.7L70 27h6c2.5 2 5.6 3 9 3 8.3 0 15-6.7 15-15S93.3 0 85 0 70 6.7 70 15z' fill='#0074C8'/>
-      <g fill='#FFF'>
-        <path d='M85 20c-.6 0-1 .4-1 1s.4 1 1 1 1-.4 1-1-.4-1-1-1M85 7c-2.2 0-4 1.8-4 4 0 .6.4 1 1 1s1-.4 1-1c0-1 1-2 2-2s2 1 2 2-1 2-2 2c-.6 0-1 .4-1 1v3c0 .6.4 1 1 1s1-.4 1-1v-2c1.7-.6 3-2 3-4 0-2.2-1.8-4-4-4'/>
-      </g>
+    <g transform='translate(45 25)'>
+      <path d='M20 0H1C.4 0 0 .5 0 1v12c0 .6.5 1 1 1h33c.6 0 1-.5 1-1V6H25c-2.8 0-5-2.2-5-5V0z' fill='#233E66'/>
+      <rect fill='#B9B9EA' x='4' y='4' width='14' height='2' rx='1'/>
+      <rect fill='#17BBC3' x='4' y='8' width='27' height='2' rx='1'/>
+    </g>
+    <g transform='translate(45 46)'>
+      <rect fill='#233E66' width='35' height='18' rx='1'/>
+      <rect fill='#B9B9EA' x='4' y='8' width='10' height='2' rx='1'/>
+      <rect fill='#17BBC3' x='16' y='8' width='5' height='2' rx='1'/>
+      <rect fill='#EED419' x='23' y='8' width='8' height='2' rx='1'/>
+      <rect fill='#C3CFE2' x='4' y='4' width='15' height='2' rx='1'/>
+      <rect fill='#EED419' x='21' y='4' width='5' height='2' rx='1'/>
+      <rect fill='#B9B9EA' x='4' y='12' width='27' height='2' rx='1'/>
+    </g>
+    <g transform='translate(25 46)'>
+      <rect fill='#0074C8' width='15' height='10' rx='1'/>
+      <rect fill='#FFF' x='4' y='4' width='7' height='2' rx='1'/>
+    </g>
+    <g transform='translate(25 25)'>
+      <rect fill='#0074C8' width='15' height='10' rx='1'/>
+      <rect fill='#FFF' x='4' y='4' width='7' height='2' rx='1'/>
+    </g>
+    <g transform='translate(25 71)' fill='#0074C8'>
+      <path d='M0 1c0-.6.4-1 1-1h13c.5 0 1 .5 1 1v8c0 .6-.4 1-1 1H1c-.5 0-1-.5-1-1V1zm2 1h11v6H2V2z'/>
+      <rect x='4' y='4' width='7' height='2' rx='1'/>
+    </g>
+    <g transform='translate(45 71)'>
+      <rect fill='#233E66' width='35' height='14' rx='1'/>
+      <rect fill='#17BBC3' x='11' y='4' width='20' height='2' rx='1'/>
+      <rect fill='#B9B9EA' x='4' y='4' width='5' height='2' rx='1'/>
+      <rect fill='#EED419' x='4' y='8' width='17' height='2' rx='1'/>
+    </g>
+    <path d='M70 15c0 2.8.8 5.5 2 7.7L70 27h6c2.5 2 5.6 3 9 3 8.3 0 15-6.7 15-15S93.3 0 85 0 70 6.7 70 15z' fill='#0074C8'/>
+    <g fill='#FFF'>
+      <path d='M85 20c-.6 0-1 .4-1 1s.4 1 1 1 1-.4 1-1-.4-1-1-1M85 7c-2.2 0-4 1.8-4 4 0 .6.4 1 1 1s1-.4 1-1c0-1 1-2 2-2s2 1 2 2-1 2-2 2c-.6 0-1 .4-1 1v3c0 .6.4 1 1 1s1-.4 1-1v-2c1.7-.6 3-2 3-4 0-2.2-1.8-4-4-4'/>
     </g>
   </Base>
 )

@@ -2,8 +2,8 @@ import React from 'react'
 // import classNames from 'classnames'
 import {Usage, Implementation, UX} from './icons/GettingStarted'
 import * as UI from '../../'
-// import Code from '../../Code'
-import Footer from '../Footer'
+import CodeBlock from 'Code/Instructions'
+import Footer from 'Showroom/Footer'
 
 import styles from './styles.scss'
 
@@ -40,6 +40,19 @@ export default function GettingStarted ({example}) {
         <nav className={styles.pageNav}>
         </nav>
       </header>
+
+      <section>
+        <UI.Title.Primary className={styles.designTitle} margins>
+          Instructions
+        </UI.Title.Primary>
+        <UI.Subtitle>
+          Install
+        </UI.Subtitle>
+        <CodeBlock>
+          npm install @klarna/ui --save
+        </CodeBlock>
+      </section>
+
       <Footer />
     </article>
   )
