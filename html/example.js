@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import Showroom from './Showroom'
+import Showroom from '../Showroom'
 import router from 'zen-router'
 
 router((route) => {
