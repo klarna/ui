@@ -14,19 +14,42 @@ export default {
   variations: [{
     title: 'Radio',
     Regular: [
-      <Radio value={'lorem'} onChange={alert} options={options} />
+      <Radio
+        onChange={alert}
+        name='radio-regular'
+        options={options}
+        value={'lorem'}
+      />
     ],
     Uncontrolled: [
-      <UncontrolledRadio options={options} />
+      <UncontrolledRadio
+        name='radio-uncontrolled'
+        options={options}
+      />
     ],
     Borderless: [
-      <Radio borderless value={'lorem'} onChange={alert} options={options} />
+      <Radio
+        borderless
+        onChange={alert}
+        options={options}
+        value={'lorem'}
+      />
     ],
     Disabled: [
-      <UncontrolledRadio disabled value={'lorem'} onChange={alert} options={options} />
+      <UncontrolledRadio
+        disabled
+        onChange={alert}
+        options={options}
+        value={'lorem'}
+      />
     ],
     'Borderless and disabled': [
-      <UncontrolledRadio borderless disabled value={'lorem'} options={options} />
+      <UncontrolledRadio
+        borderless
+        disabled
+        value={'lorem'}
+        options={options}
+      />
     ]
   }]
 }

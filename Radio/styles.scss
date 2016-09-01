@@ -39,6 +39,8 @@
   -webkit-transition: all .2s ease;
   -webkit-user-select: none;
   background: white;
+  cursor: pointer;
+  display: block;
   overflow: hidden;
   padding-bottom: ($grid * 2.2);
   padding-left: ($grid * 10);

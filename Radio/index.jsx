@@ -28,7 +28,7 @@ export default function Radio ({
           key,
           label,
           name,
-          onClick: () => onChange(key),
+          onChange: () => onChange(key),
           selected: key === value
         }))
       }
@@ -52,29 +52,31 @@ const option = ({
   key,
   label,
   name,
-  onClick,
+  onChange,
   selected
 }) => [
   <input
     className={classNames(`${baseClass}__option__input`)}
+    id={`${name}-${key}`}
     name={name}
     type='radio'
+    onChange={onChange}
     value={key}
   />,
-  <div
-    className={classNames(`${baseClass}__option`, { 'is-selected': selected })}
-    onClick={onClick}>
+  <label
+    htmlFor={`${name}-${key}`}
+    className={classNames(`${baseClass}__option`, { 'is-selected': selected })}>
     <div className={classNames(`${baseClass}__option__bullet`)} />
     <div className={classNames(`${baseClass}__option__checkmark`)} />
 
-    <label
+    <div
       className={classNames(`${baseClass}__option__heading`)}>
       {label}
-    </label>
+    </div>
 
     {description && <div
       className={classNames(`${baseClass}__option__description`)}>
       {description}
     </div>}
-  </div>
+  </label>
 ]
