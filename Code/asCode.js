@@ -49,7 +49,7 @@ const reFormatObjectProps = (code) =>
       const matchObject = line.match(/{({.+?})}/)
 
       if (matchObject) {
-        const obj = eval('(' + matchObject[1] + ')')
+        const obj = eval('(' + matchObject[1] + ')') // eslint-disable-line no-eval
 
         if (Object.keys(obj).length === 1) {
           return [line]
@@ -76,7 +76,7 @@ const reFormatObjectProps = (code) =>
       const matchArray = line.match(/{(\[.+?\])}/)
       if (matchArray) {
         try {
-          const arr = eval('(' + matchArray[1] + ')')
+          const arr = eval('(' + matchArray[1] + ')') // eslint-disable-line no-eval
           const baseIndentation = getIndentation(line)
 
           const lines = inspect(arr, { indent: '  ' }).split('\n')

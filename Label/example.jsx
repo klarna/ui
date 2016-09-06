@@ -7,7 +7,7 @@ export default {
   icon: 'Label',
   variations: [{
     title: 'Label',
-    require: `import Label from '@klarna/ui/Label'`,
+    require: 'import Label from \'@klarna/ui/Label\'',
     Regular: designs.map((design) => (
       <Label key={design} design={design} style={{margin: '5px'}}>
         {design}

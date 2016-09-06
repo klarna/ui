@@ -5,7 +5,7 @@ export default {
   title: 'ProgressBar',
   variations: [{
     title: 'ProgressBar',
-    require: `import ProgressBar from '@klarna/ui/ProgressBar'`,
+    require: 'import ProgressBar from \'@klarna/ui/ProgressBar\'',
     Regular: [
       <ProgressBar percentage={50} />
     ],

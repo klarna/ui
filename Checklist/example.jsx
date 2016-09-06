@@ -6,7 +6,7 @@ export default {
   icon: 'Checklist',
   variations: [{
     title: 'Checklist',
-    require: `import * as Checklist from '@klarna/ui/Checklist'`,
+    require: 'import * as Checklist from \'@klarna/ui/Checklist\'',
     Regular: (
       <Checklist.Main>
         <Checklist.Item>Just one click and you're done</Checklist.Item>

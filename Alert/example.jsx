@@ -3,7 +3,7 @@ import * as Alert from '../Alert'
 
 const Error = {
   title: 'Error',
-  require: `import * as Alert from '@klarna/ui/Alert'`,
+  require: 'import * as Alert from \'@klarna/ui/Alert\'',
   Regular: (
     <Alert.Error>
       <Alert.Title>
@@ -21,7 +21,7 @@ const Error = {
 
 const Warning = {
   title: 'Warning',
-  require: `import * as Alert from '@klarna/ui/Alert'`,
+  require: 'import * as Alert from \'@klarna/ui/Alert\'',
   Regular: (
     <Alert.Warning>
       <Alert.Title>

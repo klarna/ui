@@ -6,7 +6,7 @@ export default {
   icon: 'Tooltip',
   variations: [{
     title: 'Tooltip',
-    require:  `import Tooltip from '@klarna/ui/Tooltip'`,
+    require: 'import Tooltip from \'@klarna/ui/Tooltip\'',
     'Top left': (
       <Tooltip arrow='top-left'>
         Lorem Ipsum is simply dummy text of the printing industry.
