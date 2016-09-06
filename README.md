@@ -49,7 +49,7 @@ Then:
 2. Once approved (with 👍 reaction or a _LGTM_ comment):
 	1. Merge to master
   2. Pull master locally
-  3. Update the version using `npm version` (tag will have `v` prefix) & update `CHANGELOG.md`.
+  3. Update the version using `npm version <major|minor|patch> -m "Some message describing what happened"` (tag will have `v` prefix). The message will be published as the [release notes in Github](https://github.com/klarna/ui/releases).
   4. Push master and the new tag as well. (`git push origin master && git push origin v<your-version>`)
 
 Travis will take care of publishing your new version to npm.
