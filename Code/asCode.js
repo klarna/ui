@@ -12,6 +12,12 @@ const opts = {
   useBooleanShorthandSyntax: true
 }
 
+const reFormatFunctionProp = (code) =>
+  code.replace(
+    /function ([a-zA-Z0-9]+)\((.*?)\) {\s*return ([\s\S]+?);\s*}}/g,
+    '($2) => $3}'
+  )
+
 const stripUndefinedProps = (code) =>
   code.replace(/[a-zA-Z0-9]+={undefined}/g, '')
 
@@ -23,10 +29,6 @@ const stripEmptyLines = (code) =>
 
 const toSingleQuote = (code) =>
   code.replace(/"/g, "'")
-
-// const fixOrphanGt = (code) =>
-//   code
-//     .split('\n')
 
 const getIndentation = (string) =>
   string
@@ -61,7 +63,9 @@ const reFormatObjectProps = (code) =>
         lines[0] = line.replace(/{{.+?}}.*/, '{{')
         lines[lines.length - 1] = '}}'
 
-        if (line.trim().endsWith('>')) {
+        if (line.trim().endsWith('/>')) {
+          lines[lines.length - 1] = lines[lines.length - 1] + ' />'
+        } else if (line.trim().endsWith('>')) {
           lines[lines.length - 1] = lines[lines.length - 1] + '>'
         }
 
@@ -83,7 +87,9 @@ const reFormatObjectProps = (code) =>
           lines[0] = line.replace(/{\[.+?\]}.*/, '{[')
           lines[lines.length - 1] = ']}'
 
-          if (line.trim().endsWith('>')) {
+          if (line.trim().endsWith('/>')) {
+            lines[lines.length - 1] = lines[lines.length - 1] + ' />'
+          } else if (line.trim().endsWith('>')) {
             lines[lines.length - 1] = lines[lines.length - 1] + '>'
           }
 
@@ -106,6 +112,7 @@ const reFormatObjectProps = (code) =>
 const postProcessing = compose(
   stripEmptyLines,
   stripUndefinedProps,
+  reFormatFunctionProp,
   reFormatObjectProps,
   toSingleQuote
 )

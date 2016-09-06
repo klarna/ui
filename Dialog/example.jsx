@@ -67,39 +67,32 @@ export default {
       example: (
         <Example />
       ),
-      code: `<div>
-  <Button.Primary onClick={open}>
-    Show Dialog
-  </Button.Primary>
+      code: `<Dialog.Overlay show>
+  <Dialog.Main>
+    <Dialog.Icon>
+      <Close />
+    </Dialog.Icon>
 
-  <Dialog.Overlay show={this.state.dialog.open}>
-    <Dialog.Main>
-      <Dialog.Icon>
-        <Close onClick={close} />
-      </Dialog.Icon>
+    <Dialog.Content>
+      <Title.Primary margins>
+        The title is primary
+      </Title.Primary>
+      <Subtitle margins>
+        Just trying to fill up space
+      </Subtitle>
+      <Paragraph.Secondary margins>
+        Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+      </Paragraph.Secondary>
+    </Dialog.Content>
 
-      <Dialog.Content>
-        <Title.Primary margins>
-          The title is primary
-        </Title.Primary>
-        <Subtitle margins>
-          Just trying to fill up space
-        </Subtitle>
-        <Paragraph.Secondary margins>
-          Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
-        </Paragraph.Secondary>
-      </Dialog.Content>
-
-      <Dialog.Footer>
-        <Button.Primary
-          onClick={close}
-          style={{width: '100%'}}>
-          Close the nice dialog
-        </Button.Primary>
-      </Dialog.Footer>
-    </Dialog.Main>
-  </Dialog.Overlay>
-</div>`
+    <Dialog.Footer>
+      <Button.Primary
+        style={{width: '100%'}}>
+        Close the nice dialog
+      </Button.Primary>
+    </Dialog.Footer>
+  </Dialog.Main>
+</Dialog.Overlay>`
     }
   }]
 }

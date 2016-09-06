@@ -17,7 +17,7 @@ export default {
 import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
     Regular: [
       <Radio
-        onChange={alert}
+        onChange={(key) => alert(key)}
         name='radio-regular'
         options={options}
         value='lorem'
@@ -33,7 +33,7 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
       <Radio
         borderless
         name='radio-borderless'
-        onChange={alert}
+        onChange={(key) => alert(key)}
         options={options}
         value='lorem'
       />
@@ -49,7 +49,7 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
       <UncontrolledRadio
         disabled
         name='radio-disabled'
-        onChange={alert}
+        onChange={(key) => alert(key)}
         options={options}
         value='lorem'
       />

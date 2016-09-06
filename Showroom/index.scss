@@ -1,12 +1,14 @@
 @import url('//fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 @import url('//fonts.googleapis.com/css?family=Fira+Mono');
 @import './settings.scss';
+@import '../css/fira-code/fira_code.css';
 
 body {
   font-family: 'Open Sans';
   height: 100%;
   margin: 0;
   padding: 0;
+  text-rendering: optimizeLegibility;
 }
 
 main {
