@@ -2,7 +2,10 @@
   "name": "@klarna/ui",
   "version": "0.1.0",
   "description": "Klarna's UI Components",
-  "repository": "https://github.com/klarna/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klarna/ui"
+  },
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "scripts": {
