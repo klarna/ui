@@ -67,6 +67,7 @@
     "sass-loader": "^3.2.0",
     "sinon": "git+https://github.com/sinonjs/sinon.git",
     "standard": "^6.0.8",
+    "stringify-object": "^2.4.0",
     "style-loader": "^0.12.4",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2",

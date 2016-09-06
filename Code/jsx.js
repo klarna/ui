@@ -29,7 +29,8 @@ module.exports = (hljs) => ({
                     {begin: /{{/, end: /}}/},
                     {begin: /{\[/, end: /]}/},
                     {begin: /{function/, end: /}}/},
-                    {begin: /"/, end: /"/}
+                    {begin: /"/, end: /"/},
+                    {begin: /'/, end: /'/}
                   ]
                 }
               ]

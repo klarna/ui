@@ -25,6 +25,7 @@ export default {
     ]
   }, {
     title: 'Secondary',
+    require: `import Loader from '@klarna/ui/Loader'`,
     Big: [
       <Loader color='blue' size='big' />
     ],
@@ -39,6 +40,7 @@ export default {
     ]
   }, {
     title: 'White',
+    require: `import Loader from '@klarna/ui/Loader'`,
     Big: [
       <Block.Plain blue style={{padding: '20px'}}>
         <Loader color='white' size='big' />
