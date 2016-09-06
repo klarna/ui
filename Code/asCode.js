@@ -75,23 +75,27 @@ const reFormatObjectProps = (code) =>
 
       const matchArray = line.match(/{(\[.+?\])}/)
       if (matchArray) {
-        const arr = eval('(' + matchArray[1] + ')')
-        const baseIndentation = getIndentation(line)
+        try {
+          const arr = eval('(' + matchArray[1] + ')')
+          const baseIndentation = getIndentation(line)
 
-        const lines = inspect(arr, { indent: '  ' }).split('\n')
-        lines[0] = line.replace(/{\[.+?\]}.*/, '{[')
-        lines[lines.length - 1] = ']}'
+          const lines = inspect(arr, { indent: '  ' }).split('\n')
+          lines[0] = line.replace(/{\[.+?\]}.*/, '{[')
+          lines[lines.length - 1] = ']}'
 
-        if (line.trim().endsWith('>')) {
-          lines[lines.length - 1] = lines[lines.length - 1] + '>'
+          if (line.trim().endsWith('>')) {
+            lines[lines.length - 1] = lines[lines.length - 1] + '>'
+          }
+
+          return lines
+            .map(
+              (l, index) => index > 0
+                ? times(() => ' ', baseIndentation).join('') + l
+                : l
+            )
+        } catch (e) {
+          return [line]
         }
-
-        return lines
-          .map(
-            (l, index) => index > 0
-              ? times(() => ' ', baseIndentation).join('') + l
-              : l
-          )
       }
 
       return [line]
