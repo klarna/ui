@@ -8,6 +8,7 @@ export default {
   title: 'Text',
   variations: [{
     title: 'Titles',
+    require: `import * as Title from '@klarna/ui/Title'`,
     Primary: {
       example: [
         <Title.Primary>Primary Title</Title.Primary>,
@@ -104,6 +105,7 @@ export default {
     }
   }, {
     title: 'Paragraphs',
+    require: `import * as Paragraph from '@klarna/ui/Paragraph'`,
     Primary: {
       example: [
         <Paragraph.Primary>
@@ -246,6 +248,7 @@ export default {
     }
   }, {
     title: 'Text Labels',
+    require: `import TextLabel from '@klarna/ui/TextLabel'`,
     Regular: {
       example: [
         <TextLabel>Klarna ID</TextLabel>,
@@ -271,6 +274,7 @@ export default {
     }
   }, {
     title: 'Link',
+    require: `import Link from '@klarna/ui/Link'`,
 
     Regular: {
       example: [
@@ -295,6 +299,7 @@ export default {
     }
   }, {
     title: 'Amount',
+    require: `import Amount from '@klarna/ui/Amount'`,
     Regular: {
       example: [
         <Amount>1500€</Amount>,

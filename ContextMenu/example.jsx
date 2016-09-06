@@ -7,6 +7,7 @@ export default {
   icon: 'Navigation',
   variations: [{
     title: 'ContextMenu',
+    require: `import * as ContextMenu from '@klarna/ui/ContextMenu'`,
     Regular: (
       <ContextMenu.Main>
         <ContextMenu.Link>Buttons</ContextMenu.Link>

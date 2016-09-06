@@ -25,6 +25,7 @@ export default {
   icon: 'Navigation',
   variations: [{
     title: 'Tabs',
+    require: `import * as Menu from '@klarna/ui/Menu'`,
     Fluid: wide([
       <Menu.Tab
         onChange={(key) => console.log('You selected', key)}
@@ -73,6 +74,7 @@ export default {
     ])
   }, {
     title: 'Segmented',
+    require: `import * as Menu from '@klarna/ui/Menu'`,
     Fluid: wide([
       <Menu.Segmented
         onChange={(key) => console.log('You selected', key)}

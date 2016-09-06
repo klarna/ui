@@ -5,6 +5,9 @@ import UncontrolledField from '../uncontrolled/Field'
 
 const Single = {
   title: 'Single',
+  require: `import Field from '@klarna/ui/Field'
+import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
+
   Regular: (
     <Field label='Enter your email' />
   ),
@@ -48,6 +51,8 @@ const Single = {
 
 const WithIcons = {
   title: 'With Icons',
+  require: `import Field from '@klarna/ui/Field'
+import Fieldset from '@klarna/ui/Fieldset'`,
   Regular: (
     <div>
       <Fieldset margins>
@@ -112,6 +117,8 @@ const WithIcons = {
 
 const Stacked = {
   title: 'Stacked',
+  require: `import UncontrolledField from '@klarna/ui/uncontrolled/Field'
+import Fieldset from '@klarna/ui/Fieldset'`,
   'Two fields': {
     example: (
       <Fieldset margins>

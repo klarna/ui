@@ -13,6 +13,8 @@ export default {
   title: 'Radio',
   variations: [{
     title: 'Radio',
+    require: `import Radio from '@klarna/ui/Radio'
+import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
     Regular: [
       <Radio
         onChange={alert}

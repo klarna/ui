@@ -11,6 +11,8 @@ const options = [
 
 const Single = {
   title: 'Single',
+  require: `import Dropdown from '@klarna/ui/Dropdown'
+import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'`,
 
   Regular: (
     <Dropdown label='Lorem ipsum' options={options} />
@@ -66,6 +68,8 @@ const Single = {
 
 const Stacked = {
   title: 'Stacked',
+  require: `import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'
+import Fieldset from '@klarna/ui/Fieldset'`,
   'Two fields': {
     example: (
       <Fieldset>

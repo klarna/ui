@@ -7,6 +7,7 @@ export default {
   icon: 'Loader',
   variations: [{
     title: 'Primary',
+    require: `import Loader from '@klarna/ui/Loader'`,
     Big: [
       <Loader size='big' />
     ],

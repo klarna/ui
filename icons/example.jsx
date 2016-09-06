@@ -67,8 +67,10 @@ export default {
   title: 'Icons',
   icon: 'Icon',
   variations: [{
-    title: 'Colors',
-    Big: (
+    title: 'Big',
+    require: icons.big.map(({ name }) => `import ${name} from '@klarna/ui/icons/${name}'`).join('\n'),
+
+    Colors: (
       colors.map((name) =>
         <AllSet
           key={`${name}`}
@@ -80,7 +82,14 @@ export default {
         />
       )
     ),
-    Small: (
+    Icons: (
+      icons.big.map((Icon) => <Icon key={Icon.name} />)
+    )
+  }, {
+    title: 'Small',
+    require: icons.tiny.map(({ name }) => `import ${name} from '@klarna/ui/icons/${name}'`).join('\n'),
+
+    Colors: (
       colors.map((name) =>
         <Person
           key={`${name}`}
@@ -91,12 +100,8 @@ export default {
           }
         />
       )
-    )
-  }, {
-    title: 'Types',
-    Big: (
-      icons.big.map((Icon) => <Icon key={Icon.name} />)
     ),
+
     Small: (
       icons.tiny.map((Icon) => <Icon key={Icon.name} />)
     )

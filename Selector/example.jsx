@@ -12,6 +12,8 @@ export default {
   icon: 'Baseline',
   variations: [{
     title: 'Selector',
+    require: `import Selector from '@klarna/ui/Selector'
+import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
     Regular: (
       <Selector value={1} data={data} />
     ),

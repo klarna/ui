@@ -7,6 +7,7 @@ export default {
 
   variations: [{
     title: 'Installments',
+    require: `import * as Block from '@klarna/ui/Block'`,
     Regular: (
       <Block.Installments.Main>
         <Block.Installments.Title>Your Installments</Block.Installments.Title>

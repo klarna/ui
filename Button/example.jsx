@@ -7,6 +7,7 @@ import * as Button from '../Button'
 
 const Primary = {}
 Primary.title = 'Primary'
+Primary.require = `import * as Button from '@klarna/ui/Button'`
 
 Primary.Small =
   <Button.Primary size='small'>Click me!</Button.Primary>
@@ -40,6 +41,7 @@ Primary['With price loading'] =
 
 const Secondary = {}
 Secondary.title = 'Secondary'
+Secondary.require = `import * as Button from '@klarna/ui/Button'`
 
 Secondary.Small =
   <Button.Secondary size='small'>Click me!</Button.Secondary>
@@ -91,6 +93,7 @@ Secondary['Button with price small'] =
 
 const Iconic = {}
 Iconic.title = 'Iconic Buttons'
+Iconic.require = `import { Back, Close, Hamburger, Options, Search } from '@klarna/ui/IconButton'`
 
 Iconic['Default color scheme'] = (
   <Block.Plain>

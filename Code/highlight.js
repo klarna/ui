@@ -4,6 +4,9 @@ export default {
   'hljs-component': {
     'color': '#D191F2'
   },
+  'hljs-keyword': {
+    'color': '#D191F2'
+  },
   'hljs-prop': {
     'color': '#5CE6CD'
   },

@@ -14,6 +14,8 @@ export default {
   title: 'Installments',
   variations: [{
     title: 'Installments',
+    require: `import Installments from '@klarna/ui/Installments'
+import UncontrolledInstallments from '@klarna/ui/uncontrolled/Installments'`,
     Regular: wide([
       <InstallmentsComponent
         onChange={(key) => console.log('You selected', key)}

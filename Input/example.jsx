@@ -8,6 +8,8 @@ export default {
   icon: 'Input',
   variations: [{
     title: 'Single',
+    require: `import Input from '@klarna/ui/Input'
+import UncontrolledInput from '@klarna/ui/uncontrolled/Input'`,
     Regular: [
       <Input label='Enter your email' />
     ],
@@ -37,6 +39,8 @@ export default {
     ]
   }, {
     title: 'With Icons',
+    require: `import UncontrolledInput from '@klarna/ui/uncontrolled/Input'
+import Fieldset from '@klarna/ui/Fieldset'`,
     Regular: [
       <Fieldset margins>
         <UncontrolledInput
@@ -98,6 +102,8 @@ export default {
     ]
   }, {
     title: 'Stacked',
+    require: `import UncontrolledInput from '@klarna/ui/uncontrolled/Input'
+import Fieldset from '@klarna/ui/Fieldset'`,
     'Two fields': {
       example: [
         <Fieldset margins>

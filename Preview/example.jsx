@@ -6,6 +6,7 @@ export default {
   icon: 'Preview',
   variations: [{
     title: 'Preview',
+    require: `import * as Preview from '@klarna/ui/Preview'`,
     Regular: (
       <Preview.Main>
         <Preview.Title>John Smith</Preview.Title>

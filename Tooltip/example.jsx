@@ -5,7 +5,8 @@ export default {
   title: 'Tooltip',
   icon: 'Tooltip',
   variations: [{
-    title: 'Arrows',
+    title: 'Tooltip',
+    require:  `import Tooltip from '@klarna/ui/Tooltip'`,
     'Top left': (
       <Tooltip arrow='top-left'>
         Lorem Ipsum is simply dummy text of the printing industry.
@@ -76,9 +77,8 @@ export default {
       <Tooltip arrow='left-top'>
         Lorem Ipsum is simply dummy text of the printing industry.
       </Tooltip>
-    )
-  }, {
-    title: 'Colors',
+    ),
+
     Simple: (
       <Tooltip>
         Lorem Ipsum is simply dummy text of the printing industry.

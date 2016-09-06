@@ -62,6 +62,7 @@ export default {
   icon: 'Dialog',
   variations: [{
     title: 'Dialog',
+    require: `import * as Dialog from '@klarna/ui/Dialog'`,
     Regular: {
       example: (
         <Example />

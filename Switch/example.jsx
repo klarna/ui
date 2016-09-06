@@ -7,6 +7,8 @@ export default {
   icon: 'Switch',
   variations: [{
     title: 'Toggle',
+    require: `import * as Switch from '@klarna/ui/Switch'
+import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
 
     Regular: [
       <Switch.Toggle name='toggle-switch'>
@@ -73,6 +75,8 @@ export default {
     ]
   }, {
     title: 'Checkbox',
+    require: `import * as Switch from '@klarna/ui/Switch'
+import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
     Regular: [
       <Switch.Checkbox name='checkbox-unchecked'>
         This is a toggle switch with checkbox design
