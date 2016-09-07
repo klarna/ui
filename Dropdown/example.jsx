@@ -20,6 +20,7 @@ import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'`,
 
   Uncontrolled: (
     <UncontrolledDropdown
+      name='dropdown-lorem-ipsum'
       label='Lorem ipsum'
       options={options}
     />
@@ -74,9 +75,9 @@ import Fieldset from '@klarna/ui/Fieldset'`,
     example: (
       <Fieldset>
         <UncontrolledDropdown
-          left size='1/2' label='Given name' options={options} />
+          left size='1/2' name='dropdown-given-name' label='Given name' options={options} />
         <UncontrolledDropdown
-          right size='1/2' label='Middle name' options={options} />
+          right size='1/2' name='dropdown-last-name' label='Middle name' options={options} />
       </Fieldset>
     ),
     wide: true
@@ -85,23 +86,23 @@ import Fieldset from '@klarna/ui/Fieldset'`,
     example: (
       <Fieldset>
         <UncontrolledDropdown
-          top left size='1/2' label='Given name' options={options} />
+          top left size='1/2' name='many-given-name' label='Given name' options={options} />
         <UncontrolledDropdown
-          center size='1/4' label='Middle name' options={options} />
+          center size='1/4' name='many-middle-name' label='Middle name' options={options} />
         <UncontrolledDropdown
-          top right size='1/4' label='Last name' options={options} />
+          top right size='1/4' name='many-last-name' label='Last name' options={options} />
         <UncontrolledDropdown
-          left square size='1/5' label='Number' options={options} />
+          left square size='1/5' name='many-number' label='Number' options={options} />
         <UncontrolledDropdown
-          right square size='4/5' label='Street Address' options={options} />
+          right square size='4/5' name='many-street-address' label='Street Address' options={options} />
         <UncontrolledDropdown
-          left square size='1/3' label='Your favorite pokémon' options={options} />
+          left square size='1/3' name='many-pokemon' label='Your favorite pokémon' options={options} />
         <UncontrolledDropdown
-          right square size='2/3' label='Android or iPhone: please explain' options={options} />
+          right square size='2/3' name='many-android-iphone' label='Android or iPhone: please explain' options={options} />
         <UncontrolledDropdown
-          left bottom size='2/5' label='Date of Birth' options={options} />
+          left bottom size='2/5' name='many-date-of-birth' label='Date of Birth' options={options} />
         <UncontrolledDropdown
-          right bottom size='3/5' label='Mobile phone number' options={options} />
+          right bottom size='3/5' name='many-mobile-phone-number' label='Mobile phone number' options={options} />
       </Fieldset>
     ),
     wide: true

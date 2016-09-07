@@ -13,7 +13,7 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
   ),
 
   Uncontrolled: (
-    <UncontrolledField label='Enter your email' />
+    <UncontrolledField name='field-uncontrolled' label='Enter your email' />
   ),
 
   'With value': (
@@ -45,7 +45,7 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
   ),
 
   'With customizations': (
-    <UncontrolledField customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8' }} label='Favorite color' value='Purple' />
+    <UncontrolledField name='with-customizations' customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8' }} label='Favorite color' value='Purple' />
   )
 }
 
@@ -122,8 +122,8 @@ import Fieldset from '@klarna/ui/Fieldset'`,
   'Two fields': {
     example: (
       <Fieldset margins>
-        <UncontrolledField left size='1/2' label='Given name' />
-        <UncontrolledField right size='1/2' label='Middle name' />
+        <UncontrolledField left size='1/2' name='two-given-name' label='Given name' />
+        <UncontrolledField right size='1/2' name='two-middle-name' label='Middle name' />
       </Fieldset>
     ),
     wide: true
@@ -131,15 +131,15 @@ import Fieldset from '@klarna/ui/Fieldset'`,
   Many: {
     example: (
       <Fieldset margins>
-        <UncontrolledField top left size='1/2' label='Given name' />
-        <UncontrolledField center size='1/4' label='Middle name' />
-        <UncontrolledField top right size='1/4' label='Last name' />
-        <UncontrolledField left square size='1/5' label='Number' />
-        <UncontrolledField right square size='4/5' label='Street Address' />
-        <UncontrolledField left square size='1/3' label='Your favorite pokémon' />
-        <UncontrolledField right square size='2/3' label='Android or iPhone: please explain' />
-        <UncontrolledField left bottom size='2/5' label='Date of Birth' />
-        <UncontrolledField right bottom size='3/5' label='Mobile phone number' />
+        <UncontrolledField top left size='1/2' name='many-given-name' label='Given name' />
+        <UncontrolledField center size='1/4' name='many-middle-name' label='Middle name' />
+        <UncontrolledField top right size='1/4' name='many-last-name' label='Last name' />
+        <UncontrolledField left square size='1/5' name='many-number' label='Number' />
+        <UncontrolledField right square size='4/5' name='many-street-address' label='Street Address' />
+        <UncontrolledField left square size='1/3' name='many-pokemon' label='Your favorite pokémon' />
+        <UncontrolledField right square size='2/3' name='many-android-iphone' label='Android or iPhone: please explain' />
+        <UncontrolledField left bottom size='2/5' name='many-date-of-birth' label='Date of Birth' />
+        <UncontrolledField right bottom size='3/5' name='many-mobile-phone-number' label='Mobile phone number' />
       </Fieldset>
     ),
     wide: true
