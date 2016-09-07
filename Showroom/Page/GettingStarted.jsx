@@ -49,7 +49,7 @@ export default function GettingStarted ({example}) {
           Install
         </UI.Subtitle>
         <CodeBlock>
-          npm install @klarna/ui --save
+          npm install react @klarna/ui --save
         </CodeBlock>
       </section>
 

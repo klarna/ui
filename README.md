@@ -7,8 +7,10 @@ This library contains the basic set of components used by multiple front end pro
 
 ## Install
 
+React is required as a peer dependency, so it will be installed as well:
+
 ```sh
-npm install @klarna/ui --save
+npm install react @klarna/ui --save
 ```
 
 This package doesn't have a build, so you must have a Babel pipeline to use it. [Read more about how to config it](https://github.com/klarna/ui/wiki/Webpack-config).
