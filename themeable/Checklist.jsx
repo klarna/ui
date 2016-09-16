@@ -15,7 +15,7 @@ export const Item = themeable(Checklist.Item, (customizations, props) => ({
   customize: {
     ...props.customize,
     strokeColor: customizations.color_detail,
-    borderRadius: customizations.radius_border
+    textColor: customizations.color_text
   }
 }))
 

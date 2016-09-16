@@ -118,7 +118,10 @@ export default React.createClass({
       />
       <label
         className={classNames(classes.label)}
-        htmlFor={name}>
+        htmlFor={name}
+        style={customize ? {
+          color: customize.textColor
+        } : undefined}>
         <div
           className={classNames(classes.bullet)}
           style={customize && value ? {

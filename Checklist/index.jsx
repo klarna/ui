@@ -43,13 +43,17 @@ Main.propTypes = {
 
 export function Item ({ className, children, customize, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+  const listItemDynamicStyles = customize
+    ? { color: customize.textColor }
+    : undefined
   const iconDynamicStyles = customize
     ? { stroke: customize.strokeColor }
     : undefined
 
   return (
     <li
-      className={classNames(classes.item, className)}>
+      className={classNames(classes.item, className)}
+      style={listItemDynamicStyles}>
       <svg
         className={classNames(classes.checkmark)}
         style={iconDynamicStyles}

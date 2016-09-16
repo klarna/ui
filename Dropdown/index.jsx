@@ -142,6 +142,10 @@ export default React.createClass({
       }
       : undefined
 
+    const selectedDynamicStyles = useDynamicStyles
+      ? { color: customize.selectedColor }
+      : undefined
+
     const labelDynamicStyles = useDynamicStyles
       ? { color: customize.labelColor }
       : undefined
@@ -161,7 +165,8 @@ export default React.createClass({
 
         {selectedOption &&
           <div
-            className={classNames(classes.currentOption)}>
+            className={classNames(classes.currentOption)}
+            style={selectedDynamicStyles}>
             {selectedOption.label}
           </div>
         }

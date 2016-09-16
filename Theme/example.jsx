@@ -25,7 +25,14 @@ export default {
     require: `import Theme from '@klarna/ui/Theme'
 import * as ThemeableButton from '@klarna/ui/themeable/Button'
 import * as ThemeableChecklist from '@klarna/ui/themeable/Checklist'
-import ThemeableDropdown from '@klarna/ui/themeable/Dropdown'`,
+import ThemeableDropdown from '@klarna/ui/themeable/Dropdown'
+import ThemeableField from '@klarna/ui/themeable/Field'
+import ThemeableInstallments from '@klarna/ui/themeable/Installments'
+import ThemeableLink from '@klarna/ui/themeable/Link'
+import * as ThemeableSwitch from '@klarna/ui/themeable/Switch'
+import * as ThemeableTitle from '@klarna/ui/themeable/Title'
+import ThemeableSubtitle from '@klarna/ui/themeable/Subtitle'
+import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'`,
     Regular: [
       <Theme
         customizations={{
@@ -70,7 +77,7 @@ import ThemeableDropdown from '@klarna/ui/themeable/Dropdown'`,
         </div>
 
         <Fieldset margins>
-          <ThemeableDropdown top label='Given name' options={options} />
+          <ThemeableDropdown top label='Given name' options={options} value={1} />
           <ThemeableDropdown square label='Middle name' options={options} />
           <ThemeableDropdown bottom label='Last name' options={options} focus='fake' />
         </Fieldset>

@@ -156,6 +156,10 @@ export default React.createClass({
       ? { color: customize.labelColor }
       : undefined
 
+    const inputDynamicStyles = useDynamicStyles
+      ? { color: customize.inputColor }
+      : undefined
+
     return (
       <div
         className={cls}
@@ -186,6 +190,7 @@ export default React.createClass({
           onKeyDown={handleKeyDown(this.props)}
           onFocus={onFocus}
           ref='input'
+          style={inputDynamicStyles}
           {...props}
         />
       </div>
