@@ -72,8 +72,27 @@
     }
   }
 
+  // .installments__input:checked +
+  // .installments__label:after {
+  //   border: ($grid * .4) solid map-get($colors, klarna-blue);
+  //   border-radius: 5px;
+  //   bottom: -1px;
+  //   content: '';
+  //   display: block;
+  //   left: -1px;
+  //   position: absolute;
+  //   right: -1px;
+  //   top: -1px;
+  //   z-index: 5;
+  // }
+
+  .installments__label__highlight {
+    display: none;
+  }
+
   .installments__input:checked +
-  .installments__label:after {
+  .installments__label
+  .installments__label__highlight {
     border: ($grid * .4) solid map-get($colors, klarna-blue);
     border-radius: 5px;
     bottom: -1px;

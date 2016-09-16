@@ -98,12 +98,12 @@ Footer.propTypes = {
   styles: PropTypes.object
 }
 
-export function Overlay ({ children, className, show, styles, ...props }) {
+export function Overlay ({ children, className, show, wide, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <div
-      className={classNames(classes.overlay, { 'is-visible': show }, className)}
+      className={classNames(classes.overlay, { 'is-visible': show, wide }, className)}
       {...props}>
       <div
         className={classNames(classes.table)}>

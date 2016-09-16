@@ -18,6 +18,12 @@ const classes = {
 export default React.createClass({
   displayName: 'Dropdown',
 
+  getInitialState () {
+    return {
+      hover: false
+    }
+  },
+
   getDefaultProps () {
     return {
       loading: false,
@@ -59,11 +65,26 @@ export default React.createClass({
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.select)
   },
 
+  onMouseEnter () {
+    this.setState({
+      ...this.state,
+      hover: true
+    })
+  },
+
+  onMouseLeave () {
+    this.setState({
+      ...this.state,
+      hover: false
+    })
+  },
+
   render () {
     const {
       bottom, // eslint-disable-line no-unused-vars
       center, // eslint-disable-line no-unused-vars
       className,
+      customize,
       disabled,
       error, // eslint-disable-line no-unused-vars
       focus, // eslint-disable-line no-unused-vars
@@ -105,12 +126,36 @@ export default React.createClass({
       className
     )
 
+    const hasNonDefaultState = disabled || warning || error
+    const useDynamicStyles = customize && !hasNonDefaultState
+
+    const dynamicStyles = useDynamicStyles
+      ? {
+        borderColor: this.state.hover || focus
+          ? customize.borderColorSelected
+          : customize.borderColor,
+        boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`,
+        ...stacking.position.getBorderRadii(
+          this.props,
+          customize.borderRadius
+        )
+      }
+      : undefined
+
+    const labelDynamicStyles = useDynamicStyles
+      ? { color: customize.labelColor }
+      : undefined
+
     return (
       <div
         className={cls}
-        onClick={onClick}>
+        onClick={onClick}
+        onMouseEnter={onMouseEnter(this)}
+        onMouseLeave={onMouseLeave(this)}
+        style={dynamicStyles}>
         <label
-          className={classNames(classes.label)}>
+          className={classNames(classes.label)}
+          style={labelDynamicStyles}>
           {label}
         </label>
 
@@ -141,3 +186,15 @@ export default React.createClass({
     )
   }
 })
+
+const onMouseEnter = (component) => () =>
+  component.setState({
+    ...component.state,
+    hover: true
+  })
+
+const onMouseLeave = (component) => () =>
+  component.setState({
+    ...component.state,
+    hover: false
+  })

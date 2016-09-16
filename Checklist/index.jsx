@@ -9,11 +9,19 @@ const classes = {
   checkmark: `${baseClass}__checkmark`
 }
 
-export function Main ({ chromeless, className, children, styles }) {
+export function Main ({ chromeless, className, children, customize, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+  const dynamicStyles = customize
+    ? {
+      borderRadius: customize.borderRadius,
+      borderColor: customize.borderColor
+    }
+    : undefined
 
   return (
     <ul
+      style={dynamicStyles}
       className={classNames(baseClass, { chromeless }, className)}>
       {children}
     </ul>
@@ -26,17 +34,25 @@ Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   chromeless: PropTypes.bool,
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired
+  })
 }
 
-export function Item ({ className, children, styles }) {
+export function Item ({ className, children, customize, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+  const iconDynamicStyles = customize
+    ? { stroke: customize.strokeColor }
+    : undefined
 
   return (
     <li
       className={classNames(classes.item, className)}>
       <svg
         className={classNames(classes.checkmark)}
+        style={iconDynamicStyles}
         viewBox='0 0 25 25'
         aria-labelledby='Checkmark'
         height='20px'
@@ -53,5 +69,8 @@ Item.displayName = 'Checklist.Item'
 Item.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  customize: PropTypes.shape({
+    strokeColor: PropTypes.string.isRequired
+  })
 }

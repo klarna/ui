@@ -36,7 +36,7 @@ import UncontrolledInstallments from '@klarna/ui/uncontrolled/Installments'`,
     Focused: wide([
       <InstallmentsComponent
         onChange={(key) => console.log('You selected', key)}
-        name='installments'
+        name='installments3'
         value='installments_12'
         focus='installments_6'
         options={options}

@@ -23,7 +23,7 @@
   }
 
   .wide & {
-    @include respond-to-wide {
+    @include respond-to-wide-and-tall {
       width: ($grid * 108);
     }
   }

@@ -1,7 +1,14 @@
 $mobile-max-width: 569px !default;
+$mobile-max-height: 500px !default;
 
 @mixin respond-to-wide($mobile-max-width: $mobile-max-width) {
   @media screen and (min-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin respond-to-wide-and-tall($mobile-max-width: $mobile-max-width, $mobile-max-height: $mobile-max-height) {
+  @media screen and (min-width: $mobile-max-width) and (min-height: $mobile-max-height) {
     @content;
   }
 }

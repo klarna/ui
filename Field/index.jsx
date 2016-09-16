@@ -143,11 +143,18 @@ export default React.createClass({
     const useDynamicStyles = customize && !hasNonDefaultState
 
     const dynamicStyles = useDynamicStyles
-    ? {
-      borderColor: this.state.hover || focus ? customize.borderColorSelected : customize.borderColor,
-      boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
-    }
-    : undefined
+      ? {
+        borderColor: this.state.hover || focus
+          ? customize.borderColorSelected
+          : customize.borderColor,
+        boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`,
+        ...stacking.position.getBorderRadii(this.props, customize.borderRadius)
+      }
+      : undefined
+
+    const labelDynamicStyles = useDynamicStyles
+      ? { color: customize.labelColor }
+      : undefined
 
     return (
       <div
@@ -165,7 +172,8 @@ export default React.createClass({
         }
 
         <label
-          className={classNames(icon ? classes.iconLabel : classes.label)}>
+          className={classNames(icon ? classes.iconLabel : classes.label)}
+          style={labelDynamicStyles}>
           {label}
         </label>
 
