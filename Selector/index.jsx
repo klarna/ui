@@ -52,7 +52,9 @@ export default React.createClass({
       data,
       focus,
       name,
+      onBlur,
       onChange,
+      onFocus,
       styles,
       value,
       ...remainingProps

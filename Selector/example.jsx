@@ -24,6 +24,6 @@ import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
 
     Focus: (
       <Selector focus={2} value={1} name='selector' data={data} />
-    ),
+    )
   }]
 }
