@@ -9,19 +9,21 @@ const classes = {
   checkmark: `${baseClass}__checkmark`
 }
 
-export function Main ({ chromeless, className, children, customize, styles }) {
+export function Main ({ chromeless, className, children, customize, style, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const dynamicStyles = customize
     ? {
       borderRadius: customize.borderRadius,
       borderColor: customize.borderColor
-    }
-    : undefined
+    } : {}
 
   return (
     <ul
-      style={dynamicStyles}
+      style={{
+        ...dynamicStyles,
+        ...style
+      }}
       className={classNames(baseClass, { chromeless }, className)}>
       {children}
     </ul>

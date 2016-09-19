@@ -116,6 +116,7 @@ export default React.createClass({
       square,
       value,
       size, // eslint-disable-line no-unused-vars
+      style,
       styles,
       top, // eslint-disable-line no-unused-vars
       warning,
@@ -158,7 +159,7 @@ export default React.createClass({
 
     const inputDynamicStyles = useDynamicStyles
       ? { color: customize.inputColor }
-      : undefined
+      : {}
 
     return (
       <div
@@ -190,7 +191,10 @@ export default React.createClass({
           onKeyDown={handleKeyDown(this.props)}
           onFocus={onFocus}
           ref='input'
-          style={inputDynamicStyles}
+          style={{
+            ...inputDynamicStyles,
+            ...style
+          }}
           {...props}
         />
       </div>
