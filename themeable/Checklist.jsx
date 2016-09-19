@@ -14,7 +14,7 @@ Main.displayName = 'ThemeableChecklist.Main'
 export const Item = themeable(Checklist.Item, (customizations, props) => ({
   customize: {
     ...props.customize,
-    strokeColor: customizations.color_detail,
+    strokeColor: customizations.color_details,
     textColor: customizations.color_text
   }
 }))
