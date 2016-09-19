@@ -57,8 +57,28 @@ import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'`,
         </div>
 
         <div style={{paddingTop: '20px'}}>
+          <ThemeableButton.Primary loading>
+            This button gets the theme from context
+          </ThemeableButton.Primary>
+
+          <ThemeableButton.Primary disabled style={{marginLeft: '20px'}}>
+            Disabled
+          </ThemeableButton.Primary>
+        </div>
+
+        <div style={{paddingTop: '20px'}}>
           <ThemeableButton.Secondary>
             This button gets the theme from context
+          </ThemeableButton.Secondary>
+        </div>
+
+        <div style={{paddingTop: '20px'}}>
+          <ThemeableButton.Secondary loading>
+            This button gets the theme from context
+          </ThemeableButton.Secondary>
+
+          <ThemeableButton.Secondary disabled style={{marginLeft: '20px'}}>
+            Disabled
           </ThemeableButton.Secondary>
         </div>
 

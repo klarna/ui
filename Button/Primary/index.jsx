@@ -9,6 +9,7 @@ import Price from '../Price'
 const baseClass = 'button'
 
 const classes = {
+  darkening: `${baseClass}--primary__darkening`,
   primary: `${baseClass}--primary`,
   label: `${baseClass}__label`
 }
@@ -22,6 +23,7 @@ export default function Primary ({
   disabled,
   loading,
   size,
+  style,
   styles,
   success,
   ...remainingProps
@@ -43,21 +45,32 @@ export default function Primary ({
     ? <Loader inline color={loaderColor}/>
     : (success ? '✔' : children)
 
+  const customizations = customize
+    ? {
+      color: customize.textColor,
+      backgroundColor: customize.backgroundColor,
+      borderColor: customize.backgroundColor,
+      borderRadius: customize.borderRadius
+    } : {}
+
   return (
     <button
       className={cls}
       disabled={loading || success || disabled}
-      style={customize && {
-        color: customize.textColor,
-        backgroundColor: customize.backgroundColor,
-        borderColor: customize.backgroundColor
+      style={{
+        ...customizations,
+        ...style
       }}
       {...remainingProps}>
-      {customize ? (
+      {customize ? [
         <span className={classNames(classes.label)}>
           {loadingOrContent}
-        </span>
-      )
+        </span>,
+        loading || disabled || <div
+          className={classNames(classes.darkening)}
+          style={{borderRadius: customize.borderRadius}}
+        />
+      ]
       : loadingOrContent}
     </button>
   )
