@@ -73,7 +73,7 @@ export default React.createClass({
               type='radio'
               onBlur={onBlur}
               checked={key === value}
-              onChange={() => onChange(key)}
+              onChange={() => onChange && onChange(key)}
               onFocus={(e) => onFocus && onFocus(key, e)}
               ref={key}
               value={key}
