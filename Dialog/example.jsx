@@ -9,15 +9,13 @@ const Example = React.createClass({
 
   getInitialState () {
     return {
-      dialog: {
-        open: false
-      }
+      open: false
     }
   },
 
   render () {
-    const close = () => this.setState({ dialog: { open: false } })
-    const open = () => this.setState({ dialog: { open: true } })
+    const close = () => this.setState({ open: false })
+    const open = () => this.setState({ open: true })
 
     return (
       <div>
@@ -25,7 +23,7 @@ const Example = React.createClass({
           Show Dialog
         </Button.Primary>
 
-        <Dialog.Overlay show={this.state.dialog.open}>
+        <Dialog.Overlay show={this.state.open}>
           <Dialog.Main>
             <Dialog.Icon>
               <Close onClick={close} />
