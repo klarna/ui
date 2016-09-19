@@ -8,11 +8,12 @@ module.exports = {
   debug: true,
   devtool: 'source-map',
   entry: {
-    example: './example'
+    example: './html/example',
+    customizations: './html/customizations'
   },
   output: {
     path: './',
-    filename: 'example-built.js',
+    filename: '[name].js',
     chunkFilename: '[id].js',
     publicPath: '/ui/'
   },
@@ -52,7 +53,16 @@ module.exports = {
     new WebpackHtmlWebpackPlugin({
       favicon: './favicon.ico',
       title: 'Klarna UI components',
-      template: 'example.html'
+      filename: 'index.html',
+      template: 'html/example.html',
+      chunks: ['example']
+    }),
+    new WebpackHtmlWebpackPlugin({
+      favicon: './favicon.ico',
+      filename: 'customizations.html',
+      template: 'html/customizations.html',
+      title: 'Klarna UI components',
+      chunks: ['customizations']
     }),
     new Webpack.DefinePlugin({
       'process.env.REACT_SYNTAX_HIGHLIGHTER_LIGHT_BUILD': true,
