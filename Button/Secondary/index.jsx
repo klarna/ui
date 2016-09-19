@@ -72,7 +72,7 @@ export default function Secondary (props) {
           loading || <div
             className={classNames(classes.darkening)}
             style={customize && {
-              borderRadius: customize.borderRadius
+              borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
             }}
           />,
           <div className={classNames(classes.label)}>
