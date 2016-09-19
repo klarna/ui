@@ -15,11 +15,15 @@ export default {
     require: `import Selector from '@klarna/ui/Selector'
 import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
     Regular: (
-      <Selector value={1} data={data} />
+      <Selector value={1} name='selector' data={data} />
     ),
 
     Uncontrolled: (
-      <UncontrolledSelector data={data} />
-    )
+      <UncontrolledSelector name='selector-uncontrolled' data={data} />
+    ),
+
+    Focus: (
+      <Selector focus={2} value={1} name='selector' data={data} />
+    ),
   }]
 }
