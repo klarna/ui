@@ -7,69 +7,96 @@ const baseClass = 'selector--direct'
 
 const classes = {
   icon: `${baseClass}__icon`,
+  input: `${baseClass}__input`,
   item: `${baseClass}__item`,
   label: `${baseClass}__label`
 }
 
-export default function Selector ({
-  value,
-  onChange,
-  className,
-  data,
-  styles,
-  ...remainingProps
-}) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export default React.createClass({
+  displayName: 'Selector',
 
-  return (
-    <div
-      className={classNames(baseClass, 'title', className)}
-      {...remainingProps}>
-      {data.map(({ key, label }) => (
-        <Option
-          key={key}
-          classNames={classNames}
-          label={label}
-          onClick={() => onChange(key)}
-          selected={key === value}
-        />
-      ))}
-    </div>
-  )
-}
+  propTypes: {
+    className: PropTypes.string,
+    data: PropTypes.array.isRequired,
+    focus: PropTypes.string,
+    name: PropTypes.string,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    styles: PropTypes.object,
+    // Allows any type to be a key, as long as it is comparable
+    value: PropTypes.any
+  },
 
-Selector.propTypes = {
-  // Allows any type to be an key, as long as it is comparable
-  value: React.PropTypes.any,
-  onChange: React.PropTypes.func.isRequired,
-  className: PropTypes.string,
-  data: PropTypes.array.isRequired,
-  styles: PropTypes.object
-}
+  componentDidMount () {
+    if (
+      this.props.focus &&
+      document.activeElement !== this.refs[this.props.focus]
+    ) {
+      this.refs[this.props.focus].focus()
+    }
+  },
 
-function Option ({ classNames, label, selected, onClick }) {
-  return (
-    <div
-      className={classNames(classes.item)}
-      onClick={onClick}>
+  componentDidUpdate () {
+    if (
+      this.props.focus &&
+      document.activeElement !== this.refs[this.props.focus]
+    ) {
+      this.refs[this.props.focus].focus()
+    }
+  },
+
+  render () {
+    const {
+      className,
+      data,
+      focus,
+      name,
+      onBlur,
+      onChange,
+      onFocus,
+      styles,
+      value,
+      ...remainingProps
+    } = this.props
+
+    const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+    return (
       <div
-        className={classNames(classes.label)} >
-        {label}
+        className={classNames(baseClass, 'title', className)}
+        {...remainingProps}>
+        {data.map(({ key, label }) => [
+          <input
+            className={classNames(classes.input)}
+            id={`${name}-${key}`}
+            name={name}
+            type='radio'
+            onBlur={(e) => onBlur && onBlur(e)}
+            checked={key === value}
+            onChange={() => onChange && onChange(key)}
+            onFocus={(e) => onFocus && onFocus(key, e)}
+            ref={key}
+            value={key}
+          />,
+          <label
+            htmlFor={`${name}-${key}`}
+            className={classNames(classes.item, { 'is-focused': focus === key })}
+            key={key}>
+            <div
+              className={classNames(classes.label)} >
+              {label}
+            </div>
+
+            {key === value && (
+              <Checkmark
+                className={classNames(classes.icon)}
+                color='blue'
+              />
+            )}
+          </label>
+        ])}
       </div>
-
-      {selected && (
-        <Checkmark
-          className={classNames(classes.icon)}
-          color='blue'
-        />
-      )}
-    </div>
-  )
-}
-
-Option.propTypes = {
-  classNames: PropTypes.func,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  selected: PropTypes.bool
-}
+    )
+  }
+})

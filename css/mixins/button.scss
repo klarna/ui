@@ -14,6 +14,7 @@
   line-height: ($grid * 10) - ($grid * .4);
   outline: none;
   padding: 0 ($grid * 9);
+  position: relative;
   text-align: center;
   text-decoration: none;
   transition: all .2s ease;
@@ -104,43 +105,6 @@
   }
 }
 
-@mixin button-dynamic-styling {
-  position: relative;
-
-  &:after {
-    background: black;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: opacity .2s ease;
-    width: 100%;
-  }
-
-  &:hover {
-    &:after {
-      opacity: .2;
-    }
-  }
-
-  &:focus {
-    &:after {
-      opacity: .3;
-    }
-  }
-
-  &:active {
-    &:after {
-      opacity: .3;
-    }
-  }
-}
-
 @mixin button__price ($border-color) {
   float: right;
   margin-left: $grid * 4;
@@ -168,6 +132,7 @@
     position: absolute;
     top: 0;
     transition: opacity .2s ease;
+    width: 100%;
     z-index: 2;
   }
 

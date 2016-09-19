@@ -42,7 +42,7 @@ import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'`,
           color_button_text: '#00ce3e',
           color_checkbox: '#660080',
           color_checkbox_checkmark: '#00ce3e',
-          color_detail: '#00ce3e',
+          color_details: '#00ce3e',
           color_header: '#00ce3e',
           color_link: '#00ce3e',
           color_text: 'green',
@@ -57,8 +57,28 @@ import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'`,
         </div>
 
         <div style={{paddingTop: '20px'}}>
+          <ThemeableButton.Primary loading>
+            This button gets the theme from context
+          </ThemeableButton.Primary>
+
+          <ThemeableButton.Primary disabled style={{marginLeft: '20px'}}>
+            Disabled
+          </ThemeableButton.Primary>
+        </div>
+
+        <div style={{paddingTop: '20px'}}>
           <ThemeableButton.Secondary>
             This button gets the theme from context
+          </ThemeableButton.Secondary>
+        </div>
+
+        <div style={{paddingTop: '20px'}}>
+          <ThemeableButton.Secondary loading>
+            This button gets the theme from context
+          </ThemeableButton.Secondary>
+
+          <ThemeableButton.Secondary disabled style={{marginLeft: '20px'}}>
+            Disabled
           </ThemeableButton.Secondary>
         </div>
 

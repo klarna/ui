@@ -4,6 +4,15 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'radio'
 
+const classes = {
+  option: `${baseClass}__option`,
+  optionBullet: `${baseClass}__option__bullet`,
+  optionCheckmark: `${baseClass}__option__checkmark`,
+  optionDescription: `${baseClass}__option__description`,
+  optionHeading: `${baseClass}__option__heading`,
+  optionInput: `${baseClass}__option__input`
+}
+
 export default React.createClass({
   displayName: 'Radio',
 
@@ -67,30 +76,30 @@ export default React.createClass({
         {
           options.map(({key, label, description}) => [
             <input
-              className={classNames(`${baseClass}__option__input`)}
+              className={classNames(classes.optionInput)}
               id={`${name}-${key}`}
               name={name}
               type='radio'
               onBlur={onBlur}
               checked={key === value}
-              onChange={() => onChange(key)}
+              onChange={() => onChange && onChange(key)}
               onFocus={(e) => onFocus && onFocus(key, e)}
               ref={key}
               value={key}
             />,
             <label
               htmlFor={`${name}-${key}`}
-              className={classNames(`${baseClass}__option`, { 'is-focused': focus === key })}>
-              <div className={classNames(`${baseClass}__option__bullet`)} />
-              <div className={classNames(`${baseClass}__option__checkmark`)} />
+              className={classNames(classes.option, { 'is-focused': focus === key })}>
+              <div className={classNames(classes.optionBullet)} />
+              <div className={classNames(classes.optionCheckmark)} />
 
               <div
-                className={classNames(`${baseClass}__option__heading`)}>
+                className={classNames(classes.optionHeading)}>
                 {label}
               </div>
 
               {description && <div
-                className={classNames(`${baseClass}__option__description`)}>
+                className={classNames(classes.optionDescription)}>
                 {description}
               </div>}
             </label>

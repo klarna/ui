@@ -70,6 +70,7 @@ export default React.createClass({
       onFocus,
       options,
       value: selected,
+      style,
       styles,
       ...remainingProps
     } = this.props
@@ -84,7 +85,7 @@ export default React.createClass({
         borderColor: customize.borderColor,
         borderRadius: customize.borderRadius
       }
-      : undefined
+      : {}
 
     const highlightDynamicStyles = customize
       ? {
@@ -95,7 +96,10 @@ export default React.createClass({
 
     return (<div
       className={classNames(baseClass, className)}
-      style={dynamicStyles}
+      style={{
+        ...dynamicStyles,
+        ...style
+      }}
       {...remainingProps}>
       {options.map(({ key, value, info, connector }, index) => {
         const id = `${name}-${key}`

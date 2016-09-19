@@ -9,6 +9,7 @@ import defaultStyles from '../styles.scss'
 const baseClass = 'button'
 
 const classes = {
+  darkening: `${baseClass}--secondary__darkening`,
   secondary: `${baseClass}--secondary`,
   label: `${baseClass}__label`,
   labelAlt: `${baseClass}__label--alt`
@@ -24,6 +25,7 @@ export default function Secondary (props) {
     disabled,
     loading,
     size,
+    style,
     styles,
     success,
     ...remainingProps } = props
@@ -48,18 +50,31 @@ export default function Secondary (props) {
     ? <Loader inline color={loaderColor}/>
     : content
 
+  const customizations = customize
+    ? {
+      color: customize.backgroundColor,
+      backgroundColor: loading ? undefined : customize.backgroundColor,
+      borderColor: customize.backgroundColor,
+      borderRadius: customize.borderRadius
+    } : {}
+
   return (
     <button
       className={cls}
       disabled={isDisabled}
-      style={customize && {
-        color: customize.backgroundColor,
-        backgroundColor: loading ? undefined : customize.backgroundColor,
-        borderColor: customize.backgroundColor
+      style={{
+        ...customizations,
+        ...style
       }}
       {...remainingProps}>
       {
-        customize ? (
+        customize ? [
+          loading || <div
+            className={classNames(classes.darkening)}
+            style={customize && {
+              borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
+            }}
+          />,
           <div className={classNames(classes.label)}>
             {loadingOrContent}
             {
@@ -71,7 +86,7 @@ export default function Secondary (props) {
                 </span>
             }
           </div>
-        )
+        ]
         : loadingOrContent
       }
     </button>
