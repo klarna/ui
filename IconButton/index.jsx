@@ -11,7 +11,7 @@ const classes = {
 
 const iconPropTypes = {
   className: PropTypes.string,
-  color: PropTypes.oneOf(['gray', 'inverse']),
+  color: PropTypes.oneOf(['gray', 'inverse', 'blue']),
   styles: PropTypes.object
 }
 
