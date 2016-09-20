@@ -2,7 +2,7 @@
 @import '../css/mixins/index';
 
 .selector--direct__item {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-bottom: ($grid * .2) solid map-get($colors, grey-selector-lines);
   border-top: ($grid * .2) solid map-get($colors, grey-selector-lines);
   box-sizing: border-box;
@@ -11,6 +11,7 @@
   margin: ($grid * -.2) 0 0 0;
   padding: ($grid * 3.2) 0 ($grid * 3.6) 0;
   position: relative;
+  text-decoration: none;
 
   &::before {
     border-bottom: ($grid * .2) solid transparent;
@@ -26,7 +27,13 @@
     z-index: 10;
   }
 
+  &:focus {
+    outline: 0;
+  }
+
   &:hover,
+  &:focus,
+  &:active,
   .selector--direct__input:checked + & {
     &::before {
       border-bottom: ($grid * .2) solid map-get($colors, blue-hover);
@@ -75,6 +82,8 @@
 
 .selector--direct__label {
   @include typography(($grid * 2.8), semi-bold);
+
+  color: map-get($colors, black);  
   display: block;
 }
 
@@ -109,7 +118,7 @@
 
   color: map-get($colors, grey-text);
   line-height: ($grid * 4);
-  margin: ($grid * -.4) 0 ($grid * .4) 0;
+  margin: $grid 0 0;
   width: 60%;
 
   .promo-label:first-child {
