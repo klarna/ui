@@ -2,7 +2,7 @@ import React from 'react'
 
 import AccountActivated from '../icons/AccountActivated'
 import AllSet from '../icons/AllSet'
-import Arrow from '../icons/Arrow'
+import * as Chevron from '../icons/Chevron'
 import Checkmark from '../icons/Checkmark'
 import Done from '../icons/Done'
 import Error from '../icons/Error'
@@ -26,7 +26,6 @@ import Time from '../icons/Time'
 import SMS from '../icons/SMS'
 import Warning from '../icons/Warning'
 import Wrong from '../icons/Wrong'
-
 import colors from '../icons/constants/colors'
 
 const icons = {
@@ -46,7 +45,10 @@ const icons = {
   ],
 
   tiny: [
-    Arrow,
+    Chevron.Left,
+    Chevron.Right,
+    Chevron.Down,
+    Chevron.Up,
     Checkmark,
     Details,
     Download,
@@ -68,7 +70,7 @@ export default {
   icon: 'Icon',
   variations: [{
     title: 'Big',
-    require: icons.big.map(({ name }) => `import ${name} from '@klarna/ui/icons/${name}'`).join('\n'),
+    require: icons.big.map(({ displayName }) => `import ${displayName} from '@klarna/ui/icons/${displayName}'`).join('\n'),
 
     Colors: (
       colors.map((name) =>
@@ -87,7 +89,7 @@ export default {
     )
   }, {
     title: 'Small',
-    require: icons.tiny.map(({ name }) => `import ${name} from '@klarna/ui/icons/${name}'`).join('\n'),
+    require: icons.tiny.map(({ displayName }) => `import ${displayName} from '@klarna/ui/icons/${displayName}'`).join('\n'),
 
     Colors: (
       colors.map((name) =>

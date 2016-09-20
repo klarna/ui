@@ -1,6 +1,6 @@
 export { default as AccountActivated } from './AccountActivated'
 export { default as AllSet } from './AllSet'
-export { default as Arrow } from './Arrow'
+export { default as Chevron } from './Chevron'
 export { default as Cancel } from './Cancel'
 export { default as Checkmark } from './Checkmark'
 export { default as Details } from './Details'
