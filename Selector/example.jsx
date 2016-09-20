@@ -3,10 +3,9 @@ import * as Selector from '../Selector'
 import UncontrolledSelector from '../uncontrolled/Selector'
 
 const optionsData = [
-  {key: 1, label: 'Lorem' },
-  {key: 2, label: 'Ipsum' }
+  {key: 1, label: 'Lorem'},
+  {key: 2, label: 'Ipsum'}
 ]
-
 
 const Options = {
   title: 'Options Selector',
@@ -33,7 +32,7 @@ const Direct = {
   require: `import * as Selector from '@klarna/ui/Selector'
 import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
   Regular: (
-    <Selector.Direct data={directData} onSelect={(v) => (v) } />
+    <Selector.Direct data={directData} onSelect={(v) => (v)} />
   )
 }
 

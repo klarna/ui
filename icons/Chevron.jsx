@@ -8,15 +8,15 @@ const Chevron = ({ d, color, styles, className, ...props }) => {
 
   return (
     <svg
-    className={classNames('illustration', 'tiny', color, className)}
-    viewBox='0 0 21 21'
-    height='20px'
-    width='20px'
-    {...props}>
-    <path
-      className={classNames('illustration__stroke')}
-      d={d}
-      strokeLinecap='round' />
+      className={classNames('illustration', 'tiny', color, className)}
+      viewBox='0 0 21 21'
+      height='20px'
+      width='20px'
+      {...props}>
+      <path
+        className={classNames('illustration__stroke')}
+        d={d}
+        strokeLinecap='round' />
     </svg>
   )
 }
@@ -31,9 +31,9 @@ Chevron.propTypes = {
   styles: PropTypes.object
 }
 
-// The geometrical center would be starting at x = 8, y = 6, but because of 
+// The geometrical center would be starting at x = 8, y = 6, but because of
 // https://medium.com/@erqiudao/the-play-button-is-not-optical-alignment-4cea11bda175#.3p6p4iry8
-// it should be 1px off 
+// it should be 1px off
 
 export const Right = (props) =>
   <Chevron {...props} d='M9,6l4,4l-4,4' />

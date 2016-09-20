@@ -10,7 +10,7 @@ const classes = {
   input: `${baseClass}__input`,
   item: `${baseClass}__item`,
   label: `${baseClass}__label`,
-  description: `${baseClass}__description`,
+  description: `${baseClass}__description`
 }
 
 export default React.createClass({
