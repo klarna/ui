@@ -37,6 +37,12 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
       </Switch.Toggle>
     ],
 
+    'With legal size text': [
+      <Switch.Toggle name='toggle-legal' legal>
+        This is a toggle switch with legal size text that usually will fold into multiple lines
+      </Switch.Toggle>
+    ],
+
     Disabled: [
       <Switch.Toggle disabled name='toggle-switch-disabled'>
         This is a toggle switch disabled

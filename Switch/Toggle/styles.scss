@@ -43,6 +43,12 @@
     padding-left: 0;
     padding-right: ($grid * 10);
   }
+  
+  .legal & {
+    @include typography(($grid * 2.2), regular);
+    padding-bottom: ($grid * .8);
+    padding-top: ($grid * 1.2);
+  }
 }
 
 .switch__bullet {
