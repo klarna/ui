@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.scss'
 
-export default function Sidebar ({examples}) {
+export default function Sidebar ({examples, templates}) {
   return (
     <aside className={styles.sidebar}>
       <nav className={styles.sidebarNav}>
@@ -28,6 +28,23 @@ export default function Sidebar ({examples}) {
 
         {
           Object.values(examples).map(({title}) => (
+            <a
+              href={`#${title}`}
+              className={styles.menuItem}
+              key={title}>
+              {title}
+            </a>
+          ))
+        }
+
+        <a
+          href='#/templates'
+          className={styles.menuTitle} >
+          Templates
+        </a>
+
+        {
+          Object.values(templates).map(({title}) => (
             <a
               href={`#${title}`}
               className={styles.menuItem}
