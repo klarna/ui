@@ -1,4 +1,5 @@
 var path = require('path')
+var autoprefixer = require('autoprefixer')
 var Webpack = require('webpack')
 var WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
 var WebpackErrorNotificationPlugin = require('webpack-error-notification')
@@ -28,6 +29,7 @@ module.exports = {
         loaders: [
           'style',
           'css?modules,localIdentName=[local]',
+          'postcss',
           'sass'
         ]
       },
@@ -63,5 +65,6 @@ module.exports = {
     root: path.join(__dirname),
     exclude: /node_modules/,
     extensions: ['', '.js', '.jsx', '.es6']
-  }
+  },
+  postcss: () => [autoprefixer]
 }
