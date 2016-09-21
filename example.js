@@ -37,4 +37,6 @@ store.subscribe(() => render(
 ))
 
 router((route) => store.dispatch({ type: 'UPDATE_ROUTE', payload: route }))
-window.onkeypress = (e) => store.dispatch({ type: 'TOGGLE_GRID' })
+window.onkeypress = (e) =>
+  e.keyCode === 103 &&
+  store.dispatch({ type: 'TOGGLE_GRID' })
