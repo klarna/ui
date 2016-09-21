@@ -1,4 +1,5 @@
 import React from 'react'
+import { compose, join, map, uniq } from 'ramda'
 
 import AccountActivated from '../icons/AccountActivated'
 import AllSet from '../icons/AllSet'
@@ -71,7 +72,11 @@ export default {
   icon: 'Icon',
   variations: [{
     title: 'Big',
-    require: icons.big.map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`).join('\n'),
+    require: compose(
+      join('\n'),
+      uniq,
+      map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`)
+    )(icons.big),
 
     Colors: (
       colors.map((name) =>
@@ -90,7 +95,11 @@ export default {
     )
   }, {
     title: 'Small',
-    require: icons.tiny.map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`).join('\n'),
+    require: compose(
+      join('\n'),
+      uniq,
+      map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`)
+    )(icons.tiny),
 
     Colors: (
       colors.map((name) =>
