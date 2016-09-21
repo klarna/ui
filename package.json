@@ -65,6 +65,7 @@
     "react-element-to-jsx-string": "^4.1.0",
     "react-motion": "^0.4.2",
     "react-syntax-highlighter": "^2.2.0",
+    "redux": "^3.6.0",
     "resolve-url-loader": "^1.2.0",
     "sass-lint": "^1.9.1",
     "sass-loader": "^3.2.0",
