@@ -3,8 +3,6 @@ import Landing from './'
 import * as Dialog from '../../Dialog'
 import { Close } from '../../IconButton'
 
-import * as Button from '../../Button'
-
 const DemoIcon = () => (
   <svg width='100px' height='150px' viewBox='0 0 100 150'>
     <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
@@ -31,7 +29,7 @@ export default {
   title: 'Landing',
   variations: [{
     title: 'Landing Dialog',
-    require: `import Landing from '@klarna/ui/templates/Landing'`,
+    require: 'import Landing from \'@klarna/ui/templates/Landing\'',
 
     Regular: [
       <Dialog.Overlay show>
