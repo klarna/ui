@@ -51,11 +51,14 @@ export default React.createClass({
               className={classNames(classes.label)} >
               {label}
             </div>
-            <div
-              className={classNames(classes.description)} >
-              {description}
-            </div>
-
+            {
+              description && (
+                <div
+                  className={classNames(classes.description)} >
+                  {description}
+                </div>
+              )
+            }
             <Right
               className={classNames(classes.icon)}
               color='black'
