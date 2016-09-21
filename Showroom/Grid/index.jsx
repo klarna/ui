@@ -9,7 +9,7 @@ export default React.createClass({
     }
   },
 
-  render () {
+  render () {
     const {...props} = this.props
     const {height, width} = this.state
 
@@ -26,7 +26,7 @@ export default React.createClass({
 
         {times((i) => [
           <rect
-            style={{fill: '#f52727', opacity: .3}}
+            style={{fill: '#f52727', opacity: 0.3}}
             width={width} height='1' x='0' y={i * 10 + 4}
           />,
 
