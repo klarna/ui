@@ -37,12 +37,16 @@ Chevron.propTypes = {
 
 export const Right = (props) =>
   <Chevron {...props} d='M9,6l4,4l-4,4' />
+Right.displayName = 'Chevron.Right'
 
 export const Left = (props) =>
   <Chevron {...props} d='M11,6l-4,4l4,4' />
+Left.displayName = 'Chevron.Left'
 
 export const Down = (props) =>
   <Chevron {...props} d='M6,9l4,4l4,-4' />
+Down.displayName = 'Chevron.Down'
 
 export const Up = (props) =>
   <Chevron {...props} d='M6,11l4,-4l4,4' />
+Up.displayName = 'Chevron.Up'

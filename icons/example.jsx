@@ -27,6 +27,7 @@ import SMS from '../icons/SMS'
 import Warning from '../icons/Warning'
 import Wrong from '../icons/Wrong'
 import colors from '../icons/constants/colors'
+import name from '../lib/name'
 
 const icons = {
   big: [
@@ -70,7 +71,7 @@ export default {
   icon: 'Icon',
   variations: [{
     title: 'Big',
-    require: icons.big.map(({ displayName }) => `import ${displayName} from '@klarna/ui/icons/${displayName}'`).join('\n'),
+    require: icons.big.map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`).join('\n'),
 
     Colors: (
       colors.map((name) =>
@@ -89,7 +90,7 @@ export default {
     )
   }, {
     title: 'Small',
-    require: icons.tiny.map(({ displayName }) => `import ${displayName} from '@klarna/ui/icons/${displayName}'`).join('\n'),
+    require: icons.tiny.map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`).join('\n'),
 
     Colors: (
       colors.map((name) =>
