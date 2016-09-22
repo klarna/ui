@@ -19,8 +19,8 @@
   "dependencies": {
     "classnames": "2.2.5",
     "parse-color": "1.0.0",
-    "react-motion": "0.4.2",
-    "react-context-props": "^0.1.4"
+    "react-context-props": "^0.1.4",
+    "react-motion": "0.4.2"
   },
   "peerDependencies": {
     "react": "^15.0.2"
@@ -37,6 +37,7 @@
     "babel-preset-stage-0": "^6.1.2",
     "css-loader": "^0.19.0",
     "file-loader": "^0.8.5",
+    "flyd": "^0.2.2",
     "html-webpack-plugin": "^1.6.1",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "0.2.2",
@@ -52,6 +53,7 @@
     "karma-webdriver-launcher": "1.0.4",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
+    "most": "^1.0.3",
     "node-sass": "^3.4.2",
     "normalize.css": "^4.1.1",
     "null-loader": "^0.1.1",
