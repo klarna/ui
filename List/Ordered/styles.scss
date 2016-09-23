@@ -1,0 +1,7 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.list--unordered {
+  margin: 0;
+  padding: ($grid * .6) 0 ($grid * .4) ($grid * 4);
+}

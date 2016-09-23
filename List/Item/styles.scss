@@ -1,0 +1,9 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.list--item {
+  @include paragraph--primary;
+
+  margin: 0;
+  padding: 0;
+}

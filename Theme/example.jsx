@@ -11,6 +11,7 @@ import * as ThemeableSwitch from '../themeable/Switch'
 import * as ThemeableTitle from '../themeable/Title'
 import ThemeableSubtitle from '../themeable/Subtitle'
 import * as ThemeableParagraph from '../themeable/Paragraph'
+import * as ThemeableList from '../themeable/List'
 
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
@@ -32,7 +33,8 @@ import ThemeableLink from '@klarna/ui/themeable/Link'
 import * as ThemeableSwitch from '@klarna/ui/themeable/Switch'
 import * as ThemeableTitle from '@klarna/ui/themeable/Title'
 import ThemeableSubtitle from '@klarna/ui/themeable/Subtitle'
-import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'`,
+import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'
+import * as ThemeableList from '@klarna/ui/themeable/List'`,
     Regular: [
       <Theme
         customizations={{
@@ -165,6 +167,36 @@ import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'`,
             Primary Paragraph, secondary design
           </ThemeableParagraph.Legal>
         </div>
+
+        <ThemeableList.Unordered style={{marginBottom: '20px'}}>
+          <ThemeableList.Item>
+            And as in uffish thought he stood,
+          </ThemeableList.Item>
+          <ThemeableList.Item>
+            The Jabberwock, with eyes of flame,
+          </ThemeableList.Item>
+          <ThemeableList.Item>
+            Came whiffling through the tulgey wood,
+          </ThemeableList.Item>
+          <ThemeableList.Item>
+            And burbled as it came!
+          </ThemeableList.Item>
+        </ThemeableList.Unordered>
+
+        <ThemeableList.Ordered style={{paddingBottom: '20px'}}>
+          <ThemeableList.Item>
+            Brilumis, kaj la ŝlirtaj melfoj
+          </ThemeableList.Item>
+          <ThemeableList.Item>
+            en la iejo ĝiris, ŝraŭis;
+          </ThemeableList.Item>
+          <ThemeableList.Item>
+            mizaris la maldikdudelfoj,
+          </ThemeableList.Item>
+          <ThemeableList.Item>
+            forfuraj ratjoj vaŭis.
+          </ThemeableList.Item>
+        </ThemeableList.Ordered>
       </Theme>
     ]
   }]
