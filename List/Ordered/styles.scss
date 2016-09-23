@@ -3,5 +3,5 @@
 
 .list--unordered {
   margin: 0;
-  padding: 0 0 0 ($grid * 4);
+  padding: ($grid * .6) 0 ($grid * .4) ($grid * 4);
 }
