@@ -15,7 +15,7 @@ const getCurrentPage = ([anchor], examples) =>
 export default function Showroom ({route, grid, examples}) {
   return (
     <main>
-      {grid && <Grid />}
+      {grid && <Grid halfLine={5} line={10} />}
       <Sidebar examples={examples} />
       {getCurrentPage(route, examples)}
     </main>
