@@ -4,11 +4,11 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'list--item'
 
-export default function Item ({className, children, styles, ...props}) {
+export default function Item ({className, children, color, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
-    <li className={classNames(baseClass, className)} {...props}>
+    <li className={classNames(baseClass, color, className)} {...props}>
       {children}
     </li>
   )
