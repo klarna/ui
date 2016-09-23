@@ -1,0 +1,28 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.list--ordered {
+  margin: 0;
+  padding: ($grid * .6) 0 ($grid * .4) ($grid * 4);
+}
+
+.list--unordered {
+  list-style: none;
+  margin: 0;
+  padding: ($grid * .6) 0 ($grid * .4) ($grid * 4);
+}
+
+.list--item {
+  @include paragraph--primary;
+
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  .list--unordered &:before {
+    content: '•';
+    display: block;
+    position: absolute;
+    left: ($grid * -4);
+  }
+}

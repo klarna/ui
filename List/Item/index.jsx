@@ -1,6 +1,6 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from './styles.scss'
+import defaultStyles from '../styles.scss'
 
 const baseClass = 'list--item'
 
