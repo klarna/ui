@@ -1,5 +1,4 @@
 import { merge, scan } from 'flyd'
-import { map } from 'ramda'
 import arrows from './streams/arrows'
 import gridToggles from './streams/gridToggles'
 import routeUpdates from './streams/routeUpdates'
