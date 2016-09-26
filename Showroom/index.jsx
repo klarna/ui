@@ -1,29 +1,23 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import * as examples from './examples'
 import * as templates from './templates'
 import Grid from './Grid'
 import Page from './Page'
 import Sidebar from './Sidebar'
 import GettingStarted from './Page/GettingStarted'
+import Main from './Main'
+import states from './states'
 
-import 'normalize.css'
-import './index.scss'
+export default React.createClass({
+  getInitialState () {
+    return states()
+  },
 
-const getCurrentPage = ([anchor]) =>
-  anchor
-    ? <Page example={examples[anchor] || templates[anchor]} />
-    : <GettingStarted />
+  componentDidMount () {
+    states.map(this.setState.bind(this))
+  },
 
-export default function Showroom ({route, grid}) {
-  return (
-    <main>
-      {grid && <Grid />}
-      <Sidebar examples={examples} templates={templates} />
-      {getCurrentPage(route)}
-    </main>
-  )
-}
-
-Showroom.propTypes = {
-  route: PropTypes.arrayOf(PropTypes.string)
-}
+  render () {
+    return <Main examples={examples.concat(templates)} {...this.state} />
+  }
+})
