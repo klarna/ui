@@ -2,27 +2,50 @@
 @import '../css/mixins/index';
 
 .list--ordered {
+  counter-reset: list__item;
+  list-style: none;
   margin: 0;
   padding: ($grid * .6) 0 ($grid * .4) ($grid * 4);
+
+  & > .list__item::before {
+    counter-increment: list__item;
+    content: counter(list__item) ".";
+    display: block;
+    position: absolute;
+    left: ($grid * -4);
+  }
+
+
+  & > .list__item > .list__item__bullet--unordered {
+    display: none;
+  }
 }
 
 .list--unordered {
   list-style: none;
   margin: 0;
   padding: ($grid * .6) 0 ($grid * .4) ($grid * 4);
+
+  & > .list__item > .list__item__bullet--unordered {
+    border-radius: ($grid * .8);
+    background-color: currentColor;
+    display: block;
+    height: ($grid * .8);
+    left: ($grid * -4);
+    position: absolute;
+    top: ($grid * 2);
+    width: ($grid * .8);
+  }
+
+  & > .list__item::before {
+    display: none;
+  }
 }
 
-.list--item {
+.list__item {
   @include paragraph--primary;
 
   margin: 0;
   padding: 0;
   position: relative;
-
-  .list--unordered &:before {
-    content: '•';
-    display: block;
-    position: absolute;
-    left: ($grid * -4);
-  }
 }
