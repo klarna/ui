@@ -1,6 +1,5 @@
 import React from 'react'
 import * as examples from './examples'
-import * as templates from './templates'
 import Grid from './Grid'
 import Page from './Page'
 import Sidebar from './Sidebar'
@@ -18,6 +17,11 @@ export default React.createClass({
   },
 
   render () {
-    return <Main examples={examples.concat(templates)} {...this.state} />
+    return (
+      <Main
+        examples={examples}
+        {...this.state}
+      />
+    )
   }
 })

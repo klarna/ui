@@ -9,7 +9,7 @@ import './index.scss'
 
 const getCurrentPage = ([anchor], examples) =>
   anchor
-    ? <Page example={examples[anchor]} />
+    ? <Page example={examples.components[anchor] || examples.templates[anchor]} />
     : <GettingStarted />
 
 export default function Showroom ({route, grid, examples}) {
@@ -25,8 +25,4 @@ export default function Showroom ({route, grid, examples}) {
       {getCurrentPage(route, examples)}
     </main>
   )
-}
-
-Showroom.propTypes = {
-  route: PropTypes.arrayOf(PropTypes.string)
 }
