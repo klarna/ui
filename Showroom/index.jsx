@@ -1,9 +1,5 @@
 import React from 'react'
 import * as examples from './examples'
-import Grid from './Grid'
-import Page from './Page'
-import Sidebar from './Sidebar'
-import GettingStarted from './Page/GettingStarted'
 import Main from './Main'
 import states from './states'
 

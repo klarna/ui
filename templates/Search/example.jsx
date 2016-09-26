@@ -18,7 +18,6 @@ export default {
 
           <Dialog.Content>
             <Search
-              illustration={<DemoIcon />}
               labels={{
                 title: 'Welcome to the site',
                 summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',

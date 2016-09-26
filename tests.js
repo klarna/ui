@@ -17,18 +17,39 @@ const getVariations = (section) =>
     .reduce((a, b) => a.concat(b), [])
 
 describe('@klarna/ui', () => {
-  Object.keys(examples).map((key) => examples[key]).forEach((example) => {
-    describe(`loads ${example.title} examples`, () => {
-      getVariations(example).forEach(([title, children]) => {
-        it(title, () => {
-          render(
-            <div>
-              {children}
-            </div>
-            , document.getElementById('container')
-          )
+  Object
+    .keys(examples.components)
+    .map((key) => examples.components[key])
+    .forEach((example) => {
+      describe(`loads ${example.title} component examples`, () => {
+        getVariations(example).forEach(([title, children]) => {
+          it(title, () => {
+            render(
+              <div>
+                {children}
+              </div>
+              , document.getElementById('container')
+            )
+          })
         })
       })
     })
-  })
+
+  Object
+    .keys(examples.templates)
+    .map((key) => examples.templates[key])
+    .forEach((example) => {
+      describe(`loads ${example.title} template examples`, () => {
+        getVariations(example).forEach(([title, children]) => {
+          it(title, () => {
+            render(
+              <div>
+                {children}
+              </div>
+              , document.getElementById('container')
+            )
+          })
+        })
+      })
+    })
 })
