@@ -132,8 +132,7 @@ export default React.createClass({
             borderColor: customize.backgroundColor,
             boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
           } : {
-            borderColor: focus
-              && customize.borderColorSelected,
+            borderColor: focus && customize.borderColorSelected,
             boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
           })}></div>
         <div
