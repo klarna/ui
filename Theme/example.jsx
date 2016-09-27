@@ -13,6 +13,11 @@ import ThemeableSubtitle from '../themeable/Subtitle'
 import * as ThemeableParagraph from '../themeable/Paragraph'
 import * as ThemeableList from '../themeable/List'
 
+import statefulFocus from '../lib/decorators/statefulFocus'
+import statefulValue from '../lib/decorators/statefulValue'
+
+const FocusableThemeableCheckbox = statefulValue(statefulFocus(ThemeableSwitch.Checkbox))
+
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
   { key: 1, label: 'Lorem' },
@@ -134,12 +139,12 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
           <ThemeableSwitch.Toggle value name='fries'>
             Would you like fries?
           </ThemeableSwitch.Toggle>
-          <ThemeableSwitch.Checkbox name='fries'>
+          <FocusableThemeableCheckbox name='fries-2'>
             Would you like fries?
-          </ThemeableSwitch.Checkbox>
-          <ThemeableSwitch.Checkbox value name='fries'>
+          </FocusableThemeableCheckbox>
+          <FocusableThemeableCheckbox value name='fries-3'>
             Would you like fries?
-          </ThemeableSwitch.Checkbox>
+          </FocusableThemeableCheckbox>
         </div>
 
         <div style={{paddingBottom: '20px'}}>
