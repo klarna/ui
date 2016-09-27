@@ -1,7 +1,7 @@
 import React from 'react'
 import Landing from './'
-import * as Dialog from '../../Dialog'
-import { Close } from '../../IconButton'
+import Wrapper from '../Wrapper'
+
 
 const DemoIcon = () => (
   <svg width='100px' height='150px' viewBox='0 0 100 150'>
@@ -32,26 +32,19 @@ export default {
     require: 'import Landing from \'@klarna/ui/templates/Landing\'',
 
     Regular: [
-      <Dialog.Overlay show>
-        <Dialog.Main>
-          <Dialog.Icon>
-            <Close color='gray' />
-          </Dialog.Icon>
-          <Dialog.Content>
-            <Landing
-              illustration={<DemoIcon />}
-              labels={{
-                title: 'Welcome to the site',
-                summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
-                accept: 'Continue',
-                cancel: 'Go back'
-              }}
-              onAccept={() => console.log('accept')}
-              onCancel={() => console.log('cancel')}
-            />
-          </Dialog.Content>
-        </Dialog.Main>
-      </Dialog.Overlay>
+      <Wrapper archetype='dialog'>
+        <Landing
+          illustration={<DemoIcon />}
+          labels={{
+            title: 'Welcome to the site',
+            summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+            accept: 'Continue',
+            cancel: 'Go back'
+          }}
+          onAccept={() => console.log('accept')}
+          onCancel={() => console.log('cancel')}
+        />
+      </Wrapper>
     ]
   }]
 }
