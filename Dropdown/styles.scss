@@ -158,7 +158,7 @@
   position: absolute;
 
   @include respond-to-wide {
-    @include typography(($grid * 2.8), regular);
+    @include typography(($grid * 2.8), semi-bold);
   }
 
   .is-selected &,
