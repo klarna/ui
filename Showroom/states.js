@@ -4,7 +4,7 @@ import gridToggles from './streams/gridToggles'
 import routeUpdates from './streams/routeUpdates'
 
 const initialState = {
-  route: '',
+  route: [],
   grid: {
     display: false,
     offsets: {
