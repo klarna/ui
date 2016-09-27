@@ -6,7 +6,8 @@ export const Checkbox = themeable(Switch.Checkbox, (customizations, props) => ({
     ...props.customize,
     backgroundColor: customizations.color_checkbox,
     bulletColor: customizations.color_checkbox_checkmark,
-    textColor: customizations.color_text
+    textColor: customizations.color_text,
+    borderColorSelected: customizations.color_border_selected
   }
 }))
 
