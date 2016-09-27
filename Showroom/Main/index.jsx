@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import Grid from '../Grid'
+import Menu from '../Menu'
 import Page from '../Page'
 import Sidebar from '../Sidebar'
 import GettingStarted from '../Page/GettingStarted'
@@ -9,7 +10,11 @@ import './index.scss'
 
 const getCurrentPage = ([anchor], examples) =>
   anchor
-    ? <Page example={examples[anchor]} />
+    ? (
+      anchor === 'menu'
+        ? <Menu examples={examples} />
+        : <Page example={examples[anchor]} />
+    )
     : <GettingStarted />
 
 export default function Showroom ({route, grid, examples}) {

@@ -49,10 +49,11 @@ pre {
   }
 
   .live {
-    width: calc(100vw - 360px);
+    width: calc(100vw - 180px);
+    padding-right: 0;
 
     &.wide {
-      width: calc(100vw - 360px);
+      width: calc(100vw - 180px);
     }
   }
 }

@@ -1,0 +1,23 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.logo {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.k {
+  fill: map-get($colors, klarna-blue);
+
+  &:hover {
+    fill: map-get($colors, klarna-blue-hover);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .logo {
+    display: block;
+  }
+}

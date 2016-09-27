@@ -1,8 +1,8 @@
 import React from 'react'
-// import classNames from 'classnames'
 import {Usage, Implementation, UX} from './icons/GettingStarted'
 import * as UI from '../../'
-import CodeBlock from 'Code/Instructions'
+import CodeBlock from '../../Code/Block'
+import NarrowLayoutLogo from '../NarrowLayoutLogo'
 import Footer from 'Showroom/Footer'
 
 import styles from './styles.scss'
@@ -10,6 +10,7 @@ import styles from './styles.scss'
 export default function GettingStarted ({example}) {
   return (
     <article className={styles.content}>
+      <NarrowLayoutLogo />
       <header>
         <UI.Title.Primary margins>
           Getting started
@@ -48,9 +49,11 @@ export default function GettingStarted ({example}) {
         <UI.Subtitle>
           Install
         </UI.Subtitle>
-        <CodeBlock>
-          npm install react @klarna/ui --save
-        </CodeBlock>
+        <div style={{background: '#363636', padding: '2%', borderRadius: '4px'}}>
+          <CodeBlock>
+            {'npm install react @klarna/ui --save'}
+          </CodeBlock>
+        </div>
       </section>
 
       <Footer />

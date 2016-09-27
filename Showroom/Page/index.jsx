@@ -5,6 +5,7 @@ import * as UI from '../../'
 import Code from '../../Code'
 import Footer from '../Footer'
 import CodeBlock from '../../Code/Block'
+import NarrowLayoutLogo from '../NarrowLayoutLogo'
 
 import styles from './styles.scss'
 
@@ -14,6 +15,8 @@ export default function Page ({example}) {
   return (
     <article className={styles.content}>
       <header>
+        <NarrowLayoutLogo />
+
         {example.icon && <Icon />}
         <UI.Title.Primary margins>
           {example.title}
