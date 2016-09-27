@@ -1,8 +1,8 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from './styles.scss'
+import defaultStyles from '../styles.scss'
 
-const baseClass = 'list--unordered'
+const baseClass = 'list--ordered'
 
 export default function Ordered ({children, className, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
