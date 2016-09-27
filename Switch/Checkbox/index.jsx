@@ -129,9 +129,7 @@ export default React.createClass({
           className={classNames(classes.bullet)}
           style={customize && (value ? {
             backgroundColor: customize.backgroundColor,
-            borderColor: focus
-              ? customize.borderColorSelected
-              : customize.backgroundColor,
+            borderColor: customize.backgroundColor,
             boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
           } : {
             borderColor: focus
