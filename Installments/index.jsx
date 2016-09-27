@@ -121,7 +121,10 @@ export default React.createClass({
           (<label
             key={`label-${id}`}
             className={classNames(
-              classes.label, 'third', { 'is-focused': focus === key }
+              classes.label,
+              getLabelWidthClassName(options),
+              { 'no-float': options.length === 1 },
+              { 'is-focused': focus === key }
             )}
             style={customize
               ? labelDynamicStyles(customize, id === this.state.hover)
@@ -150,3 +153,16 @@ const labelDynamicStyles = ({ borderColor, borderColorSelected, labelColor }, ho
   hovered
     ? { borderColor, color: borderColorSelected }
     : { borderColor, color: labelColor }
+
+const getLabelWidthClassName = (options) => {
+  switch (options.length) {
+  case 2:
+    return 'half'
+  case 3:
+    return 'third'
+  case 4:
+    return 'quarter'
+  default:
+    return null
+  }
+}

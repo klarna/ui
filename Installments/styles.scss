@@ -23,13 +23,13 @@
     @include stackable;
     @include typography(($grid * 2.8), semi-bold);
 
+    box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     border-top: ($grid * .2) solid $border-color;
     color: map-get($colors, black);
     cursor: pointer;
     display: block;
     line-height: ($grid * 8) - ($grid * .4);
-    margin-top: ($grid * -.2);
     position: relative;
     text-align: center;
     vertical-align: top;
@@ -37,7 +37,6 @@
 
     &:first-of-type {
       border-top-width: 0px;
-      margin-top: 0px;
     }
 
     @include respond-to-wide {
@@ -45,13 +44,14 @@
       border-top: 0;
       float: left;
       line-height: ($grid * 4);
-      margin-left: ($grid * -.2);
-      margin-top: 0;
       padding: ($grid * 3.8) 0;
 
       &:first-of-type {
         border-left-width: 0px;
-        margin-left: 0px;
+      }
+
+      &.no-float {
+        float: none;
       }
     }
   }
@@ -63,28 +63,12 @@
 
   .installments__input:checked +
   .installments__label {
-    border-top: 0;
-    margin-top: 0;
+    border-top-color: transparent;
 
     @include respond-to-wide {
-      border-left: 0;
-      margin-left: 0;
+      border-left-color: transparent;
     }
   }
-
-  // .installments__input:checked +
-  // .installments__label:after {
-  //   border: ($grid * .4) solid map-get($colors, klarna-blue);
-  //   border-radius: 5px;
-  //   bottom: -1px;
-  //   content: '';
-  //   display: block;
-  //   left: -1px;
-  //   position: absolute;
-  //   right: -1px;
-  //   top: -1px;
-  //   z-index: 5;
-  // }
 
   .installments__label__highlight {
     display: none;
@@ -109,12 +93,12 @@
   .installments__label +
   .installments__input +
   .installments__label {
-    border-top: 0;
-    margin-top: 0;
+    border: 0;
+    border-top: ($grid * .2) solid transparent;
 
     @include respond-to-wide {
-      border-left: 0;
-      margin-left: 0;
+      border: 0;
+      border-left: ($grid * .2) solid transparent;
     }
   }
 
