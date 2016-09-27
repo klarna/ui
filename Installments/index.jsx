@@ -156,13 +156,13 @@ const labelDynamicStyles = ({ borderColor, borderColorSelected, labelColor }, ho
 
 const getLabelWidthClassName = (options) => {
   switch (options.length) {
-  case 2:
-    return 'half'
-  case 3:
-    return 'third'
-  case 4:
-    return 'quarter'
-  default:
-    return null
+    case 2:
+      return 'half'
+    case 3:
+      return 'third'
+    case 4:
+      return 'quarter'
+    default:
+      return null
   }
 }
