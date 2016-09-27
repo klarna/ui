@@ -1,6 +1,14 @@
+@import '../../css/settings';
+@import '../settings.scss';
+@import '../../css/mixins/index';
+
 .content {
   flex: 1;
-  padding: 90px;
+  padding: 20px;
+
+  @include respond-to-wide {
+    padding: 90px;
+  }
 }
 
 .pageNav {

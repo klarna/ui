@@ -56,3 +56,13 @@ pre {
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .live {
+    width: calc(100vw - 40px);
+
+    &.wide {
+      width: calc(100vw - 40px);
+    }
+  }
+}

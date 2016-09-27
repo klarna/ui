@@ -1,8 +1,11 @@
+@import '../../css/settings';
 @import '../settings.scss';
+@import '../../css/mixins/index';
 
 .sidebar {
   -webkit-font-smoothing: antialiased;
   background: map-get($colors, sidebar-blue);
+  display: none;
   font-size: 13px;
   font-weight: normal;
   min-height: 100vh;
@@ -37,5 +40,11 @@
 
   &.selected {
     font-weight: 900;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .sidebar {
+    display: block;
   }
 }

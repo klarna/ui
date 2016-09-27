@@ -114,7 +114,7 @@
 }
 
 %field__label {
-  @include typography(($grid * 2.8), regular);
+  @include typography(($grid * 3.2), regular);
 
   -webkit-transition: all .2s ease;
   color: map-get($colors, 'grey-text');
@@ -126,6 +126,10 @@
   transition: all .2s ease;
   white-space: nowrap;
   width: calc(100% - #{($grid * 8)});
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.8), regular);
+  }
 
   .big & {
     line-height: ($grid * 12);
@@ -163,7 +167,7 @@
 }
 
 %field__input {
-  @include typography(($grid * 2.8), semi-bold);
+  @include typography(($grid * 3.2), semi-bold);
 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   appearance: none;
@@ -176,6 +180,10 @@
   padding: 0 ($grid * 4);
   position: absolute;
   width: 100%;
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.8), semi-bold);
+  }
 
   // Disable clear field icon for IE10+
   &::-ms-clear {
