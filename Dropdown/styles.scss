@@ -106,7 +106,7 @@
 }
 
 .dropdown__label {
-  @include typography(($grid * 2.8), regular);
+  @include typography(($grid * 3.2), regular);
 
   color: map-get($colors, 'grey-text');
   line-height: ($grid * 10);
@@ -114,6 +114,10 @@
   position: absolute;
   transition: all .2s ease;
   white-space: nowrap;
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.8), regular);
+  }
 
   .is-selected & {
     @include typography(($grid * 2.2), regular);
@@ -146,12 +150,16 @@
 }
 
 .dropdown__current-option {
-  @include typography(($grid * 2.8), semi-bold);
+  @include typography(($grid * 3.2), semi-bold);
 
   color: map-get($colors, black);
   line-height: ($grid * 10);
   padding: 0 ($grid * 4);
   position: absolute;
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.8), regular);
+  }
 
   .is-selected &,
   .is-error &,
