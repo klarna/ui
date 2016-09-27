@@ -35,10 +35,6 @@
     color: map-get($colors, error);
   }
 
-  .is-focused & {
-    color: map-get($colors, klarna-blue);
-  }
-
   .right & {
     padding-left: 0;
     padding-right: ($grid * 10);
@@ -88,6 +84,11 @@
     height: ($grid * 2.4);
     top: ($grid * 1.4);
     width: ($grid * 2.4);
+
+    .is-focused & {
+      border-color: map-get($colors, blue-focus);
+      box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
+    }
   }
 }
 

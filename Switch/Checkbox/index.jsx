@@ -127,10 +127,17 @@ export default React.createClass({
         } : undefined}>
         <div
           className={classNames(classes.bullet)}
-          style={customize && value ? {
+          style={customize && (value ? {
             backgroundColor: customize.backgroundColor,
-            borderColor: customize.backgroundColor
-          } : undefined}></div>
+            borderColor: focus
+              ? customize.borderColorSelected
+              : customize.backgroundColor,
+            boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+          } : {
+            borderColor: focus
+              && customize.borderColorSelected,
+            boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+          })}></div>
         <div
           className={classNames(classes.bulletToggle)}
           style={customize ? {
