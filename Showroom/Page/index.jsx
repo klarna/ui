@@ -48,12 +48,12 @@ export default function Page ({example}) {
 
 export function Variation ({ exampleTitle, title, require, ...sections }) {
   return (
-    <section key={`#${exampleTitle}/${title}`}>
+    <section className={styles.section} key={`#${exampleTitle}/${title}`}>
       <a name={`${exampleTitle}/${title}`}></a>
       <UI.Title.Primary className={styles.designTitle} margins>
         {title}
       </UI.Title.Primary>
-      <div style={{background: '#363636', padding: '2%', borderRadius: '4px'}}>
+      <div style={{background: '#363636', padding: '2%', borderRadius: '4px', overflowX: 'scroll'}}>
         <CodeBlock language='imports'>{require}</CodeBlock>
       </div>
       {

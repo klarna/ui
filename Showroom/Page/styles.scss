@@ -33,6 +33,10 @@
   }
 }
 
+.section {
+  width: auto;
+}
+
 @media screen and (max-width: 1000px) {
   .variationTitle {
     margin: 0 auto;
@@ -45,6 +49,15 @@
 
   .designTitle {
     margin-bottom: 0px;
+  }
+  .section {
+    width: calc(100vw - 180px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section {
+    width: calc(100vw - 40px);
   }
 }
 
@@ -66,3 +79,7 @@
     }
   }
 }
+//
+// @media screen and (min-width: 1000px) {
+//
+// }

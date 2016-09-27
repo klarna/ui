@@ -49,7 +49,7 @@ export default function GettingStarted ({example}) {
         <UI.Subtitle>
           Install
         </UI.Subtitle>
-        <div style={{background: '#363636', padding: '2%', borderRadius: '4px'}}>
+        <div style={{background: '#363636', padding: '2%', borderRadius: '4px', overflowX: 'scroll'}}>
           <CodeBlock>
             {'npm install react @klarna/ui --save'}
           </CodeBlock>
