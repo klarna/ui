@@ -63,10 +63,10 @@
 
   .installments__input:checked +
   .installments__label {
-    border-top-color: transparent;
+    border-top-color: transparent !important;
 
     @include respond-to-wide {
-      border-left-color: transparent;
+      border-left-color: transparent !important;
     }
   }
 
@@ -94,11 +94,11 @@
   .installments__input +
   .installments__label {
     border: 0;
-    border-top: ($grid * .2) solid transparent;
+    border-top: ($grid * .2) solid transparent !important;
 
     @include respond-to-wide {
       border: 0;
-      border-left: ($grid * .2) solid transparent;
+      border-left: ($grid * .2) solid transparent !important;
     }
   }
 
