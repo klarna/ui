@@ -2,7 +2,6 @@ import React from 'react'
 import Landing from './'
 import Wrapper from '../Wrapper'
 
-
 const DemoIcon = () => (
   <svg width='100px' height='150px' viewBox='0 0 100 150'>
     <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
