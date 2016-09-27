@@ -6,6 +6,7 @@ import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
+import MouseflowExclude from '../MouseflowExclude'
 
 const baseClass = 'dropdown'
 
@@ -28,6 +29,7 @@ export default React.createClass({
     return {
       loading: false,
       onChange: function () {},
+      mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
       ...fieldStates.defaultProps,
       ...stacking.position.defaultProps,
@@ -39,6 +41,7 @@ export default React.createClass({
   propTypes: {
     label: PropTypes.string.isRequired,
     loading: PropTypes.bool,
+    mouseflowExclude: PropTypes.bool,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
@@ -91,6 +94,7 @@ export default React.createClass({
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
+      mouseflowExclude,
       onBlur,
       onChange,
       onClick,
@@ -163,30 +167,58 @@ export default React.createClass({
           {label}
         </label>
 
-        {selectedOption &&
-          <div
-            className={classNames(classes.currentOption)}
-            style={selectedDynamicStyles}>
-            {selectedOption.label}
-          </div>
-        }
+        {selectedOption && (
+          mouseflowExclude
+            ? <MouseflowExclude>
+              <div
+                className={classNames(classes.currentOption)}
+                style={selectedDynamicStyles}>
+                {selectedOption.label}
+              </div>
+            </MouseflowExclude>
+            : <div
+              className={classNames(classes.currentOption)}
+              style={selectedDynamicStyles}>
+              {selectedOption.label}
+            </div>
+        )}
 
-        <select
-          className={classNames(classes.select)}
-          disabled={disabled || loading}
-          onBlur={onBlur}
-          onChange={onChange}
-          onFocus={onFocus}
-          onKeyDown={handleKeyDown(this.props)}
-          ref='select'
-          value={value || ''}
-          {...props}>
-          {options && options.map((attributes) => (
-            <option key={attributes.key} value={attributes.key} {...attributes}>
-              {attributes.label}
-            </option>
-          ))}
-        </select>
+        {mouseflowExclude
+          ? <MouseflowExclude>
+            <select
+              className={classNames(classes.select)}
+              disabled={disabled || loading}
+              onBlur={onBlur}
+              onChange={onChange}
+              onFocus={onFocus}
+              onKeyDown={handleKeyDown(this.props)}
+              ref='select'
+              value={value || ''}
+              {...props}>
+              {options && options.map((attributes) => (
+                <option key={attributes.key} value={attributes.key} {...attributes}>
+                  {attributes.label}
+                </option>
+              ))}
+            </select>
+          </MouseflowExclude>
+          : <select
+            className={classNames(classes.select)}
+            disabled={disabled || loading}
+            onBlur={onBlur}
+            onChange={onChange}
+            onFocus={onFocus}
+            onKeyDown={handleKeyDown(this.props)}
+            ref='select'
+            value={value || ''}
+            {...props}>
+            {options && options.map((attributes) => (
+              <option key={attributes.key} value={attributes.key} {...attributes}>
+                {attributes.label}
+              </option>
+            ))}
+          </select>
+        }
       </div>
     )
   }

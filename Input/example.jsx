@@ -31,6 +31,9 @@ import UncontrolledInput from '@klarna/ui/uncontrolled/Input'`,
     Disabled: [
       <Input disabled label='Address' value='16, Corn street' />
     ],
+    'Exclude Mouseflow': [
+      <Input mouseflowExclude label='Address' value='16, Corn street' />
+    ],
     'With error': [
       <Input label='Invalid email' error value='invalid@' />
     ],

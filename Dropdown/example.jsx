@@ -58,6 +58,10 @@ import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'`,
     <Dropdown disabled label='Disabled' options={options} />
   ),
 
+  'Exclude Mouseflow': (
+    <Dropdown mouseflowExclude label='Disabled' value='lorem' options={options} />
+  ),
+
   'With error': (
     <Dropdown label='Something went wrong' error options={options} />
   ),
