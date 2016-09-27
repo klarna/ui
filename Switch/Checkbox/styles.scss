@@ -35,10 +35,6 @@
     color: map-get($colors, error);
   }
 
-  .is-focused & {
-    color: map-get($colors, klarna-blue);
-  }
-
   .right & {
     padding-left: 0;
     padding-right: ($grid * 10);
@@ -88,6 +84,27 @@
     height: ($grid * 2.4);
     top: ($grid * 1.4);
     width: ($grid * 2.4);
+
+    .switch--checkbox:not(.dynamic-styling) .switch--checkbox__label:hover & {
+      border-color: map-get($colors, blue-hover);
+    }
+
+    .is-focused:hover &,
+    .is-focused & {
+      border-color: map-get($colors, blue-focus);
+      box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
+    }
+
+    .switch--checkbox:not(.dynamic-styling).is-checked &,
+    .switch--checkbox:not(.dynamic-styling).is-checked:hover & {
+      border-color: map-get($colors, klarna-blue);
+    }
+
+    .switch--checkbox:not(.dynamic-styling).is-checked.is-focused:hover &,
+    .is-checked.is-focused & {
+      border-color: map-get($colors, klarna-blue);
+      box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
+    }
   }
 }
 
