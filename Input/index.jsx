@@ -6,6 +6,7 @@ import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
+import MouseflowExclude from '../MouseflowExclude'
 
 const baseClass = 'input'
 
@@ -29,6 +30,7 @@ export default React.createClass({
       centered: false,
       giant: false,
       loading: false,
+      mouseflowExclude: false,
       onChange: function () {},
       ...inlinedIcon.defaultProps,
       ...fieldStates.defaultProps,
@@ -44,6 +46,7 @@ export default React.createClass({
     giant: PropTypes.bool,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
+    mouseflowExclude: PropTypes.bool,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
@@ -81,6 +84,7 @@ export default React.createClass({
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
+      mouseflowExclude,
       onBlur,
       onChange,
       onClick,
@@ -113,6 +117,18 @@ export default React.createClass({
       className
     )
 
+    const inputElement = <input
+      className={classNames(icon ? classes.iconInput : classes.input)}
+      disabled={disabled}
+      value={value || ''}
+      onBlur={onBlur}
+      onChange={onChange}
+      onKeyDown={handleKeyDown(this.props)}
+      onFocus={onFocus}
+      ref='input'
+      {...props}
+    />
+
     return (
       <div
         className={cls}
@@ -130,17 +146,11 @@ export default React.createClass({
           {label}
         </label>
 
-        <input
-          className={classNames(icon ? classes.iconInput : classes.input)}
-          disabled={disabled}
-          value={value || ''}
-          onBlur={onBlur}
-          onChange={onChange}
-          onKeyDown={handleKeyDown(this.props)}
-          onFocus={onFocus}
-          ref='input'
-          {...props}
-        />
+        {mouseflowExclude
+          ? <MouseflowExclude>{inputElement}</MouseflowExclude>
+          : inputElement
+        }
+
       </div>
     )
   }
