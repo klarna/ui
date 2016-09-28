@@ -44,7 +44,8 @@ describe('@klarna/ui', () => {
           it(title, () => {
             render(
               <div>
-                {children}
+                {children.inline}
+                {children.wrapped}
               </div>
               , document.getElementById('container')
             )
