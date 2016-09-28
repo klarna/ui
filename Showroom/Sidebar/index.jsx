@@ -57,7 +57,7 @@ export default function Sidebar ({examples}) {
         <a
           href='#/compositions'
           className={styles.menuTitle} >
-          Templates
+          Compositions
         </a>
 
         {
