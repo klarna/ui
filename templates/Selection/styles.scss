@@ -1,0 +1,10 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.selection__title + .selection__summary {
+  padding-top: ($grid * 2.4);
+}
+
+.selection__summary + .selection__selector {
+  padding-top: ($grid * 2.2);
+}

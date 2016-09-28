@@ -1,0 +1,30 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.landing {
+  text-align: center;
+}
+
+.landing__title {
+  padding-top: ($grid * 7.2);
+}
+
+.landing__title + .landing__paragraph--primary {
+  padding-top: ($grid * 2.4);
+}
+
+.landing__button--accept {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: ($grid * 3);
+  text-align: center;
+}
+
+.landing__paragraph--primary + .landing__button--accept {
+  margin-top: ($grid * 8.2);
+}
+
+.landing__paragraph--legal {
+  padding-top: ($grid * 6.2);
+}

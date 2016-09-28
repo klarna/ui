@@ -13,6 +13,11 @@ export default React.createClass({
   },
 
   render () {
-    return <Main examples={examples} {...this.state} />
+    return (
+      <Main
+        examples={examples}
+        {...this.state}
+      />
+    )
   }
 })
