@@ -51,21 +51,12 @@ export function Variation ({ exampleTitle, title, require, ...sections }) {
       </div>
       {
         Object.keys(sections).map((section) => {
-          const hasStructure = sections[section].example != null
-          const example = hasStructure
-            ? sections[section].example
-            : sections[section]
-          const wide = hasStructure
-            ? !!sections[section].wide
-            : false
-          const customCode = hasStructure && sections[section].code
-
           return (
             <Section
-              code={customCode}
+              code={undefined}
               key={section}
-              name={section} wide={wide}>
-              {example}
+              name={section}>
+              {sections[section].inline}
             </Section>
           )
         })

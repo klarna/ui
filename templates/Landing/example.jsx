@@ -30,8 +30,8 @@ export default {
     title: 'Landing Dialog',
     require: 'import Landing from \'@klarna/ui/templates/Landing\'',
 
-    Regular: [
-      <Wrapper archetype='dialog'>
+    Regular: {
+      inline: [
         <Landing
           illustration={<DemoIcon />}
           labels={{
@@ -43,7 +43,22 @@ export default {
           onAccept={() => console.log('accept')}
           onCancel={() => console.log('cancel')}
         />
-      </Wrapper>
-    ]
+      ],
+      wrapper: [
+        <Wrapper>
+          <Landing
+            illustration={<DemoIcon />}
+            labels={{
+              title: 'Welcome to the site',
+              summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+              accept: 'Continue',
+              cancel: 'Go back'
+            }}
+            onAccept={() => console.log('accept')}
+            onCancel={() => console.log('cancel')}
+          />
+        </Wrapper>
+      ]
+    }
   }]
 }

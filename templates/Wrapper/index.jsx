@@ -7,33 +7,23 @@ export const archetypes = [
   'dialog'
 ]
 
-export default function Wrapper ({archetype, children, ...props}) {
-  switch (archetype) {
-    case 'dialog':
-      const {onClose} = props
+export default function Wrapper ({children, ...props}) {
+  const {onClose} = props
 
-      return (
-        <Dialog.Overlay show>
-          <Dialog.Main>
-            <Dialog.Icon>
-              <Close
-                onClick={onClose}
-                color='gray'
-              />
-            </Dialog.Icon>
+  return (
+    <Dialog.Overlay show>
+      <Dialog.Main>
+        <Dialog.Icon>
+          <Close
+            onClick={onClose}
+            color='gray'
+          />
+        </Dialog.Icon>
 
-            <Dialog.Content>
-              {children}
-            </Dialog.Content>
-          </Dialog.Main>
-        </Dialog.Overlay>
-      )
-
-    default:
-      return (
-        <Block.Plain>
+        <Dialog.Content>
           {children}
-        </Block.Plain>
-      )
-  }
+        </Dialog.Content>
+      </Dialog.Main>
+    </Dialog.Overlay>
+  )
 }
