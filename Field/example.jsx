@@ -36,6 +36,10 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
     <Field disabled label='Address' value='16, Corn street' />
   ),
 
+  'Exclude Mouseflow': (
+    <Field mouseflowExclude label='Address' value='16, Corn street' />
+  ),
+
   'With error': (
     <Field label='Invalid email' error value='invalid@' />
   ),
