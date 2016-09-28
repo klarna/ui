@@ -37,7 +37,7 @@
   width: auto;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1025px) {
   .variationTitle {
     margin: 0 auto;
     text-align: center;
@@ -55,7 +55,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 568px) {
   .section {
     width: calc(100vw - 40px);
   }
@@ -79,7 +79,3 @@
     }
   }
 }
-//
-// @media screen and (min-width: 1000px) {
-//
-// }
