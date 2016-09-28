@@ -11,8 +11,8 @@ import './index.scss'
 const getCurrentPage = ([anchor], examples) =>
   anchor
     ? (
-      has(anchor, examples.components)
-        ? <Page.Component example={examples.components[anchor]} />
+      has(anchor, examples.components) || has(anchor, examples.compositions)
+        ? <Page.Component example={examples.components[anchor] || examples.compositions[anchor]} />
         : <Page.Template example={examples.templates[anchor]} />
     )
     : <GettingStarted />

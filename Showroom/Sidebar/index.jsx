@@ -53,6 +53,23 @@ export default function Sidebar ({examples}) {
             </a>
           ))
         }
+
+        <a
+          href='#/compositions'
+          className={styles.menuTitle} >
+          Templates
+        </a>
+
+        {
+          Object.values(examples.compositions).map(({title}) => (
+            <a
+              href={`#${title}`}
+              className={styles.menuItem}
+              key={title}>
+              {title}
+            </a>
+          ))
+        }
       </nav>
     </aside>
   )
