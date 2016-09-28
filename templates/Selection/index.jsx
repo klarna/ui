@@ -14,7 +14,6 @@ const classes = {
   selector: `${baseClass}__selector`
 }
 
-
 export default function Explanation ({
   className,
   onSelect,

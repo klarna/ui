@@ -15,7 +15,6 @@ const classes = {
   legal: `${baseClass}__paragraph--legal`
 }
 
-
 export default function Landing ({
   className,
   labels,

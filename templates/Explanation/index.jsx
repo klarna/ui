@@ -13,7 +13,6 @@ const classes = {
   legal: `${baseClass}__legal`
 }
 
-
 export default function Explanation ({
   className,
   content,
