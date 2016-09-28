@@ -117,6 +117,18 @@ export default React.createClass({
       className
     )
 
+    const inputElement = <input
+      className={classNames(icon ? classes.iconInput : classes.input)}
+      disabled={disabled}
+      value={value || ''}
+      onBlur={onBlur}
+      onChange={onChange}
+      onKeyDown={handleKeyDown(this.props)}
+      onFocus={onFocus}
+      ref='input'
+      {...props}
+    />
+
     return (
       <div
         className={cls}
@@ -135,30 +147,8 @@ export default React.createClass({
         </label>
 
         {mouseflowExclude
-          ? <MouseflowExclude>
-            <input
-              className={classNames(icon ? classes.iconInput : classes.input)}
-              disabled={disabled}
-              value={value || ''}
-              onBlur={onBlur}
-              onChange={onChange}
-              onKeyDown={handleKeyDown(this.props)}
-              onFocus={onFocus}
-              ref='input'
-              {...props}
-            />
-          </MouseflowExclude>
-          : <input
-            className={classNames(icon ? classes.iconInput : classes.input)}
-            disabled={disabled}
-            value={value || ''}
-            onBlur={onBlur}
-            onChange={onChange}
-            onKeyDown={handleKeyDown(this.props)}
-            onFocus={onFocus}
-            ref='input'
-            {...props}
-          />
+          ? <MouseflowExclude>{inputElement}</MouseflowExclude>
+          : inputElement
         }
 
       </div>

@@ -154,6 +154,29 @@ export default React.createClass({
       ? { color: customize.labelColor }
       : undefined
 
+    const selectElement = <select
+      className={classNames(classes.select)}
+      disabled={disabled || loading}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      onKeyDown={handleKeyDown(this.props)}
+      ref='select'
+      value={value || ''}
+      {...props}>
+      {options && options.map((attributes) => (
+        <option key={attributes.key} value={attributes.key} {...attributes}>
+          {attributes.label}
+        </option>
+      ))}
+    </select>
+
+    const selectedOptionElement = (selectedOption) => <div
+      className={classNames(classes.currentOption)}
+      style={selectedDynamicStyles}>
+      {selectedOption.label}
+    </div>
+
     return (
       <div
         className={cls}
@@ -169,55 +192,13 @@ export default React.createClass({
 
         {selectedOption && (
           mouseflowExclude
-            ? <MouseflowExclude>
-              <div
-                className={classNames(classes.currentOption)}
-                style={selectedDynamicStyles}>
-                {selectedOption.label}
-              </div>
-            </MouseflowExclude>
-            : <div
-              className={classNames(classes.currentOption)}
-              style={selectedDynamicStyles}>
-              {selectedOption.label}
-            </div>
+            ? <MouseflowExclude>{selectedOptionElement(selectedOption)}</MouseflowExclude>
+            : selectedOptionElement(selectedOption)
         )}
 
         {mouseflowExclude
-          ? <MouseflowExclude>
-            <select
-              className={classNames(classes.select)}
-              disabled={disabled || loading}
-              onBlur={onBlur}
-              onChange={onChange}
-              onFocus={onFocus}
-              onKeyDown={handleKeyDown(this.props)}
-              ref='select'
-              value={value || ''}
-              {...props}>
-              {options && options.map((attributes) => (
-                <option key={attributes.key} value={attributes.key} {...attributes}>
-                  {attributes.label}
-                </option>
-              ))}
-            </select>
-          </MouseflowExclude>
-          : <select
-            className={classNames(classes.select)}
-            disabled={disabled || loading}
-            onBlur={onBlur}
-            onChange={onChange}
-            onFocus={onFocus}
-            onKeyDown={handleKeyDown(this.props)}
-            ref='select'
-            value={value || ''}
-            {...props}>
-            {options && options.map((attributes) => (
-              <option key={attributes.key} value={attributes.key} {...attributes}>
-                {attributes.label}
-              </option>
-            ))}
-          </select>
+          ? <MouseflowExclude>{selectElement}</MouseflowExclude>
+          : selectElement
         }
       </div>
     )

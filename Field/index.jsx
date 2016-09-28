@@ -165,6 +165,22 @@ export default React.createClass({
       ? { color: customize.inputColor }
       : {}
 
+    const inputElement = <input
+      className={classNames(icon ? classes.iconInput : classes.input)}
+      disabled={disabled}
+      value={value || ''}
+      onBlur={onBlur}
+      onChange={onChange}
+      onKeyDown={handleKeyDown(this.props)}
+      onFocus={onFocus}
+      ref='input'
+      style={{
+        ...inputDynamicStyles,
+        ...style
+      }}
+      {...props}
+    />
+
     return (
       <div
         className={cls}
@@ -187,38 +203,8 @@ export default React.createClass({
         </label>
 
         {mouseflowExclude
-          ? <MouseflowExclude>
-            <input
-              className={classNames(icon ? classes.iconInput : classes.input)}
-              disabled={disabled}
-              value={value || ''}
-              onBlur={onBlur}
-              onChange={onChange}
-              onKeyDown={handleKeyDown(this.props)}
-              onFocus={onFocus}
-              ref='input'
-              style={{
-                ...inputDynamicStyles,
-                ...style
-              }}
-              {...props}
-            />
-          </MouseflowExclude>
-          : <input
-            className={classNames(icon ? classes.iconInput : classes.input)}
-            disabled={disabled}
-            value={value || ''}
-            onBlur={onBlur}
-            onChange={onChange}
-            onKeyDown={handleKeyDown(this.props)}
-            onFocus={onFocus}
-            ref='input'
-            style={{
-              ...inputDynamicStyles,
-              ...style
-            }}
-            {...props}
-          />
+          ? <MouseflowExclude>{inputElement}</MouseflowExclude>
+          : inputElement
         }
       </div>
     )
