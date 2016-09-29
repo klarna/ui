@@ -149,15 +149,24 @@
 }
 
 .radio__option__heading {
-  @include typography(($grid * 2.8), semi-bold);
+  @include typography(($grid * 3.2), semi-bold);
+
   display: block;
   line-height: ($grid * 4);
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.8), semi-bold);
+  }
 }
 
 .radio__option__description {
-  @include typography(($grid * 2.6), regular);
+  @include typography(($grid * 3), regular);
   color: map-get($colors, grey-text);
   line-height: ($grid * 4);
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.6), regular);
+  }
 
   .is-disabled & {
     color: map-get($colors, grey-lines);

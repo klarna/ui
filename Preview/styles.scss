@@ -2,15 +2,51 @@
 @import '../css/mixins/index';
 
 .preview {
-  @include preview;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  border: ($grid * .2) solid map-get($colors, grey-lines);
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  margin-bottom: ($grid * 5);
+  padding: ($grid * 2.8) ($grid * 4);
+
+  &.has-link {
+    cursor: pointer;
+    transition: all .2s ease;
+
+    &:hover {
+      border-color: map-get($colors, blue-hover);
+    }
+  }
+
+  &.dynamic-styling {
+    border: ($grid * .2) solid transparent;
+    position: relative;
+
+    &.has-link {
+      &:hover {
+        border: ($grid * .2) solid transparent;
+      }
+    }
+  }
 }
 
 .preview__title {
-  @include preview__title;
+  @include typography(($grid * 3.2), semi-bold);
+
+  line-height: ($grid * 3);
+  margin: 0;
+  padding: ($grid * .4) 0 ($grid * .6);
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.8), semi-bold);
+  }
 }
 
 .preview__content {
-  @include preview__content;
+  @include paragraph--primary-condensed;
+
+  margin: 0;
+  padding: 0;
 }
 
 .preview__footer {
@@ -20,7 +56,7 @@
 }
 
 .preview__footer__link {
-  @include typography(($grid * 2.6), regular);
+  @include typography(($grid * 3), regular);
   @include link;
 
   background: white;
@@ -28,12 +64,44 @@
   line-height: ($grid * 4.4);
   margin: 0 auto;
   padding: ($grid * 1) ($grid * 1) 0 ($grid * 1);
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.6), regular);
+  }
 }
 
 .preview__border {
-  @include preview__border;
+  border: ($grid * .2) solid map-get($colors, grey-lines);
+  border-radius: $border-radius;
+  bottom: 0;
+  display: block;
+  height: 100%;
+  left: 0;
+  margin: ($grid * -.2) 0 0 ($grid * -.2);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 }
 
 .preview__border--selected {
-  @include preview__border--selected;
+  border: ($grid * .2) solid map-get($colors, grey-lines);
+  border-radius: $border-radius;
+  bottom: 0;
+  display: block;
+  height: 100%;
+  left: 0;
+  margin: ($grid * -.2) 0 0 ($grid * -.2);
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all .2s ease;
+  width: 100%;
+  z-index: -1;
+
+  .preview.dynamic-styling:hover & {
+    opacity: 1;
+  }
 }

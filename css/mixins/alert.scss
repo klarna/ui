@@ -1,5 +1,5 @@
 @mixin alert ($background, $border, $color) {
-  @include typography(($grid * 2.6), regular);
+  @include typography(($grid * 3.0), regular);
 
   background-color: $background;
   border: 1px solid $border;
@@ -8,14 +8,22 @@
   display: inline-block;
   padding: ($grid * 4);
   text-align: center;
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.6), regular);
+  }
 }
 
 @mixin alert__title {
-  @include typography(($grid * 2.8), semi-bold);
+  @include typography(($grid * 3.2), semi-bold);
 
   line-height: ($grid * 3);
   margin: 0;
   padding: ($grid * .4) 0 ($grid * .6);
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.8), semi-bold);
+  }
 }
 
 @mixin alert__paragraph {

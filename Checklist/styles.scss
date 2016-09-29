@@ -2,13 +2,46 @@
 @import '../css/mixins/index';
 
 .checklist {
-  @include checklist;
+  border: ($grid * .2) solid map-get($colors, grey-lines);
+  border-radius: $border-radius;
+  line-height: ($grid * 5);
+  list-style: none;
+  margin: ($grid * -.2) 0 0 0;
+  padding: ($grid * 2) ($grid * 4) ($grid * 1.8);
+
+  &.chromeless {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
 
   &__item {
-    @include checklist__item;
+    @include typography(($grid * 3), regular);
+
+    margin: 0;
+    padding: 0 0 ($grid * .4) ($grid * 5);
+
+    @include respond-to-wide {
+      @include typography(($grid * 2.6), regular);
+    }
+
+    .chromeless & {
+      &:last-child {
+        padding-bottom: ($grid * .4);
+      }
+    }
   }
 
   &__checkmark {
-    @include checklist__checkmark;
+    fill: none;
+    height: ($grid * 4);
+    margin-left: ($grid * -5);
+    margin-right: ($grid);
+    position: relative;
+    stroke: map-get($colors, klarna-blue);
+    stroke-linecap: round;
+    stroke-width: 2;
+    top: $grid;
+    width: ($grid * 4);
   }
 }

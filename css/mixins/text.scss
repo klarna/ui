@@ -116,35 +116,55 @@
 
 @mixin paragraph--primary {
   @include paragraph;
-  @include typography(($grid * 2.6), regular);
+  @include typography(($grid * 3), regular);
   @include palette-colors();
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.6), regular);
+  }
 }
 
 @mixin paragraph--primary-condensed {
   @include paragraph-condensed;
-  @include typography(($grid * 2.6), regular);
+  @include typography(($grid * 3), regular);
   @include palette-colors();
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.6), regular);
+  }
 }
 
 @mixin paragraph--secondary {
   @include paragraph;
-  @include typography(($grid * 2.6), regular);
+  @include typography(($grid * 3), regular);
   @include palette-colors(map-get($colors, grey-text));
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.6), regular);
+  }
 }
 
 @mixin paragraph--secondary-condensed {
   @include paragraph-condensed;
-  @include typography(($grid * 2.6), regular);
+  @include typography(($grid * 3), regular);
   @include palette-colors(map-get($colors, grey-text));
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.6), regular);
+  }
 }
 
 @mixin paragraph--legal {
-  @include typography(($grid * 2.2), regular);
+  @include typography(($grid * 2.8), regular);
   @include palette-colors(map-get($colors, grey-text));
 
   line-height: ($grid * 4);
   margin: 0;
   padding: ($grid * .2) 0 ($grid * .8);
+
+  @include respond-to-wide {
+    @include typography(($grid * 2.2), regular);
+  }
 
   &.default-margins {
     padding: ($grid * .2) 0 ($grid * 2.8);
