@@ -16,6 +16,13 @@ export default React.createClass({
     }
   },
 
+  componentDidMount () {
+    window.addEventListener('resize', () => this.setState({
+      height: window.innerHeight,
+      width: window.innerWidth
+    }))
+  },
+
   render () {
     const {halfLine, line, offsets, ...props} = this.props
     const {height, width} = this.state
