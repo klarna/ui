@@ -2,9 +2,9 @@ import React from 'react'
 import classNames from 'classnames'
 import * as icons from './icons'
 import * as UI from '../../'
-import Code from '../../Code'
+import * as Code from '../../Code'
 import Footer from '../Footer'
-import CodeBlock from '../../Code/Block'
+import Highlight from '../../Code/Highlight'
 import NarrowLayoutLogo from '../NarrowLayoutLogo'
 
 import styles from './styles.scss'
@@ -54,7 +54,7 @@ export function Variation ({ exampleTitle, title, require, ...sections }) {
         {title}
       </UI.Title.Primary>
       <div style={{background: '#363636', padding: '2%', borderRadius: '4px', overflowX: 'scroll'}}>
-        <CodeBlock language='imports'>{require}</CodeBlock>
+        <Highlight language='imports'>{require}</Highlight>
       </div>
       {
         Object.keys(sections).map((section) => {
@@ -92,9 +92,9 @@ export function Section ({ code, children, name, wide }) {
         {name}
       </UI.Title.Secondary>
 
-      <Code customCode={code} wide={wide}>
+      <Code.Example customCode={code} wide={wide}>
         {children}
-      </Code>
+      </Code.Example>
     </section>
   )
 }

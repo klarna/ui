@@ -2,11 +2,12 @@ pre {
   margin: 0;
 
   code {
-    background: "#363636";
-    color: #fff;
-    font-family: 'Fira Code', 'Consolas', 'Menlo', 'Andale Mono', monospace;
-    font-weight: 100;
-    line-height: 1.5em;
+    // background: "#363636";
+    // color: #fff;
+    // font-family: 'Fira Code', 'Consolas', 'Menlo', 'Andale Mono', monospace;
+    // font-size: 13px;
+    // font-weight: 100;
+    // line-height: 1.5em;
   }
 }
 
@@ -16,7 +17,6 @@ pre {
   display: inline-block;
   min-width: 400px;
   overflow-x: auto;
-  padding: 2%;
   width: calc(56vw - 180px);
 
   &.narrow {

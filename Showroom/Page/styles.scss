@@ -8,6 +8,16 @@
   flex: 1;
   margin: 30px;
 
+  header {
+    display: block;
+    padding-bottom: 1px;
+
+    svg {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
   @include respond-to-wide {
     padding: 60px;
   }

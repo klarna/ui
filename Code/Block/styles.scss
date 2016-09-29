@@ -1,0 +1,18 @@
+.code__block__code {
+  code {
+    background: #363636;
+    border-radius: 4px;
+    color: #fff;
+    display: inline-block;
+    font-family: 'Fira Code', 'Consolas', 'Menlo', 'Andale Mono', monospace;
+    font-size: 13px;
+    font-weight: 100;
+    line-height: 20px;
+    overflow-x: auto;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 11px;
+    width: calc(100% - 40px);
+  }
+}

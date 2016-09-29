@@ -1,9 +1,9 @@
 import React from 'react'
 import {Usage, Implementation, UX} from './icons/GettingStarted'
 import * as UI from '../../'
-import CodeBlock from '../../Code/Block'
+import * as Code from '../../Code'
 import NarrowLayoutLogo from '../NarrowLayoutLogo'
-import Footer from 'Showroom/Footer'
+import Footer from '../../Showroom/Footer'
 
 import styles from './styles.scss'
 
@@ -47,11 +47,10 @@ export default function GettingStarted ({example}) {
         <UI.Subtitle>
           Install
         </UI.Subtitle>
-        <div style={{background: '#363636', padding: '2%', borderRadius: '4px', overflowX: 'scroll'}}>
-          <CodeBlock>
-            {'npm install react @klarna/ui --save'}
-          </CodeBlock>
-        </div>
+        <Code.Block>
+          {`npm install react @klarna/ui --save
+try again`}
+        </Code.Block>
       </section>
 
       <Footer />
