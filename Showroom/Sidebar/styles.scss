@@ -19,7 +19,12 @@
 
 .sidebarK {
   display: block;
+  fill: map-get($colors, klarna-blue);
   margin-bottom: 23px;
+
+  &:hover {
+    fill: map-get($colors, klarna-blue-hover);
+  }
 }
 
 .menuTitle {
@@ -37,6 +42,11 @@
 
 .menuItem {
   margin-left: ($grid * 2);
+}
+
+.menuItemSelected {
+  color: map-get($colors, black);
+  font-weight: map-get($font-weights, semi-bold);
 }
 
 // .menuItem {

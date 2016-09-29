@@ -29,7 +29,7 @@ export default function Showroom ({route, grid, examples}) {
           halfLine={5} line={10}
         />
       )}
-      <Sidebar examples={examples} />
+      <Sidebar examples={examples} selected={route[0]} />
       {getCurrentPage(route, examples)}
     </main>
   )
