@@ -3,11 +3,13 @@
 @import '../../css/mixins/index';
 
 .content {
+  background-color: #fff;
+  border-radius: 20px;
   flex: 1;
-  padding: 20px;
+  margin: 30px;
 
   @include respond-to-wide {
-    padding: 90px;
+    padding: 60px;
   }
 }
 
@@ -70,12 +72,17 @@
 
   li {
     display: inline-block;
-    padding: 2%;
+    padding-top: ($grid * 4);
     vertical-align: top;
     width: 29.3%;
 
     p {
       margin-top: 20px;
+    }
+
+    svg {
+      display: block;
+      margin: 0 auto;
     }
   }
 }

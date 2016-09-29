@@ -38,8 +38,6 @@ export default function GettingStarted ({example}) {
             </UI.Paragraph.Secondary>
           </li>
         </ol>
-        <nav className={styles.pageNav}>
-        </nav>
       </header>
 
       <section>
