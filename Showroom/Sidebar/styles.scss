@@ -4,7 +4,7 @@
 
 .sidebar {
   -webkit-font-smoothing: antialiased;
-  background: map-get($colors, sidebar-blue);
+  background: map-get($colors, light-grey);
   display: none;
   font-size: 13px;
   font-weight: normal;
@@ -17,30 +17,42 @@
   min-height: 100vh;
 }
 
-.k {
-  margin-bottom: 10px;
-}
-
-.menuTitle, .menuItem {
-  color: white;
+.sidebarK {
   display: block;
-  padding: 7px 0;
-  text-decoration: none;
+  margin-bottom: 23px;
 }
 
 .menuTitle {
-  font-size: 1.1em;
+  margin-top: ($grid * 2);
+}
+
+.menuTitleLink {
+  color: map-get($colors, black);
+  font-weight: map-get($font-weights, semi-bold);
+}
+
+.menuTitle + .menuItem {
+  margin-top: ($grid * 2);
 }
 
 .menuItem {
-  font-size: 0.9em;
-  font-weight: 300;
-  padding-left: 20px;
-
-  &.selected {
-    font-weight: 900;
-  }
+  margin-left: ($grid * 2);
 }
+
+// .menuItem {
+//   color: white;
+//   display: block;
+//   padding: 7px 0;
+//   text-decoration: none;
+//
+//   font-size: 0.9em;
+//   font-weight: 300;
+//   padding-left: 20px;
+//
+//   &.selected {
+//     font-weight: 900;
+//   }
+// }
 
 @media screen and (min-width: 1026px) {
   .sidebar {
