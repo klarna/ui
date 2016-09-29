@@ -59,12 +59,16 @@
 }
 
 @mixin title--secondary {
-  @include typography(($grid * 3), semi-bold);
+  @include typography(($grid * 3.4), semi-bold);
   @include palette-colors();
 
   line-height: ($grid * 3);
   margin: 0;
   padding: ($grid * .4) 0 ($grid * .6);
+
+  @include respond-to-wide {
+    @include typography(($grid * 3), semi-bold);
+  }
 
   &.condensed {
     padding: ($grid * .4) 0 ($grid * 1.6);
