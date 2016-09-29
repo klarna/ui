@@ -31,7 +31,7 @@
 }
 
 @mixin tooltip {
-  @include typography($grid * 3, regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
 
   background: map-get($colors, cello);
   border-radius: 6px;
@@ -45,7 +45,7 @@
   text-align: center;
 
   @include respond-to-wide {
-    @include typography($grid * 2.6, regular);
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
   }
 
   &:after {
@@ -57,14 +57,14 @@
 }
 
 @mixin tooltip-inverse {
-  @include typography($grid * 3, regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
 
   background: map-get($colors, light-grey);
   border: 1px solid $border-color;
   color: map-get($colors, black);
 
   @include respond-to-wide {
-    @include typography($grid * 2.6, regular);
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
   }
 
   &:before {

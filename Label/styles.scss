@@ -2,7 +2,7 @@
 @import '../css/mixins/index';
 
 .label {
-  @include typography(($grid * 2.8), regular);
+  @include typography(map-get($font-sizes, label-mobile), regular);
 
   background: map-get($colors, light-grey);
   border: ($grid * .2) solid map-get($colors, light-grey);
@@ -15,7 +15,7 @@
   position: relative;
 
   @include respond-to-wide {
-    @include typography(($grid * 2.4), regular);
+    @include typography(map-get($font-sizes, label-desktop), regular);
   }
 
   &.warning {

@@ -106,7 +106,7 @@
 }
 
 .dropdown__label {
-  @include typography(($grid * 3.2), regular);
+  @include typography(map-get($font-sizes, big-body-mobile), regular);
 
   color: map-get($colors, 'grey-text');
   line-height: ($grid * 10);
@@ -116,18 +116,18 @@
   white-space: nowrap;
 
   @include respond-to-wide {
-    @include typography(($grid * 2.8), regular);
+    @include typography(map-get($font-sizes, big-body-desktop), regular);
   }
 
   .is-selected & {
-    @include typography(($grid * 2.2), regular);
+    @include typography(map-get($font-sizes, input-label), regular);
 
     transform: translate(0, ($grid * -2));
     -ms-transform: translate(0, ($grid * -2));
 
     .is-error &,
     .is-warning & {
-      @include typography(($grid * 2.2), regular);
+      @include typography(map-get($font-sizes, input-label), regular);
 
       left: 0;
       top: 0;
@@ -150,7 +150,7 @@
 }
 
 .dropdown__current-option {
-  @include typography(($grid * 3.2), semi-bold);
+  @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
   color: map-get($colors, black);
   line-height: ($grid * 10);
@@ -158,7 +158,7 @@
   position: absolute;
 
   @include respond-to-wide {
-    @include typography(($grid * 2.8), semi-bold);
+    @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
   }
 
   .is-selected &,
