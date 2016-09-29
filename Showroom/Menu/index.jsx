@@ -32,7 +32,19 @@ export default function Menu ({examples}) {
       </Paragraph.Primary>
 
       {
-        Object.values(examples).map(({title}) => (
+        Object.values(examples.components).map(({title}) => (
+          <Paragraph.Primary margins>
+            <Link
+              color='white'
+              href={`#${title}`}
+              key={title}>
+              {title}
+            </Link>
+          </Paragraph.Primary>
+        ))
+      }
+      {
+        Object.values(examples.templates).map(({title}) => (
           <Paragraph.Primary margins>
             <Link
               color='white'

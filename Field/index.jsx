@@ -6,6 +6,7 @@ import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
+import MouseflowExclude from '../MouseflowExclude'
 
 const baseClass = 'field'
 
@@ -30,6 +31,7 @@ export default React.createClass({
       loading: false,
       onChange: function () {},
       responsive: true,
+      mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
       ...fieldStates.defaultProps,
       ...stacking.position.defaultProps,
@@ -51,6 +53,7 @@ export default React.createClass({
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
+    mouseflowExclude: PropTypes.bool,
     responsive: PropTypes.bool,
     value: PropTypes.string,
     styles: PropTypes.object,
@@ -105,6 +108,7 @@ export default React.createClass({
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
+      mouseflowExclude,
       onBlur,
       onChange,
       onClick,
@@ -161,6 +165,22 @@ export default React.createClass({
       ? { color: customize.inputColor }
       : {}
 
+    const inputElement = <input
+      className={classNames(icon ? classes.iconInput : classes.input)}
+      disabled={disabled}
+      value={value || ''}
+      onBlur={onBlur}
+      onChange={onChange}
+      onKeyDown={handleKeyDown(this.props)}
+      onFocus={onFocus}
+      ref='input'
+      style={{
+        ...inputDynamicStyles,
+        ...style
+      }}
+      {...props}
+    />
+
     return (
       <div
         className={cls}
@@ -182,21 +202,10 @@ export default React.createClass({
           {label}
         </label>
 
-        <input
-          className={classNames(icon ? classes.iconInput : classes.input)}
-          disabled={disabled}
-          value={value || ''}
-          onBlur={onBlur}
-          onChange={onChange}
-          onKeyDown={handleKeyDown(this.props)}
-          onFocus={onFocus}
-          ref='input'
-          style={{
-            ...inputDynamicStyles,
-            ...style
-          }}
-          {...props}
-        />
+        {mouseflowExclude
+          ? <MouseflowExclude>{inputElement}</MouseflowExclude>
+          : inputElement
+        }
       </div>
     )
   }
