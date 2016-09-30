@@ -2,26 +2,30 @@
 @import '../settings.scss';
 @import '../../css/mixins/index';
 
-.content {
-  background-color: #fff;
-  border-radius: 20px;
-  flex: 1;
-  margin: 30px;
-
-  header {
-    display: block;
-    padding-bottom: 1px;
-
-    svg {
-      display: block;
-      margin: 0 auto;
-    }
-  }
-
-  @include respond-to-wide {
-    padding: 60px;
-  }
+.page__section__example {
+  width: calc(56vw - 180px);
 }
+
+// .content {
+//   background-color: #fff;
+//   border-radius: 20px;
+//   flex: 1;
+//   margin: 30px;
+//
+//   header {
+//     display: block;
+//     padding-bottom: 1px;
+//
+//     svg {
+//       display: block;
+//       margin: 0 auto;
+//     }
+//   }
+//
+//   @include respond-to-wide {
+//     padding: 60px;
+//   }
+// }
 
 .pageNav {
   border-bottom: 1px solid #eee;

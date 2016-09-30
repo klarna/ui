@@ -1,5 +1,5 @@
 import React from 'react'
-import Highlight from '../Highlight'
+import Block from '../Block'
 import classNames from 'classnames'
 import asCode from '../asCode'
 import styles from './styles.scss'
@@ -13,11 +13,9 @@ export default function Example ({ customCode, children, width, wide }) {
       {children}
     </article>
 
-    <div
-      className={classNames(styles.code, { [styles.narrow]: wide })}>
-      <Highlight>
-        {customCode || asCode(children)}
-      </Highlight>
-    </div>
+    <Block
+      className={wide && styles.narrow}>
+      {customCode || asCode(children)}
+    </Block>
   </section>
 }

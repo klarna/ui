@@ -1,10 +1,22 @@
 import React from 'react'
 import Highlight from '../Highlight'
-import styles from './styles.scss'
+import classNamesBind from 'classnames/bind'
+import defaultStyles from './styles.scss'
 
-export default function Block ({children, ...props}) {
+const baseClass = 'code--block'
+
+export default function Block ({
+  className,
+  children,
+  language,
+  standalone,
+  styles,
+  ...props
+}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+
   return <div
-    className={styles.code__block__code}>
-    <Highlight {...props}>{children}</Highlight>
+    className={classNames(baseClass, {standalone})} {...props}>
+    <Highlight language={language}>{children}</Highlight>
   </div>
 }

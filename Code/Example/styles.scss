@@ -11,13 +11,13 @@ pre {
   }
 }
 
-.code {
-  background: #363636;
-  border-radius: 4px;
-  display: inline-block;
-  min-width: 400px;
-  overflow-x: auto;
-  width: calc(56vw - 180px);
+.code__block__code {
+  // background: #363636;
+  // border-radius: 4px;
+  // display: inline-block;
+  // min-width: 400px;
+  // overflow-x: auto;
+  // width: calc(56vw - 180px);
 
   &.narrow {
     width: calc(38vw - 180px);

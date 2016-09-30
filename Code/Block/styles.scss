@@ -1,4 +1,6 @@
-.code__block__code {
+.code--block {
+  display: inline-block;
+
   code {
     background: #363636;
     border-radius: 4px;
@@ -13,6 +15,13 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 11px;
-    width: calc(100% - 40px);
+  }
+
+  &.standalone {
+    display: block;
+
+    code {
+      width: calc(100% - 40px);
+    }
   }
 }
