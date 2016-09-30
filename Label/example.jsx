@@ -5,8 +5,7 @@ import * as Block from '../Block'
 export default {
   title: 'Label',
   icon: 'Label',
-  variations: [{
-    title: 'Label',
+  examples: {
     require: 'import Label from \'@klarna/ui/Label\'',
     Regular: designs.map((design) => (
       <Label key={design} design={design} style={{margin: '5px'}}>
@@ -31,5 +30,5 @@ export default {
         </Label>
       </Block.Plain>
     ]
-  }]
+  }
 }

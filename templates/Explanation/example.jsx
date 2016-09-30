@@ -4,8 +4,7 @@ import Wrapper from '../Wrapper'
 
 export default {
   title: 'Explanation',
-  variations: [{
-    title: 'Explanation Dialog',
+  examples: {
     require: 'import Explanation from \'@klarna/ui/templates/Explanation\'',
 
     Regular: {
@@ -26,5 +25,5 @@ export default {
         </Wrapper>
       ]
     }
-  }]
+  }
 }

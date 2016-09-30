@@ -11,8 +11,7 @@ const options = [
 
 export default {
   title: 'Radio',
-  variations: [{
-    title: 'Radio',
+  examples: {
     require: `import Radio from '@klarna/ui/Radio'
 import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
     Regular: [
@@ -71,5 +70,5 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
         value='ipsum'
       />
     ]
-  }]
+  }
 }

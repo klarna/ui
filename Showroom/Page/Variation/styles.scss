@@ -5,6 +5,11 @@
   &:first-of-type {
     margin-top: -1px;
   }
+
+  &:first-of-type:last-child {
+    border-top: 0;
+    margin-top: 0;
+  }
 }
 
 .page__variation__heading {

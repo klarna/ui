@@ -4,8 +4,7 @@ import Tooltip from '../Tooltip'
 export default {
   title: 'Tooltip',
   icon: 'Tooltip',
-  variations: [{
-    title: 'Tooltip',
+  examples: {
     require: 'import Tooltip from \'@klarna/ui/Tooltip\'',
     'Top left': (
       <Tooltip arrow='top-left'>
@@ -89,5 +88,5 @@ export default {
         Lorem Ipsum is simply dummy text of the printing industry.
       </Tooltip>
     )
-  }]
+  }
 }

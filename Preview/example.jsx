@@ -4,8 +4,7 @@ import * as Preview from '../Preview'
 export default {
   title: 'Preview',
   icon: 'Preview',
-  variations: [{
-    title: 'Preview',
+  examples: {
     require: 'import * as Preview from \'@klarna/ui/Preview\'',
     Regular: (
       <Preview.Main>
@@ -33,5 +32,5 @@ export default {
         </Preview.Link>
       </Preview.Main>
     )
-  }]
+  }
 }

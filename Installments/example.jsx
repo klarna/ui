@@ -13,8 +13,7 @@ const wide = (example) => ({ example, wide: true })
 
 export default {
   title: 'Installments',
-  variations: [{
-    title: 'Installments',
+  examples: {
     require: `import Installments from '@klarna/ui/Installments'
 import UncontrolledInstallments from '@klarna/ui/uncontrolled/Installments'`,
     Regular: wide([
@@ -43,5 +42,5 @@ import UncontrolledInstallments from '@klarna/ui/uncontrolled/Installments'`,
         options={options}
       />
     ])
-  }]
+  }
 }

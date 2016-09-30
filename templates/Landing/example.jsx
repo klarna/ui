@@ -26,8 +26,7 @@ const DemoIcon = () => (
 
 export default {
   title: 'Landing',
-  variations: [{
-    title: 'Landing Dialog',
+  examples: {
     require: 'import Landing from \'@klarna/ui/templates/Landing\'',
 
     Regular: {
@@ -172,5 +171,5 @@ export default {
         </Wrapper>
       )
     }
-  }]
+  }
 }

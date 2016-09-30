@@ -4,8 +4,7 @@ import UncontrolledField from '../uncontrolled/Field'
 
 export default {
   title: 'MouseflowExclude',
-  variations: [{
-    title: 'MouseflowExclude',
+  examples: {
     require: `import MouseflowExclude from '@klarna/ui/MouseflowExclude'
 import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
     Regular: (
@@ -16,5 +15,5 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
         />
       </MouseflowExclude>
     )
-  }]
+  }
 }

@@ -17,13 +17,11 @@ const classes = {
 
 const classNames = classNamesBind.bind(styles)
 
-function VariationWrapper ({children, exampleTitle, title, require}) {
+function VariationWrapper ({children, title, require}) {
   return <section className={classNames(baseClass)}>
-    <a name={`${exampleTitle}/${title}`}></a>
-
-    <Title.Primary className={classNames(classes.heading)}>
+    {title && <Title.Primary className={classNames(classes.heading)}>
       {title}
-    </Title.Primary>
+    </Title.Primary>}
 
     <div className={classNames(classes.navigation)}>
       <Title.Secondary className={classNames(classes.navigationComponent)}>Component</Title.Secondary>
@@ -36,9 +34,8 @@ function VariationWrapper ({children, exampleTitle, title, require}) {
   </section>
 }
 
-export function Component ({exampleTitle, title, require, ...sections}) {
+export function Component ({title, require, ...sections}) {
   return <VariationWrapper
-    exampleTitle={exampleTitle}
     title={title}
     require={require}>
     {Object.keys(sections).map((section) => {
@@ -62,9 +59,8 @@ export function Component ({exampleTitle, title, require, ...sections}) {
   </VariationWrapper>
 }
 
-export function Template ({exampleTitle, title, require, ...sections}) {
+export function Template ({title, require, ...sections}) {
   return <VariationWrapper
-    exampleTitle={exampleTitle}
     title={title}
     require={require}>
     {Object.keys(sections).map((section) => <Example

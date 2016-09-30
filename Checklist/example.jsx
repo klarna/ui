@@ -4,8 +4,7 @@ import * as Checklist from './'
 export default {
   title: 'Checklist',
   icon: 'Checklist',
-  variations: [{
-    title: 'Checklist',
+  examples: {
     require: 'import * as Checklist from \'@klarna/ui/Checklist\'',
     Regular: (
       <Checklist.Main>
@@ -21,5 +20,5 @@ export default {
         <Checklist.Item>Just do it! It can be done today, so why wait for  tomorrow?</Checklist.Item>
       </Checklist.Main>
     )
-  }]
+  }
 }

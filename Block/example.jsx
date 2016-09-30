@@ -4,9 +4,7 @@ import * as Block from '../Block'
 export default {
   title: 'Block',
   icon: 'Block',
-
-  variations: [{
-    title: 'Installments',
+  examples: {
     require: 'import * as Block from \'@klarna/ui/Block\'',
     Regular: (
       <Block.Installments.Main>
@@ -24,5 +22,5 @@ export default {
         </Block.Installments.Content>
       </Block.Installments.Main>
     )
-  }]
+  }
 }

@@ -5,8 +5,7 @@ import Logout from '../icons/Logout'
 export default {
   title: 'ContextMenu',
   icon: 'Navigation',
-  variations: [{
-    title: 'ContextMenu',
+  examples: {
     require: 'import * as ContextMenu from \'@klarna/ui/ContextMenu\'',
     Regular: (
       <ContextMenu.Main>
@@ -38,5 +37,5 @@ export default {
         </ContextMenu.Main>
       </div>
     )
-  }]
+  }
 }

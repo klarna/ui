@@ -26,18 +26,20 @@ export default function Component ({example}) {
     <header className={classNames(classes.header)}>
       {example.icon && <Icon className={classNames(classes.icon)} />}
 
-      <Title.Primary className={classNames(classes.heading)}>{example.title}</Title.Primary>
+      <Title.Primary className={classNames(classes.heading)}>
+        {example.title}
+      </Title.Primary>
 
-      <Paragraph.Primary>{example.variations.map((variation) => <Link
+      {example.variations && <Paragraph.Primary>
+        {example.variations.map((variation) => <Link
         className={classNames(classes.menuItem)}
         key={`#${example.title}/${variation.title}`}
-        href={`#${example.title}/${variation.title}`}>{variation.title}</Link>)}</Paragraph.Primary>
+        href={`#${example.title}/${variation.title}`}>{variation.title}</Link>)}
+      </Paragraph.Primary>}
     </header>
 
-    {example.variations.map((variation, index) => <Variation.Component
-      key={index}
-      exampleTitle={example.title}
-      {...variation}
-    />)}
+    {example.variations && example.variations.map((variation, index) => <Variation.Component key={index} {...variation} />)}
+
+    {example.examples && <Variation.Component {...example.examples} />}
   </Content>
 }

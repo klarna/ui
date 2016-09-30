@@ -58,8 +58,7 @@ const Example = React.createClass({
 export default {
   title: 'Dialog',
   icon: 'Dialog',
-  variations: [{
-    title: 'Dialog',
+  examples: {
     require: 'import * as Dialog from \'@klarna/ui/Dialog\'',
     Regular: {
       example: (
@@ -92,5 +91,5 @@ export default {
   </Dialog.Main>
 </Dialog.Overlay>`
     }
-  }]
+  }
 }

@@ -9,8 +9,7 @@ const optionsData = [
 
 export default {
   title: 'Selection',
-  variations: [{
-    title: 'Selection Dialog',
+  examples: {
     require: 'import Selection from \'@klarna/ui/templates/Selection\'',
 
     Regular: {
@@ -35,5 +34,5 @@ export default {
         </Wrapper>
       ]
     }
-  }]
+  }
 }

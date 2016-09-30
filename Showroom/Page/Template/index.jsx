@@ -26,16 +26,16 @@ export default function Template ({example}) {
         {example.title}
       </Title.Primary>
 
-      <Paragraph.Primary>{example.variations.map((variation) => <Link
+      {example.variations && <Paragraph.Primary>
+        {example.variations.map((variation) => <Link
         className={classNames(classes.menuItem)}
         key={`#${example.title}/${variation.title}`}
-        href={`#${example.title}/${variation.title}`}>{variation.title}</Link>)}</Paragraph.Primary>
+        href={`#${example.title}/${variation.title}`}>{variation.title}</Link>)}
+      </Paragraph.Primary>}
     </header>
 
-    {example.variations.map((variation, index) => <Variation.Template
-      key={index}
-      exampleTitle={example.title}
-      {...variation}
-    />)}
+    {example.variations && example.variations.map((variation, index) => <Variation.Template key={index} {...variation} />)}
+
+    {example.examples && <Variation.Template {...example.examples} />}
   </Content>
 }

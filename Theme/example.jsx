@@ -26,8 +26,7 @@ const options = [
 
 export default {
   title: 'Theme',
-  variations: [{
-    title: 'Theme',
+  examples: {
     require: `import Theme from '@klarna/ui/Theme'
 import * as ThemeableButton from '@klarna/ui/themeable/Button'
 import * as ThemeableChecklist from '@klarna/ui/themeable/Checklist'
@@ -204,5 +203,5 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
         </ThemeableList.Ordered>
       </Theme>
     ]
-  }]
+  }
 }

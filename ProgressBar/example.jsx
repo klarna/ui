@@ -3,8 +3,7 @@ import ProgressBar from '../ProgressBar'
 
 export default {
   title: 'ProgressBar',
-  variations: [{
-    title: 'ProgressBar',
+  examples: {
     require: 'import ProgressBar from \'@klarna/ui/ProgressBar\'',
     Regular: [
       <ProgressBar percentage={50} />
@@ -18,5 +17,5 @@ export default {
     'Custom inline styles': [
       <ProgressBar percentage={50} style={{height: '20px', width: '70%'}} />
     ]
-  }]
+  }
 }
