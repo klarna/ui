@@ -52,10 +52,11 @@ export function Component ({exampleTitle, title, require, ...sections}) {
       const customCode = hasStructure && sections[section].code
 
       return <Example
-      code={customCode}
-      key={section}
-      name={section} wide={wide}>
-      {example}
+        code={customCode}
+        key={section}
+        name={section}
+        wide={wide}>
+        {example}
       </Example>
     })}
   </VariationWrapper>

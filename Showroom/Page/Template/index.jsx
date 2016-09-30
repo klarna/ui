@@ -1,6 +1,5 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as icons from '../icons'
 import Content from '../Content'
 import Link from '../../../Link'
 import * as Paragraph from '../../../Paragraph'

@@ -5,7 +5,6 @@ import Content from '../Content'
 import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
 import Subtitle from '../../../Subtitle'
-import K from '../../K'
 
 import styles from './styles.scss'
 

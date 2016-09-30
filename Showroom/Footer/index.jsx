@@ -22,10 +22,10 @@ export default function Footer () {
         <Paragraph.Legal
           className={styles['footer__legal']}>
           Copyright © 2015-2016 <Link
-            target='_blank' 
-            href='https://klarna.com'>Klarna AB</Link>. Version <Link
             target='_blank'
-            href={`https://github.com/klarna/ui/releases/tag/v${version}`}>{version}</Link>
+            href='https://klarna.com'>Klarna AB</Link>. Version <Link
+              target='_blank'
+              href={`https://github.com/klarna/ui/releases/tag/v${version}`}>{version}</Link>
         </Paragraph.Legal>
       </div>
     </div>
