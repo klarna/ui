@@ -1,11 +1,15 @@
 .code--block {
-  display: inline-block;
+  display: block;
+
+  pre {
+    margin: 0;
+  }
 
   code {
     background: #363636;
     border-radius: 4px;
     color: #fff;
-    display: inline-block;
+    display: block;
     font-family: 'Fira Code', 'Consolas', 'Menlo', 'Andale Mono', monospace;
     font-size: 13px;
     font-weight: 100;

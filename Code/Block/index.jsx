@@ -16,7 +16,7 @@ export default function Block ({
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return <div
-    className={classNames(baseClass, {standalone})} {...props}>
+    className={classNames(baseClass, {standalone}, className)} {...props}>
     <Highlight language={language}>{children}</Highlight>
   </div>
 }

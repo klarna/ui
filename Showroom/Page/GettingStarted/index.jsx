@@ -62,8 +62,7 @@ export default function GettingStarted ({example}) {
       </Subtitle>
 
       <Code.Block standalone>
-        {`npm install react @klarna/ui --save
-try again`}
+        npm install react @klarna/ui --save
       </Code.Block>
     </section>
   </Content>

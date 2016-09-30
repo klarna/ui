@@ -26,7 +26,7 @@ export default function Link ({className, color, children, style, styles, custom
 
 Link.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   color: PropTypes.oneOf(palette),
   customize: PropTypes.shape({
     textColor: PropTypes.string.isRequired

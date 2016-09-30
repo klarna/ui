@@ -3,30 +3,35 @@ import classNamesBind from 'classnames/bind'
 import * as icons from '../icons'
 import Content from '../Content'
 import Link from '../../../Link'
+import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
 import * as Variation from '../Variation'
 
-// import defaultStyles from './styles.scss'
+import styles from './styles.scss'
 
-export default function Component ({example, styles}) {
-  // const classNames = classNamesBind.bind(defaultStyles)
+const baseClass = 'page__component'
+
+const classes = {
+  header: `${baseClass}__header`,
+  heading: `${baseClass}__heading`,
+  icon: `${baseClass}__icon`,
+  menuItem: `${baseClass}__menu__item`
+}
+
+export default function Component ({example}) {
+  const classNames = classNamesBind.bind(styles)
   const Icon = icons[example.icon]
 
   return <Content>
-    <header>
-      {example.icon && <Icon />}
+    <header className={classNames(classes.header)}>
+      {example.icon && <Icon className={classNames(classes.icon)} />}
 
-      <Title.Primary margins>
-        {example.title}
-      </Title.Primary>
+      <Title.Primary className={classNames(classes.heading)}>{example.title}</Title.Primary>
 
-      <nav>
-        {example.variations.map((variation) => <Link
-          key={`#${example.title}/${variation.title}`}
-          href={`#${example.title}/${variation.title}`}>
-          {variation.title}
-        </Link>)}
-      </nav>
+      <Paragraph.Primary>{example.variations.map((variation) => <Link
+        className={classNames(classes.menuItem)}
+        key={`#${example.title}/${variation.title}`}
+        href={`#${example.title}/${variation.title}`}>{variation.title}</Link>)}</Paragraph.Primary>
     </header>
 
     {example.variations.map((variation, index) => <Variation.Component
@@ -36,27 +41,3 @@ export default function Component ({example, styles}) {
     />)}
   </Content>
 }
-
-/* <article className={classNames('content')}>
-<header>
-{example.icon && <Icon />}
-
-<Title.Primary margins>
-{example.title}
-</Title.Primary>
-
-<nav className={classNames('pageNav')}>
-{example.variations.map((variation) => <Link
-key={`#${example.title}/${variation.title}`}
-href={`#${example.title}/${variation.title}`}>
-{variation.title}
-</Link>)}
-</nav>
-</header>
-
-{example.variations.map((variation, index) => <Variation.Component
-key={index}
-exampleTitle={example.title}
-{...variation}
-/>)}
-</article> */

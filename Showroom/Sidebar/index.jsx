@@ -32,16 +32,14 @@ export default function Sidebar ({examples, selected}) {
           </Link>
         </Paragraph.Primary>
 
-        {
-          Object.values(examples.components).map(({title}) => <Paragraph.Primary className={styles.menuItem}>
-            <Link
-              className={title === selected && styles.menuItemSelected}
-              href={`#${title}`}
-              key={title}>
-              {title}
-            </Link>
-          </Paragraph.Primary>)
-        }
+        {Object.values(examples.components).map(({title}, index) => <Paragraph.Primary key={index} className={styles.menuItem}>
+          <Link
+            className={title === selected && styles.menuItemSelected}
+            href={`#${title}`}
+            key={title}>
+            {title}
+          </Link>
+        </Paragraph.Primary>)}
 
         <Paragraph.Primary className={styles.menuTitle}>
           <Link href='#templates' className={styles.menuTitleLink}>
@@ -49,16 +47,14 @@ export default function Sidebar ({examples, selected}) {
           </Link>
         </Paragraph.Primary>
 
-        {
-          Object.values(examples.templates).map(({title}) => <Paragraph.Primary className={styles.menuItem}>
-            <Link
-              className={title === selected && styles.menuItemSelected}
-              href={`#${title}`}
-              key={title}>
-              {title}
-            </Link>
-          </Paragraph.Primary>)
-        }
+        {Object.values(examples.templates).map(({title}, index) => <Paragraph.Primary key={index} className={styles.menuItem}>
+          <Link
+            className={title === selected && styles.menuItemSelected}
+            href={`#${title}`}
+            key={title}>
+            {title}
+          </Link>
+        </Paragraph.Primary>)}
       </nav>
     </aside>
   )

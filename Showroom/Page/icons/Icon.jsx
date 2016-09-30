@@ -1,8 +1,8 @@
 import React from 'react'
 import Base, {Page} from './Base'
 
-export default () => (
-  <Base title='Icon' circleFill='#48E29F'>
+export default ({className}) => (
+  <Base className={className} title='Icon' circleFill='#48E29F'>
     <Page />
     <path strokeLinecap='round' strokeLinejoin='round' d='M44 40l4 4l8 -9' stroke='#48E29F' strokeWidth='2' />
     <rect fill='#4F627F' x='35' y='67' width='30' height='2' rx='1'/>

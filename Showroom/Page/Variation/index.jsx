@@ -1,18 +1,35 @@
 import React from 'react'
+import classNamesBind from 'classnames/bind'
 import Example from '../Example'
 import * as Title from '../../../Title'
 import * as Code from '../../../Code'
 
 import styles from './styles.scss'
 
+const baseClass = 'page__variation'
+
+const classes = {
+  heading: `${baseClass}__heading`,
+  navigation: `${baseClass}__navigation`,
+  navigationComponent: `${baseClass}__navigation__component`,
+  navigationReactCode: `${baseClass}__navigation__react--code`
+}
+
 export function Component ({exampleTitle, title, require, ...sections}) {
+  const classNames = classNamesBind.bind(styles)
+
   return (
-    <section className={styles.section} key={`#${exampleTitle}/${title}`}>
+    <section className={classNames(baseClass)}>
       <a name={`${exampleTitle}/${title}`}></a>
 
-      <Title.Primary className={styles.designTitle} margins>
+      <Title.Primary className={classNames(classes.heading)}>
         {title}
       </Title.Primary>
+
+      <div className={classNames(classes.navigation)}>
+        <Title.Secondary className={classNames(classes.navigationComponent)}>Component</Title.Secondary>
+        <Title.Secondary className={classNames(classes.navigationReactCode)}>React code</Title.Secondary>
+      </div>
 
       <Code.Block language='imports' standalone>{require}</Code.Block>
 
@@ -37,7 +54,7 @@ export function Component ({exampleTitle, title, require, ...sections}) {
   )
 }
 
-export function Template ({ exampleTitle, title, require, ...sections }) {
+export function Template ({exampleTitle, title, require, ...sections}) {
   return (
     <section className={styles.section} key={`#${exampleTitle}/${title}`}>
       <a name={`${exampleTitle}/${title}`}></a>
