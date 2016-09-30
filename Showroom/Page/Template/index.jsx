@@ -1,34 +1,42 @@
 import React from 'react'
-import classNames from 'classnames'
+import classNamesBind from 'classnames/bind'
+import * as icons from '../icons'
 import Content from '../Content'
 import Link from '../../../Link'
+import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
 import * as Variation from '../Variation'
 
 import styles from './styles.scss'
 
+const baseClass = 'page__template'
+
+const classes = {
+  header: `${baseClass}__header`,
+  heading: `${baseClass}__heading`,
+  icon: `${baseClass}__icon`,
+  menuItem: `${baseClass}__menu__item`
+}
+
 export default function Template ({example}) {
-  return (
-    <Content>
-      <header>
-        <Title.Primary margins>
-          {example.title}
-        </Title.Primary>
+  const classNames = classNamesBind.bind(styles)
 
-        <nav className={styles.pageNav}>
-          {example.variations.map((variation, index) => <Link
-            key={`#${example.title}/${variation.title}`}
-            href={`#${example.title}/${variation.title}`}>
-            {variation.title}
-          </Link>)}
-        </nav>
-      </header>
+  return <Content>
+    <header className={classNames(classes.header)}>
+      <Title.Primary className={classNames(classes.heading)}>
+        {example.title}
+      </Title.Primary>
 
-      {example.variations.map((variation, index) => <Variation.Template
-        key={index}
-        exampleTitle={example.title}
-        {...variation}
-      />)}
-    </Content>
-  )
+      <Paragraph.Primary>{example.variations.map((variation) => <Link
+        className={classNames(classes.menuItem)}
+        key={`#${example.title}/${variation.title}`}
+        href={`#${example.title}/${variation.title}`}>{variation.title}</Link>)}</Paragraph.Primary>
+    </header>
+
+    {example.variations.map((variation, index) => <Variation.Template
+      key={index}
+      exampleTitle={example.title}
+      {...variation}
+    />)}
+  </Content>
 }
