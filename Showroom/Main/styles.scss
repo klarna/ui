@@ -4,3 +4,16 @@
 .page__main {
   flex: 1;
 }
+
+.page__narrow--anchor {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+@media screen and (max-width: 1025px) {
+  .page__narrow--anchor {
+    display: block;
+  }
+}

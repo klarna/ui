@@ -31,30 +31,23 @@ export default function Menu ({examples}) {
         </Link>
       </Paragraph.Primary>
 
-      {
-        Object.values(examples.components).map(({title}) => (
-          <Paragraph.Primary margins>
-            <Link
-              color='white'
-              href={`#${title}`}
-              key={title}>
-              {title}
-            </Link>
-          </Paragraph.Primary>
-        ))
-      }
-      {
-        Object.values(examples.templates).map(({title}) => (
-          <Paragraph.Primary margins>
-            <Link
-              color='white'
-              href={`#${title}`}
-              key={title}>
-              {title}
-            </Link>
-          </Paragraph.Primary>
-        ))
-      }
+      {Object.values(examples.components).map(({title}, index) => <Paragraph.Primary key={index} margins>
+        <Link
+          color='white'
+          href={`#${title}`}
+          key={title}>
+          {title}
+        </Link>
+      </Paragraph.Primary>)}
+
+      {Object.values(examples.templates).map(({title}, index) => <Paragraph.Primary key={index} margins>
+        <Link
+          color='white'
+          href={`#${title}`}
+          key={title}>
+          {title}
+        </Link>
+      </Paragraph.Primary>)}
     </nav>
   )
 }

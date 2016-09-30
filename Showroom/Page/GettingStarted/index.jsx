@@ -5,14 +5,12 @@ import Content from '../Content'
 import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
 import Subtitle from '../../../Subtitle'
-import NarrowLayoutLogo from '../../NarrowLayoutLogo'
+import K from '../../K'
 
 import styles from './styles.scss'
 
 export default function GettingStarted ({example}) {
   return <Content>
-    <NarrowLayoutLogo />
-
     <header className={styles['getting-started__header']}>
       <Title.Primary margins>
         Getting started

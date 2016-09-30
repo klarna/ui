@@ -2,10 +2,11 @@ import React from 'react'
 import Footer from '../Footer'
 import GettingStarted from '../Page/GettingStarted'
 import Grid from '../Grid'
+import Link from '../../Link'
 import Menu from '../Menu'
 import * as Page from '../Page'
 import Sidebar from '../Sidebar'
-import NarrowLayoutLogo from '../NarrowLayoutLogo'
+import K from '../K'
 import { has } from 'ramda'
 
 import 'normalize.css'
@@ -34,9 +35,11 @@ export default function Showroom ({route, grid, examples}) {
 
       <Sidebar examples={examples} selected={route[0]} />
 
-      <NarrowLayoutLogo />
+      <Link className={styles['page__narrow--anchor']} href='#menu'>
+        <K hoverable />
+      </Link>
 
-      <div className={styles.page__main}>        
+      <div className={styles.page__main}>
         {getCurrentPage(route, examples)}
 
         <Footer />

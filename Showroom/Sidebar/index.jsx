@@ -1,6 +1,6 @@
 import React from 'react'
-import * as Paragraph from '../../Paragraph'
 import Link from '../../Link'
+import * as Paragraph from '../../Paragraph'
 import styles from './styles.scss'
 
 export default function Sidebar ({examples, selected}) {
