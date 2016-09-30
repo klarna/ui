@@ -53,9 +53,8 @@ export function Variation ({ exampleTitle, title, require, ...sections }) {
       <UI.Title.Primary className={styles.designTitle} margins>
         {title}
       </UI.Title.Primary>
-      <div style={{background: '#363636', padding: '2%', borderRadius: '4px', overflowX: 'scroll'}}>
-        <Highlight language='imports'>{require}</Highlight>
-      </div>
+
+      <Code.Block language='imports'>{require}</Code.Block>
       {
         Object.keys(sections).map((section) => {
           const hasStructure = sections[section].example != null
