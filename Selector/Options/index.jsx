@@ -18,7 +18,7 @@ export default React.createClass({
   propTypes: {
     className: PropTypes.string,
     data: PropTypes.array.isRequired,
-    focus: PropTypes.string,
+    focus: PropTypes.any,
     name: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,

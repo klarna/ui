@@ -31,7 +31,7 @@ export default {
     require: 'import Landing from \'@klarna/ui/templates/Landing\'',
 
     Regular: {
-      inline: [
+      inline: (
         <Landing
           illustration={<DemoIcon />}
           labels={{
@@ -41,8 +41,8 @@ export default {
           }}
           onAccept={() => console.log('accept')}
         />
-      ],
-      wrapper: [
+      ),
+      wrapper: (
         <Wrapper>
           <Landing
             illustration={<DemoIcon />}
@@ -54,11 +54,11 @@ export default {
             onAccept={() => console.log('accept')}
           />
         </Wrapper>
-      ]
+      )
     },
 
     'With legal copy': {
-      inline: [
+      inline: (
         <Landing
           illustration={<DemoIcon />}
           labels={{
@@ -69,8 +69,8 @@ export default {
           }}
           onAccept={() => console.log('accept')}
         />
-      ],
-      wrapper: [
+      ),
+      wrapper: (
         <Wrapper>
           <Landing
             illustration={<DemoIcon />}
@@ -83,11 +83,11 @@ export default {
             onAccept={() => console.log('accept')}
           />
         </Wrapper>
-      ]
+      )
     },
 
     'With Secondary button': {
-      inline: [
+      inline: (
         <Landing
           illustration={<DemoIcon />}
           labels={{
@@ -99,8 +99,8 @@ export default {
           onAccept={() => console.log('accept')}
           onCancel={() => console.log('cancel')}
         />
-      ],
-      wrapper: [
+      ),
+      wrapper: (
         <Wrapper>
           <Landing
             illustration={<DemoIcon />}
@@ -114,11 +114,11 @@ export default {
             onCancel={() => console.log('cancel')}
           />
         </Wrapper>
-      ]
+      )
     },
 
     'No Buttons': {
-      inline: [
+      inline: (
         <Landing
           illustration={<DemoIcon />}
           labels={{
@@ -126,8 +126,8 @@ export default {
             summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
           }}
         />
-      ],
-      wrapper: [
+      ),
+      wrapper: (
         <Wrapper>
           <Landing
             illustration={<DemoIcon />}
@@ -137,11 +137,11 @@ export default {
             }}
           />
         </Wrapper>
-      ]
+      )
     },
 
     'Multiple paragraphs': {
-      inline: [
+      inline: (
         <Landing
           illustration={<DemoIcon />}
           labels={{
@@ -154,8 +154,8 @@ export default {
           }}
           onAccept={() => console.log('accept')}
         />
-      ],
-      wrapper: [
+      ),
+      wrapper: (
         <Wrapper>
           <Landing
             illustration={<DemoIcon />}
@@ -170,7 +170,7 @@ export default {
             onAccept={() => console.log('accept')}
           />
         </Wrapper>
-      ]
+      )
     }
   }]
 }

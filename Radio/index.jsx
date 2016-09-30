@@ -22,7 +22,7 @@ export default React.createClass({
     focus: PropTypes.string,
     name: PropTypes.string,
     onBlur: PropTypes.func,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     onFocus: PropTypes.func,
     options: PropTypes.array.isRequired,
     styles: PropTypes.object,
