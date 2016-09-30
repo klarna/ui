@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from '../../Link'
 import * as Paragraph from '../../Paragraph'
+import * as Chevron from '../../icons/Chevron'
 import styles from './styles.scss'
 
 export default function Sidebar ({examples, selected}) {
@@ -29,32 +30,38 @@ export default function Sidebar ({examples, selected}) {
         <Paragraph.Primary className={styles.menuTitle}>
           <Link href='#components' className={styles.menuTitleLink}>
             Components
+            <Chevron.Down className={styles.chevron} />
           </Link>
         </Paragraph.Primary>
 
-        {Object.values(examples.components).map(({title}, index) => <Paragraph.Primary key={index} className={styles.menuItem}>
-          <Link
-            className={title === selected && styles.menuItemSelected}
-            href={`#${title}`}
-            key={title}>
-            {title}
-          </Link>
-        </Paragraph.Primary>)}
+        <div>
+          {Object.values(examples.components).map(({title}, index) => <Paragraph.Primary key={index} className={styles.menuItem}>
+            <Link
+              className={title === selected && styles.menuItemSelected}
+              href={`#${title}`}
+              key={title}>
+              {title}
+            </Link>
+          </Paragraph.Primary>)}
+        </div>
 
         <Paragraph.Primary className={styles.menuTitle}>
           <Link href='#templates' className={styles.menuTitleLink}>
             Templates
+            <Chevron.Down className={styles.chevron} />
           </Link>
         </Paragraph.Primary>
 
-        {Object.values(examples.templates).map(({title}, index) => <Paragraph.Primary key={index} className={styles.menuItem}>
-          <Link
-            className={title === selected && styles.menuItemSelected}
-            href={`#${title}`}
-            key={title}>
-            {title}
-          </Link>
-        </Paragraph.Primary>)}
+        <div>
+          {Object.values(examples.templates).map(({title}, index) => <Paragraph.Primary key={index} className={styles.menuItem}>
+            <Link
+              className={title === selected && styles.menuItemSelected}
+              href={`#${title}`}
+              key={title}>
+              {title}
+            </Link>
+          </Paragraph.Primary>)}
+        </div>
       </nav>
     </aside>
   )

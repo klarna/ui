@@ -29,11 +29,17 @@
 
 .menuTitle {
   margin-top: ($grid * 2);
+  position: relative;
 }
 
 .menuTitleLink {
-  color: map-get($colors, black);
-  font-weight: map-get($font-weights, semi-bold);
+  display: block;
+}
+
+.chevron {
+  position: absolute;
+  right: 0;
+  top: 5px;
 }
 
 .menuTitle + .menuItem {
