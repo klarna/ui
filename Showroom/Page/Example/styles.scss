@@ -32,3 +32,22 @@
   margin-right: 20px;
   width: calc(40% - 20px);
 }
+
+@media screen and (max-width: 840px) {
+  .page__example__code {
+    display: none;
+  }
+
+  .page__example__heading {
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-top: 35px;
+    width: 100%;
+  }
+
+  .page__example__live {
+    float: static;
+    margin-right: 0;
+    width: calc(100%);
+  }
+}

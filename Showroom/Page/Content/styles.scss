@@ -3,12 +3,20 @@
 
 .page__content {
   background-color: #fff;
-  border-radius: 20px;
-  margin: 30px;
+  margin: 0;
+  padding: 90px 30px;
   width: calc(100vw - 60px);
 
   @include respond-to-wide {
-    padding: 60px;
-    width: calc(100vw - 360px);
+    padding: 90px;
+    width: calc(100vw - 180px);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .page__content {
+    border-radius: 20px;
+    margin: 30px;
+    width: calc(100vw - 420px);
   }
 }

@@ -1,3 +1,6 @@
+@import '../../../css/settings';
+@import '../../../css/mixins/index';
+
 .page__variation {
   border-top: 1px solid #E5E5E6;
   margin-top: 39px;
@@ -33,4 +36,10 @@
 .page__variation__navigation__react--code {
   float: right;
   width: 60%;
+}
+
+@media screen and (max-width: 840px) {
+  .page__variation__require {
+    display: none;
+  }
 }

@@ -13,7 +13,8 @@ const classes = {
   heading: `${baseClass}__heading`,
   navigation: `${baseClass}__navigation`,
   navigationComponent: `${baseClass}__navigation__component`,
-  navigationReactCode: `${baseClass}__navigation__react--code`
+  navigationReactCode: `${baseClass}__navigation__react--code`,
+  require: `${baseClass}__require`
 }
 
 export default function Variation ({type, ...props}) {
@@ -39,7 +40,12 @@ export default function Variation ({type, ...props}) {
           </Title.Secondary>
         </div>
 
-        <Code.Block language='imports' standalone>{props.require}</Code.Block>
+        <Code.Block
+          className={classNames(classes.require)}
+          language='imports'
+          standalone>
+          {props.require}
+        </Code.Block>
 
         {Object.keys(props.examples).map((name) => <Example
           name={name}
