@@ -3,6 +3,7 @@ import * as Button from '../Button'
 import * as Dialog from '../Dialog'
 import { Close } from '../IconButton'
 import { Title, Paragraph, Subtitle } from '../Text'
+import { MANUAL } from '../Showroom/variationTypes'
 
 const Example = React.createClass({
   displayName: 'Dialog',
@@ -58,13 +59,15 @@ const Example = React.createClass({
 export default {
   title: 'Dialog',
   icon: 'Dialog',
+
   examples: {
     require: 'import * as Dialog from \'@klarna/ui/Dialog\'',
-    Regular: {
-      example: (
-        <Example />
-      ),
-      code: `<Dialog.Overlay show>
+    type: MANUAL,
+
+    examples: {
+      Regular: {
+        live: <Example />,
+        code: `<Dialog.Overlay show>
   <Dialog.Main>
     <Dialog.Icon>
       <Close />
@@ -90,6 +93,7 @@ export default {
     </Dialog.Footer>
   </Dialog.Main>
 </Dialog.Overlay>`
+      }
     }
   }
 }

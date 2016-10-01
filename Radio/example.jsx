@@ -1,7 +1,7 @@
-/* global alert */
 import React from 'react'
 import Radio from '../Radio'
 import UncontrolledRadio from '../uncontrolled/Radio'
+import { LIVE } from '../Showroom/variationTypes'
 
 const options = [
   {key: 'lorem', label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
@@ -11,64 +11,61 @@ const options = [
 
 export default {
   title: 'Radio',
+
   examples: {
     require: `import Radio from '@klarna/ui/Radio'
 import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
-    Regular: [
-      <Radio
-        onChange={(key) => alert(key)}
+    type: LIVE,
+
+    examples: {
+      Regular: <Radio
+        onChange={(key) => console.log(key)}
         name='radio-regular'
         options={options}
         value='lorem'
-      />
-    ],
-    Uncontrolled: [
-      <UncontrolledRadio
+      />,
+
+      Uncontrolled: <UncontrolledRadio
         name='radio-uncontrolled'
         options={options}
-      />
-    ],
-    Borderless: [
-      <Radio
+      />,
+
+      Borderless: <Radio
         borderless
         name='radio-borderless'
-        onChange={(key) => alert(key)}
+        onChange={(key) => console.log(key)}
         options={options}
         value='lorem'
-      />
-    ],
-    'Borderless uncontrolled': [
-      <UncontrolledRadio
+      />,
+
+      'Borderless uncontrolled': <UncontrolledRadio
         borderless
         name='radio-borderless-uncontrolled'
         options={options}
-      />
-    ],
-    Disabled: [
-      <UncontrolledRadio
+      />,
+
+      Disabled: <UncontrolledRadio
         disabled
         name='radio-disabled'
-        onChange={(key) => alert(key)}
+        onChange={(key) => console.log(key)}
         options={options}
         value='lorem'
-      />
-    ],
-    'Borderless and disabled': [
-      <UncontrolledRadio
+      />,
+
+      'Borderless and disabled': <UncontrolledRadio
         borderless
         disabled
         name='radio-borderless-disabled'
         options={options}
         value='lorem'
-      />
-    ],
-    'With focus': [
-      <Radio
+      />,
+
+      'With focus': <Radio
         focus='sit'
         name='radio-focus'
         options={options}
         value='ipsum'
       />
-    ]
+    }
   }
 }

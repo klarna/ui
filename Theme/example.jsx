@@ -12,6 +12,7 @@ import * as ThemeableTitle from '../themeable/Title'
 import ThemeableSubtitle from '../themeable/Subtitle'
 import * as ThemeableParagraph from '../themeable/Paragraph'
 import * as ThemeableList from '../themeable/List'
+import { LIVE } from '../Showroom/variationTypes'
 
 import statefulFocus from '../lib/decorators/statefulFocus'
 import statefulValue from '../lib/decorators/statefulValue'
@@ -26,6 +27,7 @@ const options = [
 
 export default {
   title: 'Theme',
+
   examples: {
     require: `import Theme from '@klarna/ui/Theme'
 import * as ThemeableButton from '@klarna/ui/themeable/Button'
@@ -39,8 +41,10 @@ import * as ThemeableTitle from '@klarna/ui/themeable/Title'
 import ThemeableSubtitle from '@klarna/ui/themeable/Subtitle'
 import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'
 import * as ThemeableList from '@klarna/ui/themeable/List'`,
-    Regular: [
-      <Theme
+    type: LIVE,
+
+    examples: {
+      Regular: <Theme
         customizations={{
           color_border: '#660080',
           color_border_selected: '#00ce3e',
@@ -202,6 +206,6 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
           </ThemeableList.Item>
         </ThemeableList.Ordered>
       </Theme>
-    ]
+    }
   }
 }

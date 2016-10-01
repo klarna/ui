@@ -4,7 +4,7 @@ import GettingStarted from '../Page/GettingStarted'
 import Grid from '../Grid'
 import Link from '../../Link'
 import Menu from '../Menu'
-import * as Page from '../Page'
+import Page from '../Page'
 import Sidebar from '../Sidebar'
 import K from '../K'
 import { has } from 'ramda'
@@ -18,10 +18,12 @@ const getCurrentPage = ([anchor], examples) =>
   anchor
     ? (anchor === 'menu'
       ? <Menu examples={examples} />
-      : (has(anchor, examples.components)
-          ? <Page.Component example={examples.components[anchor]} />
-          : <Page.Template example={examples.templates[anchor]} />
-      )
+      : <Page
+          type={has(anchor, examples.components)
+            ? 'component'
+            : 'template'}
+          example={examples.components[anchor] || examples.templates[anchor]}
+        />
     )
     : <GettingStarted />
 

@@ -1,102 +1,20 @@
 @import '../../css/settings';
-@import '../settings.scss';
 @import '../../css/mixins/index';
 
-.page__section__example {
-  width: calc(56vw - 180px);
+.page__icon {
+  display: block;
+  margin: 30px auto 0 auto;
 }
 
-// .content {
-//   background-color: #fff;
-//   border-radius: 20px;
-//   flex: 1;
-//   margin: 30px;
-//
-//   header {
-//     display: block;
-//     padding-bottom: 1px;
-//
-//     svg {
-//       display: block;
-//       margin: 0 auto;
-//     }
-//   }
-//
-//   @include respond-to-wide {
-//     padding: 60px;
-//   }
-// }
-
-.pageNav {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 40px;
-
-  a {
-    padding: 10px;
-  }
+.page__heading {
+  margin-top: 30px;
 }
 
-.designTitle {
-  margin: 40px;
-  text-align: center;
+.page__header {
+  padding-bottom: 80px;
 }
 
-.variationTitle {
-  margin-left: calc(39.4vw - 180px);
-
-  &.wide {
-    margin-left: calc(54.4vw - 180px);
-  }
-}
-
-.section {
-  width: auto;
-}
-
-@media screen and (max-width: 1025px) {
-  .variationTitle {
-    margin: 0 auto;
-    text-align: center;
-
-    &.wide {
-      margin: 0 auto;
-    }
-  }
-
-  .designTitle {
-    margin-bottom: 0px;
-  }
-  .section {
-    width: calc(100vw - 180px);
-  }
-}
-
-@media screen and (max-width: 568px) {
-  .section {
-    width: calc(100vw - 40px);
-  }
-}
-
-// GettingStarted
-
-.goals {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    display: inline-block;
-    padding-top: ($grid * 4);
-    vertical-align: top;
-    width: 29.3%;
-
-    p {
-      margin-top: 20px;
-    }
-
-    svg {
-      display: block;
-      margin: 0 auto;
-    }
-  }
+.page__menu__item {
+  margin: 0 20px;
+  display: inline-block;
 }
