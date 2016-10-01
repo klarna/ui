@@ -8,7 +8,7 @@ export default {
   examples: {
     require: 'import * as Checklist from \'@klarna/ui/Checklist\'',
     type: LIVE,
-    
+
     examples: {
       Regular: <Checklist.Main>
         <Checklist.Item>Just one click and you're done</Checklist.Item>

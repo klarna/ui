@@ -10,8 +10,6 @@ const options = [
   { key: 'installments_24', value: '$16.05/mo.', connector: ' for ', info: '24 months' }
 ]
 
-const wide = (example) => ({ example, wide: true })
-
 export default {
   title: 'Installments',
 

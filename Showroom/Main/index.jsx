@@ -19,33 +19,31 @@ const getCurrentPage = ([anchor], examples) =>
     ? (anchor === 'menu'
       ? <Menu examples={examples} />
       : <Page
-          type={has(anchor, examples.components)
-            ? 'component'
-            : 'template'}
-          example={examples.components[anchor] || examples.templates[anchor]}
-        />
+        type={has(anchor, examples.components)
+          ? 'component'
+          : 'template'}
+        example={examples.components[anchor] || examples.templates[anchor]}
+      />
     )
     : <GettingStarted />
 
 export default function Showroom ({route, grid, examples}) {
-  return (
-    <main>
-      {grid.display && <Grid
-        offsets={grid.offsets}
-        halfLine={5} line={10}
-      />}
+  return <main>
+    {grid.display && <Grid
+      offsets={grid.offsets}
+      halfLine={5} line={10}
+    />}
 
-      <Sidebar examples={examples} selected={route[0]} />
+    <Sidebar examples={examples} selected={route[0]} />
 
-      <Link className={styles['page__narrow--anchor']} href='#menu'>
-        <K hoverable />
-      </Link>
+    <Link className={styles['page__narrow--anchor']} href='#menu'>
+      <K hoverable />
+    </Link>
 
-      <div className={styles.page__main}>
-        {getCurrentPage(route, examples)}
+    <div className={styles.page__main}>
+      {getCurrentPage(route, examples)}
 
-        <Footer />
-      </div>
-    </main>
-  )
+      <Footer />
+    </div>
+  </main>
 }

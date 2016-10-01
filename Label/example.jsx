@@ -19,7 +19,7 @@ export default {
         {design}
       </Label>),
 
-      Outlined: designs.map((design) => <Label 
+      Outlined: designs.map((design) => <Label
         outline
         key={`outline-${design}`}
         design={design}

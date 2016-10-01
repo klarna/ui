@@ -33,9 +33,9 @@ export default function Page ({example, type}) {
 
       {example.variations && <Paragraph.Primary>
         {example.variations.map((variation) => <Link
-        className={classNames(classes.menuItem)}
-        key={`#${example.title}/${variation.title}`}
-        href={`#${example.title}/${variation.title}`}>{variation.title}</Link>)}
+          className={classNames(classes.menuItem)}
+          key={`#${example.title}/${variation.title}`}
+          href={`#${example.title}/${variation.title}`}>{variation.title}</Link>)}
       </Paragraph.Primary>}
     </header>
 

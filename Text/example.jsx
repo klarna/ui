@@ -42,20 +42,17 @@ export default {
           </Paragraph.Primary>
         ],
 
-        Secondary: {
-          example: [
-            <Title.Secondary>Secondary Title</Title.Secondary>,
-            <Title.Secondary color='blue'>Secondary Title in blue</Title.Secondary>,
-            <Title.Secondary color='gray'>Secondary Title in gray</Title.Secondary>,
-            <Title.Secondary color='error'>Secondary Title in error</Title.Secondary>,
-            <Title.Secondary color='success'>Secondary Title in success</Title.Secondary>,
-            <Title.Secondary color='warning'>Secondary Title in warning</Title.Secondary>,
-            <Block.Plain blue>
-              <Title.Secondary color='white'>Secondary Title in white</Title.Secondary>
-            </Block.Plain>
-          ],
-          wide: true
-        },
+        Secondary: [
+          <Title.Secondary>Secondary Title</Title.Secondary>,
+          <Title.Secondary color='blue'>Secondary Title in blue</Title.Secondary>,
+          <Title.Secondary color='gray'>Secondary Title in gray</Title.Secondary>,
+          <Title.Secondary color='error'>Secondary Title in error</Title.Secondary>,
+          <Title.Secondary color='success'>Secondary Title in success</Title.Secondary>,
+          <Title.Secondary color='warning'>Secondary Title in warning</Title.Secondary>,
+          <Block.Plain blue>
+            <Title.Secondary color='white'>Secondary Title in white</Title.Secondary>
+          </Block.Plain>
+        ],
 
         'Secondary with text margins': [
           <Title.Secondary margins>Secondary Title</Title.Secondary>,
@@ -204,7 +201,7 @@ export default {
           <Paragraph.Legal margins>
             Sed vestibulum nisl a urna lobortis tincidunt. Aenean vitae dolor sed elit semper aliquet. Suspendisse potenti.
           </Paragraph.Legal>
-        ],
+        ]
       }
     },
 
