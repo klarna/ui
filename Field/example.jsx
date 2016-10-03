@@ -9,7 +9,7 @@ const Single = {
 import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
 
   Regular: (
-    <Field label='Enter your email' />
+    <Field label='Enter your email' defaultValue='asdf' />
   ),
 
   Uncontrolled: (

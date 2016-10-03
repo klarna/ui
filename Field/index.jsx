@@ -7,6 +7,7 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
+import uncontrolled from '../decorators/uncontrolled'
 
 const baseClass = 'field'
 
@@ -21,7 +22,7 @@ const classes = {
   label: `${baseClass}__label`
 }
 
-export default React.createClass({
+export default uncontrolled(React.createClass({
   displayName: 'Field',
 
   getDefaultProps () {
@@ -209,4 +210,8 @@ export default React.createClass({
       </div>
     )
   }
+}), {
+  defaultProp: 'defaultValue',
+  prop: 'value',
+  handler: 'onChange'
 })
