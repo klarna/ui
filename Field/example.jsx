@@ -9,7 +9,7 @@ const Single = {
 import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
 
   Regular: (
-    <Field label='Enter your email' defaultValue='asdf' />
+    <Field label='Enter your email' defaultValue='asdf' focus={false} />
   ),
 
   Uncontrolled: (
@@ -17,11 +17,11 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
   ),
 
   'With value': (
-    <Field label='Enter your email' value='jane@doe.com' />
+    <Field autoFocus label='Enter your email' value='jane@doe.com' />
   ),
 
   Big: (
-    <Field label='Enter your email' big />
+    <Field label='Enter your email' value='' big />
   ),
 
   'With focus': (
@@ -37,7 +37,12 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
   ),
 
   'Exclude Mouseflow': (
-    <Field mouseflowExclude label='Address' value='16, Corn street' />
+    <Field
+      mouseflowExclude
+      focus={false}
+      label='Address'
+      value='16, Corn street'
+    />
   ),
 
   'With error': (
@@ -153,5 +158,9 @@ import Fieldset from '@klarna/ui/Fieldset'`,
 export default {
   title: 'Field',
   icon: 'Field',
-  variations: [Single, WithIcons, Stacked]
+  variations: [
+    Single,
+    WithIcons,
+    Stacked
+  ]
 }

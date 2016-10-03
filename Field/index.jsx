@@ -22,7 +22,7 @@ const classes = {
   label: `${baseClass}__label`
 }
 
-export default uncontrolled(React.createClass({
+export default uncontrolled(uncontrolled(React.createClass({
   displayName: 'Field',
 
   getDefaultProps () {
@@ -214,4 +214,9 @@ export default uncontrolled(React.createClass({
   defaultProp: 'defaultValue',
   prop: 'value',
   handler: 'onChange'
+}), {
+  defaultProp: 'autoFocus',
+  prop: 'focus',
+  handler: 'onFocus',
+  reset: 'onBlur'
 })
