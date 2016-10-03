@@ -31,7 +31,8 @@ export default function Showroom ({route, grid, examples}) {
   return <main>
     {grid.display && <Grid
       offsets={grid.offsets}
-      halfLine={5} line={10}
+      halfLine={5} height={grid.height}
+      line={10} width={grid.width}
     />}
 
     <Sidebar examples={examples} selected={route[0]} />
