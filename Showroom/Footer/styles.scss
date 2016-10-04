@@ -41,3 +41,38 @@
 .footer__legal {
   margin-top: 0px;
 }
+
+@media screen and (max-width: 1025px) {
+  .footer {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .footer {
+    text-align: center;
+    height: auto;
+  }
+
+  .footer__copyright {
+    float: none;
+  }
+
+  .footer__copy {
+    float: none;
+  }
+
+  .footer__K {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 18px;
+  }
+
+  .footer__get-in-touch {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+}
