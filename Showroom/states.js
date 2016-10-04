@@ -30,7 +30,7 @@ const reducer = (state, action) => {
     case 'RESIZE':
       return {
         ...state,
-        grid: reduceRoute(state.grid, action.payload)
+        grid: reduceResize(state.grid, action.payload)
       }
 
     case 'ROUTE':
