@@ -37,7 +37,7 @@ export default function Showroom ({route, grid, examples}) {
 
     <Sidebar examples={examples} selected={route[0]} />
 
-    <Link className={styles['page__narrow--anchor']} href='#menu'>
+    <Link className={styles['page__narrow--anchor']}>
       <K hoverable />
     </Link>
 

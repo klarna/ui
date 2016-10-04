@@ -28,7 +28,7 @@ export default function Sidebar ({examples, selected}) {
         </Paragraph.Primary>
 
         <Paragraph.Primary className={styles.menuTitle}>
-          <Link href='#components' className={styles.menuTitleLink}>
+          <Link className={styles.menuTitleLink}>
             Components
             <Chevron.Down className={styles.chevron} />
           </Link>
@@ -46,7 +46,7 @@ export default function Sidebar ({examples, selected}) {
         </div>
 
         <Paragraph.Primary className={styles.menuTitle}>
-          <Link href='#templates' className={styles.menuTitleLink}>
+          <Link className={styles.menuTitleLink}>
             Templates
             <Chevron.Down className={styles.chevron} />
           </Link>
