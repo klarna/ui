@@ -90,67 +90,56 @@
     color: map-get($colors, grey-text);
 
     &.warning {
-      background: transparent;
       border-color: map-get($colors, red);
       color:  map-get($colors, red);
     }
 
     &.notice {
-      background: transparent;
       border-color: map-get($colors, orange);
       color:  map-get($colors, orange);
     }
 
     &.success {
-      background: transparent;
       border-color: map-get($colors, green);
       color:  map-get($colors, green);
     }
 
     &.brown {
-      background: transparent;
       border-color: map-get($colors, brown);
       color:  map-get($colors, brown);
     }
 
     &.purple {
-      background: transparent;
       border-color: map-get($colors, purple);
       color:  map-get($colors, purple);
     }
 
     &.light-blue {
-      background: transparent;
       border-color: map-get($colors, light-blue);
       color:  map-get($colors, light-blue);
     }
 
     &.ultramarine {
-      background: transparent;
       border-color: map-get($colors, ultramarine);
       color:  map-get($colors, ultramarine);
     }
 
     &.yellow {
-      background: transparent;
       border-color: map-get($colors, yellow);
       color:  map-get($colors, yellow);
     }
 
     &.grey {
-      background: transparent;
       border-color: map-get($colors, grey-label);
       color:  map-get($colors, grey-label);
     }
 
     &.black {
-      background: transparent;
       border-color: map-get($colors, black);
       color:  map-get($colors, black);
     }
 
     &.inverted {
-      background: transparent;
       border-color: map-get($colors, white);
       color: map-get($colors, white);
     }
