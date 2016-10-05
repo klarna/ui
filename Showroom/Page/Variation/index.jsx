@@ -4,6 +4,7 @@ import Example from '../Example'
 import * as Title from '../../../Title'
 import * as Code from '../../../Code'
 import {LIVE, LIVE_WIDE, MANUAL, TEMPLATE, SHOWCASE} from '../../variationTypes'
+import toSlug from '../../../lib/toSlug'
 
 import styles from './styles.scss'
 
@@ -24,6 +25,7 @@ export default function Variation ({type, ...props}) {
     case LIVE:
       return <Live
         examples={props.examples}
+        exampleTitle={props.exampleTitle}
         require={props.require}
         title={props.title}
       />
@@ -31,6 +33,7 @@ export default function Variation ({type, ...props}) {
     case LIVE_WIDE:
       return <LiveWide
         examples={props.examples}
+        exampleTitle={props.exampleTitle}
         require={props.require}
         title={props.title}
       />
@@ -38,6 +41,7 @@ export default function Variation ({type, ...props}) {
     case MANUAL:
       return <Manual
         examples={props.examples}
+        exampleTitle={props.exampleTitle}
         require={props.require}
         title={props.title}
       />
@@ -45,6 +49,7 @@ export default function Variation ({type, ...props}) {
     case TEMPLATE:
       return <Template
         examples={props.examples}
+        exampleTitle={props.exampleTitle}
         require={props.require}
         title={props.title}
       />
@@ -52,13 +57,14 @@ export default function Variation ({type, ...props}) {
     case SHOWCASE:
       return <Showcase
         example={props.example}
+        exampleTitle={props.exampleTitle}
         title={props.title}
       />
   }
 }
 
-function Live ({title, require, examples}) {
-  return <section className={classNames(baseClass)}>
+function Live ({title, require, exampleTitle, examples}) {
+  return <section id={title && `${exampleTitle}/${toSlug(title)}`} className={classNames(baseClass)}>
     {title && <Title.Primary
       className={classNames(classes.heading)}>
       {title}
@@ -91,8 +97,8 @@ function Live ({title, require, examples}) {
   </section>
 }
 
-function LiveWide ({title, require, examples}) {
-  return <section className={classNames(baseClass)}>
+function LiveWide ({title, require, exampleTitle, examples}) {
+  return <section id={title && `${exampleTitle}/${toSlug(title)}`} className={classNames(baseClass)}>
     {title && <Title.Primary
       className={classNames(classes.heading)}>
       {title}
@@ -120,8 +126,8 @@ function LiveWide ({title, require, examples}) {
   </section>
 }
 
-function Manual ({title, require, examples}) {
-  return <section className={classNames(baseClass)}>
+function Manual ({title, require, exampleTitle, examples}) {
+  return <section id={title && `${exampleTitle}/${toSlug(title)}`} className={classNames(baseClass)}>
     {title && <Title.Primary
       className={classNames(classes.heading)}>
       {title}
@@ -154,8 +160,8 @@ function Manual ({title, require, examples}) {
   </section>
 }
 
-function Template ({title, require, examples}) {
-  return <section className={classNames(baseClass)}>
+function Template ({title, require, exampleTitle, examples}) {
+  return <section id={title && `${exampleTitle}/${toSlug(title)}`} className={classNames(baseClass)}>
     {title && <Title.Primary
       className={classNames(classes.heading)}>
       {title}
@@ -183,8 +189,8 @@ function Template ({title, require, examples}) {
   </section>
 }
 
-function Showcase ({title, example}) {
-  return <section className={classNames(baseClass)}>
+function Showcase ({title, example, exampleTitle}) {
+  return <section id={title && `${exampleTitle}/${toSlug(title)}`} className={classNames(baseClass)}>
     {title && <Title.Primary
       className={classNames(classes.heading)}>
       {title}

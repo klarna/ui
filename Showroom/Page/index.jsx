@@ -6,6 +6,7 @@ import Link from '../../Link'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
 import Variation from './Variation'
+import toSlug from '../../lib/toSlug'
 
 import styles from './styles.scss'
 
@@ -35,11 +36,11 @@ export default function Page ({example, type}) {
         {example.variations.map((variation) => <Link
           className={classNames(classes.menuItem)}
           key={`#${example.title}/${variation.title}`}
-          href={`#${example.title}/${variation.title}`}>{variation.title}</Link>)}
+          href={`#${example.title}/${toSlug(variation.title)}`}>{variation.title}</Link>)}
       </Paragraph.Primary>}
     </header>
 
-    {example.variations && example.variations.map((variation, index) => <Variation key={index} {...variation} />)}
+    {example.variations && example.variations.map((variation, index) => <Variation key={index} {...variation} exampleTitle={example.title} />)}
 
     {example.examples && <Variation {...example.examples} />}
   </Content>
