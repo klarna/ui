@@ -205,7 +205,7 @@ export default {
           <Search color='gray' />
         </Block.Plain>,
         'Inverse color scheme': <Block.Plain blue style={{padding: 20}}>
-          <Back onClick={() => console.log('lala')} color='inverse' />
+          <Back color='inverse' />
           <Close color='inverse' />
           <Hamburger color='inverse' />
           <Options color='inverse' />
