@@ -1,7 +1,7 @@
 @mixin checklist {
   border: ($grid * .2) solid map-get($colors, grey-lines);
   border-radius: $border-radius;
-  line-height: ($grid * 5);
+  line-height: ($grid * 4);
   list-style: none;
   margin: ($grid * -.2) 0 0 0;
   padding: ($grid * 2) ($grid * 4) ($grid * 1.8);
