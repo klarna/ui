@@ -22,90 +22,92 @@ export default {
           Pass your mouse over and click the elements to see the hover and active states.
         </Paragraph.Secondary>,
         <table style={{marginTop: '40px', textAlign: 'center', width: '100%'}}>
-          <tr>
-            <td>
-              <Button.Primary size='small'>Primary</Button.Primary>
-            </td>
-            <td>
-              <Button.Primary loading size='small'>Primary</Button.Primary>
-            </td>
-            <td>
-              <Button.Primary disabled size='small'>Primary</Button.Primary>
-            </td>
-            <td>
-              <Button.Primary size='small'>Primary<Button.Price>$Price</Button.Price></Button.Primary>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button.Primary>Primary</Button.Primary>
-            </td>
-            <td>
-              <Button.Primary loading>Primary</Button.Primary>
-            </td>
-            <td>
-              <Button.Primary disabled>Primary</Button.Primary>
-            </td>
-            <td>
-              <Button.Primary>Primary<Button.Price>$Price</Button.Price></Button.Primary>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button.Primary size='big'>Primary</Button.Primary>
-            </td>
-            <td>
-              <Button.Primary loading size='big'>Primary</Button.Primary>
-            </td>
-            <td>
-              <Button.Primary disabled size='big'>Primary</Button.Primary>
-            </td>
-            <td>
-              <Button.Primary size='big'>Primary<Button.Price>$Price</Button.Price></Button.Primary>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button.Secondary size='small'>Secondary</Button.Secondary>
-            </td>
-            <td>
-              <Button.Secondary loading size='small'>Secondary</Button.Secondary>
-            </td>
-            <td>
-              <Button.Secondary disabled size='small'>Secondary</Button.Secondary>
-            </td>
-            <td>
-              <Button.Secondary size='small'>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button.Secondary>Secondary</Button.Secondary>
-            </td>
-            <td>
-              <Button.Secondary loading>Secondary</Button.Secondary>
-            </td>
-            <td>
-              <Button.Secondary disabled>Secondary</Button.Secondary>
-            </td>
-            <td>
-              <Button.Secondary>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button.Secondary size='big'>Secondary</Button.Secondary>
-            </td>
-            <td>
-              <Button.Secondary loading size='big'>Secondary</Button.Secondary>
-            </td>
-            <td>
-              <Button.Secondary disabled size='big'>Secondary</Button.Secondary>
-            </td>
-            <td>
-              <Button.Secondary size='big'>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>
+                <Button.Primary size='small'>Primary</Button.Primary>
+              </td>
+              <td>
+                <Button.Primary loading size='small'>Primary</Button.Primary>
+              </td>
+              <td>
+                <Button.Primary disabled size='small'>Primary</Button.Primary>
+              </td>
+              <td>
+                <Button.Primary size='small'>Primary<Button.Price>$Price</Button.Price></Button.Primary>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Button.Primary>Primary</Button.Primary>
+              </td>
+              <td>
+                <Button.Primary loading>Primary</Button.Primary>
+              </td>
+              <td>
+                <Button.Primary disabled>Primary</Button.Primary>
+              </td>
+              <td>
+                <Button.Primary>Primary<Button.Price>$Price</Button.Price></Button.Primary>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Button.Primary size='big'>Primary</Button.Primary>
+              </td>
+              <td>
+                <Button.Primary loading size='big'>Primary</Button.Primary>
+              </td>
+              <td>
+                <Button.Primary disabled size='big'>Primary</Button.Primary>
+              </td>
+              <td>
+                <Button.Primary size='big'>Primary<Button.Price>$Price</Button.Price></Button.Primary>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Button.Secondary size='small'>Secondary</Button.Secondary>
+              </td>
+              <td>
+                <Button.Secondary loading size='small'>Secondary</Button.Secondary>
+              </td>
+              <td>
+                <Button.Secondary disabled size='small'>Secondary</Button.Secondary>
+              </td>
+              <td>
+                <Button.Secondary size='small'>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Button.Secondary>Secondary</Button.Secondary>
+              </td>
+              <td>
+                <Button.Secondary loading>Secondary</Button.Secondary>
+              </td>
+              <td>
+                <Button.Secondary disabled>Secondary</Button.Secondary>
+              </td>
+              <td>
+                <Button.Secondary>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Button.Secondary size='big'>Secondary</Button.Secondary>
+              </td>
+              <td>
+                <Button.Secondary loading size='big'>Secondary</Button.Secondary>
+              </td>
+              <td>
+                <Button.Secondary disabled size='big'>Secondary</Button.Secondary>
+              </td>
+              <td>
+                <Button.Secondary size='big'>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
+              </td>
+            </tr>
+          </tbody>
         </table>
       ]
     },
