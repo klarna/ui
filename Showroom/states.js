@@ -1,45 +1,68 @@
-import { merge, scan } from 'flyd'
-import arrows from './streams/arrows'
-import gridToggles from './streams/gridToggles'
-import routeUpdates from './streams/routeUpdates'
+import { scan, stream } from 'flyd'
+import { equals } from 'ramda'
+import keyDown, { reducer as reduceKeyDown } from './signals/keyDown'
+import keyPress, { reducer as reduceKeyPress } from './signals/keyPress'
+import resize, { reducer as reduceResize } from './signals/resize'
+import route, { reducer as reduceRoute } from './signals/route'
+import { KEY_DOWN, KEY_PRESS, RESIZE, ROUTE } from './actions'
+
+const signals = stream()
+
+keyDown(signals)
+keyPress(signals)
+resize(signals)
+route(signals)
 
 const initialState = {
-  route: '',
+  route: [],
   grid: {
     display: false,
+    height: window.innerHeight,
     offsets: {
       left: 0,
       top: 0
-    }
+    },
+    width: window.innerWidth
   }
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'UPDATE_ROUTE':
+    case RESIZE:
       return {
         ...state,
-        route: action.payload
+        grid: reduceResize(state.grid, action.payload)
       }
 
-    case 'TOGGLE_GRID':
-      return {
-        ...state,
-        grid: {
-          ...state.grid,
-          display: !state.grid.display
+    case ROUTE:
+      return reduceRoute(state, action.payload)
+
+    case KEY_PRESS:
+      const grid = reduceKeyPress(
+        state.grid,
+        action.payload
+      )
+
+      return equals(grid, state.grid)
+        ? state
+        : {
+          ...state,
+          grid
         }
+
+    case KEY_DOWN:
+      if (!state.grid.display) {
+        return state
       }
 
-    case 'MOVE_GRID':
       return {
         ...state,
         grid: {
           ...state.grid,
-          offsets: {
-            left: state.grid.offsets.left + action.payload.left,
-            top: state.grid.offsets.top + action.payload.top
-          }
+          offsets: reduceKeyDown(
+            state.grid.offsets,
+            action.payload
+          )
         }
       }
 
@@ -48,6 +71,4 @@ const reducer = (state, action) => {
   }
 }
 
-export default scan(reducer, initialState,
-  merge(routeUpdates, merge(arrows, gridToggles))
-)
+export default scan(reducer, initialState, signals)

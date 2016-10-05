@@ -1,14 +1,17 @@
 import React from 'react'
 import * as Preview from '../Preview'
+import { LIVE } from '../Showroom/variationTypes'
 
 export default {
   title: 'Preview',
   icon: 'Preview',
-  variations: [{
-    title: 'Preview',
+
+  examples: {
     require: 'import * as Preview from \'@klarna/ui/Preview\'',
-    Regular: (
-      <Preview.Main>
+    type: LIVE,
+
+    examples: {
+      Regular: <Preview.Main>
         <Preview.Title>John Smith</Preview.Title>
         <Preview.Content>
           1425 North Avenue Street<br />
@@ -16,10 +19,9 @@ export default {
           94100 California<br />
           United States
         </Preview.Content>
-      </Preview.Main>
-    ),
-    'With Link': (
-      <Preview.Main
+      </Preview.Main>,
+
+      'With Link': <Preview.Main
         onClick={() => console.log('You clicked the address')}>
         <Preview.Title>John Smith</Preview.Title>
         <Preview.Content>
@@ -32,6 +34,6 @@ export default {
           Change address
         </Preview.Link>
       </Preview.Main>
-    )
-  }]
+    }
+  }
 }

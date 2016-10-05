@@ -1,93 +1,71 @@
 import React from 'react'
 import Tooltip from '../Tooltip'
+import { LIVE } from '../Showroom/variationTypes'
 
 export default {
   title: 'Tooltip',
   icon: 'Tooltip',
-  variations: [{
-    title: 'Tooltip',
+
+  examples: {
     require: 'import Tooltip from \'@klarna/ui/Tooltip\'',
-    'Top left': (
-      <Tooltip arrow='top-left'>
-        Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+    type: LIVE,
 
-    Top: (
-      <Tooltip arrow='top'>
+    examples: {
+      'Top left': <Tooltip arrow='top-left'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    'Top right': (
-      <Tooltip arrow='top-right'>
+      Top: <Tooltip arrow='top'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    'Right top': (
-      <Tooltip arrow='right-top'>
+      'Top right': <Tooltip arrow='top-right'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    Right: (
-      <Tooltip arrow='right'>
+      'Right top': <Tooltip arrow='right-top'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    'Right bottom': (
-      <Tooltip arrow='right-bottom'>
+      Right: <Tooltip arrow='right'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    'Bottom right': (
-      <Tooltip arrow='bottom-right'>
+      'Right bottom': <Tooltip arrow='right-bottom'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    Bottom: (
-      <Tooltip arrow='bottom'>
+      'Bottom right': <Tooltip arrow='bottom-right'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    'Bottom left': (
-      <Tooltip arrow='bottom-left'>
+      Bottom: <Tooltip arrow='bottom'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    'Left bottom': (
-      <Tooltip arrow='left-bottom'>
+      'Bottom left': <Tooltip arrow='bottom-left'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    Left: (
-      <Tooltip arrow='left'>
+      'Left bottom': <Tooltip arrow='left-bottom'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    'Left top': (
-      <Tooltip arrow='left-top'>
+      Left: <Tooltip arrow='left'>
         Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    ),
+      </Tooltip>,
 
-    Simple: (
-      <Tooltip>
+      'Left top': <Tooltip arrow='left-top'>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>,
+
+      Simple: <Tooltip>
+        Lorem Ipsum is simply dummy text of the printing industry.
+      </Tooltip>,
+
+      Inverse: <Tooltip inverse>
         Lorem Ipsum is simply dummy text of the printing industry.
       </Tooltip>
-    ),
-    Inverse: (
-      <Tooltip inverse>
-        Lorem Ipsum is simply dummy text of the printing industry.
-      </Tooltip>
-    )
-  }]
+    }
+  }
 }

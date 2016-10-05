@@ -1,8 +1,8 @@
 import React from 'react'
 import Base, {Page} from './Base'
 
-export default () => (
-  <Base title='Field' circleFill='#31A592'>
+export default ({className}) => (
+  <Base className={className} title='Field' circleFill='#31A592'>
     <Page />
     <g transform='translate(25 42)'>
       <path d='M0 2.5C0 1 1 0 2.5 0h45C49 0 50 1 50 2.5V14H0V2.5zM2 3c0-.6.5-1 1-1h44c.6 0 1 .5 1 1v9H2V3z' fill='#EFF4F9'/>

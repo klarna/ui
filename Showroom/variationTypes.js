@@ -1,0 +1,5 @@
+export const LIVE = 'LIVE'
+export const LIVE_WIDE = 'LIVE_WIDE'
+export const MANUAL = 'MANUAL'
+export const TEMPLATE = 'TEMPLATE'
+export const SHOWCASE = 'SHOWCASE'

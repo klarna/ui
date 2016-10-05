@@ -1,5 +1,6 @@
 import React from 'react'
 import { compose, join, map, uniq } from 'ramda'
+import { LIVE } from '../Showroom/variationTypes'
 
 import AccountActivated from '../icons/AccountActivated'
 import AllSet from '../icons/AllSet'
@@ -70,52 +71,52 @@ const icons = {
 export default {
   title: 'Icons',
   icon: 'Icon',
-  variations: [{
-    title: 'Big',
-    require: compose(
-      join('\n'),
-      uniq,
-      map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`)
-    )(icons.big),
 
-    Colors: (
-      colors.map((name) =>
-        <AllSet
-          key={`${name}`}
-          color={name}
-          style={name === 'inverse'
-          ? { background: '#0074c8' }
-          : undefined
-        }
-        />
-      )
-    ),
-    Icons: (
-      icons.big.map((Icon) => <Icon key={Icon.name} />)
-    )
-  }, {
-    title: 'Small',
-    require: compose(
-      join('\n'),
-      uniq,
-      map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`)
-    )(icons.tiny),
+  variations: [
+    {
+      title: 'Big',
+      require: compose(
+        join('\n'),
+        uniq,
+        map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`)
+      )(icons.big),
+      type: LIVE,
 
-    Colors: (
-      colors.map((name) =>
-        <Person
+      examples: {
+        Colors: colors.map((name) => <AllSet
           key={`${name}`}
           color={name}
           style={name === 'inverse'
             ? { background: '#0074c8' }
             : undefined
           }
-        />
-      )
-    ),
+        />),
 
-    Small: (
-      icons.tiny.map((Icon) => <Icon key={Icon.name} />)
-    )
-  }]
+        Icons: icons.big.map((Icon) => <Icon key={Icon.name} />)
+      }
+    },
+
+    {
+      title: 'Small',
+      require: compose(
+        join('\n'),
+        uniq,
+        map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`)
+      )(icons.tiny),
+      type: LIVE,
+
+      examples: {
+        Colors: colors.map((name) => <Person
+          key={`${name}`}
+          color={name}
+          style={name === 'inverse'
+            ? { background: '#0074c8' }
+            : undefined
+          }
+        />),
+
+        Small: icons.tiny.map((Icon) => <Icon key={Icon.name} />)
+      }
+    }
+  ]
 }

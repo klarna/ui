@@ -191,9 +191,8 @@ $stackable-border-width: $grid * .2;
 }
 
 %input__label {
-  @include typography(($grid * 2.8), regular);
+  @include typography(map-get($font-sizes, big-body-mobile), regular);
 
-  -webkit-transition: all .2s ease;
   color: map-get($colors, 'grey-text');
   line-height: ($grid * 10);
   overflow: hidden;
@@ -204,39 +203,39 @@ $stackable-border-width: $grid * .2;
   white-space: nowrap;
   width: 100%;
 
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, big-body-desktop), regular);
+  }
+
   .big & {
     height: ($grid * 12);
     line-height: ($grid * 13);
   }
 
   .giant & {
-    @include typography(($grid * 5.2), light);
+    @include typography(map-get($font-sizes, giant-input), light);
     line-height: ($grid * 16);
     transform: translate(0, ($grid * 2));
-    -ms-transform: translate(0, ($grid * 2));
   }
 
   .big.is-filled &,
   .big.is-error &,
   .big.is-warning & {
     transform: translate(0, ($grid * -2.2));
-    -ms-transform: translate(0, ($grid * -2.2));
   }
 
   .giant.is-filled &,
   .giant.is-error &,
   .giant.is-warning & {
     transform: translate(0, ($grid * -3.8));
-    -ms-transform: translate(0, ($grid * -3.8));
   }
 
   .is-filled &,
   .is-error &,
   .is-warning & {
-    @include typography(($grid * 2.2), regular);
+    @include typography(map-get($font-sizes, input-label), regular);
 
     transform: translate(0, ($grid * -2));
-    -ms-transform: translate(0, ($grid * -2));
   }
 
   .is-filled & {
@@ -261,7 +260,7 @@ $stackable-border-width: $grid * .2;
 }
 
 %input__input {
-  @include typography(($grid * 2.8), semi-bold);
+  @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   appearance: none;
@@ -274,6 +273,10 @@ $stackable-border-width: $grid * .2;
   padding: 0;
   position: absolute;
   width: 100%;
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
+  }
 
   // Disable clear field icon for IE10+
   &::-ms-clear {
@@ -293,7 +296,7 @@ $stackable-border-width: $grid * .2;
   }
 
   .giant & {
-    @include typography(($grid * 5.2), light);
+    @include typography(map-get($font-sizes, giant-input), light);
     height: ($grid * 16);
     top: ($grid * 2);
   }

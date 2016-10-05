@@ -1,8 +1,8 @@
 import React from 'react'
 import Base, {Page} from './Base'
 
-export default () => (
-  <Base title='Block' circleFill='#225366'>
+export default ({className}) => (
+  <Base className={className} title='Block' circleFill='#225366'>
     <Page />
 
     <rect fill='#4F627F' x='25' y='30' width='20' height='2' rx='1'/>

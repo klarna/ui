@@ -1,0 +1,33 @@
+@import '../../../css/settings';
+@import '../../../css/mixins/index';
+
+.getting-started__header {
+  display: block;
+
+  svg {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.getting-started__goals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.getting-started__goals__item {
+  display: inline-block;
+  padding-top: ($grid * 4);
+  vertical-align: top;
+  width: 29.3%;
+}
+
+.getting-started__goals__item__text {
+  margin-top: 20px;
+}
+
+.getting-started__design-title {
+  margin: 40px;
+  text-align: center;
+}

@@ -1,15 +1,18 @@
 import React from 'react'
 import * as ContextMenu from '../ContextMenu'
 import Logout from '../icons/Logout'
+import { LIVE } from '../Showroom/variationTypes'
 
 export default {
   title: 'ContextMenu',
   icon: 'Navigation',
-  variations: [{
-    title: 'ContextMenu',
+
+  examples: {
     require: 'import * as ContextMenu from \'@klarna/ui/ContextMenu\'',
-    Regular: (
-      <ContextMenu.Main>
+    type: LIVE,
+
+    examples: {
+      Regular: <ContextMenu.Main>
         <ContextMenu.Link>Buttons</ContextMenu.Link>
         <ContextMenu.Link>Icons</ContextMenu.Link>
         <ContextMenu.Link>Labels</ContextMenu.Link>
@@ -21,11 +24,9 @@ export default {
           <ContextMenu.Icon><Logout /></ContextMenu.Icon>
           Logout
         </ContextMenu.Link>
-      </ContextMenu.Main>
-    ),
+      </ContextMenu.Main>,
 
-    'Over blue background': (
-      <div style={{background: '#0074c8', padding: 20}}>
+      'Over blue background': <div style={{background: '#0074c8', padding: 20}}>
         <ContextMenu.Main>
           <ContextMenu.Link>Buttons</ContextMenu.Link>
           <ContextMenu.Link>Icons</ContextMenu.Link>
@@ -37,6 +38,6 @@ export default {
           </ContextMenu.Link>
         </ContextMenu.Main>
       </div>
-    )
-  }]
+    }
+  }
 }

@@ -21,6 +21,8 @@ const classes = {
   label: `${baseClass}__label`
 }
 
+export const icons = inlinedIcon.INLINED_ICONS
+
 export default React.createClass({
   displayName: 'Field',
 

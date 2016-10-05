@@ -1,6 +1,7 @@
 import React from 'react'
 import Landing from './'
 import Wrapper from '../Wrapper'
+import { TEMPLATE } from '../../Showroom/variationTypes'
 
 const DemoIcon = () => (
   <svg width='100px' height='150px' viewBox='0 0 100 150'>
@@ -26,13 +27,14 @@ const DemoIcon = () => (
 
 export default {
   title: 'Landing',
-  variations: [{
-    title: 'Landing Dialog',
-    require: 'import Landing from \'@klarna/ui/templates/Landing\'',
 
-    Regular: {
-      inline: (
-        <Landing
+  examples: {
+    require: 'import Landing from \'@klarna/ui/templates/Landing\'',
+    type: TEMPLATE,
+
+    examples: {
+      Regular: {
+        inline: <Landing
           illustration={<DemoIcon />}
           labels={{
             title: 'Welcome to the site',
@@ -40,10 +42,9 @@ export default {
             accept: 'Continue'
           }}
           onAccept={() => console.log('accept')}
-        />
-      ),
-      wrapper: (
-        <Wrapper>
+        />,
+
+        wrapper: <Wrapper>
           <Landing
             illustration={<DemoIcon />}
             labels={{
@@ -54,12 +55,10 @@ export default {
             onAccept={() => console.log('accept')}
           />
         </Wrapper>
-      )
-    },
+      },
 
-    'With legal copy': {
-      inline: (
-        <Landing
+      'With legal copy': {
+        inline: <Landing
           illustration={<DemoIcon />}
           labels={{
             title: 'Welcome to the site',
@@ -68,10 +67,9 @@ export default {
             accept: 'Continue'
           }}
           onAccept={() => console.log('accept')}
-        />
-      ),
-      wrapper: (
-        <Wrapper>
+        />,
+
+        wrapper: <Wrapper>
           <Landing
             illustration={<DemoIcon />}
             labels={{
@@ -83,12 +81,10 @@ export default {
             onAccept={() => console.log('accept')}
           />
         </Wrapper>
-      )
-    },
+      },
 
-    'With Secondary button': {
-      inline: (
-        <Landing
+      'With Secondary button': {
+        inline: <Landing
           illustration={<DemoIcon />}
           labels={{
             title: 'Welcome to the site',
@@ -98,10 +94,9 @@ export default {
           }}
           onAccept={() => console.log('accept')}
           onCancel={() => console.log('cancel')}
-        />
-      ),
-      wrapper: (
-        <Wrapper>
+        />,
+
+        wrapper: <Wrapper>
           <Landing
             illustration={<DemoIcon />}
             labels={{
@@ -114,21 +109,18 @@ export default {
             onCancel={() => console.log('cancel')}
           />
         </Wrapper>
-      )
-    },
+      },
 
-    'No Buttons': {
-      inline: (
-        <Landing
+      'No Buttons': {
+        inline: <Landing
           illustration={<DemoIcon />}
           labels={{
             title: 'Welcome to the site',
             summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
           }}
-        />
-      ),
-      wrapper: (
-        <Wrapper>
+        />,
+
+        wrapper: <Wrapper>
           <Landing
             illustration={<DemoIcon />}
             labels={{
@@ -137,12 +129,10 @@ export default {
             }}
           />
         </Wrapper>
-      )
-    },
+      },
 
-    'Multiple paragraphs': {
-      inline: (
-        <Landing
+      'Multiple paragraphs': {
+        inline: <Landing
           illustration={<DemoIcon />}
           labels={{
             title: 'Welcome to the site',
@@ -153,10 +143,9 @@ export default {
             accept: 'Continue'
           }}
           onAccept={() => console.log('accept')}
-        />
-      ),
-      wrapper: (
-        <Wrapper>
+        />,
+
+        wrapper: <Wrapper>
           <Landing
             illustration={<DemoIcon />}
             labels={{
@@ -170,7 +159,7 @@ export default {
             onAccept={() => console.log('accept')}
           />
         </Wrapper>
-      )
+      }
     }
-  }]
+  }
 }

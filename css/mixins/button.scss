@@ -1,7 +1,6 @@
 @mixin button($background, $text-color, $darken-color, $darken-attributes) {
-  @include typography(($grid * 2.8), semi-bold);
+  @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
-  -webkit-transition: all .2s ease;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   appearance: none;
   background: $background;
@@ -20,8 +19,12 @@
   transition: all .2s ease;
   vertical-align: top;
 
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
+  }
+
   &.small {
-    font-size: ($grid * 2.8);
+    font-size: map-get($font-sizes, big-body-desktop);
     height: ($grid * 8);
     line-height: ($grid * 8) - ($grid * .4);
     padding: 0 ($grid * 5.6);

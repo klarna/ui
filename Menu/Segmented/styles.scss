@@ -13,7 +13,7 @@
   }
 
   .segmented__button {
-    @include typography(($grid * 2.8), regular);
+    @include typography(map-get($font-sizes, big-body-mobile), regular);
     @include stackable();
 
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -30,6 +30,10 @@
     text-align: center;
     transition: all .2s ease;
     vertical-align: top;
+
+    @include respond-to-wide {
+      @include typography(map-get($font-sizes, big-body-desktop), regular);
+    }
   }
 
   .segmented__button:hover,

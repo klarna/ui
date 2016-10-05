@@ -1,0 +1,22 @@
+@import '../../../css/settings';
+@import '../../../css/mixins/index';
+
+.page__content {
+  background-color: #fff;
+  margin: 0;
+  padding: 90px 30px;
+  width: calc(100vw - 60px);
+
+  @include respond-to-wide {
+    padding: 90px;
+    width: calc(100vw - 180px);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .page__content {
+    border-radius: 20px;
+    margin: 30px;
+    width: calc(100vw - 420px);
+  }
+}

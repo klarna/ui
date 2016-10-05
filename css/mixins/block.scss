@@ -1,5 +1,5 @@
 @mixin block ($background, $color) {
-  @include typography(($grid * 2.6), regular);
+  @include typography(map-get($font-sizes, main-body-desktop), regular);
 
   background-color: $background;
   color: $color;
