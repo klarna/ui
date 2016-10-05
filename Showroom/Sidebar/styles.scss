@@ -53,21 +53,6 @@
   font-weight: map-get($font-weights, semi-bold);
 }
 
-// .menuItem {
-//   color: white;
-//   display: block;
-//   padding: 7px 0;
-//   text-decoration: none;
-//
-//   font-size: 0.9em;
-//   font-weight: 300;
-//   padding-left: 20px;
-//
-//   &.selected {
-//     font-weight: 900;
-//   }
-// }
-
 @media screen and (min-width: 1026px) {
   .sidebar {
     display: block;
