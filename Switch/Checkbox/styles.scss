@@ -27,9 +27,6 @@
   padding-left: ($grid * 10);
   padding-top: ($grid * 1);
   user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
 
   @include respond-to-wide {
     @include typography(map-get($font-sizes, big-body-desktop), regular);

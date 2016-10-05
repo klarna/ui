@@ -110,21 +110,18 @@
 %-top {
   top: 0%;
   transform: translate(0, $grid);
-  -ms-transform: translate(0, $grid);
 }
 
 // scss-lint:disable PropertySortOrder
 %-middle {
   top: 50%;
   transform: translate(0, -$grid);
-  -ms-transform: translate(0, -$grid);
 }
 
 // scss-lint:disable PropertySortOrder
 %-bottom {
   top: 100%;
   transform: translate(0, -$grid * 3);
-  -ms-transform: translate(0, -$grid * 3);
 }
 
 %top-inverse {

@@ -3,7 +3,6 @@
 
 .radio {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-transition: all .2s ease;
   border: ($grid * .2) solid $border-color;
   border-radius: $border-radius;
   box-sizing: border-box;
@@ -38,10 +37,6 @@
 }
 
 .radio__option {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-transition: all .2s ease;
-  -webkit-user-select: none;
   background: white;
   cursor: pointer;
   display: block;
@@ -52,6 +47,7 @@
   padding-top: ($grid * 1.8);
   position: relative;
   transition: all .2s ease;
+  user-select: none;
 
   &:hover,
   &.is-focused {
@@ -101,7 +97,6 @@
   left: ($grid * 4);
   position: absolute;
   top: ($grid * 2.4);
-  -webkit-transition: all .2s ease;
   transition: all .2s ease;
   width: ($grid * 2.8);
 
@@ -131,8 +126,6 @@
   position: absolute;
   top: ($grid * 3.4);
   transform: scale(3, 3);
-  -ms-transform: scale(3, 3);
-  -webkit-transition: all .2s ease;
   transition: all .2s ease;
   width: ($grid * .8);
 
@@ -144,7 +137,6 @@
     opacity: 1;
     top: ($grid * 3.4);
     transform: scale(1, 1);
-    -ms-transform: scale(1, 1);
   }
 }
 

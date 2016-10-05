@@ -1,7 +1,6 @@
 @mixin button($background, $text-color, $darken-color, $darken-attributes) {
   @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
-  -webkit-transition: all .2s ease;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   appearance: none;
   background: $background;

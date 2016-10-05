@@ -193,7 +193,6 @@ $stackable-border-width: $grid * .2;
 %input__label {
   @include typography(map-get($font-sizes, big-body-mobile), regular);
 
-  -webkit-transition: all .2s ease;
   color: map-get($colors, 'grey-text');
   line-height: ($grid * 10);
   overflow: hidden;
@@ -217,21 +216,18 @@ $stackable-border-width: $grid * .2;
     @include typography(map-get($font-sizes, giant-input), light);
     line-height: ($grid * 16);
     transform: translate(0, ($grid * 2));
-    -ms-transform: translate(0, ($grid * 2));
   }
 
   .big.is-filled &,
   .big.is-error &,
   .big.is-warning & {
     transform: translate(0, ($grid * -2.2));
-    -ms-transform: translate(0, ($grid * -2.2));
   }
 
   .giant.is-filled &,
   .giant.is-error &,
   .giant.is-warning & {
     transform: translate(0, ($grid * -3.8));
-    -ms-transform: translate(0, ($grid * -3.8));
   }
 
   .is-filled &,
@@ -240,7 +236,6 @@ $stackable-border-width: $grid * .2;
     @include typography(map-get($font-sizes, input-label), regular);
 
     transform: translate(0, ($grid * -2));
-    -ms-transform: translate(0, ($grid * -2));
   }
 
   .is-filled & {
