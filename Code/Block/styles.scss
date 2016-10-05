@@ -1,3 +1,6 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
 .code--block {
   display: block;
 
@@ -7,23 +10,23 @@
 
   code {
     background: #363636;
-    border-radius: 4px;
-    color: #fff;
+    border-radius: ($grid * .8);
+    color: map-get($colors, white);
     display: block;
-    font-family: 'Fira Code', 'Consolas', 'Menlo', 'Andale Mono', monospace;
-    font-size: 13px;
+    font-family: $code-font-family;
+    font-size: ($grid * 2.6);
     font-weight: 100;
-    line-height: 20px;
+    line-height: ($grid * 4);
     overflow-x: auto;
-    padding-bottom: 14px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 11px;
+    padding-bottom: ($grid * 2.8);
+    padding-left: ($grid * 4);
+    padding-right: ($grid * 4);
+    padding-top: ($grid * 2.2);
   }
 
   &.standalone {
     code {
-      width: calc(100% - 40px);
+      width: calc(100% - ($grid * 8));
     }
   }
 }

@@ -6,7 +6,8 @@ $root: '../css/';
 // ================================================================
 //  Typography and baseline
 // ================================================================
-$base-font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$base-font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$code-font-family: 'Fira Code', 'Consolas', 'Menlo', 'Andale Mono', monospace;
 $grid: 5px;
 $content-main-width: 102; // $grid * 102
 $dialog-padding: (
