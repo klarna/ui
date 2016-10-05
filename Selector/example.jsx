@@ -46,8 +46,7 @@ export default {
 
     {
       title: 'Direct Selector',
-      require: `import * as Selector from '@klarna/ui/Selector'
-    import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
+      require: `import * as Selector from '@klarna/ui/Selector'`,
       type: LIVE,
 
       examples: {
