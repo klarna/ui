@@ -17,140 +17,179 @@ const classes = {
   require: `${baseClass}__require`
 }
 
-export default function Variation ({type, ...props}) {
-  const classNames = classNamesBind.bind(styles)
+const classNames = classNamesBind.bind(styles)
 
+export default function Variation ({type, ...props}) {
   switch (type) {
     case LIVE:
-      return <section className={classNames(baseClass)}>
-        {props.title && <Title.Primary
-          className={classNames(classes.heading)}>
-          {props.title}
-        </Title.Primary>}
-
-        <div className={classNames(classes.navigation)}>
-          <Title.Secondary
-            className={classNames(classes.navigationComponent)}>
-            Component
-          </Title.Secondary>
-
-          <Title.Secondary
-            className={classNames(classes.navigationReactCode)}>
-            React code
-          </Title.Secondary>
-        </div>
-
-        <Code.Block
-          className={classNames(classes.require)}
-          language='imports'
-          standalone>
-          {props.require}
-        </Code.Block>
-
-        {Object.keys(props.examples).map((name) => <Example
-          name={name}
-          key={name}>
-          {props.examples[name]}
-        </Example>)}
-      </section>
+      return <Live
+        examples={props.examples}
+        require={props.require}
+        title={props.title}
+      />
 
     case LIVE_WIDE:
-      return <section className={classNames(baseClass)}>
-        {props.title && <Title.Primary
-          className={classNames(classes.heading)}>
-          {props.title}
-        </Title.Primary>}
-
-        <div className={classNames(classes.navigation)}>
-          <Title.Secondary
-            className={classNames(classes.navigationComponent)}>
-            Component
-          </Title.Secondary>
-
-          <Title.Secondary
-            className={classNames(classes.navigationReactCode)}>
-            React code
-          </Title.Secondary>
-        </div>
-
-        <Code.Block language='imports' standalone>{props.require}</Code.Block>
-
-        {Object.keys(props.examples).map((name) => <Example
-          name={name}
-          key={name}>
-          {props.examples[name]}
-        </Example>)}
-      </section>
+      return <LiveWide
+        examples={props.examples}
+        require={props.require}
+        title={props.title}
+      />
 
     case MANUAL:
-      return <section className={classNames(baseClass)}>
-        {props.title && <Title.Primary
-          className={classNames(classes.heading)}>
-          {props.title}
-        </Title.Primary>}
-
-        <div className={classNames(classes.navigation)}>
-          <Title.Secondary
-            className={classNames(classes.navigationComponent)}>
-            Component
-          </Title.Secondary>
-
-          <Title.Secondary
-            className={classNames(classes.navigationReactCode)}>
-            React code
-          </Title.Secondary>
-        </div>
-
-        <Code.Block
-          language='imports'
-          standalone>
-          {props.require}
-        </Code.Block>
-
-        {Object.keys(props.examples).map((name) => <Example
-          code={props.examples[name].code}
-          name={name}
-          key={name}>
-          {props.examples[name].live}
-        </Example>)}
-      </section>
+      return <Manual
+        examples={props.examples}
+        require={props.require}
+        title={props.title}
+      />
 
     case TEMPLATE:
-      return <section className={classNames(baseClass)}>
-        {props.title && <Title.Primary
-          className={classNames(classes.heading)}>
-          {props.title}
-        </Title.Primary>}
-
-        <div className={classNames(classes.navigation)}>
-          <Title.Secondary
-            className={classNames(classes.navigationComponent)}>
-            Component
-          </Title.Secondary>
-
-          <Title.Secondary
-            className={classNames(classes.navigationReactCode)}>
-            React code
-          </Title.Secondary>
-        </div>
-
-        <Code.Block language='imports' standalone>{props.require}</Code.Block>
-
-        {Object.keys(props.examples).map((name) => <Example
-          name={name}
-          key={name}>
-          {props.examples[name].inline}
-        </Example>)}
-      </section>
+      return <Template
+        examples={props.examples}
+        require={props.require}
+        title={props.title}
+      />
 
     case SHOWCASE:
-      return <section className={classNames(baseClass)}>
-        {props.title && <Title.Primary
-          className={classNames(classes.heading)}>
-          {props.title}
-        </Title.Primary>}
-
-        {props.example}
-      </section>
+      return <Showcase
+        example={props.example}
+        title={props.title}
+      />
   }
+}
+
+function Live ({title, require, examples}) {
+  return <section className={classNames(baseClass)}>
+    {title && <Title.Primary
+      className={classNames(classes.heading)}>
+      {title}
+    </Title.Primary>}
+
+    <div className={classNames(classes.navigation)}>
+      <Title.Secondary
+        className={classNames(classes.navigationComponent)}>
+        Component
+      </Title.Secondary>
+
+      <Title.Secondary
+        className={classNames(classes.navigationReactCode)}>
+        React code
+      </Title.Secondary>
+    </div>
+
+    <Code.Block
+      className={classNames(classes.require)}
+      language='imports'
+      standalone>
+      {require}
+    </Code.Block>
+
+    {Object.keys(examples).map((name) => <Example
+      name={name}
+      key={name}>
+      {examples[name]}
+    </Example>)}
+  </section>
+}
+
+function LiveWide ({title, require, examples}) {
+  return <section className={classNames(baseClass)}>
+    {title && <Title.Primary
+      className={classNames(classes.heading)}>
+      {title}
+    </Title.Primary>}
+
+    <div className={classNames(classes.navigation)}>
+      <Title.Secondary
+        className={classNames(classes.navigationComponent)}>
+        Component
+      </Title.Secondary>
+
+      <Title.Secondary
+        className={classNames(classes.navigationReactCode)}>
+        React code
+      </Title.Secondary>
+    </div>
+
+    <Code.Block language='imports' standalone>{require}</Code.Block>
+
+    {Object.keys(examples).map((name) => <Example
+      name={name}
+      key={name}>
+      {examples[name]}
+    </Example>)}
+  </section>
+}
+
+function Manual ({title, require, examples}) {
+  return <section className={classNames(baseClass)}>
+    {title && <Title.Primary
+      className={classNames(classes.heading)}>
+      {title}
+    </Title.Primary>}
+
+    <div className={classNames(classes.navigation)}>
+      <Title.Secondary
+        className={classNames(classes.navigationComponent)}>
+        Component
+      </Title.Secondary>
+
+      <Title.Secondary
+        className={classNames(classes.navigationReactCode)}>
+        React code
+      </Title.Secondary>
+    </div>
+
+    <Code.Block
+      language='imports'
+      standalone>
+      {require}
+    </Code.Block>
+
+    {Object.keys(examples).map((name) => <Example
+      code={examples[name].code}
+      name={name}
+      key={name}>
+      {examples[name].live}
+    </Example>)}
+  </section>
+}
+
+function Template ({title, require, examples}) {
+  return <section className={classNames(baseClass)}>
+    {title && <Title.Primary
+      className={classNames(classes.heading)}>
+      {title}
+    </Title.Primary>}
+
+    <div className={classNames(classes.navigation)}>
+      <Title.Secondary
+        className={classNames(classes.navigationComponent)}>
+        Component
+      </Title.Secondary>
+
+      <Title.Secondary
+        className={classNames(classes.navigationReactCode)}>
+        React code
+      </Title.Secondary>
+    </div>
+
+    <Code.Block language='imports' standalone>{require}</Code.Block>
+
+    {Object.keys(examples).map((name) => <Example
+      name={name}
+      key={name}>
+      {examples[name].inline}
+    </Example>)}
+  </section>
+}
+
+function Showcase ({title, example}) {
+  return <section className={classNames(baseClass)}>
+    {title && <Title.Primary
+      className={classNames(classes.heading)}>
+      {title}
+    </Title.Primary>}
+
+    {example}
+  </section>
 }
