@@ -19,7 +19,7 @@ export default {
           Here's an overview of all buttons.
         </Paragraph.Secondary>,
         <Paragraph.Secondary style={{textAlign: 'center'}}>
-          Pass your mouse over and click the elements to see the hover and active states.
+          Place the mouse cursor over the elements and click them to the see the different states.
         </Paragraph.Secondary>,
         <table style={{marginTop: '40px', textAlign: 'center', width: '100%'}}>
           <tbody>

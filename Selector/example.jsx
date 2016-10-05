@@ -46,7 +46,7 @@ export default {
 
     {
       title: 'Direct Selector',
-      require: `import * as Selector from '@klarna/ui/Selector'`,
+      require: 'import * as Selector from \'@klarna/ui/Selector\'',
       type: LIVE,
 
       examples: {
