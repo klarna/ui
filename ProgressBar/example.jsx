@@ -12,12 +12,12 @@ export default {
     examples: {
       Regular: <ProgressBar percentage={50} />,
 
-      Blue: <ProgressBar percentage={33} fillColor={"blue"} />,
+      Blue: <ProgressBar percentage={33} fillColor='blue' />,
 
       'Light blue': <ProgressBar
         percentage={80}
-        borderColor={'light-blue'}
-        fillColor={"gray"}
+        borderColor='light-blue'
+        fillColor='gray'
       />,
 
       'Custom inline styles': <ProgressBar
