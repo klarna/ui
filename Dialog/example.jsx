@@ -6,7 +6,7 @@ import { Title, Paragraph, Subtitle } from '../Text'
 import { MANUAL } from '../Showroom/variationTypes'
 
 const Example = React.createClass({
-  displayName: 'Dialog',
+  displayName: 'DialogExample',
 
   getInitialState () {
     return {
