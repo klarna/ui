@@ -1,8 +1,10 @@
+import { KEY_PRESS } from '../actions'
+
 export default (s) => {
   window.addEventListener(
     'keypress',
     (e) => s({
-      type: 'KEY_PRESS',
+      type: KEY_PRESS,
       payload: {
         code: e.keyCode
       }

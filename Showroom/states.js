@@ -4,6 +4,7 @@ import keyDown, { reducer as reduceKeyDown } from './signals/keyDown'
 import keyPress, { reducer as reduceKeyPress } from './signals/keyPress'
 import resize, { reducer as reduceResize } from './signals/resize'
 import route, { reducer as reduceRoute } from './signals/route'
+import { KEY_DOWN, KEY_PRESS, RESIZE, ROUTE } from './actions'
 
 const signals = stream()
 
@@ -27,16 +28,16 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'RESIZE':
+    case RESIZE:
       return {
         ...state,
         grid: reduceResize(state.grid, action.payload)
       }
 
-    case 'ROUTE':
+    case ROUTE:
       return reduceRoute(state, action.payload)
 
-    case 'KEY_PRESS':
+    case KEY_PRESS:
       const grid = reduceKeyPress(
         state.grid,
         action.payload
@@ -49,7 +50,7 @@ const reducer = (state, action) => {
           grid
         }
 
-    case 'KEY_DOWN':
+    case KEY_DOWN:
       if (!state.grid.display) {
         return state
       }

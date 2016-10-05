@@ -1,8 +1,10 @@
+import { KEY_DOWN } from '../actions'
+
 export default (s) => {
   window.addEventListener(
     'keydown',
     (e) => s({
-      type: 'KEY_DOWN',
+      type: KEY_DOWN,
       payload: {
         code: e.keyCode
       }

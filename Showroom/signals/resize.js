@@ -1,6 +1,8 @@
+import { RESIZE } from '../actions'
+
 export default (s) => {
   window.addEventListener('resize', (e) => s({
-    type: 'RESIZE',
+    type: RESIZE,
     payload: {
       height: window.innerHeight,
       width: window.innerWidth
