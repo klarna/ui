@@ -1,5 +1,5 @@
 import React from 'react'
-import Field from '../Field'
+import Field, { icons } from '../Field'
 import Fieldset from '../Fieldset'
 import UncontrolledField from '../uncontrolled/Field'
 import { LIVE, LIVE_WIDE } from '../Showroom/variationTypes'
@@ -12,7 +12,7 @@ export default {
     {
       title: 'Single',
       require: `import Field from '@klarna/ui/Field'
-    import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
+import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
       type: LIVE,
 
       examples: {
@@ -62,65 +62,65 @@ export default {
     {
       title: 'With Icons',
       require: `import Field from '@klarna/ui/Field'
-    import Fieldset from '@klarna/ui/Fieldset'`,
+import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE,
 
       examples: {
         Regular: <div>
           <Fieldset margins>
             <Field
-              icon='card'
+              icon={icons.CARD}
               label='Please enter your credit card number' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='calendar'
+              icon={icons.CALENDAR}
               label='Date of Birth' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='lock'
+              icon={icons.LOCK}
               type='password'
               label='Password' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='person'
+              icon={icons.PERSON}
               label='Enter your user name' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='email'
+              icon={icons.EMAIL}
               label='Enter your email address' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='phone'
+              icon={icons.PHONE}
               label='Mobile number' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='close'
+              icon={icons.CLOSE}
               label='Enter an incorrect value (?)' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='question'
+              icon={icons.QUESTION}
               label='Are we sure about these being field icons?' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='check'
+              icon={icons.CHECK}
               label='These look like button icons really' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='logout'
+              icon={icons.LOGOUT}
               label='Write something to log out' />
           </Fieldset>
           <Fieldset margins>
             <Field
-              icon='details'
+              icon={icons.DETAILS}
               label='This is for writing some details here' />
           </Fieldset>
         </div>
@@ -130,7 +130,7 @@ export default {
     {
       title: 'Stacked',
       require: `import UncontrolledField from '@klarna/ui/uncontrolled/Field'
-    import Fieldset from '@klarna/ui/Fieldset'`,
+import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE_WIDE,
 
       examples: {

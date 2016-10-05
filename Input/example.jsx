@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from '../Input'
+import Input, { icons } from '../Input'
 import UncontrolledInput from '../uncontrolled/Input'
 import Fieldset from '../Fieldset'
 import { LIVE, LIVE_WIDE } from '../Showroom/variationTypes'
@@ -51,69 +51,69 @@ export default {
           <Fieldset margins>
             <UncontrolledInput
               name='icon-card'
-              icon='card'
+              icon={icons.CARD}
               label='Please enter your credit card number' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-calendar'
-              icon='calendar'
+              icon={icons.CALENDAR}
               label='Date of Birth' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-lock'
-              icon='lock'
+              icon={icons.LOCK}
               type='password'
               label='Password' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-person'
-              icon='person'
+              icon={icons.PERSON}
               label='Enter your user name' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-email'
-              icon='email'
+              icon={icons.EMAIL}
               label='Enter your email address' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-phone'
-              icon='phone'
+              icon={icons.PHONE}
               label='Mobile number' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-close'
-              icon='close'
+              icon={icons.CLOSE}
               label='Enter an incorrect value (?)' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-question'
-              icon='question'
+              icon={icons.QUESTION}
               label='Are we sure about these being field icons?' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-check'
-              icon='check'
+              icon={icons.CHECK}
               label='These look like button icons really' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-logout'
-              icon='logout'
+              icon={icons.LOGOUT}
               label='Write something to log out' />
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
               name='icon-giant'
               giant
-              icon='phone'
+              icon={icons.PHONE}
               label='Line number' />
           </Fieldset>
         ]
