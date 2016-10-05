@@ -2,7 +2,6 @@
 @import '../../css/mixins/index';
 
 .sidebar {
-  -webkit-font-smoothing: antialiased;
   background: map-get($colors, light-grey);
   display: none;
   font-size: 13px;

@@ -2,7 +2,6 @@
 @import '../../css/mixins/index';
 
 .menu {
-  -webkit-font-smoothing: antialiased;
   background: map-get($colors, sidebar-blue);
   display: block;
   left: 0;
