@@ -2,115 +2,115 @@ import React from 'react'
 import { Back, Close, Hamburger, Options, Search } from '../IconButton'
 import * as Block from '../Block'
 import * as Button from '../Button'
-import * as Paragraph from '../Paragraph'
-import { LIVE, SHOWCASE } from '../Showroom/variationTypes'
+// import * as Paragraph from '../Paragraph'
+import { LIVE } from '../Showroom/variationTypes'
 
 export default {
   title: 'Button',
   icon: 'Button',
 
   variations: [
-    {
-      title: 'Showcase',
-      type: SHOWCASE,
-
-      example: [
-        <Paragraph.Secondary style={{textAlign: 'center'}}>
-          Here's an overview of all buttons.
-        </Paragraph.Secondary>,
-        <Paragraph.Secondary style={{textAlign: 'center'}}>
-          Place the mouse cursor over the elements and click them to the see the different states.
-        </Paragraph.Secondary>,
-        <table style={{marginTop: '40px', textAlign: 'center', width: '100%'}}>
-          <tbody>
-            <tr>
-              <td>
-                <Button.Primary size='small'>Primary</Button.Primary>
-              </td>
-              <td>
-                <Button.Primary loading size='small'>Primary</Button.Primary>
-              </td>
-              <td>
-                <Button.Primary disabled size='small'>Primary</Button.Primary>
-              </td>
-              <td>
-                <Button.Primary size='small'>Primary<Button.Price>$Price</Button.Price></Button.Primary>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Button.Primary>Primary</Button.Primary>
-              </td>
-              <td>
-                <Button.Primary loading>Primary</Button.Primary>
-              </td>
-              <td>
-                <Button.Primary disabled>Primary</Button.Primary>
-              </td>
-              <td>
-                <Button.Primary>Primary<Button.Price>$Price</Button.Price></Button.Primary>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Button.Primary size='big'>Primary</Button.Primary>
-              </td>
-              <td>
-                <Button.Primary loading size='big'>Primary</Button.Primary>
-              </td>
-              <td>
-                <Button.Primary disabled size='big'>Primary</Button.Primary>
-              </td>
-              <td>
-                <Button.Primary size='big'>Primary<Button.Price>$Price</Button.Price></Button.Primary>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Button.Secondary size='small'>Secondary</Button.Secondary>
-              </td>
-              <td>
-                <Button.Secondary loading size='small'>Secondary</Button.Secondary>
-              </td>
-              <td>
-                <Button.Secondary disabled size='small'>Secondary</Button.Secondary>
-              </td>
-              <td>
-                <Button.Secondary size='small'>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Button.Secondary>Secondary</Button.Secondary>
-              </td>
-              <td>
-                <Button.Secondary loading>Secondary</Button.Secondary>
-              </td>
-              <td>
-                <Button.Secondary disabled>Secondary</Button.Secondary>
-              </td>
-              <td>
-                <Button.Secondary>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Button.Secondary size='big'>Secondary</Button.Secondary>
-              </td>
-              <td>
-                <Button.Secondary loading size='big'>Secondary</Button.Secondary>
-              </td>
-              <td>
-                <Button.Secondary disabled size='big'>Secondary</Button.Secondary>
-              </td>
-              <td>
-                <Button.Secondary size='big'>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      ]
-    },
+    // {
+    //   title: 'Showcase',
+    //   type: SHOWCASE,
+    //
+    //   example: [
+    //     <Paragraph.Secondary style={{textAlign: 'center'}}>
+    //       Here's an overview of all buttons.
+    //     </Paragraph.Secondary>,
+    //     <Paragraph.Secondary style={{textAlign: 'center'}}>
+    //       Place the mouse cursor over the elements and click them to the see the different states.
+    //     </Paragraph.Secondary>,
+    //     <table style={{marginTop: '40px', textAlign: 'center', width: '100%'}}>
+    //       <tbody>
+    //         <tr>
+    //           <td>
+    //             <Button.Primary size='small'>Primary</Button.Primary>
+    //           </td>
+    //           <td>
+    //             <Button.Primary loading size='small'>Primary</Button.Primary>
+    //           </td>
+    //           <td>
+    //             <Button.Primary disabled size='small'>Primary</Button.Primary>
+    //           </td>
+    //           <td>
+    //             <Button.Primary size='small'>Primary<Button.Price>$Price</Button.Price></Button.Primary>
+    //           </td>
+    //         </tr>
+    //         <tr>
+    //           <td>
+    //             <Button.Primary>Primary</Button.Primary>
+    //           </td>
+    //           <td>
+    //             <Button.Primary loading>Primary</Button.Primary>
+    //           </td>
+    //           <td>
+    //             <Button.Primary disabled>Primary</Button.Primary>
+    //           </td>
+    //           <td>
+    //             <Button.Primary>Primary<Button.Price>$Price</Button.Price></Button.Primary>
+    //           </td>
+    //         </tr>
+    //         <tr>
+    //           <td>
+    //             <Button.Primary size='big'>Primary</Button.Primary>
+    //           </td>
+    //           <td>
+    //             <Button.Primary loading size='big'>Primary</Button.Primary>
+    //           </td>
+    //           <td>
+    //             <Button.Primary disabled size='big'>Primary</Button.Primary>
+    //           </td>
+    //           <td>
+    //             <Button.Primary size='big'>Primary<Button.Price>$Price</Button.Price></Button.Primary>
+    //           </td>
+    //         </tr>
+    //         <tr>
+    //           <td>
+    //             <Button.Secondary size='small'>Secondary</Button.Secondary>
+    //           </td>
+    //           <td>
+    //             <Button.Secondary loading size='small'>Secondary</Button.Secondary>
+    //           </td>
+    //           <td>
+    //             <Button.Secondary disabled size='small'>Secondary</Button.Secondary>
+    //           </td>
+    //           <td>
+    //             <Button.Secondary size='small'>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
+    //           </td>
+    //         </tr>
+    //         <tr>
+    //           <td>
+    //             <Button.Secondary>Secondary</Button.Secondary>
+    //           </td>
+    //           <td>
+    //             <Button.Secondary loading>Secondary</Button.Secondary>
+    //           </td>
+    //           <td>
+    //             <Button.Secondary disabled>Secondary</Button.Secondary>
+    //           </td>
+    //           <td>
+    //             <Button.Secondary>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
+    //           </td>
+    //         </tr>
+    //         <tr>
+    //           <td>
+    //             <Button.Secondary size='big'>Secondary</Button.Secondary>
+    //           </td>
+    //           <td>
+    //             <Button.Secondary loading size='big'>Secondary</Button.Secondary>
+    //           </td>
+    //           <td>
+    //             <Button.Secondary disabled size='big'>Secondary</Button.Secondary>
+    //           </td>
+    //           <td>
+    //             <Button.Secondary size='big'>Secondary<Button.Price>$Price</Button.Price></Button.Secondary>
+    //           </td>
+    //         </tr>
+    //       </tbody>
+    //     </table>
+    //   ]
+    // },
 
     {
       title: 'Primary',
