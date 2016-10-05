@@ -21,7 +21,7 @@ export default {
     {
       title: 'Options Selector',
       require: `import * as Selector from '@klarna/ui/Selector'
-    import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
+import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
       type: LIVE,
 
       examples: {
@@ -38,7 +38,7 @@ export default {
 
         Focus: <Selector.Options
           focus={2}
-          name='selector'
+          name='selector-focus'
           data={optionsData}
         />
       }

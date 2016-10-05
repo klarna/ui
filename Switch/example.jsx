@@ -11,7 +11,7 @@ export default {
     {
       title: 'Toggle',
       require: `import * as Switch from '@klarna/ui/Switch'
-  import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
+import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
       type: LIVE,
 
       examples: {
@@ -85,7 +85,7 @@ export default {
     {
       title: 'Checkbox',
       require: `import * as Switch from '@klarna/ui/Switch'
-  import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
+import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
       type: LIVE,
 
       examples: {

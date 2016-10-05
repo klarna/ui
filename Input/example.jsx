@@ -12,7 +12,7 @@ export default {
     {
       title: 'Single',
       require: `import Input from '@klarna/ui/Input'
-  import UncontrolledInput from '@klarna/ui/uncontrolled/Input'`,
+import UncontrolledInput from '@klarna/ui/uncontrolled/Input'`,
       type: LIVE,
 
       examples: {
@@ -43,7 +43,7 @@ export default {
     {
       title: 'With Icons',
       require: `import UncontrolledInput from '@klarna/ui/uncontrolled/Input'
-  import Fieldset from '@klarna/ui/Fieldset'`,
+import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE,
 
       examples: {
@@ -123,7 +123,7 @@ export default {
     {
       title: 'Stacked',
       require: `import UncontrolledInput from '@klarna/ui/uncontrolled/Input'
-  import Fieldset from '@klarna/ui/Fieldset'`,
+import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE_WIDE,
 
       examples: {

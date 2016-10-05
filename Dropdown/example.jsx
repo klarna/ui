@@ -17,7 +17,7 @@ export default {
     {
       title: 'Single',
       require: `import Dropdown from '@klarna/ui/Dropdown'
-    import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'`,
+import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'`,
       type: LIVE,
 
       examples: {
@@ -86,7 +86,7 @@ export default {
     {
       title: 'Stacked',
       require: `import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'
-    import Fieldset from '@klarna/ui/Fieldset'`,
+import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE_WIDE,
 
       examples: {

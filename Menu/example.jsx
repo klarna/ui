@@ -75,7 +75,7 @@ import * as UncontrolledMenu from '@klarna/ui/uncontrolled/Menu'`,
     {
       title: 'Segmented',
       require: `import * as Menu from '@klarna/ui/Menu'
-  import * as UncontrolledMenu from '@klarna/ui/uncontrolled/Menu'`,
+import * as UncontrolledMenu from '@klarna/ui/uncontrolled/Menu'`,
       type: LIVE_WIDE,
 
       examples: {
