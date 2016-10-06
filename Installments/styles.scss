@@ -2,6 +2,7 @@
 @import '../css/mixins/index';
 
 .installments {
+  box-sizing: border-box;
   border: ($grid * .2) solid $border-color;
   border-radius: 5px;
   min-width: 280px;
@@ -95,9 +96,10 @@
 
   .installments__cell__highlight {
     display: none;
+    box-sizing: border-box;
 
     @include respond-to-wide {
-      height: ($grid * 14.6);
+      height: ($grid * 15);
     }
   }
 

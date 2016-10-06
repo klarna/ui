@@ -102,7 +102,7 @@ export default React.createClass({
         ...style
       }}
       {...remainingProps}>
-      <div className={classes.row}>
+      <div className={classNames(classes.row)}>
         {options.map(({ key, content }, index) => {
           const id = `${name}-${key}`
           return <label
