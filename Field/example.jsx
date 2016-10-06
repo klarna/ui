@@ -2,7 +2,8 @@ import React from 'react'
 import Field, { icons } from '../Field'
 import Fieldset from '../Fieldset'
 import UncontrolledField from '../uncontrolled/Field'
-import { LIVE, LIVE_WIDE } from '../Showroom/variationTypes'
+import ReactMaskedInput from 'react-maskedinput'
+import { LIVE, LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
 
 export default {
   title: 'Field',
@@ -56,6 +57,30 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
           label='Favorite color'
           value='Purple'
         />
+      }
+    },
+
+    {
+      title: 'Override',
+      require: `import UncontrolledField from '@klarna/ui/uncontrolled/Field'
+import ReactMaskedInput from 'react-maskedinput'`,
+      type: MANUAL,
+
+      examples: {
+        'Masked credit card field': {
+          live: <UncontrolledField
+            label='Credit card number'
+            Input={ReactMaskedInput}
+            mask='1111 1111 1111 1111'
+            placeholder=' '
+          />,
+          code: `<UncontrolledField
+  label='Credit card number'
+  Input={ReactMaskedInput}
+  mask='1111 1111 1111 1111'
+  placeholder=' '
+/>`
+        }
       }
     },
 

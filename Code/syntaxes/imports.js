@@ -3,7 +3,7 @@ module.exports = (hljs) => ({
   contains: [
     {
       className: 'keyword',
-      begin: 'import|from|as',
+      begin: 'import|from| as ',
       relevance: 0
     },
 
