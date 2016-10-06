@@ -1,6 +1,6 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as Block from '../../../Block'
+import * as Dialog from '../../../Dialog'
 import * as Button from '../../../Button'
 import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
@@ -29,36 +29,34 @@ export default function Centered ({
     ? labels.summary
     : [labels.summary]
 
-  return (
-    <Block.Plain className={classNames(baseClass, className)}>
-      {illustration}
+  return <Dialog.Content className={classNames(baseClass, className)}>
+    {illustration}
 
-      <Title.Primary
-        className={classNames(classes.title)}>
-        {labels.title}
-      </Title.Primary>
+    <Title.Primary
+      className={classNames(classes.title)}>
+      {labels.title}
+    </Title.Primary>
 
-      {paragraphs.map((text, index) => (<Paragraph.Secondary
-        key={index}
-        className={classNames(classes.paragraphPrimary)}>
-        {text}
-      </Paragraph.Secondary>))}
+    {paragraphs.map((text, index) => (<Paragraph.Secondary
+      key={index}
+      className={classNames(classes.paragraphPrimary)}>
+      {text}
+    </Paragraph.Secondary>))}
 
-      {children}
+    {children}
 
-      {labels.accept && onAccept && <Button.Primary
-        onClick={onAccept}
-        className={classNames(classes.buttonAccept)}>
-        {labels.accept}
-      </Button.Primary>}
+    {labels.accept && onAccept && <Button.Primary
+      onClick={onAccept}
+      className={classNames(classes.buttonAccept)}>
+      {labels.accept}
+    </Button.Primary>}
 
-      {labels.cancel && onCancel && <Button.Secondary onClick={onCancel}>
-        {labels.cancel}
-      </Button.Secondary>}
+    {labels.cancel && onCancel && <Button.Secondary onClick={onCancel}>
+      {labels.cancel}
+    </Button.Secondary>}
 
-      {labels.legal && <Paragraph.Legal className={classNames(classes.legal)}>
-        {labels.legal}
-      </Paragraph.Legal>}
-    </Block.Plain>
-  )
+    {labels.legal && <Paragraph.Legal className={classNames(classes.legal)}>
+      {labels.legal}
+    </Paragraph.Legal>}
+  </Dialog.Content>
 }

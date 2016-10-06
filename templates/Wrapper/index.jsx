@@ -14,10 +14,7 @@ export default function Wrapper ({children, ...props}) {
             color='gray'
           />
         </Dialog.Icon>
-
-        <Dialog.Content>
-          {children}
-        </Dialog.Content>
+        {children}
       </Dialog.Main>
     </Dialog.Overlay>
   )

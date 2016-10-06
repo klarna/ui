@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.chrome--centered__title {
+.chrome--centered__title:not(:first-child) {
   padding-top: ($grid * 7.2);
 }
 

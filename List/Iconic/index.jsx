@@ -15,17 +15,17 @@ const classes = {
 export function Wrapper ({className, children, styles}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return <ul className={classNames(classes.wrapper)}>
+  return <ul className={classNames(classes.wrapper, className)}>
     {children}
   </ul>
 }
 
 Wrapper.displayName = 'List.Iconic.Wrapper'
 
-export function Item ({icon, children, styles}) {
+export function Item ({className, icon, children, styles}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return <li className={classNames(classes.item)}>
+  return <li className={classNames(classes.item, className)}>
     <div className={classNames(classes.itemIcon)}>
       {icon}
     </div>

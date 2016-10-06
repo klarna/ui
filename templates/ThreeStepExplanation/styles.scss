@@ -1,0 +1,8 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.three-step-explanation__list {
+  text-align: left;
+  margin-top: ($grid * 6);
+  margin-bottom: ($grid * 8);
+}

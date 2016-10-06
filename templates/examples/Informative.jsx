@@ -1,6 +1,7 @@
 import React from 'react'
 import Explanation from '../Explanation'
 import Landing from '../Landing'
+import ThreeStepExplanation from '../ThreeStepExplanation'
 import Wrapper from '../Wrapper'
 import { TEMPLATE } from '../../Showroom/variationTypes'
 
@@ -188,6 +189,67 @@ export default {
                 legal='Drinking vinegar unicorn fam pork belly prism. Vegan bicycle rights raclette tofu squid lomo coloring book, meggings marfa PBR&B bushwick. '
               />
             </Wrapper>
+          ]
+        }
+      }
+    },
+
+    {
+      title: 'ThreeStepExplanation',
+      require: 'import ThreeStepExplanation from \'@klarna/ui/templates/ThreeStepExplanation\'',
+      type: TEMPLATE,
+
+      examples: {
+        Regular: {
+          inline: [
+            <ThreeStepExplanation
+              title='This is the main feature headline'
+              accept='Continue'
+              bullets={[
+                {
+                  icon: <svg
+                    width='60px'
+                    height='60px'
+                    viewBox='0 0 60 60'>
+                    <circle
+                      stroke='#979797'
+                      fill='#D8D8D8'
+                      cx='30'
+                      cy='30'
+                      r='28'
+                    />
+                  </svg>,
+                  content: 'Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus.'
+                },
+                {
+                  icon: <svg
+                    width='60px'
+                    height='60px'
+                    viewBox='0 0 60 60'>
+                    <polygon
+                      stroke='#979797'
+                      fill='#D8D8D8'
+                      points='30 46.5 12.95 55.46 16.20 36.48 2.41 23.03 21.47 20.26 30 3 38.52 20.26 57.58 23.03 43.79 36.48 47.04 55.46'
+                    />
+                  </svg>,
+                  content: 'Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus.'
+                },
+                {
+                  icon: <svg
+                    width='60px'
+                    height='60px'
+                    viewBox='0 0 60 60'>
+                    <polygon
+                      stroke='#979797'
+                      fill='#D8D8D8'
+                      points='30 4 58 54 2 54'
+                    />
+                  </svg>,
+                  content: 'Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus.'
+                }
+              ]}
+              onAccept={() => console.log('Continue')}
+            />
           ]
         }
       }
