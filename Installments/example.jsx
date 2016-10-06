@@ -4,10 +4,10 @@ import UncontrolledInstallments from '../uncontrolled/Installments'
 import { LIVE_WIDE } from '../Showroom/variationTypes'
 
 const options = [
-  { key: 'installments_3', value: '$70.17/mo.', connector: ' for ', info: '3 months' },
-  { key: 'installments_6', value: '$64.17/mo.', connector: ' for ', info: '6 months' },
-  { key: 'installments_12', value: '$32.09/mo.', connector: ' for ', info: '12 months' },
-  { key: 'installments_24', value: '$16.05/mo.', connector: ' for ', info: '24 months' }
+  { key: 'installments_3', content: <div>Long one line text in div</div> },
+  { key: 'installments_6', content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>] },
+  { key: 'installments_12', content: 'Simple text content' },
+  { key: 'installments_24', content: <div><div>Force</div><div>new line</div></div> }
 ]
 
 export default {
