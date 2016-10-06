@@ -258,12 +258,24 @@ export default {
 
     {
       title: 'ConfirmData',
-      'import ConfirmData from \'@klarna/ui/templates/ConfirmData\'',
+      require: 'import ConfirmData from \'@klarna/ui/templates/ConfirmData\'',
       type: TEMPLATE,
 
       examples: {
         Regular: {
           inline: [
+            <ConfirmData
+              title='Are these your favorite flavors?'
+              summary='Street art tattooed live-edge, kitsch four loko hashtag paleo banh mi art party. Viral flexitarian paleo, stumptown dreamcatcher ennui pitchfork bitters squid cornhole roof party tattooed truffaut woke.'
+              info={[
+                {label: 'Ice cream', value: 'Vanilla'},
+                {label: 'Juice', value: 'Orange'}
+              ]}
+              accept='Yes, love those flavors'
+              cancel='Chocolate and strawberry please'
+              onAccept={() => console.log('The user likes the flavors')}
+              onCancel={() => console.log('The prefers chocolate')}
+            />
           ]
         }
       }
