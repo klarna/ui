@@ -1,8 +1,8 @@
 import React from 'react'
 import Base, {Page} from './Base'
 
-export default () => (
-  <Base title='Checklist' circleFill='#E01953'>
+export default ({className}) => (
+  <Base className={className} title='Checklist' circleFill='#E01953'>
     <Page />
     <g transform='translate(20 32)'>
       {[[0, 30], [22, 35], [44, 20]].map(([y, width]) => (

@@ -1,0 +1,32 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.code--block {
+  display: block;
+
+  pre {
+    margin: 0;
+  }
+
+  code {
+    background: #363636;
+    border-radius: ($grid * .8);
+    color: map-get($colors, white);
+    display: block;
+    font-family: $code-font-family;
+    font-size: ($grid * 2.6);
+    font-weight: 100;
+    line-height: ($grid * 4);
+    overflow-x: auto;
+    padding-bottom: ($grid * 2.8);
+    padding-left: ($grid * 4);
+    padding-right: ($grid * 4);
+    padding-top: ($grid * 2.2);
+  }
+
+  &.standalone {
+    code {
+      width: calc(100% - ($grid * 8));
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import '../../../css/settings';
+@import '../../../css/mixins/index';
+
+.page__variation {
+  border-top: 1px solid #E5E5E6;
+  margin-top: 39px;
+
+  &:first-of-type {
+    margin-top: -1px;
+  }
+
+  &:first-of-type:last-child {
+    border-top: 0;
+    margin-top: 0;
+  }
+}
+
+.page__variation__heading {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.page__variation__navigation {
+  border-bottom: 1px solid #CBCBCD;
+  padding-bottom: 15px;
+  margin-bottom: 39px;
+  margin-top: 60px;
+  overflow: auto;
+}
+
+.page__variation__navigation__component {
+  float: left;
+  width: 40%;
+}
+
+.page__variation__navigation__react--code {
+  float: right;
+  width: 60%;
+}
+
+@media screen and (max-width: 840px) {
+  .page__variation__require {
+    display: none;
+  }
+}

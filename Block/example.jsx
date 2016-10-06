@@ -1,15 +1,17 @@
 import React from 'react'
 import * as Block from '../Block'
+import { LIVE } from '../Showroom/variationTypes'
 
 export default {
   title: 'Block',
   icon: 'Block',
 
-  variations: [{
-    title: 'Installments',
+  examples: {
     require: 'import * as Block from \'@klarna/ui/Block\'',
-    Regular: (
-      <Block.Installments.Main>
+    type: LIVE,
+
+    examples: {
+      Regular: <Block.Installments.Main>
         <Block.Installments.Title>Your Installments</Block.Installments.Title>
         <Block.Installments.Content>
           <Block.Installments.Value
@@ -23,6 +25,6 @@ export default {
           />
         </Block.Installments.Content>
       </Block.Installments.Main>
-    )
-  }]
+    }
+  }
 }

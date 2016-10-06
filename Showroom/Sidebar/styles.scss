@@ -1,8 +1,9 @@
-@import '../settings.scss';
+@import '../../css/settings';
+@import '../../css/mixins/index';
 
 .sidebar {
-  -webkit-font-smoothing: antialiased;
-  background: map-get($colors, sidebar-blue);
+  background: map-get($colors, light-grey);
+  display: none;
   font-size: 13px;
   font-weight: normal;
   min-height: 100vh;
@@ -14,27 +15,46 @@
   min-height: 100vh;
 }
 
-.k {
-  margin-bottom: 10px;
-}
-
-.menuTitle, .menuItem {
-  color: white;
+.sidebarK {
   display: block;
-  padding: 7px 0;
-  text-decoration: none;
+  fill: map-get($colors, klarna-blue);
+  margin-bottom: 23px;
+
+  &:hover {
+    fill: map-get($colors, klarna-blue-hover);
+  }
 }
 
 .menuTitle {
-  font-size: 1.1em;
+  margin-top: ($grid * 2);
+  position: relative;
+}
+
+.menuTitleLink {
+  display: block;
+}
+
+.chevron {
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
+
+.menuTitle + .menuItem {
+  margin-top: ($grid * 2);
 }
 
 .menuItem {
-  font-size: 0.9em;
-  font-weight: 300;
-  padding-left: 20px;
+  margin-left: ($grid * 2);
+}
 
-  &.selected {
-    font-weight: 900;
+.menuItemSelected {
+  color: map-get($colors, black);
+  font-weight: map-get($font-weights, semi-bold);
+}
+
+@media screen and (min-width: 1026px) {
+  .sidebar {
+    display: block;
   }
 }

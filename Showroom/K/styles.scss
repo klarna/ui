@@ -1,0 +1,13 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.k {
+  fill: map-get($colors, klarna-blue);
+  transition: fill .2s ease;
+
+  &.hoverable {
+    &:hover {
+      fill: map-get($colors, klarna-blue-hover);
+    }
+  }
+}

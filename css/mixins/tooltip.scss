@@ -31,7 +31,7 @@
 }
 
 @mixin tooltip {
-  @include typography($grid * 2.6, regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
 
   background: map-get($colors, cello);
   border-radius: 6px;
@@ -44,6 +44,10 @@
   position: relative;
   text-align: center;
 
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
+  }
+
   &:after {
     content: '';
     height: 0;
@@ -53,11 +57,15 @@
 }
 
 @mixin tooltip-inverse {
-  @include typography($grid * 2.6, regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
 
   background: map-get($colors, light-grey);
   border: 1px solid $border-color;
   color: map-get($colors, black);
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
+  }
 
   &:before {
     content: '';
@@ -102,21 +110,18 @@
 %-top {
   top: 0%;
   transform: translate(0, $grid);
-  -ms-transform: translate(0, $grid);
 }
 
 // scss-lint:disable PropertySortOrder
 %-middle {
   top: 50%;
   transform: translate(0, -$grid);
-  -ms-transform: translate(0, -$grid);
 }
 
 // scss-lint:disable PropertySortOrder
 %-bottom {
   top: 100%;
   transform: translate(0, -$grid * 3);
-  -ms-transform: translate(0, -$grid * 3);
 }
 
 %top-inverse {

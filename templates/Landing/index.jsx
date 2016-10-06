@@ -37,7 +37,8 @@ export default function Landing ({
         {labels.title}
       </Title.Primary>
 
-      {paragraphs.map((text) => (<Paragraph.Secondary
+      {paragraphs.map((text, index) => (<Paragraph.Secondary
+        key={index}
         className={classNames(classes.paragraphPrimary)}>
         {text}
       </Paragraph.Secondary>))}

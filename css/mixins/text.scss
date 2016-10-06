@@ -32,7 +32,7 @@
 }
 
 @mixin title--primary {
-  @include typography(($grid * 5.2), light);
+  @include typography(map-get($font-sizes, title-primary-desktop), light);
   @include palette-colors();
 
   line-height: ($grid * 7);
@@ -40,12 +40,12 @@
   padding: ($grid * .4) 0 ($grid * .6);
 
   &.small {
-    @include typography(($grid * 4.4), light);
+    @include typography(map-get($font-sizes, title-primary-small-desktop), light);
 
     padding: ($grid * .6) 0 ($grid * .4);
 
     &.strong {
-      @include typography(($grid * 4.4), regular);
+      @include typography(map-get($font-sizes, title-primary-small-desktop), regular);
     }
   }
 
@@ -59,12 +59,16 @@
 }
 
 @mixin title--secondary {
-  @include typography(($grid * 3), semi-bold);
+  @include typography(map-get($font-sizes, title-secondary-mobile), semi-bold);
   @include palette-colors();
 
   line-height: ($grid * 3);
   margin: 0;
   padding: ($grid * .4) 0 ($grid * .6);
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, title-secondary-desktop), semi-bold);
+  }
 
   &.condensed {
     padding: ($grid * .4) 0 ($grid * 1.6);
@@ -80,7 +84,7 @@
 }
 
 @mixin subtitle {
-  @include typography(($grid * 2.4), semi-bold);
+  @include typography(map-get($font-sizes, subtitle), semi-bold);
   @include palette-colors();
 
   height: ($grid * 4);
@@ -116,35 +120,55 @@
 
 @mixin paragraph--primary {
   @include paragraph;
-  @include typography(($grid * 2.6), regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
   @include palette-colors();
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
+  }
 }
 
 @mixin paragraph--primary-condensed {
   @include paragraph-condensed;
-  @include typography(($grid * 2.6), regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
   @include palette-colors();
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
+  }
 }
 
 @mixin paragraph--secondary {
   @include paragraph;
-  @include typography(($grid * 2.6), regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
   @include palette-colors(map-get($colors, grey-text));
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
+  }
 }
 
 @mixin paragraph--secondary-condensed {
   @include paragraph-condensed;
-  @include typography(($grid * 2.6), regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
   @include palette-colors(map-get($colors, grey-text));
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
+  }
 }
 
 @mixin paragraph--legal {
-  @include typography(($grid * 2.2), regular);
+  @include typography(map-get($font-sizes, legal-mobile), regular);
   @include palette-colors(map-get($colors, grey-text));
 
   line-height: ($grid * 4);
   margin: 0;
   padding: ($grid * .2) 0 ($grid * .8);
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, legal-desktop), regular);
+  }
 
   &.default-margins {
     padding: ($grid * .2) 0 ($grid * 2.8);
@@ -152,7 +176,7 @@
 }
 
 @mixin promo-label {
-  @include typography(($grid * 2), semi-bold);
+  @include typography(map-get($font-sizes, promo-label), semi-bold);
 
   background: map-get($colors, klarna-blue);
   border-radius: $border-radius;
@@ -171,7 +195,7 @@
 }
 
 @mixin text-label {
-  @include typography(($grid * 2.4), regular);
+  @include typography(map-get($font-sizes, text-label), regular);
 
   @include palette-colors(map-get($colors, grey-text));
   line-height: ($grid * 3);
@@ -184,7 +208,7 @@
 }
 
 @mixin amount-text {
-  @include typography(($grid * 9.6), light);
+  @include typography(map-get($font-sizes, amount-text), light);
   @include palette-colors();
 
   line-height: ($grid * 10);

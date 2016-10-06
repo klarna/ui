@@ -1,8 +1,8 @@
 import React from 'react'
 import Base, {Page} from './Base'
 
-export const Usage = () => (
-  <Base title='Usage'>
+export const Usage = ({className}) => (
+  <Base className={className} title='Usage'>
     <Page />
     <path d='M66 75c-.3 0-.5 0-.7-.3l-4-4c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l3.3 3.2 7.3-8.2c.3-.4 1-.4 1.4 0 .4.3.4 1 0 1.4l-8 9c0 .2-.4.3-.7.3' fill='#17BBC3'/>
     <g transform='translate(25 25)'>
@@ -15,8 +15,8 @@ export const Usage = () => (
   </Base>
 )
 
-export const Implementation = () => (
-  <Base title='Implementation'>
+export const Implementation = ({className}) => (
+  <Base className={className} title='Implementation'>
     <Page />
     <g transform='translate(45 25)'>
       <path d='M20 0H1C.4 0 0 .5 0 1v12c0 .6.5 1 1 1h33c.6 0 1-.5 1-1V6H25c-2.8 0-5-2.2-5-5V0z' fill='#233E66'/>
@@ -57,8 +57,8 @@ export const Implementation = () => (
   </Base>
 )
 
-export const UX = () => (
-  <Base title='UX'>
+export const UX = ({className}) => (
+  <Base className={className} title='UX'>
     <Page />
     <g transform='translate(25 25)'>
       <path d='M33 48h15V30H2v18h31zm15 2H2c-1 0-2-1-2-2V30c0-1 1-2 2-2h46c1 0 2 1 2 2v18c0 1-1 2-2 2z' fill='#C3CFE2'/>

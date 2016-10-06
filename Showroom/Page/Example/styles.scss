@@ -1,0 +1,53 @@
+@import '../../../css/settings';
+@import '../../../css/mixins/index';
+
+.page__example {
+  border-bottom: 1px solid #E5E5E6;
+  padding-bottom: 39px;
+
+  &:last-child {
+    border-bottom: 0;
+    margin-bottom: -1px;
+    padding-bottom: 0;
+  }
+}
+
+.page__example__code {
+  display: block;
+  float: left;
+  overflow-x: auto;
+  width: 60%;
+}
+
+.page__example__heading {
+  margin-bottom: 10px;
+  margin-left: 40%;
+  margin-top: 35px;
+  width: 60%;
+}
+
+.page__example__live {
+  display: block;
+  float: left;
+  margin-right: 20px;
+  width: calc(40% - 20px);
+}
+
+@media screen and (max-width: 840px) {
+  .page__example__code {
+    display: none;
+  }
+
+  .page__example__heading {
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-top: 35px;
+    width: 100%;
+  }
+
+  .page__example__live {
+    float: none;
+    margin-right: 0;
+    width: calc(100%);
+  }
+}

@@ -1,8 +1,8 @@
 import React from 'react'
 import Base, {Page} from './Base'
 
-export default () => (
-  <Base title='Input'>
+export default ({className}) => (
+  <Base className={className} title='Input'>
     <Page />
     <defs><path d='M62.5 0H0v83.3C7.4 87.6 16 90 25 90h40V2.5C65 1 64 0 62.5 0' id='a'/>
 

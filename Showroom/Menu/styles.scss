@@ -1,0 +1,13 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.menu {
+  background: map-get($colors, sidebar-blue);
+  display: block;
+  left: 0;
+  min-height: 100vh;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100vw;
+}

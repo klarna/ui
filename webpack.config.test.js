@@ -24,6 +24,10 @@ var config = {
         loader: 'babel'
       },
       {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
         test: /\.scss$/,
         loaders: [
           'style',

@@ -1,5 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { compose, unnest, flip, keys, map, prop, values } from 'ramda'
+import { LIVE, LIVE_WIDE, MANUAL, TEMPLATE, SHOWCASE } from './Showroom/variationTypes'
 
 import * as examples from './Showroom/examples'
 
@@ -8,21 +10,42 @@ container.id = 'container'
 
 document.body.appendChild(container)
 
-const getVariations = (section) =>
-  section.variations
-    .map((variation) =>
-      Object.keys(variation)
-        .filter((key) => key !== 'title')
-        .map((key) => [key, variation[key].example || variation[key]]))
-    .reduce((a, b) => a.concat(b), [])
+const getEntries = compose(
+  unnest,
+  map(({type, example, examples}) => {
+    switch (type) {
+      case LIVE:
+      case LIVE_WIDE:
+        return compose(
+          map((key) => [key, examples[key]]),
+          keys
+        )(examples)
 
-describe('@klarna/ui', () => {
-  Object
-    .keys(examples.components)
-    .map((key) => examples.components[key])
-    .forEach((example) => {
-      describe(`loads ${example.title} component examples`, () => {
-        getVariations(example).forEach(([title, children]) => {
+      case MANUAL:
+        return compose(
+
+          map((key) => [key, examples[key].live]),
+          keys
+        )(examples)
+
+      case TEMPLATE:
+        return compose(
+          map((key) => [key, examples[key].inline]),
+          keys
+        )(examples)
+
+      case SHOWCASE:
+        return [['Main', example]]
+    }
+  }),
+  ({examples, variations}) => variations || [examples]
+)
+
+const createTests = compose(
+  map((example) => {
+    describe(`loads ${example.title} examples`, () => {
+      compose(
+        map(([title, children]) => {
           it(title, () => {
             render(
               <div>
@@ -32,25 +55,13 @@ describe('@klarna/ui', () => {
             )
           })
         })
-      })
+      )(getEntries(example))
     })
+  }),
+  values,
+  flip(prop)(examples)
+)
 
-  Object
-    .keys(examples.templates)
-    .map((key) => examples.templates[key])
-    .forEach((example) => {
-      describe(`loads ${example.title} template examples`, () => {
-        getVariations(example).forEach(([title, children]) => {
-          it(title, () => {
-            render(
-              <div>
-                {children.inline}
-                {children.wrapped}
-              </div>
-              , document.getElementById('container')
-            )
-          })
-        })
-      })
-    })
+describe('@klarna/ui', () => {
+  map(createTests, ['components', 'templates'])
 })

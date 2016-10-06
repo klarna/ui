@@ -8,20 +8,17 @@ import UncontrolledSelector from '../../../uncontrolled/Selector'
 import * as UncontrolledMenu from '../../../uncontrolled/Menu'
 import UncontrolledInstallments from '../../../uncontrolled/Installments'
 import Subtitle from '../../../Subtitle'
-
-// const options = [
-//   {key: 'lorem', label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
-//   {key: 'sit', label: 'Sit', description: 'Amet et consequetur'},
-//   {key: 'ipsum', label: 'Ipsum', description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
-// ]
+import {SHOWCASE} from '../../variationTypes'
 
 export default {
   title: 'UncontrolledForm',
-  variations: [{
-    title: 'Address form',
-    require: `import Fieldset from '@klarna/ui/Fieldset'
-import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
-    Regular: {
+  variations: [
+    {
+      title: 'Address form',
+      require: `import Fieldset from '@klarna/ui/Fieldset'
+  import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
+      type: SHOWCASE,
+
       example: [
         <form>
           <Fieldset margins>
@@ -130,8 +127,7 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
             Cancel
           </Button.Secondary>
         </form>
-      ],
-      wide: true
+      ]
     }
-  }]
+  ]
 }

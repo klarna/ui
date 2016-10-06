@@ -1,8 +1,8 @@
 import React from 'react'
 import Base, {Page} from './Base'
 
-export default () => (
-  <Base title='Tooltip' circleFill='#434B7C'>
+export default ({className}) => (
+  <Base className={className} title='Tooltip' circleFill='#434B7C'>
     <Page />
     {[37, 41, 45].map((y) => (
       <rect fill='#C3CFE2' x='30' y={y} width='40' height='2' rx='1'/>

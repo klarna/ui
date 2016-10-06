@@ -5,7 +5,6 @@
   &.button {
     @include illustration(map-get($colors, klarna-blue));
 
-    -webkit-transition: all .3s ease;
     background: transparent;
     border: ($grid * 2) solid transparent;
     border-radius: 100%;

@@ -81,19 +81,27 @@
 }
 
 .selector--direct__label {
-  @include typography(($grid * 2.8), semi-bold);
+  @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
-  color: map-get($colors, black);  
+  color: map-get($colors, black);
   display: block;
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
+  }
 }
 
 .selector--direct__value {
-  @include typography(($grid * 2.6), regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
 
   color: map-get($colors, klarna-blue);
   position: absolute;
   right: ($grid * 5);
   top: ($grid * 3.4);
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
+  }
 }
 
 .selector--direct__icon {
@@ -114,12 +122,16 @@
 }
 
 .selector--direct__description {
-  @include typography(($grid * 2.6), regular);
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
 
   color: map-get($colors, grey-text);
   line-height: ($grid * 4);
   margin: $grid 0 0;
   width: 60%;
+
+  @include respond-to-wide {
+    @include typography(map-get($font-sizes, main-body-desktop), regular);
+  }
 
   .promo-label:first-child {
     left: 0;
