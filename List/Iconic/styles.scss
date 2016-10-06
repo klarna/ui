@@ -1,0 +1,36 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.list--iconic--wrapper {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.list--iconic--item {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.list--iconic--item + .list--iconic--item {
+  margin-top: ($grid * 8);
+}
+
+.list--iconic--item__icon {
+  float: left;
+  height: ($grid * 12);
+  margin-right: ($grid * 4);
+  width: ($grid * 12);
+
+  svg {
+    display: block;
+  }
+}
+
+.list--iconic--item__content {
+  float: left;
+  margin-top: ($grid * -2);
+  width: calc(100% - #{($grid * 16)});
+}
