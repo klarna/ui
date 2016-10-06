@@ -1,52 +1,106 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
-.illustration {
-  &.button {
-    @include illustration(map-get($colors, klarna-blue));
+.icon-button {
+  cursor: pointer;
+  height: ($grid * 4);
+  overflow: visible;
+  position: relative;
+  width: ($grid * 4);
 
-    background: transparent;
-    border: ($grid * 2) solid transparent;
-    border-radius: 100%;
-    cursor: pointer;
-    height: ($grid * 4);
-    margin: ($grid * -2);
-    transition: all .3s ease;
-    width: ($grid * 4);
+  .illustration {
+    &.button {
+      @include illustration(map-get($colors, klarna-blue));
 
-    &:hover {
+      background: transparent;
+      border: ($grid * 2) solid transparent;
+      border-radius: 100%;
+      height: ($grid * 4);
+      margin: ($grid * -2);
+      transition: all .2s ease;
+      width: ($grid * 4);
+
+      &.gray {
+        @include illustration(map-get($colors, grey-lines));
+      }
+
+      &.inverse {
+        @include illustration(map-get($colors, white));
+      }
+    }
+  }
+
+
+  &:hover {
+    .illustration.button {
       @include illustration(map-get($colors, klarna-blue-hover));
-    }
 
-    &:active {
-      background: map-get($colors, blue-active-background);
-      border-color: map-get($colors, blue-active-background);
-    }
-
-    &.gray {
-      @include illustration(map-get($colors, grey-lines));
-
-      &:hover {
+      &.gray {
         @include illustration(map-get($colors, black));
       }
 
-      &:active {
-        background: map-get($colors, grey-active-background);
-        border-color: map-get($colors, grey-active-background);
+      &.inverse {
+        @include illustration(map-get($colors, white));
       }
     }
 
-    &.inverse {
-      @include illustration(map-get($colors, white));
+    .illustration__label {
+      color: map-get($colors, klarna-blue-hover);
 
-      &:hover {
-        @include illustration(map-get($colors, white));
+      &.gray {
+        color: map-get($colors, black);
       }
 
-      &:active {
+      &.inverse {
+        color: map-get($colors, white);
+      }
+    }
+  }
+
+  &:active {
+    .illustration.button {
+      background: map-get($colors, blue-active-background);
+      border-color: map-get($colors, blue-active-background);
+
+      &.gray {
+        background: map-get($colors, grey-active-background);
+        border-color: map-get($colors, grey-active-background);
+      }
+
+      &.inverse {
         background: map-get($colors, klarna-blue-hover);
         border-color: map-get($colors, klarna-blue-hover);
       }
     }
+  }
+}
+
+
+.illustration__label {
+  @include typography(map-get($font-sizes, label-desktop), semi-bold);
+
+  color: map-get($colors, klarna-blue);
+  display: block;
+  line-height: ($grid * 4);
+  position: absolute;
+  left: ($grid * 4);
+  text-align: left;
+  text-transform: uppercase;
+  top: 0;
+  transition: all .2s ease;
+  user-select: none;
+
+  &.left {
+    left: auto;
+    right: ($grid * 4);
+    text-align: right;
+  }
+
+  &.gray {
+    color: map-get($colors, grey-lines);
+  }
+
+  &.inverse {
+    color: map-get($colors, white);
   }
 }
