@@ -199,6 +199,10 @@ export default {
           <Options />
           <Search />
         </Block.Plain>,
+        'With text': <Block.Plain>
+          <Back label='Back' />
+          <Close label='Close' color='gray' left />
+        </Block.Plain>,
         'Gray color scheme': <Block.Plain>
           <Back color='gray' />
           <Close color='gray' />
