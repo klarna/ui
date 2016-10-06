@@ -1,3 +1,2 @@
-export Explanation from '../../templates/Explanation/example'
-export Landing from '../../templates/Landing/example'
+export Informative from '../../templates/examples/Informative'
 export Selection from '../../templates/Selection/example'

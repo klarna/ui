@@ -1,5 +1,6 @@
 import React from 'react'
-import Landing from './'
+import Explanation from '../Explanation'
+import Landing from '../Landing'
 import Wrapper from '../Wrapper'
 import { TEMPLATE } from '../../Showroom/variationTypes'
 
@@ -26,26 +27,17 @@ const DemoIcon = () => (
 )
 
 export default {
-  title: 'Landing',
+  title: 'Informative',
 
-  examples: {
-    require: 'import Landing from \'@klarna/ui/templates/Landing\'',
-    type: TEMPLATE,
+  variations: [
+    {
+      title: 'Landing',
+      require: 'import Landing from \'@klarna/ui/templates/Landing\'',
+      type: TEMPLATE,
 
-    examples: {
-      Regular: {
-        inline: <Landing
-          illustration={<DemoIcon />}
-          labels={{
-            title: 'Welcome to the site',
-            summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
-            accept: 'Continue'
-          }}
-          onAccept={() => console.log('accept')}
-        />,
-
-        wrapper: <Wrapper>
-          <Landing
+      examples: {
+        Regular: {
+          inline: <Landing
             illustration={<DemoIcon />}
             labels={{
               title: 'Welcome to the site',
@@ -53,24 +45,23 @@ export default {
               accept: 'Continue'
             }}
             onAccept={() => console.log('accept')}
-          />
-        </Wrapper>
-      },
+          />,
 
-      'With legal copy': {
-        inline: <Landing
-          illustration={<DemoIcon />}
-          labels={{
-            title: 'Welcome to the site',
-            summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
-            legal: 'Paleo chicharrones yr flexitarian, post-ironic swag vinyl pok pok tilde shabby chic try-hard direct trade polaroid cornhole lomo.',
-            accept: 'Continue'
-          }}
-          onAccept={() => console.log('accept')}
-        />,
+          wrapper: <Wrapper>
+            <Landing
+              illustration={<DemoIcon />}
+              labels={{
+                title: 'Welcome to the site',
+                summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+                accept: 'Continue'
+              }}
+              onAccept={() => console.log('accept')}
+            />
+          </Wrapper>
+        },
 
-        wrapper: <Wrapper>
-          <Landing
+        'With legal copy': {
+          inline: <Landing
             illustration={<DemoIcon />}
             labels={{
               title: 'Welcome to the site',
@@ -79,25 +70,24 @@ export default {
               accept: 'Continue'
             }}
             onAccept={() => console.log('accept')}
-          />
-        </Wrapper>
-      },
+          />,
 
-      'With Secondary button': {
-        inline: <Landing
-          illustration={<DemoIcon />}
-          labels={{
-            title: 'Welcome to the site',
-            summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
-            accept: 'Continue',
-            cancel: 'Go back'
-          }}
-          onAccept={() => console.log('accept')}
-          onCancel={() => console.log('cancel')}
-        />,
+          wrapper: <Wrapper>
+            <Landing
+              illustration={<DemoIcon />}
+              labels={{
+                title: 'Welcome to the site',
+                summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+                legal: 'Paleo chicharrones yr flexitarian, post-ironic swag vinyl pok pok tilde shabby chic try-hard direct trade polaroid cornhole lomo.',
+                accept: 'Continue'
+              }}
+              onAccept={() => console.log('accept')}
+            />
+          </Wrapper>
+        },
 
-        wrapper: <Wrapper>
-          <Landing
+        'With Secondary button': {
+          inline: <Landing
             illustration={<DemoIcon />}
             labels={{
               title: 'Welcome to the site',
@@ -107,46 +97,45 @@ export default {
             }}
             onAccept={() => console.log('accept')}
             onCancel={() => console.log('cancel')}
-          />
-        </Wrapper>
-      },
+          />,
 
-      'No Buttons': {
-        inline: <Landing
-          illustration={<DemoIcon />}
-          labels={{
-            title: 'Welcome to the site',
-            summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
-          }}
-        />,
+          wrapper: <Wrapper>
+            <Landing
+              illustration={<DemoIcon />}
+              labels={{
+                title: 'Welcome to the site',
+                summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+                accept: 'Continue',
+                cancel: 'Go back'
+              }}
+              onAccept={() => console.log('accept')}
+              onCancel={() => console.log('cancel')}
+            />
+          </Wrapper>
+        },
 
-        wrapper: <Wrapper>
-          <Landing
+        'No Buttons': {
+          inline: <Landing
             illustration={<DemoIcon />}
             labels={{
               title: 'Welcome to the site',
               summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
             }}
-          />
-        </Wrapper>
-      },
+          />,
 
-      'Multiple paragraphs': {
-        inline: <Landing
-          illustration={<DemoIcon />}
-          labels={{
-            title: 'Welcome to the site',
-            summary: [
-              'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
-              'Mlkshk pour-over chartreuse heirloom cred enamel pin, pop-up vaporware.'
-            ],
-            accept: 'Continue'
-          }}
-          onAccept={() => console.log('accept')}
-        />,
+          wrapper: <Wrapper>
+            <Landing
+              illustration={<DemoIcon />}
+              labels={{
+                title: 'Welcome to the site',
+                summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
+              }}
+            />
+          </Wrapper>
+        },
 
-        wrapper: <Wrapper>
-          <Landing
+        'Multiple paragraphs': {
+          inline: <Landing
             illustration={<DemoIcon />}
             labels={{
               title: 'Welcome to the site',
@@ -157,9 +146,51 @@ export default {
               accept: 'Continue'
             }}
             onAccept={() => console.log('accept')}
-          />
-        </Wrapper>
+          />,
+
+          wrapper: <Wrapper>
+            <Landing
+              illustration={<DemoIcon />}
+              labels={{
+                title: 'Welcome to the site',
+                summary: [
+                  'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+                  'Mlkshk pour-over chartreuse heirloom cred enamel pin, pop-up vaporware.'
+                ],
+                accept: 'Continue'
+              }}
+              onAccept={() => console.log('accept')}
+            />
+          </Wrapper>
+        }
+      }
+    },
+
+    {
+      title: 'Explanation',
+      require: 'import Explanation from \'@klarna/ui/templates/Explanation\'',
+      type: TEMPLATE,
+
+      examples: {
+        Regular: {
+          inline: [
+            <Explanation
+              title='This is how the product works'
+              content='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
+              legal='Drinking vinegar unicorn fam pork belly prism. Vegan bicycle rights raclette tofu squid lomo coloring book, meggings marfa PBR&B bushwick. '
+            />
+          ],
+          wrapper: [
+            <Wrapper>
+              <Explanation
+                title='This is how the product works'
+                content='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
+                legal='Drinking vinegar unicorn fam pork belly prism. Vegan bicycle rights raclette tofu squid lomo coloring book, meggings marfa PBR&B bushwick. '
+              />
+            </Wrapper>
+          ]
+        }
       }
     }
-  }
+  ]
 }
