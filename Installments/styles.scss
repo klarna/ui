@@ -23,9 +23,9 @@
     @include stackable;
     @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
-    box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     border-top: ($grid * .2) solid $border-color;
+    box-sizing: border-box;
     color: map-get($colors, black);
     cursor: pointer;
     display: block;

@@ -2,7 +2,7 @@
 @import '../../css/mixins/index';
 
 .three-step-explanation__list {
-  text-align: left;
-  margin-top: ($grid * 6);
   margin-bottom: ($grid * 8);
+  margin-top: ($grid * 6);
+  text-align: left;
 }
