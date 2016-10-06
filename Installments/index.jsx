@@ -18,7 +18,7 @@ export default React.createClass({
   propTypes: {
     options: PropTypes.arrayOf(PropTypes.shape({
       key: PropTypes.string.isRequired,
-      content: PropTypes.isRequired,
+      content: PropTypes.isRequired
     })).isRequired,
     className: PropTypes.string,
     customize: PropTypes.shape({
