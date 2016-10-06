@@ -1,4 +1,5 @@
 import React from 'react'
+import ConfirmData from '../ConfirmData'
 import Explanation from '../Explanation'
 import Landing from '../Landing'
 import ThreeStepExplanation from '../ThreeStepExplanation'
@@ -250,6 +251,19 @@ export default {
               ]}
               onAccept={() => console.log('Continue')}
             />
+          ]
+        }
+      }
+    },
+
+    {
+      title: 'ConfirmData',
+      'import ConfirmData from \'@klarna/ui/templates/ConfirmData\'',
+      type: TEMPLATE,
+
+      examples: {
+        Regular: {
+          inline: [
           ]
         }
       }
