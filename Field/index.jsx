@@ -49,6 +49,7 @@ export default React.createClass({
       borderColor: PropTypes.string.isRequired,
       borderColorSelected: PropTypes.string.isRequired
     }),
+    input: PropTypes.func,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
     onBlur: PropTypes.func,
@@ -106,6 +107,7 @@ export default React.createClass({
       disabled,
       error,
       icon,
+      Input,
       focus,
       label,
       left, // eslint-disable-line no-unused-vars
@@ -167,21 +169,25 @@ export default React.createClass({
       ? { color: customize.inputColor }
       : {}
 
-    const inputElement = <input
-      className={classNames(icon ? classes.iconInput : classes.input)}
-      disabled={disabled}
-      value={value || ''}
-      onBlur={onBlur}
-      onChange={onChange}
-      onKeyDown={handleKeyDown(this.props)}
-      onFocus={onFocus}
-      ref='input'
-      style={{
+    const inputProps = {
+      className: classNames(icon ? classes.iconInput : classes.input),
+      disabled: disabled,
+      value: value || '',
+      onBlur: onBlur,
+      onChange: onChange,
+      onKeyDown: handleKeyDown(this.props),
+      onFocus: onFocus,
+      ref: 'input',
+      style: {
         ...inputDynamicStyles,
         ...style
-      }}
-      {...props}
-    />
+      },
+      ...props
+    }
+
+    const inputElement = Input
+      ? <Input {...inputProps} />
+      : <input {...inputProps} />
 
     return (
       <div
