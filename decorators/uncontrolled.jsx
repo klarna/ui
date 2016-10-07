@@ -18,7 +18,7 @@ export default function uncontrolled (Component, {defaultProp, prop, handler, re
             : e
         })
       }
-      
+
       handler && handler(e)
     }
 
@@ -33,25 +33,31 @@ export default function uncontrolled (Component, {defaultProp, prop, handler, re
     }
 
     render () {
-      const consumerHandler = this.props[handler]
-      const consumerReset = this.props[reset]
+      const props = Object.keys(this.props).reduce((handledProps, key) => {
+        switch (key) {
+          case handler:
+            return {
+              ...handledProps,
+              [handler]: this.handleHandler.bind(this, this.props[handler])
+            }
 
-      const props = Object.keys(this.props)
-        .filter((key) => key !== handler)
-        .reduce((filteredProps, key) => ({
-          ...filteredProps,
-          [key]: this.props[key]
-        }), {})
+          case reset:
+            return {
+              ...handledProps,
+              [reset]: this.handleReset.bind(this, this.props[reset])
+            }
 
-      const handlerProps = {
-        [handler]: this.handleHandler.bind(this, consumerHandler),
-        [reset]: this.handleReset.bind(this, consumerReset)
-      }
+          default:
+            return {
+              ...handledProps,
+              [key]: this.props[key]
+            }
+        }
+      }, {})
 
       return <Component
         {...props}
         {...this.state}
-        {...handlerProps}
       />
     }
   }
