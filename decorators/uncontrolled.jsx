@@ -41,7 +41,7 @@ export default function uncontrolled (Component, {defaultProp, prop, handler, re
       const consumerReset = this.props[reset]
 
       const props = Object.keys(this.props)
-        .filter(key => key !== handler)
+        .filter((key) => key !== handler)
         .reduce((filteredProps, key) => ({
           ...filteredProps,
           [key]: this.props[key]
