@@ -1,6 +1,5 @@
 import React from 'react'
 import SingleInputPrompt from '../SingleInputPrompt'
-import Wrapper from '../Wrapper'
 import DemoIcon from './DemoIcon'
 import { TEMPLATE } from '../../Showroom/variationTypes'
 
@@ -16,13 +15,14 @@ export default {
       examples: {
         Regular: {
           inline: <SingleInputPrompt
+            focus
             illustration={<DemoIcon />}
             title='Welcome to the site'
             summary='What is your name fellow traveler?'
             accept='Continue'
             legal='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
             label='Name'
-            onChange={(val) => console.log(val)}
+            onChange={(e) => console.log(e.target.value)}
             onAccept={() => console.log('accept')}
             value='Penelope Clearwater'
           />
@@ -36,7 +36,7 @@ export default {
             accept='Continue'
             legal='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
             label='Name'
-            onChange={(val) => console.log(val)}
+            onChange={(e) => console.log(e.target.value)}
             onAccept={() => console.log('accept')}
             defaultValue='Percy Weasley'
           />
