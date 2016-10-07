@@ -11,29 +11,25 @@ export default function uncontrolled (Component, {defaultProp, prop, handler, re
     }
 
     handleHandler (handler, e) {
-      if (this.props[prop] != null) {
-        handler && handler(e)
-      } else {
+      if (this.props[prop] == null) {
         this.setState({
           [prop]: e && e.target
             ? e.target.value
             : e
         })
-
-        handler && handler(e)
       }
+      
+      handler && handler(e)
     }
 
     handleReset (handler, e) {
-      if (this.props[prop] != null) {
-        handler && handler(e)
-      } else {
+      if (this.props[prop] == null) {
         this.setState({
           [prop]: undefined
         })
-
-        handler && handler(e)
       }
+
+      handler && handler(e)
     }
 
     render () {
