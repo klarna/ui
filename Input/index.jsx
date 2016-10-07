@@ -46,6 +46,7 @@ export default React.createClass({
     big: PropTypes.bool,
     centered: PropTypes.bool,
     giant: PropTypes.bool,
+    input: PropTypes.func,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
     mouseflowExclude: PropTypes.bool,
@@ -83,6 +84,7 @@ export default React.createClass({
       focus, // eslint-disable-line no-unused-vars
       giant,
       icon,
+      Input,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
@@ -119,17 +121,21 @@ export default React.createClass({
       className
     )
 
-    const inputElement = <input
-      className={classNames(icon ? classes.iconInput : classes.input)}
-      disabled={disabled}
-      value={value || ''}
-      onBlur={onBlur}
-      onChange={onChange}
-      onKeyDown={handleKeyDown(this.props)}
-      onFocus={onFocus}
-      ref='input'
-      {...props}
-    />
+    const inputProps = {
+      className: classNames(icon ? classes.iconInput : classes.input),
+      disabled: disabled,
+      value: value || '',
+      onBlur: onBlur,
+      onChange: onChange,
+      onKeyDown: handleKeyDown(this.props),
+      onFocus: onFocus,
+      ref: 'input',
+      ...props
+    }
+
+    const inputElement = Input
+      ? <Input {...inputProps} />
+      : <input {...inputProps} />
 
     return (
       <div

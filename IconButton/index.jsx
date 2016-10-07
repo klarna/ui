@@ -5,7 +5,9 @@ import defaultStyles from './styles.scss'
 const baseClass = 'illustration'
 
 const classes = {
+  iconButton: 'icon-button',
   fill: `${baseClass}__fill`,
+  label: `${baseClass}__label`,
   stroke: `${baseClass}__stroke`
 }
 
@@ -15,10 +17,10 @@ const iconPropTypes = {
   styles: PropTypes.object
 }
 
-export const Back = ({ className, color, styles, ...props }) => {
+export const Back = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return (
+  return <div className={classNames(classes.iconButton)}>
     <svg
       className={classNames(baseClass, 'button', color, className)}
       strokeLinecap='round'
@@ -32,13 +34,15 @@ export const Back = ({ className, color, styles, ...props }) => {
         d='M15,6l-6.5,6.5l6.5,6.5'
       />
     </svg>
-  )
+
+    <span className={classNames(classes.label, { left }, color)}>{label}</span>
+  </div>
 }
 
-export const Close = ({ className, color, styles, ...props }) => {
+export const Close = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return (
+  return <div className={classNames(classes.iconButton)}>
     <svg
       className={classNames(baseClass, 'button', color, className)}
       strokeLinecap='round'
@@ -52,13 +56,15 @@ export const Close = ({ className, color, styles, ...props }) => {
       <line x1='19' x2='6' y1='6' y2='19'
         className={classNames(classes.stroke)} />
     </svg>
-  )
+
+    <span className={classNames(classes.label, { left }, color)}>{label}</span>
+  </div>
 }
 
-export const Hamburger = ({ className, color, styles, ...props }) => {
+export const Hamburger = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return (
+  return <div className={classNames(classes.iconButton)}>
     <svg
       className={classNames(baseClass, 'button', color, className)}
       viewBox='0 0 25 25'
@@ -74,13 +80,15 @@ export const Hamburger = ({ className, color, styles, ...props }) => {
         />
       )}
     </svg>
-  )
+
+    <span className={classNames(classes.label, { left }, color)}>{label}</span>
+  </div>
 }
 
-export const Options = ({ className, color, styles, ...props }) => {
+export const Options = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return (
+  return <div className={classNames(classes.iconButton)}>
     <svg
       className={classNames(baseClass, 'button', color, className)}
       viewBox='0 0 25 25'
@@ -94,13 +102,15 @@ export const Options = ({ className, color, styles, ...props }) => {
         />
       )}
     </svg>
-  )
+
+    <span className={classNames(classes.label, { left }, color)}>{label}</span>
+  </div>
 }
 
-export const Search = ({ className, color, styles, ...props }) => {
+export const Search = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return (
+  return <div className={classNames(classes.iconButton)}>
     <svg
       className={classNames(baseClass, 'button', color, className)}
       viewBox='0 0 25 25'
@@ -116,7 +126,9 @@ export const Search = ({ className, color, styles, ...props }) => {
         className={classNames(classes.stroke)}
         x1={15} x2={19.2} y1={15} y2={19.2} />
     </svg>
-  )
+
+    <span className={classNames(classes.label, { left }, color)}>{label}</span>
+  </div>
 }
 
 Back.propTypes = Close.propTypes = Hamburger.propTypes = Options.propTypes = Search.propTypes = iconPropTypes

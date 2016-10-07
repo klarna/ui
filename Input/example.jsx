@@ -2,7 +2,8 @@ import React from 'react'
 import Input, { icons } from '../Input'
 import UncontrolledInput from '../uncontrolled/Input'
 import Fieldset from '../Fieldset'
-import { LIVE, LIVE_WIDE } from '../Showroom/variationTypes'
+import { LIVE, LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
+import ReactMaskedInput from 'react-maskedinput'
 
 export default {
   title: 'Input',
@@ -37,6 +38,30 @@ import UncontrolledInput from '@klarna/ui/uncontrolled/Input'`,
           warning
           value='email@exanple.com'
         />
+      }
+    },
+
+    {
+      title: 'Override',
+      require: `import UncontrolledInput from '@klarna/ui/uncontrolled/Input'
+import ReactMaskedInput from 'react-maskedinput'`,
+      type: MANUAL,
+
+      examples: {
+        'Masked credit card input': {
+          live: <UncontrolledInput
+            label='Credit card number'
+            Input={ReactMaskedInput}
+            mask='1111 1111 1111 1111'
+            placeholder=' '
+          />,
+          code: `<UncontrolledInput
+  label='Credit card number'
+  Input={ReactMaskedInput}
+  mask='1111 1111 1111 1111'
+  placeholder=' '
+/>`
+        }
       }
     },
 
