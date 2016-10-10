@@ -136,6 +136,12 @@ import Fieldset from '@klarna/ui/Fieldset'`,
           </Fieldset>,
           <Fieldset margins>
             <UncontrolledInput
+              name='icon-search'
+              icon={icons.SEARCH}
+              label='Write something to search' />
+          </Fieldset>,
+          <Fieldset margins>
+            <UncontrolledInput
               name='icon-giant'
               giant
               icon={icons.PHONE}
