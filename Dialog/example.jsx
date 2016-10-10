@@ -30,7 +30,13 @@ const Example = React.createClass({
               <Close onClick={close} />
             </Dialog.Icon>
 
-            <Dialog.Content>
+            <Dialog.Content
+              stickyFooter={true}
+              footer={<Button.Primary
+                onClick={close}
+                style={{width: '100%'}}>
+                Close the nice dialog
+              </Button.Primary>}>
               <Title.Primary margins>
                 The title is primary
               </Title.Primary>
@@ -41,14 +47,6 @@ const Example = React.createClass({
                 Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
               </Paragraph.Secondary>
             </Dialog.Content>
-
-            <Dialog.Footer>
-              <Button.Primary
-                onClick={close}
-                style={{width: '100%'}}>
-                Close the nice dialog
-              </Button.Primary>
-            </Dialog.Footer>
           </Dialog.Main>
         </Dialog.Overlay>
       </div>
