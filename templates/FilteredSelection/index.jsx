@@ -46,7 +46,6 @@ export default function Selection ({
 
       <Fieldset margins>
         <Input
-          centered
           icon='search'
           label={label}
           onChange={onChange}
