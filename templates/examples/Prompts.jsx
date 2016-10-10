@@ -42,6 +42,30 @@ export default {
           />
         }
       }
-    }
+    } //,
+    //
+    // {
+    //   title: 'CompactFormPrompt',
+    //   require: 'import CompactFormPrompt from \'@klarna/ui/templates/CompactFormPrompt\'',
+    //   type: TEMPLATE,
+    //
+    //   // NOTE: How exactly should I provide the "Form" like API?
+    //   examples: {
+    //     Regular: {
+    //       inline: <CompactFormPrompt
+    //         focus
+    //         illustration={<DemoIcon />}
+    //         title='Welcome to the site'
+    //         summary='What is your name fellow traveler?'
+    //         accept='Continue'
+    //         legal='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
+    //         label='Name'
+    //         onChange={(e) => console.log(e.target.value)}
+    //         onAccept={() => console.log('accept')}
+    //         value='Penelope Clearwater'
+    //       />
+    //     }
+    //   }
+    // }
   ]
 }
