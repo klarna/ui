@@ -1,0 +1,18 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.filtered-selection {
+  text-align: center;
+}
+
+.filtered-selection__title + .filtered-selection__summary {
+  padding-top: ($grid * 2.4);
+}
+
+.filtered-selection__summary + .filtered-selection__selector {
+  padding-top: ($grid * 2.2);
+}
+
+.filtered-selection__selector {
+  text-align: left;
+}
