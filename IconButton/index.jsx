@@ -20,9 +20,9 @@ const iconPropTypes = {
 export const Back = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return <div className={classNames(classes.iconButton)} {...props}>
+  return <div className={classNames(classes.iconButton, className)} {...props}>
     <svg
-      className={classNames(baseClass, 'button', color, className)}
+      className={classNames(baseClass, 'button', color)}
       strokeLinecap='round'
       strokeWidth='2'
       viewBox='0 0 25 25'
@@ -41,9 +41,9 @@ export const Back = ({ className, color, label, left, styles, ...props }) => {
 export const Close = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return <div className={classNames(classes.iconButton)} {...props}>
+  return <div className={classNames(classes.iconButton, className)} {...props}>
     <svg
-      className={classNames(baseClass, 'button', color, className)}
+      className={classNames(baseClass, 'button', color)}
       strokeLinecap='round'
       strokeWidth='2'
       viewBox='0 0 25 25'
@@ -62,9 +62,9 @@ export const Close = ({ className, color, label, left, styles, ...props }) => {
 export const Hamburger = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return <div className={classNames(classes.iconButton)} {...props}>
+  return <div className={classNames(classes.iconButton, className)} {...props}>
     <svg
-      className={classNames(baseClass, 'button', color, className)}
+      className={classNames(baseClass, 'button', color)}
       viewBox='0 0 25 25'
       strokeLinecap='round'
       strokeWidth='2'
@@ -85,9 +85,9 @@ export const Hamburger = ({ className, color, label, left, styles, ...props }) =
 export const Options = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return <div className={classNames(classes.iconButton)} {...props}>
+  return <div className={classNames(classes.iconButton, className)} {...props}>
     <svg
-      className={classNames(baseClass, 'button', color, className)}
+      className={classNames(baseClass, 'button', color)}
       viewBox='0 0 25 25'
       height='20px'
       width='20px'>
@@ -106,9 +106,9 @@ export const Options = ({ className, color, label, left, styles, ...props }) => 
 export const Search = ({ className, color, label, left, styles, ...props }) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return <div className={classNames(classes.iconButton)} {...props}>
+  return <div className={classNames(classes.iconButton, className)} {...props}>
     <svg
-      className={classNames(baseClass, 'button', color, className)}
+      className={classNames(baseClass, 'button', color)}
       viewBox='0 0 25 25'
       strokeWidth='2'
       strokeLinecap='round'
