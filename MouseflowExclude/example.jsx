@@ -26,7 +26,7 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
             name='a-sensitive-valued-field'
             label='Sensitive information'
           />
-        </MouseflowExclude>,
+        </MouseflowExclude>
       },
 
       'High-order component': {
