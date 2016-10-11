@@ -42,7 +42,8 @@ export default {
           />
         }
       }
-    } //,
+    }
+    // ,
     //
     // {
     //   title: 'CompactFormPrompt',
