@@ -5,6 +5,7 @@ import contains from '../../lib/contains'
 import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import Price from '../Price'
+import themeable from '../../decorators/themeable'
 
 const baseClass = 'button'
 
@@ -16,7 +17,7 @@ const classes = {
 
 export const sizes = ['small', 'big']
 
-export default function Primary ({
+function Primary ({
   children,
   className,
   customize,
@@ -97,3 +98,12 @@ Primary.propTypes = {
   disabled: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default themeable(Primary, (customizations, { customize }) => ({
+  customize: {
+    ...customize,
+    backgroundColor: customizations.color_button,
+    borderRadius: customizations.radius_border,
+    textColor: customizations.color_button_text
+  }
+}))

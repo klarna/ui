@@ -1,8 +1,8 @@
 import React from 'react'
 import Fieldset from '../Fieldset'
 import Theme from '../Theme'
-import * as ThemeableButton from '../themeable/Button'
-import * as ThemeableChecklist from '../themeable/Checklist'
+import * as Button from '../Button'
+import * as Checklist from '../Checklist'
 import ThemeableDropdown from '../themeable/Dropdown'
 import ThemeableField from '../themeable/Field'
 import ThemeableInstallments from '../themeable/Installments'
@@ -30,8 +30,8 @@ export default {
 
   examples: {
     require: `import Theme from '@klarna/ui/Theme'
-import * as ThemeableButton from '@klarna/ui/themeable/Button'
-import * as ThemeableChecklist from '@klarna/ui/themeable/Checklist'
+import * as Button from '@klarna/ui/Button'
+import * as Checklist from '@klarna/ui/Checklist'
 import ThemeableDropdown from '@klarna/ui/themeable/Dropdown'
 import ThemeableField from '@klarna/ui/themeable/Field'
 import ThemeableInstallments from '@klarna/ui/themeable/Installments'
@@ -61,49 +61,49 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
         }}>
 
         <div>
-          <ThemeableButton.Primary>
+          <Button.Primary>
             This button gets the theme from context
-          </ThemeableButton.Primary>
+          </Button.Primary>
         </div>
 
         <div style={{paddingTop: '20px'}}>
-          <ThemeableButton.Primary loading>
+          <Button.Primary loading>
             This button gets the theme from context
-          </ThemeableButton.Primary>
+          </Button.Primary>
 
-          <ThemeableButton.Primary disabled style={{marginLeft: '20px'}}>
+          <Button.Primary disabled style={{marginLeft: '20px'}}>
             Disabled
-          </ThemeableButton.Primary>
+          </Button.Primary>
         </div>
 
         <div style={{paddingTop: '20px'}}>
-          <ThemeableButton.Secondary>
+          <Button.Secondary>
             This button gets the theme from context
-          </ThemeableButton.Secondary>
+          </Button.Secondary>
         </div>
 
         <div style={{paddingTop: '20px'}}>
-          <ThemeableButton.Secondary loading>
+          <Button.Secondary loading>
             This button gets the theme from context
-          </ThemeableButton.Secondary>
+          </Button.Secondary>
 
-          <ThemeableButton.Secondary disabled style={{marginLeft: '20px'}}>
+          <Button.Secondary disabled style={{marginLeft: '20px'}}>
             Disabled
-          </ThemeableButton.Secondary>
+          </Button.Secondary>
         </div>
 
         <div style={{padding: '20px 0'}}>
-          <ThemeableChecklist.Main>
-            <ThemeableChecklist.Item>
+          <Checklist.Main>
+            <Checklist.Item>
               Just one click and you're done
-            </ThemeableChecklist.Item>
-            <ThemeableChecklist.Item>
+            </Checklist.Item>
+            <Checklist.Item>
               Very little hassle
-            </ThemeableChecklist.Item>
-            <ThemeableChecklist.Item>
+            </Checklist.Item>
+            <Checklist.Item>
               Just do it! It can be done today, so why wait for  tomorrow?
-            </ThemeableChecklist.Item>
-          </ThemeableChecklist.Main>
+            </Checklist.Item>
+          </Checklist.Main>
         </div>
 
         <Fieldset margins>
