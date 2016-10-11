@@ -5,7 +5,7 @@ import * as Button from '../Button'
 import * as Checklist from '../Checklist'
 import Dropdown from '../Dropdown'
 import Field from '../Field'
-import ThemeableInstallments from '../themeable/Installments'
+import Installments from '../Installments'
 import ThemeableLink from '../themeable/Link'
 import * as ThemeableSwitch from '../themeable/Switch'
 import * as ThemeableTitle from '../themeable/Title'
@@ -34,7 +34,7 @@ import * as Button from '@klarna/ui/Button'
 import * as Checklist from '@klarna/ui/Checklist'
 import Dropdown from '@klarna/ui/Dropdown'
 import Field from '@klarna/ui/Field'
-import ThemeableInstallments from '@klarna/ui/themeable/Installments'
+import Installments from '@klarna/ui/Installments'
 import ThemeableLink from '@klarna/ui/themeable/Link'
 import * as ThemeableSwitch from '@klarna/ui/themeable/Switch'
 import * as ThemeableTitle from '@klarna/ui/themeable/Title'
@@ -119,7 +119,7 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
-          <ThemeableInstallments
+          <Installments
             onChange={(key) => console.log('You selected', key)}
             name='installments'
             value='installments_24'
