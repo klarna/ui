@@ -1,5 +1,6 @@
 import React from 'react'
 import ConfirmData from '../ConfirmData'
+import ReviewData from '../ReviewData'
 import Explanation from '../Explanation'
 import Landing from '../Landing'
 import ThreeStepExplanation from '../ThreeStepExplanation'
@@ -254,6 +255,30 @@ export default {
               cancel='Chocolate and strawberry please'
               onAccept={() => console.log('The user likes the flavors')}
               onCancel={() => console.log('The prefers chocolate')}
+            />
+          ]
+        }
+      }
+    },
+
+    {
+      title: 'ReviewData',
+      require: 'import ReviewData from \'@klarna/ui/templates/ReviewData\'',
+      type: TEMPLATE,
+
+      examples: {
+        Regular: {
+          inline: [
+            <ReviewData
+              title='Review the chosen flavors'
+              summary='Street art tattooed live-edge, kitsch four loko hashtag paleo banh mi art party. Viral flexitarian paleo, stumptown dreamcatcher ennui pitchfork bitters squid cornhole roof party tattooed truffaut woke.'
+              info={[
+                {label: 'Ice cream', value: 'Vanilla'},
+                {label: 'Juice', value: 'Orange & Pineapple'}
+              ]}
+              legal='Forage vinyl gluten-free drinking vinegar activated charcoal, listicle shoreditch pitchfork biodiesel venmo organic blue bottle truffaut helvetica. Air plant locavore typewriter, post-ironic banjo leggings sriracha scenester microdosing fanny pack readymade squid raclette stumptown neutra.'
+              accept='Yes, awesome'
+              onAccept={() => console.log('The user thinks the flavors are awesome')}
             />
           ]
         }
