@@ -9,7 +9,7 @@ import Installments from '../Installments'
 import Link from '../Link'
 import * as Switch from '../Switch'
 import * as Title from '../Title'
-import ThemeableSubtitle from '../themeable/Subtitle'
+import Subtitle from '../Subtitle'
 import * as ThemeableParagraph from '../themeable/Paragraph'
 import * as ThemeableList from '../themeable/List'
 import { LIVE } from '../Showroom/variationTypes'
@@ -38,7 +38,7 @@ import Installments from '@klarna/ui/Installments'
 import Link from '@klarna/ui/Link'
 import * as Switch from '@klarna/ui/Switch'
 import * as Title from '@klarna/ui/Title'
-import ThemeableSubtitle from '@klarna/ui/themeable/Subtitle'
+import Subtitle from '@klarna/ui/Subtitle'
 import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'
 import * as ThemeableList from '@klarna/ui/themeable/List'`,
     type: LIVE,
@@ -159,9 +159,9 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
             Hello from the other side
           </Title.Secondary>
 
-          <ThemeableSubtitle margins>
+          <Subtitle margins>
             Hello from the other side
-          </ThemeableSubtitle>
+          </Subtitle>
 
           <ThemeableParagraph.Primary margins>
             Primary Paragraph, primary design

@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
 
 const baseClass = 'subtitle'
 
-export default function Subtitle ({
+function Subtitle ({
   children,
   className,
   color,
@@ -46,3 +47,10 @@ Subtitle.propTypes = {
   margins: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default themeable(Subtitle, (customizations, props) => ({
+  style: {
+    ...props.style,
+    color: customizations.color_header
+  }
+}))
