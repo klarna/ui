@@ -1,7 +1,9 @@
 import React from 'react'
-import Selection from './'
+import CenteredSelection from '../CenteredSelection'
 import FilteredSelection from '../FilteredSelection'
+import Selection from '../Selection'
 import Wrapper from '../Wrapper'
+import DemoIcon from './DemoIcon'
 import { TEMPLATE } from '../../Showroom/variationTypes'
 
 const optionsData = [
@@ -85,6 +87,35 @@ export default {
             onAlternative={() => console.log('alternative')}
             onChange={(e) => console.log('new value', e)}
             onSelect={(e) => console.log('selection', e)}
+          />
+        }
+      }
+    },
+
+    {
+      title: 'CenteredSelection',
+      require: 'import CenteredSelection from \'@klarna/ui/templates/CenteredSelection\'',
+      type: TEMPLATE,
+
+      examples: {
+        Regular: {
+          inline: <CenteredSelection
+            illustration={<DemoIcon />}
+            title='Select your flavor'
+            summary='Photo booth distillery man bun, bitters stumptown freegan cliche cronut green juice.'
+            options={[
+              {
+                key: 'chocolate',
+                description: 'Chocolate ice cream with cookies & swirls of pudding ice cream',
+                label: 'Chocolate'
+              },
+              {
+                key: 'vanilla',
+                description: 'Dark caramel & vanilla ice creams with cookies & butter swirl',
+                label: 'Vanilla'
+              }
+            ]}
+            onSelect={(key) => console.log('selected ' + key)}
           />
         }
       }
