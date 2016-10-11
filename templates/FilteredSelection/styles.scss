@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.filtered-selection__input {
+  margin-bottom: ($grid * 9);
+  margin-top: ($grid * 7);
+}
+
 .filtered-selection__title + .filtered-selection__summary {
   padding-top: ($grid * 2.4);
 }
@@ -15,4 +20,5 @@
 
 .filtered-selection__selector {
   text-align: left;
+  margin-bottom: ($grid * 10);
 }

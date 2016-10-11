@@ -36,10 +36,10 @@ export default function Selection ({
         {summary}
       </Paragraph.Primary>
 
-      <Selector.Options
+      <Selector.Direct
         className={classNames(classes.selector)}
         name={title.toLowerCase().replace(/[^a-zA-Z]/g, '')}
-        onChange={onSelect}
+        onSelect={onSelect}
         data={options}
       />
     </Block.Plain>
