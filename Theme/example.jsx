@@ -10,7 +10,7 @@ import Link from '../Link'
 import * as Switch from '../Switch'
 import * as Title from '../Title'
 import Subtitle from '../Subtitle'
-import * as ThemeableParagraph from '../themeable/Paragraph'
+import * as Paragraph from '../Paragraph'
 import * as ThemeableList from '../themeable/List'
 import { LIVE } from '../Showroom/variationTypes'
 
@@ -39,7 +39,7 @@ import Link from '@klarna/ui/Link'
 import * as Switch from '@klarna/ui/Switch'
 import * as Title from '@klarna/ui/Title'
 import Subtitle from '@klarna/ui/Subtitle'
-import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'
+import * as Paragraph from '@klarna/ui/Paragraph'
 import * as ThemeableList from '@klarna/ui/themeable/List'`,
     type: LIVE,
 
@@ -163,17 +163,17 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
             Hello from the other side
           </Subtitle>
 
-          <ThemeableParagraph.Primary margins>
+          <Paragraph.Primary margins>
             Primary Paragraph, primary design
-          </ThemeableParagraph.Primary>
+          </Paragraph.Primary>
 
-          <ThemeableParagraph.Secondary margins>
-            Primary Paragraph, secondary design
-          </ThemeableParagraph.Secondary>
+          <Paragraph.Secondary margins>
+            Paragraph, secondary design
+          </Paragraph.Secondary>
 
-          <ThemeableParagraph.Legal margins>
-            Primary Paragraph, secondary design
-          </ThemeableParagraph.Legal>
+          <Paragraph.Legal margins>
+            Paragraph, legal design
+          </Paragraph.Legal>
         </div>
 
         <ThemeableList.Unordered style={{marginBottom: '20px'}}>
