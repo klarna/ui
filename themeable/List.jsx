@@ -1,5 +1,5 @@
 import * as List from '../List'
-import themeable from '../lib/decorators/themeable'
+import themeable from '../decorators/themeable'
 
 export const Unordered = themeable(List.Unordered, () => ({}))
 

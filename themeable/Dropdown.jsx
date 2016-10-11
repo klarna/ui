@@ -1,5 +1,5 @@
 import Dropdown from '../Dropdown'
-import themeable from '../lib/decorators/themeable'
+import themeable from '../decorators/themeable'
 
 const Component = themeable(Dropdown, (customizations, props) => ({
   customize: {

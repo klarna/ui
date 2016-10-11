@@ -1,5 +1,5 @@
 import Paragraph from '../../texts/Paragraph'
-import themeable from '../../../lib/decorators/themeable'
+import themeable from '../../../decorators/themeable'
 
 const mapColor = ({ design }, { color_text, color_text_secondary }) => {
   switch (design) {

@@ -1,5 +1,5 @@
 import Subtitle from '../../texts/Subtitle'
-import themeable from '../../../lib/decorators/themeable'
+import themeable from '../../../decorators/themeable'
 
 export default themeable(Subtitle, (customizations, props) => ({
   style: {

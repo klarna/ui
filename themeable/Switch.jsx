@@ -1,5 +1,5 @@
 import * as Switch from '../Switch'
-import themeable from '../lib/decorators/themeable'
+import themeable from '../decorators/themeable'
 
 export const Checkbox = themeable(Switch.Checkbox, (customizations, props) => ({
   customize: {

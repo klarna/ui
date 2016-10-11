@@ -1,5 +1,5 @@
 import Field from '../Field'
-import themeable from '../lib/decorators/themeable'
+import themeable from '../decorators/themeable'
 
 const Component = themeable(Field, (customizations, props) => ({
   customize: {

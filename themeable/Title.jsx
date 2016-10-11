@@ -1,5 +1,5 @@
 import * as Title from '../Title'
-import themeable from '../lib/decorators/themeable'
+import themeable from '../decorators/themeable'
 
 export const Primary = themeable(Title.Primary, (customizations, props) => ({
   style: {

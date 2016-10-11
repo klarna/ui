@@ -1,5 +1,5 @@
 import PrimaryTitle from '../../texts/PrimaryTitle'
-import themeable from '../../../lib/decorators/themeable'
+import themeable from '../../../decorators/themeable'
 
 export default themeable(PrimaryTitle, (customizations, props) => ({
   style: {

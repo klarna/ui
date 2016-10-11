@@ -1,5 +1,5 @@
 import Installments from '../Installments'
-import themeable from '../lib/decorators/themeable'
+import themeable from '../decorators/themeable'
 
 const Component = themeable(Installments, (customizations, props) => ({
   customize: {

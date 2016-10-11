@@ -1,5 +1,5 @@
 import Secondary from '../../Button/Secondary'
-import themeable from '../../lib/decorators/themeable'
+import themeable from '../../decorators/themeable'
 
 // TODO: borderRadius does not work for SecondaryButton
 // because of the inner border-radius not matching up.

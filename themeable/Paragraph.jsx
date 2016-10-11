@@ -1,5 +1,5 @@
 import * as Paragraph from '../Paragraph'
-import themeable from '../lib/decorators/themeable'
+import themeable from '../decorators/themeable'
 
 export const Primary = themeable(Paragraph.Primary, (customizations, props) => ({
   style: {

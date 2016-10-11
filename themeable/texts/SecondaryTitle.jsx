@@ -1,5 +1,5 @@
 import SecondaryTitle from '../../texts/SecondaryTitle'
-import themeable from '../../../lib/decorators/themeable'
+import themeable from '../../../decorators/themeable'
 
 export default themeable(SecondaryTitle, (customizations, props) => ({
   style: {
