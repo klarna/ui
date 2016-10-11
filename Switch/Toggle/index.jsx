@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../../decorators/themeable'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'switch'
@@ -16,7 +17,7 @@ const release = (component) => () => component.setState({ pressed: false })
 
 export const alignments = ['left', 'right']
 
-export default React.createClass({
+const Toggle = React.createClass({
   displayName: 'Switch.Toggle',
 
   getDefaultProps () {
@@ -140,3 +141,12 @@ export default React.createClass({
     </div>)
   }
 })
+
+export default themeable(Toggle, (customizations, props) => ({
+  customize: {
+    ...props.customize,
+    backgroundColor: customizations.color_checkbox,
+    bulletColor: customizations.color_checkbox_checkmark,
+    textColor: customizations.color_text
+  }
+}))

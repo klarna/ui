@@ -7,7 +7,7 @@ import Dropdown from '../Dropdown'
 import Field from '../Field'
 import Installments from '../Installments'
 import Link from '../Link'
-import * as ThemeableSwitch from '../themeable/Switch'
+import * as Switch from '../Switch'
 import * as ThemeableTitle from '../themeable/Title'
 import ThemeableSubtitle from '../themeable/Subtitle'
 import * as ThemeableParagraph from '../themeable/Paragraph'
@@ -17,7 +17,7 @@ import { LIVE } from '../Showroom/variationTypes'
 import statefulFocus from '../lib/decorators/statefulFocus'
 import statefulValue from '../lib/decorators/statefulValue'
 
-const FocusableThemeableCheckbox = statefulValue(statefulFocus(ThemeableSwitch.Checkbox))
+const FocusableThemeableCheckbox = statefulValue(statefulFocus(Switch.Checkbox))
 
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
@@ -36,7 +36,7 @@ import Dropdown from '@klarna/ui/Dropdown'
 import Field from '@klarna/ui/Field'
 import Installments from '@klarna/ui/Installments'
 import Link from '@klarna/ui/Link'
-import * as ThemeableSwitch from '@klarna/ui/themeable/Switch'
+import * as Switch from '@klarna/ui/Switch'
 import * as ThemeableTitle from '@klarna/ui/themeable/Title'
 import ThemeableSubtitle from '@klarna/ui/themeable/Subtitle'
 import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'
@@ -136,12 +136,12 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
         </div>
 
         <div style={{paddingBottom: '20px'}}>
-          <ThemeableSwitch.Toggle name='fries'>
+          <Switch.Toggle name='fries'>
             Would you like fries?
-          </ThemeableSwitch.Toggle>
-          <ThemeableSwitch.Toggle value name='fries'>
+          </Switch.Toggle>
+          <Switch.Toggle value name='fries'>
             Would you like fries?
-          </ThemeableSwitch.Toggle>
+          </Switch.Toggle>
           <FocusableThemeableCheckbox name='fries-2'>
             Would you like fries?
           </FocusableThemeableCheckbox>
