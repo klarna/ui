@@ -3,7 +3,7 @@ import Fieldset from '../Fieldset'
 import Theme from '../Theme'
 import * as Button from '../Button'
 import * as Checklist from '../Checklist'
-import ThemeableDropdown from '../themeable/Dropdown'
+import Dropdown from '../Dropdown'
 import ThemeableField from '../themeable/Field'
 import ThemeableInstallments from '../themeable/Installments'
 import ThemeableLink from '../themeable/Link'
@@ -32,7 +32,7 @@ export default {
     require: `import Theme from '@klarna/ui/Theme'
 import * as Button from '@klarna/ui/Button'
 import * as Checklist from '@klarna/ui/Checklist'
-import ThemeableDropdown from '@klarna/ui/themeable/Dropdown'
+import Dropdown from '@klarna/ui/Dropdown'
 import ThemeableField from '@klarna/ui/themeable/Field'
 import ThemeableInstallments from '@klarna/ui/themeable/Installments'
 import ThemeableLink from '@klarna/ui/themeable/Link'
@@ -107,9 +107,9 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
         </div>
 
         <Fieldset margins>
-          <ThemeableDropdown top label='Given name' options={options} value={1} />
-          <ThemeableDropdown square label='Middle name' options={options} />
-          <ThemeableDropdown bottom label='Last name' options={options} focus='fake' />
+          <Dropdown top label='Given name' options={options} value={1} />
+          <Dropdown square label='Middle name' options={options} />
+          <Dropdown bottom label='Last name' options={options} focus='fake' />
         </Fieldset>
 
         <Fieldset margins>
