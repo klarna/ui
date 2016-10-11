@@ -11,7 +11,7 @@ import * as Switch from '../Switch'
 import * as Title from '../Title'
 import Subtitle from '../Subtitle'
 import * as Paragraph from '../Paragraph'
-import * as ThemeableList from '../themeable/List'
+import * as List from '../List'
 import { LIVE } from '../Showroom/variationTypes'
 
 import statefulFocus from '../lib/decorators/statefulFocus'
@@ -40,7 +40,7 @@ import * as Switch from '@klarna/ui/Switch'
 import * as Title from '@klarna/ui/Title'
 import Subtitle from '@klarna/ui/Subtitle'
 import * as Paragraph from '@klarna/ui/Paragraph'
-import * as ThemeableList from '@klarna/ui/themeable/List'`,
+import * as List from '@klarna/ui/List'`,
     type: LIVE,
 
     examples: {
@@ -176,35 +176,35 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
           </Paragraph.Legal>
         </div>
 
-        <ThemeableList.Unordered style={{marginBottom: '20px'}}>
-          <ThemeableList.Item>
+        <List.Unordered style={{marginBottom: '20px'}}>
+          <List.Item>
             And as in uffish thought he stood,
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             The Jabberwock, with eyes of flame,
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             Came whiffling through the tulgey wood,
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             And burbled as it came!
-          </ThemeableList.Item>
-        </ThemeableList.Unordered>
+          </List.Item>
+        </List.Unordered>
 
-        <ThemeableList.Ordered style={{paddingBottom: '20px'}}>
-          <ThemeableList.Item>
+        <List.Ordered style={{paddingBottom: '20px'}}>
+          <List.Item>
             Brilumis, kaj la ŝlirtaj melfoj
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             en la iejo ĝiris, ŝraŭis;
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             mizaris la maldikdudelfoj,
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             forfuraj ratjoj vaŭis.
-          </ThemeableList.Item>
-        </ThemeableList.Ordered>
+          </List.Item>
+        </List.Ordered>
       </Theme>
     }
   }
