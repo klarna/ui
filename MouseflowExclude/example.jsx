@@ -1,13 +1,19 @@
 import React from 'react'
-import MouseflowExclude from '../MouseflowExclude'
+import MouseflowExclude, { exclude } from '../MouseflowExclude'
 import UncontrolledField from '../uncontrolled/Field'
 import { LIVE } from '../Showroom/variationTypes'
+
+const ExcludedField = exclude(UncontrolledField)
+ExcludedField.displayName = 'ExcludedField'
 
 export default {
   title: 'MouseflowExclude',
   examples: {
-    require: `import MouseflowExclude from '@klarna/ui/MouseflowExclude'
-import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
+    require: `import MouseflowExclude, { exclude } from '@klarna/ui/MouseflowExclude'
+import UncontrolledField from '@klarna/ui/uncontrolled/Field'
+
+const ExcludedField = exclude(UncontrolledField)
+`,
     type: LIVE,
 
     examples: {
@@ -16,7 +22,11 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
           name='a-sensitive-valued-field'
           label='Sensitive information'
         />
-      </MouseflowExclude>
+      </MouseflowExclude>,
+      'High-order component': <ExcludedField
+        name='a-sensitive-valued-field'
+        label='Sensitive information'
+      />
     }
   }
 }
