@@ -3,13 +3,17 @@ import * as Dialog from '../../Dialog'
 import { Back, Close } from '../../IconButton'
 
 export default function Wrapper ({
+  className,
   children,
   onBack,
   onClose,
   ...props
 }) {
   return (
-    <Dialog.Overlay show>
+    <Dialog.Overlay
+      className={className}
+      show
+      {...props}>
       <Dialog.Main>
         {onBack && <Dialog.Icon left>
           <Back
