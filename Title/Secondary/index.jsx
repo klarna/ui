@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../../decorators/themeable'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 
 const baseClass = 'title--secondary'
 
-export default function Secondary ({
+function Secondary ({
   className,
   color,
   condensed,
@@ -50,3 +51,10 @@ Secondary.propTypes = {
   margins: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default themeable(Secondary, (customizations, props) => ({
+  style: {
+    ...props.style,
+    color: customizations.color_header
+  }
+}))

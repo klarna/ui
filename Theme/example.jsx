@@ -8,7 +8,7 @@ import Field from '../Field'
 import Installments from '../Installments'
 import Link from '../Link'
 import * as Switch from '../Switch'
-import * as ThemeableTitle from '../themeable/Title'
+import * as Title from '../Title'
 import ThemeableSubtitle from '../themeable/Subtitle'
 import * as ThemeableParagraph from '../themeable/Paragraph'
 import * as ThemeableList from '../themeable/List'
@@ -37,7 +37,7 @@ import Field from '@klarna/ui/Field'
 import Installments from '@klarna/ui/Installments'
 import Link from '@klarna/ui/Link'
 import * as Switch from '@klarna/ui/Switch'
-import * as ThemeableTitle from '@klarna/ui/themeable/Title'
+import * as Title from '@klarna/ui/Title'
 import ThemeableSubtitle from '@klarna/ui/themeable/Subtitle'
 import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'
 import * as ThemeableList from '@klarna/ui/themeable/List'`,
@@ -151,13 +151,13 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
         </div>
 
         <div style={{paddingBottom: '20px'}}>
-          <ThemeableTitle.Primary margins>
+          <Title.Primary margins>
             Hello from the other side
-          </ThemeableTitle.Primary>
+          </Title.Primary>
 
-          <ThemeableTitle.Secondary margins>
+          <Title.Secondary margins>
             Hello from the other side
-          </ThemeableTitle.Secondary>
+          </Title.Secondary>
 
           <ThemeableSubtitle margins>
             Hello from the other side

@@ -1,20 +1,5 @@
 import * as Title from '../Title'
-import themeable from '../decorators/themeable'
 
-export const Primary = themeable(Title.Primary, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_header
-  }
-}))
+export const Primary = Title.Primary
 
-Primary.displayName = 'ThemeableTitle.Primary'
-
-export const Secondary = themeable(Title.Secondary, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_header
-  }
-}))
-
-Secondary.displayName = 'ThemeableTitle.Secondary'
+export const Secondary = Title.Secondary
