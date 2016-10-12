@@ -5,6 +5,7 @@ import contains from '../../lib/contains'
 import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import Price from '../Price'
+import themeable from '../../decorators/themeable'
 
 const baseClass = 'button'
 
@@ -16,7 +17,7 @@ const classes = {
 
 export const sizes = ['small', 'big']
 
-export default function Primary ({
+function Primary ({
   children,
   className,
   customize,
@@ -63,10 +64,10 @@ export default function Primary ({
       }}
       {...remainingProps}>
       {customize ? [
-        <span className={classNames(classes.label)}>
+        <span key={1} className={classNames(classes.label)}>
           {loadingOrContent}
         </span>,
-        loading || disabled || <div
+        loading || disabled || <div key={2}
           className={classNames(classes.darkening)}
           style={{borderRadius: customize.borderRadius}}
         />
@@ -88,8 +89,9 @@ Primary.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   customize: PropTypes.shape({
-    textColor: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired
+    backgroundColor: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired
   }),
   size: PropTypes.oneOf(sizes),
   loading: PropTypes.bool,
@@ -97,3 +99,12 @@ Primary.propTypes = {
   disabled: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default themeable(Primary, (customizations, { customize }) => ({
+  customize: {
+    ...customize,
+    backgroundColor: customizations.color_button,
+    borderRadius: customizations.radius_border,
+    textColor: customizations.color_button_text
+  }
+}))

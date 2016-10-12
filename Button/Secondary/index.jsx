@@ -4,6 +4,7 @@ import Price from '../Price'
 import classNamesBind from 'classnames/bind'
 import parseColor from 'parse-color'
 import contains from '../../lib/contains'
+import themeable from '../../decorators/themeable'
 import defaultStyles from '../styles.scss'
 
 const baseClass = 'button'
@@ -17,7 +18,7 @@ const classes = {
 
 export const sizes = ['small', 'big']
 
-export default function Secondary (props) {
+function Secondary (props) {
   const {
     children,
     className,
@@ -69,13 +70,13 @@ export default function Secondary (props) {
       {...remainingProps}>
       {
         customize ? [
-          loading || <div
+          loading || <div key={1}
             className={classNames(classes.darkening)}
             style={customize && {
               borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
             }}
           />,
-          <div className={classNames(classes.label)}>
+          <div key={2} className={classNames(classes.label)}>
             {loadingOrContent}
             {
               isDisabled ||
@@ -105,8 +106,9 @@ Secondary.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   customize: PropTypes.shape({
-    textColor: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired
+    backgroundColor: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired
   }),
   size: PropTypes.oneOf(sizes),
   loading: PropTypes.bool,
@@ -114,3 +116,12 @@ Secondary.propTypes = {
   disabled: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default themeable(Secondary, (customizations, { customize }) => ({
+  customize: {
+    ...customize,
+    backgroundColor: customizations.color_button,
+    borderRadius: customizations.radius_border,
+    textColor: customizations.color_button_text
+  }
+}))

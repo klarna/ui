@@ -2,7 +2,7 @@ import React from 'react'
 
 const NODE_COMMENT = 8
 
-export default React.createClass({
+const MouseflowExclude = React.createClass({
   displayName: 'MouseflowExclude',
 
   render () {
@@ -28,3 +28,11 @@ export default React.createClass({
     )
   }
 })
+
+export const exclude = (Component) => (props) => (
+  <MouseflowExclude>
+    <Component {...props} />
+  </MouseflowExclude>
+)
+
+export default MouseflowExclude

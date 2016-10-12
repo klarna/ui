@@ -89,9 +89,9 @@ function Live ({title, require, exampleTitle, examples}) {
       {require}
     </Code.Block>
 
-    {Object.keys(examples).map((name) => <Example
+    {Object.keys(examples).map((name, i) => <Example
       name={name}
-      key={name}>
+      key={`${name}-${i}`}>
       {examples[name]}
     </Example>)}
   </section>
@@ -181,9 +181,9 @@ function Template ({title, require, exampleTitle, examples}) {
 
     <Code.Block language='imports' standalone>{require}</Code.Block>
 
-    {Object.keys(examples).map((name) => <Example
+    {Object.keys(examples).map((name, i) => <Example
       name={name}
-      key={name}>
+      key={`${name}-${i}`}>
       {examples[name].inline}
     </Example>)}
   </section>

@@ -278,6 +278,18 @@ $stackable-border-width: $grid * .2;
     @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
   }
 
+  &::-webkit-input-placeholder {
+    // This should be the same color and font weight as .input__label.
+    color: map-get($colors, grey-text);
+    font-weight: normal;
+  }
+
+  &:-ms-input-placeholder {
+    // This should be the same color and font weight as .input__label.
+    color: map-get($colors, grey-text);
+    font-weight: normal;
+  }
+
   // Disable clear field icon for IE10+
   &::-ms-clear {
     height: 0;
