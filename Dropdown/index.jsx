@@ -40,6 +40,13 @@ const Dropdown = React.createClass({
   },
 
   propTypes: {
+    customize: PropTypes.shape({
+      borderColor: PropTypes.string.isRequired,
+      borderColorSelected: PropTypes.string.isRequired,
+      borderRadius: PropTypes.string.isRequired,
+      labelColor: PropTypes.string.isRequired,
+      selectedColor: PropTypes.string.isRequired
+    }),
     label: PropTypes.string.isRequired,
     loading: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,

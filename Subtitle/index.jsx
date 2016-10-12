@@ -45,6 +45,7 @@ Subtitle.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   margins: PropTypes.bool,
+  style: PropTypes.object,
   styles: PropTypes.object
 }
 

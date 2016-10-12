@@ -48,7 +48,10 @@ const Field = React.createClass({
     centered: PropTypes.bool,
     customize: PropTypes.shape({
       borderColor: PropTypes.string.isRequired,
-      borderColorSelected: PropTypes.string.isRequired
+      borderColorSelected: PropTypes.string.isRequired,
+      borderRadius: PropTypes.string.isRequired,
+      labelColor: PropTypes.string.isRequired,
+      inputColor: PropTypes.string.isRequired
     }),
     input: PropTypes.func,
     loading: PropTypes.bool,

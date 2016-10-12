@@ -53,6 +53,7 @@ Primary.propTypes = {
   margins: PropTypes.bool,
   small: PropTypes.bool,
   strong: PropTypes.bool,
+  style: PropTypes.object,
   styles: PropTypes.object
 }
 

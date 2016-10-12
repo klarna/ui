@@ -82,7 +82,8 @@ ChecklistItem.propTypes = {
   children: PropTypes.node,
   styles: PropTypes.object,
   customize: PropTypes.shape({
-    strokeColor: PropTypes.string.isRequired
+    strokeColor: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired
   })
 }
 

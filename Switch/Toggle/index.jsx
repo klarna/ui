@@ -35,7 +35,8 @@ const Toggle = React.createClass({
     className: PropTypes.string,
     customize: PropTypes.shape({
       backgroundColor: PropTypes.string.isRequired,
-      bulletColor: PropTypes.string.isRequired
+      bulletColor: PropTypes.string.isRequired,
+      textColor: PropTypes.string.isRequired
     }),
     disabled: PropTypes.bool,
     error: PropTypes.bool,

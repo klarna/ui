@@ -89,8 +89,9 @@ Primary.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   customize: PropTypes.shape({
-    textColor: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired
+    backgroundColor: PropTypes.string.isRequired,
+    borderColor: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired
   }),
   size: PropTypes.oneOf(sizes),
   loading: PropTypes.bool,

@@ -49,6 +49,7 @@ Secondary.propTypes = {
   color: PropTypes.oneOf(palette),
   condensed: PropTypes.bool,
   margins: PropTypes.bool,
+  style: PropTypes.object,
   styles: PropTypes.object
 }
 

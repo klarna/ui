@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import themeable from '../../decorators/themeable'
 import defaultStyles from '../styles.scss'
@@ -21,6 +21,14 @@ function Item ({className, children, color, styles, ...props}) {
 }
 
 Item.displayName = 'List.Item'
+
+Item.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  color: PropTypes.string,
+  style: PropTypes.object,
+  styles: PropTypes.object
+}
 
 export default themeable(Item, (customizations, props) => ({
   style: {
