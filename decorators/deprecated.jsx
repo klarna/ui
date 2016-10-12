@@ -4,7 +4,7 @@ import deprecate from '../lib/deprecate'
 export default (Component, componentName, replacement, reference) => (props) => {
   deprecate({
     name: componentName || Component.displayName || Component.name,
-    replacement, 
+    replacement,
     reference
   })
 
