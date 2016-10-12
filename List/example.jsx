@@ -12,21 +12,20 @@ export default {
       type: LIVE,
 
       examples: {
-        Regular: [
-          <List.Unordered>
-            <List.Item>
-              Is this the real life?
-            </List.Item>
-            <List.Item>
-              Is this just fantasy
-            </List.Item>
-            <List.Item>
-              Open your eyes
-            </List.Item>
-          </List.Unordered>
-        ],
+        Regular: <List.Unordered>
+          <List.Item>
+            Is this the real life?
+          </List.Item>
+          <List.Item>
+            Is this just fantasy
+          </List.Item>
+          <List.Item>
+            Open your eyes
+          </List.Item>
+        </List.Unordered>,
+
         Color: [
-          <List.Unordered>
+          <List.Unordered key={1}>
             <List.Item color='blue'>
               Deep as the sea
             </List.Item>
@@ -43,7 +42,7 @@ export default {
               Attention to the sun
             </List.Item>
           </List.Unordered>,
-          <List.Unordered style={{background: '#0074c8'}}>
+          <List.Unordered key={2} style={{background: '#0074c8'}}>
             <List.Item color='white'>
               Cold as midwinter snow
             </List.Item>
@@ -58,24 +57,23 @@ export default {
       type: LIVE,
 
       examples: {
-        Regular: [
-          <List.Ordered>
-            <List.Item>
-              'Twas brillig, and the slithy toves
-            </List.Item>
-            <List.Item>
-              Did gyre and gimble in the wabe;
-            </List.Item>
-            <List.Item>
-              All mimsy were the borogoves,
-            </List.Item>
-            <List.Item>
-              And the mome raths outgrabe.
-            </List.Item>
-          </List.Ordered>
-        ],
+        Regular: <List.Ordered>
+          <List.Item>
+            'Twas brillig, and the slithy toves
+          </List.Item>
+          <List.Item>
+            Did gyre and gimble in the wabe;
+          </List.Item>
+          <List.Item>
+            All mimsy were the borogoves,
+          </List.Item>
+          <List.Item>
+            And the mome raths outgrabe.
+          </List.Item>
+        </List.Ordered>,
+
         Color: [
-          <List.Ordered>
+          <List.Ordered key={1}>
             <List.Item color='blue'>
               Deep as the sea
             </List.Item>
@@ -92,7 +90,7 @@ export default {
               Attention to the sun
             </List.Item>
           </List.Ordered>,
-          <List.Ordered style={{background: '#0074c8'}}>
+          <List.Ordered key={2} style={{background: '#0074c8'}}>
             <List.Item color='white'>
               Cold as midwinter snow
             </List.Item>

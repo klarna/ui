@@ -12,32 +12,30 @@ export default {
     type: LIVE,
 
     examples: {
-      Regular: designs.map((design) => <Label
-        key={design}
+      Regular: designs.map((design, i) => <Label
+        key={`${design}-${i}`}
         design={design}
         style={{margin: '5px'}}>
         {design}
       </Label>),
 
-      Outlined: designs.map((design) => <Label
+      Outlined: designs.map((design, i) => <Label
         outline
-        key={`outline-${design}`}
+        key={`outline-${design}-${i}`}
         design={design}
         style={{margin: '5px'}}>
         {design}
       </Label>),
 
-      Inverted: [
-        <Block.Plain blue>
-          <Label inverted style={{margin: '5px'}}>
-            inverted
-          </Label>
+      Inverted: <Block.Plain blue>
+        <Label inverted style={{margin: '5px'}}>
+          inverted
+        </Label>
 
-          <Label inverted outline style={{margin: '5px'}}>
-            inverted outline
-          </Label>
-        </Block.Plain>
-      ]
+        <Label inverted outline style={{margin: '5px'}}>
+          inverted outline
+        </Label>
+      </Block.Plain>
     }
   }
 }

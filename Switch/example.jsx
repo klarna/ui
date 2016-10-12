@@ -16,21 +16,22 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
 
       examples: {
         Regular: [
-          <Switch.Toggle name='toggle-switch'>
+          <Switch.Toggle key={1} name='toggle-switch'>
             This is a toggle switch
           </Switch.Toggle>,
 
-          <Switch.Toggle value name='toggle-switch-checked'>
+          <Switch.Toggle key={2} value name='toggle-switch-checked'>
             This is a toggle switch checked
           </Switch.Toggle>
         ],
 
         Uncontrolled: [
-          <UncontrolledSwitch.Toggle value name='toggle-switch-uncontrolled'>
+          <UncontrolledSwitch.Toggle key={1} value name='toggle-switch-uncontrolled'>
             This is an uncontrolled toggle switch checked
           </UncontrolledSwitch.Toggle>,
 
           <UncontrolledSwitch.Toggle
+            key={2}
             align='right'
             name='toggle-switch-uncontrolled-right'>
             This is an uncontrolled toggle switch on the right
@@ -46,11 +47,11 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
         </Switch.Toggle>,
 
         Disabled: [
-          <Switch.Toggle disabled name='toggle-switch-disabled'>
+          <Switch.Toggle key={1} disabled name='toggle-switch-disabled'>
             This is a toggle switch disabled
           </Switch.Toggle>,
 
-          <Switch.Toggle disabled value name='toggle-switch-disabled-checked'>
+          <Switch.Toggle key={2} disabled value name='toggle-switch-disabled-checked'>
             This is a toggle switch checked and disabled
           </Switch.Toggle>
         ],
@@ -61,20 +62,24 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
 
         'With customizations': [
           <UncontrolledSwitch.Toggle
+            key={1}
             name='toggle-switch-dynamic-uncontrolled'
             customize={{
               backgroundColor: '#3500C8',
-              bulletColor: '#F9FF3C'
+              bulletColor: '#F9FF3C',
+              textColor: '#3500C8'
             }}>
             This is an uncontrolled toggle switch with dynamic styling
           </UncontrolledSwitch.Toggle>,
 
           <UncontrolledSwitch.Toggle
+            key={2}
             align='right'
             name='toggle-switch-dynamic-uncontrolled-right'
             customize={{
               backgroundColor: '#3500C8',
-              bulletColor: '#F9FF3C'
+              bulletColor: '#F9FF3C',
+              textColor: '#3500C8'
             }}>
             This is an uncontrolled toggle switch with dynamic styling on the right
           </UncontrolledSwitch.Toggle>
@@ -90,21 +95,22 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
 
       examples: {
         Regular: [
-          <Switch.Checkbox name='checkbox-unchecked'>
+          <Switch.Checkbox key={1} name='checkbox-unchecked'>
             This is a toggle switch with checkbox design
           </Switch.Checkbox>,
 
-          <Switch.Checkbox name='checkbox-checked' value>
+          <Switch.Checkbox key={2} name='checkbox-checked' value>
             This is a toggle switch with checkbox design
           </Switch.Checkbox>
         ],
 
         Uncontrolled: [
-          <UncontrolledSwitch.Checkbox name='checkbox-uncontrolled'>
+          <UncontrolledSwitch.Checkbox key={1} name='checkbox-uncontrolled'>
             This is an uncontrolled checkbox switch
           </UncontrolledSwitch.Checkbox>,
 
           <UncontrolledSwitch.Checkbox
+            key={2}
             align='right'
             name='checkbox-uncontrolled-right'>
             This is an uncontrolled checkbox switch on the right
@@ -125,20 +131,26 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
 
         'With customizations': [
           <UncontrolledSwitch.Checkbox
+            key={1}
             name='checkbox-dynamic-styling-uncontrolled'
             customize={{
               backgroundColor: '#3500C8',
-              bulletColor: '#F9FF3C'
+              bulletColor: '#F9FF3C',
+              borderColorSelected: '#3500C8',
+              textColor: '#3500C8'
             }}>
             This is a dynamically styled, uncontrolled checkbox switch
           </UncontrolledSwitch.Checkbox>,
 
           <UncontrolledSwitch.Checkbox
+            key={2}
             align='right'
             name='checkbox-dynamic-styling-uncontrolled-right'
             customize={{
               backgroundColor: '#3500C8',
-              bulletColor: '#F9FF3C'
+              bulletColor: '#F9FF3C',
+              borderColorSelected: '#3500C8',
+              textColor: '#3500C8'
             }}>
             This is a dynamically styled, uncontrolled checkbox switch on the right
           </UncontrolledSwitch.Checkbox>
