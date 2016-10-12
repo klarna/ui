@@ -37,7 +37,12 @@ export default ({defaultProp, prop, handlerName, handlerSelector, resetHandlerNa
     const props = {
       ...this.props,
       [handlerName]: this.handleHandler.bind(this, this.props[handlerName]),
-      [resetHandlerName]: this.handleReset.bind(this, this.props[resetHandlerName])
+      ...(resetHandlerName
+        ? {
+          [resetHandlerName]: this.handleReset.bind(this, this.props[resetHandlerName])
+        }
+        : {}
+      )
     }
 
     return <Component
