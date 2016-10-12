@@ -3,7 +3,7 @@ import ConfirmData from '../ConfirmData'
 import ReviewData from '../ReviewData'
 import Explanation from '../Explanation'
 import Landing from '../Landing'
-import ThreeStepExplanation from '../ThreeStepExplanation'
+import XStepExplanation from '../XStepExplanation'
 import Wrapper from '../Wrapper'
 import DemoIcon from './DemoIcon'
 import { TEMPLATE } from '../../Showroom/variationTypes'
@@ -172,13 +172,13 @@ export default {
     },
 
     {
-      title: 'ThreeStepExplanation',
-      require: 'import ThreeStepExplanation from \'@klarna/ui/templates/ThreeStepExplanation\'',
+      title: 'XStepExplanation',
+      require: 'import XStepExplanation from \'@klarna/ui/templates/XStepExplanation\'',
       type: TEMPLATE,
 
       examples: {
         Regular: {
-          inline: <ThreeStepExplanation
+          inline: <XStepExplanation
             title='This is the main feature headline'
             accept='Continue'
             bullets={[

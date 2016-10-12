@@ -13,7 +13,7 @@ const classes = {
 
 const classNames = classNamesBind.bind(defaultStyles)
 
-export default function ThreeStepExplanation ({
+export default function XStepExplanation ({
   accept,
   bullets,
   onAccept,
