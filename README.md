@@ -30,7 +30,7 @@ npm install
 npm start
 ```
 
-Open [localhost:7777/ui](http://localhost:7777/ui).
+Open [localhost:7777/ui/](http://localhost:7777/ui/).
 
 ## License
 
