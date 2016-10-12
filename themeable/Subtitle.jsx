@@ -1,13 +1,9 @@
 import Subtitle from '../Subtitle'
-import themeable from '../lib/decorators/themeable'
+import deprecated from '../decorators/deprecated'
 
-const Component = themeable(Subtitle, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_header
-  }
-}))
-
-Component.displayName = 'ThemeableSubtitle'
-
-export default Component
+export default deprecated(
+  Subtitle,
+  'ThemeableSubtitle',
+  'Subtitle',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)

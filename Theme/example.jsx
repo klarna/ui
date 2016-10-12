@@ -1,23 +1,23 @@
 import React from 'react'
 import Fieldset from '../Fieldset'
 import Theme from '../Theme'
-import * as ThemeableButton from '../themeable/Button'
-import * as ThemeableChecklist from '../themeable/Checklist'
-import ThemeableDropdown from '../themeable/Dropdown'
-import ThemeableField from '../themeable/Field'
-import ThemeableInstallments from '../themeable/Installments'
-import ThemeableLink from '../themeable/Link'
-import * as ThemeableSwitch from '../themeable/Switch'
-import * as ThemeableTitle from '../themeable/Title'
-import ThemeableSubtitle from '../themeable/Subtitle'
-import * as ThemeableParagraph from '../themeable/Paragraph'
-import * as ThemeableList from '../themeable/List'
+import * as Button from '../Button'
+import * as Checklist from '../Checklist'
+import Dropdown from '../Dropdown'
+import Field from '../Field'
+import Installments from '../Installments'
+import Link from '../Link'
+import * as Switch from '../Switch'
+import * as Title from '../Title'
+import Subtitle from '../Subtitle'
+import * as Paragraph from '../Paragraph'
+import * as List from '../List'
 import { LIVE } from '../Showroom/variationTypes'
 
 import statefulFocus from '../lib/decorators/statefulFocus'
 import statefulValue from '../lib/decorators/statefulValue'
 
-const FocusableThemeableCheckbox = statefulValue(statefulFocus(ThemeableSwitch.Checkbox))
+const FocusableThemeableCheckbox = statefulValue(statefulFocus(Switch.Checkbox))
 
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
@@ -30,17 +30,17 @@ export default {
 
   examples: {
     require: `import Theme from '@klarna/ui/Theme'
-import * as ThemeableButton from '@klarna/ui/themeable/Button'
-import * as ThemeableChecklist from '@klarna/ui/themeable/Checklist'
-import ThemeableDropdown from '@klarna/ui/themeable/Dropdown'
-import ThemeableField from '@klarna/ui/themeable/Field'
-import ThemeableInstallments from '@klarna/ui/themeable/Installments'
-import ThemeableLink from '@klarna/ui/themeable/Link'
-import * as ThemeableSwitch from '@klarna/ui/themeable/Switch'
-import * as ThemeableTitle from '@klarna/ui/themeable/Title'
-import ThemeableSubtitle from '@klarna/ui/themeable/Subtitle'
-import * as ThemeableParagraph from '@klarna/ui/themeable/Paragraph'
-import * as ThemeableList from '@klarna/ui/themeable/List'`,
+import * as Button from '@klarna/ui/Button'
+import * as Checklist from '@klarna/ui/Checklist'
+import Dropdown from '@klarna/ui/Dropdown'
+import Field from '@klarna/ui/Field'
+import Installments from '@klarna/ui/Installments'
+import Link from '@klarna/ui/Link'
+import * as Switch from '@klarna/ui/Switch'
+import * as Title from '@klarna/ui/Title'
+import Subtitle from '@klarna/ui/Subtitle'
+import * as Paragraph from '@klarna/ui/Paragraph'
+import * as List from '@klarna/ui/List'`,
     type: LIVE,
 
     examples: {
@@ -61,65 +61,65 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
         }}>
 
         <div>
-          <ThemeableButton.Primary>
+          <Button.Primary>
             This button gets the theme from context
-          </ThemeableButton.Primary>
+          </Button.Primary>
         </div>
 
         <div style={{paddingTop: '20px'}}>
-          <ThemeableButton.Primary loading>
+          <Button.Primary loading>
             This button gets the theme from context
-          </ThemeableButton.Primary>
+          </Button.Primary>
 
-          <ThemeableButton.Primary disabled style={{marginLeft: '20px'}}>
+          <Button.Primary disabled style={{marginLeft: '20px'}}>
             Disabled
-          </ThemeableButton.Primary>
+          </Button.Primary>
         </div>
 
         <div style={{paddingTop: '20px'}}>
-          <ThemeableButton.Secondary>
+          <Button.Secondary>
             This button gets the theme from context
-          </ThemeableButton.Secondary>
+          </Button.Secondary>
         </div>
 
         <div style={{paddingTop: '20px'}}>
-          <ThemeableButton.Secondary loading>
+          <Button.Secondary loading>
             This button gets the theme from context
-          </ThemeableButton.Secondary>
+          </Button.Secondary>
 
-          <ThemeableButton.Secondary disabled style={{marginLeft: '20px'}}>
+          <Button.Secondary disabled style={{marginLeft: '20px'}}>
             Disabled
-          </ThemeableButton.Secondary>
+          </Button.Secondary>
         </div>
 
         <div style={{padding: '20px 0'}}>
-          <ThemeableChecklist.Main>
-            <ThemeableChecklist.Item>
+          <Checklist.Main>
+            <Checklist.Item>
               Just one click and you're done
-            </ThemeableChecklist.Item>
-            <ThemeableChecklist.Item>
+            </Checklist.Item>
+            <Checklist.Item>
               Very little hassle
-            </ThemeableChecklist.Item>
-            <ThemeableChecklist.Item>
+            </Checklist.Item>
+            <Checklist.Item>
               Just do it! It can be done today, so why wait for  tomorrow?
-            </ThemeableChecklist.Item>
-          </ThemeableChecklist.Main>
+            </Checklist.Item>
+          </Checklist.Main>
         </div>
 
         <Fieldset margins>
-          <ThemeableDropdown top label='Given name' options={options} value={1} />
-          <ThemeableDropdown square label='Middle name' options={options} />
-          <ThemeableDropdown bottom label='Last name' options={options} focus='fake' />
+          <Dropdown top label='Given name' options={options} value={1} />
+          <Dropdown square label='Middle name' options={options} />
+          <Dropdown bottom label='Last name' options={options} focus='fake' />
         </Fieldset>
 
         <Fieldset margins>
-          <ThemeableField top label='Address' value='16, Corn street' focus='fake' />
-          <ThemeableField square label='Given name' />
-          <ThemeableField bottom label='Family name' />
+          <Field top label='Address' value='16, Corn street' focus='fake' />
+          <Field square label='Given name' />
+          <Field bottom label='Family name' />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
-          <ThemeableInstallments
+          <Installments
             onChange={(key) => console.log('You selected', key)}
             name='installments'
             value='installments_24'
@@ -132,16 +132,16 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
         </div>
 
         <div style={{paddingBottom: '20px'}}>
-          <ThemeableLink>Click me!</ThemeableLink>
+          <Link>Click me!</Link>
         </div>
 
         <div style={{paddingBottom: '20px'}}>
-          <ThemeableSwitch.Toggle name='fries'>
+          <Switch.Toggle name='fries'>
             Would you like fries?
-          </ThemeableSwitch.Toggle>
-          <ThemeableSwitch.Toggle value name='fries'>
+          </Switch.Toggle>
+          <Switch.Toggle value name='fries'>
             Would you like fries?
-          </ThemeableSwitch.Toggle>
+          </Switch.Toggle>
           <FocusableThemeableCheckbox name='fries-2'>
             Would you like fries?
           </FocusableThemeableCheckbox>
@@ -151,60 +151,60 @@ import * as ThemeableList from '@klarna/ui/themeable/List'`,
         </div>
 
         <div style={{paddingBottom: '20px'}}>
-          <ThemeableTitle.Primary margins>
+          <Title.Primary margins>
             Hello from the other side
-          </ThemeableTitle.Primary>
+          </Title.Primary>
 
-          <ThemeableTitle.Secondary margins>
+          <Title.Secondary margins>
             Hello from the other side
-          </ThemeableTitle.Secondary>
+          </Title.Secondary>
 
-          <ThemeableSubtitle margins>
+          <Subtitle margins>
             Hello from the other side
-          </ThemeableSubtitle>
+          </Subtitle>
 
-          <ThemeableParagraph.Primary margins>
+          <Paragraph.Primary margins>
             Primary Paragraph, primary design
-          </ThemeableParagraph.Primary>
+          </Paragraph.Primary>
 
-          <ThemeableParagraph.Secondary margins>
-            Primary Paragraph, secondary design
-          </ThemeableParagraph.Secondary>
+          <Paragraph.Secondary margins>
+            Paragraph, secondary design
+          </Paragraph.Secondary>
 
-          <ThemeableParagraph.Legal margins>
-            Primary Paragraph, secondary design
-          </ThemeableParagraph.Legal>
+          <Paragraph.Legal margins>
+            Paragraph, legal design
+          </Paragraph.Legal>
         </div>
 
-        <ThemeableList.Unordered style={{marginBottom: '20px'}}>
-          <ThemeableList.Item>
+        <List.Unordered style={{marginBottom: '20px'}}>
+          <List.Item>
             And as in uffish thought he stood,
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             The Jabberwock, with eyes of flame,
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             Came whiffling through the tulgey wood,
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             And burbled as it came!
-          </ThemeableList.Item>
-        </ThemeableList.Unordered>
+          </List.Item>
+        </List.Unordered>
 
-        <ThemeableList.Ordered style={{paddingBottom: '20px'}}>
-          <ThemeableList.Item>
+        <List.Ordered style={{paddingBottom: '20px'}}>
+          <List.Item>
             Brilumis, kaj la ŝlirtaj melfoj
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             en la iejo ĝiris, ŝraŭis;
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             mizaris la maldikdudelfoj,
-          </ThemeableList.Item>
-          <ThemeableList.Item>
+          </List.Item>
+          <List.Item>
             forfuraj ratjoj vaŭis.
-          </ThemeableList.Item>
-        </ThemeableList.Ordered>
+          </List.Item>
+        </List.Ordered>
       </Theme>
     }
   }

@@ -1,17 +1,9 @@
 import Secondary from '../../Button/Secondary'
-import themeable from '../../lib/decorators/themeable'
+import deprecated from '../../decorators/deprecated'
 
-// TODO: borderRadius does not work for SecondaryButton
-// because of the inner border-radius not matching up.
-const Component = themeable(Secondary, (customizations, { customize }) => ({
-  customize: {
-    ...customize,
-    backgroundColor: customizations.color_button,
-    borderRadius: customizations.radius_border,
-    textColor: customizations.color_button_text
-  }
-}))
-
-Component.displayName = 'ThemeableButton.Secondary'
-
-export default Component
+export default deprecated(
+  Secondary,
+  'ThemeableButton.Secondary',
+  'Button.Secondary',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)

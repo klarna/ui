@@ -7,6 +7,7 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
+import themeable from '../decorators/themeable'
 
 const baseClass = 'dropdown'
 
@@ -16,7 +17,7 @@ const classes = {
   select: `${baseClass}__select`
 }
 
-export default React.createClass({
+const Dropdown = React.createClass({
   displayName: 'Dropdown',
 
   getInitialState () {
@@ -39,6 +40,13 @@ export default React.createClass({
   },
 
   propTypes: {
+    customize: PropTypes.shape({
+      borderColor: PropTypes.string.isRequired,
+      borderColorSelected: PropTypes.string.isRequired,
+      borderRadius: PropTypes.string.isRequired,
+      labelColor: PropTypes.string.isRequired,
+      selectedColor: PropTypes.string.isRequired
+    }),
     label: PropTypes.string.isRequired,
     loading: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
@@ -216,3 +224,14 @@ const onMouseLeave = (component) => () =>
     ...component.state,
     hover: false
   })
+
+export default themeable(Dropdown, (customizations, props) => ({
+  customize: {
+    ...props.customize,
+    borderColor: customizations.color_border,
+    borderColorSelected: customizations.color_border_selected,
+    borderRadius: customizations.radius_border,
+    labelColor: customizations.color_text_secondary,
+    selectedColor: customizations.color_text
+  }
+}))
