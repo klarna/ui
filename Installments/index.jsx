@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'installments'
@@ -12,7 +13,7 @@ const classes = {
   cellHighlight: `${baseClass}__cell__highlight`
 }
 
-export default React.createClass({
+const Installments = React.createClass({
   displayName: 'Installments',
 
   propTypes: {
@@ -155,3 +156,13 @@ const cellDynamicStyles = ({ borderColor, borderColorSelected, labelColor }, hov
   hovered
     ? { borderColor, color: borderColorSelected }
     : { borderColor, color: labelColor }
+
+export default themeable(Installments, (customizations, props) => ({
+  customize: {
+    ...props.customize,
+    borderColor: customizations.color_border,
+    borderColorSelected: customizations.color_border_selected,
+    borderRadius: customizations.radius_border,
+    labelColor: customizations.color_text
+  }
+}))

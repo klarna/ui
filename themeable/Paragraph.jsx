@@ -1,24 +1,23 @@
 import * as Paragraph from '../Paragraph'
-import themeable from '../lib/decorators/themeable'
+import deprecated from '../decorators/deprecated'
 
-export const Primary = themeable(Paragraph.Primary, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_text
-  }
-}))
+export const Primary = deprecated(
+  Paragraph.Primary,
+  'ThemeableParagraph.Primary',
+  'Paragraph.Primary',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)
 
-Primary.displayName = 'ThemeableParagraph.Primary'
+export const Secondary = deprecated(
+  Paragraph.Secondary,
+  'ThemeableParagraph.Secondary',
+  'Paragraph.Secondary',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)
 
-export const Secondary = themeable(Paragraph.Secondary, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_text_secondary
-  }
-}))
-
-Secondary.displayName = 'ThemeableParagraph.Secondary'
-
-export const Legal = themeable(Paragraph.Legal, () => ({}))
-
-Legal.displayName = 'ThemeableParagraph.Legal'
+export const Legal = deprecated(
+  Paragraph.Legal,
+  'ThemeableParagraph.Legal',
+  'Paragraph.Legal',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)

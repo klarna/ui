@@ -1,19 +1,34 @@
 import React from 'react'
 import * as Dialog from '../../Dialog'
-import { Close } from '../../IconButton'
+import { Back, Close } from '../../IconButton'
 
-export default function Wrapper ({children, ...props}) {
-  const {onClose} = props
-
+export default function Wrapper ({
+  className,
+  children,
+  onBack,
+  onClose,
+  ...props
+}) {
   return (
-    <Dialog.Overlay show>
+    <Dialog.Overlay
+      className={className}
+      show
+      {...props}>
       <Dialog.Main>
-        <Dialog.Icon>
+        {onBack && <Dialog.Icon left>
+          <Back
+            onClick={onBack}
+            color='gray'
+          />
+        </Dialog.Icon>}
+
+        {onClose && <Dialog.Icon>
           <Close
             onClick={onClose}
             color='gray'
           />
-        </Dialog.Icon>
+        </Dialog.Icon>}
+
         {children}
       </Dialog.Main>
     </Dialog.Overlay>

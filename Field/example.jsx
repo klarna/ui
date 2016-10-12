@@ -53,7 +53,7 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
 
         'With customizations': <UncontrolledField
           name='with-customizations'
-          customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8' }}
+          customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
           label='Favorite color'
           value='Purple'
         />

@@ -1,17 +1,9 @@
 import Dropdown from '../Dropdown'
-import themeable from '../lib/decorators/themeable'
+import deprecated from '../decorators/deprecated'
 
-const Component = themeable(Dropdown, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    borderColor: customizations.color_border,
-    borderColorSelected: customizations.color_border_selected,
-    borderRadius: customizations.radius_border,
-    labelColor: customizations.color_text_secondary,
-    selectedColor: customizations.color_text
-  }
-}))
-
-Component.displayName = 'ThemeableDropdown'
-
-export default Component
+export default deprecated(
+  Dropdown,
+  'ThemeableDropdown',
+  'Dropdown',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)

@@ -33,12 +33,12 @@ Main.propTypes = {
   styles: PropTypes.object
 }
 
-export function Icon ({ children, className, styles, ...props }) {
+export function Icon ({ children, className, left, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <div
-      className={classNames(classes.icon, className)}
+      className={classNames(classes.icon, { left }, className)}
       {...props}>
       {children}
     </div>
@@ -50,6 +50,7 @@ Icon.displayName = 'Dialog.Icon'
 Icon.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  left: PropTypes.bool,
   styles: PropTypes.object
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '../styles.scss'
 
@@ -14,3 +14,9 @@ export default function Unordered ({children, className, styles, ...props}) {
 }
 
 Unordered.displayName = 'List.Unordered'
+
+Unordered.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  styles: PropTypes.object
+}

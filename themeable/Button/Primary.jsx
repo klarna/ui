@@ -1,15 +1,9 @@
 import Primary from '../../Button/Primary'
-import themeable from '../../lib/decorators/themeable'
+import deprecated from '../../decorators/deprecated'
 
-const Component = themeable(Primary, (customizations, { customize }) => ({
-  customize: {
-    ...customize,
-    backgroundColor: customizations.color_button,
-    borderRadius: customizations.radius_border,
-    textColor: customizations.color_button_text
-  }
-}))
-
-Component.displayName = 'ThemeableButton.Primary'
-
-export default Component
+export default deprecated(
+  Primary,
+  'ThemeableButton.Primary',
+  'Button.Primary',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)

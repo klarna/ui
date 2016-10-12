@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../../decorators/themeable'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'switch--checkbox'
@@ -18,7 +19,7 @@ const release = (component) => () => component.setState({ pressed: false })
 
 export const alignments = ['left', 'right']
 
-export default React.createClass({
+const Checkbox = React.createClass({
   displayName: 'Switch.Checkbox',
 
   getDefaultProps () {
@@ -37,7 +38,9 @@ export default React.createClass({
     className: PropTypes.string,
     customize: PropTypes.shape({
       backgroundColor: PropTypes.string.isRequired,
-      bulletColor: PropTypes.string.isRequired
+      borderColorSelected: PropTypes.string.isRequired,
+      bulletColor: PropTypes.string.isRequired,
+      textColor: PropTypes.string.isRequired
     }),
     disabled: PropTypes.bool,
     error: PropTypes.bool,
@@ -163,4 +166,12 @@ export default React.createClass({
   }
 })
 
-/*  style={/*{backgroundColor: customize.bulletColor} */
+export default themeable(Checkbox, (customizations, props) => ({
+  customize: {
+    ...props.customize,
+    backgroundColor: customizations.color_checkbox,
+    bulletColor: customizations.color_checkbox_checkmark,
+    textColor: customizations.color_text,
+    borderColorSelected: customizations.color_border_selected
+  }
+}))

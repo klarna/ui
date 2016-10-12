@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../../decorators/themeable'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 
 const baseClass = 'paragraph--secondary'
 
-export default function Secondary ({
+function Secondary ({
   children,
   className,
   color,
@@ -46,5 +47,13 @@ Secondary.propTypes = {
   color: PropTypes.oneOf(palette),
   condensed: PropTypes.bool,
   margins: PropTypes.bool,
+  style: PropTypes.object,
   styles: PropTypes.object
 }
+
+export default themeable(Secondary, (customizations, props) => ({
+  style: {
+    ...props.style,
+    color: customizations.color_text_secondary
+  }
+}))
