@@ -70,13 +70,13 @@ function Secondary (props) {
       {...remainingProps}>
       {
         customize ? [
-          loading || <div
+          loading || <div key={1}
             className={classNames(classes.darkening)}
             style={customize && {
               borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
             }}
           />,
-          <div className={classNames(classes.label)}>
+          <div key={2} className={classNames(classes.label)}>
             {loadingOrContent}
             {
               isDisabled ||

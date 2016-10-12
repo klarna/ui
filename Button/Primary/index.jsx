@@ -64,10 +64,10 @@ function Primary ({
       }}
       {...remainingProps}>
       {customize ? [
-        <span className={classNames(classes.label)}>
+        <span key={1} className={classNames(classes.label)}>
           {loadingOrContent}
         </span>,
-        loading || disabled || <div
+        loading || disabled || <div key={2}
           className={classNames(classes.darkening)}
           style={{borderRadius: customize.borderRadius}}
         />
@@ -90,7 +90,7 @@ Primary.propTypes = {
   className: PropTypes.string,
   customize: PropTypes.shape({
     backgroundColor: PropTypes.string.isRequired,
-    borderColor: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
     textColor: PropTypes.string.isRequired
   }),
   size: PropTypes.oneOf(sizes),
