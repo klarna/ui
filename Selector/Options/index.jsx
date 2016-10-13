@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from '../styles.scss'
+import defaultStyles from './styles.scss'
 import Checkmark from '../../icons/Checkmark'
 
-const baseClass = 'selector--direct'
+const baseClass = 'selector--options'
 
 const classes = {
   icon: `${baseClass}__icon`,
