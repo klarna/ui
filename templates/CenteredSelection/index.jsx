@@ -31,6 +31,7 @@ export default function CenteredSelection ({
     <Selector.Direct
       className={classNames(classes.selector)}
       data={options}
+      onSelect={onSelect}
     />
   </Centered>
 }
