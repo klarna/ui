@@ -5,6 +5,5 @@
     "stage-0"
   ],
   "plugins": [
-    ["transform-react-jsx", { "pragma":"h" }]
   ]
 }

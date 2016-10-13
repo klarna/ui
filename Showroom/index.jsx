@@ -9,7 +9,7 @@ export default React.createClass({
   },
 
   componentDidMount () {
-    states.map(this.replaceState.bind(this))
+	  // states.map(this.replaceState.bind(this))
   },
 
   shouldComponentUpdate (nextProps, nextState) {
