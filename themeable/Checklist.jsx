@@ -1,22 +1,16 @@
 import * as Checklist from '../Checklist'
-import themeable from '../lib/decorators/themeable'
+import deprecated from '../decorators/deprecated'
 
-export const Main = themeable(Checklist.Main, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    borderColor: customizations.color_border,
-    borderRadius: customizations.radius_border
-  }
-}))
+export const Main = deprecated(
+  Checklist.Main,
+  'ThemeableChecklist.Main',
+  'Checklist.Main',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)
 
-Main.displayName = 'ThemeableChecklist.Main'
-
-export const Item = themeable(Checklist.Item, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    strokeColor: customizations.color_details,
-    textColor: customizations.color_text
-  }
-}))
-
-Item.displayName = 'ThemeableChecklist.Item'
+export const Item = deprecated(
+  Checklist.Item,
+  'ThemeableChecklist.Item',
+  'Checklist.Item',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)

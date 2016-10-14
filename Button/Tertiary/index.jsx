@@ -10,15 +10,15 @@ import defaultStyles from '../styles.scss'
 const baseClass = 'button'
 
 const classes = {
-  darkening: `${baseClass}--secondary__darkening`,
-  secondary: `${baseClass}--secondary`,
+  darkening: `${baseClass}--tertiary__darkening`,
+  tertiary: `${baseClass}--tertiary`,
   label: `${baseClass}__label`,
   labelAlt: `${baseClass}__label--alt`
 }
 
 export const sizes = ['small', 'big']
 
-function Secondary (props) {
+function Tertiary (props) {
   const {
     children,
     className,
@@ -32,7 +32,7 @@ function Secondary (props) {
     ...remainingProps } = props
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  const cls = classNames(classes.secondary, size, {
+  const cls = classNames(classes.tertiary, size, {
     'is-disabled': disabled,
     'is-loading': loading,
     'dynamic-styling': customize,
@@ -94,15 +94,15 @@ function Secondary (props) {
   )
 }
 
-Secondary.displayName = 'Button.Secondary'
+Tertiary.displayName = 'Button.Tertiary'
 
-Secondary.defaultProps = {
+Tertiary.defaultProps = {
   loading: false,
   success: false,
   disabled: false
 }
 
-Secondary.propTypes = {
+Tertiary.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   customize: PropTypes.shape({
@@ -117,7 +117,7 @@ Secondary.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Secondary, (customizations, { customize }) => ({
+export default themeable(Tertiary, (customizations, { customize }) => ({
   customize: {
     ...customize,
     backgroundColor: customizations.color_button,

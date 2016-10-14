@@ -2,29 +2,148 @@
 @import '../css/mixins/index';
 
 .dialog {
-  @include dialog;
+  background: map-get($colors, white);
+  box-sizing: border-box;
+  display: table;
+  height: 100%;
+  padding: ($grid * 4);
+  position: relative;
+  transform: translateY(($grid * 10));
+  transition: transform 0.3s ease;
+  width: 100%;
+
+  @include respond-to-wide ($mobile-narrow-max-width) {
+    padding: ($grid * 6);
+  }
+
+  @include respond-to-wide {
+    border-radius: ($grid * 1.6);
+    height: auto;
+    margin: ($grid * 6) auto;
+    padding: ($grid * 12);
+    text-align: left; // override dialog__wrapper text-align
+    width: ($grid * 87);
+  }
+
+  .wide & {
+    @include respond-to-wide-and-tall {
+      width: ($grid * 108);
+    }
+  }
+
+  .is-visible & {
+    transform: translateY(0);
+  }
 }
 
 .dialog__content {
-  @include dialog__content;
+  display: table-row;
+
+  &--inner {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+
+    & > .cui__title--primary:first-child {
+      margin-top: ($grid * -2);
+      padding-top: ($grid * .6);
+    }
+  }
+
+  @include respond-to-wide {
+    display: block;
+
+    &--inner {
+      display: block;
+    }
+  }
 }
 
 .dialog__cell {
-  @include dialog__cell;
+  height: 100%;
+  width: 100%;
+
+  @include respond-to-wide {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
 }
 
 .dialog__footer {
-  @include dialog__footer;
+  display: table-row;
+
+  &--inner {
+    display: table-cell;
+  }
+
+  @include respond-to-wide {
+    display: block;
+
+    &--inner {
+      display: block;
+    }
+  }
 }
 
 .dialog__icon {
-  @include dialog__icon;
+  display: block;
+  position: absolute;
+  right: ($grid * 4);
+  top: ($grid * 4);
+
+  &.left {
+    left: ($grid * 4);
+    right: auto;
+  }
+
+  @include respond-to-wide ($mobile-narrow-max-width) {
+    right: ($grid * 6);
+    top: ($grid * 6);
+
+    &.left {
+      left: ($grid * 6);
+      right: auto;
+    }
+  }
+
+  @include respond-to-wide {
+    right: ($grid * 4);
+    top: ($grid * 4);
+
+    &.left {
+      left: ($grid * 4);
+      right: auto;
+    }
+  }
 }
 
 .dialog__overlay {
-  @include dialog__overlay;
+  -webkit-overflow-scrolling: touch;
+  background: transparentize(map-get($colors, black), .2);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 0.3s ease;
+  width: 100%;
+  z-index: -1;
+
+  &.is-visible {
+    opacity: 1;
+    z-index: 100;
+  }
 }
 
 .dialog__table {
-  @include dialog__table;
+  height: 100%;
+  width: 100%;
+
+  @include respond-to-wide {
+    display: table;
+  }
 }

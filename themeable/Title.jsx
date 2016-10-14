@@ -1,20 +1,16 @@
 import * as Title from '../Title'
-import themeable from '../lib/decorators/themeable'
+import deprecated from '../decorators/deprecated'
 
-export const Primary = themeable(Title.Primary, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_header
-  }
-}))
+export const Primary = deprecated(
+  Title.Primary,
+  'ThemeableTitle.Primary',
+  'Title.Primary',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)
 
-Primary.displayName = 'ThemeableTitle.Primary'
-
-export const Secondary = themeable(Title.Secondary, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_header
-  }
-}))
-
-Secondary.displayName = 'ThemeableTitle.Secondary'
+export const Secondary = deprecated(
+  Title.Secondary,
+  'ThemeableTitle.Secondary',
+  'Title.Secondary',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)

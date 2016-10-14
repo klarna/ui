@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '../styles.scss'
 
@@ -14,3 +14,10 @@ export default function Ordered ({children, className, styles, ...props}) {
 }
 
 Ordered.displayName = 'List.Ordered'
+
+Ordered.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  styles: PropTypes.object
+}

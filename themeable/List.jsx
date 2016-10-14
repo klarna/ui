@@ -1,19 +1,23 @@
 import * as List from '../List'
-import themeable from '../lib/decorators/themeable'
+import deprecated from '../decorators/deprecated'
 
-export const Unordered = themeable(List.Unordered, () => ({}))
+export const Unordered = deprecated(
+  List.Unordered,
+  'ThemeableList.Unordered',
+  'List.Unordered',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)
 
-Unordered.displayName = 'ThemeableList.Unordered'
+export const Ordered = deprecated(
+  List.Ordered,
+  'ThemeableList.Ordered',
+  'List.Ordered',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)
 
-export const Ordered = themeable(List.Ordered, () => ({}))
-
-Ordered.displayName = 'ThemeableList.Ordered'
-
-export const Item = themeable(List.Item, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_text
-  }
-}))
-
-Item.displayName = 'ThemeableList.Item'
+export const Item = deprecated(
+  List.Item,
+  'ThemeableList.Item',
+  'List.Item',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)

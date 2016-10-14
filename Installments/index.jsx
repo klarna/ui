@@ -1,26 +1,25 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'installments'
 
 const classes = {
   input: `${baseClass}__input`,
-  label: `${baseClass}__label`,
-  labelConnector: `${baseClass}__label__connector`,
-  labelHighlight: `${baseClass}__label__highlight`,
-  labelInfo: `${baseClass}__label__info`,
-  labelValue: `${baseClass}__label__value`
+  cellContent: `${baseClass}__cell__content`,
+  row: `${baseClass}__row`,
+  cell: `${baseClass}__cell`,
+  cellHighlight: `${baseClass}__cell__highlight`
 }
 
-export default React.createClass({
+const Installments = React.createClass({
   displayName: 'Installments',
 
   propTypes: {
     options: PropTypes.arrayOf(PropTypes.shape({
-      connector: PropTypes.string.isRequired,
-      info: PropTypes.string.isRequired,
-      value: PropTypes.node.isRequired
+      key: PropTypes.string.isRequired,
+      content: PropTypes.isRequired
     })).isRequired,
     className: PropTypes.string,
     customize: PropTypes.shape({
@@ -94,6 +93,9 @@ export default React.createClass({
       }
       : undefined
 
+    const selectedIndex = options.findIndex((option) => (
+      option.key === selected
+    ))
     return (<div
       className={classNames(baseClass, className)}
       style={{
@@ -101,68 +103,66 @@ export default React.createClass({
         ...style
       }}
       {...remainingProps}>
-      {options.map(({ key, value, info, connector }, index) => {
-        const id = `${name}-${key}`
-
-        return [
-          (<input
-            className={classNames(classes.input)}
-            type='radio'
-            name={name}
-            key={`input-${id}`}
-            ref={key}
-            id={id}
-            onBlur={onBlur}
-            onChange={onChange && (() => onChange(key))}
-            onFocus={(e) => onFocus && onFocus(key, e)}
-            checked={key === selected}
-            value={key}
-           />),
-          (<label
-            key={`label-${id}`}
+      <div className={classNames(classes.row)}>
+        {options.map(({ key, content }, index) => {
+          const id = `${name}-${key}`
+          return <label
+            key={`cell-${id}`}
             className={classNames(
-              classes.label,
-              getLabelWidthClassName(options),
-              { 'no-float': options.length === 1 },
-              { 'is-focused': focus === key }
+              classes.cell,
+              { 'is-focused': focus === key },
+              { 'is-selected': key === selected },
+              { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) }
             )}
             style={customize
-              ? labelDynamicStyles(customize, id === this.state.hover)
+              ? cellDynamicStyles(customize, id === this.state.hover)
               : undefined}
-            onMouseEnter={() => onLabelMouseEnter(this)(id)}
-            onMouseLeave={() => onLabelMouseLeave(this)(id)}
-            htmlFor={id}>
-            <span className={classNames(classes.labelValue)}>{value}</span>
-            <span className={classNames(classes.labelConnector)}>{connector}</span>
-            <span className={classNames(classes.labelInfo)}>{info}</span>
-            <span className={classNames(classes.labelHighlight)} style={highlightDynamicStyles} />
-          </label>)
-        ]
-      })}
+            onMouseEnter={() => onCellMouseEnter(this)(id)}
+            onMouseLeave={() => onCellMouseLeave(this)(id)}>
+            <input
+              className={classNames(classes.input)}
+              type='radio'
+              name={name}
+              ref={key}
+              id={id}
+              onBlur={onBlur}
+              onChange={onChange && (() => onChange(key))}
+              onFocus={(e) => onFocus && onFocus(key, e)}
+              checked={key === selected}
+              value={key}
+              />
+            <div
+              className={classNames(
+                classes.cellContent
+              )}>
+              {content}
+            </div>
+            <span className={classNames(classes.cellHighlight)} style={highlightDynamicStyles} />
+          </label>
+        })}
+      </div>
     </div>)
   }
 })
 
-const onLabelMouseEnter = (component) => (id) =>
+const onCellMouseEnter = (component) => (id) => {
   component.setState({ hover: id })
+}
 
-const onLabelMouseLeave = (component) => () =>
+const onCellMouseLeave = (component) => () =>
   component.setState({ hover: undefined })
 
-const labelDynamicStyles = ({ borderColor, borderColorSelected, labelColor }, hovered) =>
+const cellDynamicStyles = ({ borderColor, borderColorSelected, labelColor }, hovered) =>
   hovered
     ? { borderColor, color: borderColorSelected }
     : { borderColor, color: labelColor }
 
-const getLabelWidthClassName = (options) => {
-  switch (options.length) {
-    case 2:
-      return 'half'
-    case 3:
-      return 'third'
-    case 4:
-      return 'quarter'
-    default:
-      return null
+export default themeable(Installments, (customizations, props) => ({
+  customize: {
+    ...props.customize,
+    borderColor: customizations.color_border,
+    borderColorSelected: customizations.color_border_selected,
+    borderRadius: customizations.radius_border,
+    labelColor: customizations.color_text
   }
-}
+}))

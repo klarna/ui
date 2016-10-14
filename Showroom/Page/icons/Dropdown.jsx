@@ -9,7 +9,7 @@ export default ({className}) => (
       <rect fill='#EED419' x='41' y='15' width='5' height='2' rx='1' />
       <g fill='#C3CFE2'>
         {
-          [18, 27, 36, 45].map((y) => <rect x='6' y={y} width='4' height='4' rx='2' />)
+          [18, 27, 36, 45].map((y, i) => <rect key={i} x='6' y={y} width='4' height='4' rx='2' />)
         }
         <rect y='4' width='35' height='2' rx='1'/>
       </g>

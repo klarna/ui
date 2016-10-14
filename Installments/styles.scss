@@ -2,13 +2,24 @@
 @import '../css/mixins/index';
 
 .installments {
+  box-sizing: border-box;
   border: ($grid * .2) solid $border-color;
   border-radius: 5px;
+  min-width: ($grid * 56);
+  position: relative;
+  display: block;
+  width: 100%;
 
   &:after {
     clear: both;
     content: '';
     display: block;
+  }
+
+  @include respond-to-wide {
+    height: ($grid * 15);
+    display: table;
+    table-layout: fixed;
   }
 
   .installments__input {
@@ -19,51 +30,64 @@
     width: 0;
   }
 
-  .installments__label {
-    @include stackable;
-    @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
-
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    border-top: ($grid * .2) solid $border-color;
-    color: map-get($colors, black);
-    cursor: pointer;
+  .installments__row {
     display: block;
-    line-height: ($grid * 8) - ($grid * .4);
+
+    @include respond-to-wide {
+      display: table-row;
+    }
+  }
+
+  .installments__cell {
+    box-sizing: border-box;
+    display: block;
     position: relative;
-    text-align: center;
-    vertical-align: top;
+    cursor: pointer;
+    color: map-get($colors, black);
+    border-top: ($grid * .2) solid $border-color;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 
     &:first-of-type {
       border-top-width: 0px;
     }
 
     @include respond-to-wide {
-      @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
-
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      height: 100%;
       border-left: ($grid * .2) solid $border-color;
       border-top: 0;
-      float: left;
-      line-height: ($grid * 4);
-      padding: ($grid * 3.8) 0;
 
       &:first-of-type {
         border-left-width: 0px;
       }
-
-      &.no-float {
-        float: none;
-      }
     }
   }
 
-  .installments__label:hover,
-  .installments__label.is-focused {
+  .installments__cell__content {
+    @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    display: block;
+    cursor: pointer;
+    line-height: ($grid * 8) - ($grid * .4);
+    padding-left: ($grid * 4);
+
+    @include respond-to-wide {
+      @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
+
+      line-height: ($grid * 4);
+      padding-left: 0;
+    }
+  }
+
+  .installments__cell:hover,
+  .installments__cell.is-focused {
     color: map-get($colors, klarna-blue);
   }
 
-  .installments__input:checked +
-  .installments__label {
+  .is-selected {
     border-top-color: transparent !important;
 
     @include respond-to-wide {
@@ -71,17 +95,20 @@
     }
   }
 
-  .installments__label__highlight {
+  .installments__cell__highlight {
     display: none;
+    box-sizing: border-box;
+
+    @include respond-to-wide {
+      height: ($grid * 15);
+    }
   }
 
-  .installments__input:checked +
-  .installments__label
-  .installments__label__highlight {
+  .installments__input:checked ~
+  .installments__cell__highlight {
     border: ($grid * .4) solid map-get($colors, klarna-blue);
     border-radius: 5px;
     bottom: -1px;
-    content: '';
     display: block;
     left: -1px;
     position: absolute;
@@ -90,10 +117,7 @@
     z-index: 5;
   }
 
-  .installments__input:checked +
-  .installments__label +
-  .installments__input +
-  .installments__label {
+  .is-after-selected {
     border: 0;
     border-top: ($grid * .2) solid;
     border-top-color: transparent !important;
@@ -102,19 +126,6 @@
       border: 0;
       border-left: ($grid * .2) solid;
       border-left-color: transparent !important;
-    }
-  }
-
-  .installments__label__connector {
-    @include respond-to-wide {
-      display: none;
-    }
-  }
-
-  .installments__label__value,
-  .installments__label__info {
-    @include respond-to-wide {
-      display: block;
     }
   }
 }

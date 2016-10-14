@@ -7,6 +7,7 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
+import themeable from '../decorators/themeable'
 
 const baseClass = 'field'
 
@@ -23,7 +24,7 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-export default React.createClass({
+const Field = React.createClass({
   displayName: 'Field',
 
   getDefaultProps () {
@@ -47,8 +48,12 @@ export default React.createClass({
     centered: PropTypes.bool,
     customize: PropTypes.shape({
       borderColor: PropTypes.string.isRequired,
-      borderColorSelected: PropTypes.string.isRequired
+      borderColorSelected: PropTypes.string.isRequired,
+      borderRadius: PropTypes.string.isRequired,
+      labelColor: PropTypes.string.isRequired,
+      inputColor: PropTypes.string.isRequired
     }),
+    input: PropTypes.func,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
     onBlur: PropTypes.func,
@@ -106,6 +111,7 @@ export default React.createClass({
       disabled,
       error,
       icon,
+      Input,
       focus,
       label,
       left, // eslint-disable-line no-unused-vars
@@ -167,21 +173,25 @@ export default React.createClass({
       ? { color: customize.inputColor }
       : {}
 
-    const inputElement = <input
-      className={classNames(icon ? classes.iconInput : classes.input)}
-      disabled={disabled}
-      value={value || ''}
-      onBlur={onBlur}
-      onChange={onChange}
-      onKeyDown={handleKeyDown(this.props)}
-      onFocus={onFocus}
-      ref='input'
-      style={{
+    const inputProps = {
+      className: classNames(icon ? classes.iconInput : classes.input),
+      disabled: disabled,
+      value: value || '',
+      onBlur: onBlur,
+      onChange: onChange,
+      onKeyDown: handleKeyDown(this.props),
+      onFocus: onFocus,
+      ref: 'input',
+      style: {
         ...inputDynamicStyles,
         ...style
-      }}
-      {...props}
-    />
+      },
+      ...props
+    }
+
+    const inputElement = Input
+      ? <Input {...inputProps} />
+      : <input {...inputProps} />
 
     return (
       <div
@@ -212,3 +222,14 @@ export default React.createClass({
     )
   }
 })
+
+export default themeable(Field, (customizations, props) => ({
+  customize: {
+    ...props.customize,
+    borderColor: customizations.color_border,
+    borderColorSelected: customizations.color_border_selected,
+    borderRadius: customizations.radius_border,
+    labelColor: customizations.color_text_secondary,
+    inputColor: customizations.color_text
+  }
+}))
