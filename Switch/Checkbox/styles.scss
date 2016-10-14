@@ -23,7 +23,7 @@
   cursor: pointer;
   display: block;
   line-height: ($grid * 4);
-  padding-bottom: ($grid * 1);
+  padding-bottom: ($grid * 1.2);
   padding-left: ($grid * 10);
   padding-top: ($grid * 0.8);
   user-select: none;
@@ -43,7 +43,6 @@
 
   .legal & {
     @include typography(map-get($font-sizes, legal-mobile), regular);
-    padding-bottom: ($grid * .8);
 
     @include respond-to-wide {
       @include typography(map-get($font-sizes, legal-desktop), regular);
