@@ -187,6 +187,41 @@ export default {
     },
 
     {
+      title: 'Tertiary',
+      require: 'import * as Button from \'@klarna/ui/Button\'',
+      type: LIVE,
+
+      examples: {
+        Small: <Button.Tertiary size='small'>Click me!</Button.Tertiary>,
+        Regular: <Button.Tertiary>Click me!</Button.Tertiary>,
+        Big: <Button.Tertiary size='big'>Click me!</Button.Tertiary>,
+        Custom: <Button.Tertiary
+          customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
+          Beautiful!
+        </Button.Tertiary>,
+        Disabled: <Button.Tertiary disabled>Click me!</Button.Tertiary>,
+        Loading: <Button.Tertiary loading>Click me!</Button.Tertiary>,
+        'Loading with customization': <Button.Tertiary
+          loading
+          customize={{backgroundColor: '#3500C8', borderRadius: '15px', textColor: '#F9FF3C'}}
+        />,
+        Success: <Button.Tertiary success>Click me!</Button.Tertiary>,
+        'Button with price small': <Button.Tertiary size='small'>
+          Pay now!
+          <Button.Price>$12.0</Button.Price>
+        </Button.Tertiary>,
+        'Button with price': <Button.Tertiary>
+          Pay now!
+          <Button.Price>$12.0</Button.Price>
+        </Button.Tertiary>,
+        'Button with price big': <Button.Tertiary size='big'>
+          Pay now!
+          <Button.Price>14:-</Button.Price>
+        </Button.Tertiary>
+      }
+    },
+
+    {
       title: 'Iconic Buttons',
       require: 'import { Back, Close, Hamburger, Options, Search } from \'@klarna/ui/IconButton\'',
       type: LIVE,
