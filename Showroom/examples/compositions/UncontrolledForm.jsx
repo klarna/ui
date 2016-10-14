@@ -60,7 +60,7 @@ export default {
             name='continent'
             center size='1/4'
             options={[
-              {key: '', disabled: true, hidden: true},
+              {key: '', label: '', disabled: true, hidden: true},
               {key: 'africa', label: 'Africa'},
               {key: 'america', label: 'America'},
               {key: 'antarctica', label: 'Antarctica'},
