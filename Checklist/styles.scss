@@ -10,6 +10,7 @@
   padding: ($grid * 2) ($grid * 4) ($grid * 1.8);
 
   &.chromeless {
+    background: transparent;
     border: 0;
     margin: 0;
     padding: 0;
