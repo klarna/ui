@@ -25,7 +25,7 @@
   line-height: ($grid * 4);
   padding-bottom: ($grid * 1);
   padding-left: ($grid * 10);
-  padding-top: ($grid * 1);
+  padding-top: ($grid * 1 - 1);
   user-select: none;
 
   @include respond-to-wide {
@@ -44,7 +44,7 @@
   .legal & {
     @include typography(map-get($font-sizes, legal-mobile), regular);
     padding-bottom: ($grid * .8);
-    padding-top: ($grid * 1.2);
+    padding-top: ($grid * 1.2 - 2);
 
     @include respond-to-wide {
       @include typography(map-get($font-sizes, legal-desktop), regular);
