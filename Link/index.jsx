@@ -25,7 +25,7 @@ function Link ({
     className={classNames(
       baseClass,
       color,
-      {'dynamic-styling': customize, legal}, 
+      {'dynamic-styling': customize, legal},
       className
     )}
     style={{
