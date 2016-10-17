@@ -5,6 +5,8 @@ import contains from '../../lib/contains'
 import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import Price from '../Price'
+import compose from '../../lib/compose'
+
 import themeable from '../../decorators/themeable'
 
 const baseClass = 'button'
@@ -100,11 +102,13 @@ Primary.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Primary, (customizations, { customize }) => ({
-  customize: {
-    ...customize,
-    backgroundColor: customizations.color_button,
-    borderRadius: customizations.radius_border,
-    textColor: customizations.color_button_text
-  }
-}))
+export default compose(
+  themeable((customizations, { customize }) => ({
+    customize: {
+      ...customize,
+      backgroundColor: customizations.color_button,
+      borderRadius: customizations.radius_border,
+      textColor: customizations.color_button_text
+    }
+  }))
+)(Primary)

@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
+import compose from '../lib/compose'
+
 import themeable from '../decorators/themeable'
 
 const baseClass = 'link'
@@ -35,9 +37,11 @@ Link.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Link, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    textColor: customizations.color_link
-  }
-}))
+export default compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      textColor: customizations.color_link
+    }
+  }))
+)(Link)

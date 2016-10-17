@@ -7,6 +7,8 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
+import compose from '../lib/compose'
+
 import themeable from '../decorators/themeable'
 
 const baseClass = 'dropdown'
@@ -225,13 +227,15 @@ const onMouseLeave = (component) => () =>
     hover: false
   })
 
-export default themeable(Dropdown, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    borderColor: customizations.color_border,
-    borderColorSelected: customizations.color_border_selected,
-    borderRadius: customizations.radius_border,
-    labelColor: customizations.color_text_secondary,
-    selectedColor: customizations.color_text
-  }
-}))
+export default compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderColor: customizations.color_border,
+      borderColorSelected: customizations.color_border_selected,
+      borderRadius: customizations.radius_border,
+      labelColor: customizations.color_text_secondary,
+      selectedColor: customizations.color_text
+    }
+  }))
+)(Dropdown)

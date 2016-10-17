@@ -4,8 +4,10 @@ import Price from '../Price'
 import classNamesBind from 'classnames/bind'
 import parseColor from 'parse-color'
 import contains from '../../lib/contains'
-import themeable from '../../decorators/themeable'
+import compose from '../../lib/compose'
 import defaultStyles from '../styles.scss'
+
+import themeable from '../../decorators/themeable'
 
 const baseClass = 'button'
 
@@ -117,11 +119,13 @@ Tertiary.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Tertiary, (customizations, { customize }) => ({
-  customize: {
-    ...customize,
-    backgroundColor: customizations.color_button,
-    borderRadius: customizations.radius_border,
-    textColor: customizations.color_button_text
-  }
-}))
+export default compose(
+  themeable((customizations, { customize }) => ({
+    customize: {
+      ...customize,
+      backgroundColor: customizations.color_button,
+      borderRadius: customizations.radius_border,
+      textColor: customizations.color_button_text
+    }
+  }))
+)(Tertiary)

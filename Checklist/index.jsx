@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
+import compose from '../lib/compose'
+
+import themeable from '../decorators/themeable'
 
 const baseClass = 'checklist'
 
@@ -42,13 +44,15 @@ ChecklistMain.propTypes = {
   })
 }
 
-export const Main = themeable(ChecklistMain, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    borderColor: customizations.color_border,
-    borderRadius: customizations.radius_border
-  }
-}))
+export const Main = compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderColor: customizations.color_border,
+      borderRadius: customizations.radius_border
+    }
+  }))
+)(ChecklistMain)
 
 function ChecklistItem ({ className, children, customize, styles }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
@@ -87,10 +91,12 @@ ChecklistItem.propTypes = {
   })
 }
 
-export const Item = themeable(ChecklistItem, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    strokeColor: customizations.color_details,
-    textColor: customizations.color_text
-  }
-}))
+export const Item = compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      strokeColor: customizations.color_details,
+      textColor: customizations.color_text
+    }
+  }))
+)(ChecklistItem)
