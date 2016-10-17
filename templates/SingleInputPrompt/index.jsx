@@ -24,8 +24,7 @@ function SingleInputPrompt ({
       legal,
       summary,
       title
-    }}
-    {...props}>
+    }}>
     <div className={defaultStyles['single-input-prompt__content']}>
       <Input
         centered
@@ -35,6 +34,7 @@ function SingleInputPrompt ({
         onChange={onChange}
         onFocus={onFocus}
         value={value}
+        {...props}
       />
     </div>
   </Centered>
