@@ -10,6 +10,7 @@ import MouseflowExclude from '../MouseflowExclude'
 import compose from '../lib/compose'
 
 import themeable from '../decorators/themeable'
+import uncontrolled from '../decorators/uncontrolled'
 
 const baseClass = 'field'
 
@@ -226,6 +227,12 @@ const Field = React.createClass({
 })
 
 export default compose(
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (e) => e.target.value
+  }),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,
