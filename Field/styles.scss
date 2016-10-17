@@ -201,6 +201,22 @@
     width : 0;
   }
 
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    &:before {
+      background: red;
+      content: 'asdfasdf';
+      display: block;
+      height: 20px;
+      width: 100px;
+    }
+    // background-color: rgb(250, 254, 189);
+    // height: 10px;
+    // border: 1px solid red;
+  }
+
   .ie9 & {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=');
     position: relative;
@@ -224,6 +240,18 @@
   .is-warning & {
     height: ($grid * 9);
     top: ($grid * 1.6);
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      &:before {
+        background-color: rgb(250, 254, 189);
+        content: '';
+        display: block;
+        top: ($grid * -1.6);
+      }
+    }
   }
 
   .is-disabled & {
@@ -236,6 +264,24 @@
   .safari &,
   .ios & {
     -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  .top-left & {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      border-top-left-radius: 5px;
+    }
+  }
+
+  .top-right & {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      border-top-right-radius: 5px;
+    }
   }
 }
 

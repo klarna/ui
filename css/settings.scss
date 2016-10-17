@@ -110,13 +110,3 @@ $font-sizes: (
 $border-radius: $grid;
 $border-radius-checkbox: ($grid * .4);
 $border-color: map-get($colors, grey-lines);
-
-// ================================================================
-//  General webkit autocomplete override (aka yellow background)
-// ================================================================
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-}
