@@ -7,10 +7,13 @@ import defaultStyles from './styles.scss'
 
 function SingleInputPrompt ({
   accept,
+  cancel,
   focus,
   label,
   legal,
+  onAccept,
   onBlur,
+  onCancel,
   onChange,
   onFocus,
   summary,
@@ -19,8 +22,11 @@ function SingleInputPrompt ({
   ...props
 }) {
   return <Centered
+    onAccept={onAccept}
+    onCancel={onCancel}
     labels={{
       accept,
+      cancel,
       legal,
       summary,
       title
