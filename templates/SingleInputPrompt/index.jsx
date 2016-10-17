@@ -11,6 +11,7 @@ function SingleInputPrompt ({
   focus,
   label,
   legal,
+  illustration,
   onAccept,
   onBlur,
   onCancel,
@@ -24,6 +25,7 @@ function SingleInputPrompt ({
   return <Centered
     onAccept={onAccept}
     onCancel={onCancel}
+    illustration={illustration}
     labels={{
       accept,
       cancel,
