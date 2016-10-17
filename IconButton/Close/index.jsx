@@ -5,9 +5,9 @@ import defaultStyles from '../styles.scss'
 
 const classes = {
   iconButton: 'icon-button',
-  fill: `illustration__fill`,
-  label: `illustration__label`,
-  stroke: `illustration__stroke`
+  fill: 'illustration__fill',
+  label: 'illustration__label',
+  stroke: 'illustration__stroke'
 }
 
 const Close = ({ className, color, label, left, styles, ...props }) => {
