@@ -2,5 +2,42 @@
 @import '../css/mixins/index';
 
 .link {
-  @include link;
+  @include palette-colors(map-get($colors, klarna-blue));
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s ease;
+
+  &:hover {
+    color: map-get($colors, link-blue-hover);
+
+    &.black {
+      color: map-get($colors, black);
+    }
+
+    &.white {
+      color: map-get($colors, white);
+    }
+  }
+
+  &.dynamic-styling {
+    &:hover, &:focus, &:active {
+      text-decoration: underline;
+    }
+  }
+
+  &.legal {
+    color: map-get($colors, grey-text);
+    text-decoration: underline;
+
+    &:hover {
+      color: map-get($colors, hover-grey-text);
+    }
+
+    &:focus,
+    &:active {
+      color: map-get($colors, active-grey-text);
+    }
+  }
 }
