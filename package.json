@@ -7,7 +7,7 @@
     "url": "https://github.com/klarna/ui"
   },
   "license": "SEE LICENSE IN LICENSE",
-  "main": "index.js",
+  "main": "index-built.js",
   "scripts": {
     "start": "webpack-dev-server --port 7777 --host 0.0.0.0 --history-api-fallback",
     "build": "webpack",
