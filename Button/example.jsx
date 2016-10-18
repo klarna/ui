@@ -227,31 +227,81 @@ export default {
       type: LIVE,
 
       examples: {
-        'Default color scheme': <Block.Plain>
-          <Back />
-          <Close />
-          <Hamburger />
-          <Options />
-          <Search />
-        </Block.Plain>,
-        'With text': <Block.Plain>
-          <Back label='Back' />
-          <Close label='Close' color='gray' left />
-        </Block.Plain>,
-        'Gray color scheme': <Block.Plain>
-          <Back color='gray' />
-          <Close color='gray' />
-          <Hamburger color='gray' />
-          <Options color='gray' />
-          <Search color='gray' />
-        </Block.Plain>,
-        'Inverse color scheme': <Block.Plain blue style={{padding: 20}}>
-          <Back color='inverse' />
-          <Close color='inverse' />
-          <Hamburger color='inverse' />
-          <Options color='inverse' />
-          <Search color='inverse' />
-        </Block.Plain>
+        'Default color scheme': [
+          <Block.Plain key='0' style={{display: 'inline-block', padding: '20px'}}>
+            <Back />
+          </Block.Plain>,
+
+          <Block.Plain key='1' style={{display: 'inline-block', padding: '20px'}}>
+            <Close />
+          </Block.Plain>,
+
+          <Block.Plain key='2' style={{display: 'inline-block', padding: '20px'}}>
+            <Hamburger />
+          </Block.Plain>,
+
+          <Block.Plain key='3' style={{display: 'inline-block', padding: '20px'}}>
+            <Options />
+          </Block.Plain>,
+
+          <Block.Plain key='4' style={{display: 'inline-block', padding: '20px'}}>
+            <Search />
+          </Block.Plain>
+        ],
+
+        'With text': [
+          <Block.Plain key='0' style={{padding: '20px'}}>
+            <Back label='Back' />
+          </Block.Plain>,
+
+          <Block.Plain key='1' style={{padding: '20px'}}>
+            <Close label='Close' color='gray' left />
+          </Block.Plain>
+        ],
+
+        'Gray color scheme': [
+          <Block.Plain key='0' style={{display: 'inline-block', padding: '20px'}}>
+            <Back color='gray' />
+          </Block.Plain>,
+
+          <Block.Plain key='1' style={{display: 'inline-block', padding: '20px'}}>
+            <Close color='gray' />
+          </Block.Plain>,
+
+          <Block.Plain key='2' style={{display: 'inline-block', padding: '20px'}}>
+            <Hamburger color='gray' />
+          </Block.Plain>,
+
+          <Block.Plain key='3' style={{display: 'inline-block', padding: '20px'}}>
+            <Options color='gray' />
+          </Block.Plain>,
+
+          <Block.Plain key='4' style={{display: 'inline-block', padding: '20px'}}>
+            <Search color='gray' />
+          </Block.Plain>
+        ],
+
+        'Inverse color scheme': [
+          <Block.Plain key='0' blue style={{display: 'inline-block', padding: 20}}>
+            <Back color='inverse' />
+          </Block.Plain>,
+
+          <Block.Plain key='1' blue style={{display: 'inline-block', padding: 20}}>
+            <Close color='inverse' />
+          </Block.Plain>,
+
+          <Block.Plain key='2' blue style={{display: 'inline-block', padding: 20}}>
+            <Hamburger color='inverse' />
+          </Block.Plain>,
+
+          <Block.Plain key='3' blue style={{display: 'inline-block', padding: 20}}>
+            <Options color='inverse' />
+          </Block.Plain>,
+
+          <Block.Plain key='4' blue style={{display: 'inline-block', padding: 20}}>
+            <Search color='inverse' />
+          </Block.Plain>
+        ]
       }
     }
   ]
