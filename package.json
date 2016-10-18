@@ -14,7 +14,8 @@
     "test": "standard && karma start karma.conf.js",
     "test:unit": "karma start karma.conf.js",
     "lint": "standard && sass-lint -c .sass-lint.yml '**/*.scss' -v -q",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "prepublish": "npm run build"
   },
   "author": "Klarna front end people",
   "dependencies": {
