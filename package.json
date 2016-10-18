@@ -11,7 +11,7 @@
   "scripts": {
     "start": "webpack-dev-server --port 7777 --host 0.0.0.0 --history-api-fallback",
     "build": "webpack",
-    "test": "standard && karma start karma.conf.js",
+    "test": "standard && sass-lint -c .sass-lint.yml '**/*.scss' -v -q && karma start karma.conf.js",
     "test:unit": "karma start karma.conf.js",
     "lint": "standard && sass-lint -c .sass-lint.yml '**/*.scss' -v -q",
     "test:watch": "npm test -- --watch"

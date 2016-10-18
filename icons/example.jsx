@@ -25,6 +25,7 @@ import Question from '../icons/Question'
 import Cancel from '../icons/Cancel'
 import Remind from '../icons/Remind'
 import Time from '../icons/Time'
+import Search from '../icons/Search'
 import SMS from '../icons/SMS'
 import Warning from '../icons/Warning'
 import Wrong from '../icons/Wrong'
@@ -64,7 +65,8 @@ const icons = {
     Phone,
     Question,
     Cancel,
-    Remind
+    Remind,
+    Search
   ]
 }
 

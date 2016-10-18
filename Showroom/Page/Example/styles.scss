@@ -2,7 +2,7 @@
 @import '../../../css/mixins/index';
 
 .page__example {
-  border-bottom: 1px solid #E5E5E6;
+  border-bottom: 1px solid map-get($colors, grey-selector-lines);
   padding-bottom: 39px;
 
   &:last-child {

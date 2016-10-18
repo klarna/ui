@@ -22,21 +22,19 @@ export default function Explanation ({
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return (
-    <Block.Plain className={classNames(baseClass, className)}>
-      <Title.Primary
-        className={classNames(classes.title)}>
-        {title}
-      </Title.Primary>
+  return <Block.Plain className={classNames(baseClass, className)}>
+    <Title.Primary
+      className={classNames(classes.title)}>
+      {title}
+    </Title.Primary>
 
-      <Paragraph.Primary
-        className={classNames(classes.content)}>
-        {content}
-      </Paragraph.Primary>
+    <Paragraph.Primary
+      className={classNames(classes.content)}>
+      {content}
+    </Paragraph.Primary>
 
-      <Paragraph.Legal className={classNames(classes.legal)}>
-        {legal}
-      </Paragraph.Legal>
-    </Block.Plain>
-  )
+    <Paragraph.Legal className={classNames(classes.legal)}>
+      {legal}
+    </Paragraph.Legal>
+  </Block.Plain>
 }

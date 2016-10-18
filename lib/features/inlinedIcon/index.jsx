@@ -12,6 +12,7 @@ export const INLINED_ICONS = {
   PERSON: 'person',
   PHONE: 'phone',
   QUESTION: 'question',
+  SEARCH: 'search',
   DETAILS: 'details'
 }
 
@@ -225,6 +226,24 @@ export const renderInlinedIcon = ({ icon }, styles) => {
             </g>
           </svg>
         )
+
+      case INLINED_ICONS.SEARCH:
+        return <svg
+          className={styles.icon}
+          width='20px' height='20px'
+          viewBox='0 0 20 20'>
+          <g className={styles.stroke}>
+            <path
+              d='M16,16 L12,12'
+            />
+
+            <circle
+              cx='8'
+              cy='8'
+              r='5'
+            />
+          </g>
+        </svg>
     }
   }
 }
