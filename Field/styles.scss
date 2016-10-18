@@ -139,6 +139,7 @@
     margin-top: ($grid * -2.2);
   }
 
+  .is-autofill &,
   .is-filled &,
   .is-error &,
   .is-warning & {
@@ -244,6 +245,7 @@
     top: ($grid * 2.2);
   }
 
+  .is-autofill &,
   .is-filled &,
   .is-error &,
   .is-warning & {
