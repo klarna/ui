@@ -39,6 +39,6 @@ Search.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Search, (customizations, props) => ({
+export default themeable(Search, () => ({
   color: 'gray'
 }))

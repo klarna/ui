@@ -37,6 +37,6 @@ Back.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Back, (customizations, props) => ({
+export default themeable(Back, () => ({
   color: 'gray'
 }))

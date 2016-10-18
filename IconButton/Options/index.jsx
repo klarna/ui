@@ -37,6 +37,6 @@ Options.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Options, (customizations, props) => ({
+export default themeable(Options, () => ({
   color: 'gray'
 }))

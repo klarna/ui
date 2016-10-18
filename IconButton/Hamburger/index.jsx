@@ -39,6 +39,6 @@ Hamburger.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Hamburger, (customizations, props) => ({
+export default themeable(Hamburger, () => ({
   color: 'gray'
 }))

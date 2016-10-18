@@ -37,6 +37,6 @@ Close.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Close, (customizations, props) => ({
+export default themeable(Close, () => ({
   color: 'gray'
 }))
