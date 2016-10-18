@@ -29,9 +29,7 @@ export default function Wrapper ({
           />
         </Dialog.Icon>}
 
-        <Dialog.Content>
-          {children}
-        </Dialog.Content>
+        {children}
       </Dialog.Main>
     </Dialog.Overlay>
   )

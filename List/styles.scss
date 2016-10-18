@@ -8,11 +8,11 @@
   padding: ($grid * .6) 0 ($grid * .4) ($grid * 4);
 
   & > .list__item::before {
-    counter-increment: list__item;
     content: counter(list__item) ".";
+    counter-increment: list__item;
     display: block;
-    position: absolute;
     left: ($grid * -4);
+    position: absolute;
   }
 
 
@@ -27,8 +27,8 @@
   padding: ($grid * .6) 0 ($grid * .4) ($grid * 4);
 
   & > .list__item > .list__item__bullet--unordered {
-    border-radius: ($grid * .8);
     background-color: currentColor;
+    border-radius: ($grid * .8);
     display: block;
     height: ($grid * .8);
     left: ($grid * -4);

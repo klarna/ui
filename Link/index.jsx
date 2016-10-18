@@ -6,23 +6,35 @@ import themeable from '../decorators/themeable'
 
 const baseClass = 'link'
 
-function Link ({className, color, children, style, styles, customize, ...props}) {
+function Link ({
+  children,
+  className,
+  color,
+  customize,
+  legal,
+  style,
+  styles,
+  ...props
+}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const customizations = customize
     ? { color: customize.textColor } : {}
 
-  return (
-    <a
-      className={classNames(baseClass, color, {'dynamic-styling': customize}, className)}
-      style={{
-        ...customizations,
-        ...style
-      }}
-      {...props}>
-      {children}
-    </a>
-  )
+  return <a
+    className={classNames(
+      baseClass,
+      color,
+      {'dynamic-styling': customize, legal},
+      className
+    )}
+    style={{
+      ...customizations,
+      ...style
+    }}
+    {...props}>
+    {children}
+  </a>
 }
 
 Link.propTypes = {

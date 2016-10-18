@@ -12,6 +12,7 @@ import * as Title from '../Title'
 import Subtitle from '../Subtitle'
 import * as Paragraph from '../Paragraph'
 import * as List from '../List'
+import { Back, Hamburger } from '../IconButton'
 import { LIVE } from '../Showroom/variationTypes'
 
 import statefulFocus from '../lib/decorators/statefulFocus'
@@ -90,6 +91,14 @@ import * as List from '@klarna/ui/List'`,
           <Button.Secondary disabled style={{marginLeft: '20px'}}>
             Disabled
           </Button.Secondary>
+        </div>
+
+        <div style={{paddingTop: '20px'}}>
+          <Back label='Back' />
+        </div>
+
+        <div style={{paddingTop: '20px'}}>
+          <Hamburger />
         </div>
 
         <div style={{padding: '20px 0'}}>
