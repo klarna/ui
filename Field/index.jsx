@@ -110,14 +110,12 @@ const Field = React.createClass({
 
   onMouseEnter () {
     this.setState({
-      ...this.state,
       hover: true
     })
   },
 
   onMouseLeave () {
     this.setState({
-      ...this.state,
       hover: false
     })
   },
