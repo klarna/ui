@@ -21,3 +21,18 @@ const Theme = getContextualizer({
 Theme.displayName = 'Theme'
 
 export default Theme
+
+export const DEFAULTS = {
+  color_border: '#cbcbcd',
+  color_border_selected: 'rgba(26, 140, 220, 0.8)',
+  color_button: '#0074c8',
+  color_button_text: '#ffffff',
+  color_checkbox: '#0074c8',
+  color_checkbox_checkmark: '#ffffff',
+  color_details: '#0074c8',
+  color_header: '#3c3c3e',
+  color_link: '#0074c8',
+  color_text: '#3c3c3e',
+  color_text_secondary: '#9e9ea0',
+  radius_border: '5px'
+}
