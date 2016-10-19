@@ -28,7 +28,6 @@ const releaseTouch = (component) => (e) => {
 
   if (touchStartPositionX < touchPositionX && !value) {
     component.props.onChange && component.props.onChange(true)
-
   } else if (touchStartPositionX > touchPositionX && value) {
     component.props.onChange && component.props.onChange(false)
   }
@@ -59,7 +58,7 @@ const bulletStyles = (component, customize, xOffset) => {
     return undefined
   }
 
-  const { touchStartPositionX, bulletPosition } = component.state
+  const { bulletPosition } = component.state
 
   return {
     ...(customize ? { backgroundColor: customize.bulletColor } : {}),
