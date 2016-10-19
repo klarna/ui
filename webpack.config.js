@@ -32,7 +32,7 @@ module.exports = {
         test: /\.scss$/,
         loaders: [
           'style',
-          'css?modules,localIdentName=[local]',
+          'css?modules,localIdentName=[local]-[hash:base64:5]',
           'postcss',
           'sass'
         ]

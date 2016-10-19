@@ -9,7 +9,6 @@ const classes = {
   bullet: `${baseClass}__bullet`,
   bulletCheckmark: `${baseClass}__bullet__checkmark`,
   bulletCheckmarkStroke: `${baseClass}__bullet__checkmark__stroke`,
-  bulletToggle: `${baseClass}__bullet__toggle`,
   label: `${baseClass}__label`,
   input: `${baseClass}__input`
 }
@@ -138,12 +137,6 @@ const Checkbox = React.createClass({
             borderColor: focus && customize.borderColorSelected,
             boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
           })}></div>
-        <div
-          className={classNames(classes.bulletToggle)}
-          style={customize ? {
-            backgroundColor: customize.bulletColor
-          } : undefined}
-        />
         <svg
           className={classNames(classes.bulletCheckmark)}
           width='14px'

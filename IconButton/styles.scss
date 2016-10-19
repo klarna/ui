@@ -21,7 +21,7 @@
       width: ($grid * 4);
 
       &.gray {
-        @include illustration(map-get($colors, grey-lines));
+        @include illustration(map-get($colors, grey-text));
       }
 
       &.inverse {
@@ -81,9 +81,9 @@
 
   color: map-get($colors, klarna-blue);
   display: block;
+  left: ($grid * 4);
   line-height: ($grid * 4);
   position: absolute;
-  left: ($grid * 4);
   text-align: left;
   text-transform: uppercase;
   top: 0;
@@ -97,7 +97,7 @@
   }
 
   &.gray {
-    color: map-get($colors, grey-lines);
+    color: map-get($colors, grey-text);
   }
 
   &.inverse {

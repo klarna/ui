@@ -54,8 +54,16 @@ export default function Loader ({ className, color, inline, size, styles }) {
               key={`gradient-${index}`}
               id={`gradient-${_color.join('-')}-${index}`}
               gradientUnits='objectBoundingBox' {...props}>
-              <stop offset='0%' stopColor={`rgba(${_color}, ${step * index})`} />
-              <stop offset='100%' stopColor={`rgba(${_color}, ${step * (index + 1)})`} />
+              <stop
+                offset='0%'
+                stopColor={`rgb(${_color})`}
+                stopOpacity={step * index}
+              />
+              <stop
+                offset='100%'
+                stopColor={`rgb(${_color})`}
+                stopOpacity={step * (index + 1)}
+              />
             </linearGradient>
           ))
         }

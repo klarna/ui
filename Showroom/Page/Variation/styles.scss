@@ -2,7 +2,7 @@
 @import '../../../css/mixins/index';
 
 .page__variation {
-  border-top: 1px solid #E5E5E6;
+  border-top: 1px solid map-get($colors, grey-selector-lines);
   margin-top: 39px;
 
   &:first-of-type {
@@ -21,11 +21,11 @@
 }
 
 .page__variation__navigation {
-  border-bottom: 1px solid #CBCBCD;
-  padding-bottom: 15px;
+  border-bottom: 1px solid map-get($colors, grey-lines);
   margin-bottom: 39px;
   margin-top: 60px;
   overflow: auto;
+  padding-bottom: 15px;
 }
 
 .page__variation__navigation__component {

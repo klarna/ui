@@ -250,7 +250,14 @@ export default {
             href='http://goo.gl/XPU9kg'>
             Paris
           </Link>
-        </Paragraph.Primary>
+        </Paragraph.Primary>,
+
+        'Legal link': <Paragraph.Legal>
+          And you can also go to <Link legal target='_blank'
+            href='https://goo.gl/gNbl6g'>
+            Barcelona
+          </Link>
+        </Paragraph.Legal>
       }
     },
 
