@@ -4,6 +4,7 @@ import { LIVE } from '../Showroom/variationTypes'
 
 import AccountActivated from '../icons/AccountActivated'
 import AllSet from '../icons/AllSet'
+import Calendar from '../icons/Calendar'
 import * as Chevron from '../icons/Chevron'
 import Checkmark from '../icons/Checkmark'
 import Done from '../icons/Done'
@@ -53,6 +54,7 @@ const icons = {
     Chevron.Right,
     Chevron.Down,
     Chevron.Up,
+    Calendar,
     Checkmark,
     Details,
     Download,
