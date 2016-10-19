@@ -1,16 +1,16 @@
 import React from 'react'
-import Form from '../Form'
+import Fieldset from '../Fieldset'
 import { LIVE } from '../Showroom/variationTypes'
 
 export default {
-  title: 'Form',
+  title: 'Fieldset',
 
   examples: {
-    require: 'import Form from \'@klarna/ui/Form\'',
+    require: 'import Fieldset from \'@klarna/ui/Fieldset\'',
     type: LIVE,
 
     examples: {
-      Regular: <Form
+      Regular: <Fieldset
         fields={[
           {
             name: 'firstname',
@@ -39,7 +39,7 @@ export default {
         onChange={(values) => console.log('new values', values)}
       />,
 
-      Uncontrolled: <Form
+      Uncontrolled: <Fieldset
         autoFocus='address'
         fields={[
           {
@@ -68,7 +68,7 @@ export default {
         onChange={(values) => console.log('new values', values)}
       />,
 
-      'Using Input': <Form
+      'Using Input': <Fieldset
         autoFocus='address'
         fields={[
           {
