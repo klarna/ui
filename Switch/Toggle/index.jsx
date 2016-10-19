@@ -54,7 +54,7 @@ const dragTouch = (component) => (e) => {
 }
 
 const bulletStyles = (component, customize, xOffset) => {
-  if (!customize && xOffset == null) {
+  if (!customize && xOffset === undefined) {
     return undefined
   }
 
@@ -62,7 +62,7 @@ const bulletStyles = (component, customize, xOffset) => {
 
   return {
     ...(customize ? { backgroundColor: customize.bulletColor } : {}),
-    ...(xOffset != null ? {
+    ...(xOffset !== undefined ? {
       transform: `translateX(${bulletPosition}px)`,
       WebkitTransform: `translateX(${bulletPosition}px)`
       msTransform: `translateX(${bulletPosition}px)`
@@ -171,7 +171,7 @@ const Toggle = React.createClass({
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const cls = classNames(baseClass, {
-      'is-checked': pseudoValue != null ? pseudoValue : value,
+      'is-checked': pseudoValue !== undefined ? pseudoValue : value,
       'is-focused': focus,
       'is-pressed': pressed,
       'is-disabled': disabled,
