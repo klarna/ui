@@ -65,6 +65,7 @@ const bulletStyles = (component, customize, xOffset) => {
     ...(xOffset != null ? {
       transform: `translateX(${bulletPosition}px)`,
       WebkitTransform: `translateX(${bulletPosition}px)`
+      msTransform: `translateX(${bulletPosition}px)`
     } : {})
   }
 }
