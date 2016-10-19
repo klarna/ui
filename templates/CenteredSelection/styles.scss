@@ -1,0 +1,7 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.centered-selection__selector {
+  margin-top: ($grid * 8);
+  text-align: left;
+}

@@ -17,10 +17,9 @@ const classes = {
 export default function Selection ({
   className,
   onSelect,
+  options,
   summary,
   title,
-  options,
-  value,
   styles
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
@@ -37,12 +36,11 @@ export default function Selection ({
         {summary}
       </Paragraph.Primary>
 
-      <Selector.Options
+      <Selector.Direct
         className={classNames(classes.selector)}
         name={title.toLowerCase().replace(/[^a-zA-Z]/g, '')}
-        onChange={onSelect}
+        onSelect={onSelect}
         data={options}
-        value={value}
       />
     </Block.Plain>
   )

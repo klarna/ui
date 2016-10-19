@@ -34,8 +34,8 @@
 }
 
 .footer__brand {
-  margin-top: -4px;
   font-size: 14px;
+  margin-top: -4px;
 }
 
 .footer__legal {
@@ -50,8 +50,8 @@
 
 @media screen and (max-width: 569px) {
   .footer {
-    text-align: center;
     height: auto;
+    text-align: center;
   }
 
   .footer__copyright {
@@ -64,9 +64,9 @@
 
   .footer__K {
     float: none;
+    margin-bottom: 18px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 18px;
   }
 
   .footer__get-in-touch {

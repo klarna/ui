@@ -145,6 +145,11 @@ import Fieldset from '@klarna/ui/Fieldset'`,
           </Fieldset>
           <Fieldset margins>
             <Field
+              icon={icons.SEARCH}
+              label='Write something to search' />
+          </Fieldset>
+          <Fieldset margins>
+            <Field
               icon={icons.DETAILS}
               label='This is for writing some details here' />
           </Fieldset>

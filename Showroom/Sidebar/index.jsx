@@ -62,6 +62,24 @@ export default function Sidebar ({examples, selected}) {
             </Link>
           </Paragraph.Primary>)}
         </div>
+
+        <Paragraph.Primary className={styles.menuTitle}>
+          <Link className={styles.menuTitleLink}>
+            Compositions
+            <Chevron.Down className={styles.chevron} />
+          </Link>
+        </Paragraph.Primary>
+
+        <div>
+          {Object.values(examples.compositions).map(({title}, index) => <Paragraph.Primary key={index} className={styles.menuItem}>
+            <Link
+              className={title === selected && styles.menuItemSelected}
+              href={`#${title}`}
+              key={title}>
+              {title}
+            </Link>
+          </Paragraph.Primary>)}
+        </div>
       </nav>
     </aside>
   )

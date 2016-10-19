@@ -187,36 +187,121 @@ export default {
     },
 
     {
+      title: 'Tertiary',
+      require: 'import * as Button from \'@klarna/ui/Button\'',
+      type: LIVE,
+
+      examples: {
+        Small: <Button.Tertiary size='small'>Click me!</Button.Tertiary>,
+        Regular: <Button.Tertiary>Click me!</Button.Tertiary>,
+        Big: <Button.Tertiary size='big'>Click me!</Button.Tertiary>,
+        Custom: <Button.Tertiary
+          customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
+          Beautiful!
+        </Button.Tertiary>,
+        Disabled: <Button.Tertiary disabled>Click me!</Button.Tertiary>,
+        Loading: <Button.Tertiary loading>Click me!</Button.Tertiary>,
+        'Loading with customization': <Button.Tertiary
+          loading
+          customize={{backgroundColor: '#3500C8', borderRadius: '15px', textColor: '#F9FF3C'}}
+        />,
+        Success: <Button.Tertiary success>Click me!</Button.Tertiary>,
+        'Button with price small': <Button.Tertiary size='small'>
+          Pay now!
+          <Button.Price>$12.0</Button.Price>
+        </Button.Tertiary>,
+        'Button with price': <Button.Tertiary>
+          Pay now!
+          <Button.Price>$12.0</Button.Price>
+        </Button.Tertiary>,
+        'Button with price big': <Button.Tertiary size='big'>
+          Pay now!
+          <Button.Price>14:-</Button.Price>
+        </Button.Tertiary>
+      }
+    },
+
+    {
       title: 'Iconic Buttons',
       require: 'import { Back, Close, Hamburger, Options, Search } from \'@klarna/ui/IconButton\'',
       type: LIVE,
 
       examples: {
-        'Default color scheme': <Block.Plain>
-          <Back />
-          <Close />
-          <Hamburger />
-          <Options />
-          <Search />
-        </Block.Plain>,
-        'With text': <Block.Plain>
-          <Back label='Back' />
-          <Close label='Close' color='gray' left />
-        </Block.Plain>,
-        'Gray color scheme': <Block.Plain>
-          <Back color='gray' />
-          <Close color='gray' />
-          <Hamburger color='gray' />
-          <Options color='gray' />
-          <Search color='gray' />
-        </Block.Plain>,
-        'Inverse color scheme': <Block.Plain blue style={{padding: 20}}>
-          <Back color='inverse' />
-          <Close color='inverse' />
-          <Hamburger color='inverse' />
-          <Options color='inverse' />
-          <Search color='inverse' />
-        </Block.Plain>
+        'Default color scheme': [
+          <Block.Plain key='0' style={{display: 'inline-block', padding: '20px'}}>
+            <Back />
+          </Block.Plain>,
+
+          <Block.Plain key='1' style={{display: 'inline-block', padding: '20px'}}>
+            <Close />
+          </Block.Plain>,
+
+          <Block.Plain key='2' style={{display: 'inline-block', padding: '20px'}}>
+            <Hamburger />
+          </Block.Plain>,
+
+          <Block.Plain key='3' style={{display: 'inline-block', padding: '20px'}}>
+            <Options />
+          </Block.Plain>,
+
+          <Block.Plain key='4' style={{display: 'inline-block', padding: '20px'}}>
+            <Search />
+          </Block.Plain>
+        ],
+
+        'With text': [
+          <Block.Plain key='0' style={{padding: '20px'}}>
+            <Back label='Back' />
+          </Block.Plain>,
+
+          <Block.Plain key='1' style={{padding: '20px'}}>
+            <Close label='Close' color='gray' left />
+          </Block.Plain>
+        ],
+
+        'Gray color scheme': [
+          <Block.Plain key='0' style={{display: 'inline-block', padding: '20px'}}>
+            <Back color='gray' />
+          </Block.Plain>,
+
+          <Block.Plain key='1' style={{display: 'inline-block', padding: '20px'}}>
+            <Close color='gray' />
+          </Block.Plain>,
+
+          <Block.Plain key='2' style={{display: 'inline-block', padding: '20px'}}>
+            <Hamburger color='gray' />
+          </Block.Plain>,
+
+          <Block.Plain key='3' style={{display: 'inline-block', padding: '20px'}}>
+            <Options color='gray' />
+          </Block.Plain>,
+
+          <Block.Plain key='4' style={{display: 'inline-block', padding: '20px'}}>
+            <Search color='gray' />
+          </Block.Plain>
+        ],
+
+        'Inverse color scheme': [
+          <Block.Plain key='0' blue style={{display: 'inline-block', padding: 20}}>
+            <Back color='inverse' />
+          </Block.Plain>,
+
+          <Block.Plain key='1' blue style={{display: 'inline-block', padding: 20}}>
+            <Close color='inverse' />
+          </Block.Plain>,
+
+          <Block.Plain key='2' blue style={{display: 'inline-block', padding: 20}}>
+            <Hamburger color='inverse' />
+          </Block.Plain>,
+
+          <Block.Plain key='3' blue style={{display: 'inline-block', padding: 20}}>
+            <Options color='inverse' />
+          </Block.Plain>,
+
+          <Block.Plain key='4' blue style={{display: 'inline-block', padding: 20}}>
+            <Search color='inverse' />
+          </Block.Plain>
+        ]
       }
     }
   ]
