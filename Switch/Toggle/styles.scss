@@ -56,13 +56,24 @@
   }
 }
 
+.switch__container {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  .right & {
+    left: auto;
+    right: 0;
+  }
+}
+
 .switch__bullet {
   background: map-get($colors, grey-text);
   border-radius: ($grid * 4);
   cursor: pointer;
   height: ($grid * 4.4);
   left: 0;
-  position: absolute;
+  position: relative;
   top: ($grid * .8);
   transition: all .2s ease;
   width: ($grid * 7.4);
@@ -86,40 +97,11 @@
   height: ($grid * 4);
   left: ($grid * .2);
   position: absolute;
-  top: ($grid * 1);
+  top: ($grid * .2);
   transition: all .2s ease;
   width: ($grid * 4);
 
-  .is-pressed & {
-    width: ($grid * 5);
-  }
-
   .is-checked & {
-    left: ($grid * 3.2);
-  }
-
-  .is-pressed.is-checked & {
-    left: ($grid * 2.2);
-    width: ($grid * 5);
-  }
-
-  .right & {
-    left: auto;
-    right: ($grid * 3.2);
-  }
-
-  .right.is-pressed & {
-    left: auto;
-    right: ($grid * 2.2);
-  }
-
-  .right.is-checked & {
-    left: auto;
-    right: ($grid * .2);
-  }
-
-  .right.is-pressed.is-checked & {
-    left: auto;
-    right: ($grid * .2);
+    transform: translateX($grid * 3);
   }
 }
