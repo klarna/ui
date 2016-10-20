@@ -57,10 +57,6 @@
     }
   }
 
-  &.is-autofill {
-    background: map-get($colors, yellow);
-  }
-
   &.is-warning {
     background-color: #fffaf0;
     border-color: map-get($colors, warning-border);
@@ -166,6 +162,10 @@
 
   .is-disabled & {
     color: map-get($colors, grey-lines);
+  }
+
+  .is-autofill & {
+    color: #EAA51B;
   }
 }
 
