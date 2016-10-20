@@ -51,30 +51,34 @@ const reFormatObjectProps = (code) =>
       const matchObject = line.match(/{({.+?})}/)
 
       if (matchObject) {
-        const obj = eval('(' + matchObject[1] + ')') // eslint-disable-line no-eval
+        try {
+          const obj = eval('(' + matchObject[1] + ')') // eslint-disable-line no-eval
 
-        if (Object.keys(obj).length === 1) {
+          if (Object.keys(obj).length === 1) {
+            return [line]
+          }
+
+          const lines = inspect(obj, { indent: '  ' }).split('\n')
+          const baseIndentation = getIndentation(line)
+
+          lines[0] = line.replace(/{{.+?}}.*/, '{{')
+          lines[lines.length - 1] = '}}'
+
+          if (line.trim().endsWith('/>')) {
+            lines[lines.length - 1] = lines[lines.length - 1] + ' />'
+          } else if (line.trim().endsWith('>')) {
+            lines[lines.length - 1] = lines[lines.length - 1] + '>'
+          }
+
+          return lines
+            .map(
+              (l, index) => index > 0
+                ? times(() => ' ', baseIndentation).join('') + l
+                : l
+            )
+        } catch (e) {
           return [line]
         }
-
-        const lines = inspect(obj, { indent: '  ' }).split('\n')
-        const baseIndentation = getIndentation(line)
-
-        lines[0] = line.replace(/{{.+?}}.*/, '{{')
-        lines[lines.length - 1] = '}}'
-
-        if (line.trim().endsWith('/>')) {
-          lines[lines.length - 1] = lines[lines.length - 1] + ' />'
-        } else if (line.trim().endsWith('>')) {
-          lines[lines.length - 1] = lines[lines.length - 1] + '>'
-        }
-
-        return lines
-          .map(
-            (l, index) => index > 0
-              ? times(() => ' ', baseIndentation).join('') + l
-              : l
-          )
       }
 
       const matchArray = line.match(/{(\[.+?\])}/)
