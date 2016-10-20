@@ -68,7 +68,11 @@ module.exports = {
   resolve: {
     root: path.join(__dirname),
     exclude: /node_modules/,
-    extensions: ['', '.js', '.jsx', '.es6']
+    extensions: ['', '.js', '.jsx', '.es6'],
+    alias: {
+      react: "preact-compat",
+      "react-dom": "preact-compat"
+    }
   },
   postcss: () => [autoprefixer]
 }

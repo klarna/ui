@@ -2,7 +2,6 @@ import flip from 'ramda/src/flip'
 import map from 'ramda/src/map'
 import compose from 'ramda/src/compose'
 import times from 'ramda/src/times'
-import asString from 'react-element-to-jsx-string'
 import inspect from 'stringify-object'
 import { Children } from 'react'
 
@@ -122,8 +121,6 @@ const postProcessing = compose(
 )
 
 const asCode = (children) =>
-  postProcessing(
-    map(flip(asString)(opts), Children.toArray(children)).join('\n')
-  )
+  "TEST"
 
 export default asCode
