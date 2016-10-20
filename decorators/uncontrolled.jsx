@@ -46,8 +46,8 @@ export default ({defaultProp, prop, handlerName, handlerSelector, resetHandlerNa
     }
 
     return <Component
-      {...props}
       {...this.state}
+      {...props}
     />
   }
 })
