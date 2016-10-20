@@ -94,7 +94,7 @@ const Field = React.createClass({
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
 
     this.refs.input.addEventListener('animationstart', (e) => {
-      switch (e.animationName) {
+      switch (e.animationName.split('-')[0]) {
         case 'onAutoFillStart':
           return this.onAutoFillStart()
 
