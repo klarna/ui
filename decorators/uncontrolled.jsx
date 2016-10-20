@@ -35,7 +35,13 @@ export default ({defaultProp, prop, handlerName, handlerSelector, resetHandlerNa
 
   render () {
     const props = {
-      ...this.props,
+      ...Object.keys(this.props).reduce((filtered, propName) => {
+        if (propName !== defaultProp) {
+          filtered[propName] = this.props[propName]
+        }
+
+        return filtered
+      }, {}),
       [handlerName]: this.handleHandler.bind(this, this.props[handlerName]),
       ...(resetHandlerName
         ? {
