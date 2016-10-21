@@ -1,0 +1,7 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.centered-form__content {
+  margin-top: ($grid * 4.5);
+  margin-bottom: ($grid * 10);
+}
