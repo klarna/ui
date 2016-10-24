@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 
-export default ({defaultProp, prop, handlerName, handlerSelector, resetHandlerName}) => (Component) => React.createClass({
+export default ({
+  defaultProp,
+  handlerName,
+  handlerSelector,
+  prop,
+  resetHandlerName
+}) => (Component) => React.createClass({
   displayName: Component.displayName || Component.name,
 
   componentDidMount () {
@@ -11,7 +17,7 @@ export default ({defaultProp, prop, handlerName, handlerSelector, resetHandlerNa
     })
   },
 
-  handleHandler (handler, e) {
+  handleHandler (e) {
     if (this.props[prop] == null) {
       this.setState({
         [prop]: handlerSelector
@@ -20,29 +26,29 @@ export default ({defaultProp, prop, handlerName, handlerSelector, resetHandlerNa
       })
     }
 
-    handler && handler(e)
+    this.props[handlerName] && this.props[handlerName](e)
   },
 
-  handleReset (handler, e) {
+  handleReset (e) {
     if (this.props[prop] == null) {
       this.setState({
         [prop]: undefined
       })
     }
 
-    handler && handler(e)
+    this.props[resetHandlerName] && this.props[resetHandlerName](e)
   },
 
   render () {
     const props = {
-      ...this.props,
-      [handlerName]: this.handleHandler.bind(this, this.props[handlerName]),
-      ...(resetHandlerName
-        ? {
-          [resetHandlerName]: this.handleReset.bind(this, this.props[resetHandlerName])
-        }
-        : {}
-      )
+      ...Object.keys(this.props)
+        .filter((key) => key !== defaultProp)
+        .reduce((copiedProps, propName) => {
+          copiedProps[propName] = this.props[propName]
+          return copiedProps
+        }, {}),
+      [handlerName]: this.handleHandler,
+      ...(resetHandlerName ? { [resetHandlerName]: this.handleReset } : {})
     }
 
     return <Component
