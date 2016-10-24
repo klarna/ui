@@ -60,10 +60,10 @@
   }
 
   &:last-child {
+    border-bottom: none;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
     padding-bottom: ($grid * 3.2);
-    border-bottom: none;
   }
 
   .borderless & {
