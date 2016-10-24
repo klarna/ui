@@ -49,6 +49,10 @@
   transition: all .2s ease;
   user-select: none;
 
+  .borderfull & {
+    border-bottom: ($grid * .2) solid $border-color-inner;
+  }
+
   &:first-of-type {
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
@@ -59,6 +63,7 @@
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
     padding-bottom: ($grid * 3.2);
+    border-bottom: none;
   }
 
   .borderless & {

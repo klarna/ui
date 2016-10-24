@@ -49,6 +49,7 @@ export default React.createClass({
 
   render () {
     const {
+      borderfull,
       borderless,
       className,
       focus,
@@ -68,6 +69,7 @@ export default React.createClass({
     return (
       <div
         className={classNames(baseClass, {
+          borderfull,
           borderless,
           'is-disabled': disabled,
           'is-focused': focus != null
