@@ -47,10 +47,10 @@ function FilteredSelection ({
       {title}
     </Title.Primary>
 
-    <Paragraph.Primary
+    <Paragraph.Secondary
       className={classNames(classes.summary)}>
       {summary}
-    </Paragraph.Primary>
+    </Paragraph.Secondary>
 
     <Fieldset className={classNames(classes.input)}>
       <Input
