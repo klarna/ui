@@ -14,7 +14,7 @@
   margin-top: ($grid * 9);
 
   @include respond-to-wide {
-    margin-top: auto;
+    margin-top: 0;
   }
 }
 
