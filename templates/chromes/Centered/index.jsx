@@ -13,6 +13,7 @@ const classes = {
   title: `${baseClass}__title`,
   paragraphPrimary: `${baseClass}__paragraph--primary`,
   buttonAccept: `${baseClass}__button--accept`,
+  buttonCancel: `${baseClass}__button--cancel`,
   legal: `${baseClass}__paragraph--legal`
 }
 
@@ -52,9 +53,12 @@ export default function Centered ({
       {labels.accept}
     </Button.Primary>}
 
-    {labels.cancel && onCancel && <Paragraph.Primary><Link onClick={onCancel}>
-      {labels.cancel}
-    </Link></Paragraph.Primary>}
+    {labels.cancel && onCancel && <Paragraph.Primary
+      className={classNames(classes.buttonCancel)}>
+      <Link onClick={onCancel}>
+        {labels.cancel}
+      </Link>
+    </Paragraph.Primary>}
 
     {labels.legal && <Paragraph.Legal className={classNames(classes.legal)}>
       {labels.legal}
