@@ -49,11 +49,6 @@
   transition: all .2s ease;
   user-select: none;
 
-  &:hover,
-  &.is-focused {
-    background: map-get($colors, block-hover);
-  }
-
   &:first-of-type {
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
