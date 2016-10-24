@@ -3,31 +3,46 @@
 
 .dialog {
   background: map-get($colors, white);
-  box-sizing: border-box;
+  // box-sizing: border-box;
   display: table;
   height: 100%;
   padding: ($grid * 4);
   position: relative;
   transform: translateY(($grid * 10));
   transition: transform 0.3s ease;
-  width: 100%;
+  max-width: 315px;
 
   @include respond-to-wide ($mobile-narrow-max-width) {
-    padding: ($grid * 6);
+    padding: ($grid * 6) calc((101% - 315px) / 2);
+    max-width: none;
+    width: 315px;
   }
 
-  @include respond-to-wide {
+  // @include respond-to-wide {
+  //   border-radius: ($grid * 1.6);
+  //   height: auto;
+  //   margin: ($grid * 6) auto;
+  //   padding: ($grid * 12);
+  //   text-align: left; // override dialog__wrapper text-align
+  //   width: ($grid * 87);
+  //   max-width: 315px;
+  // }
+
+  @include respond-to-wide-and-tall {
     border-radius: ($grid * 1.6);
     height: auto;
     margin: ($grid * 6) auto;
     padding: ($grid * 12);
     text-align: left; // override dialog__wrapper text-align
     width: ($grid * 87);
+    max-width: 315px;
   }
 
   .wide & {
-    @include respond-to-wide-and-tall {
+    @include respond-to-wide (541px) {
+      padding: ($grid * 6) calc((101% - #{($grid * 108)}) / 2);
       width: ($grid * 108);
+      max-width: none;
     }
   }
 

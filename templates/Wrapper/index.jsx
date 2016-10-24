@@ -13,6 +13,7 @@ export default function Wrapper ({
     <Dialog.Overlay
       className={className}
       show
+      wide
       {...props}>
       <Dialog.Main>
         {onBack && <Dialog.Icon left>

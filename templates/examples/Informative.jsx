@@ -43,7 +43,7 @@ export default {
         },
 
         'With legal copy': {
-          inline: <Landing
+          inline: <Wrapper><Landing
             illustration={<DemoIcon />}
             labels={{
               title: 'Welcome to the site',
@@ -52,7 +52,7 @@ export default {
               accept: 'Continue'
             }}
             onAccept={() => console.log('accept')}
-          />,
+          /></Wrapper>,
 
           wrapper: <Wrapper>
             <Landing
