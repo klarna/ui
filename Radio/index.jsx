@@ -17,6 +17,8 @@ export default React.createClass({
   displayName: 'Radio',
 
   propTypes: {
+    borderfull: PropTypes.bool,
+    borderless: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     focus: PropTypes.string,
