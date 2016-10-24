@@ -10,11 +10,51 @@ const classes = {
   cellContent: `${baseClass}__cell__content`,
   row: `${baseClass}__row`,
   cell: `${baseClass}__cell`,
-  cellHighlight: `${baseClass}__cell__highlight`,
-  cellTransitionHighlight: `${baseClass}__cell__transition-highlight`
+  cellHighlight: `${baseClass}__cell__highlight`
+}
+
+const requestAnimationFrame = (fn) => {
+  if (window.requestAnimationFrame) {
+    window.requestAnimationFrame(fn)
+  } else {
+    setTimeout(fn, 60)
+  }
+}
+
+const debounce = (fn) => {
+  let waiting = false
+
+  return function (...args) {
+    if (!waiting) {
+      waiting = true
+
+      requestAnimationFrame(() => {
+        fn(...args)
+        waiting = false
+      })
+    }
+  }
 }
 
 const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
+
+const calculateHighlightPosition = (selected) => {
+  if (!selected) {
+    return {}
+  }
+
+  const left = selected.offsetLeft
+  const top = selected.offsetTop
+  const width = selected.offsetWidth
+  const height = selected.offsetHeight
+
+  return {
+    left,
+    top,
+    width,
+    height
+  }
+}
 
 const Installments = React.createClass({
   displayName: 'Installments',
@@ -40,7 +80,15 @@ const Installments = React.createClass({
   },
 
   getInitialState () {
-    return { hover: undefined, previouslySelected: undefined }
+    return {
+      hover: undefined,
+      highlightPosition: {
+        width: 0,
+        height: 0,
+        left: 0,
+        top: 0
+      }
+    }
   },
 
   componentDidMount () {
@@ -50,6 +98,14 @@ const Installments = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
+
+    this.debouncedResizeHandler = debounce(this.onResize)
+    window.addEventListener('resize', this.debouncedResizeHandler)
+    this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
+  },
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.debouncedResizeHandler)
   },
 
   componentDidUpdate () {
@@ -61,23 +117,28 @@ const Installments = React.createClass({
     }
   },
 
-  onChangeHandler (key) {
-    // This is just here for debug output
-    const indexByKey = findIndexOfOptionKey(this.props.options)
-    const output = (value) => `${value} (${indexByKey(value)})`
-    const difference = (selected, previously) => (previously !== undefined) ? (indexByKey(selected) - indexByKey(previously)) : 0
-
-    console.table({
-      previouslySelected: {from: output(this.state.previouslySelected), to: output(this.props.value), difference: difference(this.props.value, this.state.previouslySelected)},
-      selected: {from: output(this.props.value), to: output(key), difference: difference(key, this.props.value)}
-    })
-    // End debug output
-
-    this.setState({
-      previouslySelected: this.props.value
-    })
+  onChangeHandler (e, key) {
+    const label = e.target.parentNode
+    this.setState({ highlightPosition: calculateHighlightPosition(label) })
 
     return this.props.onChange && this.props.onChange(key)
+  },
+
+  onResize () {
+    const { top: currentTop, left: currentLeft } = this.state.highlightPosition
+    const newPosition = calculateHighlightPosition(this.getSelectedLabel())
+
+    this.setHighlightPosition(newPosition)
+  },
+
+  getSelectedLabel () {
+    return this.refs[`${this.props.value}-label`]
+  },
+
+  setHighlightPosition (position) {
+    this.setState({
+      highlightPosition: position
+    })
   },
 
   render () {
@@ -106,8 +167,6 @@ const Installments = React.createClass({
 
     const indexByKey = findIndexOfOptionKey(options)
     const selectedIndex = indexByKey(selected)
-    const previouslySelectedIndex = indexByKey(this.state.previouslySelected)
-    const difference = (this.state.previouslySelected !== undefined) ? (selectedIndex - previouslySelectedIndex) : 0
 
     const dynamicStyles = customize
       ? {
@@ -123,9 +182,10 @@ const Installments = React.createClass({
       }
       : undefined
 
-    const highlightTransitionDynamicStyles = {
-      ...highlightDynamicStyles,
-      transform: `translateX(calc(${100*difference}% - ${difference}px))`
+    const highlightPositionStyles = {
+      width: this.state.highlightPosition.width + 2,
+      height: this.state.highlightPosition.height + 2,
+      transform: `translate(${this.state.highlightPosition.left}px, ${this.state.highlightPosition.top}px)`
     }
 
     return (<div
@@ -152,7 +212,8 @@ const Installments = React.createClass({
               ? cellDynamicStyles(customize, id === this.state.hover)
               : undefined}
             onMouseEnter={() => onCellMouseEnter(this)(id)}
-            onMouseLeave={() => onCellMouseLeave(this)(id)}>
+            onMouseLeave={() => onCellMouseLeave(this)(id)}
+            ref={`${key}-label`}>
             <input
               className={classNames(classes.input)}
               type='radio'
@@ -160,7 +221,7 @@ const Installments = React.createClass({
               ref={key}
               id={id}
               onBlur={onBlur}
-              onChange={() => this.onChangeHandler(key)}
+              onChange={(e) => this.onChangeHandler(e, key)}
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === selected}
               value={key}
@@ -171,11 +232,14 @@ const Installments = React.createClass({
               )}>
               {content}
             </div>
-            <span className={classNames(classes.cellHighlight)} style={highlightDynamicStyles} />
-            <span className={classNames(classes.cellTransitionHighlight)} style={transform} />
           </label>
         })}
       </div>
+      <span className={classNames(classes.cellHighlight)} style={{
+        ...highlightDynamicStyles,
+        ...highlightPositionStyles,
+        ...(selected !== undefined ? { opacity: 1 } : {})
+      }} />
     </div>)
   }
 })
