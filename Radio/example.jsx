@@ -30,9 +30,9 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
         options={options}
       />,
 
-      Borderfull: <Radio
-        borderfull
-        name='radio-borderfull'
+      Borderful: <Radio
+        borderful
+        name='radio-borderful'
         onChange={(key) => console.log(key)}
         options={options}
         value='lorem'

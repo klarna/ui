@@ -49,7 +49,7 @@
   transition: all .2s ease;
   user-select: none;
 
-  .borderfull & {
+  .borderful & {
     border-bottom: ($grid * .2) solid $border-color-inner;
   }
 
