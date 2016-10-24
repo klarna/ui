@@ -70,7 +70,7 @@ export default {
         Regular: {
           inline: <CenteredForm
             accept='Continue'
-            cancel='I rather get a car'
+            cancel='I’d rather get a car'
             defaultValues={{
               brandName: 'ACME',
               wheels: '2'
