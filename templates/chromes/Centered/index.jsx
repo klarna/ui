@@ -31,37 +31,40 @@ export default function Centered ({
     ? labels.summary
     : [labels.summary]
 
-  return <Dialog.Content className={classNames(baseClass, className)}>
-    {illustration}
+  return <Dialog.Main className={classNames(baseClass, className)}>
+    <Dialog.Content>
+      {illustration}
 
-    <Title.Primary
-      className={classNames(classes.title)}>
-      {labels.title}
-    </Title.Primary>
+      <Title.Primary
+        className={classNames(classes.title)}>
+        {labels.title}
+      </Title.Primary>
 
-    {paragraphs.map((text, index) => (<Paragraph.Secondary
-      key={index}
-      className={classNames(classes.paragraphPrimary)}>
-      {text}
-    </Paragraph.Secondary>))}
+      {paragraphs.map((text, index) => (<Paragraph.Secondary
+        key={index}
+        className={classNames(classes.paragraphPrimary)}>
+        {text}
+      </Paragraph.Secondary>))}
 
-    {children}
+      {children}
 
-    {labels.accept && onAccept && <Button.Primary
-      onClick={onAccept}
-      className={classNames(classes.buttonAccept)}>
-      {labels.accept}
-    </Button.Primary>}
+      {labels.accept && onAccept && <Button.Primary
+        onClick={onAccept}
+        className={classNames(classes.buttonAccept)}>
+        {labels.accept}
+      </Button.Primary>}
 
-    {labels.cancel && onCancel && <Paragraph.Primary
-      className={classNames(classes.buttonCancel)}>
-      <Link onClick={onCancel}>
-        {labels.cancel}
-      </Link>
-    </Paragraph.Primary>}
-
-    {labels.legal && <Paragraph.Legal className={classNames(classes.legal)}>
-      {labels.legal}
-    </Paragraph.Legal>}
-  </Dialog.Content>
+      {labels.cancel && onCancel && <Paragraph.Primary
+        className={classNames(classes.buttonCancel)}>
+        <Link onClick={onCancel}>
+          {labels.cancel}
+        </Link>
+      </Paragraph.Primary>}
+    </Dialog.Content>
+    <Dialog.Footer>
+      {labels.legal && <Paragraph.Legal className={classNames(classes.legal)}>
+        {labels.legal}
+      </Paragraph.Legal>}
+    </Dialog.Footer>
+  </Dialog.Main>
 }
