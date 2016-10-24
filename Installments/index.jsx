@@ -10,8 +10,11 @@ const classes = {
   cellContent: `${baseClass}__cell__content`,
   row: `${baseClass}__row`,
   cell: `${baseClass}__cell`,
-  cellHighlight: `${baseClass}__cell__highlight`
+  cellHighlight: `${baseClass}__cell__highlight`,
+  cellTransitionHighlight: `${baseClass}__cell__transition-highlight`
 }
+
+const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
 
 const Installments = React.createClass({
   displayName: 'Installments',
@@ -37,7 +40,7 @@ const Installments = React.createClass({
   },
 
   getInitialState () {
-    return { hover: undefined }
+    return { hover: undefined, previouslySelected: undefined }
   },
 
   componentDidMount () {
@@ -58,6 +61,25 @@ const Installments = React.createClass({
     }
   },
 
+  onChangeHandler (key) {
+    // This is just here for debug output
+    const indexByKey = findIndexOfOptionKey(this.props.options)
+    const output = (value) => `${value} (${indexByKey(value)})`
+    const difference = (selected, previously) => (previously !== undefined) ? (indexByKey(selected) - indexByKey(previously)) : 0
+
+    console.table({
+      previouslySelected: {from: output(this.state.previouslySelected), to: output(this.props.value), difference: difference(this.props.value, this.state.previouslySelected)},
+      selected: {from: output(this.props.value), to: output(key), difference: difference(key, this.props.value)}
+    })
+    // End debug output
+
+    this.setState({
+      previouslySelected: this.props.value
+    })
+
+    return this.props.onChange && this.props.onChange(key)
+  },
+
   render () {
     const {
       className,
@@ -65,7 +87,6 @@ const Installments = React.createClass({
       focus,
       name,
       onBlur,
-      onChange,
       onFocus,
       options,
       value: selected,
@@ -74,10 +95,19 @@ const Installments = React.createClass({
       ...remainingProps
     } = this.props
 
+    const {
+      previouslySelected
+    } = this.state
+
     const classNames = classNamesBind.bind({
       ...defaultStyles,
       ...styles
     })
+
+    const indexByKey = findIndexOfOptionKey(options)
+    const selectedIndex = indexByKey(selected)
+    const previouslySelectedIndex = indexByKey(this.state.previouslySelected)
+    const difference = (this.state.previouslySelected !== undefined) ? (selectedIndex - previouslySelectedIndex) : 0
 
     const dynamicStyles = customize
       ? {
@@ -93,9 +123,11 @@ const Installments = React.createClass({
       }
       : undefined
 
-    const selectedIndex = options.findIndex((option) => (
-      option.key === selected
-    ))
+    const highlightTransitionDynamicStyles = {
+      ...highlightDynamicStyles,
+      transform: `translateX(calc(${100*difference}% - ${difference}px))`
+    }
+
     return (<div
       className={classNames(baseClass, className)}
       style={{
@@ -106,13 +138,15 @@ const Installments = React.createClass({
       <div className={classNames(classes.row)}>
         {options.map(({ key, content }, index) => {
           const id = `${name}-${key}`
+          const transform = (key === previouslySelected) ? highlightTransitionDynamicStyles : undefined
           return <label
             key={`cell-${id}`}
             className={classNames(
               classes.cell,
               { 'is-focused': focus === key },
               { 'is-selected': key === selected },
-              { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) }
+              { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
+              { 'is-previously-selected': key === previouslySelected }
             )}
             style={customize
               ? cellDynamicStyles(customize, id === this.state.hover)
@@ -126,7 +160,7 @@ const Installments = React.createClass({
               ref={key}
               id={id}
               onBlur={onBlur}
-              onChange={onChange && (() => onChange(key))}
+              onChange={() => this.onChangeHandler(key)}
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === selected}
               value={key}
@@ -138,6 +172,7 @@ const Installments = React.createClass({
               {content}
             </div>
             <span className={classNames(classes.cellHighlight)} style={highlightDynamicStyles} />
+            <span className={classNames(classes.cellTransitionHighlight)} style={transform} />
           </label>
         })}
       </div>

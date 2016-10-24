@@ -1,6 +1,20 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
+$transition-duration: 300ms;
+
+%highlight {
+  border: ($grid * .4) solid map-get($colors, klarna-blue);
+  border-radius: 5px;
+  bottom: -1px;
+  display: block;
+  left: -1px;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  z-index: 5;
+}
+
 .installments {
   border: ($grid * .2) solid $border-color;
   border-radius: 5px;
@@ -46,6 +60,7 @@
     cursor: pointer;
     display: block;
     position: relative;
+    transition: border 0ms 300ms;
 
     &:first-of-type {
       border-top-width: 0px;
@@ -95,26 +110,35 @@
     }
   }
 
-  .installments__cell__highlight {
+  .installments__cell__highlight,
+  .installments__cell__transition-highlight {
     box-sizing: border-box;
-    display: none;
+    opacity: 0;
 
     @include respond-to-wide {
       height: ($grid * 15);
     }
   }
 
-  .installments__input:checked ~
   .installments__cell__highlight {
-    border: ($grid * .4) solid map-get($colors, klarna-blue);
-    border-radius: 5px;
-    bottom: -1px;
-    display: block;
-    left: -1px;
-    position: absolute;
-    right: -1px;
-    top: -1px;
-    z-index: 5;
+    transition: opacity 0ms 300ms;
+  }
+
+  .installments__cell__transition-highlight {
+    @extend %highlight;
+    opacity: 0.01;
+    transform: translateX(0);
+    transition: transform 300ms ease-in-out;
+  }
+
+  .installments__input:checked ~ .installments__cell__highlight,
+  .is-previously-selected .installments__cell__transition-highlight {
+    @extend %highlight;
+    opacity: 1;
+  }
+
+  .installments__input:checked ~ .installments__cell__highlight {
+    opacity: 1;
   }
 
   .is-after-selected {
