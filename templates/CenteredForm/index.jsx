@@ -27,7 +27,7 @@ export default function CenteredForm ({
       summary,
       title
     }}>
-    <div className={classNames('centered-form__content')}>    
+    <div className={classNames('centered-form__content')}>
       <Fieldset
         {...props}
       />
