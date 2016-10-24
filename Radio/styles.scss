@@ -37,7 +37,6 @@
 }
 
 .radio__option {
-  background: white;
   cursor: pointer;
   display: block;
   overflow: hidden;
@@ -49,9 +48,17 @@
   transition: all .2s ease;
   user-select: none;
 
-  &:hover,
-  &.is-focused {
-    background: map-get($colors, block-hover);
+  .borderful & {
+    border-bottom: ($grid * .2) solid $border-color-inner;
+    margin-top: ($grid * -.2);
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   &:first-of-type {

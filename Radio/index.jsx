@@ -17,6 +17,8 @@ export default React.createClass({
   displayName: 'Radio',
 
   propTypes: {
+    borderful: PropTypes.bool,
+    borderless: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     focus: PropTypes.string,
@@ -49,6 +51,7 @@ export default React.createClass({
 
   render () {
     const {
+      borderful,
       borderless,
       className,
       focus,
@@ -68,6 +71,7 @@ export default React.createClass({
     return (
       <div
         className={classNames(baseClass, {
+          borderful,
           borderless,
           'is-disabled': disabled,
           'is-focused': focus != null
