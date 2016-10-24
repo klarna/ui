@@ -76,6 +76,12 @@ import Fieldset from '@klarna/ui/Fieldset'`,
           <Fieldset margins key={0}>
             <UncontrolledInput
               name='icon-card'
+              icon={icons.BANK}
+              label='Please enter your bank account number' />
+          </Fieldset>,
+          <Fieldset margins key={0}>
+            <UncontrolledInput
+              name='icon-card'
               icon={icons.CARD}
               label='Please enter your credit card number' />
           </Fieldset>,
