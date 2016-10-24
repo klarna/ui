@@ -1,6 +1,6 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as Block from '../../Block'
+import * as Dialog from '../../Dialog'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
 import * as Selector from '../../Selector'
@@ -20,28 +20,29 @@ export default function Selection ({
   options,
   summary,
   title,
-  styles
+  styles,
+  ...props
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return (
-    <Block.Plain className={classNames(baseClass, className)}>
-      <Title.Primary
-        className={classNames(classes.title)}>
-        {title}
-      </Title.Primary>
+  return <Dialog.Content
+    className={classNames(baseClass, className)}
+    {...props}>
+    <Title.Primary
+      className={classNames(classes.title)}>
+      {title}
+    </Title.Primary>
 
-      <Paragraph.Primary
-        className={classNames(classes.summary)}>
-        {summary}
-      </Paragraph.Primary>
+    <Paragraph.Primary
+      className={classNames(classes.summary)}>
+      {summary}
+    </Paragraph.Primary>
 
-      <Selector.Direct
-        className={classNames(classes.selector)}
-        name={title.toLowerCase().replace(/[^a-zA-Z]/g, '')}
-        onSelect={onSelect}
-        data={options}
-      />
-    </Block.Plain>
-  )
+    <Selector.Direct
+      className={classNames(classes.selector)}
+      name={title.toLowerCase().replace(/[^a-zA-Z]/g, '')}
+      onSelect={onSelect}
+      data={options}
+    />
+  </Dialog.Content>
 }
