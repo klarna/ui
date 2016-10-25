@@ -94,9 +94,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     opacity: 0;
     position: absolute;
     top: -1px;
-    transition: transform $transition-duration $highlightTransitionEasing,
-                height $transition-duration $highlightTransitionEasing,
-                width $transition-duration $highlightTransitionEasing;
+    transition: transform $transition-duration $highlightTransitionEasing, height $transition-duration $highlightTransitionEasing, width $transition-duration $highlightTransitionEasing;
     z-index: 5;
 
     @include respond-to-wide {
