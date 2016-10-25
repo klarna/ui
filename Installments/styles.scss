@@ -51,10 +51,17 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     padding-left: $grid * 0.4;
     padding-right: $grid * 0.4;
     position: relative;
+    transition: border 0ms $transition-duration;
 
     &:first-of-type {
       border-top-width: 0px;
     }
+
+    &.is-previously-selected,
+    &.is-after-previously-selected {
+      transition: border 0ms;
+    }
+
 
     @include respond-to-wide {
       border-left: ($grid * .2) solid $border-color;

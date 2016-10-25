@@ -92,6 +92,7 @@ const Installments = React.createClass({
   getInitialState () {
     return {
       hover: undefined,
+      previouslySelected: undefined,
       highlightPosition: {
         width: 0,
         height: 0,
@@ -121,6 +122,9 @@ const Installments = React.createClass({
   componentWillReceiveProps (props) {
     if (props.value !== undefined) {
       const label = this.getSelectedLabel(props.value)
+      this.setState({
+        previouslySelected: this.props.value
+      })
       this.setHighlightPosition(calculateHighlightPosition(label))
     }
   },
@@ -175,6 +179,7 @@ const Installments = React.createClass({
 
     const indexByKey = findIndexOfOptionKey(options)
     const selectedIndex = indexByKey(selected)
+    const previouslySelectedIndex = indexByKey(previouslySelected)
 
     const dynamicStyles = customize
       ? {
@@ -213,7 +218,8 @@ const Installments = React.createClass({
               { 'is-focused': focus === key },
               { 'is-selected': key === selected },
               { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
-              { 'is-previously-selected': key === previouslySelected }
+              { 'is-previously-selected': key === previouslySelected },
+              { 'is-after-previously-selected': (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
             )}
             style={customize
               ? cellDynamicStyles(customize, id === this.state.hover)
