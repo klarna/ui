@@ -46,6 +46,8 @@ $transition-duration: 500ms;
     color: map-get($colors, black);
     cursor: pointer;
     display: block;
+    padding-left: $grid * 0.4;
+    padding-right: $grid * 0.4;
     position: relative;
 
     &:first-of-type {
