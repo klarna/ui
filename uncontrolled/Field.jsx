@@ -4,7 +4,7 @@ import statefulFocus from '../lib/decorators/statefulFocus'
 import name from '../lib/decorators/name'
 import Field from '../Field'
 
-const UncontrolledField = compose(name, statefulFocus, statefulValue)(Field)
+const UncontrolledField = compose(statefulFocus, statefulValue, name)(Field)
 
 UncontrolledField.displayName = 'UncontrolledField'
 
