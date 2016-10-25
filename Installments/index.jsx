@@ -51,10 +51,12 @@ const calculateHighlightPosition = (selected) => {
     return {}
   }
 
+  const BORDER_SIZE = 1
+
   const left = selected.offsetLeft
   const top = selected.offsetTop
-  const width = selected.offsetWidth
-  const height = selected.offsetHeight
+  const width = selected.offsetWidth + BORDER_SIZE * 2
+  const height = selected.offsetHeight + BORDER_SIZE * 2
 
   return {
     left,
@@ -189,8 +191,8 @@ const Installments = React.createClass({
       : undefined
 
     const highlightPositionStyles = {
-      width: this.state.highlightPosition.width + 2,
-      height: this.state.highlightPosition.height + 2,
+      width: this.state.highlightPosition.width,
+      height: this.state.highlightPosition.height,
       ...vendorPrefixTransformation(`translate(${this.state.highlightPosition.left}px, ${this.state.highlightPosition.top}px)`)
     }
 

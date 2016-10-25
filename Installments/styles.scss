@@ -43,6 +43,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
   .installments__cell {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    border-top: ($grid * .2) solid $border-color;
     box-sizing: border-box;
     color: map-get($colors, black);
     cursor: pointer;
@@ -56,10 +57,16 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     }
 
     @include respond-to-wide {
+      border-left: ($grid * .2) solid $border-color;
+      border-top: 0;
       display: table-cell;
       height: 100%;
       text-align: center;
       vertical-align: middle;
+
+      &:first-of-type {
+        border-left-width: 0px;
+      }
     }
   }
 
@@ -85,6 +92,14 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     color: map-get($colors, klarna-blue);
   }
 
+  .is-selected {
+    border-top-color: transparent !important;
+
+    @include respond-to-wide {
+      border-left-color: transparent !important;
+    }
+  }
+
   .installments__cell__highlight {
     border: ($grid * .4) solid map-get($colors, klarna-blue);
     border-radius: 5px;
@@ -99,6 +114,18 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
     @include respond-to-wide {
       height: ($grid * 15);
+    }
+  }
+
+  .is-after-selected {
+    border: 0;
+    border-top: ($grid * .2) solid;
+    border-top-color: transparent !important;
+
+    @include respond-to-wide {
+      border: 0;
+      border-left: ($grid * .2) solid;
+      border-left-color: transparent !important;
     }
   }
 }
