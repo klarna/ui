@@ -127,7 +127,7 @@ const Installments = React.createClass({
 
   onChangeHandler (e, key) {
     const label = e.target.parentNode
-    this.setState({ highlightPosition: calculateHighlightPosition(label) })
+    this.setHighlightPosition(calculateHighlightPosition(label))
 
     return this.props.onChange && this.props.onChange(key)
   },
