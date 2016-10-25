@@ -110,7 +110,7 @@ const Installments = React.createClass({
     this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
   },
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     window.removeEventListener('resize', this.debouncedResizeHandler)
   },
 
@@ -131,10 +131,7 @@ const Installments = React.createClass({
   },
 
   onResize () {
-    const { top: currentTop, left: currentLeft } = this.state.highlightPosition
-    const newPosition = calculateHighlightPosition(this.getSelectedLabel())
-
-    this.setHighlightPosition(newPosition)
+    this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
   },
 
   getSelectedLabel () {
