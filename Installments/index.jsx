@@ -36,6 +36,12 @@ const debounce = (fn) => {
   }
 }
 
+const vendorPrefixTransformation = (transformation) => ({
+  msTransform: transformation,
+  WebkitTransform: transformation,
+  transform: transformation
+})
+
 const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
 
 const calculateHighlightPosition = (selected) => {
@@ -185,7 +191,7 @@ const Installments = React.createClass({
     const highlightPositionStyles = {
       width: this.state.highlightPosition.width + 2,
       height: this.state.highlightPosition.height + 2,
-      transform: `translate(${this.state.highlightPosition.left}px, ${this.state.highlightPosition.top}px)`
+      ...vendorPrefixTransformation(`translate(${this.state.highlightPosition.left}px, ${this.state.highlightPosition.top}px)`)
     }
 
     return (<div
@@ -198,7 +204,6 @@ const Installments = React.createClass({
       <div className={classNames(classes.row)}>
         {options.map(({ key, content }, index) => {
           const id = `${name}-${key}`
-          const transform = (key === previouslySelected) ? highlightTransitionDynamicStyles : undefined
           return <label
             key={`cell-${id}`}
             className={classNames(
