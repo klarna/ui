@@ -116,6 +116,13 @@ const Installments = React.createClass({
     window.removeEventListener('resize', this.debouncedResizeHandler)
   },
 
+  componentWillReceiveProps (props) {
+    if (props.value !== undefined) {
+      const label = this.getSelectedLabel(props.value)
+      this.setHighlightPosition(calculateHighlightPosition(label))
+    }
+  },
+
   componentDidUpdate () {
     if (
       this.props.focus &&
@@ -125,19 +132,12 @@ const Installments = React.createClass({
     }
   },
 
-  onChangeHandler (e, key) {
-    const label = e.target.parentNode
-    this.setHighlightPosition(calculateHighlightPosition(label))
-
-    return this.props.onChange && this.props.onChange(key)
-  },
-
   onResize () {
     this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
   },
 
-  getSelectedLabel () {
-    return this.refs[`${this.props.value}-label`]
+  getSelectedLabel (key) {
+    return this.refs[`${key || this.props.value}-label`]
   },
 
   setHighlightPosition (position) {
@@ -153,6 +153,7 @@ const Installments = React.createClass({
       focus,
       name,
       onBlur,
+      onChange,
       onFocus,
       options,
       value: selected,
@@ -225,7 +226,7 @@ const Installments = React.createClass({
               ref={key}
               id={id}
               onBlur={onBlur}
-              onChange={(e) => this.onChangeHandler(e, key)}
+              onChange={() => onChange && onChange(key)}
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === selected}
               value={key}
