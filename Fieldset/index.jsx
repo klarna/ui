@@ -1,5 +1,6 @@
 import React, { PropTypes} from 'react'
 import Field from '../Field'
+import Dropdown from '../Dropdown'
 import Input from '../Input'
 import compose from '../lib/compose'
 import uncontrolled from '../decorators/uncontrolled'
@@ -21,24 +22,30 @@ function Fieldset ({
   ...props
 }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-  const FieldType = fieldType === 'field'
-    ? Field
-    : Input
-
   return <div
     className={classNames('fieldset', { 'default-margins': margins }, className)}
     {...props}>
-    {fields && fields.map((field) => <FieldType
-      key={field.name}
-      focus={focus === field.name}
-      value={values && values[field.name]}
-      onBlur={handleBlur(onBlur, field.name)}
-      onChange={handleChange(values, onChange, field.name)}
-      onFocus={handleFocus(onFocus, field.name)}
-      {...field}
-    />)}
+    {fields && fields.map((field) => {
+      const FieldType = getFieldType(fieldType, field)
+
+      return <FieldType
+        key={field.name}
+        focus={focus === field.name}
+        value={values && values[field.name]}
+        onBlur={handleBlur(onBlur, field.name)}
+        onChange={handleChange(values, onChange, field.name)}
+        onFocus={handleFocus(onFocus, field.name)}
+        {...field}
+      />
+    })}
     {children}
   </div>
+}
+
+const getFieldType = (fieldType, field) => {
+  if (field.options) { return Dropdown }
+  if (fieldType === 'field') { return Field }
+  return Input
 }
 
 const handleChange = (values, onChange, name) => (e) =>
