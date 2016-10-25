@@ -13,11 +13,13 @@ const classes = {
   cellHighlight: `${baseClass}__cell__highlight`
 }
 
+const TARGET_FPS = 60
+
 const requestAnimationFrame = (fn) => {
   if (window.requestAnimationFrame) {
     window.requestAnimationFrame(fn)
   } else {
-    setTimeout(fn, 60)
+    setTimeout(fn, 1000 / TARGET_FPS)
   }
 }
 
