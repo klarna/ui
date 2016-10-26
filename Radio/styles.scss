@@ -147,7 +147,7 @@
   }
 }
 
-.radio__option__heading {
+.radio__option__label {
   @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
   display: block;

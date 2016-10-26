@@ -9,7 +9,7 @@ const classes = {
   optionBullet: `${baseClass}__option__bullet`,
   optionCheckmark: `${baseClass}__option__checkmark`,
   optionDescription: `${baseClass}__option__description`,
-  optionHeading: `${baseClass}__option__heading`,
+  optionLabel: `${baseClass}__option__label`,
   optionInput: `${baseClass}__option__input`,
   optionLeft: `${baseClass}__option__left`,
   optionRight: `${baseClass}__option__right`,
@@ -111,7 +111,7 @@ export default React.createClass({
 
                   <div className={classNames(classes.optionRight)}>
                     <div
-                      className={classNames(classes.optionHeading)}>
+                      className={classNames(classes.optionLabel)}>
                       {label}
                     </div>
 
