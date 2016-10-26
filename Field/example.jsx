@@ -94,6 +94,11 @@ import Fieldset from '@klarna/ui/Fieldset'`,
         Regular: <div>
           <Fieldset margins>
             <Field
+              icon={icons.BANK}
+              label='Please enter your bank account number' />
+          </Fieldset>
+          <Fieldset margins>
+            <Field
               icon={icons.CARD}
               label='Please enter your credit card number' />
           </Fieldset>

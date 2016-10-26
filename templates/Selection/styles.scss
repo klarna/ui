@@ -1,6 +1,14 @@
 @import '../../css/settings';
 @import '../../css/mixins/index';
 
+.selection__title {
+  margin-top: ($grid * 9);
+
+  @include respond-to-wide {
+    margin-top: 0;
+  }
+}
+
 .selection__title + .selection__summary {
   padding-top: ($grid * 2.4);
 }

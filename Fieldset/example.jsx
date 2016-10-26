@@ -39,6 +39,45 @@ export default {
         onChange={(values) => console.log('new values', values)}
       />,
 
+      'Regular with options': <Fieldset
+        fields={[
+          {
+            name: 'firstname',
+            label: 'First Name',
+            size: '1/2',
+            top: true,
+            left: true
+          },
+          {
+            name: 'lastname',
+            label: 'Last Name',
+            size: '1/2',
+            top: true,
+            right: true
+          },
+          {
+            name: 'city',
+            label: 'Street address',
+            options: [
+              {
+                key: 'Stockholm',
+                label: 'Stockholm'
+              },
+              {
+                key: 'Gothenburg',
+                label: 'Gothenburg'
+              }
+            ],
+            bottom: true
+          }
+        ]}
+        focus='lastname'
+        values={{
+          firstname: 'Dorothy'
+        }}
+        onChange={(values) => console.log('new values', values)}
+      />,
+
       Uncontrolled: <Fieldset
         autoFocus='address'
         fields={[
@@ -64,6 +103,45 @@ export default {
         ]}
         defaultValues={{
           firstname: 'Thomas'
+        }}
+        onChange={(values) => console.log('new values', values)}
+      />,
+
+      'Uncontrolled with options': <Fieldset
+        fields={[
+          {
+            name: 'firstname',
+            label: 'First Name',
+            size: '1/2',
+            top: true,
+            left: true
+          },
+          {
+            name: 'lastname',
+            label: 'Last Name',
+            size: '1/2',
+            top: true,
+            right: true
+          },
+          {
+            name: 'city',
+            label: 'Street address',
+            options: [
+              {
+                key: 'Stockholm',
+                label: 'Stockholm'
+              },
+              {
+                key: 'Gothenburg',
+                label: 'Gothenburg'
+              }
+            ],
+            bottom: true
+          }
+        ]}
+        focus='lastname'
+        defaultValues={{
+          firstname: 'Dorothy'
         }}
         onChange={(values) => console.log('new values', values)}
       />,

@@ -10,6 +10,14 @@
   margin-top: ($grid * 7);
 }
 
+.filtered-selection__title {
+  margin-top: ($grid * 9);
+
+  @include respond-to-wide {
+    margin-top: 0;
+  }
+}
+
 .filtered-selection__title + .filtered-selection__summary {
   padding-top: ($grid * 2.4);
 }

@@ -21,6 +21,10 @@
   text-align: center;
 }
 
+.chrome--centered__button--cancel {
+  font-weight: map-get($font-weights, semi-bold);
+}
+
 .chrome--centered__paragraph--primary + .chrome--centered__button--accept {
   margin-top: ($grid * 8.2);
 }

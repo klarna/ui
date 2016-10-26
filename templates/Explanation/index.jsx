@@ -1,6 +1,6 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as Block from '../../Block'
+import * as Dialog from '../../Dialog'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
 import defaultStyles from './styles.scss'
@@ -18,11 +18,14 @@ export default function Explanation ({
   content,
   legal,
   title,
-  styles
+  styles,
+  ...props
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return <Block.Plain className={classNames(baseClass, className)}>
+  return <Dialog.Content
+    className={classNames(baseClass, className)}
+    {...props}>
     <Title.Primary
       className={classNames(classes.title)}>
       {title}
@@ -36,5 +39,5 @@ export default function Explanation ({
     <Paragraph.Legal className={classNames(classes.legal)}>
       {legal}
     </Paragraph.Legal>
-  </Block.Plain>
+  </Dialog.Content>
 }
