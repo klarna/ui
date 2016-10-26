@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import Collapsible from '../Collapsible'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
@@ -124,10 +125,11 @@ export default React.createClass({
                 </div>
               </div>
 
-              {content && <div
-                className={classNames(classes.optionContent)}>
-                {content}
-              </div>}
+              {content && <Collapsible collapsed={key !== value}>
+                <div className={classNames(classes.optionContent)}>
+                  {content}
+                </div>
+              </Collapsible>}
             </label>
           ])
         }
