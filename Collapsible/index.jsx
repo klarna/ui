@@ -34,7 +34,7 @@ export default class Collapsible extends Component {
   render () {
     const {children, collapsed} = this.props
 
-    return <div ref={(div) => {this.content = div}}>
+    return <div ref={(div) => { this.content = div }}>
       <Motion style={{height: spring(collapsed ? 0 : this.state.height)}}>
         {({height}) => <div style={{height: height, overflow: 'hidden'}}>
           {children}

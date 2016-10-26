@@ -33,7 +33,7 @@ const optionsWithContent = [
         name='installments'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
-        value='installments_12'
+        value='installments_6'
       />
       <Checklist.Main style={{marginTop: '20px'}}>
         <Checklist.Item>Just one click and you're done</Checklist.Item>
