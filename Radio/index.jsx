@@ -10,7 +10,12 @@ const classes = {
   optionCheckmark: `${baseClass}__option__checkmark`,
   optionDescription: `${baseClass}__option__description`,
   optionHeading: `${baseClass}__option__heading`,
-  optionInput: `${baseClass}__option__input`
+  optionInput: `${baseClass}__option__input`,
+  optionLeft: `${baseClass}__option__left`,
+  optionRight: `${baseClass}__option__right`,
+  optionHeader: `${baseClass}__option__header`,
+  optionHeaderInner: `${baseClass}__option__inner`,
+  optionWrapper: `${baseClass}__option__wrapper`
 }
 
 export default React.createClass({
@@ -94,18 +99,29 @@ export default React.createClass({
             <label
               htmlFor={`${name}-${key}`}
               className={classNames(classes.option, { 'is-focused': focus === key })}>
-              <div className={classNames(classes.optionBullet)} />
-              <div className={classNames(classes.optionCheckmark)} />
 
-              <div
-                className={classNames(classes.optionHeading)}>
-                {label}
+              <div className={classNames(classes.optionHeader)}>
+                <div className={classNames(classes.optionHeaderInner)}>
+                  <div className={classNames(classes.optionLeft)}>
+                    <div className={classNames(classes.optionWrapper)}>
+                      <div className={classNames(classes.optionBullet)} />
+                      <div className={classNames(classes.optionCheckmark)} />
+                    </div>
+                  </div>
+
+                  <div className={classNames(classes.optionRight)}>
+                    <div
+                      className={classNames(classes.optionHeading)}>
+                      {label}
+                    </div>
+
+                    {description && <div
+                      className={classNames(classes.optionDescription)}>
+                      {description}
+                    </div>}
+                  </div>
+                </div>
               </div>
-
-              {description && <div
-                className={classNames(classes.optionDescription)}>
-                {description}
-              </div>}
             </label>
           ])
         }
