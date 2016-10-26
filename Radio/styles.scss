@@ -36,11 +36,14 @@
   }
 }
 
+.radio__option__content {
+
+}
+
 .radio__option {
   cursor: pointer;
   display: block;
   overflow: hidden;
-  padding-bottom: ($grid * 4);
   padding-left: ($grid * 4);
   padding-right: ($grid * 4);
   padding-top: ($grid * 4);
@@ -78,6 +81,7 @@
 
 .radio__option__header {
   display: table;
+  margin-bottom: ($grid * 4);
 }
 
 .radio__option__inner {

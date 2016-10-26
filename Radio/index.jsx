@@ -15,7 +15,8 @@ const classes = {
   optionRight: `${baseClass}__option__right`,
   optionHeader: `${baseClass}__option__header`,
   optionHeaderInner: `${baseClass}__option__inner`,
-  optionWrapper: `${baseClass}__option__wrapper`
+  optionWrapper: `${baseClass}__option__wrapper`,
+  optionContent: `${baseClass}__option__content`
 }
 
 export default React.createClass({
@@ -83,7 +84,7 @@ export default React.createClass({
         }, className)}
         {...remainingProps}>
         {
-          options.map(({key, label, description}) => [
+          options.map(({key, label, description, content}) => [
             <input
               className={classNames(classes.optionInput)}
               id={`${name}-${key}`}
@@ -122,6 +123,11 @@ export default React.createClass({
                   </div>
                 </div>
               </div>
+
+              {content && <div
+                className={classNames(classes.optionContent)}>
+                {content}
+              </div>}
             </label>
           ])
         }
