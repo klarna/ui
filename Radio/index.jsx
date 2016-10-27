@@ -9,6 +9,7 @@ const baseClass = 'radio'
 
 const classes = {
   option: `${baseClass}__option`,
+  optionAside: `${baseClass}__option__aside`,
   optionBullet: `${baseClass}__option__bullet`,
   optionCheckmark: `${baseClass}__option__checkmark`,
   optionDescription: `${baseClass}__option__description`,
@@ -84,7 +85,7 @@ const Radio = React.createClass({
         }, className)}
         {...remainingProps}>
         {
-          options.map(({key, label, description, content}) => [
+          options.map(({key, label, description, aside, content}) => [
             <input
               className={classNames(classes.optionInput)}
               id={`${name}-${key}`}
@@ -121,6 +122,11 @@ const Radio = React.createClass({
                       {description}
                     </div>}
                   </div>
+
+                  {aside && <div
+                    className={classNames(classes.optionAside)}>
+                    {aside}
+                  </div>}
                 </div>
               </div>
 

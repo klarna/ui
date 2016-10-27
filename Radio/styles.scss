@@ -75,20 +75,31 @@
 .radio__option__header {
   display: table;
   margin-bottom: ($grid * 4);
+  width: 100%;
 }
 
 .radio__option__inner {
   display: table-row;
+  width: 100%;
 }
 
 .radio__option__left {
   display: table-cell;
   padding-right: ($grid * 3);
   vertical-align: middle;
+  width: ($grid * 2.8);
 }
 
 .radio__option__right {
   display: table-cell;
+  vertical-align: middle;
+}
+
+.radio__option__aside {
+  display: table-cell;
+  padding-left: ($grid * 3);
+  vertical-align: middle;
+  text-align: right;
 }
 
 .radio__option__wrapper {

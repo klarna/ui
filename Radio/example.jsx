@@ -13,11 +13,19 @@ const options = [
   {key: 'ipsum', label: 'Ipsum', description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
 ]
 
+const card = <svg width='32px' height='22px' viewBox='0 0 32 22'>
+  <g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+    <rect fill='#0074C8' x='0' y='0' width='32' height='22' rx='2' />
+    <polygon fill='#E5E5E6' points='23 7 27 15 19 15' />
+  </g>
+</svg>
+
 const optionsWithContent = [
   {
     key: 'lorem',
     label: 'Lorem',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    description: 'Lorem Ipsum is simply dummy.',
+    aside: card,
     content: <Paragraph.Secondary condensed>
       Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
     </Paragraph.Secondary>
