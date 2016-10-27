@@ -70,12 +70,14 @@ const Installments = React.createClass({
     return {
       hover: undefined,
       previouslySelected: undefined,
-      highlightPosition: {
-        width: undefined,
-        height: undefined,
-        left: undefined,
-        top: undefined,
-        show: false
+      highlight: {
+        position: {
+          width: undefined,
+          height: undefined,
+          left: undefined,
+          top: undefined
+        },
+        transitions: false
       }
     }
   },
@@ -106,9 +108,9 @@ const Installments = React.createClass({
 
       this.setHighlightPosition(calculateHighlightPosition(label))
 
-      if (this.state.highlightPosition.transitionsEnabled !== true) {
+      if (this.state.highlight.transitions !== true) {
         setTimeout(() => {
-          this.setHighlightPosition({ transitionsEnabled: true })
+          this.setHighlightTransitions(true)
         }, TRANSITION_DURATION)
       }
     }
@@ -133,9 +135,21 @@ const Installments = React.createClass({
 
   setHighlightPosition (position) {
     this.setState({
-      highlightPosition: {
-        ...this.state.highlightPosition,
-        ...position
+      highlight: {
+        ...this.state.highlight,
+        position: {
+          ...this.state.highlight.position,
+          ...position
+        }
+      }
+    })
+  },
+
+  setHighlightTransitions (enabled) {
+    this.setState({
+      highlight: {
+        ...this.state.highlight,
+        transitions: enabled
       }
     })
   },
@@ -184,9 +198,9 @@ const Installments = React.createClass({
       : undefined
 
     const highlightPositionStyles = {
-      width: this.state.highlightPosition.width,
-      height: this.state.highlightPosition.height,
-      ...vendorPrefixTransformation(`translate(${this.state.highlightPosition.left}px, ${this.state.highlightPosition.top}px)`)
+      width: this.state.highlight.position.width,
+      height: this.state.highlight.position.height,
+      ...vendorPrefixTransformation(`translate(${this.state.highlight.position.left}px, ${this.state.highlight.position.top}px)`)
     }
 
     return (<div
@@ -238,7 +252,7 @@ const Installments = React.createClass({
       </div>
       <span className={classNames(
         classes.cellHighlight,
-        { 'has-position': this.state.highlightPosition.transitionsEnabled }
+        { 'has-position': this.state.highlight.transitions }
       )} style={{
         ...highlightDynamicStyles,
         ...highlightPositionStyles,
