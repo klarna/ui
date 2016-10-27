@@ -42,7 +42,9 @@
   padding-right: ($grid * 4);
 
   .left-pad & {
-    padding-left: ($grid * 9.8);
+    @include respond-to-wide {
+      padding-left: ($grid * 9.8);
+    }
   }
 }
 
