@@ -14,10 +14,6 @@
   position: relative;
   transition: all .2s ease;
 
-  &.is-focused {
-    border-color: map-get($colors, klarna-blue);
-  }
-
   &.borderless {
     border: 0;
     padding-bottom: $grid * .2;
