@@ -41,8 +41,10 @@
 }
 
 .radio__option {
+  border-bottom: ($grid * .2) solid $border-color-inner;
   cursor: pointer;
   display: block;
+  margin-top: ($grid * -.2);
   overflow: hidden;
   padding-left: ($grid * 4);
   padding-right: ($grid * 4);
@@ -51,31 +53,22 @@
   transition: all .2s ease;
   user-select: none;
 
-  .borderful & {
-    border-bottom: ($grid * .2) solid $border-color-inner;
-    margin-top: ($grid * -.2);
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-
   &:first-of-type {
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
+    margin-top: 0;
   }
 
   &:last-child {
+    border-bottom: none;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
   }
 
   .borderless & {
+    border-bottom: none;
     border-radius: $border-radius;
+    margin-top: 0;
   }
 }
 

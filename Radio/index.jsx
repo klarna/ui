@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
-import Collapsible from '../Collapsible'
 import classNamesBind from 'classnames/bind'
+import Collapsible from '../Collapsible'
+import compose from '../lib/compose'
+import uncontrolled from '../decorators/uncontrolled'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'radio'
@@ -20,11 +22,10 @@ const classes = {
   optionContent: `${baseClass}__option__content`
 }
 
-export default React.createClass({
+const Radio = React.createClass({
   displayName: 'Radio',
 
   propTypes: {
-    borderful: PropTypes.bool,
     borderless: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
@@ -58,7 +59,6 @@ export default React.createClass({
 
   render () {
     const {
-      borderful,
       borderless,
       className,
       focus,
@@ -78,7 +78,6 @@ export default React.createClass({
     return (
       <div
         className={classNames(baseClass, {
-          borderful,
           borderless,
           'is-disabled': disabled,
           'is-focused': focus != null
@@ -137,3 +136,20 @@ export default React.createClass({
     )
   }
 })
+
+
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: (x) => x,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (x) => x
+  })
+)(Radio)
