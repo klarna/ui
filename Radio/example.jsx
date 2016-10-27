@@ -10,7 +10,7 @@ import Subtitle from '../Subtitle'
 const options = [
   {key: 'lorem', label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
   {key: 'sit', label: 'Sit', description: 'Amet et consequetur'},
-  {key: 'ipsum', label: 'Ipsum', description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
+  {key: 'ipsum', label: 'Ipsum', description: "Dummy text ever since the 1500s."}
 ]
 
 const card = <svg width='32px' height='22px' viewBox='0 0 32 22'>
@@ -54,7 +54,7 @@ const optionsWithContent = [
   {
     key: 'ipsum',
     label: 'Ipsum',
-    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    description: "Dummy text ever since the 1500s.",
     content: <div>
       <Subtitle>Choose your destiny</Subtitle>
 
