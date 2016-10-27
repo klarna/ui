@@ -5,6 +5,7 @@ import defaultStyles from './styles.scss'
 import debounce from '../lib/debounce'
 
 const baseClass = 'installments'
+const TRANSITION_DURATION = 500
 
 const classes = {
   input: `${baseClass}__input`,
@@ -70,10 +71,11 @@ const Installments = React.createClass({
       hover: undefined,
       previouslySelected: undefined,
       highlightPosition: {
-        width: 0,
-        height: 0,
-        left: 0,
-        top: 0
+        width: undefined,
+        height: undefined,
+        left: undefined,
+        top: undefined,
+        show: false
       }
     }
   },
@@ -101,7 +103,14 @@ const Installments = React.createClass({
       this.setState({
         previouslySelected: this.props.value
       })
+
       this.setHighlightPosition(calculateHighlightPosition(label))
+
+      if (this.state.highlightPosition.transitionsEnabled !== true) {
+        setTimeout(() => {
+          this.setHighlightPosition({ transitionsEnabled: true })
+        }, TRANSITION_DURATION)
+      }
     }
   },
 
@@ -124,7 +133,10 @@ const Installments = React.createClass({
 
   setHighlightPosition (position) {
     this.setState({
-      highlightPosition: position
+      highlightPosition: {
+        ...this.state.highlightPosition,
+        ...position
+      }
     })
   },
 
@@ -224,7 +236,10 @@ const Installments = React.createClass({
           </label>
         })}
       </div>
-      <span className={classNames(classes.cellHighlight)} style={{
+      <span className={classNames(
+        classes.cellHighlight,
+        { 'has-position': this.state.highlightPosition.transitionsEnabled }
+      )} style={{
         ...highlightDynamicStyles,
         ...highlightPositionStyles,
         ...(selected !== undefined ? { opacity: 1 } : {})
