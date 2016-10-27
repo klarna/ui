@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
+import debounce from '../lib/debounce'
 
 const baseClass = 'installments'
 
@@ -11,31 +12,6 @@ const classes = {
   row: `${baseClass}__row`,
   cell: `${baseClass}__cell`,
   cellHighlight: `${baseClass}__cell__highlight`
-}
-
-const TARGET_FPS = 60
-
-const requestAnimationFrame = (fn) => {
-  if (window.requestAnimationFrame) {
-    window.requestAnimationFrame(fn)
-  } else {
-    setTimeout(fn, 1000 / TARGET_FPS)
-  }
-}
-
-const debounce = (fn) => {
-  let waiting = false
-
-  return function (...args) {
-    if (!waiting) {
-      waiting = true
-
-      requestAnimationFrame(() => {
-        fn(...args)
-        waiting = false
-      })
-    }
-  }
 }
 
 const vendorPrefixTransformation = (transformation) => ({
