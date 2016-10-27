@@ -75,6 +75,7 @@ const Radio = React.createClass({
     } = this.props
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+    const singleOption = options.length === 1
 
     return (
       <div
@@ -100,16 +101,16 @@ const Radio = React.createClass({
             />,
             <label
               htmlFor={`${name}-${key}`}
-              className={classNames(classes.option, { 'is-focused': focus === key, 'left-pad': leftPad })}>
+              className={classNames(classes.option, { 'is-focused': focus === key, 'left-pad': leftPad && !singleOption })}>
 
               <div className={classNames(classes.optionHeader)}>
                 <div className={classNames(classes.optionHeaderInner)}>
-                  <div className={classNames(classes.optionLeft)}>
+                  {!singleOption && <div className={classNames(classes.optionLeft)}>
                     <div className={classNames(classes.optionWrapper)}>
                       <div className={classNames(classes.optionBullet)} />
                       <div className={classNames(classes.optionCheckmark)} />
                     </div>
-                  </div>
+                  </div>}
 
                   <div className={classNames(classes.optionRight)}>
                     <div
@@ -130,7 +131,8 @@ const Radio = React.createClass({
                 </div>
               </div>
 
-              {content && <Collapsible collapsed={key !== value}>
+              {content && <Collapsible
+                collapsed={!singleOption && key !== value}>
                 <div className={classNames(classes.optionContent)}>
                   {content}
                 </div>

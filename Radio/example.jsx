@@ -125,6 +125,20 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
         name='radio-borderless-disabled'
         options={options}
         defaultValue='lorem'
+      />,
+
+      'With a single option': <Radio
+        name='radio-with-a-single-option'
+        options={[{
+          key: 'lorem',
+          label: 'Lorem',
+          description: 'Lorem Ipsum is simply dummy.',
+          aside: card,
+          content: <Paragraph.Secondary condensed>
+            Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
+          </Paragraph.Secondary>,
+          leftPad: true
+        }]}
       />
     }
   }
