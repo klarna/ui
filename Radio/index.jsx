@@ -85,7 +85,7 @@ const Radio = React.createClass({
         }, className)}
         {...remainingProps}>
         {
-          options.map(({key, label, description, aside, content}) => [
+          options.map(({key, label, description, aside, content, leftPad}) => [
             <input
               className={classNames(classes.optionInput)}
               id={`${name}-${key}`}
@@ -100,7 +100,7 @@ const Radio = React.createClass({
             />,
             <label
               htmlFor={`${name}-${key}`}
-              className={classNames(classes.option, { 'is-focused': focus === key })}>
+              className={classNames(classes.option, { 'is-focused': focus === key, 'left-pad': leftPad })}>
 
               <div className={classNames(classes.optionHeader)}>
                 <div className={classNames(classes.optionHeaderInner)}>

@@ -38,6 +38,12 @@
 
 .radio__option__content {
   padding-bottom: ($grid * 4);
+  padding-left: ($grid * 4);
+  padding-right: ($grid * 4);
+
+  .left-pad & {
+    padding-left: ($grid * 10);
+  }
 }
 
 .radio__option {
@@ -46,8 +52,6 @@
   display: block;
   margin-top: ($grid * -.2);
   overflow: hidden;
-  padding-left: ($grid * 4);
-  padding-right: ($grid * 4);
   padding-top: ($grid * 4);
   position: relative;
   transition: all .2s ease;
@@ -75,7 +79,9 @@
 .radio__option__header {
   display: table;
   margin-bottom: ($grid * 4);
-  width: 100%;
+  padding-left: ($grid * 4);
+  padding-right: ($grid * 4);
+  width: calc(100% - #{$grid * 8});
 }
 
 .radio__option__inner {

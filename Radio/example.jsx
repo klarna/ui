@@ -28,7 +28,8 @@ const optionsWithContent = [
     aside: card,
     content: <Paragraph.Secondary condensed>
       Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
-    </Paragraph.Secondary>
+    </Paragraph.Secondary>,
+    leftPad: true
   },
 
   {
