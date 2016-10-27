@@ -3,6 +3,7 @@ import classNamesBind from 'classnames/bind'
 import Collapsible from '../Collapsible'
 import compose from '../lib/compose'
 import uncontrolled from '../decorators/uncontrolled'
+import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'radio'
@@ -31,6 +32,7 @@ const Radio = React.createClass({
     className: PropTypes.string,
     customize: PropTypes.shape({
       backgroundColor: PropTypes.string.isRequired,
+      borderRadius: PropTypes.string.isRequired,
       bulletColor: PropTypes.string.isRequired,
       textPrimaryColor: PropTypes.string.isRequired,
       textSecondaryColor: PropTypes.string.isRequired
@@ -83,6 +85,7 @@ const Radio = React.createClass({
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const singleOption = options.length === 1
+    const baseStyle = customize ? { borderRadius: customize.borderRadius } : undefined
     const labelStyle = customize ? { color: customize.textPrimaryColor } : undefined
     const descriptionStyle = customize ? { color: customize.textSecondaryColor } : undefined
     const bulletStyle = customize
@@ -100,6 +103,7 @@ const Radio = React.createClass({
           'is-disabled': disabled,
           'is-focused': focus != null
         }, className)}
+        style={baseStyle}
         {...remainingProps}>
         {
           options.map(({key, label, description, aside, content, leftPad}) => [
@@ -169,18 +173,30 @@ const Radio = React.createClass({
   }
 })
 
-export default compose(
-  uncontrolled({
-    prop: 'focus',
-    defaultProp: 'autoFocus',
-    handlerName: 'onFocus',
-    handlerSelector: (x) => x,
-    resetHandlerName: 'onBlur'
-  }),
-  uncontrolled({
-    prop: 'value',
-    defaultProp: 'defaultValue',
-    handlerName: 'onChange',
-    handlerSelector: (x) => x
+export default themeable(
+  compose(
+    uncontrolled({
+      prop: 'focus',
+      defaultProp: 'autoFocus',
+      handlerName: 'onFocus',
+      handlerSelector: (x) => x,
+      resetHandlerName: 'onBlur'
+    }),
+    uncontrolled({
+      prop: 'value',
+      defaultProp: 'defaultValue',
+      handlerName: 'onChange',
+      handlerSelector: (x) => x
+    })
+  )(Radio),
+  (customizations, props) => ({
+    customize: {
+      ...props.customize,
+      backgroundColor: customizations.color_checkbox,
+      bulletColor: customizations.color_checkbox_checkmark,
+      borderRadius: customizations.radius_border,
+      textPrimaryColor: customizations.color_text,
+      textSecondaryColor: customizations.color_text_secondary
+    }
   })
-)(Radio)
+)

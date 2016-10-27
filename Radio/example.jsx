@@ -144,6 +144,7 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
       'Dynamic styling': <Radio
         customize={{
           backgroundColor: '#660080',
+          borderRadius: '10px',
           bulletColor: '#00ce3e',
           textPrimaryColor: 'green',
           textSecondaryColor: 'red'
