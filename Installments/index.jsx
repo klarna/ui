@@ -2,8 +2,10 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
+import debounce from '../lib/debounce'
 
 const baseClass = 'installments'
+const TRANSITION_DURATION = 500
 
 const classes = {
   input: `${baseClass}__input`,
@@ -11,6 +13,34 @@ const classes = {
   row: `${baseClass}__row`,
   cell: `${baseClass}__cell`,
   cellHighlight: `${baseClass}__cell__highlight`
+}
+
+const vendorPrefixTransformation = (transformation) => ({
+  msTransform: transformation,
+  WebkitTransform: transformation,
+  transform: transformation
+})
+
+const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
+
+const calculateHighlightPosition = (selected) => {
+  if (!selected) {
+    return {}
+  }
+
+  const BORDER_SIZE = 1
+
+  const left = selected.offsetLeft
+  const top = selected.offsetTop
+  const width = selected.offsetWidth + BORDER_SIZE * 2
+  const height = selected.offsetHeight + BORDER_SIZE * 2
+
+  return {
+    left,
+    top,
+    width,
+    height
+  }
 }
 
 const Installments = React.createClass({
@@ -37,7 +67,19 @@ const Installments = React.createClass({
   },
 
   getInitialState () {
-    return { hover: undefined }
+    return {
+      hover: undefined,
+      previouslySelected: undefined,
+      highlight: {
+        position: {
+          width: undefined,
+          height: undefined,
+          left: undefined,
+          top: undefined
+        },
+        transitions: false
+      }
+    }
   },
 
   componentDidMount () {
@@ -46,6 +88,31 @@ const Installments = React.createClass({
       document.activeElement !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
+    }
+
+    this.debouncedResizeHandler = debounce(this.onResize)
+    window.addEventListener('resize', this.debouncedResizeHandler)
+    this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
+  },
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.debouncedResizeHandler)
+  },
+
+  componentWillReceiveProps (props) {
+    if (props.value !== undefined) {
+      const label = this.getSelectedLabel(props.value)
+      this.setState({
+        previouslySelected: this.props.value
+      })
+
+      this.setHighlightPosition(calculateHighlightPosition(label))
+
+      if (this.state.highlight.transitions !== true) {
+        setTimeout(() => {
+          this.setHighlightTransitions(true)
+        }, TRANSITION_DURATION)
+      }
     }
   },
 
@@ -56,6 +123,35 @@ const Installments = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
+  },
+
+  onResize () {
+    this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
+  },
+
+  getSelectedLabel (key) {
+    return this.refs[`${key || this.props.value}-label`]
+  },
+
+  setHighlightPosition (position) {
+    this.setState({
+      highlight: {
+        ...this.state.highlight,
+        position: {
+          ...this.state.highlight.position,
+          ...position
+        }
+      }
+    })
+  },
+
+  setHighlightTransitions (enabled) {
+    this.setState({
+      highlight: {
+        ...this.state.highlight,
+        transitions: enabled
+      }
+    })
   },
 
   render () {
@@ -74,10 +170,18 @@ const Installments = React.createClass({
       ...remainingProps
     } = this.props
 
+    const {
+      previouslySelected
+    } = this.state
+
     const classNames = classNamesBind.bind({
       ...defaultStyles,
       ...styles
     })
+
+    const indexByKey = findIndexOfOptionKey(options)
+    const selectedIndex = indexByKey(selected)
+    const previouslySelectedIndex = indexByKey(previouslySelected)
 
     const dynamicStyles = customize
       ? {
@@ -93,9 +197,12 @@ const Installments = React.createClass({
       }
       : undefined
 
-    const selectedIndex = options.findIndex((option) => (
-      option.key === selected
-    ))
+    const highlightPositionStyles = {
+      width: this.state.highlight.position.width,
+      height: this.state.highlight.position.height,
+      ...vendorPrefixTransformation(`translate(${this.state.highlight.position.left}px, ${this.state.highlight.position.top}px)`)
+    }
+
     return (<div
       className={classNames(baseClass, className)}
       style={{
@@ -112,13 +219,16 @@ const Installments = React.createClass({
               classes.cell,
               { 'is-focused': focus === key },
               { 'is-selected': key === selected },
-              { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) }
+              { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
+              { 'is-previously-selected': key === previouslySelected },
+              { 'is-after-previously-selected': (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
             )}
             style={customize
               ? cellDynamicStyles(customize, id === this.state.hover)
               : undefined}
             onMouseEnter={() => onCellMouseEnter(this)(id)}
-            onMouseLeave={() => onCellMouseLeave(this)(id)}>
+            onMouseLeave={() => onCellMouseLeave(this)(id)}
+            ref={`${key}-label`}>
             <input
               className={classNames(classes.input)}
               type='radio'
@@ -126,7 +236,7 @@ const Installments = React.createClass({
               ref={key}
               id={id}
               onBlur={onBlur}
-              onChange={onChange && (() => onChange(key))}
+              onChange={() => onChange && onChange(key)}
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === selected}
               value={key}
@@ -137,10 +247,17 @@ const Installments = React.createClass({
               )}>
               {content}
             </div>
-            <span className={classNames(classes.cellHighlight)} style={highlightDynamicStyles} />
           </label>
         })}
       </div>
+      <span className={classNames(
+        classes.cellHighlight,
+        { 'has-position': this.state.highlight.transitions }
+      )} style={{
+        ...highlightDynamicStyles,
+        ...highlightPositionStyles,
+        ...(selected !== undefined ? { opacity: 1 } : {})
+      }} />
     </div>)
   }
 })
