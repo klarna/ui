@@ -29,6 +29,12 @@ const Radio = React.createClass({
   propTypes: {
     borderless: PropTypes.bool,
     className: PropTypes.string,
+    customize: PropTypes.shape({
+      backgroundColor: PropTypes.string.isRequired,
+      bulletColor: PropTypes.string.isRequired,
+      textPrimaryColor: PropTypes.string.isRequired,
+      textSecondaryColor: PropTypes.string.isRequired
+    }),
     disabled: PropTypes.bool,
     focus: PropTypes.string,
     name: PropTypes.string,
@@ -62,6 +68,7 @@ const Radio = React.createClass({
     const {
       borderless,
       className,
+      customize,
       focus,
       options,
       disabled,
@@ -76,6 +83,15 @@ const Radio = React.createClass({
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const singleOption = options.length === 1
+    const labelStyle = customize ? { color: customize.textPrimaryColor } : undefined
+    const descriptionStyle = customize ? { color: customize.textSecondaryColor } : undefined
+    const bulletStyle = customize
+      ? {
+        backgroundColor: customize.backgroundColor,
+        borderColor: customize.backgroundColor
+      }
+      : undefined
+    const checkmarkStyle = customize ? { backgroundColor: customize.bulletColor } : undefined
 
     return (
       <div
@@ -107,19 +123,27 @@ const Radio = React.createClass({
                 <div className={classNames(classes.optionHeaderInner)}>
                   {!singleOption && <div className={classNames(classes.optionLeft)}>
                     <div className={classNames(classes.optionWrapper)}>
-                      <div className={classNames(classes.optionBullet)} />
-                      <div className={classNames(classes.optionCheckmark)} />
+                      <div
+                        className={classNames(classes.optionBullet)}
+                        style={key === value ? bulletStyle : undefined}
+                      />
+                      <div
+                        className={classNames(classes.optionCheckmark)}
+                        style={key === value ? checkmarkStyle : undefined}
+                      />
                     </div>
                   </div>}
 
                   <div className={classNames(classes.optionRight)}>
                     <div
-                      className={classNames(classes.optionLabel)}>
+                      className={classNames(classes.optionLabel)}
+                      style={labelStyle}>
                       {label}
                     </div>
 
                     {description && <div
-                      className={classNames(classes.optionDescription)}>
+                      className={classNames(classes.optionDescription)}
+                      style={descriptionStyle}>
                       {description}
                     </div>}
                   </div>

@@ -139,6 +139,17 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
           </Paragraph.Secondary>,
           leftPad: true
         }]}
+      />,
+
+      'Dynamic styling': <Radio
+        customize={{
+          backgroundColor: '#660080',
+          bulletColor: '#00ce3e',
+          textPrimaryColor: 'green',
+          textSecondaryColor: 'red'
+        }}
+        name='radio-with-dynamic-styling'
+        options={options}
       />
     }
   }
