@@ -137,7 +137,6 @@ const Radio = React.createClass({
   }
 })
 
-
 export default compose(
   uncontrolled({
     prop: 'focus',
