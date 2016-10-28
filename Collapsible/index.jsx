@@ -12,7 +12,7 @@ export default class Collapsible extends Component {
   }
 
   componentDidMount () {
-    this.debouncedResizeHandler = debounce(this.onResize)
+    this.debouncedResizeHandler = debounce(() => this.onResize())
     window.addEventListener('resize', this.debouncedResizeHandler)
 
     this.updateHeight()
