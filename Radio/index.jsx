@@ -109,9 +109,11 @@ const Radio = React.createClass({
             key,
             label,
             description,
+            disabled: toExtractDisabled, // eslint-disable-line no-unused-vars
             aside,
             content,
-            leftPad
+            leftPad,
+            ...restOfProps
           } = option
 
           const disabled = allDisabled || option.disabled
@@ -138,7 +140,8 @@ const Radio = React.createClass({
                   'left-pad': leftPad && !singleOption,
                   'is-disabled': disabled
                 }
-              )}>
+              )}
+              {...restOfProps}>
               <div className={classNames(classes.optionHeader)}>
                 <div className={classNames(classes.optionHeaderInner)}>
                   {!singleOption && <div className={classNames(classes.optionLeft)}>
