@@ -52,7 +52,7 @@ const optionsWithContent = [
   {
     key: 'ipsum',
     label: 'Ipsum',
-    description: "Dummy text ever since the 1500s.",
+    description: 'Dummy text ever since the 1500s.',
     content: <div>
       <Subtitle>Choose your destiny</Subtitle>
 
