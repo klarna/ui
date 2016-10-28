@@ -73,7 +73,7 @@ const Radio = React.createClass({
       customize,
       focus,
       options,
-      disabled,
+      disabled: allDisabled,
       name,
       onBlur,
       onChange,
@@ -100,14 +100,24 @@ const Radio = React.createClass({
       <div
         className={classNames(baseClass, {
           borderless,
-          'is-disabled': disabled,
           'is-focused': focus != null
         }, className)}
         style={baseStyle}
         {...remainingProps}>
-        {
-          options.map(({key, label, description, aside, content, leftPad}) => [
-            <input
+        {options.map((option) => {
+          const {
+            key,
+            label,
+            description,
+            aside,
+            content,
+            leftPad
+          } = option
+
+          const disabled = allDisabled || option.disabled
+
+          return [
+            !disabled && <input
               className={classNames(classes.optionInput)}
               id={`${name}-${key}`}
               name={name}
@@ -121,8 +131,14 @@ const Radio = React.createClass({
             />,
             <label
               htmlFor={`${name}-${key}`}
-              className={classNames(classes.option, { 'is-focused': focus === key, 'left-pad': leftPad && !singleOption })}>
-
+              className={classNames(
+                classes.option,
+                {
+                  'is-focused': !disabled && focus === key,
+                  'left-pad': leftPad && !singleOption,
+                  'is-disabled': disabled
+                }
+              )}>
               <div className={classNames(classes.optionHeader)}>
                 <div className={classNames(classes.optionHeaderInner)}>
                   {!singleOption && <div className={classNames(classes.optionLeft)}>
@@ -160,14 +176,14 @@ const Radio = React.createClass({
               </div>
 
               {content && <Collapsible
-                collapsed={!singleOption && key !== value}>
+                collapsed={disabled || !singleOption && key !== value}>
                 <div className={classNames(classes.optionContent)}>
                   {content}
                 </div>
               </Collapsible>}
             </label>
-          ])
-        }
+          ]
+        })}
       </div>
     )
   }

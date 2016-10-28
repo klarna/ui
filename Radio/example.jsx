@@ -119,6 +119,17 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
         defaultValue='lorem'
       />,
 
+      'One field disabled': <Radio
+        autoFocus={false}
+        onChange={(key) => console.log(key)}
+        name='radio-one-disabled'
+        options={[
+          ...optionsWithContent.slice(0, 2),
+          {...optionsWithContent[2], disabled: true}
+        ]}
+        defaultValue='lorem'
+      />,
+
       'Borderless and disabled': <Radio
         borderless
         disabled

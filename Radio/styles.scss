@@ -19,17 +19,6 @@
     padding-bottom: $grid * .2;
     padding-top: $grid * .2;
   }
-
-  &.is-disabled {
-    background: #fafafa;
-    color: map-get($colors, grey-lines);
-    cursor: default;
-    pointer-events: none;
-
-    &:hover {
-      border-color: $border-color;
-    }
-  }
 }
 
 .radio__option__content {
@@ -65,6 +54,13 @@
     border-bottom: none;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
+  }
+
+  &.is-disabled {
+    background: #fafafa;
+    color: map-get($colors, grey-lines);
+    cursor: default;
+    pointer-events: none;
   }
 
   .borderless & {
