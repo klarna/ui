@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Motion, spring} from 'react-motion'
+import debounce from '../lib/debounce'
 
 export default class Collapsible extends Component {
   constructor () {
@@ -11,21 +12,27 @@ export default class Collapsible extends Component {
   }
 
   componentDidMount () {
-    this.setState({
-      height: getHeight(this.content)
-    })
+    this.debouncedResizeHandler = debounce(this.onResize)
+    window.addEventListener('resize', this.debouncedResizeHandler)
 
-    window.addEventListener('resize', () => {
-      const height = getHeight(this.content)
+    this.updateHeight()
+  }
 
-      if (this.state.height !== height) {
-        this.setState({ height })
-      }
-    })
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.debouncedResizeHandler)
   }
 
   componentDidUpdate () {
+    this.updateHeight()
+  }
+
+  onResize () {
+    this.updateHeight()
+  }
+
+  updateHeight () {
     const height = getHeight(this.content)
+
     if (this.state.height !== height) {
       this.setState({ height })
     }
