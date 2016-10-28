@@ -45,7 +45,7 @@
 }
 
 .radio__option {
-  border-bottom: ($grid * .2) solid $border-color-inner;
+  border-bottom: ($grid * .2) solid map-get($colors, grey-selector-lines);
   cursor: pointer;
   display: block;
   margin-top: ($grid * -.2);
