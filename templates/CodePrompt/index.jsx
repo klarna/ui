@@ -2,6 +2,8 @@ import React from 'react'
 import Centered from '../chromes/Centered'
 import Field from '../../Field'
 import * as Paragraph from '../../Paragraph'
+import Cancel from '../../icons/Cancel'
+import Loader from '../../Loader'
 import compose from '../../lib/compose'
 import uncontrolled from '../../decorators/uncontrolled'
 import classNamesBind from 'classnames/bind'
@@ -21,7 +23,9 @@ function CodePrompt ({
   focus,
   loading,
   message,
+  onBlur,
   onChange,
+  onFocus,
   summary,
   styles,
   title,
@@ -36,20 +40,29 @@ function CodePrompt ({
     <Field
       className={classNames(classes.field)}
       focus={focus}
+      onBlur={onBlur}
       onChange={onChange}
+      onFocus={onFocus}
       value={value}
       label='Temporary label'
       error={!!error}
     />
     {error && <Paragraph.Primary
       className={classNames(classes.error)}
-      color='red'>
-      Error: {error}
+      color='error'>
+      <Cancel color='error' style={{position: 'relative', top: '5px'}} /> {error}
     </Paragraph.Primary>}
 
     {loading && <Paragraph.Primary
       className={classNames(classes.loading)}>
-      Loading: {loading}
+      <Loader
+        size='small'
+        style={{
+          display: 'inline-block',
+          position: 'relative',
+          top: '2px'
+        }}
+      /> {loading}
     </Paragraph.Primary>}
 
     {message && <Paragraph.Primary
@@ -64,7 +77,7 @@ export default compose(
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlerName: 'onFocus',
-    handlerSelector: (x) => x,
+    handlerSelector: () => true,
     resetHandlerName: 'onBlur'
   }),
   uncontrolled({

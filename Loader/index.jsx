@@ -30,7 +30,14 @@ const gradients = [
   {x1: '0', y1: '0', x2: '1', y2: '1'}
 ]
 
-export default function Loader ({ className, color, inline, size, styles }) {
+export default function Loader ({
+  className,
+  color,
+  inline,
+  size,
+  styles,
+  ...props
+}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const _color = Array.isArray(color) ? color : colors[color] || colors.default
@@ -46,7 +53,8 @@ export default function Loader ({ className, color, inline, size, styles }) {
       width={_size}
       height={_size}
       className={classNames(baseClass, {inline}, className)}
-      viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}>
+      viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}
+      {...props}>
       <defs>
         {
           gradients.map((props, index) => (
