@@ -109,14 +109,14 @@ const Radio = React.createClass({
             key,
             label,
             description,
-            disabled: toExtractDisabled, // eslint-disable-line no-unused-vars
+            disabled,
             aside,
             content,
             leftPad,
             ...restOfProps
           } = option
 
-          const disabled = allDisabled || option.disabled
+          const isDisabled = allDisabled || disabled
 
           return [
             !disabled && <input
@@ -136,9 +136,9 @@ const Radio = React.createClass({
               className={classNames(
                 classes.option,
                 {
-                  'is-focused': !disabled && focus === key,
+                  'is-focused': !isDisabled && focus === key,
                   'left-pad': leftPad && !singleOption,
-                  'is-disabled': disabled
+                  'is-disabled': isDisabled
                 }
               )}
               {...restOfProps}>
@@ -179,7 +179,7 @@ const Radio = React.createClass({
               </div>
 
               {content && <Collapsible
-                collapsed={disabled || !singleOption && key !== value}>
+                collapsed={isDisabled || !singleOption && key !== value}>
                 <div className={classNames(classes.optionContent)}>
                   {content}
                 </div>
