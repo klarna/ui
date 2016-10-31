@@ -14,7 +14,7 @@ const options = [
 ]
 
 const card = <svg width='32px' height='22px' viewBox='0 0 32 22'>
-  <g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+  <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
     <rect fill='#0074C8' x='0' y='0' width='32' height='22' rx='2' />
     <polygon fill='#E5E5E6' points='23 7 27 15 19 15' />
   </g>
