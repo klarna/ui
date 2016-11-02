@@ -30,7 +30,7 @@ const overridable = (styles = {}, designName) => (Target) => {
       }
     },
     render () {
-      const { design, ...otherProps } = this.props
+      const { design, ...otherProps } = this.props // eslint-disable-line
       const props = { ...otherProps, styles: this.styles }
       return <this.Component { ...props } />
     }
