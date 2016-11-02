@@ -92,7 +92,7 @@ const Installments = React.createClass({
       this.refs[this.props.focus].focus()
     }
 
-    this.debouncedResizeHandler = debounce(this.onResize)
+    this.debouncedResizeHandler = debounce(() => this.onResize())
     window.addEventListener('resize', this.debouncedResizeHandler)
     this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
   },
