@@ -24,6 +24,30 @@ export default {
           </List.Item>
         </List.Unordered>,
 
+        Condensed: <List.Unordered>
+          <List.Item condensed>
+            Is this the real life?
+          </List.Item>
+          <List.Item condensed>
+            Is this just fantasy
+          </List.Item>
+          <List.Item condensed>
+            Open your eyes
+          </List.Item>
+        </List.Unordered>,
+
+        Secondary: <List.Unordered>
+          <List.Item secondary >
+            Is this the real life?
+          </List.Item>
+          <List.Item secondary >
+            Is this just fantasy
+          </List.Item>
+          <List.Item secondary >
+            Open your eyes
+          </List.Item>
+        </List.Unordered>,
+
         Color: [
           <List.Unordered key={1}>
             <List.Item color='blue'>
@@ -63,12 +87,48 @@ export default {
           </List.Item>
           <List.Item>
             Did gyre and gimble in the wabe;
+            <List.Ordered>
+              <List.Item>
+                All mimsy were the borogoves,
+              </List.Item>
+              <List.Item>
+                And the mome raths outgrabe.
+              </List.Item>
+              <List.Item>
+                Did gyre and gimble in the wabe;
+                <List.Ordered>
+                  <List.Item>
+                    All mimsy were the borogoves,
+                  </List.Item>
+                  <List.Item>
+                    And the mome raths outgrabe.
+                  </List.Item>
+                </List.Ordered>
+              </List.Item>
+            </List.Ordered>
           </List.Item>
           <List.Item>
-            All mimsy were the borogoves,
+            'Twas brillig, and the slithy toves
           </List.Item>
-          <List.Item>
-            And the mome raths outgrabe.
+        </List.Ordered>,
+
+        secondary: <List.Ordered>
+          <List.Item secondary>
+            'Twas brillig, and the slithy toves
+          </List.Item>
+          <List.Item secondary>
+            Did gyre and gimble in the wabe;
+            <List.Ordered>
+              <List.Item secondary>
+                All mimsy were the borogoves,
+              </List.Item>
+              <List.Item secondary>
+                And the mome raths outgrabe.
+              </List.Item>
+            </List.Ordered>
+          </List.Item>
+          <List.Item secondary>
+            'Twas brillig, and the slithy toves
           </List.Item>
         </List.Ordered>,
 
