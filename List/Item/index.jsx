@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
+import compose from '../../lib/compose'
 import defaultStyles from '../styles.scss'
 
 const baseClass = 'list__item'
@@ -32,9 +34,12 @@ Item.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Item, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_text
-  }
-}))
+export default compose(
+  themeable((customizations, props) => ({
+    style: {
+      ...props.style,
+      color: customizations.color_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Item)
