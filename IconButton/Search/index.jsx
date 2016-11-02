@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
+import compose from '../../lib/compose'
 import defaultStyles from '../styles.scss'
 
 const classes = {
@@ -39,6 +41,7 @@ Search.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Search, () => ({
-  color: 'gray'
-}))
+export default compose(
+  themeable(() => ({ color: 'gray' })),
+  overridable(defaultStyles)
+)(Search)
