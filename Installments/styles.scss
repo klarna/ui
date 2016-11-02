@@ -93,7 +93,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     }
   }
 
-  .installments__cell:hover,
+  .installments__cell.is-hovered,
   .installments__cell.is-focused {
     color: map-get($colors, klarna-blue);
   }

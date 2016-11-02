@@ -219,6 +219,7 @@ const Installments = React.createClass({
               classes.cell,
               { 'is-focused': focus === key },
               { 'is-selected': key === selected },
+              { 'is-hovered': id === this.state.hover },
               { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
               { 'is-previously-selected': key === previouslySelected },
               { 'is-after-previously-selected': (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
@@ -228,6 +229,9 @@ const Installments = React.createClass({
               : undefined}
             onMouseEnter={() => onCellMouseEnter(this)(id)}
             onMouseLeave={() => onCellMouseLeave(this)(id)}
+            onClick={() => onCellClick(this)(id)}
+            onTouchStart={() => onCellTouchStart(this)(id)}
+            onTouchMove={() => onCellTouchMove(this)(id)}
             ref={`${key}-label`}>
             <input
               className={classNames(classes.input)}
@@ -262,12 +266,15 @@ const Installments = React.createClass({
   }
 })
 
-const onCellMouseEnter = (component) => (id) => {
-  component.setState({ hover: id })
-}
+const hoverStartHandler = (component) => (id) => component.setState({ hover: id })
+const hoverEndHandler = (component) => () => component.setState({hover: undefined})
 
-const onCellMouseLeave = (component) => () =>
-  component.setState({ hover: undefined })
+const onCellTouchStart = hoverStartHandler
+const onCellMouseEnter = hoverStartHandler
+
+const onCellTouchMove = hoverEndHandler
+const onCellMouseLeave = hoverEndHandler
+const onCellClick = hoverEndHandler
 
 const cellDynamicStyles = ({ borderColor, borderColorSelected, labelColor }, hovered) =>
   hovered
