@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import themeable from '../decorators/themeable'
+import overridable from '../decorators/overridable'
 import defaultStyles from './styles.scss'
 import debounce from '../lib/debounce'
+import compose from '../lib/compose'
 
 const baseClass = 'installments'
 const TRANSITION_DURATION = 500
@@ -281,12 +283,15 @@ const cellDynamicStyles = ({ borderColor, borderColorSelected, labelColor }, hov
     ? { borderColor, color: borderColorSelected }
     : { borderColor, color: labelColor }
 
-export default themeable(Installments, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    borderColor: customizations.color_border,
-    borderColorSelected: customizations.color_border_selected,
-    borderRadius: customizations.radius_border,
-    labelColor: customizations.color_text
-  }
-}))
+export default compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderColor: customizations.color_border,
+      borderColorSelected: customizations.color_border_selected,
+      borderRadius: customizations.radius_border,
+      labelColor: customizations.color_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Installments)
