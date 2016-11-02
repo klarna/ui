@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
+import compose from '../../lib/compose'
 
 const baseClass = 'title--primary'
 
@@ -57,9 +59,12 @@ Primary.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Primary, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_header
-  }
-}))
+export default compose(
+  themeable((customizations, props) => ({
+    style: {
+      ...props.style,
+      color: customizations.color_header
+    }
+  })),
+  overridable(defaultStyles)
+)(Primary)

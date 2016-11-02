@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
+import compose from '../../lib/compose'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'switch'
@@ -235,11 +237,14 @@ const Toggle = React.createClass({
   }
 })
 
-export default themeable(Toggle, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    backgroundColor: customizations.color_checkbox,
-    bulletColor: customizations.color_checkbox_checkmark,
-    textColor: customizations.color_text
-  }
-}))
+export default compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      backgroundColor: customizations.color_checkbox,
+      bulletColor: customizations.color_checkbox_checkmark,
+      textColor: customizations.color_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Toggle)
