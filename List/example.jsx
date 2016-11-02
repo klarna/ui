@@ -24,6 +24,18 @@ export default {
           </List.Item>
         </List.Unordered>,
 
+        Condensed: <List.Unordered>
+          <List.Item condensed>
+            Is this the real life?
+          </List.Item>
+          <List.Item condensed>
+            Is this just fantasy
+          </List.Item>
+          <List.Item condensed>
+            Open your eyes
+          </List.Item>
+        </List.Unordered>,
+
         Color: [
           <List.Unordered key={1}>
             <List.Item color='blue'>
