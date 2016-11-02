@@ -30,7 +30,8 @@ const overridable = (styles = {}, designName) => (Target) => {
       }
     },
     render () {
-      const props = { ...this.props, styles: this.styles }
+      const { design, ...otherProps } = this.props
+      const props = { ...otherProps, styles: this.styles }
       return <this.Component { ...props } />
     }
   })
