@@ -75,4 +75,8 @@
       top: ($grid * 1.6);
     }
   }
+
+  &.secondary {
+    color: map-get($colors, grey-text);
+  }
 }
