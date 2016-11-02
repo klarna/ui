@@ -12,7 +12,7 @@ export default {
     examples: {
       Regular: <SegmentedField
         onChange={(value) => console.log(value)}
-        defaultValue='312234'
+        defaultValue='3134'
       />,
 
       Regular2: <SegmentedField
