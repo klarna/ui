@@ -6,7 +6,7 @@ const overridable = (styles = {}, designName) => (Target) => {
     constructor (props) {
       super(props)
 
-      this.designName = designName ||  Target.displayName || Target.name
+      this.designName = designName || Target.displayName || Target.name
       this.Component = Target
     }
     componentWillMount () {
@@ -33,7 +33,7 @@ const overridable = (styles = {}, designName) => (Target) => {
     }
   }
 
-  OverridableComponent.displayName = `overridable(${Target.displayName || Target.name})`,
+  OverridableComponent.displayName = `overridable(${Target.displayName || Target.name})`
   OverridableComponent.defaultProps = {
     design: {},
     styles: {}
