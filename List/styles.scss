@@ -19,6 +19,24 @@
   & > .list__item > .list__item__bullet--unordered {
     display: none;
   }
+
+  & .list--ordered {
+    counter-reset: list__alpha;
+
+    & > .list__item::before {
+      content: counter(list__alpha, lower-alpha) ".";
+      counter-increment: list__alpha;
+    }
+
+    & .list--ordered {
+      counter-reset: list__roman;
+
+      & > .list__item::before {
+        content: counter(list__roman, lower-roman) ".";
+        counter-increment: list__roman;
+      }
+    }
+  }
 }
 
 .list--unordered {
