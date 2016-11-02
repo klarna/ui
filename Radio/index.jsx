@@ -192,23 +192,21 @@ const Radio = React.createClass({
   }
 })
 
-export default themeable(
-  compose(
-    uncontrolled({
-      prop: 'focus',
-      defaultProp: 'autoFocus',
-      handlerName: 'onFocus',
-      handlerSelector: (x) => x,
-      resetHandlerName: 'onBlur'
-    }),
-    uncontrolled({
-      prop: 'value',
-      defaultProp: 'defaultValue',
-      handlerName: 'onChange',
-      handlerSelector: (x) => x
-    })
-  )(Radio),
-  (customizations, props) => ({
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: (x) => x,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (x) => x
+  }),
+  themeable((customizations, props) => ({
     customize: {
       ...props.customize,
       backgroundColor: customizations.color_checkbox,
@@ -217,5 +215,5 @@ export default themeable(
       textPrimaryColor: customizations.color_text,
       textSecondaryColor: customizations.color_text_secondary
     }
-  })
-)
+  }))
+)(Radio)

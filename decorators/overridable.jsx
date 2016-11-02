@@ -33,7 +33,7 @@ const overridable = (styles = {}, designName) => (Target) => {
     }
   }
 
-  OverridableComponent.displayName = `overridable(${Target.displayName || Target.name})`
+  OverridableComponent.displayName = Target.displayName || Target.name
   OverridableComponent.defaultProps = {
     design: {},
     styles: {}
