@@ -9,11 +9,11 @@ const classes = {
   bulletUnordered: `${baseClass}__bullet--unordered`
 }
 
-function Item ({className, children, color, styles, ...props}) {
+function Item ({className, children, color, condensed, secondary, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
-    <li className={classNames(baseClass, color, className)} {...props}>
+    <li className={classNames(baseClass, color, { condensed }, { secondary }, className)} {...props}>
       <div className={classNames(classes.bulletUnordered)} />
       {children}
     </li>
@@ -26,6 +26,8 @@ Item.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   color: PropTypes.string,
+  condensed: PropTypes.bool,
+  secondary: PropTypes.bool,
   style: PropTypes.object,
   styles: PropTypes.object
 }
