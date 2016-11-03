@@ -1,7 +1,7 @@
 import React from 'react'
 import { withPropsFromContext } from 'react-context-props'
 
-const themeable = (Target, adapter) => {
+const themeable = (adapter) => (Target) => {
   const ThemeableComponent = withPropsFromContext(
     ({ customizations, ...props }) => (
       <Target
