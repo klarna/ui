@@ -1,7 +1,7 @@
 @import '../../css/settings';
 @import '../../css/mixins/index';
 
-.segmented-field__input {
+.field-code {
   @include typography(map-get($font-sizes, segmented-field), semi-bold);
 
   border: ($grid * .2) solid map-get($colors, grey-lines);

@@ -4,9 +4,9 @@ import uncontrolled from 'decorators/uncontrolled'
 import compose from 'lib/compose'
 import defaultStyles from './styles.scss'
 
-const baseClass = 'segmented-field'
+const baseClass = 'field-code'
 
-function SegmentedField ({
+function PinCode ({
   className,
   length,
   onChange,
@@ -26,18 +26,20 @@ function SegmentedField ({
   />
 }
 
-SegmentedField.defaultProps = {
+PinCode.defaultProps = {
   length: 6,
   styles: {},
   value: ''
 }
 
-SegmentedField.propTypes = {
+PinCode.propTypes = {
   length: PropTypes.number,
   onChange: PropTypes.func,
   styles: PropTypes.object,
   value: PropTypes.string
 }
+
+PinCode.displayName = 'Field.PinCode'
 
 export default compose(
   uncontrolled({
@@ -46,4 +48,4 @@ export default compose(
     handlerName: 'onChange',
     handlerSelector: (e) => e.target.value
   })
-)(SegmentedField)
+)(PinCode)
