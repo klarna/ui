@@ -19,7 +19,6 @@ const classes = {
   loadingLoader: `${baseClass}__loading__loader`,
   loadingParagraph: `${baseClass}__loading__paragraph`,
   field: `${baseClass}__field`,
-  loading: `${baseClass}__loading`,
   message: `${baseClass}__message`
 }
 

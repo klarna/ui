@@ -3,7 +3,6 @@ import CenteredForm from '../CenteredForm'
 import SingleInputPrompt from '../SingleInputPrompt'
 import CodePrompt from '../CodePrompt'
 import Link from '../../Link'
-import Wrapper from '../Wrapper'
 import DemoIcon from './DemoIcon'
 import { TEMPLATE } from '../../Showroom/variationTypes'
 
@@ -159,13 +158,13 @@ export default {
         },
 
         'Loading': {
-          inline: <Wrapper><CodePrompt
+          inline: <CodePrompt
             defaultValue='123'
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
             loading='Spell in progress'
-          /></Wrapper>
+          />
         }
       }
     }
