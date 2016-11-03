@@ -7,24 +7,21 @@ const overridable = (styles = {}, designName) => (Target) => {
       super(props)
 
       this.designName = designName || Target.displayName || Target.name
-      this.Component = Target
-    }
-    componentWillMount () {
       this.styles = { ...styles, ...this.props.styles }
-      this.getAndSetOverride()
-    }
-    componentWillUpdate () {
-      this.getAndSetOverride()
     }
     getAndSetOverride () {
-      if (!this.props.design.getOverrideFor) {
-        return
-      }
       const override = this.props.design.getOverrideFor(
         Object.assign(Target, { designName: this.designName })
       )
-      this.Component = override.Component
+      this.Component = override.Component || Target
       this.styles = { ...this.styles, ...override.css }
+    }
+    componentWillMount () {
+      this.getAndSetOverride()
+    }
+    componentWillUpdate () {
+      this.styles = { ...this.styles, ...this.props.styles }
+      this.getAndSetOverride()
     }
     render () {
       const { design, ...otherProps } = this.props // eslint-disable-line
@@ -35,7 +32,9 @@ const overridable = (styles = {}, designName) => (Target) => {
 
   OverridableComponent.displayName = Target.displayName || Target.name
   OverridableComponent.defaultProps = {
-    design: {},
+    design: {
+      getOverrideFor: () => ({})
+    },
     styles: {}
   }
 
