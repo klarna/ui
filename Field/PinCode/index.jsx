@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
-import uncontrolled from 'decorators/uncontrolled'
-import compose from 'lib/compose'
+import uncontrolled from '../../decorators/uncontrolled'
+import compose from '../../lib/compose'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'field-code'

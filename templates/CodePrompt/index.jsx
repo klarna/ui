@@ -1,8 +1,8 @@
 import React from 'react'
 import Centered from '../chromes/Centered'
-import Field from '../../Field'
+import * as Field from '../../Field'
 import * as Paragraph from '../../Paragraph'
-import Cancel from '../../icons/Cancel'
+import Cross from '../../icons/Cross'
 import Loader from '../../Loader'
 import compose from '../../lib/compose'
 import uncontrolled from '../../decorators/uncontrolled'
@@ -13,6 +13,7 @@ const baseClass = 'code-prompt'
 
 const classes = {
   error: `${baseClass}__error`,
+  errorIcon: `${baseClass}__error__icon`,
   field: `${baseClass}__field`,
   loading: `${baseClass}__loading`,
   message: `${baseClass}__message`
@@ -20,12 +21,9 @@ const classes = {
 
 function CodePrompt ({
   error,
-  focus,
   loading,
   message,
-  onBlur,
   onChange,
-  onFocus,
   summary,
   styles,
   title,
@@ -37,23 +35,24 @@ function CodePrompt ({
   return <Centered
     labels={{summary, title}}
     {...props}>
-    <Field
+    <Field.PinCode
       className={classNames(classes.field)}
-      focus={focus}
-      onBlur={onBlur}
       onChange={onChange}
-      onFocus={onFocus}
       value={value}
       label='Temporary label'
       error={!!error}
     />
+
     {error && <Paragraph.Primary
       className={classNames(classes.error)}
       color='error'>
-      <Cancel color='error' style={{position: 'relative', top: '5px'}} /> {error}
+      <Cross
+        color='error'
+        className={classNames(classes.errorIcon)}
+      /> {error}
     </Paragraph.Primary>}
 
-    {loading && <Paragraph.Primary
+    {loading && <Paragraph.Secondary
       className={classNames(classes.loading)}>
       <Loader
         size='small'
@@ -63,23 +62,16 @@ function CodePrompt ({
           top: '2px'
         }}
       /> {loading}
-    </Paragraph.Primary>}
+    </Paragraph.Secondary>}
 
-    {message && <Paragraph.Primary
+    {message && <Paragraph.Secondary
       className={classNames(classes.message)}>
       {message}
-    </Paragraph.Primary>}
+    </Paragraph.Secondary>}
   </Centered>
 }
 
 export default compose(
-  uncontrolled({
-    prop: 'focus',
-    defaultProp: 'autoFocus',
-    handlerName: 'onFocus',
-    handlerSelector: () => true,
-    resetHandlerName: 'onBlur'
-  }),
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
