@@ -8,7 +8,6 @@ import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import compose from '../lib/compose'
 import MouseflowExclude from '../MouseflowExclude'
-import compose from '../lib/compose'
 
 import themeable from '../decorators/themeable'
 import uncontrolled from '../decorators/uncontrolled'

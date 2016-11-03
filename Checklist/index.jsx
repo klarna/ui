@@ -51,12 +51,8 @@ export const Main = compose(
       borderColor: customizations.color_border,
       borderRadius: customizations.radius_border
     }
-<<<<<<< HEAD
-  }))
-=======
   })),
   overridable(defaultStyles)
->>>>>>> master
 )(ChecklistMain)
 
 function ChecklistItem ({ className, children, customize, styles }) {

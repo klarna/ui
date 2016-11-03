@@ -5,8 +5,6 @@ import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 import compose from '../../lib/compose'
 
-import themeable from '../../decorators/themeable'
-
 const baseClass = 'list__item'
 
 const classes = {
