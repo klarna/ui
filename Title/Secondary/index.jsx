@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 import compose from '../../lib/compose'
-
-import themeable from '../../decorators/themeable'
 
 const baseClass = 'title--secondary'
 
@@ -61,5 +61,6 @@ export default compose(
       ...props.style,
       color: customizations.color_header
     }
-  }))
+  })),
+  overridable(defaultStyles)
 )(Secondary)

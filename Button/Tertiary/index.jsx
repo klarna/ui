@@ -2,12 +2,12 @@ import React, { PropTypes } from 'react'
 import Loader from '../../Loader'
 import Price from '../Price'
 import classNamesBind from 'classnames/bind'
+import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import contains from '../../lib/contains'
 import compose from '../../lib/compose'
-import defaultStyles from '../styles.scss'
-
 import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
 
 const baseClass = 'button'
 
@@ -127,5 +127,6 @@ export default compose(
       borderRadius: customizations.radius_border,
       textColor: customizations.color_button_text
     }
-  }))
+  })),
+  overridable(defaultStyles)
 )(Tertiary)

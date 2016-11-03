@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
-import compose from '../../lib/compose'
-
 import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
+import compose from '../../lib/compose'
 
 const baseClass = 'switch--checkbox'
 
@@ -11,7 +11,6 @@ const classes = {
   bullet: `${baseClass}__bullet`,
   bulletCheckmark: `${baseClass}__bullet__checkmark`,
   bulletCheckmarkStroke: `${baseClass}__bullet__checkmark__stroke`,
-  bulletToggle: `${baseClass}__bullet__toggle`,
   label: `${baseClass}__label`,
   input: `${baseClass}__input`
 }
@@ -140,12 +139,6 @@ const Checkbox = React.createClass({
             borderColor: focus && customize.borderColorSelected,
             boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
           })}></div>
-        <div
-          className={classNames(classes.bulletToggle)}
-          style={customize ? {
-            backgroundColor: customize.bulletColor
-          } : undefined}
-        />
         <svg
           className={classNames(classes.bulletCheckmark)}
           width='14px'
@@ -177,5 +170,6 @@ export default compose(
       textColor: customizations.color_text,
       borderColorSelected: customizations.color_border_selected
     }
-  }))
+  })),
+  overridable(defaultStyles)
 )(Checkbox)

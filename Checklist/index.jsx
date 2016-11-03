@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
-import compose from '../lib/compose'
-
 import themeable from '../decorators/themeable'
+import overridable from '../decorators/overridable'
+import compose from '../lib/compose'
 
 const baseClass = 'checklist'
 
@@ -51,7 +51,12 @@ export const Main = compose(
       borderColor: customizations.color_border,
       borderRadius: customizations.radius_border
     }
+<<<<<<< HEAD
   }))
+=======
+  })),
+  overridable(defaultStyles)
+>>>>>>> master
 )(ChecklistMain)
 
 function ChecklistItem ({ className, children, customize, styles }) {
@@ -98,5 +103,6 @@ export const Item = compose(
       strokeColor: customizations.color_details,
       textColor: customizations.color_text
     }
-  }))
+  })),
+  overridable(defaultStyles)
 )(ChecklistItem)

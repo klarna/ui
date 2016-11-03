@@ -6,10 +6,12 @@ import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
+import compose from '../lib/compose'
 import MouseflowExclude from '../MouseflowExclude'
 import compose from '../lib/compose'
 
 import themeable from '../decorators/themeable'
+import overridable from '../decorators/overridable'
 
 const baseClass = 'dropdown'
 
@@ -237,5 +239,6 @@ export default compose(
       labelColor: customizations.color_text_secondary,
       selectedColor: customizations.color_text
     }
-  }))
+  })),
+  overridable(defaultStyles)
 )(Dropdown)

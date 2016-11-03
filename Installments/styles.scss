@@ -1,13 +1,15 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
+$transition-duration: 500ms;
+$highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
+
 .installments {
-  box-sizing: border-box;
   border: ($grid * .2) solid $border-color;
   border-radius: 5px;
-  min-width: ($grid * 56);
-  position: relative;
+  box-sizing: border-box;
   display: block;
+  position: relative;
   width: 100%;
 
   &:after {
@@ -17,8 +19,8 @@
   }
 
   @include respond-to-wide {
-    height: ($grid * 15);
     display: table;
+    height: ($grid * 15);
     table-layout: fixed;
   }
 
@@ -39,25 +41,34 @@
   }
 
   .installments__cell {
-    box-sizing: border-box;
-    display: block;
-    position: relative;
-    cursor: pointer;
-    color: map-get($colors, black);
-    border-top: ($grid * .2) solid $border-color;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    border-top: ($grid * .2) solid $border-color;
+    box-sizing: border-box;
+    color: map-get($colors, black);
+    cursor: pointer;
+    display: block;
+    padding-left: $grid * 0.4;
+    padding-right: $grid * 0.4;
+    position: relative;
+    transition: border 0ms $transition-duration;
 
     &:first-of-type {
       border-top-width: 0px;
     }
 
+    &.is-previously-selected,
+    &.is-after-previously-selected {
+      transition: border 0ms;
+    }
+
+
     @include respond-to-wide {
-      display: table-cell;
-      text-align: center;
-      vertical-align: middle;
-      height: 100%;
       border-left: ($grid * .2) solid $border-color;
       border-top: 0;
+      display: table-cell;
+      height: 100%;
+      text-align: center;
+      vertical-align: middle;
 
       &:first-of-type {
         border-left-width: 0px;
@@ -69,8 +80,8 @@
     @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    display: block;
     cursor: pointer;
+    display: block;
     line-height: ($grid * 8) - ($grid * .4);
     padding-left: ($grid * 4);
 
@@ -82,7 +93,7 @@
     }
   }
 
-  .installments__cell:hover,
+  .installments__cell.is-hovered,
   .installments__cell.is-focused {
     color: map-get($colors, klarna-blue);
   }
@@ -96,25 +107,25 @@
   }
 
   .installments__cell__highlight {
-    display: none;
+    border: ($grid * .4) solid map-get($colors, klarna-blue);
+    border-radius: 5px;
     box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    left: -1px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: -1px;
+    z-index: 5;
 
     @include respond-to-wide {
       height: ($grid * 15);
     }
-  }
 
-  .installments__input:checked ~
-  .installments__cell__highlight {
-    border: ($grid * .4) solid map-get($colors, klarna-blue);
-    border-radius: 5px;
-    bottom: -1px;
-    display: block;
-    left: -1px;
-    position: absolute;
-    right: -1px;
-    top: -1px;
-    z-index: 5;
+    &.has-position {
+      transition: transform $transition-duration $highlightTransitionEasing, height $transition-duration $highlightTransitionEasing, width $transition-duration $highlightTransitionEasing;
+    }
   }
 
   .is-after-selected {
