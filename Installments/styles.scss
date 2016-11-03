@@ -116,6 +116,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     position: absolute;
     top: -1px;
     z-index: 5;
+    pointer-events: none;
 
     @include respond-to-wide {
       height: ($grid * 15);
