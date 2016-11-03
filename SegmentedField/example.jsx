@@ -15,7 +15,7 @@ export default {
         defaultValue='3134'
       />,
 
-      Regular2: <SegmentedField
+      Controlled: <SegmentedField
         onChange={(value) => console.log(value)}
         value='312'
       />
