@@ -6,10 +6,28 @@
   margin-top: ($grid * 6);
 }
 
-.code-prompt__error {
-  padding-top: ($grid * 1);
+.code-prompt__error__icon {
+  display: inline-block;
+  margin-right: ($grid * 1);
+  position: relative;
+  top: ($grid * 1);
 }
 
-.code-prompt__error__icon {
+.code-prompt__error__paragraph {
+  display: inline-block;
+}
 
+.code-prompt__error + .code-prompt__message {
+  margin-top: ($grid * 3);
+}
+
+.code-prompt__loading__loader {
+  display: inline-block;
+  margin-right: ($grid * 1.8);
+  position: relative;
+  top: ($grid * .4);
+}
+
+.code-prompt__loading__paragraph {
+  display: inline-block;
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import CenteredForm from '../CenteredForm'
 import SingleInputPrompt from '../SingleInputPrompt'
 import CodePrompt from '../CodePrompt'
+import Link from '../../Link'
 import Wrapper from '../Wrapper'
 import DemoIcon from './DemoIcon'
 import { TEMPLATE } from '../../Showroom/variationTypes'
@@ -147,25 +148,24 @@ export default {
         },
 
         'With error': {
-          inline: <Wrapper>
-            <CodePrompt
-              defaultValue='123'
-              title='Enter the magic numbers'
-              summary='You know them. You’ve seen Lost too.'
-              onChange={(e) => console.log(e.target.value)}
-              error='It’s wingardium leviosa'
-            />
-          </Wrapper>
-        },
-
-        'Loading': {
           inline: <CodePrompt
             defaultValue='123'
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
-            loading='Spell in progress'
+            error='It’s wingardium leviosa'
+            message={<span><Link href='#'>Try spell again</Link></span>}
           />
+        },
+
+        'Loading': {
+          inline: <Wrapper><CodePrompt
+            defaultValue='123'
+            title='Enter the magic numbers'
+            summary='You know them. You’ve seen Lost too.'
+            onChange={(e) => console.log(e.target.value)}
+            loading='Spell in progress'
+          /></Wrapper>
         }
       }
     }

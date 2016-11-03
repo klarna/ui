@@ -14,10 +14,18 @@ const baseClass = 'code-prompt'
 const classes = {
   error: `${baseClass}__error`,
   errorIcon: `${baseClass}__error__icon`,
+  errorParagraph: `${baseClass}__error__paragraph`,
+  loading: `${baseClass}__loading`,
+  loadingLoader: `${baseClass}__loading__loader`,
+  loadingParagraph: `${baseClass}__loading__paragraph`,
   field: `${baseClass}__field`,
   loading: `${baseClass}__loading`,
   message: `${baseClass}__message`
 }
+
+const isNumber = (x) => x === '0' || x === '1' || x === '2' || x === '3' || x === '4' || x === '5' || x === '6' || x === '7' || x === '8' || x === '9'
+
+const all = (a, b) => a && b
 
 function CodePrompt ({
   error,
@@ -37,32 +45,37 @@ function CodePrompt ({
     {...props}>
     <Field.PinCode
       className={classNames(classes.field)}
-      onChange={onChange}
+      onChange={(e) => (
+        e.target.value === '' ||
+        e.target.value.split('').map(isNumber).reduce(all, true)
+      ) && onChange(e)}
       value={value}
       label='Temporary label'
       error={!!error}
     />
 
-    {error && <Paragraph.Primary
-      className={classNames(classes.error)}
-      color='error'>
+    {error && <div className={classNames(classes.error)}>
       <Cross
-        color='error'
         className={classNames(classes.errorIcon)}
-      /> {error}
-    </Paragraph.Primary>}
+        color='error'
+      />
+      <Paragraph.Primary
+        className={classNames(classes.errorParagraph)}
+        color='error'>
+        {error}
+      </Paragraph.Primary>
+    </div>}
 
-    {loading && <Paragraph.Secondary
-      className={classNames(classes.loading)}>
+    {loading && <div className={classNames(classes.loading)}>
       <Loader
+        className={classNames(classes.loadingLoader)}
         size='small'
-        style={{
-          display: 'inline-block',
-          position: 'relative',
-          top: '2px'
-        }}
-      /> {loading}
-    </Paragraph.Secondary>}
+      />
+      <Paragraph.Secondary
+        className={classNames(classes.loadingParagraph)}>
+        {loading}
+      </Paragraph.Secondary>
+    </div>}
 
     {message && <Paragraph.Secondary
       className={classNames(classes.message)}>
