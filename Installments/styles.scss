@@ -110,6 +110,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     border: ($grid * .4) solid map-get($colors, klarna-blue);
     border-radius: 5px;
     box-sizing: border-box;
+    cursor: pointer;
     display: block;
     left: -1px;
     opacity: 0;
