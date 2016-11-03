@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import uncontrolled from 'decorators/uncontrolled'
 import compose from 'lib/compose'

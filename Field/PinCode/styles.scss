@@ -18,9 +18,9 @@
   }
 
   &:focus {
-    outline: none;
     border-color: map-get($colors, blue-focus);
     box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
+    outline: none;
     z-index: 20;
   }
 }
