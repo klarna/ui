@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes, PureComponent} from 'react'
 import classNamesBind from 'classnames/bind'
 import uncontrolled from '../../decorators/uncontrolled'
 import compose from '../../lib/compose'
@@ -6,24 +6,52 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'field-code'
 
-function PinCode ({
-  className,
-  length,
-  onChange,
-  styles,
-  value,
-  ...props
-}) {
-  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+class PinCode extends PureComponent {
+  constructor () {
+    super()
 
-  return <input
-    className={classNames(baseClass, className)}
-    onChange={onChange}
-    maxLength={length}
-    type='tel'
-    value={value}
-    {...props}
-  />
+    this.state = {
+      hover: false,
+      focus: false
+    }
+  }
+
+  render () {
+    const {
+      className,
+      customize,
+      length,
+      onChange,
+      style,
+      styles,
+      value,
+      ...props
+    } = this.props
+    const {focus, hover} = this.state
+    const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+    const inputStyle = customize ? {
+      color: customize.inputColor,
+      borderColor: (hover || focus)
+        ? customize.borderColorSelected
+        : customize.borderColor,
+      borderRadius: customize.borderRadius,
+      boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+    } : style
+
+    return <input
+      className={classNames(baseClass, className)}
+      onBlur={() => this.setState({focus: false})}
+      onChange={onChange}
+      onFocus={() => this.setState({focus: true})}
+      onMouseEnter={() => this.setState({hover: true})}
+      onMouseLeave={() => this.setState({hover: false})}
+      maxLength={length}
+      style={inputStyle}
+      type='tel'
+      value={value}
+      {...props}
+    />
+  }
 }
 
 PinCode.defaultProps = {
@@ -33,6 +61,12 @@ PinCode.defaultProps = {
 }
 
 PinCode.propTypes = {
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string,
+    borderColorSelected: PropTypes.string,
+    borderRadius: PropTypes.string,
+    inputColor: PropTypes.string
+  }),
   length: PropTypes.number,
   onChange: PropTypes.func,
   styles: PropTypes.object,

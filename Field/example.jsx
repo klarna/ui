@@ -203,6 +203,16 @@ import Fieldset from '@klarna/ui/Fieldset'`,
         Controlled: <FieldVariation.PinCode
           onChange={(value) => console.log(value)}
           value='312'
+        />,
+
+        Customized: <FieldVariation.PinCode
+          customize={{
+            borderColor: 'red',
+            borderColorSelected: 'purple',
+            borderRadius: '10px',
+            inputColor: 'orange'
+          }}
+          defaultValue='1337'
         />
       }
     }
