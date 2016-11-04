@@ -1,6 +1,7 @@
 import React, {PropTypes, PureComponent} from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import overridable from '../../decorators/overridable'
 import uncontrolled from '../../decorators/uncontrolled'
 import themeable from '../../decorators/themeable'
 import compose from '../../lib/compose'
@@ -91,5 +92,6 @@ export default compose(
       borderRadius: customizations.radius_border,
       inputColor: customizations.color_text
     }
-  }))
+  })),
+  overridable(defaultStyles)
 )(PinCode)
