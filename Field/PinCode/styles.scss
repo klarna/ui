@@ -13,6 +13,24 @@
   transition: all .2s ease;
   width: 100%;
 
+  &::-webkit-input-placeholder {
+    // This should be the same color and font weight as .field__label.
+    bottom: ($grid * .6);
+    color: map-get($colors, grey-text);
+    font-weight: 400;
+    font-size: ($grid * 4);
+    position: relative;
+  }
+
+  &:-ms-input-placeholder {
+    // This should be the same color and font weight as .field__label.
+    bottom: ($grid * .6);
+    color: map-get($colors, grey-text);
+    font-weight: 400;
+    font-size: ($grid * 4);
+    position: relative;
+  }
+
   &:hover {
     border-color: map-get($colors, blue-hover);
   }

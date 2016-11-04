@@ -32,6 +32,7 @@ const isDigit = (x) => [
 function CodePrompt ({
   autoFocus,
   error,
+  label,
   loading,
   message,
   onChange,
@@ -54,7 +55,7 @@ function CodePrompt ({
         e.target.value.split('').map(isDigit).reduce(all, true)
       ) && onChange(e)}
       value={value}
-      label='Temporary label'
+      placeholder={label}
       error={!!error}
     />
 

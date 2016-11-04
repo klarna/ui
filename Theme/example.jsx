@@ -149,7 +149,10 @@ import * as List from '@klarna/ui/List'`,
         </div>
 
         <div style={{paddingTop: '20px'}}>
-          <FieldVariant.PinCode defaultValue='42' />
+          <FieldVariant.PinCode
+            placeholder='Enter code here'
+            defaultValue='42'
+          />
         </div>
 
         <div style={{paddingTop: '20px'}}>
