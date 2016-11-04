@@ -27,6 +27,7 @@ const isNumber = (x) => x === '0' || x === '1' || x === '2' || x === '3' || x ==
 const all = (a, b) => a && b
 
 function CodePrompt ({
+  autoFocus,
   error,
   loading,
   message,
@@ -43,6 +44,7 @@ function CodePrompt ({
     labels={{summary, title}}
     {...props}>
     <Field.PinCode
+      autoFocus={autoFocus}
       className={classNames(classes.field)}
       onChange={(e) => (
         e.target.value === '' ||
