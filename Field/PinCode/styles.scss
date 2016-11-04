@@ -1,0 +1,26 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.field-code {
+  @include typography(map-get($font-sizes, segmented-field), semi-bold);
+
+  border: ($grid * .2) solid map-get($colors, grey-lines);
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  display: block;
+  height: ($grid * 12);
+  text-align: center;
+  transition: all .2s ease;
+  width: 100%;
+
+  &:hover {
+    border-color: map-get($colors, blue-hover);
+  }
+
+  &:focus {
+    border-color: map-get($colors, blue-focus);
+    box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
+    outline: none;
+    z-index: 20;
+  }
+}

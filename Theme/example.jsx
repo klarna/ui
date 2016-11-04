@@ -5,6 +5,7 @@ import * as Button from '../Button'
 import * as Checklist from '../Checklist'
 import Dropdown from '../Dropdown'
 import Field from '../Field'
+import * as FieldVariant from '../Field'
 import Installments from '../Installments'
 import Link from '../Link'
 import * as Switch from '../Switch'
@@ -86,6 +87,7 @@ export default {
 import * as Button from '@klarna/ui/Button'
 import * as Checklist from '@klarna/ui/Checklist'
 import Dropdown from '@klarna/ui/Dropdown'
+import * as Field from '@klarna/ui/Field'
 import Field from '@klarna/ui/Field'
 import Installments from '@klarna/ui/Installments'
 import Link from '@klarna/ui/Link'
@@ -144,6 +146,10 @@ import * as List from '@klarna/ui/List'`,
           <Button.Secondary disabled style={{marginLeft: '20px'}}>
             Disabled
           </Button.Secondary>
+        </div>
+
+        <div style={{paddingTop: '20px'}}>
+          <FieldVariant.PinCode defaultValue='42' />
         </div>
 
         <div style={{paddingTop: '20px'}}>
