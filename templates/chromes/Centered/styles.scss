@@ -19,6 +19,10 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .chrome--centered__button--cancel {
