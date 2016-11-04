@@ -1,8 +1,9 @@
 import React, {PropTypes, PureComponent} from 'react'
 import classNamesBind from 'classnames/bind'
-import uncontrolled from '../../decorators/uncontrolled'
-import compose from '../../lib/compose'
 import defaultStyles from './styles.scss'
+import uncontrolled from '../../decorators/uncontrolled'
+import themeable from '../../decorators/themeable'
+import compose from '../../lib/compose'
 
 const baseClass = 'field-code'
 
@@ -81,5 +82,14 @@ export default compose(
     defaultProp: 'defaultValue',
     handlerName: 'onChange',
     handlerSelector: (e) => e.target.value
-  })
+  }),
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.style,
+      borderColor: customizations.color_border,
+      borderColorSelected: customizations.color_border_selected,
+      borderRadius: customizations.radius_border,
+      inputColor: customizations.color_text
+    }
+  }))
 )(PinCode)
