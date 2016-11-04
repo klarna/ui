@@ -4,6 +4,10 @@
 .code-prompt__field {
   margin-bottom: ($grid * 5);
   margin-top: ($grid * 6);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .code-prompt__error__icon {
