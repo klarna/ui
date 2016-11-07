@@ -226,6 +226,9 @@ import * as List from '@klarna/ui/List'`,
           <FocusableThemeableCheckbox value name='fries-3'>
             Would you like fries?
           </FocusableThemeableCheckbox>
+          <FocusableThemeableCheckbox value error name='fries-4'>
+            Should be red
+          </FocusableThemeableCheckbox>
         </div>
 
         <div style={{paddingBottom: '20px'}}>
