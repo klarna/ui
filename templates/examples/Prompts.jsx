@@ -121,6 +121,7 @@ export default {
         Regular: {
           inline: <CodePrompt
             defaultValue='123'
+            label='The numbers'
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
@@ -129,6 +130,7 @@ export default {
 
         Controlled: {
           inline: <CodePrompt
+            label='The numbers'
             value='123'
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
@@ -139,6 +141,7 @@ export default {
         'With message': {
           inline: <CodePrompt
             defaultValue='123'
+            label='The numbers'
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
@@ -149,6 +152,7 @@ export default {
         'With error': {
           inline: <CodePrompt
             defaultValue='123'
+            label='The numbers'
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
@@ -160,6 +164,7 @@ export default {
         'Loading': {
           inline: <CodePrompt
             defaultValue='123'
+            label='The numbers'
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
