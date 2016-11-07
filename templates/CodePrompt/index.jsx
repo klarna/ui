@@ -22,12 +22,17 @@ const classes = {
   message: `${baseClass}__message`
 }
 
-const isNumber = (x) => x === '0' || x === '1' || x === '2' || x === '3' || x === '4' || x === '5' || x === '6' || x === '7' || x === '8' || x === '9'
-
+const any = (a, b) => a || b
 const all = (a, b) => a && b
 
+const isDigit = (x) => [
+  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+].reduce(any, false)
+
 function CodePrompt ({
+  autoFocus,
   error,
+  label,
   loading,
   message,
   onChange,
@@ -43,13 +48,14 @@ function CodePrompt ({
     labels={{summary, title}}
     {...props}>
     <Field.PinCode
+      autoFocus={autoFocus}
       className={classNames(classes.field)}
       onChange={(e) => (
         e.target.value === '' ||
-        e.target.value.split('').map(isNumber).reduce(all, true)
+        e.target.value.split('').map(isDigit).reduce(all, true)
       ) && onChange(e)}
       value={value}
-      label='Temporary label'
+      placeholder={label}
     />
 
     {error && <div className={classNames(classes.error)}>
