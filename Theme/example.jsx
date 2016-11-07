@@ -5,6 +5,7 @@ import * as Button from '../Button'
 import * as Checklist from '../Checklist'
 import Dropdown from '../Dropdown'
 import Field from '../Field'
+import UncontrolledField from '../uncontrolled/Field'
 import * as FieldVariant from '../Field'
 import Installments from '../Installments'
 import Link from '../Link'
@@ -193,7 +194,7 @@ import * as List from '@klarna/ui/List'`,
         <Fieldset margins>
           <Field top label='Address' value='16, Corn street' focus='fake' />
           <Field square label='Given name' />
-          <Field bottom label='Family name' />
+          <UncontrolledField bottom error label='Family name' />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
