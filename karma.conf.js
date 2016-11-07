@@ -1,7 +1,7 @@
 var webpackConfig = require('./webpack.config.test.js')
 var argv = require('yargs').argv
 
-var browserToUse = ['Electron']
+var browserToUse = ['PhantomJS']
 if (process.env.BROWSER) {
   browserToUse = process.env.BROWSER.split(',')
 }
