@@ -181,13 +181,18 @@ const Field = React.createClass({
     const hasNonDefaultState = disabled || warning || error
     const useDynamicStyles = customize && !hasNonDefaultState
 
-    const dynamicStyles = useDynamicStyles
+    const dynamicStyles = customize
       ? {
-        borderColor: this.state.hover || focus
-          ? customize.borderColorSelected
-          : customize.borderColor,
-        boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`,
-        ...stacking.position.getBorderRadii(this.props, customize.borderRadius)
+        ...(hasNonDefaultState ? {} : {
+          borderColor: this.state.hover || focus
+            ? customize.borderColorSelected
+            : customize.borderColor,
+          boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+        }),
+        ...stacking.position.getBorderRadii(
+          this.props,
+          customize.borderRadius
+        )
       }
       : undefined
 
