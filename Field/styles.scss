@@ -40,7 +40,7 @@
   }
 
   &.is-error {
-    background-color: #fff8f7;
+    background-color: map-get($colors, error-background);
     border-color: map-get($colors, error-border);
     box-shadow: none;
     z-index: 5;
@@ -58,7 +58,7 @@
   }
 
   &.is-warning {
-    background-color: #fffaf0;
+    background-color: map-get($colors, warning-background);
     border-color: map-get($colors, warning-border);
     box-shadow: none;
     z-index: 5;
@@ -76,7 +76,7 @@
   }
 
   &.is-disabled {
-    background-color: #fafafa;
+    background-color: map-get($colors, disable-background);
     border-color: map-get($colors, grey-lines);
 
     &:hover {
@@ -115,7 +115,7 @@
 %field__label {
   @include typography(map-get($font-sizes, big-body-mobile), regular);
 
-  color: map-get($colors, 'grey-text');
+  color: map-get($colors, grey-text);
   line-height: ($grid * 10);
   overflow: hidden;
   padding: 0 ($grid * 4);
@@ -149,7 +149,7 @@
   }
 
   .is-filled & {
-    color: map-get($colors, 'grey-text');
+    color: map-get($colors, grey-text);
   }
 
   .is-error & {
@@ -165,18 +165,18 @@
   }
 
   .is-autofill & {
-    color: #EAA51B;
+    color: map-get($colors, autofill-label);
   }
 }
 
 @keyframes onAutoFillStart {
-    from {/**/}
-    to {/**/}
+  from {/**/}
+  to {/**/}
 }
 
 @keyframes onAutoFillCancel {
-    from {/**/}
-    to {/**/}
+  from {/**/}
+  to {/**/}
 }
 
 %field__input {
