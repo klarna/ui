@@ -193,7 +193,7 @@ import * as List from '@klarna/ui/List'`,
         <Fieldset margins>
           <Field top label='Address' value='16, Corn street' focus='fake' />
           <Field square label='Given name' />
-          <Field bottom label='Family name' />
+          <Field bottom error label='Family name' />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
