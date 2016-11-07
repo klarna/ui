@@ -32,6 +32,7 @@ $colors: (
   black: #3c3c3e,
   block-hover: #f9f9f9,
   grey-text: #9e9ea0,
+  darker-grey-text: #8e8e90,
   hover-grey-text: darken(#9e9ea0, 20),
   active-grey-text: darken(#9e9ea0, 30),
   grey-icon: #a9a9a9,
@@ -101,7 +102,8 @@ $font-sizes: (
   title-primary-small-desktop: ($grid * 4.4),
   title-secondary-desktop: ($grid * 3),
   title-secondary-mobile: ($grid * 3),
-  subtitle: ($grid * 2.4)
+  subtitle: ($grid * 2.4),
+  segmented-field: ($grid * 5.2)
 );
 
 // ================================================================
@@ -110,3 +112,4 @@ $font-sizes: (
 $border-radius: $grid;
 $border-radius-checkbox: ($grid * .4);
 $border-color: map-get($colors, grey-lines);
+$border-color-inner: map-get($colors, light-grey);

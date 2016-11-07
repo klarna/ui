@@ -4,6 +4,7 @@ import * as Dialog from '../../../Dialog'
 import * as Button from '../../../Button'
 import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
+import Link from '../../../Link'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'chrome--centered'
@@ -12,6 +13,7 @@ const classes = {
   title: `${baseClass}__title`,
   paragraphPrimary: `${baseClass}__paragraph--primary`,
   buttonAccept: `${baseClass}__button--accept`,
+  buttonCancel: `${baseClass}__button--cancel`,
   legal: `${baseClass}__paragraph--legal`
 }
 
@@ -51,9 +53,12 @@ export default function Centered ({
       {labels.accept}
     </Button.Primary>}
 
-    {labels.cancel && onCancel && <Button.Secondary onClick={onCancel}>
-      {labels.cancel}
-    </Button.Secondary>}
+    {labels.cancel && onCancel && <Paragraph.Primary
+      className={classNames(classes.buttonCancel)}>
+      <Link onClick={onCancel}>
+        {labels.cancel}
+      </Link>
+    </Paragraph.Primary>}
 
     {labels.legal && <Paragraph.Legal className={classNames(classes.legal)}>
       {labels.legal}
