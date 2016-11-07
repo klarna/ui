@@ -196,7 +196,7 @@ import * as List from '@klarna/ui/List'`,
         <Fieldset margins>
           <Field top label='Address' value='16, Corn street' focus='fake' />
           <Field square label='Given name' />
-          <Field bottom label='Family name' />
+          <Field bottom error label='Family name' />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
@@ -228,6 +228,9 @@ import * as List from '@klarna/ui/List'`,
           </FocusableThemeableCheckbox>
           <FocusableThemeableCheckbox value name='fries-3'>
             Would you like fries?
+          </FocusableThemeableCheckbox>
+          <FocusableThemeableCheckbox value error name='fries-4'>
+            Should be red
           </FocusableThemeableCheckbox>
         </div>
 
