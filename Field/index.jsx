@@ -82,8 +82,31 @@ const Field = React.createClass({
     }
   },
 
+  onAutoFillStart () {
+    this.setState({
+      autoFill: true
+    })
+  },
+
+  onAutoFillCancel () {
+    this.setState({
+      autoFill: false
+    })
+  },
+
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
+
+    this.refs.input.addEventListener &&
+    this.refs.input.addEventListener('animationstart', (e) => {
+      switch (e.animationName) {
+        case defaultStyles.onAutoFillStart:
+          return this.onAutoFillStart()
+
+        case defaultStyles.onAutoFillCancel:
+          return this.onAutoFillCancel()
+      }
+    })
   },
 
   componentDidUpdate () {
@@ -92,14 +115,12 @@ const Field = React.createClass({
 
   onMouseEnter () {
     this.setState({
-      ...this.state,
       hover: true
     })
   },
 
   onMouseLeave () {
     this.setState({
-      ...this.state,
       hover: false
     })
   },
@@ -143,6 +164,7 @@ const Field = React.createClass({
     const cls = classNames(
       (icon ? classes.icon : baseClass), {
         big,
+        'is-autofill': !!this.state.autoFill,
         'is-centered': centered,
         'is-filled': value != null && value !== '',
         'is-loading': loading,

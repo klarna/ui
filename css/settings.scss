@@ -67,7 +67,10 @@ $colors: (
   warning: #ecb800,
   warning-hover: #e2af4a,
   warning-border: #e6c88c,
-  warning-text: #ecb800
+  warning-text: #ecb800,
+  warning-background: #fffaf0,
+  disable-background: #fafafa,
+  autofill-label: #eaa51b
 );
 
 // ================================================================
@@ -113,13 +116,3 @@ $border-radius: $grid;
 $border-radius-checkbox: ($grid * .4);
 $border-color: map-get($colors, grey-lines);
 $border-color-inner: map-get($colors, light-grey);
-
-// ================================================================
-//  General webkit autocomplete override (aka yellow background)
-// ================================================================
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-}
