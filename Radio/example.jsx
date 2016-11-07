@@ -82,7 +82,6 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
 
     examples: {
       Regular: <Radio
-        autoFocus={false}
         onChange={(key) => console.log(key)}
         name='radio-regular'
         options={optionsWithContent}
@@ -120,7 +119,6 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
       />,
 
       'One field disabled': <Radio
-        autoFocus={false}
         onChange={(key) => console.log(key)}
         name='radio-one-disabled'
         options={[
@@ -136,7 +134,7 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
         name='radio-borderless-disabled'
         options={options}
         defaultValue='lorem'
-      />,
+                                 />,
 
       'With a single option': <Radio
         name='radio-with-a-single-option'

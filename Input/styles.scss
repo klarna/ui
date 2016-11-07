@@ -83,6 +83,16 @@ $stackable-border-width: $grid * .2;
   }
 }
 
+@keyframes onAutoFillStart {
+  from {/**/}
+  to {/**/}
+}
+
+@keyframes onAutoFillCancel {
+  from {/**/}
+  to {/**/}
+}
+
 %input {
   @include stackable-input();
 
@@ -230,6 +240,7 @@ $stackable-border-width: $grid * .2;
     transform: translate(0, ($grid * -3.8));
   }
 
+  .is-autofill &,
   .is-filled &,
   .is-error &,
   .is-warning & {
@@ -252,6 +263,10 @@ $stackable-border-width: $grid * .2;
 
   .is-disabled & {
     color: map-get($colors, grey-lines);
+  }
+
+  .is-autofill & {
+    color: map-get($colors, autofill-label);
   }
 
   .ie9 & {
@@ -296,6 +311,21 @@ $stackable-border-width: $grid * .2;
     width : 0;
   }
 
+  &:-webkit-autofill {
+    // Expose a hook for JavaScript when auto fill is shown.
+    // JavaScript can capture 'animationstart' events
+    animation-name: onAutoFillStart;
+
+    // Make the backgound color become yellow _really slowly_
+    transition: background-color 50000s ease-in-out 0s;
+  }
+
+  &:not(:-webkit-autofill) {
+    // Expose a hook for JS onAutoFillCancel
+    // JavaScript can capture 'animationstart' events
+    animation-name: onAutoFillCancel;
+  }
+
   .ie9 & {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=');
     position: relative;
@@ -313,6 +343,7 @@ $stackable-border-width: $grid * .2;
     top: ($grid * 2);
   }
 
+  .is-autofill &,
   .is-filled &,
   .is-error &,
   .is-warning & {
@@ -320,6 +351,7 @@ $stackable-border-width: $grid * .2;
     top: ($grid * 1.6);
   }
 
+  .big.is-autofill &,
   .big.is-filled &,
   .big.is-error &,
   .big.is-warning & {
@@ -327,6 +359,7 @@ $stackable-border-width: $grid * .2;
     top: ($grid * 2.2);
   }
 
+  .giant.is-autofill &,
   .giant.is-filled &,
   .giant.is-error &,
   .giant.is-warning & {

@@ -133,6 +133,7 @@
     line-height: ($grid * 12);
   }
 
+  .big.is-autofill &,
   .big.is-filled &,
   .big.is-error &,
   .big.is-warning & {
@@ -242,6 +243,7 @@
     height: ($grid * 12);
   }
 
+  .big.is-autofill &,
   .big.is-filled &,
   .big.is-error &,
   .big.is-warning & {
