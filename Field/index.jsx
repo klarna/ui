@@ -97,6 +97,7 @@ const Field = React.createClass({
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
 
+    this.refs.input.addEventListener &&
     this.refs.input.addEventListener('animationstart', (e) => {
       switch (e.animationName) {
         case defaultStyles.onAutoFillStart:

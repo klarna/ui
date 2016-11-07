@@ -176,7 +176,6 @@ import * as List from '@klarna/ui/List'`,
 
         <div style={{padding: '20px 0'}}>
           <Radio
-            autoFocus={false}
             onChange={(key) => console.log(key)}
             name='radio-regular'
             options={optionsWithContent}

@@ -50,7 +50,6 @@ function CodePrompt ({
       ) && onChange(e)}
       value={value}
       label='Temporary label'
-      error={!!error}
     />
 
     {error && <div className={classNames(classes.error)}>
