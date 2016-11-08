@@ -29,7 +29,6 @@ import * as TheTitle from './Title'
 export { default as Tooltip } from './Tooltip'
 import * as TheUncontrolledSwitch from './uncontrolled/Switch'
 export { default as UncontrolledRadio } from './uncontrolled/Radio'
-export { default as UncontrolledSelector } from './uncontrolled/Selector'
 
 export const Alert = TheAlert
 export const Block = TheBlock

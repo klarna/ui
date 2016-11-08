@@ -4,7 +4,7 @@ import Dropdown from '../../../Dropdown'
 import Field from '../../../Field'
 import * as UncontrolledSwitch from '../../../uncontrolled/Switch'
 import * as Button from '../../../Button'
-import UncontrolledSelector from '../../../uncontrolled/Selector'
+import * as Selector from '../../../Selector'
 import * as Menu from '../../../Menu'
 import Installments from '../../../Installments'
 import Radio from '../../../Radio'
@@ -90,7 +90,7 @@ export default {
         </Fieldset>
 
         <Fieldset margins>
-          <UncontrolledSelector
+          <Selector.Options
             name='shipping-option'
             data={[
               {key: 'express', label: 'Express shipping'},

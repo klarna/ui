@@ -3,6 +3,9 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import Checkmark from '../../icons/Checkmark'
 
+import compose from 'ramda/src/compose'
+import {uncontrolled} from '@klarna/higher-order-components'
+
 const baseClass = 'selector--options'
 
 const classes = {
@@ -12,7 +15,7 @@ const classes = {
   label: `${baseClass}__label`
 }
 
-export default React.createClass({
+const Options = React.createClass({
   displayName: 'Selector.Options',
 
   propTypes: {
@@ -100,3 +103,19 @@ export default React.createClass({
     )
   }
 })
+
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: (x) => x,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (x) => x
+  })
+)(Options)

@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Selector from '../Selector'
-import UncontrolledSelector from '../uncontrolled/Selector'
 import { LIVE } from '../Showroom/variationTypes'
 
 const optionsData = [
@@ -20,27 +19,28 @@ export default {
   variations: [
     {
       title: 'Options Selector',
-      require: `import * as Selector from '@klarna/ui/Selector'
-import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
+      require: 'import * as Selector from \'@klarna/ui/Selector\'',
       type: LIVE,
 
       examples: {
-        Regular: <Selector.Options
-          value={1}
-          name='selector'
-          data={optionsData}
-        />,
+        Regular: (
+          <Selector.Options
+            data={optionsData}
+            defaultValue={1}
+            name='selector'
+            onChange={(value) => console.log('You selected', value)}
+          />
+        ),
 
-        Uncontrolled: <UncontrolledSelector
-          name='selector-uncontrolled'
-          data={optionsData}
-        />,
-
-        Focus: <Selector.Options
-          focus={2}
-          name='selector-focus'
-          data={optionsData}
-        />
+        Controlled: (
+          <Selector.Options
+            data={optionsData}
+            focus={2}
+            name='selector-uncontrolled'
+            onChange={(value) => console.log('You selected', value)}
+            value={1}
+          />
+        )
       }
     },
 
@@ -50,10 +50,12 @@ import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
       type: LIVE,
 
       examples: {
-        Regular: <Selector.Direct
-          data={directData}
-          onSelect={(v) => (v)}
-        />
+        Regular: (
+          <Selector.Direct
+            data={directData}
+            onSelect={(v) => (v)}
+          />
+        )
       }
     }
   ]
