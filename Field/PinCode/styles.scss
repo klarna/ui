@@ -40,4 +40,18 @@
     outline: none;
     z-index: 20;
   }
+
+  &.error {
+    background-color: map-get($colors, error-background);
+    border-color: map-get($colors, error-border);
+
+    &:hover {
+      border-color: map-get($colors, error-hover);
+    }
+
+    &:focus {
+      border-color: map-get($colors, error);
+      box-shadow: 0 0 ($grid * .8) map-get($colors, error-shadow);
+    }
+  }
 }
