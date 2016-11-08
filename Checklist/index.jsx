@@ -3,7 +3,7 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import themeable from '../decorators/themeable'
 import overridable from '../decorators/overridable'
-import compose from '../lib/compose'
+import compose from 'ramda/src/compose'
 
 const baseClass = 'checklist'
 

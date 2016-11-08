@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import Collapsible from '../Collapsible'
-import compose from '../lib/compose'
+import compose from 'ramda/src/compose'
 import uncontrolled from '../decorators/uncontrolled'
 import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'

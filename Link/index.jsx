@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
-import compose from '../lib/compose'
+import compose from 'ramda/src/compose'
 import themeable from '../decorators/themeable'
 import overridable from '../decorators/overridable'
 

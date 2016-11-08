@@ -4,7 +4,7 @@ import themeable from '../decorators/themeable'
 import overridable from '../decorators/overridable'
 import defaultStyles from './styles.scss'
 import debounce from '../lib/debounce'
-import compose from '../lib/compose'
+import compose from 'ramda/src/compose'
 
 const baseClass = 'installments'
 const TRANSITION_DURATION = 500

@@ -5,7 +5,7 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import contains from '../../lib/contains'
-import compose from '../../lib/compose'
+import compose from 'ramda/src/compose'
 import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 

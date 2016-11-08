@@ -7,7 +7,7 @@ import Link from '../../Link'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
 import * as Selector from '../../Selector'
-import compose from '../../lib/compose'
+import compose from 'ramda/src/compose'
 import uncontrolled from '../../decorators/uncontrolled'
 import defaultStyles from './styles.scss'
 

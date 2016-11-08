@@ -1,4 +1,4 @@
-import compose from '../lib/compose'
+import compose from 'ramda/src/compose'
 import statefulValue from '../lib/decorators/statefulValue'
 import statefulFocus from '../lib/decorators/statefulFocus'
 import Input from '../Input'

@@ -5,7 +5,7 @@ import contains from '../../lib/contains'
 import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import Price from '../Price'
-import compose from '../../lib/compose'
+import compose from 'ramda/src/compose'
 
 import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
