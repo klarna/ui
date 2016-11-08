@@ -5,7 +5,7 @@ import Field from '../../../Field'
 import * as UncontrolledSwitch from '../../../uncontrolled/Switch'
 import * as Button from '../../../Button'
 import UncontrolledSelector from '../../../uncontrolled/Selector'
-import * as UncontrolledMenu from '../../../uncontrolled/Menu'
+import * as Menu from '../../../Menu'
 import Installments from '../../../Installments'
 import Radio from '../../../Radio'
 import Subtitle from '../../../Subtitle'
@@ -79,13 +79,13 @@ export default {
 
       example: <form>
         <Fieldset margins>
-          <UncontrolledMenu.Tab
+          <Menu.Tab
             name='consumer-type'
             options={[
               {key: 'person', label: 'Person'},
               {key: 'company', label: 'Company'}
             ]}
-            value='person'
+            defaultValue='person'
           />
         </Fieldset>
 

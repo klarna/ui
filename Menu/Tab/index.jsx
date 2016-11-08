@@ -26,7 +26,7 @@ const update = (component) => {
   component.setState({ width, left: (left - parentLeft) })
 }
 
-export default React.createClass({
+const Tab = React.createClass({
   displayName: 'Menu.Tab',
 
   getDefaultProps () {
@@ -128,12 +128,12 @@ export default React.createClass({
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === value}
               value={key}
-            />),
-            (<label
-              id={`${id}-tab`}
-              style={tabDisplay === 'static' ? {
-                width: `${(100 / options.length)}%`
-              } : undefined}
+             />),
+          (<label
+            id={`${id}-tab`}
+            style={tabDisplay === 'static' ? {
+              width: `${(100 / options.length)}%`
+            } : undefined}
               className={tabClass}
               htmlFor={id}>
               {label}
@@ -144,3 +144,19 @@ export default React.createClass({
     )
   }
 })
+
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: (x) => x,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (x) => x
+  })
+)(Tab)

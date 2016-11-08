@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Menu from '../Menu'
-import * as UncontrolledMenu from '../uncontrolled/Menu'
 import Label from '../Label'
 import * as Block from '../Block'
 import { LIVE_WIDE } from '../Showroom/variationTypes'
@@ -23,40 +22,46 @@ export default {
   variations: [
     {
       title: 'Tabs',
-      require: `import * as Menu from '@klarna/ui/Menu'
-import * as UncontrolledMenu from '@klarna/ui/uncontrolled/Menu'`,
+      require: 'import * as Menu from \'@klarna/ui/Menu\'',
       type: LIVE_WIDE,
 
       examples: {
-        Fluid: <Menu.Tab
-          onChange={(key) => console.log('You selected', key)}
-          tabDisplay='fluid'
-          name='tab-fluid'
-          value='home'
-          options={options}
-        />,
+        Fluid: (
+          <Menu.Tab
+            onChange={(key) => console.log('You selected', key)}
+            tabDisplay='fluid'
+            name='tab-fluid'
+            defaultValue='home'
+            options={options}
+          />
+        ),
 
-        Static: <Menu.Tab
-          onChange={(key) => console.log('You selected', key)}
-          tabDisplay='static'
-          name='tab-static'
-          value='home'
-          options={options}
-        />,
+        Static: (
+          <Menu.Tab
+            onChange={(key) => console.log('You selected', key)}
+            tabDisplay='static'
+            name='tab-static'
+            defaultValue='home'
+            options={options}
+          />
+        ),
 
-        Uncontrolled: <UncontrolledMenu.Tab
-          name='uncontrolled-tab'
-          tabDisplay='fluid'
-          value='home'
-          options={options}
-        />,
+        Controlled: (
+          <Menu.Tab
+            name='uncontrolled-tab'
+            tabDisplay='fluid'
+            focus='faq'
+            value='home'
+            options={options}
+          />
+        ),
 
         White: <Block.Plain blue>
           <Menu.Tab
             onChange={(key) => console.log('You selected', key)}
             tabDisplay='static'
             name='tab-static-white'
-            value='home'
+            defaultValue='home'
             white
             options={options}
           />
@@ -66,7 +71,7 @@ import * as UncontrolledMenu from '@klarna/ui/uncontrolled/Menu'`,
           onChange={(key) => console.log('You selected', key)}
           tabDisplay='static'
           name='options-with-components'
-          value='home'
+          defaultValue='home'
           options={optionsWithComponents}
         />
       }
