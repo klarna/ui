@@ -1,9 +1,13 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
+
 import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled
+} from '@klarna/higher-order-components'
 
 const baseClass = 'switch--checkbox'
 
@@ -95,7 +99,7 @@ const Checkbox = React.createClass({
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const cls = classNames(baseClass, {
       'is-checked': value,
-      'is-focused': focus,
+      'is-focused': focus && !disabled,
       'is-pressed': pressed,
       'is-disabled': disabled,
       'is-error': error,
@@ -118,6 +122,7 @@ const Checkbox = React.createClass({
         name={name}
         type='checkbox'
         checked={value}
+        disabled={disabled}
         onBlur={onBlur}
         onChange={() => !disabled && onChange && onChange(!value)}
         onFocus={onFocus}
@@ -162,6 +167,19 @@ const Checkbox = React.createClass({
 })
 
 export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: () => true,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (x) => x
+  }),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,
