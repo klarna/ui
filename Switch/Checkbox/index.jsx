@@ -126,7 +126,7 @@ const Checkbox = React.createClass({
       <label
         className={classNames(classes.label)}
         htmlFor={name}
-        style={customize ? {
+        style={customize && !error && !disabled ? {
           color: customize.textColor
         } : undefined}>
         <div

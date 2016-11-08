@@ -5,6 +5,7 @@ import * as Button from '../Button'
 import * as Checklist from '../Checklist'
 import Dropdown from '../Dropdown'
 import Field from '../Field'
+import * as FieldVariant from '../Field'
 import Installments from '../Installments'
 import Link from '../Link'
 import * as Switch from '../Switch'
@@ -86,6 +87,7 @@ export default {
 import * as Button from '@klarna/ui/Button'
 import * as Checklist from '@klarna/ui/Checklist'
 import Dropdown from '@klarna/ui/Dropdown'
+import * as Field from '@klarna/ui/Field'
 import Field from '@klarna/ui/Field'
 import Installments from '@klarna/ui/Installments'
 import Link from '@klarna/ui/Link'
@@ -147,6 +149,13 @@ import * as List from '@klarna/ui/List'`,
         </div>
 
         <div style={{paddingTop: '20px'}}>
+          <FieldVariant.PinCode
+            placeholder='Enter code here'
+            defaultValue='42'
+          />
+        </div>
+
+        <div style={{paddingTop: '20px'}}>
           <Back label='Back' />
         </div>
 
@@ -170,7 +179,6 @@ import * as List from '@klarna/ui/List'`,
 
         <div style={{padding: '20px 0'}}>
           <Radio
-            autoFocus={false}
             onChange={(key) => console.log(key)}
             name='radio-regular'
             options={optionsWithContent}
@@ -187,7 +195,7 @@ import * as List from '@klarna/ui/List'`,
         <Fieldset margins>
           <Field top label='Address' value='16, Corn street' focus='fake' />
           <Field square label='Given name' />
-          <Field bottom label='Family name' />
+          <Field bottom error label='Family name' />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
@@ -219,6 +227,9 @@ import * as List from '@klarna/ui/List'`,
           </FocusableThemeableCheckbox>
           <FocusableThemeableCheckbox value name='fries-3'>
             Would you like fries?
+          </FocusableThemeableCheckbox>
+          <FocusableThemeableCheckbox value error name='fries-4'>
+            Should be red
           </FocusableThemeableCheckbox>
         </div>
 

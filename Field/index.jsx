@@ -15,6 +15,8 @@ import {
   uncontrolled
 } from '@klarna/higher-order-components'
 
+export PinCode from './PinCode'
+
 const baseClass = 'field'
 
 const classes = {
@@ -84,8 +86,31 @@ const Field = React.createClass({
     }
   },
 
+  onAutoFillStart () {
+    this.setState({
+      autoFill: true
+    })
+  },
+
+  onAutoFillCancel () {
+    this.setState({
+      autoFill: false
+    })
+  },
+
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
+
+    this.refs.input.addEventListener &&
+    this.refs.input.addEventListener('animationstart', (e) => {
+      switch (e.animationName) {
+        case defaultStyles.onAutoFillStart:
+          return this.onAutoFillStart()
+
+        case defaultStyles.onAutoFillCancel:
+          return this.onAutoFillCancel()
+      }
+    })
   },
 
   componentDidUpdate () {
@@ -94,14 +119,12 @@ const Field = React.createClass({
 
   onMouseEnter () {
     this.setState({
-      ...this.state,
       hover: true
     })
   },
 
   onMouseLeave () {
     this.setState({
-      ...this.state,
       hover: false
     })
   },
@@ -145,6 +168,7 @@ const Field = React.createClass({
     const cls = classNames(
       (icon ? classes.icon : baseClass), {
         big,
+        'is-autofill': !!this.state.autoFill,
         'is-centered': centered,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
@@ -161,13 +185,18 @@ const Field = React.createClass({
     const hasNonDefaultState = disabled || warning || error
     const useDynamicStyles = customize && !hasNonDefaultState
 
-    const dynamicStyles = useDynamicStyles
+    const dynamicStyles = customize
       ? {
-        borderColor: this.state.hover || focus
-          ? customize.borderColorSelected
-          : customize.borderColor,
-        boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`,
-        ...stacking.position.getBorderRadii(this.props, customize.borderRadius)
+        ...(hasNonDefaultState ? {} : {
+          borderColor: this.state.hover || focus
+            ? customize.borderColorSelected
+            : customize.borderColor,
+          boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+        }),
+        ...stacking.position.getBorderRadii(
+          this.props,
+          customize.borderRadius
+        )
       }
       : undefined
 

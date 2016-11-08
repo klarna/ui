@@ -37,13 +37,13 @@ export default {
         </List.Unordered>,
 
         Secondary: <List.Unordered>
-          <List.Item secondary >
+          <List.Item secondary>
             Is this the real life?
           </List.Item>
-          <List.Item secondary >
+          <List.Item secondary>
             Is this just fantasy
           </List.Item>
-          <List.Item secondary >
+          <List.Item secondary>
             Open your eyes
           </List.Item>
         </List.Unordered>,
@@ -165,51 +165,40 @@ export default {
       type: LIVE,
 
       examples: {
-        Regular: [
-          <List.Iconic.Wrapper>
-            <List.Iconic.Item
-              icon={<svg
-                width='60px'
-                height='60px'
-                viewBox='0 0 60 60'>
-                <circle
-                  stroke='#979797'
-                  fill='#D8D8D8'
-                  cx='30'
-                  cy='30'
-                  r='28'
-                />
-              </svg>}>
-              Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
-            </List.Iconic.Item>
-            <List.Iconic.Item
-              icon={<svg
-                width='60px'
-                height='60px'
-                viewBox='0 0 60 60'>
-                <polygon
-                  stroke='#979797'
-                  fill='#D8D8D8'
-                  points='30 46.5 12.95 55.46 16.20 36.48 2.41 23.03 21.47 20.26 30 3 38.52 20.26 57.58 23.03 43.79 36.48 47.04 55.46'
-                />
-              </svg>}>
-              Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
-            </List.Iconic.Item>
-            <List.Iconic.Item
-              icon={<svg
-                width='60px'
-                height='60px'
-                viewBox='0 0 60 60'>
-                <polygon
-                  stroke='#979797'
-                  fill='#D8D8D8'
-                  points='30 4 58 54 2 54'
-                />
-              </svg>}>
-              Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
-            </List.Iconic.Item>
-          </List.Iconic.Wrapper>
-        ]
+        Regular: <List.Iconic.Wrapper>
+          <List.Iconic.Item
+            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+              <circle
+                stroke='#979797'
+                fill='#D8D8D8'
+                cx='30'
+                cy='30'
+                r='28'
+              />
+            </svg>}>
+            Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
+          </List.Iconic.Item>
+          <List.Iconic.Item
+            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+              <polygon
+                stroke='#979797'
+                fill='#D8D8D8'
+                points='30 46.5 12.95 55.46 16.20 36.48 2.41 23.03 21.47 20.26 30 3 38.52 20.26 57.58 23.03 43.79 36.48 47.04 55.46'
+              />
+            </svg>}>
+            Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
+          </List.Iconic.Item>
+          <List.Iconic.Item
+            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+              <polygon
+                stroke='#979797'
+                fill='#D8D8D8'
+                points='30 4 58 54 2 54'
+              />
+            </svg>}>
+            Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
+          </List.Iconic.Item>
+        </List.Iconic.Wrapper>
       }
     }
   ]

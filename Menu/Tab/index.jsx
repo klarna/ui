@@ -20,10 +20,13 @@ const update = (component) => {
   const tab = document.getElementById(
     `${component.props.name}-${component.props.value}-tab`
   )
-  const { left, width } = tab.getBoundingClientRect()
-  const parentLeft = tab.parentNode.getBoundingClientRect().left
 
-  component.setState({ width, left: (left - parentLeft) })
+  if (tab) {
+    const { left, width } = tab.getBoundingClientRect()
+    const parentLeft = tab.parentNode.getBoundingClientRect().left
+
+    component.setState({ width, left: (left - parentLeft) })
+  }
 }
 
 const Tab = React.createClass({

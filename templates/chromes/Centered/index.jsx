@@ -22,6 +22,7 @@ export default function Centered ({
   children,
   labels,
   illustration,
+  loading,
   onAccept,
   onCancel,
   styles
@@ -49,6 +50,7 @@ export default function Centered ({
 
     {labels.accept && onAccept && <Button.Primary
       onClick={onAccept}
+      loading={loading}
       className={classNames(classes.buttonAccept)}>
       {labels.accept}
     </Button.Primary>}

@@ -78,74 +78,74 @@ import Fieldset from '@klarna/ui/Fieldset'`,
               icon={icons.BANK}
               label='Please enter your bank account number' />
           </Fieldset>,
-          <Fieldset margins key={0}>
+          <Fieldset margins key={1}>
             <Input
               name='icon-card'
               icon={icons.CARD}
               label='Please enter your credit card number' />
           </Fieldset>,
-          <Fieldset margins key={1}>
+          <Fieldset margins key={2}>
             <Input
               name='icon-calendar'
               icon={icons.CALENDAR}
               label='Date of Birth' />
           </Fieldset>,
-          <Fieldset margins key={2}>
+          <Fieldset margins key={3}>
             <Input
               name='icon-lock'
               icon={icons.LOCK}
               type='password'
               label='Password' />
           </Fieldset>,
-          <Fieldset margins key={3}>
+          <Fieldset margins key={4}>
             <Input
               name='icon-person'
               icon={icons.PERSON}
               label='Enter your user name' />
           </Fieldset>,
-          <Fieldset margins key={4}>
+          <Fieldset margins key={5}>
             <Input
               name='icon-email'
               icon={icons.EMAIL}
               label='Enter your email address' />
           </Fieldset>,
-          <Fieldset margins key={5}>
+          <Fieldset margins key={6}>
             <Input
               name='icon-phone'
               icon={icons.PHONE}
               label='Mobile number' />
           </Fieldset>,
-          <Fieldset margins key={6}>
+          <Fieldset margins key={7}>
             <Input
               name='icon-close'
               icon={icons.CLOSE}
               label='Enter an incorrect value (?)' />
           </Fieldset>,
-          <Fieldset margins key={7}>
+          <Fieldset margins key={8}>
             <Input
               name='icon-question'
               icon={icons.QUESTION}
               label='Are we sure about these being field icons?' />
           </Fieldset>,
-          <Fieldset margins key={8}>
+          <Fieldset margins key={9}>
             <Input
               name='icon-check'
               icon={icons.CHECK}
               label='These look like button icons really' />
           </Fieldset>,
-          <Fieldset margins key={9}>
+          <Fieldset margins key={10}>
             <Input
               name='icon-logout'
               icon={icons.LOGOUT}
               label='Write something to log out' />
           </Fieldset>,
-          <Fieldset margins key={10}>
+          <Fieldset margins key={11}>
             <Input
               name='icon-search'
               icon={icons.SEARCH}
               label='Write something to search' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={12}>
             <Input
               name='icon-giant'
               giant
