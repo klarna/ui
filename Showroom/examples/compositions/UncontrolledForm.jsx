@@ -6,7 +6,7 @@ import * as UncontrolledSwitch from '../../../uncontrolled/Switch'
 import * as Button from '../../../Button'
 import UncontrolledSelector from '../../../uncontrolled/Selector'
 import * as UncontrolledMenu from '../../../uncontrolled/Menu'
-import UncontrolledInstallments from '../../../uncontrolled/Installments'
+import Installments from '../../../Installments'
 import Radio from '../../../Radio'
 import Subtitle from '../../../Subtitle'
 import * as Paragraph from '../../../Paragraph'
@@ -35,7 +35,7 @@ const optionsWithContent = [
     label: 'Sit',
     description: 'Amet et consequetur',
     content: <div>
-      <UncontrolledInstallments
+      <Installments
         name='inner-installments'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
@@ -150,7 +150,7 @@ export default {
 
         <Fieldset margins>
           <Subtitle>How many installments do you want to have?</Subtitle>
-          <UncontrolledInstallments
+          <Installments
             name='installments'
             options={[
               {

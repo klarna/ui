@@ -3,7 +3,7 @@ import Radio from '../Radio'
 import * as Checklist from '../Checklist'
 import * as Paragraph from '../Paragraph'
 import { LIVE_WIDE } from '../Showroom/variationTypes'
-import UncontrolledInstallments from '../uncontrolled/Installments'
+import Installments from '../Installments'
 import Dropdown from '../Dropdown'
 import Subtitle from '../Subtitle'
 
@@ -37,11 +37,11 @@ const optionsWithContent = [
     label: 'Sit',
     description: 'Amet et consequetur',
     content: <div>
-      <UncontrolledInstallments
+      <Installments
         name='installments'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
-        value='installments_6'
+        defaultValue='installments_6'
       />
       <Checklist.Main style={{marginTop: '20px'}}>
         <Checklist.Item>Just one click and you're done</Checklist.Item>
