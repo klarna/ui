@@ -1,10 +1,14 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../decorators/themeable'
-import overridable from '../decorators/overridable'
 import defaultStyles from './styles.scss'
 import debounce from '../lib/debounce'
+
 import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled
+} from '@klarna/higher-order-components'
 
 const baseClass = 'installments'
 const TRANSITION_DURATION = 500
