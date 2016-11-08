@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import Collapsible from '../Collapsible'
-import compose from 'ramda/src/compose'
-import uncontrolled from '../decorators/uncontrolled'
-import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
+
+import compose from 'ramda/src/compose'
+import {
+  themeable,
+  uncontrolled
+} from '@klarna/higher-order-components'
 
 const baseClass = 'radio'
 
