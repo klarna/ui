@@ -1,7 +1,6 @@
 import React from 'react'
 import Field, { icons } from '../Field'
 import Fieldset from '../Fieldset'
-import UncontrolledField from '../uncontrolled/Field'
 import ReactMaskedInput from 'react-maskedinput'
 import { LIVE, LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
 
@@ -12,69 +11,63 @@ export default {
   variations: [
     {
       title: 'Single',
-      require: `import Field from '@klarna/ui/Field'
-import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
+      require: 'import Field from \'@klarna/ui/Field\'',
       type: LIVE,
 
       examples: {
         Regular: <Field label='Enter your email' />,
 
-        Uncontrolled: <UncontrolledField
+        Controlled: <Field
           name='field-uncontrolled'
           label='Enter your email'
-        />,
-
-        'With value': <Field
-          label='Enter your email'
-          value='jane@doe.com'
-        />,
+          value='someone@example.com'
+          focus
+                    />,
 
         Big: <Field label='Enter your email' big />,
 
-        'With focus': <Field label='Enter your email' focus />,
-
         'With fake focus': <Field label='Enter your email' focus='fake' />,
 
-        Disabled: <Field disabled label='Address' value='16, Corn street' />,
+        Disabled: <Field disabled label='Address' defaultValue='16, Corn street' />,
 
         'Exclude Mouseflow': <Field
           mouseflowExclude
           label='Address'
-          value='16, Corn street'
-        />,
+          defaultValue='16, Corn street'
+                             />,
 
-        'With error': <Field label='Invalid email' error value='invalid@' />,
+        'With error': <Field label='Invalid email' error defaultValue='invalid@' />,
 
         'With warning': <Field
           label='Are you sure the domain is exanple?'
           warning
-          value='email@exanple.com'
-        />,
+          defaultValue='email@exanple.com'
+                        />,
 
-        'With customizations': <UncontrolledField
+        'With customizations': <Field
           name='with-customizations'
           customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
           label='Favorite color'
-          value='Purple'
-        />
+          defaultValue='Purple'
+                               />
       }
     },
 
     {
       title: 'Override',
-      require: `import UncontrolledField from '@klarna/ui/uncontrolled/Field'
+      require: `import Field from '@klarna/ui/Field'
 import ReactMaskedInput from 'react-maskedinput'`,
       type: MANUAL,
 
       examples: {
         'Masked credit card field': {
-          live: <UncontrolledField
+          live: <Field
             label='Credit card number'
             Input={ReactMaskedInput}
             mask='1111 1111 1111 1111'
             placeholder=' '
-          />,
-          code: `<UncontrolledField
+                />,
+          code: `<Field
   label='Credit card number'
   Input={ReactMaskedInput}
   mask='1111 1111 1111 1111'
@@ -164,26 +157,26 @@ import Fieldset from '@klarna/ui/Fieldset'`,
 
     {
       title: 'Stacked',
-      require: `import UncontrolledField from '@klarna/ui/uncontrolled/Field'
+      require: `import Field from '@klarna/ui/Field'
 import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE_WIDE,
 
       examples: {
         'Two fields': <Fieldset margins>
-          <UncontrolledField left size='1/2' name='two-given-name' label='Given name' />
-          <UncontrolledField right size='1/2' name='two-middle-name' label='Middle name' />
+          <Field left size='1/2' name='two-given-name' label='Given name' />
+          <Field right size='1/2' name='two-middle-name' label='Middle name' />
         </Fieldset>,
 
         Many: <Fieldset margins>
-          <UncontrolledField top left size='1/2' name='many-given-name' label='Given name' />
-          <UncontrolledField center size='1/4' name='many-middle-name' label='Middle name' />
-          <UncontrolledField top right size='1/4' name='many-last-name' label='Last name' />
-          <UncontrolledField left square size='1/5' name='many-number' label='Number' />
-          <UncontrolledField right square size='4/5' name='many-street-address' label='Street Address' />
-          <UncontrolledField left square size='1/3' name='many-pokemon' label='Your favorite pokémon' />
-          <UncontrolledField right square size='2/3' name='many-android-iphone' label='Android or iPhone: please explain' />
-          <UncontrolledField left bottom size='2/5' name='many-date-of-birth' label='Date of Birth' />
-          <UncontrolledField right bottom size='3/5' name='many-mobile-phone-number' label='Mobile phone number' />
+          <Field top left size='1/2' name='many-given-name' label='Given name' />
+          <Field center size='1/4' name='many-middle-name' label='Middle name' />
+          <Field top right size='1/4' name='many-last-name' label='Last name' />
+          <Field left square size='1/5' name='many-number' label='Number' />
+          <Field right square size='4/5' name='many-street-address' label='Street Address' />
+          <Field left square size='1/3' name='many-pokemon' label='Your favorite pokémon' />
+          <Field right square size='2/3' name='many-android-iphone' label='Android or iPhone: please explain' />
+          <Field left bottom size='2/5' name='many-date-of-birth' label='Date of Birth' />
+          <Field right bottom size='3/5' name='many-mobile-phone-number' label='Mobile phone number' />
         </Fieldset>
       }
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Fieldset from '../../../Fieldset'
 import Dropdown from '../../../Dropdown'
-import UncontrolledField from '../../../uncontrolled/Field'
+import Field from '../../../Field'
 import * as UncontrolledSwitch from '../../../uncontrolled/Switch'
 import * as Button from '../../../Button'
 import UncontrolledSelector from '../../../uncontrolled/Selector'
@@ -100,17 +100,17 @@ export default {
         </Fieldset>
 
         <Fieldset margins>
-          <UncontrolledField
+          <Field
             label='First name'
             name='firstname'
             top left size='1/2'
           />
-          <UncontrolledField
+          <Field
             label='Last name'
             name='lastname'
             top right size='1/2'
           />
-          <UncontrolledField
+          <Field
             label='Street address'
             name='streetaddress'
             square size='3/4'
@@ -129,12 +129,12 @@ export default {
               {key: 'oceania', label: 'Oceania'}
             ]}
           />
-          <UncontrolledField
+          <Field
             label='Email'
             name='email'
             bottom left size='1/2'
           />
-          <UncontrolledField
+          <Field
             label='Phone number'
             name='phonenumber'
             bottom right size='1/2'
