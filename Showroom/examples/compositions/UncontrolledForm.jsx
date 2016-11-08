@@ -1,6 +1,6 @@
 import React from 'react'
 import Fieldset from '../../../Fieldset'
-import UncontrolledDropdown from '../../../uncontrolled/Dropdown'
+import Dropdown from '../../../Dropdown'
 import UncontrolledField from '../../../uncontrolled/Field'
 import * as UncontrolledSwitch from '../../../uncontrolled/Switch'
 import * as Button from '../../../Button'
@@ -56,7 +56,7 @@ const optionsWithContent = [
     content: <div>
       <Subtitle>Choose your destiny</Subtitle>
 
-      <UncontrolledDropdown
+      <Dropdown
         name='ipsum-uncontrolled-dropdown-random-more-stuff'
         options={[
           {key: 'coffee', label: 'Coffee'},
@@ -115,7 +115,7 @@ export default {
             name='streetaddress'
             square size='3/4'
           />
-          <UncontrolledDropdown
+          <Dropdown
             label='Continent'
             name='continent'
             center size='1/4'

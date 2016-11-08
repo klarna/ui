@@ -232,6 +232,13 @@ const onMouseLeave = (component) => () =>
 
 export default compose(
   uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: () => true,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlerName: 'onChange',

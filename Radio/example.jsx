@@ -4,7 +4,7 @@ import * as Checklist from '../Checklist'
 import * as Paragraph from '../Paragraph'
 import { LIVE_WIDE } from '../Showroom/variationTypes'
 import UncontrolledInstallments from '../uncontrolled/Installments'
-import UncontrolledDropdown from '../uncontrolled/Dropdown'
+import Dropdown from '../Dropdown'
 import Subtitle from '../Subtitle'
 
 const options = [
@@ -58,7 +58,7 @@ const optionsWithContent = [
     content: <div>
       <Subtitle>Choose your destiny</Subtitle>
 
-      <UncontrolledDropdown
+      <Dropdown
         name='ipsum-uncontrolled-dropdown'
         options={[
           {key: 'coffee', label: 'Coffee'},
@@ -66,7 +66,7 @@ const optionsWithContent = [
           {key: 'latte', label: 'Latte'}
         ]}
         label='Infusion'
-        value='coffee'
+        defaultValue='coffee'
       />
     </div>
   }
