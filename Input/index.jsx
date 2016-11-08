@@ -8,6 +8,9 @@ import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
 
+import compose from 'ramda/src/compose'
+import {uncontrolled} from '@klarna/higher-order-components'
+
 const baseClass = 'input'
 
 const classes = {
@@ -23,7 +26,7 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-export default React.createClass({
+const Input = React.createClass({
   displayName: 'Input',
 
   getDefaultProps () {
@@ -163,3 +166,19 @@ export default React.createClass({
     )
   }
 })
+
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: () => true,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (e) => e.target.value
+  })
+)(Input)
