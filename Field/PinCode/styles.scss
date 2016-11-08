@@ -39,6 +39,14 @@
     box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
     outline: none;
     z-index: 20;
+
+    &::-webkit-input-placeholder {
+      opacity: 0;
+    }
+
+    &:-ms-input-placeholder {
+      opacity: 0;
+    }
   }
 
   &.error {
