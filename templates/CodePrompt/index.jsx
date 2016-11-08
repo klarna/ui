@@ -56,6 +56,7 @@ function CodePrompt ({
       ) && onChange(e)}
       value={value}
       placeholder={label}
+      error={!!error}
     />
 
     {error && <div className={classNames(classes.error)}>
