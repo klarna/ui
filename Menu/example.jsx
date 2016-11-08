@@ -74,33 +74,37 @@ import * as UncontrolledMenu from '@klarna/ui/uncontrolled/Menu'`,
 
     {
       title: 'Segmented',
-      require: `import * as Menu from '@klarna/ui/Menu'
-import * as UncontrolledMenu from '@klarna/ui/uncontrolled/Menu'`,
+      require: 'import * as Menu from \'@klarna/ui/Menu\'',
       type: LIVE_WIDE,
 
       examples: {
-        Fluid: <Menu.Segmented
-          onChange={(key) => console.log('You selected', key)}
-          name='segmented-fluid'
-          value='home'
-          options={options}
-        />,
+        Fluid: (
+          <Menu.Segmented
+            onChange={(key) => console.log('You selected', key)}
+            name='segmented-fluid'
+            defaultValue='home'
+            options={options}
+          />
+        ),
 
-        Static: <Menu.Segmented
-          onChange={(key) => console.log('You selected', key)}
-          tabDisplay='static'
-          name='segmented-static'
-          focus='faq'
-          value='home'
-          options={options}
-        />,
+        Static: (
+          <Menu.Segmented
+            onChange={(key) => console.log('You selected', key)}
+            tabDisplay='static'
+            name='segmented-static'
+            defaultValue='home'
+            options={options}
+          />
+        ),
 
-        Uncontrolled: <UncontrolledMenu.Segmented
-          name='uncontrolled-segmented'
-          focus='faq'
-          value='home'
-          options={options}
-        />
+        Controlled: (
+          <Menu.Segmented
+            name='uncontrolled-segmented'
+            focus='faq'
+            value='home'
+            options={options}
+          />
+        )
       }
     }
   ]
