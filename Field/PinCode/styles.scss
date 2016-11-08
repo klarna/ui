@@ -14,20 +14,19 @@
   width: 100%;
 
   &::-webkit-input-placeholder {
-    // This should be the same color and font weight as .field__label.
-    bottom: ($grid * .6);
-    color: map-get($colors, grey-text);
-    font-size: ($grid * 4);
-    font-weight: 400;
+    @include typography(map-get($font-sizes, segmented-field-placeholder), regular);
+
+    bottom: ($grid * 1);
+    color: map-get($colors, grey-icon);
+    opacity: 1;
     position: relative;
   }
 
   &:-ms-input-placeholder {
-    // This should be the same color and font weight as .field__label.
-    bottom: ($grid * .6);
-    color: map-get($colors, grey-text);
-    font-size: ($grid * 4);
-    font-weight: 400;
+    @include typography(map-get($font-sizes, segmented-field-placeholder), regular);
+
+    bottom: ($grid * 1);
+    color: map-get($colors, grey-icon);
     position: relative;
   }
 

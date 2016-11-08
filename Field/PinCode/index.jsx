@@ -52,7 +52,7 @@ class PinCode extends PureComponent {
       type='tel'
       value={value}
       {...props}
-    />
+           />
   }
 }
 
@@ -71,6 +71,7 @@ PinCode.propTypes = {
   }),
   length: PropTypes.number,
   onChange: PropTypes.func,
+  placeholder: PropTypes.string,
   styles: PropTypes.object,
   value: PropTypes.string
 }

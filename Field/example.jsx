@@ -195,10 +195,13 @@ import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE,
 
       examples: {
-        Regular: <FieldVariation.PinCode
-          onChange={(value) => console.log(value)}
-          defaultValue='3134'
-        />,
+        Regular: (
+          <FieldVariation.PinCode
+            onChange={(value) => console.log(value)}
+            defaultValue='3134'
+            placeholder='Enter the value'
+          />
+        ),
 
         Controlled: <FieldVariation.PinCode
           onChange={(value) => console.log(value)}
@@ -213,6 +216,7 @@ import Fieldset from '@klarna/ui/Fieldset'`,
             inputColor: 'orange'
           }}
           defaultValue='1337'
+          placeholder='Enter the value'
         />
       }
     }
