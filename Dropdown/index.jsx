@@ -231,6 +231,12 @@ const onMouseLeave = (component) => () =>
   })
 
 export default compose(
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (e) => e.target.value
+  }),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,
