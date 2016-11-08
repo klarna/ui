@@ -96,6 +96,35 @@ export default {
           </Wrapper>
         },
 
+        'With loading state': {
+          inline: <Landing
+            illustration={<DemoIcon />}
+            labels={{
+              title: 'Welcome to the site',
+              summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+              accept: 'Continue',
+              cancel: 'Go back'
+            }}
+            loading
+            onAccept={() => console.log('accept')}
+            onCancel={() => console.log('cancel')}
+          />,
+
+          wrapper: <Wrapper>
+            <Landing
+              illustration={<DemoIcon />}
+              labels={{
+                title: 'Welcome to the site',
+                summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+                accept: 'Continue',
+                cancel: 'Go back'
+              }}
+              onAccept={() => console.log('accept')}
+              onCancel={() => console.log('cancel')}
+            />
+          </Wrapper>
+        },
+
         'No Buttons': {
           inline: <Landing
             illustration={<DemoIcon />}
