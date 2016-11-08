@@ -22,6 +22,7 @@ class PinCode extends PureComponent {
     const {
       className,
       customize,
+      error,
       length,
       onChange,
       style,
@@ -32,16 +33,22 @@ class PinCode extends PureComponent {
     const {focus, hover} = this.state
     const classNames = classNamesBind.bind({...defaultStyles, ...styles})
     const inputStyle = customize ? {
-      color: customize.inputColor,
-      borderColor: (hover || focus)
-        ? customize.borderColorSelected
-        : customize.borderColor,
+      ...(!error
+        ? {
+          color: customize.inputColor,
+          borderColor: (hover || focus)
+            ? customize.borderColorSelected
+            : customize.borderColor,
+          boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+        }
+        : {}
+      ),
       borderRadius: customize.borderRadius,
-      boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+      ...style
     } : style
 
     return <input
-      className={classNames(baseClass, className)}
+      className={classNames(baseClass, {error}, className)}
       onBlur={() => this.setState({focus: false})}
       onChange={onChange}
       onFocus={() => this.setState({focus: true})}
@@ -52,11 +59,12 @@ class PinCode extends PureComponent {
       type='tel'
       value={value}
       {...props}
-    />
+           />
   }
 }
 
 PinCode.defaultProps = {
+  error: false,
   length: 6,
   styles: {},
   value: ''
@@ -69,8 +77,10 @@ PinCode.propTypes = {
     borderRadius: PropTypes.string,
     inputColor: PropTypes.string
   }),
+  error: PropTypes.bool,
   length: PropTypes.number,
   onChange: PropTypes.func,
+  placeholder: PropTypes.string,
   styles: PropTypes.object,
   value: PropTypes.string
 }

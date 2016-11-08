@@ -195,25 +195,42 @@ import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE,
 
       examples: {
-        Regular: <FieldVariation.PinCode
-          onChange={(value) => console.log(value)}
-          defaultValue='3134'
-        />,
+        Regular: (
+          <FieldVariation.PinCode
+            onChange={(value) => console.log(value)}
+            defaultValue='3134'
+            placeholder='Enter the value'
+          />
+        ),
 
-        Controlled: <FieldVariation.PinCode
-          onChange={(value) => console.log(value)}
-          value='312'
-        />,
+        Controlled: (
+          <FieldVariation.PinCode
+            onChange={(value) => console.log(value)}
+            value='312'
+          />
+        ),
 
-        Customized: <FieldVariation.PinCode
-          customize={{
-            borderColor: 'red',
-            borderColorSelected: 'purple',
-            borderRadius: '10px',
-            inputColor: 'orange'
-          }}
-          defaultValue='1337'
-        />
+        Error: (
+          <FieldVariation.PinCode
+            error
+            onChange={(value) => console.log(value)}
+            defaultValue='3134'
+            placeholder='Enter the value'
+          />
+        ),
+
+        Customized: (
+          <FieldVariation.PinCode
+            customize={{
+              borderColor: 'red',
+              borderColorSelected: 'purple',
+              borderRadius: '10px',
+              inputColor: 'orange'
+            }}
+            defaultValue='1337'
+            placeholder='Enter the value'
+          />
+        )
       }
     }
   ]
