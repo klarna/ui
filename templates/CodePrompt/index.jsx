@@ -57,6 +57,7 @@ function CodePrompt ({
       value={value}
       placeholder={label}
       error={!!error}
+      disabled={loading}
     />
 
     {error && <div className={classNames(classes.error)}>
