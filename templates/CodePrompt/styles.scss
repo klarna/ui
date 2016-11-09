@@ -10,6 +10,10 @@
   }
 }
 
+.code-prompt__error {
+  margin-top: ($grid * -.6);
+}
+
 .code-prompt__error__icon {
   display: inline-block;
   margin-right: ($grid * 1);

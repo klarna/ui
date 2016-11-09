@@ -37,6 +37,10 @@
   padding-top: ($grid * 6.2);
 }
 
+.chrome--centered__button--accept + .chrome--centered__error {
+  padding-top: ($grid * 1.4);
+}
+
 .chrome--centered__error__icon {
   display: inline-block;
   margin-right: ($grid * 1);
@@ -46,8 +50,4 @@
 
 .chrome--centered__error__paragraph {
   display: inline-block;
-}
-
-.chrome--centered__error + .chrome--centered__message {
-  margin-top: ($grid * 3);
 }
