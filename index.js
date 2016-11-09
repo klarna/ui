@@ -27,7 +27,6 @@ import * as TheText from './Text'
 export { default as TextLabel } from './TextLabel'
 import * as TheTitle from './Title'
 export { default as Tooltip } from './Tooltip'
-export { default as UncontrolledRadio } from './uncontrolled/Radio'
 
 export const Alert = TheAlert
 export const Block = TheBlock
