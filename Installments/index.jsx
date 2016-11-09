@@ -219,45 +219,45 @@ const Installments = React.createClass({
       <div className={classNames(classes.row)}>
         {options.map(({ key, content }, index) => {
           const id = `${name}-${key}`
-            return <label
-              key={`cell-${id}`}
+          return <label
+            key={`cell-${id}`}
+            className={classNames(
+              classes.cell,
+              { 'is-focused': focus === key },
+              { 'is-selected': key === selected },
+              { 'is-hovered': id === this.state.hover },
+              { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
+              { 'is-previously-selected': key === previouslySelected },
+              { 'is-after-previously-selected': (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
+            )}
+            style={customize
+              ? cellDynamicStyles(customize, id === this.state.hover)
+            : undefined}
+            onMouseEnter={() => onCellMouseEnter(this)(id)}
+            onMouseLeave={() => onCellMouseLeave(this)(id)}
+            onClick={() => onCellClick(this)(id)}
+            onTouchStart={() => onCellTouchStart(this)(id)}
+            onTouchMove={() => onCellTouchMove(this)(id)}
+            ref={`${key}-label`}>
+            <input
+              className={classNames(classes.input)}
+              type='radio'
+              name={name}
+              ref={key}
+              id={id}
+              onBlur={onBlur}
+              onChange={() => onChange && onChange(key)}
+              onFocus={(e) => onFocus && onFocus(key, e)}
+              checked={key === selected}
+              value={key}
+            />
+            <div
               className={classNames(
-                classes.cell,
-                { 'is-focused': focus === key },
-                { 'is-selected': key === selected },
-                { 'is-hovered': id === this.state.hover },
-                { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
-                { 'is-previously-selected': key === previouslySelected },
-                { 'is-after-previously-selected': (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
-              )}
-              style={customize
-                ? cellDynamicStyles(customize, id === this.state.hover)
-              : undefined}
-              onMouseEnter={() => onCellMouseEnter(this)(id)}
-              onMouseLeave={() => onCellMouseLeave(this)(id)}
-              onClick={() => onCellClick(this)(id)}
-              onTouchStart={() => onCellTouchStart(this)(id)}
-              onTouchMove={() => onCellTouchMove(this)(id)}
-              ref={`${key}-label`}>
-              <input
-                className={classNames(classes.input)}
-                type='radio'
-                name={name}
-                ref={key}
-                id={id}
-                onBlur={onBlur}
-                onChange={() => onChange && onChange(key)}
-                onFocus={(e) => onFocus && onFocus(key, e)}
-                checked={key === selected}
-                value={key}
-              />
-              <div
-                className={classNames(
-                  classes.cellContent
-                )}>
-                {content}
-              </div>
-            </label>
+                classes.cellContent
+              )}>
+              {content}
+            </div>
+          </label>
         })}
       </div>
       <span className={classNames(

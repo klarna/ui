@@ -120,7 +120,7 @@ const Tab = React.createClass({
           })
 
           return [
-            (<input
+            <input
               className={classNames(classes.input)}
               type='radio'
               name={name}
@@ -131,16 +131,16 @@ const Tab = React.createClass({
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === value}
               value={key}
-             />),
-          (<label
-            id={`${id}-tab`}
-            style={tabDisplay === 'static' ? {
-              width: `${(100 / options.length)}%`
-            } : undefined}
+            />,
+            <label
+              id={`${id}-tab`}
+              style={tabDisplay === 'static' ? {
+                width: `${(100 / options.length)}%`
+              } : undefined}
               className={tabClass}
               htmlFor={id}>
               {label}
-            </label>)
+            </label>
           ]
         })}
       </div>

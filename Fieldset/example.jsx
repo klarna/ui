@@ -59,14 +59,14 @@ export default {
             name: 'city',
             label: 'Street address',
             options: [
-            {
-              key: 'Stockholm',
-              label: 'Stockholm'
-            },
-            {
-              key: 'Gothenburg',
-              label: 'Gothenburg'
-            }
+              {
+                key: 'Stockholm',
+                label: 'Stockholm'
+              },
+              {
+                key: 'Gothenburg',
+                label: 'Gothenburg'
+              }
             ],
             bottom: true
           }

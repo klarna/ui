@@ -42,5 +42,3 @@ export const Preview = ThePreview
 export const Switch = TheSwitch
 export const Text = TheText
 export const Title = TheTitle
-export const UncontrolledMenu = TheUncontrolledMenu
-export const UncontrolledSwitch = TheUncontrolledSwitch
