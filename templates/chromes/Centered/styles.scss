@@ -36,3 +36,18 @@
 .chrome--centered__paragraph--legal {
   padding-top: ($grid * 6.2);
 }
+
+.chrome--centered__error__icon {
+  display: inline-block;
+  margin-right: ($grid * 1);
+  position: relative;
+  top: ($grid * 1);
+}
+
+.chrome--centered__error__paragraph {
+  display: inline-block;
+}
+
+.chrome--centered__error + .chrome--centered__message {
+  margin-top: ($grid * 3);
+}
