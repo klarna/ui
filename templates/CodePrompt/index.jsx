@@ -61,13 +61,13 @@ function CodePrompt ({
     />
 
     {error && <div className={classNames(classes.error)}>
-      <Cross
-        className={classNames(classes.errorIcon)}
-        color='error'
-      />
       <Paragraph.Primary
         className={classNames(classes.errorParagraph)}
         color='error'>
+        <Cross
+          className={classNames(classes.errorIcon)}
+          color='error'
+        />
         {error}
       </Paragraph.Primary>
     </div>}

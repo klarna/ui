@@ -4,12 +4,16 @@ import * as Dialog from '../../../Dialog'
 import * as Button from '../../../Button'
 import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
+import Cross from '../../../icons/Cross'
 import Link from '../../../Link'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'chrome--centered'
 
 const classes = {
+  error: `${baseClass}__error`,
+  errorIcon: `${baseClass}__error__icon`,
+  errorParagraph: `${baseClass}__error__paragraph`,
   title: `${baseClass}__title`,
   paragraphPrimary: `${baseClass}__paragraph--primary`,
   buttonAccept: `${baseClass}__button--accept`,
@@ -20,6 +24,7 @@ const classes = {
 export default function Centered ({
   className,
   children,
+  error,
   labels,
   illustration,
   loading,
@@ -61,6 +66,18 @@ export default function Centered ({
         {labels.cancel}
       </Link>
     </Paragraph.Primary>}
+
+    {error && <div className={classNames(classes.error)}>
+      <Paragraph.Primary
+        className={classNames(classes.errorParagraph)}
+        color='error'>
+        <Cross
+          className={classNames(classes.errorIcon)}
+          color='error'
+        />
+        {error}
+      </Paragraph.Primary>
+    </div>}
 
     {labels.legal && <Paragraph.Legal className={classNames(classes.legal)}>
       {labels.legal}
