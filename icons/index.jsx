@@ -1,5 +1,6 @@
 export { default as AccountActivated } from './AccountActivated'
 export { default as AllSet } from './AllSet'
+export { default as Calendar } from './Calendar'
 export { default as Chevron } from './Chevron'
 export { default as Cancel } from './Cancel'
 export { default as Checkmark } from './Checkmark'
