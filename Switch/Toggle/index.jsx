@@ -1,9 +1,13 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
+
 import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled
+} from '@klarna/higher-order-components'
 
 const baseClass = 'switch'
 
@@ -238,6 +242,19 @@ const Toggle = React.createClass({
 })
 
 export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: () => true,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (x) => x
+  }),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,

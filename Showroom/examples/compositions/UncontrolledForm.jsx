@@ -2,7 +2,7 @@ import React from 'react'
 import Fieldset from '../../../Fieldset'
 import Dropdown from '../../../Dropdown'
 import Field from '../../../Field'
-import * as UncontrolledSwitch from '../../../uncontrolled/Switch'
+import * as Switch from '../../../Switch'
 import * as Button from '../../../Button'
 import * as Selector from '../../../Selector'
 import * as Menu from '../../../Menu'
@@ -142,10 +142,10 @@ export default {
         </Fieldset>
 
         <Fieldset margins>
-          <UncontrolledSwitch.Checkbox
+          <Switch.Checkbox
             name='separate-shipping-address'>
             Separate shipping address
-          </UncontrolledSwitch.Checkbox>
+          </Switch.Checkbox>
         </Fieldset>
 
         <Fieldset margins>
