@@ -66,7 +66,7 @@ const optionsWithContent = [
       <Subtitle>Choose your destiny</Subtitle>
 
       <Dropdown
-        name='ipsum-uncontrolled-dropdown'
+        name='ipsum-controlled-dropdown'
         options={[
           {key: 'coffee', label: 'Coffee'},
           {key: 'chai', label: 'Chai'},

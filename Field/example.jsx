@@ -19,7 +19,7 @@ export default {
         Regular: <Field label='Enter your email' />,
 
         Controlled: <Field
-          name='field-uncontrolled'
+          name='field-controlled'
           label='Enter your email'
           value='someone@example.com'
           focus

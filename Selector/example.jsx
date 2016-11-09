@@ -36,7 +36,7 @@ export default {
           <Selector.Options
             data={optionsData}
             focus={2}
-            name='selector-uncontrolled'
+            name='selector-controlled'
             onChange={(value) => console.log('You selected', value)}
             value={1}
           />

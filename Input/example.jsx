@@ -17,7 +17,7 @@ export default {
       examples: {
         Regular: <Input label='Enter your email' />,
         Controlled: <Input
-          name='input-uncontrolled'
+          name='input-controlled'
           label='Enter your email'
           value='someone@example.com'
           focus

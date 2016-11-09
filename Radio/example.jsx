@@ -59,7 +59,7 @@ const optionsWithContent = [
       <Subtitle>Choose your destiny</Subtitle>
 
       <Dropdown
-        name='ipsum-uncontrolled-dropdown'
+        name='ipsum-dropdown'
         options={[
           {key: 'coffee', label: 'Coffee'},
           {key: 'chai', label: 'Chai'},
@@ -76,8 +76,7 @@ export default {
   title: 'Radio',
 
   examples: {
-    require: `import Radio from '@klarna/ui/Radio'
-import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
+    require: 'import Radio from \'@klarna/ui/Radio\'',
     type: LIVE_WIDE,
 
     examples: {
@@ -89,14 +88,14 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
       />,
 
       'Without content': <Radio
-        name='radio-uncontrolled-borderful-with-content'
+        name='radio-borderful-with-content'
         onChange={(key) => console.log(key)}
         options={options}
       />,
 
       Controlled: <Radio
         focus='sit'
-        name='radio-uncontrolled'
+        name='radio-controlled'
         onChange={(key) => console.log(key)}
         options={options}
         value='ipsum'

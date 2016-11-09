@@ -28,16 +28,16 @@ export default {
             key={1}
             focus
             value={false}
-            name='toggle-switch-uncontrolled'>
-            This is an uncontrolled toggle switch checked
+            name='toggle-switch-controlled'>
+            This is an controlled toggle switch checked
           </Switch.Toggle>,
 
           <Switch.Toggle
             key={2}
             align='right'
             value
-            name='toggle-switch-uncontrolled-right'>
-            This is an uncontrolled toggle switch on the right
+            name='toggle-switch-controlled-right'>
+            This is an controlled toggle switch on the right
           </Switch.Toggle>
         ],
 
@@ -105,8 +105,8 @@ export default {
         ],
 
         Controlled: [
-          <Switch.Checkbox key={1} name='checkbox-uncontrolled' value focus>
-            This is an uncontrolled checkbox switch
+          <Switch.Checkbox key={1} name='checkbox-controlled' value focus>
+            This is a controlled checkbox switch
           </Switch.Checkbox>
         ],
 
@@ -125,7 +125,7 @@ export default {
         'With customizations': [
           <Switch.Checkbox
             key={1}
-            name='checkbox-dynamic-styling-uncontrolled'
+            name='checkbox-dynamic-styling'
             customize={{
               backgroundColor: '#3500C8',
               bulletColor: '#F9FF3C',
@@ -138,7 +138,7 @@ export default {
           <Switch.Checkbox
             key={2}
             align='right'
-            name='checkbox-dynamic-styling-uncontrolled-right'
+            name='checkbox-dynamic-styling-right'
             customize={{
               backgroundColor: '#3500C8',
               bulletColor: '#F9FF3C',

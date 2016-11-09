@@ -48,7 +48,7 @@ export default {
 
         Controlled: (
           <Menu.Tab
-            name='uncontrolled-tab'
+            name='controlled-tab'
             tabDisplay='fluid'
             focus='faq'
             value='home'
@@ -104,7 +104,7 @@ export default {
 
         Controlled: (
           <Menu.Segmented
-            name='uncontrolled-segmented'
+            name='controlled-segmented'
             focus='faq'
             value='home'
             options={options}
