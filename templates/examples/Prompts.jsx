@@ -170,6 +170,17 @@ export default {
             onChange={(e) => console.log(e.target.value)}
             loading='Spell in progress'
           />
+        },
+
+        'Loading without loading-text': {
+          inline: <CodePrompt
+            defaultValue='123'
+            label='The numbers'
+            title='Enter the magic numbers'
+            summary='You know them. You’ve seen Lost too.'
+            onChange={(e) => console.log(e.target.value)}
+            loading=''
+          />
         }
       }
     }
