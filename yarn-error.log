@@ -1,0 +1,122 @@
+Arguments: 
+  /usr/local/bin/node /Users/fernando.canel/.yarn/bin/yarn.js
+
+PATH: 
+  /Users/fernando.canel/.rvm/gems/ruby-2.3.1/bin:/Users/fernando.canel/.rvm/gems/ruby-2.3.1@global/bin:/Users/fernando.canel/.rvm/rubies/ruby-2.3.1/bin:/Users/fernando.canel/.yarn/bin:/Users/fernando.canel/Library/Haskell/bin:/Users/fernando.canel/.opam/4.02.1/bin:/Users/fernando.canel/.nix-profile/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/fernando.canel/.rvm/bin:/Applications/ADT/sdk/platform-tools:/Applications/ADT/sdk/tools:/Users/fernando.canel/Code/others:/Users/fernando.canel/.rvm/bin:/usr/local/go/bin
+
+Yarn version: 
+  0.16.0
+
+Node version: 
+  7.0.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "@klarna/ui",
+    "version": "2.2.3",
+    "description": "Klarna's UI Components",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/klarna/ui"
+    },
+    "license": "SEE LICENSE IN LICENSE",
+    "main": "index.js",
+    "scripts": {
+      "start": "webpack-dev-server --port 7777 --host 0.0.0.0 --history-api-fallback",
+      "build": "webpack",
+      "test": "standard && sass-lint -c .sass-lint.yml '**/*.scss' -v -q && karma start karma.conf.js",
+      "test:unit": "karma start karma.conf.js",
+      "lint": "standard && sass-lint -c .sass-lint.yml '**/*.scss' -v -q",
+      "test:watch": "npm test -- --watch"
+    },
+    "author": "Klarna front end people",
+    "dependencies": {
+      "@klarna/higher-order-components": "0.1.3",
+      "classnames": "2.2.5",
+      "parse-color": "1.0.0",
+      "react-context-props": "^0.1.4"
+    },
+    "devDependencies": {
+      "autoprefixer": "^6.4.1",
+      "autoprefixer-loader": "^3.1.0",
+      "babel-core": "^6.7.4",
+      "babel-eslint": "^6.1.2",
+      "babel-loader": "^6.2.4",
+      "babel-polyfill": "^6.0.16",
+      "babel-preset-es2015": "^6.1.2",
+      "babel-preset-react": "^6.1.2",
+      "babel-preset-stage-0": "^6.1.2",
+      "css-loader": "^0.19.0",
+      "file-loader": "^0.8.5",
+      "flyd": "^0.2.2",
+      "html-webpack-plugin": "^1.6.1",
+      "json-loader": "^0.5.4",
+      "karma": "^0.13.19",
+      "karma-chrome-launcher": "0.2.2",
+      "karma-coverage": "0.5.2",
+      "karma-firefox-launcher": "0.1.7",
+      "karma-ie-launcher": "0.2.0",
+      "karma-mocha": "^0.2.1",
+      "karma-phantomjs-launcher": "^0.2.3",
+      "karma-prettybrowser-reporter": "git+https://github.com/cpapazaf/karma-prettybrowser-reporter.git",
+      "karma-safari-launcher": "0.1.1",
+      "karma-sauce-launcher": "^0.3.1",
+      "karma-spec-reporter": "0.0.23",
+      "karma-webdriver-launcher": "1.0.4",
+      "karma-webpack": "^1.7.0",
+      "mocha": "^2.3.4",
+      "node-sass": "^3.4.2",
+      "normalize.css": "^4.1.1",
+      "null-loader": "^0.1.1",
+      "phantomjs": "^1.9.19",
+      "phantomjs-polyfill": "0.0.2",
+      "postcss-loader": "^0.13.0",
+      "ramda": "^0.21.0",
+      "react": "^15.0.2",
+      "react-addons-test-utils": "^15.0.2",
+      "react-dom": "^15.0.2",
+      "react-element-to-jsx-string": "^4.1.0",
+      "react-maskedinput": "^3.2.4",
+      "react-motion": "^0.4.2",
+      "react-syntax-highlighter": "^2.2.0",
+      "resolve-url-loader": "^1.2.0",
+      "sass-lint": "^1.9.1",
+      "sass-loader": "^3.2.0",
+      "sinon": "git+https://github.com/sinonjs/sinon.git",
+      "standard": "^6.0.8",
+      "stringify-object": "^2.4.0",
+      "style-loader": "^0.12.4",
+      "url-loader": "^0.5.6",
+      "webpack": "^1.12.2",
+      "webpack-dev-server": "^1.12.1",
+      "webpack-error-notification": "^0.1.6",
+      "yargs": "^3.31.0",
+      "zen-router": "^1.0.0"
+    },
+    "peerDependencies": {
+      "react": "^0.14.0 || ^15.0.0",
+      "react-motion": "^0.4.2"
+    },
+    "standard": {
+      "globals": [
+        "describe",
+        "it"
+      ],
+      "parser": "babel-eslint"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+bower manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: EEXIST: file already exists, mkdir '/Users/fernando.canel/Code/klarna/ui/node_modules/@klarna/higher-order-components'
