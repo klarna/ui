@@ -1,12 +1,12 @@
 import React from 'react'
 import Fieldset from '../Fieldset'
 import Theme from '../Theme'
+import BoxSelector from '../BoxSelector'
 import * as Button from '../Button'
 import * as Checklist from '../Checklist'
 import Dropdown from '../Dropdown'
 import Field from '../Field'
 import * as FieldVariant from '../Field'
-import Installments from '../Installments'
 import Link from '../Link'
 import * as Switch from '../Switch'
 import * as Title from '../Title'
@@ -39,7 +39,7 @@ const optionsWithContent = [
     label: 'Sit',
     description: 'Amet et consequetur',
     content: <div>
-      <Installments
+      <BoxSelector
         name='installments'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
@@ -79,12 +79,12 @@ export default {
 
   examples: {
     require: `import Theme from '@klarna/ui/Theme'
+import BoxSelector from '@klarna/ui/BoxSelector'
 import * as Button from '@klarna/ui/Button'
 import * as Checklist from '@klarna/ui/Checklist'
 import Dropdown from '@klarna/ui/Dropdown'
 import * as Field from '@klarna/ui/Field'
 import Field from '@klarna/ui/Field'
-import Installments from '@klarna/ui/Installments'
 import Link from '@klarna/ui/Link'
 import * as Switch from '@klarna/ui/Switch'
 import * as Title from '@klarna/ui/Title'
@@ -194,9 +194,9 @@ import * as List from '@klarna/ui/List'`,
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
-          <Installments
+          <BoxSelector
             onChange={(key) => console.log('You selected', key)}
-            name='installments'
+            name='box-selector'
             defaultValue='installments_24'
             options={[
               { key: 'installments_3', content: <div>Long one line text in div</div> },

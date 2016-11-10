@@ -10,7 +10,7 @@ import {
   uncontrolled
 } from '@klarna/higher-order-components'
 
-const baseClass = 'installments'
+const baseClass = 'box-selector'
 const TRANSITION_DURATION = 500
 
 const classes = {
@@ -49,8 +49,8 @@ const calculateHighlightPosition = (selected) => {
   }
 }
 
-const Installments = React.createClass({
-  displayName: 'Installments',
+const BoxSelector = React.createClass({
+  displayName: 'BoxSelector',
 
   propTypes: {
     options: PropTypes.arrayOf(PropTypes.shape({
@@ -311,4 +311,4 @@ export default compose(
     }
   })),
   overridable(defaultStyles)
-)(Installments)
+)(BoxSelector)

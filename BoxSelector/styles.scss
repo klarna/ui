@@ -4,7 +4,7 @@
 $transition-duration: 500ms;
 $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
-.installments {
+.box-selector {
   border: ($grid * .2) solid $border-color;
   border-radius: 5px;
   box-sizing: border-box;
@@ -24,7 +24,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     table-layout: fixed;
   }
 
-  .installments__input {
+  .box-selector__input {
     display: block;
     height: 0;
     opacity: 0;
@@ -32,7 +32,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     width: 0;
   }
 
-  .installments__row {
+  .box-selector__row {
     display: block;
 
     @include respond-to-wide {
@@ -40,7 +40,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     }
   }
 
-  .installments__cell {
+  .box-selector__cell {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     border-top: ($grid * .2) solid $border-color;
     box-sizing: border-box;
@@ -76,7 +76,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     }
   }
 
-  .installments__cell__content {
+  .box-selector__cell__content {
     @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -93,8 +93,8 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     }
   }
 
-  .installments__cell.is-hovered,
-  .installments__cell.is-focused {
+  .box-selector__cell.is-hovered,
+  .box-selector__cell.is-focused {
     color: map-get($colors, klarna-blue);
   }
 
@@ -106,7 +106,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     }
   }
 
-  .installments__cell__highlight {
+  .box-selector__cell__highlight {
     border: ($grid * .4) solid map-get($colors, klarna-blue);
     border-radius: 5px;
     box-sizing: border-box;
