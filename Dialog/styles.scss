@@ -129,7 +129,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  transition: all 0.3s ease;
+  transition: opacity .3s ease, z-index .3s ease;
   width: 100%;
   z-index: -1;
 
