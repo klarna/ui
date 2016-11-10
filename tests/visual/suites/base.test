@@ -1,0 +1,10 @@
+@@ groups portrait, landscape, desktop, mobile
+
+@@ table devices
+    | deviceName             | size       | tag                 |
+    | iphone6plus            | 414x736    | portrait, mobile    |
+
+@@ table scenarios
+    | component         |            fixture                |                 the_spec                        |
+    | Button		| campaign                          | ./specs/button.gspec                            |
+

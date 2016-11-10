@@ -1,0 +1,13 @@
+
+@objects
+    button xpath //button
+    root id root
+
+= Test Button =
+
+    button:
+        visible
+
+    button:
+        inside root 1px top left
+
