@@ -43,6 +43,8 @@ function CodePrompt ({
   ...props
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const loadingText = loading
+  loading = loading || loadingText === ''
 
   return <Centered
     labels={{summary, title}}
@@ -77,10 +79,12 @@ function CodePrompt ({
         className={classNames(classes.loadingLoader)}
         size='small'
       />
-      <Paragraph.Secondary
-        className={classNames(classes.loadingParagraph)}>
-        {loading}
-      </Paragraph.Secondary>
+      {loadingText !== '' && (
+        <Paragraph.Secondary
+          className={classNames(classes.loadingParagraph)}>
+          {loadingText}
+        </Paragraph.Secondary>
+      )}
     </div>}
 
     {message && <Paragraph.Secondary
