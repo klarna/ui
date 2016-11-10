@@ -1,10 +1,13 @@
 import React, {PropTypes, PureComponent} from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
-import overridable from '../../decorators/overridable'
-import uncontrolled from '../../decorators/uncontrolled'
-import themeable from '../../decorators/themeable'
+
 import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled
+} from '@klarna/higher-order-components'
 
 const baseClass = 'field-code'
 

@@ -2,10 +2,11 @@ import React, { PropTypes} from 'react'
 import Field from '../Field'
 import Dropdown from '../Dropdown'
 import Input from '../Input'
-import compose from 'ramda/src/compose'
-import uncontrolled from '../decorators/uncontrolled'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+
+import compose from 'ramda/src/compose'
+import {uncontrolled} from '@klarna/higher-order-components'
 
 function Fieldset ({
   className,

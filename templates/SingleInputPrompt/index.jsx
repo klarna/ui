@@ -1,9 +1,10 @@
 import React from 'react'
 import Centered from '../chromes/Centered'
 import Input from '../../Input'
-import compose from 'ramda/src/compose'
-import uncontrolled from '../../decorators/uncontrolled'
 import defaultStyles from './styles.scss'
+
+import compose from 'ramda/src/compose'
+import {uncontrolled} from '@klarna/higher-order-components'
 
 function SingleInputPrompt ({
   accept,

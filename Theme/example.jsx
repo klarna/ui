@@ -17,11 +17,6 @@ import * as List from '../List'
 import { Back, Hamburger } from '../IconButton'
 import { LIVE } from '../Showroom/variationTypes'
 
-import statefulFocus from '../lib/decorators/statefulFocus'
-import statefulValue from '../lib/decorators/statefulValue'
-
-const FocusableThemeableCheckbox = statefulValue(statefulFocus(Switch.Checkbox))
-
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
   { key: 1, label: 'Lorem' },
@@ -48,7 +43,7 @@ const optionsWithContent = [
         name='installments'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
-        value='installments_6'
+        defaultValue='installments_6'
       />
       <Checklist.Main style={{marginTop: '20px'}}>
         <Checklist.Item>Just one click and you're done</Checklist.Item>
@@ -73,7 +68,7 @@ const optionsWithContent = [
           {key: 'latte', label: 'Latte'}
         ]}
         label='Infusion'
-        value='coffee'
+        defaultValue='coffee'
       />
     </div>
   }
@@ -166,7 +161,7 @@ import * as List from '@klarna/ui/List'`,
         <div style={{padding: '20px 0'}}>
           <Checklist.Main>
             <Checklist.Item>
-              Just one click and you're done
+              Just one click and you’re done
             </Checklist.Item>
             <Checklist.Item>
               Very little hassle
@@ -187,13 +182,13 @@ import * as List from '@klarna/ui/List'`,
         </div>
 
         <Fieldset margins>
-          <Dropdown top label='Given name' options={options} value={1} />
+          <Dropdown top label='Given name' options={options} defaultValue={1} />
           <Dropdown square label='Middle name' options={options} />
           <Dropdown bottom label='Last name' options={options} focus='fake' />
         </Fieldset>
 
         <Fieldset margins>
-          <Field top label='Address' value='16, Corn street' focus='fake' />
+          <Field top label='Address' defaultValue='16, Corn street' focus='fake' />
           <Field square label='Given name' />
           <Field bottom error label='Family name' />
         </Fieldset>
@@ -202,11 +197,12 @@ import * as List from '@klarna/ui/List'`,
           <Installments
             onChange={(key) => console.log('You selected', key)}
             name='installments'
-            value='installments_24'
+            defaultValue='installments_24'
             options={[
-              { key: 'installments_6', value: '$64.17/mo.', connector: 'for', info: ' 6 months' },
-              { key: 'installments_12', value: '$32.09/mo.', connector: 'for', info: ' 12 months' },
-              { key: 'installments_24', value: '$16.05/mo.', connector: 'for', info: ' 24 months' }
+              { key: 'installments_3', content: <div>Long one line text in div</div> },
+              { key: 'installments_6', content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>] },
+              { key: 'installments_12', content: 'Simple text content' },
+              { key: 'installments_24', content: <div><div>Force</div><div>new line</div></div> }
             ]}
           />
         </div>
@@ -216,21 +212,21 @@ import * as List from '@klarna/ui/List'`,
         </div>
 
         <div style={{paddingBottom: '20px'}}>
-          <Switch.Toggle name='fries'>
+          <Switch.Toggle name='fries-5'>
             Would you like fries?
           </Switch.Toggle>
-          <Switch.Toggle value name='fries'>
+          <Switch.Toggle defaultValue name='fries'>
             Would you like fries?
           </Switch.Toggle>
-          <FocusableThemeableCheckbox name='fries-2'>
+          <Switch.Checkbox name='fries-2'>
             Would you like fries?
-          </FocusableThemeableCheckbox>
-          <FocusableThemeableCheckbox value name='fries-3'>
+          </Switch.Checkbox>
+          <Switch.Checkbox defaultValue name='fries-3'>
             Would you like fries?
-          </FocusableThemeableCheckbox>
-          <FocusableThemeableCheckbox value error name='fries-4'>
+          </Switch.Checkbox>
+          <Switch.Checkbox defaultValue error name='fries-4'>
             Should be red
-          </FocusableThemeableCheckbox>
+          </Switch.Checkbox>
         </div>
 
         <div style={{paddingBottom: '20px'}}>

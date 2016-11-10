@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '../styles.scss'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
+
 import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
 
 const baseClass = 'list__item'
 
