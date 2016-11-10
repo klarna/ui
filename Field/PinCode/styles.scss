@@ -10,7 +10,7 @@
   display: block;
   height: ($grid * 12);
   text-align: center;
-  transition: all .2s ease;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
   width: 100%;
 
   &::-webkit-input-placeholder {
