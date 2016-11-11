@@ -1,7 +1,13 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
 import defaultStyles from './styles.scss'
+
+import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled
+} from '@klarna/higher-order-components'
 
 const baseClass = 'switch--checkbox'
 
@@ -93,7 +99,7 @@ const Checkbox = React.createClass({
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const cls = classNames(baseClass, {
       'is-checked': value,
-      'is-focused': focus,
+      'is-focused': focus && !disabled,
       'is-pressed': pressed,
       'is-disabled': disabled,
       'is-error': error,
@@ -116,6 +122,7 @@ const Checkbox = React.createClass({
         name={name}
         type='checkbox'
         checked={value}
+        disabled={disabled}
         onBlur={onBlur}
         onChange={() => !disabled && onChange && onChange(!value)}
         onFocus={onFocus}
@@ -124,7 +131,7 @@ const Checkbox = React.createClass({
       <label
         className={classNames(classes.label)}
         htmlFor={name}
-        style={customize ? {
+        style={customize && !error && !disabled ? {
           color: customize.textColor
         } : undefined}>
         <div
@@ -159,12 +166,28 @@ const Checkbox = React.createClass({
   }
 })
 
-export default themeable(Checkbox, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    backgroundColor: customizations.color_checkbox,
-    bulletColor: customizations.color_checkbox_checkmark,
-    textColor: customizations.color_text,
-    borderColorSelected: customizations.color_border_selected
-  }
-}))
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: () => true,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (x) => x
+  }),
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      backgroundColor: customizations.color_checkbox,
+      bulletColor: customizations.color_checkbox_checkmark,
+      textColor: customizations.color_text,
+      borderColorSelected: customizations.color_border_selected
+    }
+  })),
+  overridable(defaultStyles)
+)(Checkbox)

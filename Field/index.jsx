@@ -7,7 +7,15 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
-import themeable from '../decorators/themeable'
+
+import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled
+} from '@klarna/higher-order-components'
+
+export PinCode from './PinCode'
 
 const baseClass = 'field'
 
@@ -78,8 +86,31 @@ const Field = React.createClass({
     }
   },
 
+  onAutoFillStart () {
+    this.setState({
+      autoFill: true
+    })
+  },
+
+  onAutoFillCancel () {
+    this.setState({
+      autoFill: false
+    })
+  },
+
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
+
+    this.refs.input.addEventListener &&
+    this.refs.input.addEventListener('animationstart', (e) => {
+      switch (e.animationName) {
+        case defaultStyles.onAutoFillStart:
+          return this.onAutoFillStart()
+
+        case defaultStyles.onAutoFillCancel:
+          return this.onAutoFillCancel()
+      }
+    })
   },
 
   componentDidUpdate () {
@@ -88,14 +119,12 @@ const Field = React.createClass({
 
   onMouseEnter () {
     this.setState({
-      ...this.state,
       hover: true
     })
   },
 
   onMouseLeave () {
     this.setState({
-      ...this.state,
       hover: false
     })
   },
@@ -139,6 +168,7 @@ const Field = React.createClass({
     const cls = classNames(
       (icon ? classes.icon : baseClass), {
         big,
+        'is-autofill': !!this.state.autoFill,
         'is-centered': centered,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
@@ -155,13 +185,18 @@ const Field = React.createClass({
     const hasNonDefaultState = disabled || warning || error
     const useDynamicStyles = customize && !hasNonDefaultState
 
-    const dynamicStyles = useDynamicStyles
+    const dynamicStyles = customize
       ? {
-        borderColor: this.state.hover || focus
-          ? customize.borderColorSelected
-          : customize.borderColor,
-        boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`,
-        ...stacking.position.getBorderRadii(this.props, customize.borderRadius)
+        ...(hasNonDefaultState ? {} : {
+          borderColor: this.state.hover || focus
+            ? customize.borderColorSelected
+            : customize.borderColor,
+          boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+        }),
+        ...stacking.position.getBorderRadii(
+          this.props,
+          customize.borderRadius
+        )
       }
       : undefined
 
@@ -223,13 +258,29 @@ const Field = React.createClass({
   }
 })
 
-export default themeable(Field, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    borderColor: customizations.color_border,
-    borderColorSelected: customizations.color_border_selected,
-    borderRadius: customizations.radius_border,
-    labelColor: customizations.color_text_secondary,
-    inputColor: customizations.color_text
-  }
-}))
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: () => true,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (e) => e.target.value
+  }),
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderColor: customizations.color_border,
+      borderColorSelected: customizations.color_border_selected,
+      borderRadius: customizations.radius_border,
+      labelColor: customizations.color_text_secondary,
+      inputColor: customizations.color_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Field)

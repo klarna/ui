@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
 import defaultStyles from '../styles.scss'
+
+import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
 
 const classes = {
   iconButton: 'icon-button',
@@ -39,6 +41,7 @@ Hamburger.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Hamburger, () => ({
-  color: 'gray'
-}))
+export default compose(
+  themeable(() => ({ color: 'gray' })),
+  overridable(defaultStyles)
+)(Hamburger)

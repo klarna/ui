@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
+
+import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
 
 const baseClass = 'paragraph--secondary'
 
@@ -51,9 +53,12 @@ Secondary.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Secondary, (customizations, props) => ({
-  style: {
-    ...props.style,
-    color: customizations.color_text_secondary
-  }
-}))
+export default compose(
+  themeable((customizations, props) => ({
+    style: {
+      ...props.style,
+      color: customizations.color_text_secondary
+    }
+  })),
+  overridable(defaultStyles)
+)(Secondary)

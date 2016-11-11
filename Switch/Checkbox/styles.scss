@@ -72,7 +72,7 @@
     right: 0;
   }
 
-  .switch--checkbox:not(.dynamic-styling) .switch--checkbox__label:hover & {
+  .switch--checkbox:not(.dynamic-styling):not(.is-disabled) .switch--checkbox__label:hover & {
     border-color: map-get($colors, blue-hover);
   }
 

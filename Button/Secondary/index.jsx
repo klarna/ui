@@ -2,10 +2,12 @@ import React, { PropTypes } from 'react'
 import Loader from '../../Loader'
 import Price from '../Price'
 import classNamesBind from 'classnames/bind'
+import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import contains from '../../lib/contains'
-import themeable from '../../decorators/themeable'
-import defaultStyles from '../styles.scss'
+
+import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
 
 const baseClass = 'button'
 
@@ -117,11 +119,14 @@ Secondary.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Secondary, (customizations, { customize }) => ({
-  customize: {
-    ...customize,
-    backgroundColor: customizations.color_button,
-    borderRadius: customizations.radius_border,
-    textColor: customizations.color_button_text
-  }
-}))
+export default compose(
+  themeable((customizations, { customize }) => ({
+    customize: {
+      ...customize,
+      backgroundColor: customizations.color_button,
+      borderRadius: customizations.radius_border,
+      textColor: customizations.color_button_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Secondary)

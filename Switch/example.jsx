@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Switch from '../Switch'
-import * as UncontrolledSwitch from '../uncontrolled/Switch'
 import { LIVE } from '../Showroom/variationTypes'
 
 export default {
@@ -10,8 +9,7 @@ export default {
   variations: [
     {
       title: 'Toggle',
-      require: `import * as Switch from '@klarna/ui/Switch'
-import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
+      require: 'import * as Switch from \'@klarna/ui/Switch\'',
       type: LIVE,
 
       examples: {
@@ -20,27 +18,28 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
             This is a toggle switch
           </Switch.Toggle>,
 
-          <Switch.Toggle key={2} value name='toggle-switch-checked'>
+          <Switch.Toggle key={2} defaultValue name='toggle-switch-checked'>
             This is a toggle switch checked
           </Switch.Toggle>
         ],
 
-        Uncontrolled: [
-          <UncontrolledSwitch.Toggle key={1} value name='toggle-switch-uncontrolled'>
-            This is an uncontrolled toggle switch checked
-          </UncontrolledSwitch.Toggle>,
+        Controlled: [
+          <Switch.Toggle
+            key={1}
+            focus
+            value={false}
+            name='toggle-switch-controlled'>
+            This is an controlled toggle switch checked
+          </Switch.Toggle>,
 
-          <UncontrolledSwitch.Toggle
+          <Switch.Toggle
             key={2}
             align='right'
-            name='toggle-switch-uncontrolled-right'>
-            This is an uncontrolled toggle switch on the right
-          </UncontrolledSwitch.Toggle>
+            value
+            name='toggle-switch-controlled-right'>
+            This is an controlled toggle switch on the right
+          </Switch.Toggle>
         ],
-
-        'With focus': <Switch.Toggle focus value name='toggle-switch-focused'>
-          This is a toggle switch focused
-        </Switch.Toggle>,
 
         'With legal size text': <Switch.Toggle name='toggle-legal' legal>
           This is a toggle switch with legal size text that usually will fold into multiple lines
@@ -51,7 +50,9 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
             This is a toggle switch disabled
           </Switch.Toggle>,
 
-          <Switch.Toggle key={2} disabled value name='toggle-switch-disabled-checked'>
+          <Switch.Toggle
+            key={2} disabled defaultValue
+            name='toggle-switch-disabled-checked'>
             This is a toggle switch checked and disabled
           </Switch.Toggle>
         ],
@@ -61,7 +62,7 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
         </Switch.Toggle>,
 
         'With customizations': [
-          <UncontrolledSwitch.Toggle
+          <Switch.Toggle
             key={1}
             name='toggle-switch-dynamic-uncontrolled'
             customize={{
@@ -70,9 +71,9 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
               textColor: '#3500C8'
             }}>
             This is an uncontrolled toggle switch with dynamic styling
-          </UncontrolledSwitch.Toggle>,
+          </Switch.Toggle>,
 
-          <UncontrolledSwitch.Toggle
+          <Switch.Toggle
             key={2}
             align='right'
             name='toggle-switch-dynamic-uncontrolled-right'
@@ -82,15 +83,14 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
               textColor: '#3500C8'
             }}>
             This is an uncontrolled toggle switch with dynamic styling on the right
-          </UncontrolledSwitch.Toggle>
+          </Switch.Toggle>
         ]
       }
     },
 
     {
       title: 'Checkbox',
-      require: `import * as Switch from '@klarna/ui/Switch'
-import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
+      require: 'import * as Switch from \'@klarna/ui/Switch\'',
       type: LIVE,
 
       examples: {
@@ -99,22 +99,15 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
             This is a toggle switch with checkbox design
           </Switch.Checkbox>,
 
-          <Switch.Checkbox key={2} name='checkbox-checked' value>
+          <Switch.Checkbox key={2} name='checkbox-checked' defaultValue>
             This is a toggle switch with checkbox design
           </Switch.Checkbox>
         ],
 
-        Uncontrolled: [
-          <UncontrolledSwitch.Checkbox key={1} name='checkbox-uncontrolled'>
-            This is an uncontrolled checkbox switch
-          </UncontrolledSwitch.Checkbox>,
-
-          <UncontrolledSwitch.Checkbox
-            key={2}
-            align='right'
-            name='checkbox-uncontrolled-right'>
-            This is an uncontrolled checkbox switch on the right
-          </UncontrolledSwitch.Checkbox>
+        Controlled: [
+          <Switch.Checkbox key={1} name='checkbox-controlled' value focus>
+            This is a controlled checkbox switch
+          </Switch.Checkbox>
         ],
 
         'With legal size text': <Switch.Checkbox name='checkbox-legal' legal>
@@ -125,14 +118,14 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
           Disabled checkbox
         </Switch.Checkbox>,
 
-        'With error': <Switch.Checkbox name='checkbox-disabled' error>
+        'With error': <Switch.Checkbox name='checkbox-error' error>
           Checkbox with error
         </Switch.Checkbox>,
 
         'With customizations': [
-          <UncontrolledSwitch.Checkbox
+          <Switch.Checkbox
             key={1}
-            name='checkbox-dynamic-styling-uncontrolled'
+            name='checkbox-dynamic-styling'
             customize={{
               backgroundColor: '#3500C8',
               bulletColor: '#F9FF3C',
@@ -140,12 +133,12 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
               textColor: '#3500C8'
             }}>
             This is a dynamically styled, uncontrolled checkbox switch
-          </UncontrolledSwitch.Checkbox>,
+          </Switch.Checkbox>,
 
-          <UncontrolledSwitch.Checkbox
+          <Switch.Checkbox
             key={2}
             align='right'
-            name='checkbox-dynamic-styling-uncontrolled-right'
+            name='checkbox-dynamic-styling-right'
             customize={{
               backgroundColor: '#3500C8',
               bulletColor: '#F9FF3C',
@@ -153,7 +146,7 @@ import * as UncontrolledSwitch from '@klarna/ui/uncontrolled/Switch'`,
               textColor: '#3500C8'
             }}>
             This is a dynamically styled, uncontrolled checkbox switch on the right
-          </UncontrolledSwitch.Checkbox>
+          </Switch.Checkbox>
         ]
       }
     }

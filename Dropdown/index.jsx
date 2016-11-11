@@ -7,7 +7,12 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
-import themeable from '../decorators/themeable'
+import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled
+} from '@klarna/higher-order-components'
 
 const baseClass = 'dropdown'
 
@@ -225,13 +230,29 @@ const onMouseLeave = (component) => () =>
     hover: false
   })
 
-export default themeable(Dropdown, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    borderColor: customizations.color_border,
-    borderColorSelected: customizations.color_border_selected,
-    borderRadius: customizations.radius_border,
-    labelColor: customizations.color_text_secondary,
-    selectedColor: customizations.color_text
-  }
-}))
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: () => true,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (e) => e.target.value
+  }),
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderColor: customizations.color_border,
+      borderColorSelected: customizations.color_border_selected,
+      borderRadius: customizations.radius_border,
+      labelColor: customizations.color_text_secondary,
+      selectedColor: customizations.color_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Dropdown)

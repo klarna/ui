@@ -3,6 +3,9 @@ import { Motion, spring } from 'react-motion'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
+import compose from 'ramda/src/compose'
+import {uncontrolled} from '@klarna/higher-order-components'
+
 const baseClass = 'tab-menu'
 
 const classes = {
@@ -17,13 +20,16 @@ const update = (component) => {
   const tab = document.getElementById(
     `${component.props.name}-${component.props.value}-tab`
   )
-  const { left, width } = tab.getBoundingClientRect()
-  const parentLeft = tab.parentNode.getBoundingClientRect().left
 
-  component.setState({ width, left: (left - parentLeft) })
+  if (tab) {
+    const { left, width } = tab.getBoundingClientRect()
+    const parentLeft = tab.parentNode.getBoundingClientRect().left
+
+    component.setState({ width, left: (left - parentLeft) })
+  }
 }
 
-export default React.createClass({
+const Tab = React.createClass({
   displayName: 'Menu.Tab',
 
   getDefaultProps () {
@@ -114,7 +120,7 @@ export default React.createClass({
           })
 
           return [
-            (<input
+            <input
               className={classNames(classes.input)}
               type='radio'
               name={name}
@@ -125,8 +131,8 @@ export default React.createClass({
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === value}
               value={key}
-            />),
-            (<label
+            />,
+            <label
               id={`${id}-tab`}
               style={tabDisplay === 'static' ? {
                 width: `${(100 / options.length)}%`
@@ -134,10 +140,26 @@ export default React.createClass({
               className={tabClass}
               htmlFor={id}>
               {label}
-            </label>)
+            </label>
           ]
         })}
       </div>
     )
   }
 })
+
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: (x) => x,
+    resetHandlerName: 'onBlur'
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (x) => x
+  })
+)(Tab)
