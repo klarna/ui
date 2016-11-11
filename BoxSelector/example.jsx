@@ -1,5 +1,5 @@
 import React from 'react'
-import Installments from '../Installments'
+import BoxSelector from '../BoxSelector'
 import { LIVE_WIDE } from '../Showroom/variationTypes'
 
 const options = [
@@ -10,15 +10,15 @@ const options = [
 ]
 
 export default {
-  title: 'Installments',
+  title: 'BoxSelector',
 
   examples: {
-    require: 'import Installments from \'@klarna/ui/Installments\'',
+    require: 'import BoxSelector from \'@klarna/ui/BoxSelector\'',
     type: LIVE_WIDE,
 
     examples: {
       Regular: (
-        <Installments
+        <BoxSelector
           onChange={(key) => console.log('You selected', key)}
           name='installments'
           defaultValue='installments_12'
@@ -27,7 +27,7 @@ export default {
       ),
 
       Controlled: (
-        <Installments
+        <BoxSelector
           onChange={(key) => console.log('You selected', key)}
           name='installments2'
           value='installments_24'
