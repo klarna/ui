@@ -3,7 +3,7 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
 import compose from 'ramda/src/compose'
-import {uncontrolled} from '@klarna/higher-order-components'
+import {uncontrolled, uniqueName} from '@klarna/higher-order-components'
 
 const baseClass = 'segmented'
 
@@ -139,5 +139,6 @@ export default compose(
     defaultProp: 'defaultValue',
     handlerName: 'onChange',
     handlerSelector: (x) => x
-  })
+  }),
+  uniqueName
 )(Segmented)

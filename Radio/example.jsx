@@ -38,7 +38,6 @@ const optionsWithContent = [
     description: 'Amet et consequetur',
     content: <div>
       <Installments
-        name='installments'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
         defaultValue='installments_6'
@@ -59,7 +58,6 @@ const optionsWithContent = [
       <Subtitle>Choose your destiny</Subtitle>
 
       <Dropdown
-        name='ipsum-dropdown'
         options={[
           {key: 'coffee', label: 'Coffee'},
           {key: 'chai', label: 'Chai'},
@@ -82,20 +80,18 @@ export default {
     examples: {
       Regular: <Radio
         onChange={(key) => console.log(key)}
-        name='radio-regular'
         options={optionsWithContent}
         defaultValue='lorem'
       />,
 
       'Without content': <Radio
-        name='radio-borderful-with-content'
         onChange={(key) => console.log(key)}
         options={options}
       />,
 
       Controlled: <Radio
         focus='sit'
-        name='radio-controlled'
+        name='radio'
         onChange={(key) => console.log(key)}
         options={options}
         value='ipsum'
@@ -103,7 +99,6 @@ export default {
 
       Borderless: <Radio
         borderless
-        name='radio-borderless'
         onChange={(key) => console.log(key)}
         options={options}
         defaultValue='lorem'
@@ -111,7 +106,6 @@ export default {
 
       Disabled: <Radio
         disabled
-        name='radio-disabled'
         onChange={(key) => console.log(key)}
         options={options}
         defaultValue='lorem'
@@ -119,7 +113,6 @@ export default {
 
       'One field disabled': <Radio
         onChange={(key) => console.log(key)}
-        name='radio-one-disabled'
         options={[
           ...optionsWithContent.slice(0, 2),
           {...optionsWithContent[2], disabled: true}
@@ -130,13 +123,11 @@ export default {
       'Borderless and disabled': <Radio
         borderless
         disabled
-        name='radio-borderless-disabled'
         options={options}
         defaultValue='lorem'
-                                 />,
+      />,
 
       'With a single option': <Radio
-        name='radio-with-a-single-option'
         options={[{
           key: 'lorem',
           label: 'Lorem',
@@ -157,7 +148,6 @@ export default {
           textPrimaryColor: 'green',
           textSecondaryColor: 'red'
         }}
-        name='radio-with-dynamic-styling'
         options={options}
       />
     }

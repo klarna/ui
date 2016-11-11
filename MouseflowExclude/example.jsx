@@ -17,13 +17,11 @@ import Field from '@klarna/ui/Field'`,
       Regular: {
         code: `<MouseflowExclude>
   <Field
-    name='a-sensitive-valued-field'
     label='Sensitive information'
   />
 </MouseflowExclude>`,
         live: <MouseflowExclude>
           <Field
-            name='a-sensitive-valued-field'
             label='Sensitive information'
           />
         </MouseflowExclude>
@@ -31,13 +29,11 @@ import Field from '@klarna/ui/Field'`,
 
       'Higher-order component': {
         live: <ExcludedField
-          name='a-sensitive-valued-field'
           label='Sensitive information'
         />,
         code: `const ExcludedField = exclude(Field)
 
 <ExcludedField
-  name='a-sensitive-valued-field'
   label='Sensitive information'
 />`
       }

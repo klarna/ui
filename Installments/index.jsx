@@ -7,7 +7,8 @@ import compose from 'ramda/src/compose'
 import {
   overridable,
   themeable,
-  uncontrolled
+  uncontrolled,
+  uniqueName
 } from '@klarna/higher-order-components'
 
 const baseClass = 'installments'
@@ -310,5 +311,6 @@ export default compose(
       labelColor: customizations.color_text
     }
   })),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  uniqueName
 )(Installments)

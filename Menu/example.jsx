@@ -30,7 +30,6 @@ export default {
           <Menu.Tab
             onChange={(key) => console.log('You selected', key)}
             tabDisplay='fluid'
-            name='tab-fluid'
             defaultValue='home'
             options={options}
           />
@@ -40,7 +39,6 @@ export default {
           <Menu.Tab
             onChange={(key) => console.log('You selected', key)}
             tabDisplay='static'
-            name='tab-static'
             defaultValue='home'
             options={options}
           />
@@ -48,7 +46,7 @@ export default {
 
         Controlled: (
           <Menu.Tab
-            name='controlled-tab'
+            name='tab'
             tabDisplay='fluid'
             focus='faq'
             value='home'
@@ -60,7 +58,6 @@ export default {
           <Menu.Tab
             onChange={(key) => console.log('You selected', key)}
             tabDisplay='static'
-            name='tab-static-white'
             defaultValue='home'
             white
             options={options}
@@ -70,7 +67,6 @@ export default {
         'With components as labels': <Menu.Tab
           onChange={(key) => console.log('You selected', key)}
           tabDisplay='static'
-          name='options-with-components'
           defaultValue='home'
           options={optionsWithComponents}
         />
@@ -86,7 +82,6 @@ export default {
         Fluid: (
           <Menu.Segmented
             onChange={(key) => console.log('You selected', key)}
-            name='segmented-fluid'
             defaultValue='home'
             options={options}
           />
@@ -96,7 +91,6 @@ export default {
           <Menu.Segmented
             onChange={(key) => console.log('You selected', key)}
             tabDisplay='static'
-            name='segmented-static'
             defaultValue='home'
             options={options}
           />
@@ -104,7 +98,7 @@ export default {
 
         Controlled: (
           <Menu.Segmented
-            name='controlled-segmented'
+            name='segmented'
             focus='faq'
             value='home'
             options={options}
