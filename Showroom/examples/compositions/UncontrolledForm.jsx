@@ -1,4 +1,5 @@
 import React from 'react'
+import BoxSelector from '../../../BoxSelector'
 import Fieldset from '../../../Fieldset'
 import Dropdown from '../../../Dropdown'
 import Field from '../../../Field'
@@ -6,7 +7,6 @@ import * as Switch from '../../../Switch'
 import * as Button from '../../../Button'
 import * as Selector from '../../../Selector'
 import * as Menu from '../../../Menu'
-import Installments from '../../../Installments'
 import Radio from '../../../Radio'
 import Subtitle from '../../../Subtitle'
 import * as Paragraph from '../../../Paragraph'
@@ -35,7 +35,7 @@ const optionsWithContent = [
     label: 'Sit',
     description: 'Amet et consequetur',
     content: <div>
-      <Installments
+      <BoxSelector
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
         value='installments_6'
@@ -148,7 +148,7 @@ export default {
 
         <Fieldset margins>
           <Subtitle>How many installments do you want to have?</Subtitle>
-          <Installments
+          <BoxSelector
             name='installments'
             options={[
               {
