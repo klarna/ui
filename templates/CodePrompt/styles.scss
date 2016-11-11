@@ -10,6 +10,10 @@
   }
 }
 
+.code-prompt__error {
+  margin-top: ($grid * -.6);
+}
+
 .code-prompt__error__icon {
   display: inline-block;
   margin-right: ($grid * 1);
@@ -27,11 +31,11 @@
 
 .code-prompt__loading__loader {
   display: inline-block;
-  margin-right: ($grid * 1.8);
   position: relative;
   top: ($grid * .4);
 }
 
 .code-prompt__loading__paragraph {
   display: inline-block;
+  margin-left: ($grid * 1.8);
 }

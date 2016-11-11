@@ -42,6 +42,31 @@ export default {
           </Wrapper>
         },
 
+        'With error': {
+          inline: <Landing
+            illustration={<DemoIcon />}
+            labels={{
+              title: 'Welcome to the site',
+              summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+              accept: 'Continue'
+            }}
+            onAccept={() => console.log('accept')}
+            error='It’s wingardium leviosa'
+          />,
+
+          wrapper: <Wrapper>
+            <Landing
+              illustration={<DemoIcon />}
+              labels={{
+                title: 'Welcome to the site',
+                summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+                accept: 'Continue'
+              }}
+              onAccept={() => console.log('accept')}
+            />
+          </Wrapper>
+        },
+
         'With legal copy': {
           inline: <Landing
             illustration={<DemoIcon />}

@@ -59,6 +59,21 @@ export default {
             onAccept={() => console.log('accept')}
             value='Ernest McMillan'
           />
+        },
+
+        'Loading': {
+          inline: <SingleInputPrompt
+            illustration={<DemoIcon />}
+            title='Welcome to the site'
+            summary='What is your name fellow traveler?'
+            accept='Continue'
+            legal='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
+            label='Name'
+            onChange={(e) => console.log(e.target.value)}
+            onAccept={() => console.log('accept')}
+            defaultValue='Percy Weasley'
+            loading
+         />
         }
       }
     },
@@ -169,6 +184,17 @@ export default {
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
             loading='Spell in progress'
+          />
+        },
+
+        'Loading without loading-text': {
+          inline: <CodePrompt
+            defaultValue='123'
+            label='The numbers'
+            title='Enter the magic numbers'
+            summary='You know them. You’ve seen Lost too.'
+            onChange={(e) => console.log(e.target.value)}
+            loading=''
           />
         }
       }

@@ -21,12 +21,14 @@ function SingleInputPrompt ({
   summary,
   title,
   value,
+  loading,
   ...props
 }) {
   return <Centered
     onAccept={onAccept}
     onCancel={onCancel}
     illustration={illustration}
+    loading={loading}
     labels={{
       accept,
       cancel,
@@ -43,6 +45,7 @@ function SingleInputPrompt ({
         onChange={onChange}
         onFocus={onFocus}
         value={value}
+        disabled={loading}
         {...props}
       />
     </div>
