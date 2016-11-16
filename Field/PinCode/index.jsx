@@ -64,7 +64,7 @@ class PinCode extends PureComponent {
       type='tel'
       value={value}
       {...props}
-           />
+    />
   }
 }
 

@@ -40,6 +40,8 @@ function CodePrompt ({
   styles,
   title,
   value,
+  pattern,
+  length,
   ...props
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
@@ -61,6 +63,8 @@ function CodePrompt ({
       placeholder={label}
       error={error}
       disabled={loading}
+      length={length}
+      pattern={pattern}
     />
 
     {errorMessage && <div className={classNames(classes.error)}>
