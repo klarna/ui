@@ -19,9 +19,7 @@ class PinCode extends PureComponent {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.disabled && !this.props.disabled && this.state.focus && this._input) {
-      this._input.blur()
-    }
+    blurOnDisable(this._input)(nextProps, this.props, this.state)
   }
 
   render () {
@@ -112,3 +110,17 @@ export default compose(
   })),
   overridable(defaultStyles)
 )(PinCode)
+
+function blurOnDisable (input) {
+  return (nextProps, currentProps, currentState) => {
+    const inputExists = !!input
+    const isFocused = currentState.focus
+    const aboutToBeDisabled = nextProps.disabled && !currentProps.disabled
+
+    if (inputExists && isFocused && aboutToBeDisabled) {
+      // Some devices (iOS 10 in particular) will not hide the keyboard automatically
+      // when the field is disabled, so a programmatic blur is required.
+      input.blur()
+    }
+  }
+}
