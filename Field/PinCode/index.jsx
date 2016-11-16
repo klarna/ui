@@ -61,7 +61,7 @@ class PinCode extends PureComponent {
       onMouseEnter={() => this.setState({hover: true})}
       onMouseLeave={() => this.setState({hover: false})}
       maxLength={length}
-      ref={(elem) => this._input = elem}
+      ref={(elem) => { this._input = elem }}
       style={inputStyle}
       type='tel'
       value={value}
