@@ -32,6 +32,7 @@ const isDigit = (x) => [
 function CodePrompt ({
   autoFocus,
   error,
+  errorMessage,
   label,
   loading,
   message,
@@ -58,11 +59,11 @@ function CodePrompt ({
       ) && onChange(e)}
       value={value}
       placeholder={label}
-      error={!!error}
+      error={error}
       disabled={loading}
     />
 
-    {error && <div className={classNames(classes.error)}>
+    {errorMessage && <div className={classNames(classes.error)}>
       <Paragraph.Primary
         className={classNames(classes.errorParagraph)}
         color='error'>
@@ -70,7 +71,7 @@ function CodePrompt ({
           className={classNames(classes.errorIcon)}
           color='error'
         />
-        {error}
+        {errorMessage}
       </Paragraph.Primary>
     </div>}
 
