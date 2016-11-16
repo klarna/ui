@@ -18,6 +18,12 @@ class PinCode extends PureComponent {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.disabled && !this.props.disabled && this.state.focus) {
+      this._input.blur()
+    }
+  }
+
   render () {
     const {
       className,
@@ -48,6 +54,7 @@ class PinCode extends PureComponent {
     } : style
 
     return <input
+      ref={(elm) => this._input = elm}
       className={classNames(baseClass, {error}, className)}
       onBlur={() => this.setState({focus: false})}
       onChange={onChange}
