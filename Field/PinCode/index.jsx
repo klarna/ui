@@ -18,6 +18,12 @@ class PinCode extends PureComponent {
     }
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.disabled && !this.props.disabled && this.state.focus && this._input) {
+      this._input.blur()
+    }
+  }
+
   render () {
     const {
       className,
@@ -55,6 +61,7 @@ class PinCode extends PureComponent {
       onMouseEnter={() => this.setState({hover: true})}
       onMouseLeave={() => this.setState({hover: false})}
       maxLength={length}
+      ref={(elem) => this._input = elem}
       style={inputStyle}
       type='tel'
       value={value}
