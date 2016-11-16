@@ -46,6 +46,7 @@ function CodePrompt ({
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
   const loadingText = loading
   loading = loading || loadingText === ''
+  error = errorMessage && error == null ? true : error
 
   return <Centered
     labels={{summary, title}}

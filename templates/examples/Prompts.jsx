@@ -171,7 +171,6 @@ export default {
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
-            error
             errorMessage='It’s wingardium leviosa'
             message={<span><Link href='#'>Try spell again</Link></span>}
           />
@@ -184,6 +183,7 @@ export default {
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
+            error={false}
             errorMessage='It’s wingardium leviosa'
             message={<span><Link href='#'>Try spell again</Link></span>}
           />
