@@ -33,6 +33,6 @@ export const DEFAULTS = {
   color_header: '#3c3c3e',
   color_link: '#0074c8',
   color_text: '#3c3c3e',
-  color_text_secondary: '#9e9ea0',
+  color_text_secondary: '#8e8e90',
   radius_border: '5px'
 }
