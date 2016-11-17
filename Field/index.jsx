@@ -169,14 +169,14 @@ const Field = React.createClass({
 
     const cls = classNames(
       (icon ? classes.icon : baseClass), {
-        big,
+        big: big || pinCode,
         'is-autofill': !!this.state.autoFill,
         'is-centered': centered || pinCode,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
         'non-responsive': !responsive,
         'non-floating-label': pinCode || nonFloatingLabel,
-        'giant': pinCode,
+        'pin-code': pinCode,
         square
       },
       fieldStates.getClassName(this.props),

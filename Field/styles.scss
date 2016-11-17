@@ -274,6 +274,10 @@
     -webkit-opacity: 1;
   }
 
+  .pin-code & {
+    font-size: ($grid * 5.2);
+  }
+
   .safari &,
   .ios & {
     -webkit-transform: translate3d(0, 0, 0);
