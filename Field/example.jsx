@@ -18,6 +18,8 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
       type: LIVE,
 
       examples: {
+        Pin: <UncontrolledField pinCode label='Enter your email' />,
+
         Regular: <Field label='Enter your email' />,
 
         Uncontrolled: <UncontrolledField
