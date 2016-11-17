@@ -11,8 +11,6 @@ import MouseflowExclude from '../MouseflowExclude'
 import themeable from '../decorators/themeable'
 import overridable from '../decorators/overridable'
 
-export PinCode from './PinCode'
-
 const baseClass = 'field'
 
 const classes = {

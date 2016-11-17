@@ -141,7 +141,6 @@ export default {
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
             length={4}
-            pattern='\d{4}'
           />
         },
 
@@ -163,7 +162,7 @@ export default {
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
             message='I didn’t win the lottery yet'
-            pattern='\d{6}'
+            length={6}
           />
         },
 

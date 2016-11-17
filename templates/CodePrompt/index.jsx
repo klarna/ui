@@ -1,6 +1,6 @@
 import React from 'react'
 import Centered from '../chromes/Centered'
-import * as Field from '../../Field'
+import Field from '../../Field'
 import * as Paragraph from '../../Paragraph'
 import Cross from '../../icons/Cross'
 import Loader from '../../Loader'
@@ -29,13 +29,15 @@ const isDigit = (x) => [
 ].indexOf(x) >= 0
 
 function CodePrompt ({
-  autoFocus,
   error,
   errorMessage,
+  focus,
   label,
   loading,
   message,
+  onBlur,
   onChange,
+  onFocus,
   summary,
   styles,
   title,
@@ -52,19 +54,21 @@ function CodePrompt ({
   return <Centered
     labels={{summary, title}}
     {...props}>
-    <Field.PinCode
-      autoFocus={autoFocus}
+    <Field
       className={classNames(classes.field)}
+      disabled={!!loading}
+      error={error}
+      focus={focus}
+      label={label}
+      maxLength={length}
+      onBlur={onBlur}
       onChange={(e) => (
         e.target.value === '' ||
         e.target.value.split('').map(isDigit).reduce(all, true)
       ) && onChange(e)}
+      onFocus={onFocus}
+      pinCode
       value={value}
-      placeholder={label}
-      error={error}
-      disabled={loading}
-      length={length}
-      pattern={pattern}
     />
 
     {errorMessage && <div className={classNames(classes.error)}>
@@ -100,6 +104,13 @@ function CodePrompt ({
 }
 
 export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlerName: 'onFocus',
+    handlerSelector: () => true,
+    resetHandlerName: 'onBlur'
+  }),
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
