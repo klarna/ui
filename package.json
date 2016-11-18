@@ -51,7 +51,7 @@
     "karma-webdriver-launcher": "1.0.4",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
-    "node-sass": "^3.4.2",
+    "node-sass": "3.13.0",
     "normalize.css": "^4.1.1",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "2.1.13",
