@@ -7,7 +7,7 @@ clean:
 	rm -rf node_modules
 
 install:
-	yarn
+	yarn install --pure-lockfile
 
 lint:
 	yarn run lint
