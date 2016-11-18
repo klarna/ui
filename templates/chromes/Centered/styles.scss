@@ -10,6 +10,8 @@
 }
 
 .chrome--centered__title {
+  display: block;
+  margin: 0 auto;
   max-width: ($grid * 63);
 }
 
