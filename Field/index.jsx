@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
-import * as CustomPropTypes from '../lib/custom-prop-types'
 import * as programmaticFocus from '../lib/features/programmaticFocus'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
@@ -66,7 +65,7 @@ const Field = React.createClass({
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
     nonFloatingLabel: PropTypes.bool,
-    pattern: CustomPropTypes.regexp,
+    pattern: PropTypes.string,
     pinCode: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
     responsive: PropTypes.bool,
