@@ -42,8 +42,8 @@ function CodePrompt ({
   styles,
   title,
   value,
-  pattern,
   length,
+  pattern,
   ...props
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
@@ -67,6 +67,7 @@ function CodePrompt ({
         e.target.value.split('').map(isDigit).reduce(all, true)
       ) && onChange(e)}
       onFocus={onFocus}
+      pattern={pattern}
       pinCode
       value={value}
     />

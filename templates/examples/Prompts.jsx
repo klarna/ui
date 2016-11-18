@@ -141,6 +141,7 @@ export default {
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
             length={4}
+            pattern='\d{4}'
           />
         },
 
