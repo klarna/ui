@@ -11,8 +11,6 @@ import MouseflowExclude from '../MouseflowExclude'
 import themeable from '../decorators/themeable'
 import overridable from '../decorators/overridable'
 
-export PinCode from './PinCode'
-
 const baseClass = 'field'
 
 const classes = {
@@ -36,8 +34,10 @@ const Field = React.createClass({
       big: false,
       centered: false,
       loading: false,
+      nonFloatingLabel: false,
       onChange: function () {},
       responsive: true,
+      pinCode: false,
       mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
       ...fieldStates.defaultProps,
@@ -64,6 +64,9 @@ const Field = React.createClass({
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
+    nonFloatingLabel: PropTypes.bool,
+    pattern: PropTypes.string,
+    pinCode: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
     responsive: PropTypes.bool,
     value: PropTypes.string,
@@ -142,12 +145,14 @@ const Field = React.createClass({
       left, // eslint-disable-line no-unused-vars
       loading,
       mouseflowExclude,
+      nonFloatingLabel,
       onBlur,
       onChange,
       onClick,
       onEnter, // eslint-disable-line no-unused-vars
       onFocus,
       onTab, // eslint-disable-line no-unused-vars
+      pinCode,
       responsive,
       right, // eslint-disable-line no-unused-vars
       square,
@@ -163,12 +168,14 @@ const Field = React.createClass({
 
     const cls = classNames(
       (icon ? classes.icon : baseClass), {
-        big,
+        big: big || pinCode,
         'is-autofill': !!this.state.autoFill,
-        'is-centered': centered,
+        'is-centered': centered || pinCode,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
         'non-responsive': !responsive,
+        'non-floating-label': pinCode || nonFloatingLabel,
+        'pin-code': pinCode,
         square
       },
       fieldStates.getClassName(this.props),

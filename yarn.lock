@@ -4613,7 +4613,7 @@ react-context-props@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/react-context-props/-/react-context-props-0.1.4.tgz#ff6811e0656dfc613bf7efe0981a6d8bbf226ffc"
 
-react-dom@^15.0.2:
+react-dom@15.3.2:
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.3.2.tgz#c46b0aa5380d7b838e7a59c4a7beff2ed315531f"
 
@@ -4635,9 +4635,9 @@ react-maskedinput@^3.2.4:
   dependencies:
     inputmask-core "^2.1.1"
 
-react-motion@0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.4.2.tgz#a7b38f9aae9940747e2070387aa5b549f2c935dd"
+react-motion@^0.4.2:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.4.5.tgz#ecc42f692fec9b2de4c92f85e26375071f779b76"
   dependencies:
     performance-now "^0.2.0"
     raf "^3.1.0"
@@ -4649,7 +4649,7 @@ react-syntax-highlighter@^2.2.0:
     highlight.js "~9.7.0"
     lowlight "^1.2.0"
 
-react@^15.0.2:
+react@15.3.2:
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.3.2.tgz#a7bccd2fee8af126b0317e222c28d1d54528d09e"
   dependencies:
