@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
-import classNamesBind from 'classNames/bind'
+import classNamesBind from 'classnames/bind'
+import compose from '../lib/compose'
 import overridable from '../decorators/overridable'
 import defaultStyles from './styles.scss'
 
@@ -22,4 +23,6 @@ Strong.propTypes = {
   styles: PropTypes.object
 }
 
-export default overridable(Strong)
+export default compose(
+  overridable(defaultStyles)
+)(Strong)
