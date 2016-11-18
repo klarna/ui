@@ -54,7 +54,7 @@
     "node-sass": "3.13.0",
     "normalize.css": "^4.1.1",
     "null-loader": "^0.1.1",
-    "phantomjs-prebuilt": "2.1.13",
+    "phantomjs": "2.1.13",
     "phantomjs-polyfill": "0.0.2",
     "postcss-loader": "^0.13.0",
     "ramda": "^0.21.0",
