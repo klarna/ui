@@ -1,22 +1,22 @@
 .PHONY: test
 
 build:
-	npm run build
+	yarn run build
 
 clean:
 	rm -rf node_modules
 
 install:
-	npm install
+	yarn
 
 lint:
-	npm run lint
+	yarn run lint
 
 dev:
-	npm start
+	yarn start
 
 test:
-	npm test
+	yarn test
 
 gh-pages:
 	-git branch -D gh-pages
