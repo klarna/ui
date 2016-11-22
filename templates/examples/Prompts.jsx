@@ -59,6 +59,21 @@ export default {
             onAccept={() => console.log('accept')}
             value='Ernest McMillan'
           />
+        },
+
+        'Loading': {
+          inline: <SingleInputPrompt
+            illustration={<DemoIcon />}
+            title='Welcome to the site'
+            summary='What is your name fellow traveler?'
+            accept='Continue'
+            legal='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
+            label='Name'
+            onChange={(e) => console.log(e.target.value)}
+            onAccept={() => console.log('accept')}
+            defaultValue='Percy Weasley'
+            loading
+         />
         }
       }
     },
@@ -125,6 +140,8 @@ export default {
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
+            length={4}
+            pattern='\d{4}'
           />
         },
 
@@ -146,17 +163,31 @@ export default {
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
             message='I didn’t win the lottery yet'
+            length={6}
           />
         },
 
-        'With error': {
+        'With error and message': {
           inline: <CodePrompt
             defaultValue='123'
             label='The numbers'
             title='Enter the magic numbers'
             summary='You know them. You’ve seen Lost too.'
             onChange={(e) => console.log(e.target.value)}
-            error='It’s wingardium leviosa'
+            errorMessage='It’s wingardium leviosa'
+            message={<span><Link href='#'>Try spell again</Link></span>}
+          />
+        },
+
+        'With error-message only': {
+          inline: <CodePrompt
+            defaultValue='123'
+            label='The numbers'
+            title='Enter the magic numbers'
+            summary='You know them. You’ve seen Lost too.'
+            onChange={(e) => console.log(e.target.value)}
+            error={false}
+            errorMessage='It’s wingardium leviosa'
             message={<span><Link href='#'>Try spell again</Link></span>}
           />
         },
