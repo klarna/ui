@@ -1,0 +1,6 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.strong {
+  font-weight: map-get($font-weights, semi-bold);
+}
