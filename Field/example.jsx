@@ -1,6 +1,5 @@
 import React from 'react'
 import Field, { icons } from '../Field'
-import * as FieldVariation from '../Field'
 import Fieldset from '../Fieldset'
 import ReactMaskedInput from 'react-maskedinput'
 import { LIVE, LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
@@ -26,6 +25,11 @@ export default {
                     />,
 
         Big: <Field label='Enter your email' big />,
+
+        'Pin code variation': <Field
+          pinCode
+          label='Enter your email'
+        />,
 
         'With fake focus': <Field label='Enter your email' focus='fake' />,
 
@@ -179,51 +183,6 @@ import Fieldset from '@klarna/ui/Fieldset'`,
           <Field left bottom size='2/5' name='many-date-of-birth' label='Date of Birth' />
           <Field right bottom size='3/5' name='many-mobile-phone-number' label='Mobile phone number' />
         </Fieldset>
-      }
-    },
-
-    {
-      title: 'PinCode',
-      require: 'import * as Field from \'@klarna/ui/Field\'',
-      type: LIVE,
-
-      examples: {
-        Regular: (
-          <FieldVariation.PinCode
-            onChange={(value) => console.log(value)}
-            defaultValue='3134'
-            placeholder='Enter the value'
-          />
-        ),
-
-        Controlled: (
-          <FieldVariation.PinCode
-            onChange={(value) => console.log(value)}
-            value='312'
-          />
-        ),
-
-        Error: (
-          <FieldVariation.PinCode
-            error
-            onChange={(value) => console.log(value)}
-            defaultValue='3134'
-            placeholder='Enter the value'
-          />
-        ),
-
-        Customized: (
-          <FieldVariation.PinCode
-            customize={{
-              borderColor: 'red',
-              borderColorSelected: 'purple',
-              borderRadius: '10px',
-              inputColor: 'orange'
-            }}
-            defaultValue='1337'
-            placeholder='Enter the value'
-          />
-        )
       }
     }
   ]

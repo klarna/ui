@@ -6,7 +6,6 @@ import * as Button from '../Button'
 import * as Checklist from '../Checklist'
 import Dropdown from '../Dropdown'
 import Field from '../Field'
-import * as FieldVariant from '../Field'
 import Link from '../Link'
 import * as Switch from '../Switch'
 import * as Title from '../Title'
@@ -144,9 +143,10 @@ import * as List from '@klarna/ui/List'`,
         </div>
 
         <div style={{paddingTop: '20px'}}>
-          <FieldVariant.PinCode
-            placeholder='Enter code here'
+          <Field
+            label='Enter code here'
             defaultValue='42'
+            pinCode
           />
         </div>
 

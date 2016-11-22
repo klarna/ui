@@ -133,20 +133,28 @@
     line-height: ($grid * 12);
   }
 
-  .big.is-autofill &,
-  .big.is-filled &,
-  .big.is-error &,
-  .big.is-warning & {
+  .big.is-autofill:not(.non-floating-label) &,
+  .big.is-filled:not(.non-floating-label) &,
+  .big.is-error:not(.non-floating-label) &,
+  .big.is-warning:not(.non-floating-label) & {
     margin-top: ($grid * -2.2);
   }
 
-  .is-autofill &,
-  .is-filled &,
-  .is-error &,
-  .is-warning & {
+  .is-autofill:not(.non-floating-label) &,
+  .is-filled:not(.non-floating-label) &,
+  .is-error:not(.non-floating-label) &,
+  .is-warning:not(.non-floating-label) & {
     @include typography(map-get($font-sizes, input-label), regular);
 
     margin-top: ($grid * -2.2);
+  }
+
+  .non-floating-label.is-autofill &,
+  .non-floating-label.is-filled &,
+  .non-floating-label.is-focused &,
+  .non-floating-label.is-error &,
+  .non-floating-label.is-warning & {
+    display: none;
   }
 
   .is-filled & {
@@ -243,18 +251,18 @@
     height: ($grid * 12);
   }
 
-  .big.is-autofill &,
-  .big.is-filled &,
-  .big.is-error &,
-  .big.is-warning & {
+  .big.is-autofill:not(.non-floating-label) &,
+  .big.is-filled:not(.non-floating-label) &,
+  .big.is-error:not(.non-floating-label) &,
+  .big.is-warning:not(.non-floating-label) & {
     height: ($grid * 9.8);
     top: ($grid * 2.2);
   }
 
-  .is-autofill &,
-  .is-filled &,
-  .is-error &,
-  .is-warning & {
+  .is-autofill:not(.non-floating-label) &,
+  .is-filled:not(.non-floating-label) &,
+  .is-error:not(.non-floating-label) &,
+  .is-warning:not(.non-floating-label) & {
     height: ($grid * 9);
     top: ($grid * 1.6);
   }
@@ -264,6 +272,10 @@
     /* Override webkit font color change */
     -webkit-text-fill-color: map-get($colors, grey-lines);
     -webkit-opacity: 1;
+  }
+
+  .pin-code & {
+    font-size: ($grid * 5.2);
   }
 
   .safari &,
