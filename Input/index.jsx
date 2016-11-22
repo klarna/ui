@@ -9,7 +9,7 @@ import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
 
 import compose from 'ramda/src/compose'
-import {uncontrolled} from '@klarna/higher-order-components'
+import {uncontrolled, uniqueName} from '@klarna/higher-order-components'
 
 const baseClass = 'input'
 
@@ -210,5 +210,6 @@ export default compose(
     defaultProp: 'defaultValue',
     handlerName: 'onChange',
     handlerSelector: (e) => e.target.value
-  })
+  }),
+  uniqueName
 )(Input)

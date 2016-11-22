@@ -19,13 +19,14 @@ export default {
         Regular: <Field label='Enter your email' />,
 
         Controlled: <Field
-          name='field-controlled'
           label='Enter your email'
           value='someone@example.com'
           focus
-                    />,
+        />,
 
         Big: <Field label='Enter your email' big />,
+
+        'With name': <Field name='email' label='Enter your email' />,
 
         'With fake focus': <Field label='Enter your email' focus='fake' />,
 
@@ -35,7 +36,7 @@ export default {
           mouseflowExclude
           label='Address'
           defaultValue='16, Corn street'
-                             />,
+        />,
 
         'With error': <Field label='Invalid email' error defaultValue='invalid@' />,
 
@@ -43,14 +44,13 @@ export default {
           label='Are you sure the domain is exanple?'
           warning
           defaultValue='email@exanple.com'
-                        />,
+        />,
 
         'With customizations': <Field
-          name='with-customizations'
           customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
           label='Favorite color'
           defaultValue='Purple'
-                               />
+        />
       }
     },
 
@@ -67,7 +67,8 @@ import ReactMaskedInput from 'react-maskedinput'`,
             Input={ReactMaskedInput}
             mask='1111 1111 1111 1111'
             placeholder=' '
-                />,
+          />,
+
           code: `<Field
   label='Credit card number'
   Input={ReactMaskedInput}
@@ -164,20 +165,20 @@ import Fieldset from '@klarna/ui/Fieldset'`,
 
       examples: {
         'Two fields': <Fieldset margins>
-          <Field left size='1/2' name='two-given-name' label='Given name' />
-          <Field right size='1/2' name='two-middle-name' label='Middle name' />
+          <Field left size='1/2' label='Given name' />
+          <Field right size='1/2' label='Middle name' />
         </Fieldset>,
 
         Many: <Fieldset margins>
-          <Field top left size='1/2' name='many-given-name' label='Given name' />
-          <Field center size='1/4' name='many-middle-name' label='Middle name' />
-          <Field top right size='1/4' name='many-last-name' label='Last name' />
-          <Field left square size='1/5' name='many-number' label='Number' />
-          <Field right square size='4/5' name='many-street-address' label='Street Address' />
-          <Field left square size='1/3' name='many-pokemon' label='Your favorite pokémon' />
-          <Field right square size='2/3' name='many-android-iphone' label='Android or iPhone: please explain' />
-          <Field left bottom size='2/5' name='many-date-of-birth' label='Date of Birth' />
-          <Field right bottom size='3/5' name='many-mobile-phone-number' label='Mobile phone number' />
+          <Field top left size='1/2' label='Given name' />
+          <Field center size='1/4' label='Middle name' />
+          <Field top right size='1/4' label='Last name' />
+          <Field left square size='1/5' label='Number' />
+          <Field right square size='4/5' label='Street Address' />
+          <Field left square size='1/3' label='Your favorite pokémon' />
+          <Field right square size='2/3' label='Android or iPhone: please explain' />
+          <Field left bottom size='2/5' label='Date of Birth' />
+          <Field right bottom size='3/5' label='Mobile phone number' />
         </Fieldset>
       }
     },

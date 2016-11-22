@@ -36,7 +36,6 @@ const optionsWithContent = [
     description: 'Amet et consequetur',
     content: <div>
       <BoxSelector
-        name='inner-installments'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
         value='installments_6'
@@ -57,7 +56,6 @@ const optionsWithContent = [
       <Subtitle>Choose your destiny</Subtitle>
 
       <Dropdown
-        name='ipsum-uncontrolled-dropdown-random-more-stuff'
         options={[
           {key: 'coffee', label: 'Coffee'},
           {key: 'chai', label: 'Chai'},

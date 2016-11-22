@@ -12,7 +12,8 @@ import compose from 'ramda/src/compose'
 import {
   overridable,
   themeable,
-  uncontrolled
+  uncontrolled,
+  uniqueName
 } from '@klarna/higher-order-components'
 
 export PinCode from './PinCode'
@@ -282,5 +283,6 @@ export default compose(
       inputColor: customizations.color_text
     }
   })),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  uniqueName
 )(Field)

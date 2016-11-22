@@ -18,7 +18,7 @@
   },
   "author": "Klarna front end people",
   "dependencies": {
-    "@klarna/higher-order-components": "0.1.3",
+    "@klarna/higher-order-components": "0.2.2",
     "classnames": "2.2.5",
     "parse-color": "1.0.0",
     "react-context-props": "^0.1.4"
@@ -69,6 +69,7 @@
     "resolve-url-loader": "^1.2.0",
     "sass-lint": "^1.9.1",
     "sass-loader": "^3.2.0",
+    "seed-random": "^2.2.0",
     "sinon": "git+https://github.com/sinonjs/sinon.git",
     "standard": "^6.0.8",
     "stringify-object": "^2.4.0",

@@ -40,7 +40,6 @@ const optionsWithContent = [
     description: 'Amet et consequetur',
     content: <div>
       <BoxSelector
-        name='installments'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
         defaultValue='installments_6'
@@ -61,7 +60,6 @@ const optionsWithContent = [
       <Subtitle>Choose your destiny</Subtitle>
 
       <Dropdown
-        name='ipsum-controlled-dropdown'
         options={[
           {key: 'coffee', label: 'Coffee'},
           {key: 'chai', label: 'Chai'},
@@ -175,7 +173,6 @@ import * as List from '@klarna/ui/List'`,
         <div style={{padding: '20px 0'}}>
           <Radio
             onChange={(key) => console.log(key)}
-            name='radio-regular'
             options={optionsWithContent}
             defaultValue='lorem'
           />
@@ -196,7 +193,6 @@ import * as List from '@klarna/ui/List'`,
         <div style={{paddingBottom: '20px'}}>
           <BoxSelector
             onChange={(key) => console.log('You selected', key)}
-            name='box-selector'
             defaultValue='installments_24'
             options={[
               { key: 'installments_3', content: <div>Long one line text in div</div> },
@@ -212,19 +208,19 @@ import * as List from '@klarna/ui/List'`,
         </div>
 
         <div style={{paddingBottom: '20px'}}>
-          <Switch.Toggle name='fries-5'>
+          <Switch.Toggle>
             Would you like fries?
           </Switch.Toggle>
-          <Switch.Toggle defaultValue name='fries'>
+          <Switch.Toggle defaultValue>
             Would you like fries?
           </Switch.Toggle>
-          <Switch.Checkbox name='fries-2'>
+          <Switch.Checkbox>
             Would you like fries?
           </Switch.Checkbox>
-          <Switch.Checkbox defaultValue name='fries-3'>
+          <Switch.Checkbox defaultValue>
             Would you like fries?
           </Switch.Checkbox>
-          <Switch.Checkbox defaultValue error name='fries-4'>
+          <Switch.Checkbox defaultValue error>
             Should be red
           </Switch.Checkbox>
         </div>
