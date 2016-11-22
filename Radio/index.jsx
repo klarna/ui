@@ -133,7 +133,7 @@ const Radio = React.createClass({
               disabled={isDisabled}
             />,
             <label
-              htmlFor={!isDisabled ? `${name}-${key}` : undefined}
+              htmlFor={`${name}-${key}`}
               className={classNames(
                 classes.option,
                 {
