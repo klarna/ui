@@ -6,7 +6,8 @@ import defaultStyles from './styles.scss'
 import compose from 'ramda/src/compose'
 import {
   themeable,
-  uncontrolled
+  uncontrolled,
+  uniqueName
 } from '@klarna/higher-order-components'
 
 const baseClass = 'radio'
@@ -218,5 +219,6 @@ export default compose(
       textPrimaryColor: customizations.color_text,
       textSecondaryColor: customizations.color_text_secondary
     }
-  }))
+  })),
+  uniqueName
 )(Radio)

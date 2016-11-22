@@ -6,7 +6,8 @@ import compose from 'ramda/src/compose'
 import {
   overridable,
   themeable,
-  uncontrolled
+  uncontrolled,
+  uniqueName
 } from '@klarna/higher-order-components'
 
 const baseClass = 'switch--checkbox'
@@ -189,5 +190,6 @@ export default compose(
       borderColorSelected: customizations.color_border_selected
     }
   })),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  uniqueName
 )(Checkbox)

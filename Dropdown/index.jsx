@@ -11,7 +11,8 @@ import compose from 'ramda/src/compose'
 import {
   overridable,
   themeable,
-  uncontrolled
+  uncontrolled,
+  uniqueName
 } from '@klarna/higher-order-components'
 
 const baseClass = 'dropdown'
@@ -254,5 +255,6 @@ export default compose(
       selectedColor: customizations.color_text
     }
   })),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  uniqueName
 )(Dropdown)

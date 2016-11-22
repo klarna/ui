@@ -14,11 +14,11 @@ export default {
 
       examples: {
         Regular: [
-          <Switch.Toggle key={1} name='toggle-switch'>
+          <Switch.Toggle key={1}>
             This is a toggle switch
           </Switch.Toggle>,
 
-          <Switch.Toggle key={2} defaultValue name='toggle-switch-checked'>
+          <Switch.Toggle key={2} defaultValue>
             This is a toggle switch checked
           </Switch.Toggle>
         ],
@@ -27,44 +27,34 @@ export default {
           <Switch.Toggle
             key={1}
             focus
-            value={false}
-            name='toggle-switch-controlled'>
+            name='toggle'
+            value={false}>
             This is an controlled toggle switch checked
-          </Switch.Toggle>,
-
-          <Switch.Toggle
-            key={2}
-            align='right'
-            value
-            name='toggle-switch-controlled-right'>
-            This is an controlled toggle switch on the right
           </Switch.Toggle>
         ],
 
-        'With legal size text': <Switch.Toggle name='toggle-legal' legal>
+        'With legal size text': <Switch.Toggle legal>
           This is a toggle switch with legal size text that usually will fold into multiple lines
         </Switch.Toggle>,
 
         Disabled: [
-          <Switch.Toggle key={1} disabled name='toggle-switch-disabled'>
+          <Switch.Toggle key={1} disabled>
             This is a toggle switch disabled
           </Switch.Toggle>,
 
           <Switch.Toggle
-            key={2} disabled defaultValue
-            name='toggle-switch-disabled-checked'>
+            key={2} disabled defaultValue>
             This is a toggle switch checked and disabled
           </Switch.Toggle>
         ],
 
-        'With error': <Switch.Toggle error name='toggle-switch-error'>
+        'With error': <Switch.Toggle error>
           This is a toggle switch in an error state
         </Switch.Toggle>,
 
         'With customizations': [
           <Switch.Toggle
             key={1}
-            name='toggle-switch-dynamic-uncontrolled'
             customize={{
               backgroundColor: '#3500C8',
               bulletColor: '#F9FF3C',
@@ -76,7 +66,6 @@ export default {
           <Switch.Toggle
             key={2}
             align='right'
-            name='toggle-switch-dynamic-uncontrolled-right'
             customize={{
               backgroundColor: '#3500C8',
               bulletColor: '#F9FF3C',
@@ -95,37 +84,36 @@ export default {
 
       examples: {
         Regular: [
-          <Switch.Checkbox key={1} name='checkbox-unchecked'>
+          <Switch.Checkbox key={1}>
             This is a toggle switch with checkbox design
           </Switch.Checkbox>,
 
-          <Switch.Checkbox key={2} name='checkbox-checked' defaultValue>
+          <Switch.Checkbox key={2} defaultValue>
             This is a toggle switch with checkbox design
           </Switch.Checkbox>
         ],
 
         Controlled: [
-          <Switch.Checkbox key={1} name='checkbox-controlled' value focus>
+          <Switch.Checkbox key={1} name='checkbox' value focus>
             This is a controlled checkbox switch
           </Switch.Checkbox>
         ],
 
-        'With legal size text': <Switch.Checkbox name='checkbox-legal' legal>
+        'With legal size text': <Switch.Checkbox legal>
           This is a toggle switch with checkbox design and legal size text that usually will fold into multiple lines
         </Switch.Checkbox>,
 
-        Disabled: <Switch.Checkbox name='checkbox-disabled' disabled>
+        Disabled: <Switch.Checkbox disabled>
           Disabled checkbox
         </Switch.Checkbox>,
 
-        'With error': <Switch.Checkbox name='checkbox-error' error>
+        'With error': <Switch.Checkbox error>
           Checkbox with error
         </Switch.Checkbox>,
 
         'With customizations': [
           <Switch.Checkbox
             key={1}
-            name='checkbox-dynamic-styling'
             customize={{
               backgroundColor: '#3500C8',
               bulletColor: '#F9FF3C',
@@ -138,7 +126,6 @@ export default {
           <Switch.Checkbox
             key={2}
             align='right'
-            name='checkbox-dynamic-styling-right'
             customize={{
               backgroundColor: '#3500C8',
               bulletColor: '#F9FF3C',

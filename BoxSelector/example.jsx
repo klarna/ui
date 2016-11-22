@@ -29,7 +29,6 @@ export default {
       Controlled: (
         <BoxSelector
           onChange={(key) => console.log('You selected', key)}
-          name='installments2'
           value='installments_24'
           focus='installments_6'
           options={options}
