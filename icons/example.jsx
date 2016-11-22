@@ -6,6 +6,7 @@ import AccountActivated from '../icons/AccountActivated'
 import AllSet from '../icons/AllSet'
 import * as Chevron from '../icons/Chevron'
 import Checkmark from '../icons/Checkmark'
+import Cross from '../icons/Cross'
 import Done from '../icons/Done'
 import Error from '../icons/Error'
 import Details from '../icons/Details'
@@ -54,6 +55,7 @@ const icons = {
     Chevron.Down,
     Chevron.Up,
     Checkmark,
+    Cross,
     Details,
     Download,
     ExtendDate,

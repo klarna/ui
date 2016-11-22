@@ -2,10 +2,12 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import Loader from '../../Loader'
 import contains from '../../lib/contains'
+import compose from '../../lib/compose'
 import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import Price from '../Price'
 import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
 
 const baseClass = 'button'
 
@@ -100,11 +102,14 @@ Primary.propTypes = {
   styles: PropTypes.object
 }
 
-export default themeable(Primary, (customizations, { customize }) => ({
-  customize: {
-    ...customize,
-    backgroundColor: customizations.color_button,
-    borderRadius: customizations.radius_border,
-    textColor: customizations.color_button_text
-  }
-}))
+export default compose(
+  themeable((customizations, { customize }) => ({
+    customize: {
+      ...customize,
+      backgroundColor: customizations.color_button,
+      borderRadius: customizations.radius_border,
+      textColor: customizations.color_button_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Primary)

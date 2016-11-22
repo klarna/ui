@@ -35,6 +35,7 @@ rules:
   no-debug: 1
   no-ids: 2
   no-important: 0
+  no-transition-all: 2
   hex-notation:
     - 2
     -

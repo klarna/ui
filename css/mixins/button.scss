@@ -16,7 +16,7 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: all .2s ease;
+  transition: background-color .2s ease, border-color .2s ease;
   vertical-align: top;
 
   @include respond-to-wide {

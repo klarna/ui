@@ -31,6 +31,11 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
 
         Big: <Field label='Enter your email' big />,
 
+        'Pin code variation': <UncontrolledField
+          pinCode
+          label='Enter your email'
+        />,
+
         'With focus': <Field label='Enter your email' focus />,
 
         'With fake focus': <Field label='Enter your email' focus='fake' />,
@@ -92,6 +97,11 @@ import Fieldset from '@klarna/ui/Fieldset'`,
 
       examples: {
         Regular: <div>
+          <Fieldset margins>
+            <Field
+              icon={icons.BANK}
+              label='Please enter your bank account number' />
+          </Fieldset>
           <Fieldset margins>
             <Field
               icon={icons.CARD}

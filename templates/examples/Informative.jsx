@@ -42,6 +42,31 @@ export default {
           </Wrapper>
         },
 
+        'With error': {
+          inline: <Landing
+            illustration={<DemoIcon />}
+            labels={{
+              title: 'Welcome to the site',
+              summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+              accept: 'Continue'
+            }}
+            onAccept={() => console.log('accept')}
+            error='It’s wingardium leviosa'
+          />,
+
+          wrapper: <Wrapper>
+            <Landing
+              illustration={<DemoIcon />}
+              labels={{
+                title: 'Welcome to the site',
+                summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+                accept: 'Continue'
+              }}
+              onAccept={() => console.log('accept')}
+            />
+          </Wrapper>
+        },
+
         'With legal copy': {
           inline: <Landing
             illustration={<DemoIcon />}
@@ -77,6 +102,35 @@ export default {
               accept: 'Continue',
               cancel: 'Go back'
             }}
+            onAccept={() => console.log('accept')}
+            onCancel={() => console.log('cancel')}
+          />,
+
+          wrapper: <Wrapper>
+            <Landing
+              illustration={<DemoIcon />}
+              labels={{
+                title: 'Welcome to the site',
+                summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+                accept: 'Continue',
+                cancel: 'Go back'
+              }}
+              onAccept={() => console.log('accept')}
+              onCancel={() => console.log('cancel')}
+            />
+          </Wrapper>
+        },
+
+        'With loading state': {
+          inline: <Landing
+            illustration={<DemoIcon />}
+            labels={{
+              title: 'Welcome to the site',
+              summary: 'Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.',
+              accept: 'Continue',
+              cancel: 'Go back'
+            }}
+            loading
             onAccept={() => console.log('accept')}
             onCancel={() => console.log('cancel')}
           />,

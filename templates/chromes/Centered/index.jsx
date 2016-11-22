@@ -4,22 +4,30 @@ import * as Dialog from '../../../Dialog'
 import * as Button from '../../../Button'
 import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
+import Cross from '../../../icons/Cross'
+import Link from '../../../Link'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'chrome--centered'
 
 const classes = {
+  error: `${baseClass}__error`,
+  errorIcon: `${baseClass}__error__icon`,
+  errorParagraph: `${baseClass}__error__paragraph`,
   title: `${baseClass}__title`,
   paragraphPrimary: `${baseClass}__paragraph--primary`,
   buttonAccept: `${baseClass}__button--accept`,
+  buttonCancel: `${baseClass}__button--cancel`,
   legal: `${baseClass}__paragraph--legal`
 }
 
 export default function Centered ({
   className,
   children,
+  error,
   labels,
   illustration,
+  loading,
   onAccept,
   onCancel,
   styles
@@ -47,13 +55,29 @@ export default function Centered ({
 
     {labels.accept && onAccept && <Button.Primary
       onClick={onAccept}
+      loading={loading}
       className={classNames(classes.buttonAccept)}>
       {labels.accept}
     </Button.Primary>}
 
-    {labels.cancel && onCancel && <Button.Secondary onClick={onCancel}>
-      {labels.cancel}
-    </Button.Secondary>}
+    {labels.cancel && onCancel && <Paragraph.Primary
+      className={classNames(classes.buttonCancel)}>
+      <Link onClick={onCancel}>
+        {labels.cancel}
+      </Link>
+    </Paragraph.Primary>}
+
+    {error && <div className={classNames(classes.error)}>
+      <Paragraph.Primary
+        className={classNames(classes.errorParagraph)}
+        color='error'>
+        <Cross
+          className={classNames(classes.errorIcon)}
+          color='error'
+        />
+        {error}
+      </Paragraph.Primary>
+    </div>}
 
     {labels.legal && <Paragraph.Legal className={classNames(classes.legal)}>
       {labels.legal}

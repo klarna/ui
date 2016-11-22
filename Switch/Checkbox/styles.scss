@@ -24,9 +24,14 @@
   display: block;
   line-height: ($grid * 4);
   padding-bottom: ($grid * 1.2);
-  padding-left: ($grid * 10);
+  padding-left: ($grid * 6);
   padding-top: ($grid * 0.8);
   user-select: none;
+
+  .right & {
+    padding-left: auto;
+    padding-right: ($grid * 6);
+  }
 
   @include respond-to-wide {
     @include typography(map-get($font-sizes, big-body-desktop), regular);
@@ -36,11 +41,6 @@
     color: map-get($colors, error);
   }
 
-  .right & {
-    padding-left: 0;
-    padding-right: ($grid * 10);
-  }
-
   .legal & {
     @include typography(map-get($font-sizes, legal-mobile), regular);
 
@@ -48,27 +48,19 @@
       @include typography(map-get($font-sizes, legal-desktop), regular);
     }
   }
-
-  @include respond-to-wide {
-    padding-left: ($grid * 6);
-
-    .right & {
-      padding-left: auto;
-      padding-right: ($grid * 6);
-    }
-  }
 }
 
 .switch--checkbox__bullet {
-  background: map-get($colors, grey-text);
-  border-radius: ($grid * 4);
+  background: map-get($colors, white);
+  border: ($grid * .2) solid map-get($colors, grey-lines);;
+  border-radius: $border-radius-checkbox;
   cursor: pointer;
-  height: ($grid * 4.4);
+  height: ($grid * 2.4);
   left: 0;
   position: absolute;
-  top: ($grid * .8);
-  transition: all .2s ease;
-  width: ($grid * 7.4);
+  top: ($grid * 1.4);
+  transition: background-color .2s ease, border-color .2s ease;
+  width: ($grid * 2.4);
 
   .is-checked & {
     background: map-get($colors, klarna-blue);
@@ -80,105 +72,42 @@
     right: 0;
   }
 
-  @include respond-to-wide {
-    background: map-get($colors, white);
-    border: ($grid * .2) solid map-get($colors, grey-lines);;
-    border-radius: $border-radius-checkbox;
-    height: ($grid * 2.4);
-    top: ($grid * 1.4);
-    width: ($grid * 2.4);
-
-    .switch--checkbox:not(.dynamic-styling) .switch--checkbox__label:hover & {
-      border-color: map-get($colors, blue-hover);
-    }
-
-    .is-focused:hover &,
-    .is-focused & {
-      border-color: map-get($colors, blue-focus);
-      box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
-    }
-
-    .switch--checkbox:not(.dynamic-styling).is-checked &,
-    .switch--checkbox:not(.dynamic-styling).is-checked:hover & {
-      border-color: map-get($colors, klarna-blue);
-    }
-
-    .switch--checkbox:not(.dynamic-styling).is-checked.is-focused:hover &,
-    .is-checked.is-focused & {
-      border-color: map-get($colors, klarna-blue);
-      box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
-    }
-  }
-}
-
-.switch--checkbox__bullet__toggle {
-  background: map-get($colors, white);
-  border-radius: ($grid * 5);
-  cursor: pointer;
-  display: block;
-  height: ($grid * 4);
-  left: ($grid * .2);
-  position: absolute;
-  top: ($grid * 1);
-  transition: all .2s ease;
-  width: ($grid * 4);
-
-  .is-pressed & {
-    width: ($grid * 5);
+  .switch--checkbox:not(.dynamic-styling) .switch--checkbox__label:hover & {
+    border-color: map-get($colors, blue-hover);
   }
 
-  .is-checked & {
-    left: ($grid * 3.2);
+  .is-focused:hover &,
+  .is-focused & {
+    border-color: map-get($colors, blue-focus);
+    box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
   }
 
-  .is-pressed.is-checked & {
-    left: ($grid * 2.2);
-    width: ($grid * 5);
+  .switch--checkbox:not(.dynamic-styling).is-checked &,
+  .switch--checkbox:not(.dynamic-styling).is-checked:hover & {
+    border-color: map-get($colors, klarna-blue);
   }
 
-  .right & {
-    left: auto;
-    right: ($grid * 3.2);
-  }
-
-  .right.is-pressed & {
-    left: auto;
-    right: ($grid * 2.2);
-  }
-
-  .right.is-checked & {
-    left: auto;
-    right: ($grid * .2);
-  }
-
-  .right.is-pressed.is-checked & {
-    left: auto;
-    right: ($grid * .2);
-  }
-
-  @include respond-to-wide {
-    display: none;
+  .switch--checkbox:not(.dynamic-styling).is-checked.is-focused:hover &,
+  .is-checked.is-focused & {
+    border-color: map-get($colors, klarna-blue);
+    box-shadow: 0 0 ($grid * .8) map-get($colors, blue-shadow);
   }
 }
 
 .switch--checkbox__bullet__checkmark {
-  display: none;
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: ($grid * 1.4);
 
-  @include respond-to-wide {
-    display: block;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: ($grid * 1.4);
+  .is-checked & {
+    opacity: 1;
+  }
 
-    .is-checked & {
-      opacity: 1;
-    }
-
-    .right & {
-      left: auto;
-      right: 0;
-    }
+  .right & {
+    left: auto;
+    right: 0;
   }
 }
 

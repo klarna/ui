@@ -1,6 +1,6 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as Block from '../../Block'
+import * as Dialog from '../../Dialog'
 import Fieldset from '../../Fieldset'
 import Input from '../../Input'
 import Link from '../../Link'
@@ -39,7 +39,7 @@ function FilteredSelection ({
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return <Block.Plain
+  return <Dialog.Content
     className={classNames(baseClass, className)}
     {...props}>
     <Title.Primary
@@ -47,10 +47,10 @@ function FilteredSelection ({
       {title}
     </Title.Primary>
 
-    <Paragraph.Primary
+    <Paragraph.Secondary
       className={classNames(classes.summary)}>
       {summary}
-    </Paragraph.Primary>
+    </Paragraph.Secondary>
 
     <Fieldset className={classNames(classes.input)}>
       <Input
@@ -76,7 +76,7 @@ function FilteredSelection ({
         {alternative}
       </Link>
     </Paragraph.Primary>
-  </Block.Plain>
+  </Dialog.Content>
 }
 
 export default compose(

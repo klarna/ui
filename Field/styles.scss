@@ -14,7 +14,7 @@
   position: relative;
   text-align: left;
   top: ($grid * -.2);
-  transition: all .2s ease;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
 
   &.big {
     height: ($grid * 12.2);
@@ -40,7 +40,7 @@
   }
 
   &.is-error {
-    background-color: #fff8f7;
+    background-color: map-get($colors, error-background);
     border-color: map-get($colors, error-border);
     box-shadow: none;
     z-index: 5;
@@ -58,7 +58,7 @@
   }
 
   &.is-warning {
-    background-color: #fffaf0;
+    background-color: map-get($colors, warning-background);
     border-color: map-get($colors, warning-border);
     box-shadow: none;
     z-index: 5;
@@ -76,7 +76,7 @@
   }
 
   &.is-disabled {
-    background-color: #fafafa;
+    background-color: map-get($colors, disable-background);
     border-color: map-get($colors, grey-lines);
 
     &:hover {
@@ -115,13 +115,13 @@
 %field__label {
   @include typography(map-get($font-sizes, big-body-mobile), regular);
 
-  color: map-get($colors, 'grey-text');
+  color: map-get($colors, grey-text);
   line-height: ($grid * 10);
   overflow: hidden;
   padding: 0 ($grid * 4);
   position: absolute;
   text-overflow: ellipsis;
-  transition: all .2s ease;
+  transition: color .2s ease, font-size .2s ease, margin .2s ease;
   white-space: nowrap;
   width: calc(100% - #{($grid * 8)});
 
@@ -133,22 +133,32 @@
     line-height: ($grid * 12);
   }
 
-  .big.is-filled &,
-  .big.is-error &,
-  .big.is-warning & {
+  .big.is-autofill:not(.non-floating-label) &,
+  .big.is-filled:not(.non-floating-label) &,
+  .big.is-error:not(.non-floating-label) &,
+  .big.is-warning:not(.non-floating-label) & {
     margin-top: ($grid * -2.2);
   }
 
-  .is-filled &,
-  .is-error &,
-  .is-warning & {
+  .is-autofill:not(.non-floating-label) &,
+  .is-filled:not(.non-floating-label) &,
+  .is-error:not(.non-floating-label) &,
+  .is-warning:not(.non-floating-label) & {
     @include typography(map-get($font-sizes, input-label), regular);
 
     margin-top: ($grid * -2.2);
   }
 
+  .non-floating-label.is-autofill &,
+  .non-floating-label.is-filled &,
+  .non-floating-label.is-focused &,
+  .non-floating-label.is-error &,
+  .non-floating-label.is-warning & {
+    display: none;
+  }
+
   .is-filled & {
-    color: map-get($colors, 'grey-text');
+    color: map-get($colors, grey-text);
   }
 
   .is-error & {
@@ -162,6 +172,20 @@
   .is-disabled & {
     color: map-get($colors, grey-lines);
   }
+
+  .is-autofill & {
+    color: map-get($colors, autofill-label);
+  }
+}
+
+@keyframes onAutoFillStart {
+  from {/**/}
+  to {/**/}
+}
+
+@keyframes onAutoFillCancel {
+  from {/**/}
+  to {/**/}
 }
 
 %field__input {
@@ -201,6 +225,21 @@
     width : 0;
   }
 
+  &:-webkit-autofill {
+    // Expose a hook for JavaScript when auto fill is shown.
+    // JavaScript can capture 'animationstart' events
+    animation-name: onAutoFillStart;
+
+    // Make the backgound color become yellow _really slowly_
+    transition: background-color 50000s ease-in-out 0s;
+  }
+
+  &:not(:-webkit-autofill) {
+    // Expose a hook for JS onAutoFillCancel
+    // JavaScript can capture 'animationstart' events
+    animation-name: onAutoFillCancel;
+  }
+
   .ie9 & {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=');
     position: relative;
@@ -212,16 +251,18 @@
     height: ($grid * 12);
   }
 
-  .big.is-filled &,
-  .big.is-error &,
-  .big.is-warning & {
+  .big.is-autofill:not(.non-floating-label) &,
+  .big.is-filled:not(.non-floating-label) &,
+  .big.is-error:not(.non-floating-label) &,
+  .big.is-warning:not(.non-floating-label) & {
     height: ($grid * 9.8);
     top: ($grid * 2.2);
   }
 
-  .is-filled &,
-  .is-error &,
-  .is-warning & {
+  .is-autofill:not(.non-floating-label) &,
+  .is-filled:not(.non-floating-label) &,
+  .is-error:not(.non-floating-label) &,
+  .is-warning:not(.non-floating-label) & {
     height: ($grid * 9);
     top: ($grid * 1.6);
   }
@@ -231,6 +272,10 @@
     /* Override webkit font color change */
     -webkit-text-fill-color: map-get($colors, grey-lines);
     -webkit-opacity: 1;
+  }
+
+  .pin-code & {
+    font-size: ($grid * 5.2);
   }
 
   .safari &,

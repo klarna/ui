@@ -17,7 +17,7 @@
       border-radius: 100%;
       height: ($grid * 4);
       margin: ($grid * -2);
-      transition: all .2s ease;
+      transition: stroke .2s ease, fill .2s ease, color .2s ease;
       width: ($grid * 4);
 
       &.gray {
@@ -87,7 +87,7 @@
   text-align: left;
   text-transform: uppercase;
   top: 0;
-  transition: all .2s ease;
+  transition: color .2s ease;
   user-select: none;
 
   &.left {

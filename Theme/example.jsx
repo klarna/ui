@@ -9,6 +9,7 @@ import Installments from '../Installments'
 import Link from '../Link'
 import * as Switch from '../Switch'
 import * as Title from '../Title'
+import Radio from '../Radio'
 import Subtitle from '../Subtitle'
 import * as Paragraph from '../Paragraph'
 import * as List from '../List'
@@ -26,6 +27,57 @@ const options = [
   { key: 2, label: 'Ipsum' }
 ]
 
+const optionsWithContent = [
+  {
+    key: 'lorem',
+    label: 'Lorem',
+    description: 'Lorem Ipsum is simply dummy.',
+    content: <Paragraph.Secondary condensed>
+      Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
+    </Paragraph.Secondary>,
+    leftPad: true
+  },
+
+  {
+    key: 'sit',
+    label: 'Sit',
+    description: 'Amet et consequetur',
+    content: <div>
+      <Installments
+        name='installments'
+        onChange={(key) => console.log('You selected', key)}
+        options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
+        value='installments_6'
+      />
+      <Checklist.Main style={{marginTop: '20px'}}>
+        <Checklist.Item>Just one click and you're done</Checklist.Item>
+        <Checklist.Item>Very little hassle</Checklist.Item>
+        <Checklist.Item>Just do it! It can be done today, so why wait for  tomorrow?</Checklist.Item>
+      </Checklist.Main>
+    </div>
+  },
+
+  {
+    key: 'ipsum',
+    label: 'Ipsum',
+    description: 'Dummy text ever since the 1500s.',
+    content: <div>
+      <Subtitle>Choose your destiny</Subtitle>
+
+      <Dropdown
+        name='ipsum-uncontrolled-dropdown'
+        options={[
+          {key: 'coffee', label: 'Coffee'},
+          {key: 'chai', label: 'Chai'},
+          {key: 'latte', label: 'Latte'}
+        ]}
+        label='Infusion'
+        value='coffee'
+      />
+    </div>
+  }
+]
+
 export default {
   title: 'Theme',
 
@@ -34,11 +86,13 @@ export default {
 import * as Button from '@klarna/ui/Button'
 import * as Checklist from '@klarna/ui/Checklist'
 import Dropdown from '@klarna/ui/Dropdown'
+import * as Field from '@klarna/ui/Field'
 import Field from '@klarna/ui/Field'
 import Installments from '@klarna/ui/Installments'
 import Link from '@klarna/ui/Link'
 import * as Switch from '@klarna/ui/Switch'
 import * as Title from '@klarna/ui/Title'
+import Radio from '@klarna/ui/Radio'
 import Subtitle from '@klarna/ui/Subtitle'
 import * as Paragraph from '@klarna/ui/Paragraph'
 import * as List from '@klarna/ui/List'`,
@@ -94,6 +148,14 @@ import * as List from '@klarna/ui/List'`,
         </div>
 
         <div style={{paddingTop: '20px'}}>
+          <Field
+            label='Enter code here'
+            defaultValue='42'
+            pinCode
+          />
+        </div>
+
+        <div style={{paddingTop: '20px'}}>
           <Back label='Back' />
         </div>
 
@@ -115,6 +177,15 @@ import * as List from '@klarna/ui/List'`,
           </Checklist.Main>
         </div>
 
+        <div style={{padding: '20px 0'}}>
+          <Radio
+            onChange={(key) => console.log(key)}
+            name='radio-regular'
+            options={optionsWithContent}
+            defaultValue='lorem'
+          />
+        </div>
+
         <Fieldset margins>
           <Dropdown top label='Given name' options={options} value={1} />
           <Dropdown square label='Middle name' options={options} />
@@ -124,7 +195,7 @@ import * as List from '@klarna/ui/List'`,
         <Fieldset margins>
           <Field top label='Address' value='16, Corn street' focus='fake' />
           <Field square label='Given name' />
-          <Field bottom label='Family name' />
+          <Field bottom error label='Family name' />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
@@ -156,6 +227,9 @@ import * as List from '@klarna/ui/List'`,
           </FocusableThemeableCheckbox>
           <FocusableThemeableCheckbox value name='fries-3'>
             Would you like fries?
+          </FocusableThemeableCheckbox>
+          <FocusableThemeableCheckbox value error name='fries-4'>
+            Should be red
           </FocusableThemeableCheckbox>
         </div>
 
