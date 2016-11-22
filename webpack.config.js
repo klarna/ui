@@ -16,7 +16,10 @@ module.exports = {
     path: './',
     filename: '[name]-built.js',
     chunkFilename: '[id].js',
-    publicPath: '/ui/'
+    publicPath: '/ui/',
+    library: 'kui',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   module: {
     loaders: [
