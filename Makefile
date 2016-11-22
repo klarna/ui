@@ -1,30 +1,30 @@
 .PHONY: test
 
 build:
-	npm run build
+	yarn run build
 
 clean:
 	rm -rf node_modules
 
 install:
-	npm install
+	yarn install --pure-lockfile
 
 lint:
-	npm run lint
+	yarn run lint
 
 dev:
-	npm start
+	yarn start
 
 test:
-	npm test
+	yarn test
 
 gh-pages:
 	-git branch -D gh-pages
 	git checkout -b gh-pages
 	git reset --hard master
 	echo node_modules > .gitignore
-	npm install
-	npm run build
+	yarn install --pure-lockfile
+	yarn run build
 	git add --all
 	git commit -m "Update GH pages [skip ci]"
 	git push origin --force gh-pages
