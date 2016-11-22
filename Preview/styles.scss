@@ -11,7 +11,7 @@
 
   &.has-link {
     cursor: pointer;
-    transition: all .2s ease;
+    transition: border-color .2s ease;
 
     &:hover {
       border-color: map-get($colors, blue-hover);
@@ -67,7 +67,7 @@
   margin: 0 auto;
   padding: ($grid * 1) ($grid * 1) 0 ($grid * 1);
   text-decoration: none;
-  transition: all .2s ease;
+  transition: color .2s ease;
 
   @include respond-to-wide {
     @include typography(map-get($font-sizes, main-body-desktop), regular);
@@ -119,7 +119,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  transition: all .2s ease;
+  transition: opacity .2s ease;
   width: 100%;
   z-index: -1;
 

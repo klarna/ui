@@ -14,7 +14,7 @@
   position: relative;
   text-align: left;
   top: ($grid * -.2);
-  transition: all .2s ease;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
 
   &.big {
     height: ($grid * 12.2);
@@ -121,7 +121,7 @@
   padding: 0 ($grid * 4);
   position: absolute;
   text-overflow: ellipsis;
-  transition: all .2s ease;
+  transition: color .2s ease, font-size .2s ease, margin .2s ease;
   white-space: nowrap;
   width: calc(100% - #{($grid * 8)});
 

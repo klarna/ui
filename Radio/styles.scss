@@ -11,7 +11,6 @@
   overflow: hidden;
   padding: 0;
   position: relative;
-  transition: all .2s ease;
 
   &.borderless {
     border: 0;
@@ -40,7 +39,6 @@
   overflow: hidden;
   padding-top: ($grid * 4);
   position: relative;
-  transition: all .2s ease;
   user-select: none;
 
   &:first-of-type {
@@ -121,7 +119,7 @@
   box-sizing: border-box;
   display: block;
   height: ($grid * 2.8);
-  transition: all .2s ease;
+  transition: background-color .2s ease, border-color .2s ease;
   width: ($grid * 2.8);
 
   .radio__option__input:checked + .radio__option & {
@@ -146,7 +144,7 @@
   position: absolute;
   top: ($grid * 1);
   transform: scale(3, 3);
-  transition: all .2s ease;
+  transition: opacity .2s ease, transform .2s ease;
   width: ($grid * .8);
 
   .radio__option__input:checked + .radio__option & {

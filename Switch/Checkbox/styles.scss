@@ -59,7 +59,7 @@
   left: 0;
   position: absolute;
   top: ($grid * 1.4);
-  transition: all .2s ease;
+  transition: background-color .2s ease, border-color .2s ease;
   width: ($grid * 2.4);
 
   .is-checked & {

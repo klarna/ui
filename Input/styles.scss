@@ -209,7 +209,7 @@ $stackable-border-width: $grid * .2;
   padding: 0;
   position: absolute;
   text-overflow: ellipsis;
-  transition: all .2s ease;
+  transition: transform .2s ease, font-size .2s ease, color .2s ease;
   white-space: nowrap;
   width: 100%;
 
