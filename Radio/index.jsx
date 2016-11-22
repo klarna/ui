@@ -119,7 +119,7 @@ const Radio = React.createClass({
           const isDisabled = allDisabled || disabled
 
           return [
-            !disabled && <input
+            <input
               className={classNames(classes.optionInput)}
               id={`${name}-${key}`}
               name={name}
@@ -130,6 +130,7 @@ const Radio = React.createClass({
               onFocus={(e) => onFocus && onFocus(key, e)}
               ref={key}
               value={key}
+              disabled={isDisabled}
             />,
             <label
               htmlFor={`${name}-${key}`}
