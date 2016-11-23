@@ -15,11 +15,21 @@ const classes = {
   table: `${baseClass}__table`
 }
 
-export function Main ({ children, className, styles, ...props }) {
+export function Main ({ children, className, customize, style, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
+  const dynamicStyles = customize
+  ? {
+    borderRadius: customize.borderRadius
+  } : {}
+
   return (
-    <div className={classNames(baseClass, className)} {...props}>
+    <div
+      style={{
+        ...dynamicStyles,
+        ...style
+      }}
+      className={classNames(baseClass, className)} {...props}>
       {children}
     </div>
   )
