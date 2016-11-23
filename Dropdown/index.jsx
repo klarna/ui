@@ -101,6 +101,7 @@ const Dropdown = React.createClass({
       disabled,
       error, // eslint-disable-line no-unused-vars
       focus, // eslint-disable-line no-unused-vars
+      id,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
@@ -190,6 +191,7 @@ const Dropdown = React.createClass({
     return (
       <div
         className={cls}
+        id={id}
         onClick={onClick}
         onMouseEnter={onMouseEnter(this)}
         onMouseLeave={onMouseLeave(this)}
