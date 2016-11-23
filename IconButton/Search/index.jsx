@@ -4,6 +4,7 @@ import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 import compose from '../../lib/compose'
 import defaultStyles from '../styles.scss'
+import withDisplayName from '../withDisplayName'
 
 const classes = {
   iconButton: 'icon-button',
@@ -43,5 +44,6 @@ Search.propTypes = {
 
 export default compose(
   themeable(() => ({ color: 'gray' })),
+  withDisplayName('Search'),
   overridable(defaultStyles)
 )(Search)
