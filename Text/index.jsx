@@ -6,3 +6,6 @@ import * as TheTitle from '../Title'
 
 export const Paragraph = TheParagraph
 export const Title = TheTitle
+
+const UNTHEMED_STATES = ['error', 'warning']
+export const shouldTheme = ({ color }) => !UNTHEMED_STATES.includes(color)

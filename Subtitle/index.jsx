@@ -5,6 +5,7 @@ import overridable from '../decorators/overridable'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
 import compose from '../lib/compose'
+import { shouldTheme } from '../Text'
 
 const baseClass = 'subtitle'
 
@@ -52,16 +53,13 @@ Subtitle.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, props) => {
-    if (['error', 'warning'].includes(props.color)) {
-      return {}
-    }
-    return {
+  themeable((customizations, props) => (
+    shouldTheme(props) ? {
       style: {
         ...props.style,
         color: customizations.color_header
       }
-    }
-  }),
+    } : {}
+  )),
   overridable(defaultStyles)
 )(Subtitle)
