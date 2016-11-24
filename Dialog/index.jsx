@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import compose from '../lib/compose'
 import defaultStyles from './styles.scss'
+import themeable from '../decorators/themeable'
+import overridable from '../decorators/overridable'
 
 const baseClass = 'dialog'
 
@@ -15,7 +18,7 @@ const classes = {
   table: `${baseClass}__table`
 }
 
-export function Main ({ children, className, customize, style, styles, ...props }) {
+function DialogMain ({ children, className, customize, style, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const dynamicStyles = customize
@@ -35,13 +38,23 @@ export function Main ({ children, className, customize, style, styles, ...props 
   )
 }
 
-Main.displayName = 'Dialog.Main'
+DialogMain.displayName = 'Dialog.Main'
 
-Main.propTypes = {
+DialogMain.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   styles: PropTypes.object
 }
+
+export const Main = compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderRadius: customizations.radius_border
+    }
+  })),
+  overridable(defaultStyles)
+)(DialogMain)
 
 export function Icon ({ children, className, left, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
