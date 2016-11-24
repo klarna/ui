@@ -54,11 +54,16 @@ Primary.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, props) => ({
-    style: {
-      ...props.style,
-      color: customizations.color_text
+  themeable((customizations, props) => {
+    if (['error', 'warning'].includes(props.color)) {
+      return {}
     }
-  })),
+    return {
+      style: {
+        ...props.style,
+        color: customizations.color_text
+      }
+    }
+  }),
   overridable(defaultStyles)
 )(Primary)
