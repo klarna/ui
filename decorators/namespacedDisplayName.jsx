@@ -1,4 +1,8 @@
-export default (namespace) => (name) => (Component) => {
-  Component.displayName = `${namespace}.${name}`
-  return Component
+export default function (namespace) {
+  return function (name) {
+    return function (Component) {
+      Component.displayName = `${namespace}.${name}`
+      return Component
+    }
+  }
 }

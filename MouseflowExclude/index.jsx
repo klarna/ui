@@ -7,7 +7,7 @@ const MouseflowExclude = React.createClass({
 
   render () {
     return (
-      <span ref={(span) => {
+      <span ref={function (span) {
         if (span == null) {
           return
         }
@@ -29,10 +29,14 @@ const MouseflowExclude = React.createClass({
   }
 })
 
-export const exclude = (Component) => (props) => (
-  <MouseflowExclude>
-    <Component {...props} />
-  </MouseflowExclude>
-)
+export const exclude = function (Component) {
+  return function (props) {
+    return (
+      <MouseflowExclude>
+        <Component {...props} />
+      </MouseflowExclude>
+    )
+  }
+}
 
 export default MouseflowExclude

@@ -120,14 +120,16 @@ Tertiary.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, { customize }) => ({
-    customize: {
-      ...customize,
-      backgroundColor: customizations.color_button,
-      borderRadius: customizations.radius_border,
-      textColor: customizations.color_button_text
+  themeable(function (customizations, { customize }) {
+    return {
+      customize: {
+        ...customize,
+        backgroundColor: customizations.color_button,
+        borderRadius: customizations.radius_border,
+        textColor: customizations.color_button_text
+      }
     }
-  })),
+  }),
   overridable(defaultStyles)
 )(Tertiary)
 

@@ -13,7 +13,7 @@ const classes = {
   stroke: 'illustration__stroke'
 }
 
-const Hamburger = ({ className, color, label, left, styles, ...props }) => {
+const Hamburger = function ({ className, color, label, left, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return <div className={classNames(classes.iconButton, className)} {...props}>
@@ -24,12 +24,12 @@ const Hamburger = ({ className, color, label, left, styles, ...props }) => {
       strokeWidth='2'
       height='20px'
       width='20px'>
-      {[8, 13, 18].map((y) =>
-        <line
+      {[8, 13, 18].map(function (y) {
+        return (<line
           className={classNames(classes.stroke)}
           key={y} x1='6' x2='19' y1={y} y2={y}
-        />
-      )}
+        />)
+      })}
     </svg>
 
     <span className={classNames(classes.label, { left }, color)}>{label}</span>
@@ -43,7 +43,7 @@ Hamburger.propTypes = {
 }
 
 export default compose(
-  themeable(() => ({ color: 'gray' })),
+  themeable(function () { return { color: 'gray' } }),
   withDisplayName('Hamburger'),
   overridable(defaultStyles)
 )(Hamburger)

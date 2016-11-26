@@ -35,11 +35,13 @@ Item.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, props) => ({
-    style: {
-      ...props.style,
-      color: customizations.color_text
+  themeable(function (customizations, props) {
+    return {
+      style: {
+        ...props.style,
+        color: customizations.color_text
+      }
     }
-  })),
+  }),
   overridable(defaultStyles)
 )(Item)

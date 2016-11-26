@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default (Target) => {
+export default function (Target) {
   class DecoratedComponent extends Component {
     render () {
       const {

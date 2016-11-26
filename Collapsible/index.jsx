@@ -46,17 +46,19 @@ export default class Collapsible extends Component {
         height: spring(collapsed ? 0 : this.state.height),
         opacity: spring(collapsed ? 0 : 1)
       }}>
-        {({height, opacity}) => <div
-          style={{
-            height,
-            opacity,
-            overflow: 'hidden'
-          }}>
-          {children}
-        </div>}
+        {function ({height, opacity}) {
+          return (<div
+            style={{
+              height,
+              opacity,
+              overflow: 'hidden'
+            }}>
+            {children}
+          </div>)
+        }}
       </Motion>
     </div>
   }
 }
 
-const getHeight = (node) => node.children[0].children[0].getBoundingClientRect().height
+const getHeight = function (node) { return node.children[0].children[0].getBoundingClientRect().height }

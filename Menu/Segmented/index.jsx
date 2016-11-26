@@ -84,7 +84,7 @@ export default React.createClass({
     return (
       <div className={cls} {...props}>
         {children}
-        {options.map(({ key, label }, index) => {
+        {options.map(function ({ key, label }, index) {
           const id = `${name}-${key}`
 
           const tabClass = classNames(classes.button, {

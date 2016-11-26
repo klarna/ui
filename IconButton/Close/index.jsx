@@ -13,7 +13,7 @@ const classes = {
   stroke: 'illustration__stroke'
 }
 
-const Close = ({ className, color, label, left, styles, ...props }) => {
+const Close = function ({ className, color, label, left, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return <div className={classNames(classes.iconButton, className)} {...props}>
@@ -41,7 +41,7 @@ Close.propTypes = {
 }
 
 export default compose(
-  themeable(() => ({ color: 'gray' })),
+  themeable(function () { return { color: 'gray' } }),
   withDisplayName('Close'),
   overridable(defaultStyles)
 )(Close)

@@ -50,11 +50,13 @@ Link.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, props) => ({
-    customize: {
-      ...props.customize,
-      textColor: customizations.color_link
+  themeable(function (customizations, props) {
+    return {
+      customize: {
+        ...props.customize,
+        textColor: customizations.color_link
+      }
     }
-  })),
+  }),
   overridable(defaultStyles)
 )(Link)

@@ -14,14 +14,16 @@ export default function Items ({ color, styles, className, ...props }) {
       height='20px'
       width='20px'
       {...props}>
-      {[6.5, 11.5, 16.5].map((y) => (
-        <g
-          className={classNames('illustration__stroke')}
-          key={y}>
-          <circle r='1.5' cx='5' cy={y} />
-          <line x1='9.2' x2='19.5' y1={y} y2={y} />
-        </g>
-      ))}
+      {[6.5, 11.5, 16.5].map(function (y) {
+        return (
+          <g
+            className={classNames('illustration__stroke')}
+            key={y}>
+            <circle r='1.5' cx='5' cy={y} />
+            <line x1='9.2' x2='19.5' y1={y} y2={y} />
+          </g>
+        )
+      })}
     </svg>
   )
 }
