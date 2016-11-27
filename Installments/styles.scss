@@ -5,8 +5,6 @@ $transition-duration: 500ms;
 $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
 .installments {
-  border: ($grid * .2) solid $border-color;
-  border-radius: 5px;
   box-sizing: border-box;
   display: block;
   position: relative;
@@ -42,7 +40,8 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
   .installments__cell {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    border-top: ($grid * .2) solid $border-color;
+    border: ($grid * .2) solid $border-color;
+    border-bottom: 0;
     box-sizing: border-box;
     color: map-get($colors, black);
     cursor: pointer;
@@ -53,7 +52,14 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     transition: border 0ms $transition-duration;
 
     &:first-of-type {
-      border-top-width: 0px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    &:last-of-type {
+      border-bottom: ($grid * .2) solid $border-color;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
 
     &.is-previously-selected,
@@ -63,15 +69,26 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
 
     @include respond-to-wide {
-      border-left: ($grid * .2) solid $border-color;
-      border-top: 0;
+      border: ($grid * .2) solid $border-color;
+      border-right: 0;
       display: table-cell;
       height: 100%;
       text-align: center;
       vertical-align: middle;
 
       &:first-of-type {
-        border-left-width: 0px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 0px;
+      }
+
+      &:last-of-type {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 5px;
+        border-right: ($grid * .2) solid $border-color;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 5px;
       }
     }
   }
@@ -99,10 +116,14 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   }
 
   .is-selected {
-    border-top-color: transparent !important;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
 
     @include respond-to-wide {
-      border-left-color: transparent !important;
+      border-bottom-color: $border-color;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-top-color: $border-color;
     }
   }
 
@@ -129,14 +150,11 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   }
 
   .is-after-selected {
-    border: 0;
-    border-top: ($grid * .2) solid;
-    border-top-color: transparent !important;
+    border-top-color: transparent;
 
     @include respond-to-wide {
-      border: 0;
-      border-left: ($grid * .2) solid;
-      border-left-color: transparent !important;
+      border-left-color: transparent;
+      border-top-color: $border-color;
     }
   }
 }
