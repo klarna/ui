@@ -5,6 +5,7 @@ import overridable from '../../decorators/overridable'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 import compose from '../../lib/compose'
+import isThemeable from '../../Text/isThemeable'
 
 const baseClass = 'title--secondary'
 
@@ -56,11 +57,11 @@ Secondary.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, props) => ({
+  themeable(isThemeable((customizations, props) => ({
     style: {
       ...props.style,
       color: customizations.color_header
     }
-  })),
+  }))),
   overridable(defaultStyles)
 )(Secondary)
