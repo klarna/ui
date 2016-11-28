@@ -5,7 +5,7 @@ import overridable from '../../decorators/overridable'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 import compose from '../../lib/compose'
-import { shouldTheme } from '../../Text'
+import isThemeable from '../../Text/isThemeable'
 
 const baseClass = 'title--primary'
 
@@ -61,7 +61,7 @@ Primary.propTypes = {
 }
 
 export default compose(
-  themeable(shouldTheme((customizations, props) => ({
+  themeable(isThemeable((customizations, props) => ({
     style: {
       ...props.style,
       color: customizations.color_header
