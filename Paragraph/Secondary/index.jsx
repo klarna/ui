@@ -55,13 +55,11 @@ Secondary.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, props) => (
-    shouldTheme(props) ? {
-      style: {
-        ...props.style,
-        color: customizations.color_header
-      }
-    } : {}
-  )),
+  themeable(shouldTheme((customizations, props) => ({
+    style: {
+      ...props.style,
+      color: customizations.color_header
+    }
+  }))),
   overridable(defaultStyles)
 )(Secondary)
