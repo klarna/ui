@@ -32,10 +32,10 @@ const calculateHighlightPosition = (selected) => {
 
   const BORDER_SIZE = 1
 
-  const left = selected.offsetLeft
-  const top = selected.offsetTop
-  const width = selected.offsetWidth + BORDER_SIZE * 2
-  const height = selected.offsetHeight + BORDER_SIZE * 2
+  const left = selected.offsetLeft + BORDER_SIZE
+  const top = selected.offsetTop + BORDER_SIZE
+  const width = selected.offsetWidth
+  const height = selected.offsetHeight
 
   return {
     left,
@@ -224,7 +224,7 @@ const Installments = React.createClass({
               { 'is-hovered': id === this.state.hover },
               { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
               { 'is-previously-selected': key === previouslySelected },
-              { 'is-after-previously-selected': (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
+              { 'is-after-previously-selected': !(key === selected) && (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
             )}
             style={customize
               ? cellDynamicStyles(customize, id === this.state.hover)
