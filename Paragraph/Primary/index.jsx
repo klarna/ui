@@ -58,7 +58,7 @@ export default compose(
   themeable(isThemeable((customizations, props) => ({
     style: {
       ...props.style,
-      color: customizations.color_header
+      color: customizations.color_text
     }
   }))),
   overridable(defaultStyles)
