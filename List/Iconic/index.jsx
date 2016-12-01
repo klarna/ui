@@ -12,20 +12,20 @@ const classes = {
   wrapper: `${baseClass}--wrapper`
 }
 
-export function Wrapper ({className, children, styles}) {
+export function Wrapper ({className, children, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return <ul className={classNames(classes.wrapper, className)}>
+  return <ul className={classNames(classes.wrapper, className)} {...props}>
     {children}
   </ul>
 }
 
 Wrapper.displayName = 'List.Iconic.Wrapper'
 
-export function Item ({className, icon, children, styles}) {
+export function Item ({className, icon, children, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return <li className={classNames(classes.item, className)}>
+  return <li className={classNames(classes.item, className)} {...props}>
     <div className={classNames(classes.itemIcon)}>
       {icon}
     </div>

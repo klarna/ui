@@ -6,10 +6,10 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'strong'
 
-function Strong ({children, styles}) {
+function Strong ({children, styles, ...props}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
-  return <strong className={classNames(baseClass)}>
+  return <strong className={classNames(baseClass)} {...props}>
     {children}
   </strong>
 }

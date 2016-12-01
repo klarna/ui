@@ -139,6 +139,7 @@ const Field = React.createClass({
       disabled,
       error,
       icon,
+      id,
       Input,
       focus,
       label,
@@ -234,6 +235,7 @@ const Field = React.createClass({
     return (
       <div
         className={cls}
+        id={id}
         onClick={onClick}
         style={dynamicStyles}
         onMouseEnter={this.onMouseEnter}

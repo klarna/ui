@@ -12,7 +12,7 @@ const classes = {
   checkmark: `${baseClass}__checkmark`
 }
 
-function ChecklistMain ({ chromeless, className, children, customize, style, styles }) {
+function ChecklistMain ({ chromeless, className, children, customize, style, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const dynamicStyles = customize
@@ -26,7 +26,8 @@ function ChecklistMain ({ chromeless, className, children, customize, style, sty
       ...dynamicStyles,
       ...style
     }}
-    className={classNames(baseClass, { chromeless }, className)}>
+    className={classNames(baseClass, { chromeless }, className)}
+    {...props}>
     {children}
   </ul>
 }
@@ -55,7 +56,7 @@ export const Main = compose(
   overridable(defaultStyles)
 )(ChecklistMain)
 
-function ChecklistItem ({ className, children, customize, styles }) {
+function ChecklistItem ({ className, children, customize, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const listItemDynamicStyles = customize
     ? { color: customize.textColor }
@@ -66,7 +67,8 @@ function ChecklistItem ({ className, children, customize, styles }) {
 
   return <li
     className={classNames(classes.item, className)}
-    style={listItemDynamicStyles}>
+    style={listItemDynamicStyles}
+    {...props}>
     <svg
       className={classNames(classes.checkmark)}
       style={iconDynamicStyles}

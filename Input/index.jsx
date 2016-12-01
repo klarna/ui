@@ -113,6 +113,7 @@ export default React.createClass({
       focus, // eslint-disable-line no-unused-vars
       giant,
       icon,
+      id,
       Input,
       label,
       left, // eslint-disable-line no-unused-vars
@@ -170,6 +171,7 @@ export default React.createClass({
     return (
       <div
         className={cls}
+        id={id}
         onClick={onClick}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
