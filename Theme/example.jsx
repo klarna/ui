@@ -250,8 +250,16 @@ import * as List from '@klarna/ui/List'`,
             Primary Paragraph, primary design
           </Paragraph.Primary>
 
+          <Paragraph.Primary margins color='error'>
+            An error text should reject custom style in favor of the initial style.
+          </Paragraph.Primary>
+
           <Paragraph.Secondary margins>
             Paragraph, secondary design
+          </Paragraph.Secondary>
+
+          <Paragraph.Secondary margins color='warning'>
+            An error text should reject custom style in favor of the initial style.
           </Paragraph.Secondary>
 
           <Paragraph.Legal margins>
