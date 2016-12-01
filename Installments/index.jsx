@@ -135,12 +135,7 @@ const Installments = React.createClass({
   },
 
   onOrientationChange () {
-    this.setHighlightPosition({
-      width: 0,
-      height: 0,
-      left: 0,
-      top: 0
-    })
+    this.resetHighlightPosition()
   },
 
   getSelectedLabel (key) {
@@ -156,6 +151,15 @@ const Installments = React.createClass({
           ...position
         }
       }
+    })
+  },
+
+  resetHighlightPosition () {
+    this.setHighlightPosition({
+      width: 0,
+      height: 0,
+      left: 0,
+      top: 0
     })
   },
 
