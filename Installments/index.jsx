@@ -93,12 +93,15 @@ const Installments = React.createClass({
     }
 
     this.debouncedResizeHandler = debounce(() => this.onResize())
-    window.addEventListener('resize', this.debouncedResizeHandler)
+    window.addEventListener('resize', this.debouncedResizeHandler, false)
+    window.addEventListener('orientationchange', this.onOrientationChange, false)
+
     this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
   },
 
   componentWillUnmount () {
     window.removeEventListener('resize', this.debouncedResizeHandler)
+    window.removeEventListener('orientationchange', this.onOrientationChange)
   },
 
   componentWillReceiveProps (props) {
@@ -131,6 +134,10 @@ const Installments = React.createClass({
     this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
   },
 
+  onOrientationChange () {
+    this.resetHighlightPosition()
+  },
+
   getSelectedLabel (key) {
     return this.refs[`${key || this.props.value}-label`]
   },
@@ -144,6 +151,15 @@ const Installments = React.createClass({
           ...position
         }
       }
+    })
+  },
+
+  resetHighlightPosition () {
+    this.setHighlightPosition({
+      width: 0,
+      height: 0,
+      left: 0,
+      top: 0
     })
   },
 
