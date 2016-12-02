@@ -163,7 +163,7 @@ const Installments = React.createClass({
   },
 
   resetHighlightPosition () {
-    this.refs.highlight.style.display = 'none';
+    this.refs.highlight.style.display = 'none'
     this.setHighlightPosition({
       width: 0,
       height: 0,
@@ -172,7 +172,7 @@ const Installments = React.createClass({
     })
 
     setTimeout(() => {
-      this.refs.highlight.style.display = 'block';
+      this.refs.highlight.style.display = 'block'
     })
   },
 
@@ -199,7 +199,7 @@ const Installments = React.createClass({
     const currentWidth = window.getComputedStyle(this.refs.root).width
     const layout = this.getLayoutType(currentWidth)
 
-    if (layout != this.state.currentLayout) {
+    if (layout !== this.state.currentLayout) {
       this.setCurrentLayout(layout)
       return true
     }
