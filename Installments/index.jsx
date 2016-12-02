@@ -8,6 +8,7 @@ import compose from '../lib/compose'
 
 const baseClass = 'installments'
 const TRANSITION_DURATION = 500
+const MOBILE_MAX_WIDTH = 569
 
 const classes = {
   input: `${baseClass}__input`,
@@ -72,6 +73,7 @@ const Installments = React.createClass({
     return {
       hover: undefined,
       previouslySelected: undefined,
+      currentLayout: undefined,
       highlight: {
         position: {
           width: undefined,
@@ -131,11 +133,17 @@ const Installments = React.createClass({
   },
 
   onResize () {
-    this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
+    if (this.state.currentLayout && this.hasLayoutChanged()) {
+      this.resetHighlightPosition()
+    } else {
+      this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
+    }
   },
 
   onOrientationChange () {
-    this.resetHighlightPosition()
+    if (this.hasLayoutChanged()) {
+      this.resetHighlightPosition()
+    }
   },
 
   getSelectedLabel (key) {
@@ -155,11 +163,16 @@ const Installments = React.createClass({
   },
 
   resetHighlightPosition () {
+    this.refs.highlight.style.display = 'none'
     this.setHighlightPosition({
       width: 0,
       height: 0,
       left: 0,
       top: 0
+    })
+
+    setTimeout(() => {
+      this.refs.highlight.style.display = 'block'
     })
   },
 
@@ -170,6 +183,28 @@ const Installments = React.createClass({
         transitions: enabled
       }
     })
+  },
+
+  setCurrentLayout (layout) {
+    this.setState({
+      currentLayout: layout
+    })
+  },
+
+  getLayoutType (width) {
+    return parseInt(width, 10) > MOBILE_MAX_WIDTH ? 'wide' : 'narrow'
+  },
+
+  hasLayoutChanged () {
+    const currentWidth = window.getComputedStyle(this.refs.root).width
+    const layout = this.getLayoutType(currentWidth)
+
+    if (layout !== this.state.currentLayout) {
+      this.setCurrentLayout(layout)
+      return true
+    }
+
+    return false
   },
 
   render () {
@@ -222,6 +257,7 @@ const Installments = React.createClass({
     }
 
     return (<div
+      ref='root'
       className={classNames(baseClass, className)}
       style={{
         ...dynamicStyles,
@@ -272,7 +308,9 @@ const Installments = React.createClass({
           </label>
         })}
       </div>
-      <span className={classNames(
+      <span
+        ref='highlight'
+        className={classNames(
         classes.cellHighlight,
         { 'has-position': this.state.highlight.transitions }
       )} style={{
