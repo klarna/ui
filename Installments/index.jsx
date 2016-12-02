@@ -73,7 +73,6 @@ const Installments = React.createClass({
     return {
       hover: undefined,
       previouslySelected: undefined,
-      currentLayout: undefined,
       highlight: {
         position: {
           width: undefined,
@@ -133,17 +132,12 @@ const Installments = React.createClass({
   },
 
   onResize () {
-    if (this.state.currentLayout && this.hasLayoutChanged()) {
-      this.resetHighlightPosition()
-    } else {
-      this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
-    }
+    this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
   },
 
   onOrientationChange () {
-    if (this.hasLayoutChanged()) {
-      this.resetHighlightPosition()
-    }
+    this.resetHighlightPosition()
+    this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
   },
 
   getSelectedLabel (key) {
@@ -163,13 +157,13 @@ const Installments = React.createClass({
   },
 
   resetHighlightPosition () {
-    this.refs.highlight.style.display = 'none'
     this.setHighlightPosition({
       width: 0,
       height: 0,
       left: 0,
       top: 0
     })
+    this.refs.highlight.style.display = 'none'
 
     setTimeout(() => {
       this.refs.highlight.style.display = 'block'
@@ -183,28 +177,6 @@ const Installments = React.createClass({
         transitions: enabled
       }
     })
-  },
-
-  setCurrentLayout (layout) {
-    this.setState({
-      currentLayout: layout
-    })
-  },
-
-  getLayoutType (width) {
-    return parseInt(width, 10) > MOBILE_MAX_WIDTH ? 'wide' : 'narrow'
-  },
-
-  hasLayoutChanged () {
-    const currentWidth = window.getComputedStyle(this.refs.root).width
-    const layout = this.getLayoutType(currentWidth)
-
-    if (layout !== this.state.currentLayout) {
-      this.setCurrentLayout(layout)
-      return true
-    }
-
-    return false
   },
 
   render () {
