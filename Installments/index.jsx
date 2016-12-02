@@ -8,7 +8,6 @@ import compose from '../lib/compose'
 
 const baseClass = 'installments'
 const TRANSITION_DURATION = 500
-const MOBILE_MAX_WIDTH = 569
 
 const classes = {
   input: `${baseClass}__input`,
@@ -229,7 +228,6 @@ const Installments = React.createClass({
     }
 
     return (<div
-      ref='root'
       className={classNames(baseClass, className)}
       style={{
         ...dynamicStyles,
