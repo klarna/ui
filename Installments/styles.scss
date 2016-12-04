@@ -126,9 +126,9 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     pointer-events: none;
     position: absolute;
     top: -1px;
+    transition: opacity 0ms $transition-duration;
     width: calc(100% + 2px);
     z-index: 5;
-    transition: opacity 0ms $transition-duration;
   }
 
   .installments__cell.is-hovered,
@@ -154,12 +154,12 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     border-radius: 5px;
     box-sizing: border-box;
     cursor: pointer;
-    visibility: visible;
+    left: 0;
     pointer-events: none;
     position: absolute;
-    left: 0;
     top: 0;
     transition: transform $transition-duration $highlightTransitionEasing;
+    visibility: visible;
     z-index: 4;
 
     &.has-position {

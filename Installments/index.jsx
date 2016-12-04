@@ -73,7 +73,7 @@ const Installments = React.createClass({
           height: undefined,
           left: undefined,
           top: undefined
-        },
+        }
       },
       hasPosition: true,
       currentWidth: undefined
@@ -108,7 +108,7 @@ const Installments = React.createClass({
   componentWillReceiveProps (newProps) {
     if (newProps.value && newProps.value !== this.props.value) {
       this.setState({
-        previouslySelected: this.props.value,
+        previouslySelected: this.props.value
       })
       const label = this.getSelectedLabel(newProps.value)
       const highlight = this.getSelectedHighlight(newProps.value)
@@ -144,7 +144,6 @@ const Installments = React.createClass({
   onResize () {
     if ((this.refs.root.offsetWidth < MOBILE_MAX_WIDTH && this.state.currentWidth >= MOBILE_MAX_WIDTH) ||
     (this.refs.root.offsetWidth >= MOBILE_MAX_WIDTH && this.state.currentWidth < MOBILE_MAX_WIDTH)) {
-      debugger
       const label = this.getSelectedLabel(this.props.value)
       const highlight = this.getSelectedHighlight(this.props.value)
 
