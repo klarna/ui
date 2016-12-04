@@ -65,6 +65,10 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     &.is-previously-selected,
     &.is-after-previously-selected {
       transition: border 0ms;
+
+      .installments__cell__highlight {
+        transition: opacity 0ms;
+      }
     }
 
 
@@ -110,42 +114,59 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     }
   }
 
-  .installments__cell.is-hovered,
-  .installments__cell.is-focused {
-    color: map-get($colors, klarna-blue);
-  }
-
-  .is-selected {
-    border-bottom-color: transparent;
-    border-top-color: transparent;
-
-    @include respond-to-wide {
-      border-bottom-color: $border-color;
-      border-left-color: transparent;
-      border-right-color: transparent;
-      border-top-color: $border-color;
-    }
-  }
-
   .installments__cell__highlight {
     border: ($grid * .4) solid map-get($colors, klarna-blue);
     border-radius: 5px;
     box-sizing: border-box;
     cursor: pointer;
     display: block;
+    height: calc(100% + 2px);
     left: -1px;
     opacity: 0;
     pointer-events: none;
     position: absolute;
     top: -1px;
+    width: calc(100% + 2px);
     z-index: 5;
+    transition: opacity 0ms $transition-duration;
+  }
 
-    @include respond-to-wide {
-      height: ($grid * 15);
+  .installments__cell.is-hovered,
+  .installments__cell.is-focused {
+    color: map-get($colors, klarna-blue);
+  }
+
+  .is-selected {
+    border-top-color: transparent;
+
+    .installments__cell__highlight {
+      opacity: 1;
     }
 
+    @include respond-to-wide {
+      border-left-color: transparent;
+      border-top-color: $border-color;
+    }
+  }
+
+  .installments__highlight {
+    border: ($grid * .4) solid map-get($colors, klarna-blue);
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    visibility: visible;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform $transition-duration $highlightTransitionEasing;
+    z-index: 4;
+
     &.has-position {
-      transition: transform $transition-duration $highlightTransitionEasing, height $transition-duration $highlightTransitionEasing, width $transition-duration $highlightTransitionEasing;
+      visibility: hidden;
+    }
+
+    @include respond-to-wide {
     }
   }
 
