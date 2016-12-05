@@ -1,6 +1,5 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as Dialog from '../../../Dialog'
 import * as Button from '../../../Button'
 import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
@@ -37,7 +36,7 @@ export default function Centered ({
     ? labels.summary
     : [labels.summary]
 
-  return <Dialog.Content className={classNames(baseClass, className)}>
+  return <div className={classNames(baseClass, className)}>
     {illustration}
 
     <Title.Primary
@@ -82,5 +81,5 @@ export default function Centered ({
     {labels.legal && <Paragraph.Legal className={classNames(classes.legal)}>
       {labels.legal}
     </Paragraph.Legal>}
-  </Dialog.Content>
+  </div>
 }
