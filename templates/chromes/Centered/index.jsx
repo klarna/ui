@@ -55,7 +55,7 @@ export default function Centered ({
     {children}
 
     {labels.accept && onAccept && <Button.Primary
-      brandVolume
+      brandVolume={brandVolume}
       onClick={onAccept}
       loading={loading}
       className={classNames(classes.buttonAccept)}>

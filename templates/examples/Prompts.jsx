@@ -45,6 +45,22 @@ export default {
           />
         },
 
+        'With high brand volume': {
+          inline: <SingleInputPrompt
+            brandVolume='high'
+            focus
+            illustration={<DemoIcon />}
+            title='Welcome to the site'
+            summary='What is your name fellow traveler?'
+            accept='Continue'
+            legal='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
+            label='Name'
+            onChange={(e) => console.log(e.target.value)}
+            onAccept={() => console.log('accept')}
+            value='Ernest McMillan'
+          />
+        },
+
         'With error': {
           inline: <SingleInputPrompt
             focus
@@ -87,6 +103,48 @@ export default {
         Regular: {
           inline: <CenteredForm
             accept='Continue'
+            cancel='I’d rather get a car'
+            defaultValues={{
+              brandName: 'ACME',
+              wheels: '2'
+            }}
+            fields={[
+              {
+                label: 'Wheels',
+                left: true,
+                name: 'wheels',
+                size: '1/5'
+              },
+              {
+                label: 'Color',
+                center: true,
+                name: 'color',
+                size: '1/5'
+              },
+              {
+                label: 'Length',
+                right: true,
+                name: 'length',
+                size: '3/5'
+              },
+              {
+                label: 'Brand name',
+                name: 'brandName'
+              }
+            ]}
+            onAccept={() => console.log('accepted')}
+            onCancel={() => console.log('canceled')}
+            fieldType='input'
+            illustration={<DemoIcon />}
+            summary='Paleo lo-fi pork belly, venmo activated charcoal franzen swag four dollar toast scenester pok pok thundercats twee plaid.'
+            title='Describe your favorite bike'
+          />
+        },
+
+        'With high brand volume': {
+          inline: <CenteredForm
+            accept='Continue'
+            brandVolume='high'
             cancel='I’d rather get a car'
             defaultValues={{
               brandName: 'ACME',

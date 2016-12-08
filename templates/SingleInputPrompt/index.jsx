@@ -7,6 +7,7 @@ import defaultStyles from './styles.scss'
 
 function SingleInputPrompt ({
   accept,
+  brandVolume,
   cancel,
   focus,
   label,
@@ -24,6 +25,7 @@ function SingleInputPrompt ({
   ...props
 }) {
   return <Centered
+    brandVolume={brandVolume}
     onAccept={onAccept}
     onCancel={onCancel}
     illustration={illustration}
