@@ -8,6 +8,7 @@ import parseColor from 'parse-color'
 import Price from '../Price'
 import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
+import brandVolumeLevels from '../../lib/brandVolumeLevels'
 
 const baseClass = 'button'
 
@@ -20,6 +21,7 @@ const classes = {
 export const sizes = ['small', 'big']
 
 function Primary ({
+  brandVolume,
   children,
   className,
   customize,
@@ -37,7 +39,8 @@ function Primary ({
     'is-disabled': disabled,
     'is-loading': loading,
     'dynamic-styling': customize,
-    'has-price': contains(Price, children)
+    'has-price': contains(Price, children),
+    'brand-volume-high': brandVolume === 'high'
   }, className)
 
   const loaderColor = (customize || {}).textColor && (customize || {}).backgroundColor
@@ -82,12 +85,14 @@ function Primary ({
 Primary.displayName = 'Button.Primary'
 
 Primary.defaultProps = {
+  brandVolume: 'low',
   loading: false,
   success: false,
   disabled: false
 }
 
 Primary.propTypes = {
+  brandVolume: PropTypes.oneOf(brandVolumeLevels),
   children: PropTypes.node,
   className: PropTypes.string,
   customize: PropTypes.shape({
