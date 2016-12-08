@@ -29,6 +29,10 @@
     width: 100%;
   }
 
+  &.brand-volume-high {
+    border-radius: ($grid * 5);
+  }
+
   &:hover {
     .button--primary__darkening {
       opacity: .2;
@@ -93,6 +97,10 @@
     top: 0;
     transition: opacity .2s ease;
     width: 100%;
+  }
+
+  &.brand-volume-high {
+    border-radius: ($grid * 5);
   }
 
   &:hover {
