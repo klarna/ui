@@ -7,6 +7,7 @@ import contains from '../../lib/contains'
 import compose from '../../lib/compose'
 import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
+import brandVolumeLevels from '../../lib/brandVolumeLevels'
 import defaultStyles from '../styles.scss'
 
 const baseClass = 'button'
@@ -20,25 +21,27 @@ const classes = {
 
 export const sizes = ['small', 'big']
 
-function Secondary (props) {
-  const {
-    children,
-    className,
-    customize,
-    disabled,
-    loading,
-    size,
-    style,
-    styles,
-    success,
-    ...remainingProps } = props
+function Secondary ({
+  brandVolume,
+  children,
+  className,
+  customize,
+  disabled,
+  loading,
+  size,
+  style,
+  styles,
+  success,
+  ...props
+}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(classes.secondary, size, {
     'is-disabled': disabled,
     'is-loading': loading,
     'dynamic-styling': customize,
-    'has-price': contains(Price, children)
+    'has-price': contains(Price, children),
+    'brand-volume-high': brandVolume === 'high'
   }, className)
 
   const isDisabled = (loading || success || disabled)
@@ -69,7 +72,7 @@ function Secondary (props) {
         ...customizations,
         ...style
       }}
-      {...remainingProps}>
+      {...props}>
       {
         customize ? [
           loading || <div key={1}
@@ -99,12 +102,14 @@ function Secondary (props) {
 Secondary.displayName = 'Button.Secondary'
 
 Secondary.defaultProps = {
+  brandVolume: 'low',
   loading: false,
   success: false,
   disabled: false
 }
 
 Secondary.propTypes = {
+  brandVolume: PropTypes.oneOf(brandVolumeLevels),
   children: PropTypes.node,
   className: PropTypes.string,
   customize: PropTypes.shape({
