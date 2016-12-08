@@ -22,6 +22,7 @@ const classes = {
 }
 
 export default function Centered ({
+  brandVolume,
   className,
   children,
   error,
@@ -54,6 +55,7 @@ export default function Centered ({
     {children}
 
     {labels.accept && onAccept && <Button.Primary
+      brandVolume={brandVolume}
       onClick={onAccept}
       loading={loading}
       className={classNames(classes.buttonAccept)}>
