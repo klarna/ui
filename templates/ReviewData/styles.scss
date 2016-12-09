@@ -2,8 +2,8 @@
 @import '../../css/mixins/index';
 
 .review-data__content {
-  border-bottom: ($grid * .2) solid map-get($colors, grey-lines);
-  border-top: ($grid * .2) solid map-get($colors, grey-lines);
+  border-bottom: ($grid * .2) solid map-get($colors, grey-selector-lines);
+  border-top: ($grid * .2) solid map-get($colors, grey-selector-lines);
   margin-bottom: ($grid * 5);
   margin-top: ($grid * 5.8);
   padding-bottom: ($grid * 4);
@@ -17,4 +17,6 @@
 
 .review-data__legal {
   margin-bottom: ($grid * 7);
+  padding-top: ($grid * 2);
+  text-align: left;
 }
