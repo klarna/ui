@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import compose from '../lib/compose'
 import defaultStyles from './styles.scss'
@@ -18,8 +18,8 @@ const classes = {
   table: `${baseClass}__table`
 }
 
-function DialogMain ({ children, className, customize, style, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+function DialogMain ({children, className, customize, style, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   const dynamicStyles = customize
   ? {
@@ -32,7 +32,8 @@ function DialogMain ({ children, className, customize, style, styles, ...props }
         ...dynamicStyles,
         ...style
       }}
-      className={classNames(baseClass, className)} {...props}>
+      className={classNames(baseClass, className)}
+      {...props}>
       {children}
     </div>
   )
@@ -56,8 +57,8 @@ export const Main = compose(
   overridable(defaultStyles)
 )(DialogMain)
 
-export function Icon ({ children, className, left, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Icon ({children, className, left, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <div
@@ -77,14 +78,21 @@ Icon.propTypes = {
   styles: PropTypes.object
 }
 
-export function Content ({ children, className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Content ({children, className, id, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      inner: `${id}__inner`
+    } : {}
 
   return (
     <div
       className={classNames(classes.content, className)}
+      id={id}
       {...props}>
-      <div className={classNames(classes.contentInner)}>
+      <div
+        className={classNames(classes.contentInner)}
+        id={ids.inner}>
         {children}
       </div>
     </div>
@@ -99,15 +107,21 @@ Content.propTypes = {
   styles: PropTypes.object
 }
 
-export function Footer ({ children, className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Footer ({children, className, id, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      inner: `${id}__inner`
+    } : {}
 
   return (
     <div
       className={classNames(classes.footer, className)}
+      id={id}
       {...props}>
       <div
-        className={classNames(classes.footerInner)}>
+        className={classNames(classes.footerInner)}
+        id={ids.inner}>
         {children}
       </div>
     </div>
@@ -122,17 +136,33 @@ Footer.propTypes = {
   styles: PropTypes.object
 }
 
-export function Overlay ({ children, className, show, wide, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Overlay ({
+  children,
+  className,
+  id,
+  show,
+  styles,
+  wide,
+  ...props
+}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      cell: `${id}__cell`,
+      table: `${id}__table`
+    }
 
   return (
     <div
       className={classNames(classes.overlay, { 'is-visible': show, wide }, className)}
+      id={id}
       {...props}>
       <div
-        className={classNames(classes.table)}>
+        className={classNames(classes.table)}
+        id={ids.table}>
         <div
-          className={classNames(classes.cell)}>
+          className={classNames(classes.cell)}
+          id={ids.cell}>
           {children}
         </div>
       </div>
