@@ -2,9 +2,13 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import Loader from '../../Loader'
 import contains from '../../lib/contains'
+import compose from '../../lib/compose'
 import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
 import Price from '../Price'
+import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
+import brandVolumeLevels from '../../lib/brandVolumeLevels'
 
 const baseClass = 'button'
 
@@ -16,7 +20,8 @@ const classes = {
 
 export const sizes = ['small', 'big']
 
-export default function Primary ({
+function Primary ({
+  brandVolume,
   children,
   className,
   customize,
@@ -34,7 +39,8 @@ export default function Primary ({
     'is-disabled': disabled,
     'is-loading': loading,
     'dynamic-styling': customize,
-    'has-price': contains(Price, children)
+    'has-price': contains(Price, children),
+    'brand-volume-high': brandVolume === 'high'
   }, className)
 
   const loaderColor = (customize || {}).textColor && (customize || {}).backgroundColor
@@ -63,10 +69,10 @@ export default function Primary ({
       }}
       {...remainingProps}>
       {customize ? [
-        <span className={classNames(classes.label)}>
+        <span key={1} className={classNames(classes.label)}>
           {loadingOrContent}
         </span>,
-        loading || disabled || <div
+        loading || disabled || <div key={2}
           className={classNames(classes.darkening)}
           style={{borderRadius: customize.borderRadius}}
         />
@@ -79,17 +85,20 @@ export default function Primary ({
 Primary.displayName = 'Button.Primary'
 
 Primary.defaultProps = {
+  brandVolume: 'low',
   loading: false,
   success: false,
   disabled: false
 }
 
 Primary.propTypes = {
+  brandVolume: PropTypes.oneOf(brandVolumeLevels),
   children: PropTypes.node,
   className: PropTypes.string,
   customize: PropTypes.shape({
-    textColor: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired
+    backgroundColor: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired
   }),
   size: PropTypes.oneOf(sizes),
   loading: PropTypes.bool,
@@ -97,3 +106,15 @@ Primary.propTypes = {
   disabled: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default compose(
+  themeable((customizations, { customize }) => ({
+    customize: {
+      ...customize,
+      backgroundColor: customizations.color_button,
+      borderRadius: customizations.radius_border,
+      textColor: customizations.color_button_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Primary)

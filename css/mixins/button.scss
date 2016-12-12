@@ -16,7 +16,7 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: all .2s ease;
+  transition: background-color .2s ease, border-color .2s ease;
   vertical-align: top;
 
   @include respond-to-wide {
@@ -120,40 +120,6 @@
     position: relative;
     right: 20px;
     top: 1px;
-  }
-}
-
-@mixin button__label {
-  position: relative;
-  transition: color .2s ease;
-  z-index: 1;
-
-  .button--secondary &--alt:after {
-    content: attr(title);
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    transition: opacity .2s ease;
-    width: 100%;
-    z-index: 2;
-  }
-
-  .dynamic-styling.button--secondary:not(.is-disabled):hover & {
-    color: rgba(0,0,0,0);
-
-    &--alt:after {
-      opacity: 1;
-    }
-  }
-
-  .dynamic-styling.button--secondary:not(.is-disabled):active &,
-  .dynamic-styling.button--secondary:not(.is-disabled):focus & {
-    color: rgba(0, 0, 0, 0);
-
-    &--alt:after {
-      opacity: 1;
-    }
   }
 }
 

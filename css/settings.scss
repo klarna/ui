@@ -28,9 +28,13 @@ $colors: (
   klarna-blue: #0074c8,
   klarna-blue-hover: darken(#0074c8, 5.2),
   morning-blue: #1a8cdc,
+  link-blue-hover: #005694,
   black: #3c3c3e,
   block-hover: #f9f9f9,
-  grey-text: #9e9ea0,
+  grey-text: #8e8e90,
+  darker-grey-text: #8e8e90,
+  hover-grey-text: darken(#8e8e90, 20),
+  active-grey-text: darken(#8e8e90, 30),
   grey-icon: #a9a9a9,
   grey-lines: #cbcbcd,
   grey-selector-lines: #e5e5e6,
@@ -53,6 +57,7 @@ $colors: (
   blue-focus: rgba(26, 140, 220, .8),
   blue-shadow: rgba(26, 140, 220, .6),
   blue-active-background: #f2f8fd,
+  sky-blue: rgba(204, 228, 244, 0.2),
   error: #e63200,
   error-hover: #ef8b6f,
   error-border: #e6bebe,
@@ -62,7 +67,10 @@ $colors: (
   warning: #ecb800,
   warning-hover: #e2af4a,
   warning-border: #e6c88c,
-  warning-text: #ecb800
+  warning-text: #ecb800,
+  warning-background: #fffaf0,
+  disable-background: #fafafa,
+  autofill-label: #eaa51b
 );
 
 // ================================================================
@@ -97,7 +105,9 @@ $font-sizes: (
   title-primary-small-desktop: ($grid * 4.4),
   title-secondary-desktop: ($grid * 3),
   title-secondary-mobile: ($grid * 3),
-  subtitle: ($grid * 2.4)
+  subtitle: ($grid * 2.4),
+  segmented-field: ($grid * 5.2),
+  segmented-field-placeholder: ($grid * 2.8)
 );
 
 // ================================================================
@@ -106,13 +116,4 @@ $font-sizes: (
 $border-radius: $grid;
 $border-radius-checkbox: ($grid * .4);
 $border-color: map-get($colors, grey-lines);
-
-// ================================================================
-//  General webkit autocomplete override (aka yellow background)
-// ================================================================
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-}
+$border-color-inner: map-get($colors, light-grey);

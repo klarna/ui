@@ -1,0 +1,22 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.review-data__content {
+  border-bottom: ($grid * .2) solid map-get($colors, grey-selector-lines);
+  border-top: ($grid * .2) solid map-get($colors, grey-selector-lines);
+  margin-bottom: ($grid * 5);
+  margin-top: ($grid * 5.8);
+  padding-bottom: ($grid * 4);
+  padding-top: ($grid * 4);
+  text-align: left;
+}
+
+.review-data__content__item + .review-data__content__item {
+  margin-top: ($grid * 4);
+}
+
+.review-data__legal {
+  margin-bottom: ($grid * 7);
+  padding-top: ($grid * 2);
+  text-align: left;
+}

@@ -30,7 +30,14 @@ const gradients = [
   {x1: '0', y1: '0', x2: '1', y2: '1'}
 ]
 
-export default function Loader ({ className, color, inline, size, styles }) {
+export default function Loader ({
+  className,
+  color,
+  inline,
+  size,
+  styles,
+  ...props
+}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const _color = Array.isArray(color) ? color : colors[color] || colors.default
@@ -46,7 +53,8 @@ export default function Loader ({ className, color, inline, size, styles }) {
       width={_size}
       height={_size}
       className={classNames(baseClass, {inline}, className)}
-      viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}>
+      viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}
+      {...props}>
       <defs>
         {
           gradients.map((props, index) => (
@@ -54,8 +62,16 @@ export default function Loader ({ className, color, inline, size, styles }) {
               key={`gradient-${index}`}
               id={`gradient-${_color.join('-')}-${index}`}
               gradientUnits='objectBoundingBox' {...props}>
-              <stop offset='0%' stopColor={`rgba(${_color}, ${step * index})`} />
-              <stop offset='100%' stopColor={`rgba(${_color}, ${step * (index + 1)})`} />
+              <stop
+                offset='0%'
+                stopColor={`rgb(${_color})`}
+                stopOpacity={step * index}
+              />
+              <stop
+                offset='100%'
+                stopColor={`rgb(${_color})`}
+                stopOpacity={step * (index + 1)}
+              />
             </linearGradient>
           ))
         }

@@ -22,7 +22,9 @@ const getCurrentPage = ([anchor], examples) =>
         type={has(anchor, examples.components)
           ? 'component'
           : 'template'}
-        example={examples.components[anchor] || examples.templates[anchor]}
+        example={examples.components[anchor] ||
+          examples.templates[anchor] ||
+          examples.compositions[anchor]}
       />
     )
     : <GettingStarted />

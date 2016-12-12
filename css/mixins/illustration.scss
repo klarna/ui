@@ -1,12 +1,12 @@
 @mixin illustration__stroke ($color) {
   fill: none;
   stroke: $color;
-  transition: all .2s ease;
+  transition: stroke .2s ease;
 }
 
 @mixin illustration__fill ($color) {
   fill: $color;
-  transition: all .2s ease;
+  transition: fill .2s ease;
 }
 
 @mixin illustration($color) {

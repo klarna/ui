@@ -15,7 +15,7 @@ export default ({className}) => (
     <g fill='#C3CFE2' transform='translate(25 54)'>
       {
         [50, 50, 40, 40, 50, 50, 50].map((width, index) =>
-          <rect y={index * 4} width={width} height='2' rx='1'/>
+          <rect key={index} y={index * 4} width={width} height='2' rx='1'/>
         )
       }
     </g>

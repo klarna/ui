@@ -1,0 +1,29 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.list--iconic--wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.list--iconic--item {
+  display: table;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+}
+
+.list--iconic--item + .list--iconic--item {
+  margin-top: ($grid * 8);
+}
+
+.list--iconic--item__icon {
+  height: ($grid * 12);
+  width: ($grid * 12);
+
+  svg {
+    display: block;
+    padding-right: ($grid * 4);
+  }
+}

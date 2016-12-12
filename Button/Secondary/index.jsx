@@ -4,6 +4,10 @@ import Price from '../Price'
 import classNamesBind from 'classnames/bind'
 import parseColor from 'parse-color'
 import contains from '../../lib/contains'
+import compose from '../../lib/compose'
+import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
+import brandVolumeLevels from '../../lib/brandVolumeLevels'
 import defaultStyles from '../styles.scss'
 
 const baseClass = 'button'
@@ -17,25 +21,27 @@ const classes = {
 
 export const sizes = ['small', 'big']
 
-export default function Secondary (props) {
-  const {
-    children,
-    className,
-    customize,
-    disabled,
-    loading,
-    size,
-    style,
-    styles,
-    success,
-    ...remainingProps } = props
+function Secondary ({
+  brandVolume,
+  children,
+  className,
+  customize,
+  disabled,
+  loading,
+  size,
+  style,
+  styles,
+  success,
+  ...props
+}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const cls = classNames(classes.secondary, size, {
     'is-disabled': disabled,
     'is-loading': loading,
     'dynamic-styling': customize,
-    'has-price': contains(Price, children)
+    'has-price': contains(Price, children),
+    'brand-volume-high': brandVolume === 'high'
   }, className)
 
   const isDisabled = (loading || success || disabled)
@@ -66,16 +72,16 @@ export default function Secondary (props) {
         ...customizations,
         ...style
       }}
-      {...remainingProps}>
+      {...props}>
       {
         customize ? [
-          loading || <div
+          loading || <div key={1}
             className={classNames(classes.darkening)}
             style={customize && {
               borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
             }}
           />,
-          <div className={classNames(classes.label)}>
+          <div key={2} className={classNames(classes.label)}>
             {loadingOrContent}
             {
               isDisabled ||
@@ -96,17 +102,20 @@ export default function Secondary (props) {
 Secondary.displayName = 'Button.Secondary'
 
 Secondary.defaultProps = {
+  brandVolume: 'low',
   loading: false,
   success: false,
   disabled: false
 }
 
 Secondary.propTypes = {
+  brandVolume: PropTypes.oneOf(brandVolumeLevels),
   children: PropTypes.node,
   className: PropTypes.string,
   customize: PropTypes.shape({
-    textColor: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired
+    backgroundColor: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired
   }),
   size: PropTypes.oneOf(sizes),
   loading: PropTypes.bool,
@@ -114,3 +123,15 @@ Secondary.propTypes = {
   disabled: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default compose(
+  themeable((customizations, { customize }) => ({
+    customize: {
+      ...customize,
+      backgroundColor: customizations.color_button,
+      borderRadius: customizations.radius_border,
+      textColor: customizations.color_button_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Secondary)

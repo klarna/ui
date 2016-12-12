@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import compose from '../lib/compose'
 import defaultStyles from './styles.scss'
+import themeable from '../decorators/themeable'
+import overridable from '../decorators/overridable'
 
 const baseClass = 'dialog'
 
@@ -15,30 +18,50 @@ const classes = {
   table: `${baseClass}__table`
 }
 
-export function Main ({ children, className, styles, ...props }) {
+function DialogMain ({ children, className, customize, style, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
+  const dynamicStyles = customize
+  ? {
+    borderRadius: customize.borderRadius
+  } : {}
+
   return (
-    <div className={classNames(baseClass, className)} {...props}>
+    <div
+      style={{
+        ...dynamicStyles,
+        ...style
+      }}
+      className={classNames(baseClass, className)} {...props}>
       {children}
     </div>
   )
 }
 
-Main.displayName = 'Dialog.Main'
+DialogMain.displayName = 'Dialog.Main'
 
-Main.propTypes = {
+DialogMain.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Icon ({ children, className, styles, ...props }) {
+export const Main = compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderRadius: customizations.radius_border
+    }
+  })),
+  overridable(defaultStyles)
+)(DialogMain)
+
+export function Icon ({ children, className, left, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <div
-      className={classNames(classes.icon, className)}
+      className={classNames(classes.icon, { left }, className)}
       {...props}>
       {children}
     </div>
@@ -50,6 +73,7 @@ Icon.displayName = 'Dialog.Icon'
 Icon.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  left: PropTypes.bool,
   styles: PropTypes.object
 }
 

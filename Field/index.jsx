@@ -6,7 +6,10 @@ import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
+import compose from '../lib/compose'
 import MouseflowExclude from '../MouseflowExclude'
+import themeable from '../decorators/themeable'
+import overridable from '../decorators/overridable'
 
 const baseClass = 'field'
 
@@ -23,7 +26,7 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-export default React.createClass({
+const Field = React.createClass({
   displayName: 'Field',
 
   getDefaultProps () {
@@ -31,8 +34,10 @@ export default React.createClass({
       big: false,
       centered: false,
       loading: false,
+      nonFloatingLabel: false,
       onChange: function () {},
       responsive: true,
+      pinCode: false,
       mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
       ...fieldStates.defaultProps,
@@ -47,7 +52,10 @@ export default React.createClass({
     centered: PropTypes.bool,
     customize: PropTypes.shape({
       borderColor: PropTypes.string.isRequired,
-      borderColorSelected: PropTypes.string.isRequired
+      borderColorSelected: PropTypes.string.isRequired,
+      borderRadius: PropTypes.string.isRequired,
+      labelColor: PropTypes.string.isRequired,
+      inputColor: PropTypes.string.isRequired
     }),
     input: PropTypes.func,
     loading: PropTypes.bool,
@@ -56,6 +64,9 @@ export default React.createClass({
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
+    nonFloatingLabel: PropTypes.bool,
+    pattern: PropTypes.string,
+    pinCode: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
     responsive: PropTypes.bool,
     value: PropTypes.string,
@@ -74,8 +85,31 @@ export default React.createClass({
     }
   },
 
+  onAutoFillStart () {
+    this.setState({
+      autoFill: true
+    })
+  },
+
+  onAutoFillCancel () {
+    this.setState({
+      autoFill: false
+    })
+  },
+
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
+
+    this.refs.input.addEventListener &&
+    this.refs.input.addEventListener('animationstart', (e) => {
+      switch (e.animationName) {
+        case defaultStyles.onAutoFillStart:
+          return this.onAutoFillStart()
+
+        case defaultStyles.onAutoFillCancel:
+          return this.onAutoFillCancel()
+      }
+    })
   },
 
   componentDidUpdate () {
@@ -84,14 +118,12 @@ export default React.createClass({
 
   onMouseEnter () {
     this.setState({
-      ...this.state,
       hover: true
     })
   },
 
   onMouseLeave () {
     this.setState({
-      ...this.state,
       hover: false
     })
   },
@@ -107,18 +139,21 @@ export default React.createClass({
       disabled,
       error,
       icon,
+      id,
       Input,
       focus,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
       mouseflowExclude,
+      nonFloatingLabel,
       onBlur,
       onChange,
       onClick,
       onEnter, // eslint-disable-line no-unused-vars
       onFocus,
       onTab, // eslint-disable-line no-unused-vars
+      pinCode,
       responsive,
       right, // eslint-disable-line no-unused-vars
       square,
@@ -134,11 +169,14 @@ export default React.createClass({
 
     const cls = classNames(
       (icon ? classes.icon : baseClass), {
-        big,
-        'is-centered': centered,
+        big: big || pinCode,
+        'is-autofill': !!this.state.autoFill,
+        'is-centered': centered || pinCode,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
         'non-responsive': !responsive,
+        'non-floating-label': pinCode || nonFloatingLabel,
+        'pin-code': pinCode,
         square
       },
       fieldStates.getClassName(this.props),
@@ -151,13 +189,18 @@ export default React.createClass({
     const hasNonDefaultState = disabled || warning || error
     const useDynamicStyles = customize && !hasNonDefaultState
 
-    const dynamicStyles = useDynamicStyles
+    const dynamicStyles = customize
       ? {
-        borderColor: this.state.hover || focus
-          ? customize.borderColorSelected
-          : customize.borderColor,
-        boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`,
-        ...stacking.position.getBorderRadii(this.props, customize.borderRadius)
+        ...(hasNonDefaultState ? {} : {
+          borderColor: this.state.hover || focus
+            ? customize.borderColorSelected
+            : customize.borderColor,
+          boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+        }),
+        ...stacking.position.getBorderRadii(
+          this.props,
+          customize.borderRadius
+        )
       }
       : undefined
 
@@ -192,6 +235,7 @@ export default React.createClass({
     return (
       <div
         className={cls}
+        id={id}
         onClick={onClick}
         style={dynamicStyles}
         onMouseEnter={this.onMouseEnter}
@@ -218,3 +262,17 @@ export default React.createClass({
     )
   }
 })
+
+export default compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderColor: customizations.color_border,
+      borderColorSelected: customizations.color_border_selected,
+      borderRadius: customizations.radius_border,
+      labelColor: customizations.color_text_secondary,
+      inputColor: customizations.color_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Field)

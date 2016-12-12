@@ -1,13 +1,9 @@
 import Link from '../Link'
-import themeable from '../lib/decorators/themeable'
+import deprecated from '../decorators/deprecated'
 
-const Component = themeable(Link, (customizations, props) => ({
-  customize: {
-    ...props.customize,
-    textColor: customizations.color_link
-  }
-}))
-
-Component.displayName = 'ThemeableLink'
-
-export default Component
+export default deprecated(
+  Link,
+  'ThemeableLink',
+  'Link',
+  'https://github.com/klarna/ui/releases/tag/v1.5.0'
+)

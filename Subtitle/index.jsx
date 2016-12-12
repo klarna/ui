@@ -1,11 +1,15 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../decorators/themeable'
+import overridable from '../decorators/overridable'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
+import compose from '../lib/compose'
+import isThemeable from '../Text/isThemeable'
 
 const baseClass = 'subtitle'
 
-export default function Subtitle ({
+function Subtitle ({
   children,
   className,
   color,
@@ -44,5 +48,16 @@ Subtitle.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   margins: PropTypes.bool,
+  style: PropTypes.object,
   styles: PropTypes.object
 }
+
+export default compose(
+  themeable(isThemeable((customizations, props) => ({
+    style: {
+      ...props.style,
+      color: customizations.color_header
+    }
+  }))),
+  overridable(defaultStyles)
+)(Subtitle)

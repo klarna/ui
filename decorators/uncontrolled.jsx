@@ -1,64 +1,59 @@
 import React, { Component } from 'react'
 
-export default function uncontrolled (Component, {defaultProp, prop, handler, reset}) {
-  return class Uncontrolled extends Component {
-    componentDidMount () {
+export default ({
+  defaultProp,
+  handlerName,
+  handlerSelector,
+  prop,
+  resetHandlerName
+}) => (Component) => React.createClass({
+  displayName: Component.displayName || Component.name,
+
+  componentDidMount () {
+    this.setState({
+      [prop]: this.props[prop] != null
+        ? this.props[prop]
+        : this.props[defaultProp]
+    })
+  },
+
+  handleHandler (e) {
+    if (this.props[prop] == null) {
       this.setState({
-        [prop]: this.props[prop] != null
-          ? this.props[prop] || ''
-          : this.props[defaultProp]
+        [prop]: handlerSelector
+          ? handlerSelector(e)
+          : e
       })
     }
 
-    handleHandler (handler, e) {
-      if (this.props[prop] == null) {
-        this.setState({
-          [prop]: e && e.target
-            ? e.target.value
-            : e
-        })
-      }
+    this.props[handlerName] && this.props[handlerName](e)
+  },
 
-      handler && handler(e)
+  handleReset (e) {
+    if (this.props[prop] == null) {
+      this.setState({
+        [prop]: undefined
+      })
     }
 
-    handleReset (handler, e) {
-      if (this.props[prop] == null) {
-        this.setState({
-          [prop]: undefined
-        })
-      }
+    this.props[resetHandlerName] && this.props[resetHandlerName](e)
+  },
 
-      handler && handler(e)
+  render () {
+    const props = {
+      ...Object.keys(this.props)
+        .filter((key) => key !== defaultProp)
+        .reduce((copiedProps, propName) => {
+          copiedProps[propName] = this.props[propName]
+          return copiedProps
+        }, {}),
+      [handlerName]: this.handleHandler,
+      ...(resetHandlerName ? { [resetHandlerName]: this.handleReset } : {})
     }
 
-    render () {
-      const props = Object.keys(this.props).reduce((handledProps, key) => {
-        switch (key) {
-          case handler:
-            return {
-              ...handledProps,
-              [handler]: this.handleHandler.bind(this, this.props[handler])
-            }
-
-          case reset:
-            return {
-              ...handledProps,
-              [reset]: this.handleReset.bind(this, this.props[reset])
-            }
-
-          default:
-            return {
-              ...handledProps,
-              [key]: this.props[key]
-            }
-        }
-      }, {})
-
-      return <Component
-        {...props}
-        {...this.state}
-      />
-    }
+    return <Component
+      {...this.state}
+      {...props}
+    />
   }
-}
+})

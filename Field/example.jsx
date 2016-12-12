@@ -31,6 +31,11 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
 
         Big: <Field label='Enter your email' big />,
 
+        'Pin code variation': <UncontrolledField
+          pinCode
+          label='Enter your email'
+        />,
+
         'With focus': <Field label='Enter your email' focus />,
 
         'With fake focus': <Field label='Enter your email' focus='fake' />,
@@ -53,7 +58,7 @@ import UncontrolledField from '@klarna/ui/uncontrolled/Field'`,
 
         'With customizations': <UncontrolledField
           name='with-customizations'
-          customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8' }}
+          customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
           label='Favorite color'
           value='Purple'
         />
@@ -92,6 +97,11 @@ import Fieldset from '@klarna/ui/Fieldset'`,
 
       examples: {
         Regular: <div>
+          <Fieldset margins>
+            <Field
+              icon={icons.BANK}
+              label='Please enter your bank account number' />
+          </Fieldset>
           <Fieldset margins>
             <Field
               icon={icons.CARD}
@@ -142,6 +152,11 @@ import Fieldset from '@klarna/ui/Fieldset'`,
             <Field
               icon={icons.LOGOUT}
               label='Write something to log out' />
+          </Fieldset>
+          <Fieldset margins>
+            <Field
+              icon={icons.SEARCH}
+              label='Write something to search' />
           </Fieldset>
           <Fieldset margins>
             <Field

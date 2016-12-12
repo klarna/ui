@@ -29,6 +29,10 @@
     width: 100%;
   }
 
+  &.brand-volume-high {
+    border-radius: ($grid * 5);
+  }
+
   &:hover {
     .button--primary__darkening {
       opacity: .2;
@@ -95,6 +99,10 @@
     width: 100%;
   }
 
+  &.brand-volume-high {
+    border-radius: ($grid * 5);
+  }
+
   &:hover {
     .button--secondary__darkening {
       opacity: 0;
@@ -126,6 +134,90 @@
   }
 }
 
+.button--tertiary {
+  @include button(
+    $background: transparent,
+    $text-color: map-get($colors, klarna-blue),
+    $darken-color: map-get($colors, sky-blue),
+    $darken-attributes: (background-color)
+  );
+
+  border: 0;
+
+  .button__price {
+    @include button__price(
+      $border-color: map-get($colors, klarna-blue)
+    );
+  }
+
+  &:hover,
+  &:focus {
+    background: map-get($colors, sky-blue);
+
+    &.is-disabled {
+      background: transparent;
+      color: map-get($colors, klarna-blue);
+      opacity: 0.2;
+    }
+  }
+
+  &:active {
+    background: darken(map-get($colors, sky-blue), 10.1);
+  }
+
+  .button--primary.right + &.right {
+    margin-top: ($grid * 4);
+
+    @include respond-to-wide {
+      margin-top: 0;
+    }
+  }
+
+  .button--tertiary__darkening {
+    background: white;
+    bottom: 0;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity .2s ease;
+    width: 100%;
+  }
+
+  &:hover {
+    .button--tertiary__darkening {
+      opacity: 0;
+    }
+  }
+
+  &:focus, &:active {
+    .button--tertiary__darkening {
+      background: black;
+      opacity: .2;
+    }
+  }
+
+  &.dynamic-styling:not(.is-loading) {
+    &.is-disabled {
+      &:hover {
+        .button--tertiary__darkening {
+          opacity: 1;
+        }
+      }
+
+      &:focus, &:active {
+        .button--tertiary__darkening {
+          background: white;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
 .button__menu {
   padding-bottom: ($grid * 4);
 
@@ -137,5 +229,39 @@
 }
 
 .button__label {
-  @include button__label;
+  position: relative;
+  transition: color .2s ease;
+  z-index: 1;
+
+  .button--secondary &--alt:after,
+  .button--tertiary &--alt:after {
+    content: attr(title);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity .2s ease;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .dynamic-styling.button--secondary:not(.is-disabled):hover &,
+  .dynamic-styling.button--tertiary:not(.is-disabled):hover & {
+    color: rgba(0,0,0,0);
+
+    &--alt:after {
+      opacity: 1;
+    }
+  }
+
+  .dynamic-styling.button--secondary:not(.is-disabled):active &,
+  .dynamic-styling.button--tertiary:not(.is-disabled):active &,
+  .dynamic-styling.button--secondary:not(.is-disabled):focus &,
+  .dynamic-styling.button--tertiary:not(.is-disabled):focus & {
+    color: rgba(0, 0, 0, 0);
+
+    &--alt:after {
+      opacity: 1;
+    }
+  }
 }

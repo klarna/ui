@@ -1,11 +1,15 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
+import compose from '../../lib/compose'
+import isThemeable from '../../Text/isThemeable'
 
 const baseClass = 'title--primary'
 
-export default function Primary ({
+function Primary ({
   children,
   className,
   color,
@@ -52,5 +56,16 @@ Primary.propTypes = {
   margins: PropTypes.bool,
   small: PropTypes.bool,
   strong: PropTypes.bool,
+  style: PropTypes.object,
   styles: PropTypes.object
 }
+
+export default compose(
+  themeable(isThemeable((customizations, props) => ({
+    style: {
+      ...props.style,
+      color: customizations.color_header
+    }
+  }))),
+  overridable(defaultStyles)
+)(Primary)

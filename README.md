@@ -1,16 +1,22 @@
 # Klarna UI Components
 
 [![Build Status](https://travis-ci.org/klarna/ui.svg?branch=master)](https://travis-ci.org/klarna/ui)
-[![npm version](https://img.shields.io/npm/v/@klarna/ui.svg?maxAge=2592000)](https://www.npmjs.com/package/@klarna/ui)
+[![npm version](https://img.shields.io/npm/v/@klarna/ui.svg?maxAge=10000)](https://www.npmjs.com/package/@klarna/ui)
 
-This library contains the basic set of components used by multiple front end projects across Klarna. It exposes [React](https://facebook.github.io/react/) components as well as CSS modules.
+This library contains the basic set of components used by multiple front end projects across Klarna. It exposes [React](https://facebook.github.io/react/) API compatible components as well as CSS modules.
 
 ## Install
 
-React is required as a peer dependency, so it will be installed as well:
+```sh
+npm install @klarna/ui --save
+```
+
+You can use the UI components either with [React](https://facebook.github.io/react/) and [Preact](https://preactjs.com/). [Learn more in the docs](https://github.com/klarna/ui/wiki/Preact).
+
+React and React-Motion are peer-dependencies of this project, meaning that if you intend to consume the components from within your own project, you must make sure to have React and React-Motion available. The easiest way is to add them as dependencies of your project:
 
 ```sh
-npm install react @klarna/ui --save
+npm install react react-motion --save
 ```
 
 This package doesn't have a build, so you must have a Babel pipeline to use it. [Read more about how to config it](https://github.com/klarna/ui/wiki/Webpack-config).
@@ -30,7 +36,7 @@ npm install
 npm start
 ```
 
-Open [localhost:7777/ui](http://localhost:7777/ui).
+Open [localhost:7777/ui/](http://localhost:7777/ui/).
 
 ## License
 

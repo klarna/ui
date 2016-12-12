@@ -64,8 +64,37 @@ export default React.createClass({
     ...stacking.size.propTypes
   },
 
+  getInitialState () {
+    return {
+      autoFill: false
+    }
+  },
+
+  onAutoFillStart () {
+    this.setState({
+      autoFill: true
+    })
+  },
+
+  onAutoFillCancel () {
+    this.setState({
+      autoFill: false
+    })
+  },
+
   componentDidMount () {
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
+
+    this.refs.input.addEventListener &&
+    this.refs.input.addEventListener('animationstart', (e) => {
+      switch (e.animationName) {
+        case defaultStyles.onAutoFillStart:
+          return this.onAutoFillStart()
+
+        case defaultStyles.onAutoFillCancel:
+          return this.onAutoFillCancel()
+      }
+    })
   },
 
   componentDidUpdate () {
@@ -84,6 +113,7 @@ export default React.createClass({
       focus, // eslint-disable-line no-unused-vars
       giant,
       icon,
+      id,
       Input,
       label,
       left, // eslint-disable-line no-unused-vars
@@ -109,6 +139,7 @@ export default React.createClass({
       (icon ? classes.icon : baseClass), {
         big,
         giant,
+        'is-autofill': !!this.state.autoFill,
         'is-centered': centered,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
@@ -140,6 +171,7 @@ export default React.createClass({
     return (
       <div
         className={cls}
+        id={id}
         onClick={onClick}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {

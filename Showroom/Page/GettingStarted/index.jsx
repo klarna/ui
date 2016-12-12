@@ -61,7 +61,7 @@ export default function GettingStarted ({example}) {
       </Subtitle>
 
       <Code.Block standalone>
-        npm install react @klarna/ui --save
+        npm install react react-motion @klarna/ui --save
       </Code.Block>
     </section>
   </Content>

@@ -73,68 +73,80 @@ import Fieldset from '@klarna/ui/Fieldset'`,
 
       examples: {
         Regular: [
-          <Fieldset margins>
+          <Fieldset margins key={0}>
+            <UncontrolledInput
+              name='icon-card'
+              icon={icons.BANK}
+              label='Please enter your bank account number' />
+          </Fieldset>,
+          <Fieldset margins key={1}>
             <UncontrolledInput
               name='icon-card'
               icon={icons.CARD}
               label='Please enter your credit card number' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={2}>
             <UncontrolledInput
               name='icon-calendar'
               icon={icons.CALENDAR}
               label='Date of Birth' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={3}>
             <UncontrolledInput
               name='icon-lock'
               icon={icons.LOCK}
               type='password'
               label='Password' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={4}>
             <UncontrolledInput
               name='icon-person'
               icon={icons.PERSON}
               label='Enter your user name' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={5}>
             <UncontrolledInput
               name='icon-email'
               icon={icons.EMAIL}
               label='Enter your email address' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={6}>
             <UncontrolledInput
               name='icon-phone'
               icon={icons.PHONE}
               label='Mobile number' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={7}>
             <UncontrolledInput
               name='icon-close'
               icon={icons.CLOSE}
               label='Enter an incorrect value (?)' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={8}>
             <UncontrolledInput
               name='icon-question'
               icon={icons.QUESTION}
               label='Are we sure about these being field icons?' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={9}>
             <UncontrolledInput
               name='icon-check'
               icon={icons.CHECK}
               label='These look like button icons really' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={10}>
             <UncontrolledInput
               name='icon-logout'
               icon={icons.LOGOUT}
               label='Write something to log out' />
           </Fieldset>,
-          <Fieldset margins>
+          <Fieldset margins key={11}>
+            <UncontrolledInput
+              name='icon-search'
+              icon={icons.SEARCH}
+              label='Write something to search' />
+          </Fieldset>,
+          <Fieldset margins key={12}>
             <UncontrolledInput
               name='icon-giant'
               giant

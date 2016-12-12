@@ -17,11 +17,11 @@
       border-radius: 100%;
       height: ($grid * 4);
       margin: ($grid * -2);
-      transition: all .2s ease;
+      transition: stroke .2s ease, fill .2s ease, color .2s ease;
       width: ($grid * 4);
 
       &.gray {
-        @include illustration(map-get($colors, grey-lines));
+        @include illustration(map-get($colors, grey-text));
       }
 
       &.inverse {
@@ -81,13 +81,13 @@
 
   color: map-get($colors, klarna-blue);
   display: block;
+  left: ($grid * 4);
   line-height: ($grid * 4);
   position: absolute;
-  left: ($grid * 4);
   text-align: left;
   text-transform: uppercase;
   top: 0;
-  transition: all .2s ease;
+  transition: color .2s ease;
   user-select: none;
 
   &.left {
@@ -97,7 +97,7 @@
   }
 
   &.gray {
-    color: map-get($colors, grey-lines);
+    color: map-get($colors, grey-text);
   }
 
   &.inverse {

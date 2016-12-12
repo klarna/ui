@@ -6,7 +6,10 @@ import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
+import compose from '../lib/compose'
 import MouseflowExclude from '../MouseflowExclude'
+import themeable from '../decorators/themeable'
+import overridable from '../decorators/overridable'
 
 const baseClass = 'dropdown'
 
@@ -16,7 +19,7 @@ const classes = {
   select: `${baseClass}__select`
 }
 
-export default React.createClass({
+const Dropdown = React.createClass({
   displayName: 'Dropdown',
 
   getInitialState () {
@@ -39,6 +42,13 @@ export default React.createClass({
   },
 
   propTypes: {
+    customize: PropTypes.shape({
+      borderColor: PropTypes.string.isRequired,
+      borderColorSelected: PropTypes.string.isRequired,
+      borderRadius: PropTypes.string.isRequired,
+      labelColor: PropTypes.string.isRequired,
+      selectedColor: PropTypes.string.isRequired
+    }),
     label: PropTypes.string.isRequired,
     loading: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
@@ -91,6 +101,7 @@ export default React.createClass({
       disabled,
       error, // eslint-disable-line no-unused-vars
       focus, // eslint-disable-line no-unused-vars
+      id,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
@@ -180,6 +191,7 @@ export default React.createClass({
     return (
       <div
         className={cls}
+        id={id}
         onClick={onClick}
         onMouseEnter={onMouseEnter(this)}
         onMouseLeave={onMouseLeave(this)}
@@ -216,3 +228,17 @@ const onMouseLeave = (component) => () =>
     ...component.state,
     hover: false
   })
+
+export default compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderColor: customizations.color_border,
+      borderColorSelected: customizations.color_border_selected,
+      borderRadius: customizations.radius_border,
+      labelColor: customizations.color_text_secondary,
+      selectedColor: customizations.color_text
+    }
+  })),
+  overridable(defaultStyles)
+)(Dropdown)

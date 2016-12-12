@@ -16,13 +16,13 @@ export default {
 
       examples: {
         Primary: [
-          <Title.Primary>Primary Title</Title.Primary>,
-          <Title.Primary color='blue'>Primary Title in blue</Title.Primary>,
-          <Title.Primary color='gray'>Primary Title in gray</Title.Primary>,
-          <Title.Primary color='error'>Primary Title in error</Title.Primary>,
-          <Title.Primary color='success'>Primary Title in success</Title.Primary>,
-          <Title.Primary color='warning'>Primary Title in warning</Title.Primary>,
-          <Block.Plain blue>
+          <Title.Primary key={1}>Primary Title</Title.Primary>,
+          <Title.Primary key={2} color='blue'>Primary Title in blue</Title.Primary>,
+          <Title.Primary key={3} color='gray'>Primary Title in gray</Title.Primary>,
+          <Title.Primary key={4} color='error'>Primary Title in error</Title.Primary>,
+          <Title.Primary key={5} color='success'>Primary Title in success</Title.Primary>,
+          <Title.Primary key={6} color='warning'>Primary Title in warning</Title.Primary>,
+          <Block.Plain key={7} blue>
             <Title.Primary color='white'>Primary Title in white</Title.Primary>
           </Block.Plain>
         ],
@@ -36,39 +36,39 @@ export default {
         </Title.Primary>,
 
         'Primary with text margins': [
-          <Title.Primary margins>Primary Title</Title.Primary>,
-          <Paragraph.Primary margins>
+          <Title.Primary key={1} margins>Primary Title</Title.Primary>,
+          <Paragraph.Primary key={2} margins>
             Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
           </Paragraph.Primary>
         ],
 
         Secondary: [
-          <Title.Secondary>Secondary Title</Title.Secondary>,
-          <Title.Secondary color='blue'>Secondary Title in blue</Title.Secondary>,
-          <Title.Secondary color='gray'>Secondary Title in gray</Title.Secondary>,
-          <Title.Secondary color='error'>Secondary Title in error</Title.Secondary>,
-          <Title.Secondary color='success'>Secondary Title in success</Title.Secondary>,
-          <Title.Secondary color='warning'>Secondary Title in warning</Title.Secondary>,
-          <Block.Plain blue>
+          <Title.Secondary key={1}>Secondary Title</Title.Secondary>,
+          <Title.Secondary key={2} color='blue'>Secondary Title in blue</Title.Secondary>,
+          <Title.Secondary key={3} color='gray'>Secondary Title in gray</Title.Secondary>,
+          <Title.Secondary key={4} color='error'>Secondary Title in error</Title.Secondary>,
+          <Title.Secondary key={5} color='success'>Secondary Title in success</Title.Secondary>,
+          <Title.Secondary key={6} color='warning'>Secondary Title in warning</Title.Secondary>,
+          <Block.Plain key={7} blue>
             <Title.Secondary color='white'>Secondary Title in white</Title.Secondary>
           </Block.Plain>
         ],
 
         'Secondary with text margins': [
-          <Title.Secondary margins>Secondary Title</Title.Secondary>,
-          <Paragraph.Primary margins>
+          <Title.Secondary key={1} margins>Secondary Title</Title.Secondary>,
+          <Paragraph.Primary key={2} margins>
             Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
           </Paragraph.Primary>
         ],
 
         Subtitle: [
-          <Subtitle>Subtitle</Subtitle>,
-          <Subtitle color='blue'>Subtitle in blue</Subtitle>,
-          <Subtitle color='gray'>Subtitle in gray</Subtitle>,
-          <Subtitle color='error'>Subtitle in error</Subtitle>,
-          <Subtitle color='success'>Subtitle in success</Subtitle>,
-          <Subtitle color='warning'>Subtitle in warning</Subtitle>,
-          <Block.Plain blue style={{padding: '10px'}}>
+          <Subtitle key={1}>Subtitle</Subtitle>,
+          <Subtitle key={2} color='blue'>Subtitle in blue</Subtitle>,
+          <Subtitle key={3} color='gray'>Subtitle in gray</Subtitle>,
+          <Subtitle key={4} color='error'>Subtitle in error</Subtitle>,
+          <Subtitle key={5} color='success'>Subtitle in success</Subtitle>,
+          <Subtitle key={6} color='warning'>Subtitle in warning</Subtitle>,
+          <Block.Plain key={7} blue style={{padding: '10px'}}>
             <Subtitle color='white'>Subtitle in white</Subtitle>
           </Block.Plain>
         ],
@@ -76,8 +76,8 @@ export default {
         'Condensed subtitle': <Subtitle condensed>Condensed subtitle</Subtitle>,
 
         'Subtitle with text margins': [
-          <Subtitle margins>Secondary Title</Subtitle>,
-          <Paragraph.Primary margins>
+          <Subtitle key={1} margins>Secondary Title</Subtitle>,
+          <Paragraph.Primary key={2} margins>
             Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
           </Paragraph.Primary>
         ]
@@ -91,25 +91,25 @@ export default {
 
       examples: {
         Primary: [
-          <Paragraph.Primary>
+          <Paragraph.Primary key={1}>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Primary>,
-          <Paragraph.Primary color='blue'>
+          <Paragraph.Primary key={2} color='blue'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Primary>,
-          <Paragraph.Primary color='gray'>
+          <Paragraph.Primary key={3} color='gray'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Primary>,
-          <Paragraph.Primary color='error'>
+          <Paragraph.Primary key={4} color='error'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Primary>,
-          <Paragraph.Primary color='success'>
+          <Paragraph.Primary key={5} color='success'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Primary>,
-          <Paragraph.Primary color='warning'>
+          <Paragraph.Primary key={6} color='warning'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Primary>,
-          <Block.Plain blue>
+          <Block.Plain blue key={7}>
             <Paragraph.Primary color='white'>
               Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
             </Paragraph.Primary>
@@ -121,34 +121,34 @@ export default {
         </Paragraph.Primary>,
 
         'Primary paragraph with text margins': [
-          <Paragraph.Primary margins>
+          <Paragraph.Primary key={1} margins>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Primary>,
-          <Paragraph.Primary margins>
+          <Paragraph.Primary key={2} margins>
             Sed vestibulum nisl a urna lobortis tincidunt. Aenean vitae dolor sed elit semper aliquet. Suspendisse potenti.
           </Paragraph.Primary>
         ],
 
         Secondary: [
-          <Paragraph.Secondary>
+          <Paragraph.Secondary key={1}>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Secondary>,
-          <Paragraph.Secondary color='blue'>
+          <Paragraph.Secondary key={2} color='blue'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Secondary>,
-          <Paragraph.Secondary color='gray'>
+          <Paragraph.Secondary key={3} color='gray'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Secondary>,
-          <Paragraph.Secondary color='error'>
+          <Paragraph.Secondary key={4} color='error'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Secondary>,
-          <Paragraph.Secondary color='success'>
+          <Paragraph.Secondary key={5} color='success'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Secondary>,
-          <Paragraph.Secondary color='warning'>
+          <Paragraph.Secondary key={6} color='warning'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Secondary>,
-          <Block.Plain blue>
+          <Block.Plain blue key={7}>
             <Paragraph.Secondary color='white'>
               Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
             </Paragraph.Secondary>
@@ -160,34 +160,34 @@ export default {
         </Paragraph.Secondary>,
 
         'Secondary paragraph with text margins': [
-          <Paragraph.Secondary margins>
+          <Paragraph.Secondary key={1} margins>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Secondary>,
-          <Paragraph.Secondary margins>
+          <Paragraph.Secondary key={2} margins>
             Sed vestibulum nisl a urna lobortis tincidunt. Aenean vitae dolor sed elit semper aliquet. Suspendisse potenti.
           </Paragraph.Secondary>
         ],
 
         Legal: [
-          <Paragraph.Legal>
+          <Paragraph.Legal key={1}>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Legal>,
-          <Paragraph.Legal color='blue'>
+          <Paragraph.Legal key={2} color='blue'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Legal>,
-          <Paragraph.Legal color='gray'>
+          <Paragraph.Legal key={3} color='gray'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Legal>,
-          <Paragraph.Legal color='error'>
+          <Paragraph.Legal key={4} color='error'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Legal>,
-          <Paragraph.Legal color='success'>
+          <Paragraph.Legal key={5} color='success'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Legal>,
-          <Paragraph.Legal color='warning'>
+          <Paragraph.Legal key={6} color='warning'>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Legal>,
-          <Block.Plain blue>
+          <Block.Plain key={7} blue>
             <Paragraph.Legal color='white'>
               Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
             </Paragraph.Legal>
@@ -195,10 +195,10 @@ export default {
         ],
 
         'Legal paragraph with text margins': [
-          <Paragraph.Legal margins>
+          <Paragraph.Legal key={1} margins>
             Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
           </Paragraph.Legal>,
-          <Paragraph.Legal margins>
+          <Paragraph.Legal key={2} margins>
             Sed vestibulum nisl a urna lobortis tincidunt. Aenean vitae dolor sed elit semper aliquet. Suspendisse potenti.
           </Paragraph.Legal>
         ]
@@ -212,9 +212,9 @@ export default {
 
       examples: {
         Regular: [
-          <TextLabel>Klarna ID</TextLabel>,
-          <Paragraph.Primary>12312ae-13efa-23124-898b0ac0d</Paragraph.Primary>,
-          <Block.Plain blue>
+          <TextLabel key={1}>Klarna ID</TextLabel>,
+          <Paragraph.Primary key={2}>12312ae-13efa-23124-898b0ac0d</Paragraph.Primary>,
+          <Block.Plain key={3} blue>
             <TextLabel color='white'>Klarna ID</TextLabel>
             <Paragraph.Primary color='white'>
               12312ae-13efa-23124-898b0ac0d
@@ -223,10 +223,10 @@ export default {
         ],
 
         'Text Labels with text margins': [
-          <TextLabel margins>Klarna ID</TextLabel>,
-          <Paragraph.Primary margins>12312ae-13efa-23124-898b0ac0d</Paragraph.Primary>,
-          <TextLabel margins>City</TextLabel>,
-          <Paragraph.Primary margins>Wetzlar</Paragraph.Primary>
+          <TextLabel key={1} margins>Klarna ID</TextLabel>,
+          <Paragraph.Primary key={2} margins>12312ae-13efa-23124-898b0ac0d</Paragraph.Primary>,
+          <TextLabel key={3} margins>City</TextLabel>,
+          <Paragraph.Primary key={4} margins>Wetzlar</Paragraph.Primary>
         ]
       }
     },
@@ -250,7 +250,14 @@ export default {
             href='http://goo.gl/XPU9kg'>
             Paris
           </Link>
-        </Paragraph.Primary>
+        </Paragraph.Primary>,
+
+        'Legal link': <Paragraph.Legal>
+          And you can also go to <Link legal target='_blank'
+            href='https://goo.gl/gNbl6g'>
+            Barcelona
+          </Link>
+        </Paragraph.Legal>
       }
     },
 
@@ -261,14 +268,14 @@ export default {
 
       examples: {
         Regular: [
-          <Amount>1500€</Amount>,
-          <Amount>$1500</Amount>,
-          <Amount color='blue'>1500₪</Amount>,
-          <Amount color='gray'>£1500</Amount>,
-          <Amount color='error'>¥1500</Amount>,
-          <Amount color='success'>1500kr</Amount>,
-          <Amount color='warning'>1500CHF</Amount>,
-          <Block.Plain blue>
+          <Amount key={1}>1500€</Amount>,
+          <Amount key={2}>$1500</Amount>,
+          <Amount key={3} color='blue'>1500₪</Amount>,
+          <Amount key={4} color='gray'>£1500</Amount>,
+          <Amount key={5} color='error'>¥1500</Amount>,
+          <Amount key={6} color='success'>1500kr</Amount>,
+          <Amount key={7} color='warning'>1500CHF</Amount>,
+          <Block.Plain key={8} blue>
             <Amount color='white'>1500€</Amount>
           </Block.Plain>
         ]

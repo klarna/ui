@@ -1,10 +1,9 @@
 language: node_js
 node_js:
-- '4'
-before_script:
-- npm install
+- '6'
 script:
 - npm test
+- curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py && python weigh_in.py index-built.js
 deploy:
   provider: npm
   email: ui-admin.e@klarna.com

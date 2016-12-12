@@ -9,13 +9,17 @@ module.exports = {
   debug: true,
   devtool: 'source-map',
   entry: {
-    example: './example'
+    example: './example',
+    index: './index'
   },
   output: {
     path: './',
-    filename: 'example-built.js',
+    filename: '[name]-built.js',
     chunkFilename: '[id].js',
-    publicPath: '/ui/'
+    publicPath: '/ui/',
+    library: 'kui',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   module: {
     loaders: [
@@ -32,7 +36,7 @@ module.exports = {
         test: /\.scss$/,
         loaders: [
           'style',
-          'css?modules,localIdentName=[local]',
+          'css?modules,localIdentName=[local]-[hash:base64:5]',
           'postcss',
           'sass'
         ]
