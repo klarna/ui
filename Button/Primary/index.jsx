@@ -26,6 +26,7 @@ function Primary ({
   className,
   customize,
   disabled,
+  id,
   loading,
   size,
   style,
@@ -59,21 +60,32 @@ function Primary ({
       borderRadius: customize.borderRadius
     } : {}
 
+  const ids = id
+    ? {
+      darkening: `${id}__darkening`,
+      label: `${id}__label`
+    } : {}
+
   return (
     <button
       className={cls}
       disabled={loading || success || disabled}
+      id={id}
       style={{
         ...customizations,
         ...style
       }}
       {...remainingProps}>
       {customize ? [
-        <span key={1} className={classNames(classes.label)}>
+        <span
+          key={1}
+          className={classNames(classes.label)}
+          id={ids.label}>
           {loadingOrContent}
         </span>,
         loading || disabled || <div key={2}
           className={classNames(classes.darkening)}
+          id={ids.darkening}
           style={{borderRadius: customize.borderRadius}}
         />
       ]

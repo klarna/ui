@@ -26,6 +26,7 @@ function Tertiary (props) {
     className,
     customize,
     disabled,
+    id,
     loading,
     size,
     style,
@@ -61,6 +62,13 @@ function Tertiary (props) {
       borderRadius: customize.borderRadius
     } : {}
 
+  const ids = id
+    ? {
+      darkening: `${id}__darkening`,
+      label: `${id}__label`,
+      labelAlt: `${id}__label--alt`
+    } : {}
+
   return (
     <button
       className={cls}
@@ -84,6 +92,7 @@ function Tertiary (props) {
               isDisabled ||
                 <span
                   className={classNames(classes.labelAlt)}
+                  id={ids.labelAlt}
                   title={content}
                   style={{color: customize.textColor}}>
                 </span>
@@ -130,4 +139,3 @@ export default compose(
   })),
   overridable(defaultStyles)
 )(Tertiary)
-

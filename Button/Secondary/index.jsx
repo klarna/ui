@@ -27,6 +27,7 @@ function Secondary ({
   className,
   customize,
   disabled,
+  id,
   loading,
   size,
   style,
@@ -64,10 +65,18 @@ function Secondary ({
       borderRadius: customize.borderRadius
     } : {}
 
+  const ids = id
+    ? {
+      darkening: `${id}__darkening`,
+      label: `${id}__label`,
+      labelAlt: `${id}__label--alt`
+    } : {}
+
   return (
     <button
       className={cls}
       disabled={isDisabled}
+      id={id}
       style={{
         ...customizations,
         ...style
@@ -77,16 +86,21 @@ function Secondary ({
         customize ? [
           loading || <div key={1}
             className={classNames(classes.darkening)}
+            id={ids.darkening}
             style={customize && {
               borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
             }}
           />,
-          <div key={2} className={classNames(classes.label)}>
+          <div
+            key={2}
+            id={ids.label}
+            className={classNames(classes.label)}>
             {loadingOrContent}
             {
               isDisabled ||
                 <span
                   className={classNames(classes.labelAlt)}
+                  id={ids.labelAlt}
                   title={content}
                   style={{color: customize.textColor}}>
                 </span>
