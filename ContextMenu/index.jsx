@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
@@ -10,8 +10,8 @@ const classes = {
   separator: `${baseClass}__separator`
 }
 
-export function Main ({ className, children, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Main ({className, children, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <ol className={classNames(baseClass, className)} {...props}>
@@ -28,12 +28,19 @@ Main.propTypes = {
   styles: PropTypes.object
 }
 
-export function Link ({ className, children, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Link ({className, children, id, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      link: `${id}__link`
+    } : {}
 
   return (
-    <li>
-      <a className={classNames(classes.item, className)} {...props}>
+    <li id={id}>
+      <a
+        className={classNames(classes.item, className)}
+        id={ids.link}
+        {...props}>
         {children}
       </a>
     </li>
@@ -48,12 +55,12 @@ Link.propTypes = {
   styles: PropTypes.object
 }
 
-export function Item ({ className, children, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Item ({className, children, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <li className={classNames(classes.item, className)} {...props}>
-    {children}
+      {children}
     </li>
   )
 }
@@ -66,8 +73,8 @@ Item.propTypes = {
   styles: PropTypes.object
 }
 
-export function Separator ({ className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Separator ({className, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <li
@@ -84,8 +91,8 @@ Separator.propTypes = {
   styles: PropTypes.object
 }
 
-export function Icon ({ className, children, styles }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Icon ({className, children, styles}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     React.cloneElement(React.Children.only(children), {
