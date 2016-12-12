@@ -25,17 +25,20 @@ Wrapper.displayName = 'List.Iconic.Wrapper'
 export function Item ({className, icon, children, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return <li className={classNames(classes.item, className)} {...props}>
-    <div className={classNames(classes.itemIcon)}>
-      {icon}
-    </div>
-
-    <div className={classNames(classes.content)}>
-      <Paragraph.Secondary>
-        {children}
-      </Paragraph.Secondary>
-    </div>
-  </li>
+  return <div className={classNames(classes.item)} {...props}>
+    <tbody>
+      <tr>
+        <td className={classNames(classes.itemIcon)}>
+          {icon}
+        </td>
+        <td>
+          <Paragraph.Secondary>
+            {children}
+          </Paragraph.Secondary>
+        </td>
+      </tr>
+    </tbody>
+  </div>
 }
 
 Item.displayName = 'List.Iconic.Item'
