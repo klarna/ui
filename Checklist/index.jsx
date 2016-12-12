@@ -56,7 +56,7 @@ export const Main = compose(
   overridable(defaultStyles)
 )(ChecklistMain)
 
-function ChecklistItem ({ className, children, customize, styles, ...props }) {
+function ChecklistItem ({className, children, customize, id, styles, ...props}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const listItemDynamicStyles = customize
     ? { color: customize.textColor }
@@ -64,13 +64,19 @@ function ChecklistItem ({ className, children, customize, styles, ...props }) {
   const iconDynamicStyles = customize
     ? { stroke: customize.strokeColor }
     : undefined
+  const ids = id
+    ? {
+      checkmark: `${id}__checkmark`
+    } : {}
 
   return <li
     className={classNames(classes.item, className)}
+    id={id}
     style={listItemDynamicStyles}
     {...props}>
     <svg
       className={classNames(classes.checkmark)}
+      id={ids.checkmark}
       style={iconDynamicStyles}
       viewBox='0 0 25 25'
       aria-labelledby='Checkmark'
