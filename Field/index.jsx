@@ -212,9 +212,16 @@ const Field = React.createClass({
       ? { color: customize.inputColor }
       : {}
 
+    const ids = id
+      ? {
+        input: `${id}__input`,
+        label: `${id}__label`
+      } : {}
+
     const inputProps = {
       className: classNames(icon ? classes.iconInput : classes.input),
       disabled: disabled,
+      id: ids.input,
       value: value || '',
       onBlur: onBlur,
       onChange: onChange,
@@ -250,6 +257,7 @@ const Field = React.createClass({
 
         <label
           className={classNames(icon ? classes.iconLabel : classes.label)}
+          id={ids.label}
           style={labelDynamicStyles}>
           {label}
         </label>
