@@ -46,7 +46,7 @@ export default function Centered ({
       {labels.title}
     </Title.Primary>
 
-    {paragraphs.map((text, index) => (<Paragraph.Secondary
+    {labels.summary && paragraphs.map((text, index) => (<Paragraph.Secondary
       key={index}
       className={classNames(classes.paragraphPrimary)}>
       {text}

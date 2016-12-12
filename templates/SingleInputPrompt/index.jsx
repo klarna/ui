@@ -40,6 +40,7 @@ function SingleInputPrompt ({
     <div className={defaultStyles['single-input-prompt__content']}>
       <Input
         centered
+        big
         focus={focus}
         label={label}
         onBlur={onBlur}

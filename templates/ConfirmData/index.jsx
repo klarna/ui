@@ -25,7 +25,7 @@ export default function ConfirmData ({
         <TextLabel key={`${i}-label`} margins>
           {label}
         </TextLabel>,
-        <Title.Secondary key={`${i}-value`}>
+        <Title.Secondary key={`${i}-value`} className={defaultStyles['confirm--data__value']}>
           {value}
         </Title.Secondary>
       ])}

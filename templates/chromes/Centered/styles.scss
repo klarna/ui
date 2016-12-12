@@ -3,6 +3,14 @@
 
 .chrome--centered {
   text-align: center;
+
+  > div {
+    padding: ($grid * 4) 0;
+
+    @include respond-to-wide {
+      padding: 0;
+    }
+  }
 }
 
 .chrome--centered__title:not(:first-child) {
@@ -37,6 +45,10 @@
 
 .chrome--centered__paragraph--primary + .chrome--centered__button--accept {
   margin-top: ($grid * 6.2);
+}
+
+.chrome--centered__button--accept + .chrome--centered__button--cancel {
+  padding-top: ($grid * 3.6);
 }
 
 .chrome--centered__paragraph--legal {
