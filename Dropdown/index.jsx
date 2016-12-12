@@ -125,7 +125,7 @@ const Dropdown = React.createClass({
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const selectedOption = options &&
-      options.find((option) => String(option.key) === String(value))
+      options.find(function (option) { return String(option.key) === String(value) })
 
     const cls = classNames(
       baseClass,
@@ -175,18 +175,22 @@ const Dropdown = React.createClass({
       ref='select'
       value={value || ''}
       {...props}>
-      {options && options.map((attributes) => (
-        <option key={attributes.key} value={attributes.key} {...attributes}>
-          {attributes.label}
-        </option>
-      ))}
+      {options && options.map(function (attributes) {
+        return (
+          <option key={attributes.key} value={attributes.key} {...attributes}>
+            {attributes.label}
+          </option>
+        )
+      })}
     </select>
 
-    const selectedOptionElement = (selectedOption) => <div
-      className={classNames(classes.currentOption)}
-      style={selectedDynamicStyles}>
-      {selectedOption.label}
-    </div>
+    const selectedOptionElement = function (selectedOption) {
+      return (<div
+        className={classNames(classes.currentOption)}
+        style={selectedDynamicStyles}>
+        {selectedOption.label}
+      </div>)
+    }
 
     return (
       <div
@@ -217,28 +221,36 @@ const Dropdown = React.createClass({
   }
 })
 
-const onMouseEnter = (component) => () =>
-  component.setState({
-    ...component.state,
-    hover: true
-  })
+const onMouseEnter = function (component) {
+  return function () {
+    component.setState({
+      ...component.state,
+      hover: true
+    })
+  }
+}
 
-const onMouseLeave = (component) => () =>
-  component.setState({
-    ...component.state,
-    hover: false
-  })
+const onMouseLeave = function (component) {
+  return function () {
+    component.setState({
+      ...component.state,
+      hover: false
+    })
+  }
+}
 
 export default compose(
-  themeable((customizations, props) => ({
-    customize: {
-      ...props.customize,
-      borderColor: customizations.color_border,
-      borderColorSelected: customizations.color_border_selected,
-      borderRadius: customizations.radius_border,
-      labelColor: customizations.color_text_secondary,
-      selectedColor: customizations.color_text
+  themeable(function (customizations, props) {
+    return {
+      customize: {
+        ...props.customize,
+        borderColor: customizations.color_border,
+        borderColorSelected: customizations.color_border_selected,
+        borderRadius: customizations.radius_border,
+        labelColor: customizations.color_text_secondary,
+        selectedColor: customizations.color_text
+      }
     }
-  })),
+  }),
   overridable(defaultStyles)
 )(Dropdown)

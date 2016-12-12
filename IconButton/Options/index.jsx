@@ -13,7 +13,7 @@ const classes = {
   stroke: 'illustration__stroke'
 }
 
-const Options = ({ className, color, label, left, styles, ...props }) => {
+const Options = function ({ className, color, label, left, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return <div className={classNames(classes.iconButton, className)} {...props}>
@@ -22,12 +22,12 @@ const Options = ({ className, color, label, left, styles, ...props }) => {
       viewBox='0 0 25 25'
       height='20px'
       width='20px'>
-      {[7, 13, 19].map((y) =>
-        <circle
+      {[7, 13, 19].map(function (y) {
+        return (<circle
           className={classNames(classes.fill)}
           key={y} cx='12' cy={y} r='2'
-        />
-      )}
+        />)
+      })}
     </svg>
 
     <span className={classNames(classes.label, { left }, color)}>{label}</span>
@@ -41,7 +41,7 @@ Options.propTypes = {
 }
 
 export default compose(
-  themeable(() => ({ color: 'gray' })),
+  themeable(function () { return { color: 'gray' } }),
   withDisplayName('Options'),
   overridable(defaultStyles)
 )(Options)

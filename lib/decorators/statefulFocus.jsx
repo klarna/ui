@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default (Target) => {
+export default function (Target) {
   class DecoratedComponent extends Component {
     render () {
       const {
@@ -25,14 +25,18 @@ export default (Target) => {
   return DecoratedComponent
 }
 
-const handleBlur = (component, onBlur) => (e) => {
-  component.setState({ focus: undefined })
+const handleBlur = function (component, onBlur) {
+  return function (e) {
+    component.setState({ focus: undefined })
 
-  onBlur && onBlur(e)
+    onBlur && onBlur(e)
+  }
 }
 
-const handleFocus = (component, onFocus) => (e) => {
-  component.setState({ focus: true })
+const handleFocus = function (component, onFocus) {
+  return function (e) {
+    component.setState({ focus: true })
 
-  onFocus && onFocus(e)
+    onFocus && onFocus(e)
+  }
 }

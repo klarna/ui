@@ -13,7 +13,7 @@ const classes = {
 
 export const tabDisplays = ['fluid', 'static']
 
-const update = (component) => {
+const update = function (component) {
   const tab = document.getElementById(
     `${component.props.name}-${component.props.value}-tab`
   )
@@ -103,7 +103,9 @@ export default React.createClass({
     return (
       <div className={cls} {...remainingProps}>
         <Motion style={{left: spring(left), width: spring(width)}}>
-          {(style) => <div style={style} className={defaultStyles[classes.selected]} />}
+          {function (style) {
+            return (<div style={style} className={defaultStyles[classes.selected]} />)
+          }}
         </Motion>
 
         {options.map(({ key, label }, index) => {

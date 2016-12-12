@@ -3,7 +3,7 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
-const Chevron = ({ d, color, styles, className, ...props }) => {
+const Chevron = function ({ d, color, styles, className, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -35,18 +35,22 @@ Chevron.propTypes = {
 // https://medium.com/@erqiudao/the-play-button-is-not-optical-alignment-4cea11bda175#.3p6p4iry8
 // it should be 1px off
 
-export const Right = (props) =>
-  <Chevron {...props} d='M9,6l4,4l-4,4' />
+export const Right = function (props) {
+  return (<Chevron {...props} d='M9,6l4,4l-4,4' />)
+}
 Right.displayName = 'Chevron.Right'
 
-export const Left = (props) =>
-  <Chevron {...props} d='M11,6l-4,4l4,4' />
+export const Left = function (props) {
+  return (<Chevron {...props} d='M11,6l-4,4l4,4' />)
+}
 Left.displayName = 'Chevron.Left'
 
-export const Down = (props) =>
-  <Chevron {...props} d='M6,9l4,4l4,-4' />
+export const Down = function (props) {
+  return (<Chevron {...props} d='M6,9l4,4l4,-4' />)
+}
 Down.displayName = 'Chevron.Down'
 
-export const Up = (props) =>
-  <Chevron {...props} d='M6,11l4,-4l4,4' />
+export const Up = function (props) {
+  return (<Chevron {...props} d='M6,11l4,-4l4,4' />)
+}
 Up.displayName = 'Chevron.Up'

@@ -25,7 +25,7 @@ function Fieldset ({
   return <div
     className={classNames('fieldset', { 'default-margins': margins }, className)}
     {...props}>
-    {fields && fields.map((field) => {
+    {fields && fields.map(function (field) {
       const FieldType = getFieldType(fieldType, field)
 
       return <FieldType
@@ -42,20 +42,29 @@ function Fieldset ({
   </div>
 }
 
-const getFieldType = (fieldType, field) => {
+const getFieldType = function (fieldType, field) {
   if (field.options) { return Dropdown }
   if (fieldType === 'field') { return Field }
   return Input
 }
 
-const handleChange = (values, onChange, name) => (e) =>
-  onChange({...values, [name]: e.target.value})
+const handleChange = function (values, onChange, name) {
+  return function (e) {
+    onChange({...values, [name]: e.target.value})
+  }
+}
 
-const handleBlur = (onBlur, name) => () =>
-  onBlur(name)
+const handleBlur = function (onBlur, name) {
+  return function () {
+    onBlur(name)
+  }
+}
 
-const handleFocus = (onFocus, name) => () =>
-  onFocus(name)
+const handleFocus = function (onFocus, name) {
+  return function () {
+    onFocus(name)
+  }
+}
 
 Fieldset.defaultProps = {
   margins: false,
@@ -84,13 +93,13 @@ export default compose(
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlerName: 'onFocus',
-    handlerSelector: (x) => x,
+    handlerSelector: function (x) { return x },
     resetHandlerName: 'onBlur'
   }),
   uncontrolled({
     prop: 'values',
     defaultProp: 'defaultValues',
     handlerName: 'onChange',
-    handlerSelector: (x) => x
+    handlerSelector: function (x) { return x }
   })
 )(Fieldset)

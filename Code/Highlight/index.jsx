@@ -29,8 +29,10 @@ const highlightStyle = {
   }
 }
 
-export default ({ children, language }) => (
-  <SyntaxHighlighter language={language || 'jsx'} style={highlightStyle}>
-    {children}
-  </SyntaxHighlighter>
-)
+export default function ({ children, language }) {
+  return (
+    <SyntaxHighlighter language={language || 'jsx'} style={highlightStyle}>
+      {children}
+    </SyntaxHighlighter>
+  )
+}

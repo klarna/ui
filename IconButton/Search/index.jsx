@@ -13,7 +13,7 @@ const classes = {
   stroke: 'illustration__stroke'
 }
 
-const Search = ({ className, color, label, left, styles, ...props }) => {
+const Search = function ({ className, color, label, left, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return <div className={classNames(classes.iconButton, className)} {...props}>
@@ -43,7 +43,7 @@ Search.propTypes = {
 }
 
 export default compose(
-  themeable(() => ({ color: 'gray' })),
+  themeable(function () { return { color: 'gray' } }),
   withDisplayName('Search'),
   overridable(defaultStyles)
 )(Search)

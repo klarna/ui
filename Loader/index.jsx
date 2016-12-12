@@ -57,23 +57,25 @@ export default function Loader ({
       {...props}>
       <defs>
         {
-          gradients.map((props, index) => (
-            <linearGradient
-              key={`gradient-${index}`}
-              id={`gradient-${_color.join('-')}-${index}`}
-              gradientUnits='objectBoundingBox' {...props}>
-              <stop
-                offset='0%'
-                stopColor={`rgb(${_color})`}
-                stopOpacity={step * index}
-              />
-              <stop
-                offset='100%'
-                stopColor={`rgb(${_color})`}
-                stopOpacity={step * (index + 1)}
-              />
-            </linearGradient>
-          ))
+          gradients.map(function (props, index) {
+            return (
+              <linearGradient
+                key={`gradient-${index}`}
+                id={`gradient-${_color.join('-')}-${index}`}
+                gradientUnits='objectBoundingBox' {...props}>
+                <stop
+                  offset='0%'
+                  stopColor={`rgb(${_color})`}
+                  stopOpacity={step * index}
+                />
+                <stop
+                  offset='100%'
+                  stopColor={`rgb(${_color})`}
+                  stopOpacity={step * (index + 1)}
+                />
+              </linearGradient>
+            )
+          })
         }
       </defs>
       <g

@@ -46,13 +46,15 @@ ChecklistMain.propTypes = {
 }
 
 export const Main = compose(
-  themeable((customizations, props) => ({
-    customize: {
-      ...props.customize,
-      borderColor: customizations.color_border,
-      borderRadius: customizations.radius_border
+  themeable(function (customizations, props) {
+    return {
+      customize: {
+        ...props.customize,
+        borderColor: customizations.color_border,
+        borderRadius: customizations.radius_border
+      }
     }
-  })),
+  }),
   overridable(defaultStyles)
 )(ChecklistMain)
 
@@ -95,12 +97,14 @@ ChecklistItem.propTypes = {
 }
 
 export const Item = compose(
-  themeable((customizations, props) => ({
-    customize: {
-      ...props.customize,
-      strokeColor: customizations.color_details,
-      textColor: customizations.color_text
+  themeable(function (customizations, props) {
+    return {
+      customize: {
+        ...props.customize,
+        strokeColor: customizations.color_details,
+        textColor: customizations.color_text
+      }
     }
-  })),
+  }),
   overridable(defaultStyles)
 )(ChecklistItem)

@@ -17,15 +17,21 @@ const classes = {
   cellHighlight: `${baseClass}__cell__highlight`
 }
 
-const vendorPrefixTransformation = (transformation) => ({
-  msTransform: transformation,
-  WebkitTransform: transformation,
-  transform: transformation
-})
+const vendorPrefixTransformation = function (transformation) {
+  return {
+    msTransform: transformation,
+    WebkitTransform: transformation,
+    transform: transformation
+  }
+}
 
-const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
+const findIndexOfOptionKey = function (options) {
+  return function (key) {
+    return options.findIndex(function (option) { return option.key === key })
+  }
+}
 
-const calculateHighlightPosition = (selected) => {
+const calculateHighlightPosition = function (selected) {
   if (!selected) {
     return {}
   }
@@ -292,8 +298,12 @@ const Installments = React.createClass({
   }
 })
 
-const hoverStartHandler = (component) => (id) => component.setState({ hover: id })
-const hoverEndHandler = (component) => () => component.setState({hover: undefined})
+const hoverStartHandler = function (component) {
+  return function (id) { return component.setState({ hover: id }) }
+}
+const hoverEndHandler = function (component) {
+  return function () { component.setState({hover: undefined}) }
+}
 
 const onCellTouchStart = hoverStartHandler
 const onCellMouseEnter = hoverStartHandler
@@ -302,20 +312,23 @@ const onCellTouchMove = hoverEndHandler
 const onCellMouseLeave = hoverEndHandler
 const onCellClick = hoverEndHandler
 
-const cellDynamicStyles = ({ borderColor, borderColorSelected, labelColor }, hovered) =>
-  hovered
+const cellDynamicStyles = function ({ borderColor, borderColorSelected, labelColor }, hovered) {
+  return hovered
     ? { borderColor, color: borderColorSelected }
     : { borderColor, color: labelColor }
+}
 
 export default compose(
-  themeable((customizations, props) => ({
-    customize: {
-      ...props.customize,
-      borderColor: customizations.color_border,
-      borderColorSelected: customizations.color_border_selected,
-      borderRadius: customizations.radius_border,
-      labelColor: customizations.color_text
+  themeable(function (customizations, props) {
+    return {
+      customize: {
+        ...props.customize,
+        borderColor: customizations.color_border,
+        borderColorSelected: customizations.color_border_selected,
+        borderRadius: customizations.radius_border,
+        labelColor: customizations.color_text
+      }
     }
-  })),
+  }),
   overridable(defaultStyles)
 )(Installments)
