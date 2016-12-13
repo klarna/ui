@@ -50,7 +50,10 @@ export default class Collapsible extends Component {
           style={{
             height,
             opacity,
-            overflow: 'hidden'
+            // Overflow rule to enable content to overflow outside the collapsible
+            // once the animation is close to be complete (the last few pixels take a while
+            // to be expanded). '10' is a magic number 🎩
+            overflow: this.state.height - height > 10 ? 'hidden' : 'visible'
           }}>
           {children}
         </div>}

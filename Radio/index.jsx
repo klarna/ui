@@ -148,9 +148,7 @@ const Radio = React.createClass({
               value={key}
               disabled={isDisabled}
             />,
-            <label
-              htmlFor={`${name}-${key}`}
-              id={ids.label}
+            <div
               className={classNames(
                 classes.option,
                 {
@@ -159,8 +157,10 @@ const Radio = React.createClass({
                   'is-disabled': isDisabled
                 }
               )}
+              id={ids.label}
               {...restOfProps}>
-              <div
+              <label
+                htmlFor={`${name}-${key}`}
                 className={classNames(classes.optionHeader)}
                 id={ids.header}>
                 <div
@@ -205,7 +205,7 @@ const Radio = React.createClass({
                     {aside}
                   </div>}
                 </div>
-              </div>
+              </label>
 
               {content && <Collapsible
                 collapsed={isDisabled || !singleOption && key !== value}>
@@ -215,7 +215,7 @@ const Radio = React.createClass({
                   {content}
                 </div>
               </Collapsible>}
-            </label>
+            </div>
           ]
         })}
       </div>

@@ -28,6 +28,7 @@ import Subtitle from '../../../Subtitle'
 import Strong from '../../../Strong'
 import * as Switch from '../../../Switch'
 import TextLabel from '../../../TextLabel'
+import Tooltip from '../../../Tooltip'
 import {LIVE, MANUAL} from '../../variationTypes'
 
 const Example = React.createClass({
