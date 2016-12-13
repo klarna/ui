@@ -73,8 +73,8 @@ export function Value ({ className, clarification, children, id, title, styles, 
   const ids = id
     ? {
       content: `${id}__content`,
-      clarification: `${id}__clarification`
-      title: `${id}__title`,
+      clarification: `${id}__clarification`,
+      title: `${id}__title`
     } : {}
 
   return (

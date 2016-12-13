@@ -31,7 +31,7 @@ export function Item ({className, icon, id, children, styles, ...props}) {
       icon: `${id}__icon`,
       contentTd: `${id}__content-td`,
       content: `${id}__content`
-    }
+    } : {}
 
   return <div
     className={classNames(classes.item)}

@@ -150,7 +150,7 @@ export function Overlay ({
     ? {
       cell: `${id}__cell`,
       table: `${id}__table`
-    }
+    } : {}
 
   return (
     <div

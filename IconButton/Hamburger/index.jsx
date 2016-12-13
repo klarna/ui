@@ -19,7 +19,7 @@ const Hamburger = ({className, color, id, label, left, styles, ...props}) => {
     ? {
       illustration: `${id}__illustration`,
       label: `${id}__label`
-    }
+    } : {}
 
   return <div
     className={classNames(classes.iconButton, className)}
