@@ -166,7 +166,7 @@
 
 .radio__option__description {
   @include typography(map-get($font-sizes, main-body-mobile), regular);
-  color: map-get($colors, darker-grey-text);
+  color: map-get($colors, grey-text);
   line-height: ($grid * 4);
 
   @include respond-to-wide {
