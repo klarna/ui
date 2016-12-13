@@ -1,6 +1,8 @@
 import React from 'react'
 import * as Alert from '../../../Alert'
 import * as Block from '../../../Block'
+import * as Button from '../../../Button'
+import { Back } from '../../../IconButton'
 import {LIVE} from '../../variationTypes'
 
 export default {
@@ -60,6 +62,32 @@ export default {
             />
           </Block.Installments.Content>
         </Block.Installments.Main>
+      }
+    },
+
+    {
+      title: 'Button',
+      require: `import * as Button from '@klarna/ui/Button'
+import { Back } from '@klarna/ui/IconButton'`,
+      type: LIVE,
+      examples: {
+        'Button.Primary': <Button.Primary id='button-primary'>
+          Click me!
+        </Button.Primary>,
+
+        'Button.Secondary': <Button.Secondary id='button-secondary'>
+          Click me!
+        </Button.Secondary>,
+
+        'Button.Tertiary': <Button.Tertiary id='button-tertiary'>
+          Click me!
+        </Button.Tertiary>,
+
+        'IconicButton': <Block.Plain
+          key='0'
+          style={{display: 'inline-block', padding: '20px'}}>
+          <Back id='iconic-button-back' />
+        </Block.Plain>
       }
     }
   ]

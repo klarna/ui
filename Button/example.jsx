@@ -234,7 +234,9 @@ export default {
 
       examples: {
         'Default color scheme': [
-          <Block.Plain key='0' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='0'
+            style={{display: 'inline-block', padding: '20px'}}>
             <Back />
           </Block.Plain>,
 
