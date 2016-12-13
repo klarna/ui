@@ -12,9 +12,10 @@ import {Back, Close} from '../../../IconButton'
 import Input from '../../../Input'
 import Installments from '../../../Installments'
 import Label from '../../../Label'
+import * as List from '../../../List'
 import Logout from '../../../icons/Logout'
 import Loader from '../../../Loader'
-import * as List from '../../../List'
+import * as Menu from '../../../Menu'
 import * as Title from '../../../Title'
 import * as Paragraph from '../../../Paragraph'
 import Subtitle from '../../../Subtitle'
@@ -437,6 +438,39 @@ import * as Button from '@klarna/ui/Button'`,
 
       examples: {
         Loader: <Loader id='loader' />
+      }
+    },
+
+    {
+      title: 'Menu',
+      require: 'import * as Menu from \'@klarna/ui/Menu\'',
+      type: LIVE,
+
+      examples: {
+        'Menu.Tab': <Menu.Tab
+          id='menu-tab'
+          onChange={(key) => console.log('You selected', key)}
+          tabDisplay='fluid'
+          name='tab-fluid'
+          value='home'
+          options={[
+            { key: 'home', label: 'Home' },
+            { key: 'faq', label: 'FAQ' },
+            { key: 'archive', label: 'Archive' }
+          ]}
+        />,
+
+        'Menu.Segmented': <Menu.Segmented
+          id='menu-segmented'
+          onChange={(key) => console.log('You selected', key)}
+          name='menu-segmented'
+          value='home'
+          options={[
+            { key: 'home', label: 'Home' },
+            { key: 'faq', label: 'FAQ' },
+            { key: 'archive', label: 'Archive' }
+          ]}
+        />
       }
     }
   ]
