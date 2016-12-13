@@ -53,7 +53,7 @@
 
   &.is-disabled {
     background: #fafafa;
-    opacity: .2;
+    opacity: $disabled-selector;
     pointer-events: none;
   }
 
@@ -99,7 +99,7 @@
   vertical-align: top;
   
   .is-disabled & {
-    opacity: $disabled-selector-logo;
+    opacity: $disabled-selector;
   }
 }
 
@@ -177,6 +177,6 @@
   }
 
   .is-disabled & {
-    color: map-get($colors, grey-lines);
+    opacity: $disabled-selector;
   }
 }
