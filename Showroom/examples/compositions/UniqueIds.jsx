@@ -13,6 +13,7 @@ import Input from '../../../Input'
 import Installments from '../../../Installments'
 import Label from '../../../Label'
 import Logout from '../../../icons/Logout'
+import Loader from '../../../Loader'
 import * as List from '../../../List'
 import * as Title from '../../../Title'
 import * as Paragraph from '../../../Paragraph'
@@ -426,6 +427,16 @@ import * as Button from '@klarna/ui/Button'`,
             Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
           </List.Iconic.Item>
         </List.Iconic.Wrapper>
+      }
+    },
+
+    {
+      title: 'Loader',
+      require: 'import Loader from \'@klarna/ui/Loader\'',
+      type: LIVE,
+
+      examples: {
+        Loader: <Loader id='loader' />
       }
     }
   ]
