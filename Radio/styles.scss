@@ -98,6 +98,10 @@
   padding-left: ($grid * 3);
   text-align: right;
   vertical-align: top;
+  
+  .is-disabled & {
+    opacity: $disabled-selector-logo;
+  }
 }
 
 .radio__option__wrapper {
