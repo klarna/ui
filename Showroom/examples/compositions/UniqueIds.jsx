@@ -7,6 +7,7 @@ import * as ContextMenu from '../../../ContextMenu'
 import * as Dialog from '../../../Dialog'
 import Dropdown from '../../../Dropdown'
 import Field from '../../../Field'
+import Fieldset from '../../../Fieldset'
 import {Back, Close} from '../../../IconButton'
 import Logout from '../../../icons/Logout'
 import * as Title from '../../../Title'
@@ -270,6 +271,44 @@ import * as Button from '@klarna/ui/Button'`,
         Field: <Field
           id='field'
           label='Enter your email'
+        />
+      }
+    },
+
+    {
+      title: 'Fieldset',
+      require: 'import Fieldset from \'@klarna/ui/Fieldset\'',
+      type: LIVE,
+
+      examples: {
+        Fieldset: <Fieldset
+          id='fieldset'
+          fields={[
+            {
+              name: 'firstname',
+              label: 'First Name',
+              size: '1/2',
+              top: true,
+              left: true
+            },
+            {
+              name: 'lastname',
+              label: 'Last Name',
+              size: '1/2',
+              top: true,
+              right: true
+            },
+            {
+              name: 'address',
+              label: 'Street address',
+              bottom: true
+            }
+          ]}
+          focus='lastname'
+          values={{
+            firstname: 'Dorothy'
+          }}
+          onChange={(values) => console.log('new values', values)}
         />
       }
     }
