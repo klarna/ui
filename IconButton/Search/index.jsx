@@ -13,12 +13,18 @@ const classes = {
   stroke: 'illustration__stroke'
 }
 
-const Search = ({ className, color, label, left, styles, ...props }) => {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+const Search = ({className, color, id, label, left, styles, ...props}) => {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      illustration: `${id}__illustration`,
+      label: `${id}__label`
+    } : {}
 
   return <div className={classNames(classes.iconButton, className)} {...props}>
     <svg
       className={classNames('illustration', 'button', color)}
+      id={ids.illustration}
       viewBox='0 0 25 25'
       strokeWidth='2'
       strokeLinecap='round'
@@ -32,7 +38,11 @@ const Search = ({ className, color, label, left, styles, ...props }) => {
         x1={15} x2={19.2} y1={15} y2={19.2} />
     </svg>
 
-    <span className={classNames(classes.label, { left }, color)}>{label}</span>
+    <span
+      className={classNames(classes.label, { left }, color)}
+      id={ids.label}>
+      {label}
+    </span>
   </div>
 }
 
@@ -43,7 +53,7 @@ Search.propTypes = {
 }
 
 export default compose(
-  themeable(() => ({ color: 'gray' })),
+  themeable(() => ({color: 'gray'})),
   withDisplayName('Search'),
   overridable(defaultStyles)
 )(Search)
