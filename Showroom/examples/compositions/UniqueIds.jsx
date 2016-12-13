@@ -4,9 +4,64 @@ import * as Block from '../../../Block'
 import * as Button from '../../../Button'
 import * as Checklist from '../../../Checklist'
 import * as ContextMenu from '../../../ContextMenu'
-import {Back} from '../../../IconButton'
+import * as Dialog from '../../../Dialog'
+import {Back, Close} from '../../../IconButton'
 import Logout from '../../../icons/Logout'
-import {LIVE} from '../../variationTypes'
+import * as Title from '../../../Title'
+import * as Paragraph from '../../../Paragraph'
+import Subtitle from '../../../Subtitle'
+import {LIVE, MANUAL} from '../../variationTypes'
+
+const Example = React.createClass({
+  displayName: 'DialogExample',
+
+  getInitialState () {
+    return {
+      open: false
+    }
+  },
+
+  render () {
+    const close = () => this.setState({ open: false })
+    const open = () => this.setState({ open: true })
+
+    return (
+      <div>
+        <Button.Primary onClick={open}>
+          Show Dialog
+        </Button.Primary>
+
+        <Dialog.Overlay id='dialog-overlay' show={this.state.open}>
+          <Dialog.Main id='dialog-main'>
+            <Dialog.Icon id='dialog-icon'>
+              <Close onClick={close} />
+            </Dialog.Icon>
+
+            <Dialog.Content id='dialog-content'>
+              <Title.Primary margins>
+                The title is primary
+              </Title.Primary>
+              <Subtitle margins>
+                Just trying to fill up space
+              </Subtitle>
+              <Paragraph.Secondary margins>
+                Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+              </Paragraph.Secondary>
+            </Dialog.Content>
+
+            <Dialog.Footer id='dialog-footer'>
+              <Button.Primary
+                onClick={close}
+                style={{width: '100%'}}>
+                Close the nice dialog
+              </Button.Primary>
+            </Dialog.Footer>
+          </Dialog.Main>
+        </Dialog.Overlay>
+      </div>
+    )
+  }
+})
 
 export default {
   title: 'UniqueIds',
@@ -141,6 +196,48 @@ import Logout from '@klarna/ui/Logout'`,
             Logout
           </ContextMenu.Link>
         </ContextMenu.Main>
+      }
+    },
+
+    {
+      title: 'Dialog',
+      require: `import * as Dialog from '@klarna/ui/Dialog'
+import {Close} from '@klarna/ui/IconButton'
+import * as Title from '@klarna/ui/Title'
+import Subtitle from '@klarna/ui/Subtitle'
+import * as Paragraph from '@klarna/ui/Paragraph'
+import * as Button from '@klarna/ui/Button'`,
+      type: MANUAL,
+      examples: {
+        Regular: {
+          live: <Example />,
+          code: `<Dialog.Overlay id='dialog-overlay' show>
+    <Dialog.Main id='dialog-main'>
+      <Dialog.Icon id='dialog-icon'>
+        <Close />
+      </Dialog.Icon>
+
+      <Dialog.Content id='dialog-content'>
+        <Title.Primary margins>
+          The title is primary
+        </Title.Primary>
+        <Subtitle margins>
+          Just trying to fill up space
+        </Subtitle>
+        <Paragraph.Secondary margins>
+          Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+        </Paragraph.Secondary>
+      </Dialog.Content>
+
+      <Dialog.Footer id='dialog-footer'>
+        <Button.Primary
+          style={{width: '100%'}}>
+          Close the nice dialog
+        </Button.Primary>
+      </Dialog.Footer>
+    </Dialog.Main>
+  </Dialog.Overlay>`
+        }
       }
     }
   ]
