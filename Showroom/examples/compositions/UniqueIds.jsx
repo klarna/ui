@@ -23,6 +23,7 @@ import ProgressBar from '../../../ProgressBar'
 import Radio from '../../../Radio'
 import * as Selector from '../../../Selector'
 import Subtitle from '../../../Subtitle'
+import Strong from '../../../Strong'
 import {LIVE, MANUAL} from '../../variationTypes'
 
 const Example = React.createClass({
@@ -609,6 +610,18 @@ import * as Button from '@klarna/ui/Button'`,
           id='selector-direct'
           onSelect={(v) => (v)}
         />
+      }
+    },
+
+    {
+      title: 'Strong',
+      require: 'import Strong from \'@klarna/ui/Strong\'',
+      type: LIVE,
+
+      examples: {
+        Strong: <Paragraph.Primary>
+          Hello <Strong id='strong'>World</Strong>!
+        </Paragraph.Primary>
       }
     }
   ]
