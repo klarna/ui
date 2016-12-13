@@ -9,6 +9,7 @@ import Dropdown from '../../../Dropdown'
 import Field from '../../../Field'
 import Fieldset from '../../../Fieldset'
 import {Back, Close} from '../../../IconButton'
+import Input from '../../../Input'
 import Logout from '../../../icons/Logout'
 import * as Title from '../../../Title'
 import * as Paragraph from '../../../Paragraph'
@@ -309,6 +310,19 @@ import * as Button from '@klarna/ui/Button'`,
             firstname: 'Dorothy'
           }}
           onChange={(values) => console.log('new values', values)}
+        />
+      }
+    },
+
+    {
+      title: 'Input',
+      require: 'import Input from \'@klarna/ui/Input\'',
+      type: LIVE,
+
+      examples: {
+        Input: <Input
+          id='input'
+          label='Enter your email'
         />
       }
     }
