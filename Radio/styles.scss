@@ -96,7 +96,7 @@
   padding-left: ($grid * 3);
   text-align: right;
   vertical-align: top;
-  
+
   .is-disabled & {
     opacity: $disabled-selector;
   }
@@ -164,8 +164,8 @@
   @include respond-to-wide {
     @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
   }
-  
-  &.is-disabled {
+
+  .is-disabled & {
     opacity: $disabled-selector;
   }
 }
