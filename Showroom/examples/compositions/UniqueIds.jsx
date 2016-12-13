@@ -634,7 +634,11 @@ import * as Button from '@klarna/ui/Button'`,
       examples: {
         'Switch.Toggle': <Switch.Toggle name='toggle-switch'>
           This is a toggle switch
-        </Switch.Toggle>
+        </Switch.Toggle>,
+
+        'Switch.Checkbox': <Switch.Checkbox name='toggle-checkbox'>
+          This is a checkbox switch
+        </Switch.Checkbox>
       }
     }
   ]
