@@ -22,17 +22,30 @@ export function Wrapper ({className, children, styles, ...props}) {
 
 Wrapper.displayName = 'List.Iconic.Wrapper'
 
-export function Item ({className, icon, children, styles, ...props}) {
+export function Item ({className, icon, id, children, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      tbody: `${id}__tbody`,
+      tr: `${id}__tr`,
+      icon: `${id}__icon`,
+      contentTd: `${id}__content-td`,
+      content: `${id}__content`
+    }
 
-  return <div className={classNames(classes.item)} {...props}>
-    <tbody>
-      <tr>
-        <td className={classNames(classes.itemIcon)}>
+  return <div
+    className={classNames(classes.item)}
+    id={id}
+    {...props}>
+    <tbody id={ids.tbody}>
+      <tr id={ids.tr}>
+        <td
+          className={classNames(classes.itemIcon)}
+          id={ids.icon}>
           {icon}
         </td>
-        <td>
-          <Paragraph.Secondary>
+        <td id={ids.contentTd}>
+          <Paragraph.Secondary id={ids.content}>
             {children}
           </Paragraph.Secondary>
         </td>
