@@ -65,37 +65,52 @@ export default React.createClass({
     return (
       <div
         className={classNames(baseClass, 'title', className)}
+        id={name}
         {...remainingProps}>
-        {data.map(({ key, label }) => [
-          <input
-            className={classNames(classes.input)}
-            id={`${name}-${key}`}
-            name={name}
-            type='radio'
-            onBlur={(e) => onBlur && onBlur(e)}
-            checked={key === value}
-            onChange={() => onChange && onChange(key)}
-            onFocus={(e) => onFocus && onFocus(key, e)}
-            ref={key}
-            value={key}
-          />,
-          <label
-            htmlFor={`${name}-${key}`}
-            className={classNames(classes.item, { 'is-focused': focus === key })}
-            key={key}>
-            <div
-              className={classNames(classes.label)} >
-              {label}
-            </div>
+        {data.map(({key, label}) => {
+          const id = `${name}-${key}`
+          const ids = {
+            icon: `${id}__icon`,
+            label: `${id}__label`,
+            labelInner: `${id}__label--inner`
+          }
 
-            {key === value && (
-              <Checkmark
-                className={classNames(classes.icon)}
-                color='blue'
-              />
-            )}
-          </label>
-        ])}
+          return [
+            <input
+              className={classNames(classes.input)}
+              id={id}
+              name={name}
+              type='radio'
+              onBlur={(e) => onBlur && onBlur(e)}
+              checked={key === value}
+              onChange={() => onChange && onChange(key)}
+              onFocus={(e) => onFocus && onFocus(key, e)}
+              ref={key}
+              value={key}
+            />,
+            <label
+              htmlFor={id}
+              className={classNames(
+                classes.item, {'is-focused': focus === key}
+              )}
+              id={ids.label}
+              key={key}>
+              <div
+                className={classNames(classes.label)}
+                id={ids.labelInner}>
+                {label}
+              </div>
+
+              {key === value && (
+                <Checkmark
+                  className={classNames(classes.icon)}
+                  color='blue'
+                  id={ids.icon}
+                />
+              )}
+            </label>
+          ]
+        })}
       </div>
     )
   }
