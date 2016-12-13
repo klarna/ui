@@ -68,10 +68,8 @@
   cursor: pointer;
   display: table;
   padding-bottom: ($grid * 4);
-  padding-left: ($grid * 4);
-  padding-right: ($grid * 4);
   padding-top: ($grid * 4);
-  width: calc(100% - #{$grid * 8});
+  width: 100%;
 }
 
 .radio__option__inner {
@@ -85,6 +83,7 @@
   padding-top: ($grid * .6);
   vertical-align: top;
   width: ($grid * 2.8);
+  padding-left: ($grid * 4);
 }
 
 .radio__option__right {
@@ -97,10 +96,14 @@
   padding-left: ($grid * 3);
   text-align: right;
   vertical-align: top;
-  
+
   .is-disabled & {
     opacity: $disabled-selector-logo;
   }
+}
+
+.radio__option__rightmost {
+  padding-right: ($grid * 4);
 }
 
 .radio__option__wrapper {
