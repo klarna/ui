@@ -24,6 +24,7 @@ import Radio from '../../../Radio'
 import * as Selector from '../../../Selector'
 import Subtitle from '../../../Subtitle'
 import Strong from '../../../Strong'
+import * as Switch from '../../../Switch'
 import {LIVE, MANUAL} from '../../variationTypes'
 
 const Example = React.createClass({
@@ -622,6 +623,18 @@ import * as Button from '@klarna/ui/Button'`,
         Strong: <Paragraph.Primary>
           Hello <Strong id='strong'>World</Strong>!
         </Paragraph.Primary>
+      }
+    },
+
+    {
+      title: 'Switch',
+      require: 'import * as Switch from \'@klarna/ui/Switch\'',
+      type: LIVE,
+
+      examples: {
+        'Switch.Toggle': <Switch.Toggle name='toggle-switch'>
+          This is a toggle switch
+        </Switch.Toggle>
       }
     }
   ]
