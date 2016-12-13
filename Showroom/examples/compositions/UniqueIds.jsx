@@ -13,6 +13,7 @@ import Input from '../../../Input'
 import Installments from '../../../Installments'
 import Label from '../../../Label'
 import Logout from '../../../icons/Logout'
+import * as List from '../../../List'
 import * as Title from '../../../Title'
 import * as Paragraph from '../../../Paragraph'
 import Subtitle from '../../../Subtitle'
@@ -361,6 +362,70 @@ import * as Button from '@klarna/ui/Button'`,
           design='information'>
           information
         </Label>
+      }
+    },
+
+    {
+      title: 'List',
+      require: 'import * as List from \'@klarna/ui/List\'',
+      type: LIVE,
+
+      examples: {
+        'List.Unordered': <List.Unordered id='list-unordered'>
+          <List.Item id='list-item1'>
+            Is this the real life?
+          </List.Item>
+          <List.Item id='list-item2'>
+            Is this just fantasy
+          </List.Item>
+          <List.Item id='list-item3'>
+            Open your eyes
+          </List.Item>
+        </List.Unordered>,
+
+        'List.Ordered': <List.Ordered id='list-ordered'>
+          <List.Item id='list-item-ordered1'>
+            ’Twas brillig, and the slithy toves
+          </List.Item>
+        </List.Ordered>,
+
+        'List.Iconic': <List.Iconic.Wrapper id='list-iconic-wrapper'>
+          <List.Iconic.Item
+            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+              <circle
+                stroke='#979797'
+                fill='#D8D8D8'
+                cx='30'
+                cy='30'
+                r='28'
+              />
+            </svg>}
+            id='list-iconic-item1'>
+            Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
+          </List.Iconic.Item>
+          <List.Iconic.Item
+            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+              <polygon
+                stroke='#979797'
+                fill='#D8D8D8'
+                points='30 46.5 12.95 55.46 16.20 36.48 2.41 23.03 21.47 20.26 30 3 38.52 20.26 57.58 23.03 43.79 36.48 47.04 55.46'
+              />
+            </svg>}
+            id='list-iconic-item2'>
+            Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
+          </List.Iconic.Item>
+          <List.Iconic.Item
+            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+              <polygon
+                stroke='#979797'
+                fill='#D8D8D8'
+                points='30 4 58 54 2 54'
+              />
+            </svg>}
+            id='list-iconic-item3'>
+            Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
+          </List.Iconic.Item>
+        </List.Iconic.Wrapper>
       }
     }
   ]
