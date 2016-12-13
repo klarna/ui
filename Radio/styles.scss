@@ -100,7 +100,7 @@
   vertical-align: top;
   
   .is-disabled & {
-    opacity: 0.2;
+    opacity: $disabled-selector-logo;
   }
 }
 
