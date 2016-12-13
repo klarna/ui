@@ -10,6 +10,7 @@ import Field from '../../../Field'
 import Fieldset from '../../../Fieldset'
 import {Back, Close} from '../../../IconButton'
 import Input from '../../../Input'
+import Installments from '../../../Installments'
 import Logout from '../../../icons/Logout'
 import * as Title from '../../../Title'
 import * as Paragraph from '../../../Paragraph'
@@ -323,6 +324,26 @@ import * as Button from '@klarna/ui/Button'`,
         Input: <Input
           id='input'
           label='Enter your email'
+        />
+      }
+    },
+
+    {
+      title: 'Installments',
+      require: 'import Installments from \'@klarna/ui/Installments\'',
+      type: LIVE,
+
+      examples: {
+        Installments: <Installments
+          onChange={(key) => console.log('You selected', key)}
+          name='installments'
+          value='installments_12'
+          options={[
+            { key: 'installments_3', content: <div>Long one line text in div</div> },
+            { key: 'installments_6', content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>] },
+            { key: 'installments_12', content: 'Simple text content' },
+            { key: 'installments_24', content: <div><div>Force</div><div>new line</div></div> }
+          ]}
         />
       }
     }
