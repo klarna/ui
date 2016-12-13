@@ -6,6 +6,7 @@ import * as Checklist from '../../../Checklist'
 import * as ContextMenu from '../../../ContextMenu'
 import * as Dialog from '../../../Dialog'
 import Dropdown from '../../../Dropdown'
+import Field from '../../../Field'
 import {Back, Close} from '../../../IconButton'
 import Logout from '../../../icons/Logout'
 import * as Title from '../../../Title'
@@ -256,6 +257,19 @@ import * as Button from '@klarna/ui/Button'`,
             { key: 'lorem', label: 'Lorem' },
             { key: 'ipsum', label: 'Ipsum' }
           ]}
+        />
+      }
+    },
+
+    {
+      title: 'Field',
+      require: 'import Field from \'@klarna/ui/Field\'',
+      type: LIVE,
+
+      examples: {
+        Field: <Field
+          id='field'
+          label='Enter your email'
         />
       }
     }
