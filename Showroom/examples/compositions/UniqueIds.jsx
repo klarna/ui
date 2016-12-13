@@ -21,6 +21,7 @@ import * as Paragraph from '../../../Paragraph'
 import * as Preview from '../../../Preview'
 import ProgressBar from '../../../ProgressBar'
 import Radio from '../../../Radio'
+import * as Selector from '../../../Selector'
 import Subtitle from '../../../Subtitle'
 import {LIVE, MANUAL} from '../../variationTypes'
 
@@ -581,6 +582,23 @@ import * as Button from '@klarna/ui/Button'`,
             }
           ]}
           defaultValue='lorem'
+        />
+      }
+    },
+
+    {
+      title: 'Selector',
+      require: 'import * as Selector from \'@klarna/ui/Selector\'',
+      type: LIVE,
+
+      examples: {
+        'Selector.Options': <Selector.Options
+          data={[
+            {key: 'lorem', label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
+            {key: 'ipsum', label: 'Ipsum', description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
+          ]}
+          name='selector'
+          value={1}
         />
       }
     }
