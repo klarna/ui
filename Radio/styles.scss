@@ -53,7 +53,6 @@
 
   &.is-disabled {
     background: #fafafa;
-    opacity: $disabled-selector;
     pointer-events: none;
   }
 
@@ -72,6 +71,10 @@
   padding-right: ($grid * 4);
   padding-top: ($grid * 4);
   width: calc(100% - #{$grid * 8});
+  
+  &.is-disabled {
+    opacity: $disabled-selector;
+  }
 }
 
 .radio__option__inner {
