@@ -336,6 +336,7 @@ import * as Button from '@klarna/ui/Button'`,
       examples: {
         Installments: <Installments
           onChange={(key) => console.log('You selected', key)}
+          id='installments'
           name='installments'
           value='installments_12'
           options={[
