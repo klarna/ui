@@ -11,6 +11,7 @@ import Fieldset from '../../../Fieldset'
 import {Back, Close} from '../../../IconButton'
 import Input from '../../../Input'
 import Installments from '../../../Installments'
+import Label from '../../../Label'
 import Logout from '../../../icons/Logout'
 import * as Title from '../../../Title'
 import * as Paragraph from '../../../Paragraph'
@@ -346,6 +347,20 @@ import * as Button from '@klarna/ui/Button'`,
             { key: 'installments_24', content: <div><div>Force</div><div>new line</div></div> }
           ]}
         />
+      }
+    },
+
+    {
+      title: 'Label',
+      require: 'import Label from \'@klarna/ui/Label\'',
+      type: LIVE,
+
+      examples: {
+        Label: <Label
+          id='label'
+          design='information'>
+          information
+        </Label>
       }
     }
   ]
