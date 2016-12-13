@@ -53,7 +53,6 @@
 
   &.is-disabled {
     background: #fafafa;
-    color: map-get($colors, grey-lines);
     pointer-events: none;
   }
 
@@ -97,9 +96,9 @@
   padding-left: ($grid * 3);
   text-align: right;
   vertical-align: top;
-  
+
   .is-disabled & {
-    opacity: $disabled-selector-logo;
+    opacity: $disabled-selector;
   }
 }
 
@@ -165,6 +164,10 @@
   @include respond-to-wide {
     @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
   }
+
+  .is-disabled & {
+    opacity: $disabled-selector;
+  }
 }
 
 .radio__option__description {
@@ -177,6 +180,6 @@
   }
 
   .is-disabled & {
-    color: map-get($colors, grey-lines);
+    opacity: $disabled-selector;
   }
 }
