@@ -19,6 +19,7 @@ import * as Menu from '../../../Menu'
 import * as Title from '../../../Title'
 import * as Paragraph from '../../../Paragraph'
 import * as Preview from '../../../Preview'
+import ProgressBar from '../../../ProgressBar'
 import Subtitle from '../../../Subtitle'
 import {LIVE, MANUAL} from '../../variationTypes'
 
@@ -497,6 +498,19 @@ import * as Button from '@klarna/ui/Button'`,
             Change address
           </Preview.Link>
         </Preview.Main>
+      }
+    },
+
+    {
+      title: 'ProgressBar',
+      require: 'import ProgressBar from \'@klarna/ui/ProgressBar\'',
+      type: LIVE,
+
+      examples: {
+        ProgressBar: <ProgressBar
+          id='progress-bar'
+          percentage={50}
+        />
       }
     }
   ]
