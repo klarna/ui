@@ -18,6 +18,7 @@ import Loader from '../../../Loader'
 import * as Menu from '../../../Menu'
 import * as Title from '../../../Title'
 import * as Paragraph from '../../../Paragraph'
+import * as Preview from '../../../Preview'
 import Subtitle from '../../../Subtitle'
 import {LIVE, MANUAL} from '../../variationTypes'
 
@@ -471,6 +472,31 @@ import * as Button from '@klarna/ui/Button'`,
             { key: 'archive', label: 'Archive' }
           ]}
         />
+      }
+    },
+
+    {
+      title: 'Preview',
+      require: 'import * as Preview from \'@klarna/ui/Preview\'',
+      type: LIVE,
+
+      examples: {
+        Preview: <Preview.Main
+          id='preview'
+          onClick={() => console.log('You clicked the address')}>
+          <Preview.Title id='preview-title'>
+            John Smith
+          </Preview.Title>
+          <Preview.Content id='preview-content'>
+            1425 North Avenue Street<br />
+            San Francisco<br />
+            94100 California<br />
+            United States
+          </Preview.Content>
+          <Preview.Link id='preview-link'>
+            Change address
+          </Preview.Link>
+        </Preview.Main>
       }
     }
   ]
