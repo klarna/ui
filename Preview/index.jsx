@@ -35,8 +35,8 @@ Main.propTypes = {
   styles: PropTypes.object
 }
 
-export function Content ({children, className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Content ({children, className, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <div className={classNames(classes.content)} {...props}>

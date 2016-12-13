@@ -171,7 +171,9 @@ const Dropdown = React.createClass({
         option: (i) => `${id}__option__${i}`,
         select: `${id}__select`,
         selected: `${id}__selected`
-      } : {}
+      } : {
+        option: () => {}
+      }
 
     const selectElement = <select
       className={classNames(classes.select)}

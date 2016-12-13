@@ -40,7 +40,12 @@ export default React.createClass({
         icon: (key) => `${id}__icon`,
         label: (key) => `${id}__${key}__label`,
         option: (key) => `${id}__${key}__option`
-      } : {}
+      } : {
+        description: () => {},
+        icon: () => {},
+        label: () => {},
+        option: () => {}
+      }
 
     return (
       <div
