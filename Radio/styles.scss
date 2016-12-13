@@ -53,7 +53,7 @@
 
   &.is-disabled {
     background: #fafafa;
-    color: map-get($colors, grey-lines);
+    opacity: .2;
     pointer-events: none;
   }
 
