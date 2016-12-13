@@ -183,6 +183,7 @@ const Installments = React.createClass({
       className,
       customize,
       focus,
+      id,
       name,
       onBlur,
       onChange,
@@ -227,14 +228,23 @@ const Installments = React.createClass({
       ...vendorPrefixTransformation(`translate(${this.state.highlight.position.left}px, ${this.state.highlight.position.top}px)`)
     }
 
+    const ids = id
+      ? {
+        row: `${id}__row`,
+        highlight: `${id}__highlight`
+      } : {}
+
     return (<div
       className={classNames(baseClass, className)}
+      id={id}
       style={{
         ...dynamicStyles,
         ...style
       }}
       {...remainingProps}>
-      <div className={classNames(classes.row)}>
+      <div
+        className={classNames(classes.row)}
+        id={ids.row}>
         {options.map(({ key, content }, index) => {
           const id = `${name}-${key}`
           return <label
@@ -248,6 +258,7 @@ const Installments = React.createClass({
               { 'is-previously-selected': key === previouslySelected },
               { 'is-after-previously-selected': !(key === selected) && (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
             )}
+            id={`${id}__label`}
             style={customize
               ? cellDynamicStyles(customize, id === this.state.hover)
               : undefined}
@@ -272,7 +283,8 @@ const Installments = React.createClass({
             <div
               className={classNames(
                 classes.cellContent
-              )}>
+              )}
+              id={`${id}__content`}>
               {content}
             </div>
           </label>
@@ -281,13 +293,16 @@ const Installments = React.createClass({
       <span
         ref='highlight'
         className={classNames(
-        classes.cellHighlight,
-        { 'has-position': this.state.highlight.transitions }
-      )} style={{
-        ...highlightDynamicStyles,
-        ...highlightPositionStyles,
-        ...(selected !== undefined ? { opacity: 1 } : {})
-      }} />
+          classes.cellHighlight,
+          { 'has-position': this.state.highlight.transitions }
+        )}
+        id={ids.highlight}
+        style={{
+          ...highlightDynamicStyles,
+          ...highlightPositionStyles,
+          ...(selected !== undefined ? { opacity: 1 } : {})
+        }}
+      />
     </div>)
   }
 })
