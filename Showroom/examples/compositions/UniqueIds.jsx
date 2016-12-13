@@ -691,6 +691,20 @@ import * as Button from '@klarna/ui/Button'`,
           1500€
         </Amount>
       }
+    },
+
+    {
+      title: 'Tooltip',
+      require: 'import Tooltip from \'@klarna/ui/Tooltip\'',
+      type: LIVE,
+
+      examples: {
+        Tooltip: <Tooltip
+          arrow='top-left'
+          id='tooltip'>
+          Lorem Ipsum is simply dummy text of the printing industry.
+        </Tooltip>
+      }
     }
   ]
 }
