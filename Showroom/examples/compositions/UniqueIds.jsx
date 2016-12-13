@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Alert from '../../../Alert'
+import Amount from '../../../Amount'
 import * as Block from '../../../Block'
 import * as Button from '../../../Button'
 import * as Checklist from '../../../Checklist'
@@ -12,6 +13,7 @@ import {Back, Close} from '../../../IconButton'
 import Input from '../../../Input'
 import Installments from '../../../Installments'
 import Label from '../../../Label'
+import Link from '../../../Link'
 import * as List from '../../../List'
 import Logout from '../../../icons/Logout'
 import Loader from '../../../Loader'
@@ -25,6 +27,7 @@ import * as Selector from '../../../Selector'
 import Subtitle from '../../../Subtitle'
 import Strong from '../../../Strong'
 import * as Switch from '../../../Switch'
+import TextLabel from '../../../TextLabel'
 import {LIVE, MANUAL} from '../../variationTypes'
 
 const Example = React.createClass({
@@ -639,6 +642,54 @@ import * as Button from '@klarna/ui/Button'`,
         'Switch.Checkbox': <Switch.Checkbox name='toggle-checkbox'>
           This is a checkbox switch
         </Switch.Checkbox>
+      }
+    },
+
+    {
+      title: 'Text',
+      require: 'import * as Title from \'@klarna/ui/Title\'',
+      type: LIVE,
+
+      examples: {
+        'Title.Primary': <Title.Primary
+          id='title-primary'>
+          Primary Title
+        </Title.Primary>,
+
+        'Title.Secondary': <Title.Secondary
+          id='title-secondary'>
+          Secondary Title
+        </Title.Secondary>,
+
+        Subtitle: <Subtitle>Subtitle</Subtitle>,
+
+        'Paragraph.Primary': <Paragraph.Primary
+          id='paragraph-primary'>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Primary>,
+
+        'Paragraph.Secondary': <Paragraph.Secondary
+          id='paragraph-secondary'>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Secondary>,
+
+        'Paragraph.Legal': <Paragraph.Legal
+          id='paragraph-legal'>
+          Proin scelerisque, felis sit amet maximus mattis, turpis ipsum interdum sem, a lacinia magna sem vel diam. Duis lacinia orci et velit faucibus, at varius mauris consectetur.
+        </Paragraph.Legal>,
+
+        TextLabel: <TextLabel id='text-label'>Klarna ID</TextLabel>,
+
+        Link: <Link
+          id='link'
+          target='_blank'
+          href='http://goo.gl/SsAhv'>
+          Rome
+        </Link>,
+
+        Amount: <Amount id='amount'>
+          1500€
+        </Amount>
       }
     }
   ]
