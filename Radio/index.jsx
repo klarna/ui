@@ -166,7 +166,7 @@ const Radio = React.createClass({
                     </div>
 
                     {description && <div
-                      className={classes.optionDescription}
+                      className={classNames(classes.optionDescription)}
                       style={descriptionStyle}>
                       {description}
                     </div>}
