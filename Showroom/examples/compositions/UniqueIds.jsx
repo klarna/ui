@@ -597,8 +597,17 @@ import * as Button from '@klarna/ui/Button'`,
             {key: 'lorem', label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
             {key: 'ipsum', label: 'Ipsum', description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
           ]}
-          name='selector'
+          name='selector-options'
           value={1}
+        />,
+
+        'Selector.Direct': <Selector.Direct
+          data={[
+            {key: 'lorem', label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
+            {key: 'ipsum', label: 'Ipsum', description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
+          ]}
+          id='selector-direct'
+          onSelect={(v) => (v)}
         />
       }
     }
