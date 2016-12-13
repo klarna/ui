@@ -71,10 +71,6 @@
   padding-right: ($grid * 4);
   padding-top: ($grid * 4);
   width: calc(100% - #{$grid * 8});
-  
-  &.is-disabled {
-    opacity: $disabled-selector;
-  }
 }
 
 .radio__option__inner {
@@ -167,6 +163,10 @@
 
   @include respond-to-wide {
     @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
+  }
+  
+  &.is-disabled {
+    opacity: $disabled-selector;
   }
 }
 
