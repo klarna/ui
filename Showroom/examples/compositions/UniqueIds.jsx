@@ -5,6 +5,7 @@ import * as Button from '../../../Button'
 import * as Checklist from '../../../Checklist'
 import * as ContextMenu from '../../../ContextMenu'
 import * as Dialog from '../../../Dialog'
+import Dropdown from '../../../Dropdown'
 import {Back, Close} from '../../../IconButton'
 import Logout from '../../../icons/Logout'
 import * as Title from '../../../Title'
@@ -238,6 +239,24 @@ import * as Button from '@klarna/ui/Button'`,
     </Dialog.Main>
   </Dialog.Overlay>`
         }
+      }
+    },
+
+    {
+      title: 'Dropdown',
+      require: 'import Dropdown from \'@klarna/ui/Dropdown\'',
+      type: LIVE,
+
+      examples: {
+        Dropdown: <Dropdown
+          id='dropdown'
+          label='Lorem ipsum'
+          options={[
+            { key: '', label: 'Pick one!', disabled: true, hidden: true },
+            { key: 'lorem', label: 'Lorem' },
+            { key: 'ipsum', label: 'Ipsum' }
+          ]}
+        />
       }
     }
   ]
