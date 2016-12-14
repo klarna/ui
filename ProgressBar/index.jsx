@@ -43,6 +43,7 @@ ProgressBar.propTypes = {
   borderColor: PropTypes.oneOf(colors),
   fillColor: PropTypes.oneOf(colors),
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object,
   percentage: PropTypes.number.isRequired
 }
