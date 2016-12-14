@@ -17,6 +17,7 @@ const classes = {
   optionLabel: `${baseClass}__option__label`,
   optionInput: `${baseClass}__option__input`,
   optionLeft: `${baseClass}__option__left`,
+  optionLeftmost: `${baseClass}__option__leftmost`,
   optionRight: `${baseClass}__option__right`,
   optionRightmost: `${baseClass}__option__rightmost`,
   optionHeader: `${baseClass}__option__header`,
@@ -145,7 +146,7 @@ const Radio = React.createClass({
               {...restOfProps}>
               <label htmlFor={`${name}-${key}`} className={classNames(classes.optionHeader)}>
                 <div className={classNames(classes.optionHeaderInner)}>
-                  {!singleOption && <div className={classNames(classes.optionLeft)}>
+                  {!singleOption && <div className={classNames(classes.optionLeft, classes.optionLeftmost)}>
                     <div className={classNames(classes.optionWrapper)}>
                       <div
                         className={classNames(classes.optionBullet)}
@@ -158,7 +159,13 @@ const Radio = React.createClass({
                     </div>
                   </div>}
 
-                  <div className={aside ? classNames(classes.optionRight) : classNames(classes.optionRight, classes.optionRightmost)}>
+                  <div className={classNames(
+                    classes.optionRight,
+                    {
+                      [classes.optionRightmost]: !aside,
+                      [classes.optionLeftmost]: singleOption
+                    }
+                  )}>
                     <div
                       className={classNames(classes.optionLabel)}
                       style={labelStyle}>
