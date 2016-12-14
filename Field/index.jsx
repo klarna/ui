@@ -57,6 +57,7 @@ const Field = React.createClass({
       labelColor: PropTypes.string.isRequired,
       inputColor: PropTypes.string.isRequired
     }),
+    id: PropTypes.string,
     input: PropTypes.func,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
