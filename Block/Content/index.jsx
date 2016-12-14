@@ -16,6 +16,7 @@ Content.displayName = 'Block.Content'
 
 Content.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   id: PropTypes.string,
   styles: PropTypes.object
 }
