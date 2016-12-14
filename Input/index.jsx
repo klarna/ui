@@ -46,6 +46,7 @@ export default React.createClass({
     big: PropTypes.bool,
     centered: PropTypes.bool,
     giant: PropTypes.bool,
+    id: PropTypes.string,
     input: PropTypes.func,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
@@ -152,9 +153,16 @@ export default React.createClass({
       className
     )
 
+    const ids = id
+      ? {
+        input: `${id}__input`,
+        label: `${id}__label`
+      } : {}
+
     const inputProps = {
       className: classNames(icon ? classes.iconInput : classes.input),
       disabled: disabled,
+      id: ids.input,
       value: value || '',
       onBlur: onBlur,
       onChange: onChange,
@@ -182,7 +190,8 @@ export default React.createClass({
         }
 
         <label
-          className={classNames(icon ? classes.iconLabel : classes.label)}>
+          className={classNames(icon ? classes.iconLabel : classes.label)}
+          id={ids.label}>
           {label}
         </label>
 

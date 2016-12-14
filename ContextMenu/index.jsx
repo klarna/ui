@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
@@ -10,8 +10,8 @@ const classes = {
   separator: `${baseClass}__separator`
 }
 
-export function Main ({ className, children, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Main ({className, children, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <ol className={classNames(baseClass, className)} {...props}>
@@ -25,15 +25,23 @@ Main.displayName = 'ContextMenu.Main'
 Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Link ({ className, children, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Link ({className, children, id, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      link: `${id}__link`
+    } : {}
 
   return (
-    <li>
-      <a className={classNames(classes.item, className)} {...props}>
+    <li id={id}>
+      <a
+        className={classNames(classes.item, className)}
+        id={ids.link}
+        {...props}>
         {children}
       </a>
     </li>
@@ -45,15 +53,16 @@ Link.displayName = 'ContextMenu.Link'
 Link.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Item ({ className, children, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Item ({className, children, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <li className={classNames(classes.item, className)} {...props}>
-    {children}
+      {children}
     </li>
   )
 }
@@ -63,11 +72,12 @@ Item.displayName = 'ContextMenu.Item'
 Item.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Separator ({ className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Separator ({className, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <li
@@ -81,11 +91,12 @@ Separator.displayName = 'ContextMenu.Separator'
 
 Separator.propTypes = {
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Icon ({ className, children, styles }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Icon ({className, children, styles}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     React.cloneElement(React.Children.only(children), {
@@ -99,5 +110,6 @@ Icon.displayName = 'ContextMenu.Icon'
 Icon.propTypes = {
   className: PropTypes.string,
   children: PropTypes.element,
+  id: PropTypes.string,
   styles: PropTypes.object
 }

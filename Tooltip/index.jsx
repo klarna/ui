@@ -24,6 +24,7 @@ Tooltip.propTypes = {
   className: PropTypes.string,
   arrow: PropTypes.oneOf(arrows),
   children: PropTypes.node,
+  id: PropTypes.string,
   inverse: PropTypes.bool,
   styles: PropTypes.object
 }

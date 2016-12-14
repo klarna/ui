@@ -18,5 +18,6 @@ Unordered.displayName = 'List.Unordered'
 Unordered.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }

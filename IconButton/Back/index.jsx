@@ -13,12 +13,21 @@ const classes = {
   stroke: 'illustration__stroke'
 }
 
-const Back = ({ className, color, label, left, styles, ...props }) => {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+const Back = ({className, color, id, label, left, styles, ...props}) => {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      illustration: `${id}__illustration`,
+      label: `${id}__label`
+    } : {}
 
-  return <div className={classNames(classes.iconButton, className)} {...props}>
+  return <div
+    className={classNames(classes.iconButton, className)}
+    id={id}
+    {...props}>
     <svg
       className={classNames('illustration', 'button', color)}
+      id={ids.illustration}
       strokeLinecap='round'
       strokeWidth='2'
       viewBox='0 0 25 25'
@@ -30,18 +39,23 @@ const Back = ({ className, color, label, left, styles, ...props }) => {
       />
     </svg>
 
-    <span className={classNames(classes.label, { left }, color)}>{label}</span>
+    <span
+      className={classNames(classes.label, { left }, color)}
+      id={ids.label}>
+      {label}
+    </span>
   </div>
 }
 
 Back.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['gray', 'inverse', 'blue']),
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
 export default compose(
-  themeable(() => ({ color: 'gray' })),
+  themeable(() => ({color: 'gray'})),
   withDisplayName('Back'),
   overridable(defaultStyles)
 )(Back)

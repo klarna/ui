@@ -42,6 +42,7 @@ Label.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   design: PropTypes.oneOf(designs),
+  id: PropTypes.string,
   inverted: PropTypes.bool,
   outline: PropTypes.bool,
   styles: PropTypes.object

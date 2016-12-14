@@ -33,6 +33,7 @@ TextLabel.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
+  id: PropTypes.string,
   margins: PropTypes.bool,
   styles: PropTypes.object
 }

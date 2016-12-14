@@ -12,7 +12,9 @@ export default {
 
     examples: {
       Regular: <Block.Installments.Main>
-        <Block.Installments.Title>Your Installments</Block.Installments.Title>
+        <Block.Installments.Title>
+          Your Installments
+        </Block.Installments.Title>
         <Block.Installments.Content>
           <Block.Installments.Value
             title='Estimated total'

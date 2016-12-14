@@ -46,6 +46,7 @@ Link.propTypes = {
   customize: PropTypes.shape({
     textColor: PropTypes.string.isRequired
   }),
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 

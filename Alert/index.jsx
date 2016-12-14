@@ -28,6 +28,7 @@ Error.displayName = 'Alert.Error'
 Error.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -48,6 +49,7 @@ Warning.displayName = 'Alert.Warning'
 Warning.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -68,6 +70,7 @@ Title.displayName = 'Alert.Title'
 Title.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -88,5 +91,6 @@ Paragraph.displayName = 'Alert.Paragraph'
 Paragraph.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }

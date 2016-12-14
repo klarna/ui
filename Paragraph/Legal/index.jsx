@@ -45,6 +45,7 @@ Legal.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   condensed: PropTypes.bool,
+  id: PropTypes.string,
   margins: PropTypes.bool,
   styles: PropTypes.object
 }
