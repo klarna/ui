@@ -19,6 +19,7 @@ export default React.createClass({
   propTypes: {
     className: PropTypes.string,
     data: PropTypes.array.isRequired,
+    id: PropTypes.string,
     onSelect: PropTypes.func,
     styles: PropTypes.object
   },
