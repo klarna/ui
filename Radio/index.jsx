@@ -39,6 +39,7 @@ const Radio = React.createClass({
     }),
     disabled: PropTypes.bool,
     focus: PropTypes.string,
+    id: PropTypes.string,
     name: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
