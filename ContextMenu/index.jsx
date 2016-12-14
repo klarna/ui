@@ -25,6 +25,7 @@ Main.displayName = 'ContextMenu.Main'
 Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -52,6 +53,7 @@ Link.displayName = 'ContextMenu.Link'
 Link.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -70,6 +72,7 @@ Item.displayName = 'ContextMenu.Item'
 Item.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -88,6 +91,7 @@ Separator.displayName = 'ContextMenu.Separator'
 
 Separator.propTypes = {
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -106,5 +110,6 @@ Icon.displayName = 'ContextMenu.Icon'
 Icon.propTypes = {
   className: PropTypes.string,
   children: PropTypes.element,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
