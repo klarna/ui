@@ -18,6 +18,7 @@ Ordered.displayName = 'List.Ordered'
 Ordered.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   style: PropTypes.object,
   styles: PropTypes.object
 }
