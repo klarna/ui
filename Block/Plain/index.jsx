@@ -22,5 +22,6 @@ Plain.propTypes = {
   blue: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
