@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import * as Paragraph from '../../Paragraph'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
@@ -21,6 +21,13 @@ export function Wrapper ({className, children, styles, ...props}) {
 }
 
 Wrapper.displayName = 'List.Iconic.Wrapper'
+
+Wrapper.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  id: PropTypes.string,
+  styles: PropTypes.object
+}
 
 export function Item ({className, icon, id, children, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
@@ -55,3 +62,11 @@ export function Item ({className, icon, id, children, styles, ...props}) {
 }
 
 Item.displayName = 'List.Iconic.Item'
+
+Item.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  icon: PropTypes.node,
+  id: PropTypes.string,
+  styles: PropTypes.object
+}
