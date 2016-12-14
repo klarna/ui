@@ -97,6 +97,7 @@ Loader.propTypes = {
     PropTypes.oneOf(Object.keys(colors)),
     PropTypes.array
   ]),
+  id: PropTypes.string,
   inline: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes)),
   styles: PropTypes.object
