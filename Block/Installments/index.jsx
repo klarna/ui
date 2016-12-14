@@ -28,6 +28,7 @@ Main.displayName = 'Block.Installments.Main'
 Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -46,6 +47,7 @@ Title.displayName = 'Block.Installments.Title'
 Title.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -64,6 +66,7 @@ Content.displayName = 'Block.Installments.Content'
 Content.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -110,7 +113,8 @@ Value.propTypes = {
   clarification: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  value: PropTypes.string.isRequired
 }
