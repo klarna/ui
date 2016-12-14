@@ -49,6 +49,7 @@ const Dropdown = React.createClass({
       labelColor: PropTypes.string.isRequired,
       selectedColor: PropTypes.string.isRequired
     }),
+    id: PropTypes.string,
     label: PropTypes.string.isRequired,
     loading: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
