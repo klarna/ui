@@ -45,6 +45,7 @@ Item.propTypes = {
   children: PropTypes.node,
   color: PropTypes.string,
   condensed: PropTypes.bool,
+  id: PropTypes.string,
   secondary: PropTypes.bool,
   style: PropTypes.object,
   styles: PropTypes.object
