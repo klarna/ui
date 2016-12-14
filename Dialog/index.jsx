@@ -44,6 +44,7 @@ DialogMain.displayName = 'Dialog.Main'
 DialogMain.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -74,6 +75,7 @@ Icon.displayName = 'Dialog.Icon'
 Icon.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   left: PropTypes.bool,
   styles: PropTypes.object
 }
@@ -104,6 +106,7 @@ Content.displayName = 'Dialog.Content'
 Content.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -133,6 +136,7 @@ Footer.displayName = 'Dialog.Footer'
 Footer.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -175,6 +179,7 @@ Overlay.displayName = 'Dialog.Overlay'
 Overlay.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   show: PropTypes.bool,
   styles: PropTypes.object
 }
