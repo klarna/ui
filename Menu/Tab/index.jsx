@@ -41,6 +41,7 @@ export default React.createClass({
       key: PropTypes.string.isRequired
     })).isRequired,
     className: PropTypes.string,
+    id: PropTypes.string,
     tabDisplay: PropTypes.oneOf(tabDisplays),
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
