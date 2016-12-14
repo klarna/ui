@@ -71,6 +71,7 @@ Fieldset.propTypes = {
   })),
   fieldType: PropTypes.oneOf(['field', 'input']),
   focus: PropTypes.string,
+  id: PropTypes.string,
   margins: PropTypes.bool,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
