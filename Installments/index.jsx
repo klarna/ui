@@ -248,6 +248,12 @@ const Installments = React.createClass({
         id={ids.row}>
         {options.map(({ key, content }, index) => {
           const id = `${name}-${key}`
+
+          const ids = {
+            label: `${id}__label`,
+            content: `${id}__content`
+          }
+
           return <label
             key={`cell-${id}`}
             className={classNames(
@@ -259,7 +265,7 @@ const Installments = React.createClass({
               { 'is-previously-selected': key === previouslySelected },
               { 'is-after-previously-selected': !(key === selected) && (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
             )}
-            id={`${id}__label`}
+            id={ids.label}
             style={customize
               ? cellDynamicStyles(customize, id === this.state.hover)
               : undefined}
@@ -285,7 +291,7 @@ const Installments = React.createClass({
               className={classNames(
                 classes.cellContent
               )}
-              id={`${id}__content`}>
+              id={ids.content}>
               {content}
             </div>
           </label>
