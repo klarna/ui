@@ -1,4 +1,4 @@
-import React, {PropType} from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
