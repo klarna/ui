@@ -38,7 +38,7 @@ export default React.createClass({
     const ids = id
       ? {
         description: (key) => `${id}__${key}__description`,
-        icon: (key) => `${id}__icon`,
+        icon: (key) => `${id}__${key}__icon`,
         label: (key) => `${id}__${key}__label`,
         option: (key) => `${id}__${key}__option`
       } : {
