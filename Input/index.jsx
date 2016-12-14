@@ -46,6 +46,7 @@ export default React.createClass({
     big: PropTypes.bool,
     centered: PropTypes.bool,
     giant: PropTypes.bool,
+    id: PropTypes.string,
     input: PropTypes.func,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
