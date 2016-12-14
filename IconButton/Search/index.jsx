@@ -49,6 +49,7 @@ const Search = ({className, color, id, label, left, styles, ...props}) => {
 Search.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['gray', 'inverse', 'blue']),
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 

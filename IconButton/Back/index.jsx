@@ -50,6 +50,7 @@ const Back = ({className, color, id, label, left, styles, ...props}) => {
 Back.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['gray', 'inverse', 'blue']),
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
