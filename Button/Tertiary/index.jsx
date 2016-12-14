@@ -121,6 +121,7 @@ Tertiary.propTypes = {
     borderRadius: PropTypes.string.isRequired,
     textColor: PropTypes.string.isRequired
   }),
+  id: PropTypes.string,
   size: PropTypes.oneOf(sizes),
   loading: PropTypes.bool,
   success: PropTypes.bool,
