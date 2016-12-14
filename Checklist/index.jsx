@@ -38,6 +38,7 @@ ChecklistMain.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   chromeless: PropTypes.bool,
+  id: PropTypes.string,
   styles: PropTypes.object,
   customize: PropTypes.shape({
     borderColor: PropTypes.string.isRequired,
@@ -93,6 +94,7 @@ ChecklistItem.displayName = 'Checklist.Item'
 ChecklistItem.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object,
   customize: PropTypes.shape({
     strokeColor: PropTypes.string.isRequired,
