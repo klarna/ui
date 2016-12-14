@@ -46,6 +46,7 @@ const Checkbox = React.createClass({
     disabled: PropTypes.bool,
     error: PropTypes.bool,
     focus: PropTypes.bool,
+    id: PropTypes.string,
     legal: PropTypes.bool,
     name: PropTypes.string,
     onBlur: PropTypes.func,
