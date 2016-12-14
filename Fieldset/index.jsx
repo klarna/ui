@@ -13,6 +13,7 @@ function Fieldset ({
   fields,
   fieldType,
   focus,
+  id,
   margins,
   onBlur,
   onChange,
@@ -24,6 +25,7 @@ function Fieldset ({
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   return <div
     className={classNames('fieldset', { 'default-margins': margins }, className)}
+    id={id}
     {...props}>
     {fields && fields.map((field) => {
       const FieldType = getFieldType(fieldType, field)
@@ -31,6 +33,7 @@ function Fieldset ({
       return <FieldType
         key={field.name}
         focus={focus === field.name}
+        id={`${id}__${field.name}`}
         value={values && values[field.name]}
         onBlur={handleBlur(onBlur, field.name)}
         onChange={handleChange(values, onChange, field.name)}
