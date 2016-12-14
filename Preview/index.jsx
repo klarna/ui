@@ -32,6 +32,7 @@ Main.displayName = 'Preview.Main'
 Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -50,6 +51,7 @@ Content.displayName = 'Preview.Content'
 Content.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -68,6 +70,7 @@ Title.displayName = 'Preview.Title'
 Title.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -95,5 +98,6 @@ Link.displayName = 'Preview.Link'
 Link.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
