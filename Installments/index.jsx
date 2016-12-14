@@ -61,6 +61,7 @@ const Installments = React.createClass({
       labelColor: PropTypes.string.isRequired
     }),
     focus: PropTypes.string,
+    id: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
