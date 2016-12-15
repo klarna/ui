@@ -248,6 +248,8 @@ const Installments = React.createClass({
         id={ids.row}>
         {options.map(({ key, content }, index) => {
           const id = `${name}-${key}`
+          const isFirst = index === 0
+          const isLast = index === options.length - 1
 
           const ids = {
             label: `${id}__label`,
@@ -267,7 +269,7 @@ const Installments = React.createClass({
             )}
             id={ids.label}
             style={customize
-              ? cellDynamicStyles(customize, id === this.state.hover)
+              ? cellDynamicStyles(customize, id === this.state.hover, isFirst, isLast)
               : undefined}
             onMouseEnter={() => onCellMouseEnter(this)(id)}
             onMouseLeave={() => onCellMouseLeave(this)(id)}
@@ -324,10 +326,14 @@ const onCellTouchMove = hoverEndHandler
 const onCellMouseLeave = hoverEndHandler
 const onCellClick = hoverEndHandler
 
-const cellDynamicStyles = ({ borderColor, borderColorSelected, labelColor }, hovered) =>
-  hovered
-    ? { borderColor, color: borderColorSelected }
-    : { borderColor, color: labelColor }
+const cellDynamicStyles = ({ borderRadius, borderColor, borderColorSelected, labelColor }, hovered, isFirst, isLast) => ({
+  borderTopLeftRadius: isFirst ? borderRadius : undefined,
+  borderBottomLeftRadius: isFirst ? borderRadius : undefined,
+  borderTopRightRadius: isLast ? borderRadius : undefined,
+  borderBottomRightRadius: isLast ? borderRadius : undefined,
+  color: hovered ? borderColorSelected : labelColor,
+  borderColor
+})
 
 export default compose(
   themeable((customizations, props) => ({
