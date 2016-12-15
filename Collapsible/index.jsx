@@ -19,6 +19,9 @@ export default class Collapsible extends Component {
   }
 
   componentWillUnmount () {
+    // Clean the reference to the content element since we are unmounting.
+    // We check if it is defined in updateHeight before doing any update.
+    this.content = null
     window.removeEventListener('resize', this.debouncedResizeHandler)
   }
 
@@ -31,6 +34,11 @@ export default class Collapsible extends Component {
   }
 
   updateHeight () {
+    // Since update can happen asynchronously (debounced),
+    // it might be executed after the component was already
+    // unmounted.
+    if (!this.content) { return }
+
     const height = getHeight(this.content)
 
     if (this.state.height !== height) {
