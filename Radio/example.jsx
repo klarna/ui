@@ -26,7 +26,7 @@ const optionsWithContent = [
     label: 'Lorem',
     description: 'Lorem Ipsum is simply dummy.',
     aside: card,
-    content: <Paragraph.Secondary condensed>
+    content: <Paragraph.Secondary style={{marginBottom: -10}}>
       Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
     </Paragraph.Secondary>,
     leftPad: true
