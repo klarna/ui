@@ -17,6 +17,7 @@ export default React.createClass({
   propTypes: {
     children: PropTypes.node,
     className: PropTypes.string,
+    id: PropTypes.string,
     name: PropTypes.string.isRequired,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,

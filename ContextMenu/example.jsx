@@ -8,7 +8,8 @@ export default {
   icon: 'Navigation',
 
   examples: {
-    require: 'import * as ContextMenu from \'@klarna/ui/ContextMenu\'',
+    require: `import * as ContextMenu from '@klarna/ui/ContextMenu'
+import Logout from '@klarna/ui/Logout'`,
     type: LIVE,
 
     examples: {

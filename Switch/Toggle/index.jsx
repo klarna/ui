@@ -122,6 +122,7 @@ const Toggle = React.createClass({
     disabled: PropTypes.bool,
     error: PropTypes.bool,
     focus: PropTypes.bool,
+    id: PropTypes.string,
     legal: PropTypes.bool,
     name: PropTypes.string.isRequired,
     align: PropTypes.oneOf(alignments),
@@ -188,8 +189,17 @@ const Toggle = React.createClass({
     const onTouchEnd = !disabled && releaseTouch(this)
     const onTouchMove = !disabled && dragTouch(this)
 
+    const ids = {
+      bullet: `${name}__bullet`,
+      bulletToggle: `${name}__bullet__toggle`,
+      container: `${name}__container`,
+      label: `${name}__label`,
+      wrapper: `${name}__wrapper`
+    }
+
     return (<div
       className={cls}
+      id={ids.wrapper}
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       {...remainingProps}>
@@ -206,6 +216,7 @@ const Toggle = React.createClass({
       />
       <label
         className={classNames(classes.label)}
+        id={ids.label}
         htmlFor={name}
         style={customize ? {
           color: customize.textColor
@@ -215,19 +226,20 @@ const Toggle = React.createClass({
         onTouchMove={onTouchMove}>
         <div
           className={classNames(classes.container)}
-        >
+          id={ids.container}>
           <div
             className={classNames(classes.bullet)}
+            id={ids.bullet}
+            ref='bullet'
             style={customize && value ? {
               backgroundColor: customize.backgroundColor,
               borderColor: customize.backgroundColor
-            } : undefined}
-            ref='bullet'
-          >
+            } : undefined}>
             <div
               className={classNames(classes.bulletToggle)}
-              style={bulletStyles(this, customize, this.state.touchPositionX)}
+              id={ids.bulletToggle}
               ref='bulletToggle'
+              style={bulletStyles(this, customize, this.state.touchPositionX)}
             />
           </div>
         </div>

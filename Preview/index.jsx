@@ -32,11 +32,12 @@ Main.displayName = 'Preview.Main'
 Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Content ({ children, className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Content ({children, className, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <div className={classNames(classes.content)} {...props}>
@@ -50,11 +51,12 @@ Content.displayName = 'Preview.Content'
 Content.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Title ({ children, className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Title ({children, className, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <h2 className={classNames(classes.title, className)} {...props}>
@@ -68,15 +70,23 @@ Title.displayName = 'Preview.Title'
 Title.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Link ({ children, className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Link ({children, className, id, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      link: `${id}__link`
+    } : {}
 
   return (
-    <div className={classNames(classes.footer)}>
-      <a className={classNames(classes.footerLink, className)} {...props}>
+    <div className={classNames(classes.footer)} id={id}>
+      <a
+        className={classNames(classes.footerLink, className)}
+        id={ids.link}
+        {...props}>
         {children}
       </a>
     </div>
@@ -88,5 +98,6 @@ Link.displayName = 'Preview.Link'
 Link.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }

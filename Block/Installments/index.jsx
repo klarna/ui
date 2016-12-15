@@ -28,6 +28,7 @@ Main.displayName = 'Block.Installments.Main'
 Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -46,6 +47,7 @@ Title.displayName = 'Block.Installments.Title'
 Title.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -64,22 +66,39 @@ Content.displayName = 'Block.Installments.Content'
 Content.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Value ({ className, clarification, children, title, styles, value, ...props }) {
+export function Value ({ className, clarification, children, id, title, styles, value, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
+  const ids = id
+    ? {
+      content: `${id}__content`,
+      clarification: `${id}__clarification`,
+      title: `${id}__title`
+    } : {}
+
   return (
-    <div className={classNames(classes.value, className)} {...props}>
-      <div className={classNames(classes.valueTitle)}>
+    <div
+      className={classNames(classes.value, className)}
+      id={id}
+      {...props}>
+      <div
+        className={classNames(classes.valueTitle)}
+        id={ids.title}>
         {title}
       </div>
 
-      <div className={classNames(classes.valueContent)}>
+      <div
+        className={classNames(classes.valueContent)}
+        id={ids.content}>
         {value}
         {clarification && (
-          <span className={classNames(classes.valueContentClarification)}>
+          <span
+            className={classNames(classes.valueContentClarification)}
+            id={ids.clarification}>
             {clarification}
           </span>
         )}
@@ -94,7 +113,8 @@ Value.propTypes = {
   clarification: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  value: PropTypes.string.isRequired
 }

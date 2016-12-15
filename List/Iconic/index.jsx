@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import * as Paragraph from '../../Paragraph'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
@@ -22,17 +22,37 @@ export function Wrapper ({className, children, styles, ...props}) {
 
 Wrapper.displayName = 'List.Iconic.Wrapper'
 
-export function Item ({className, icon, children, styles, ...props}) {
-  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+Wrapper.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  id: PropTypes.string,
+  styles: PropTypes.object
+}
 
-  return <div className={classNames(classes.item)} {...props}>
-    <tbody>
-      <tr>
-        <td className={classNames(classes.itemIcon)}>
+export function Item ({className, icon, id, children, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      tbody: `${id}__tbody`,
+      tr: `${id}__tr`,
+      icon: `${id}__icon`,
+      contentTd: `${id}__content-td`,
+      content: `${id}__content`
+    } : {}
+
+  return <div
+    className={classNames(classes.item)}
+    id={id}
+    {...props}>
+    <tbody id={ids.tbody}>
+      <tr id={ids.tr}>
+        <td
+          className={classNames(classes.itemIcon)}
+          id={ids.icon}>
           {icon}
         </td>
-        <td>
-          <Paragraph.Secondary>
+        <td id={ids.contentTd}>
+          <Paragraph.Secondary id={ids.content}>
             {children}
           </Paragraph.Secondary>
         </td>
@@ -42,3 +62,11 @@ export function Item ({className, icon, children, styles, ...props}) {
 }
 
 Item.displayName = 'List.Iconic.Item'
+
+Item.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  icon: PropTypes.node,
+  id: PropTypes.string,
+  styles: PropTypes.object
+}

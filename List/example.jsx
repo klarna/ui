@@ -83,7 +83,7 @@ export default {
       examples: {
         Regular: <List.Ordered>
           <List.Item>
-            'Twas brillig, and the slithy toves
+            ’Twas brillig, and the slithy toves
           </List.Item>
           <List.Item>
             Did gyre and gimble in the wabe;
@@ -108,13 +108,13 @@ export default {
             </List.Ordered>
           </List.Item>
           <List.Item>
-            'Twas brillig, and the slithy toves
+            ’Twas brillig, and the slithy toves
           </List.Item>
         </List.Ordered>,
 
         secondary: <List.Ordered>
           <List.Item secondary>
-            'Twas brillig, and the slithy toves
+            ’Twas brillig, and the slithy toves
           </List.Item>
           <List.Item secondary>
             Did gyre and gimble in the wabe;
@@ -128,7 +128,7 @@ export default {
             </List.Ordered>
           </List.Item>
           <List.Item secondary>
-            'Twas brillig, and the slithy toves
+            ’Twas brillig, and the slithy toves
           </List.Item>
         </List.Ordered>,
 
