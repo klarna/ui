@@ -20,6 +20,7 @@ Strong.defaultProps = {
 
 Strong.propTypes = {
   children: PropTypes.node,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 

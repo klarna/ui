@@ -12,5 +12,6 @@ export default function Price ({ children, ...props }) {
 Price.displayName = 'Button.Price'
 
 Price.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  id: PropTypes.string
 }

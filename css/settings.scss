@@ -32,7 +32,6 @@ $colors: (
   black: #3c3c3e,
   block-hover: #f9f9f9,
   grey-text: #8e8e90,
-  darker-grey-text: #8e8e90,
   hover-grey-text: darken(#8e8e90, 20),
   active-grey-text: darken(#8e8e90, 30),
   grey-icon: #a9a9a9,
@@ -117,3 +116,9 @@ $border-radius: $grid;
 $border-radius-checkbox: ($grid * .4);
 $border-color: map-get($colors, grey-lines);
 $border-color-inner: map-get($colors, light-grey);
+
+
+// ================================================================
+//  Opacity
+// ================================================================
+$disabled-selector: 0.2;

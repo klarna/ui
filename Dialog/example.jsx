@@ -59,7 +59,12 @@ export default {
   icon: 'Dialog',
 
   examples: {
-    require: 'import * as Dialog from \'@klarna/ui/Dialog\'',
+    require: `import * as Dialog from '@klarna/ui/Dialog'
+import {Close} from '@klarna/ui/IconButton'
+import * as Title from '@klarna/ui/Title'
+import Subtitle from '@klarna/ui/Subtitle'
+import * as Paragraph from '@klarna/ui/Paragraph'
+import * as Button from '@klarna/ui/Button'`,
     type: MANUAL,
 
     examples: {

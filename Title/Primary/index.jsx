@@ -53,6 +53,7 @@ Primary.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
+  id: PropTypes.string,
   margins: PropTypes.bool,
   small: PropTypes.bool,
   strong: PropTypes.bool,

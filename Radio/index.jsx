@@ -39,6 +39,7 @@ const Radio = React.createClass({
     }),
     disabled: PropTypes.bool,
     focus: PropTypes.string,
+    id: PropTypes.string,
     name: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
@@ -102,6 +103,7 @@ const Radio = React.createClass({
           borderless,
           'is-focused': focus != null
         }, className)}
+        id={name}
         style={baseStyle}
         {...remainingProps}>
         {options.map((option) => {
@@ -117,11 +119,26 @@ const Radio = React.createClass({
           } = option
 
           const isDisabled = allDisabled || disabled
+          const id = `${name}-${key}`
+          const ids = {
+            aside: `${id}__aside`,
+            bullet: `${id}__bullet`,
+            checkmark: `${id}__checkmark`,
+            content: `${id}__content`,
+            description: `${id}__description`,
+            header: `${id}__header`,
+            headerInner: `${id}__header--inner`,
+            label: `${id}__label`,
+            labelInner: `${id}__label--inner`,
+            left: `${id}__left`,
+            right: `${id}__right`,
+            wrapper: `${id}__wrapper`
+          }
 
           return [
             <input
               className={classNames(classes.optionInput)}
-              id={`${name}-${key}`}
+              id={id}
               name={name}
               type='radio'
               onBlur={onBlur}
@@ -132,8 +149,7 @@ const Radio = React.createClass({
               value={key}
               disabled={isDisabled}
             />,
-            <label
-              htmlFor={`${name}-${key}`}
+            <div
               className={classNames(
                 classes.option,
                 {
@@ -142,50 +158,65 @@ const Radio = React.createClass({
                   'is-disabled': isDisabled
                 }
               )}
+              id={ids.label}
               {...restOfProps}>
-              <div className={classNames(classes.optionHeader)}>
-                <div className={classNames(classes.optionHeaderInner)}>
-                  {!singleOption && <div className={classNames(classes.optionLeft)}>
-                    <div className={classNames(classes.optionWrapper)}>
+              <label
+                htmlFor={`${name}-${key}`}
+                className={classNames(classes.optionHeader)}
+                id={ids.header}>
+                <div
+                  className={classNames(classes.optionHeaderInner)}
+                  id={ids.headerInner}>
+                  {!singleOption && <div className={classNames(classes.optionLeft)} id={ids.left}>
+                    <div className={classNames(classes.optionWrapper)} id={ids.wrapper}>
                       <div
                         className={classNames(classes.optionBullet)}
+                        id={ids.bullet}
                         style={key === value ? bulletStyle : undefined}
                       />
                       <div
                         className={classNames(classes.optionCheckmark)}
+                        id={ids.checkmark}
                         style={key === value ? checkmarkStyle : undefined}
                       />
                     </div>
                   </div>}
 
-                  <div className={classNames(classes.optionRight)}>
+                  <div
+                    className={classNames(classes.optionRight)}
+                    id={ids.right}>
                     <div
                       className={classNames(classes.optionLabel)}
+                      id={ids.labelInner}
                       style={labelStyle}>
                       {label}
                     </div>
 
                     {description && <div
                       className={classNames(classes.optionDescription)}
+                      id={ids.description}
                       style={descriptionStyle}>
                       {description}
                     </div>}
                   </div>
 
                   {aside && <div
-                    className={classNames(classes.optionAside)}>
+                    className={classNames(classes.optionAside)}
+                    id={ids.aside}>
                     {aside}
                   </div>}
                 </div>
-              </div>
+              </label>
 
               {content && <Collapsible
                 collapsed={isDisabled || !singleOption && key !== value}>
-                <div className={classNames(classes.optionContent)}>
+                <div
+                  className={classNames(classes.optionContent)}
+                  id={ids.content}>
                   {content}
                 </div>
               </Collapsible>}
-            </label>
+            </div>
           ]
         })}
       </div>
