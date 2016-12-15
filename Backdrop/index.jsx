@@ -11,7 +11,7 @@ const classes = {
 export default function Backdrop ({children, style, ...props}) {
   const classNames = classNameBind.bind({...defaultStyles, ...styles})
 
-  return <div className={classNames(baseClass)}>
+  return <div className={classNames(baseClass)} {...props}>
     <div className={classNames(classes.smoke)}>
       {children}
     </div>
