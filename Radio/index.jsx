@@ -17,7 +17,9 @@ const classes = {
   optionLabel: `${baseClass}__option__label`,
   optionInput: `${baseClass}__option__input`,
   optionLeft: `${baseClass}__option__left`,
+  optionLeftmost: `${baseClass}__option__leftmost`,
   optionRight: `${baseClass}__option__right`,
+  optionRightmost: `${baseClass}__option__rightmost`,
   optionHeader: `${baseClass}__option__header`,
   optionHeaderInner: `${baseClass}__option__inner`,
   optionWrapper: `${baseClass}__option__wrapper`,
@@ -167,7 +169,7 @@ const Radio = React.createClass({
                 <div
                   className={classNames(classes.optionHeaderInner)}
                   id={ids.headerInner}>
-                  {!singleOption && <div className={classNames(classes.optionLeft)} id={ids.left}>
+                  {!singleOption && <div className={classNames(classes.optionLeft, classes.optionLeftmost)} id={ids.left}>
                     <div className={classNames(classes.optionWrapper)} id={ids.wrapper}>
                       <div
                         className={classNames(classes.optionBullet)}
@@ -183,7 +185,13 @@ const Radio = React.createClass({
                   </div>}
 
                   <div
-                    className={classNames(classes.optionRight)}
+                    className={classNames(
+                      classes.optionRight,
+                      {
+                        [classes.optionRightmost]: !aside,
+                        [classes.optionLeftmost]: singleOption
+                      }
+                    )}
                     id={ids.right}>
                     <div
                       className={classNames(classes.optionLabel)}
@@ -201,7 +209,7 @@ const Radio = React.createClass({
                   </div>
 
                   {aside && <div
-                    className={classNames(classes.optionAside)}
+                    className={classNames(classes.optionAside, classes.optionRightmost)}
                     id={ids.aside}>
                     {aside}
                   </div>}
