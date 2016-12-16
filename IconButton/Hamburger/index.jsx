@@ -58,6 +58,6 @@ Hamburger.propTypes = {
 
 export default compose(
   themeable(() => ({color: 'gray'})),
-  withDisplayName('Hamburger'),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  withDisplayName('Hamburger')
 )(Hamburger)

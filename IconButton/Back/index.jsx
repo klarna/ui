@@ -56,6 +56,6 @@ Back.propTypes = {
 
 export default compose(
   themeable(() => ({color: 'gray'})),
-  withDisplayName('Back'),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  withDisplayName('Back')
 )(Back)

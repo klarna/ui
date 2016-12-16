@@ -56,6 +56,6 @@ Options.propTypes = {
 
 export default compose(
   themeable(() => ({color: 'gray'})),
-  withDisplayName('Options'),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  withDisplayName('Options')
 )(Options)
