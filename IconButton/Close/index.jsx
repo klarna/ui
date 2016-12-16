@@ -56,6 +56,6 @@ Close.propTypes = {
 
 export default compose(
   themeable(() => ({color: 'gray'})),
-  withDisplayName('Close'),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  withDisplayName('Close')
 )(Close)

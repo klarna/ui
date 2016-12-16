@@ -55,6 +55,6 @@ Search.propTypes = {
 
 export default compose(
   themeable(() => ({color: 'gray'})),
-  withDisplayName('Search'),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  withDisplayName('Search')
 )(Search)
