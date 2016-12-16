@@ -1,5 +1,5 @@
 import React from 'react'
-import * as Installments from '../Installments'
+import Installments from '../Installments'
 import {LIVE, LIVE_WIDE} from '../Showroom/variationTypes'
 
 const options = [
@@ -12,51 +12,41 @@ const options = [
 export default {
   title: 'Installments',
 
-  variations: [
-    {
-      title: 'Horizontal',
-      require: `import * as Installments from '@klarna/ui/Installments'`,
-      type: LIVE_WIDE,
+  examples: {
+    require: `import Installments from '@klarna/ui/Installments'`,
+    type: LIVE_WIDE,
 
-      examples: {
-        Regular: <Installments.Horizontal
-          onChange={(key) => console.log('You selected', key)}
-          name='installments'
-          value='installments_12'
-          options={options}
-        />,
+    examples: {
+      Regular: <Installments
+        onChange={(key) => console.log('You selected', key)}
+        name='installments'
+        value='installments_12'
+        options={options}
+      />,
 
-        Focused: <Installments.Horizontal
-          onChange={(key) => console.log('You selected', key)}
-          name='installments3'
-          value='installments_12'
-          focus='installments_6'
-          options={options}
-        />
-      }
-    },
+      Focused: <Installments
+        onChange={(key) => console.log('You selected', key)}
+        name='installments3'
+        value='installments_12'
+        focus='installments_6'
+        options={options}
+      />,
 
-    {
-      title: 'Vertical',
-      require: `import * as Installments from '@klarna/ui/Installments'`,
-      type: LIVE,
+      Horizontal: <Installments
+        layout='horizontal'
+        onChange={(key) => console.log('You selected', key)}
+        name='installments'
+        value='installments_12'
+        options={options}
+      />,
 
-      examples: {
-        Regular: <Installments.Vertical
-          onChange={(key) => console.log('You selected', key)}
-          name='installments'
-          value='installments_12'
-          options={options}
-        />,
-
-      Focused: <Installments.Vertical
-          onChange={(key) => console.log('You selected', key)}
-          name='installments3'
-          value='installments_12'
-          focus='installments_6'
-          options={options}
-        />
-      }
+      Vertical: <Installments
+        layout='vertical'
+        onChange={(key) => console.log('You selected', key)}
+        name='installments'
+        value='installments_12'
+        options={options}
+      />
     }
-  ]
+  }
 }
