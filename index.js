@@ -33,7 +33,6 @@ import * as TheUncontrolledSwitch from './uncontrolled/Switch'
 export { default as UncontrolledDropdown } from './uncontrolled/Dropdown'
 export { default as UncontrolledField } from './uncontrolled/Field'
 export { default as UncontrolledInput } from './uncontrolled/Input'
-export { default as UncontrolledInstallments } from './uncontrolled/Installments'
 export { default as UncontrolledRadio } from './uncontrolled/Radio'
 export { default as UncontrolledSelector } from './uncontrolled/Selector'
 

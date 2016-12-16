@@ -1,10 +1,10 @@
-@import '../css/settings';
-@import '../css/mixins/index';
+@import '../../css/settings';
+@import '../../css/mixins/index';
 
 $transition-duration: 500ms;
 $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
-.installments {
+.installments--vertical {
   box-sizing: border-box;
   display: block;
   position: relative;
@@ -16,13 +16,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     display: block;
   }
 
-  @include respond-to-wide {
-    display: table;
-    height: ($grid * 15);
-    table-layout: fixed;
-  }
-
-  .installments__input {
+  .installments--vertical__input {
     display: block;
     height: 0;
     opacity: 0;
@@ -30,15 +24,11 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     width: 0;
   }
 
-  .installments__row {
+  .installments--vertical__row {
     display: block;
-
-    @include respond-to-wide {
-      display: table-row;
-    }
   }
 
-  .installments__cell {
+  .installments--vertical__cell {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     border: ($grid * .2) solid $border-color;
     border-bottom: 0;
@@ -66,68 +56,31 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     &.is-after-previously-selected {
       transition: border 0ms;
     }
-
-
-    @include respond-to-wide {
-      border: ($grid * .2) solid $border-color;
-      border-right: 0;
-      display: table-cell;
-      height: 100%;
-      text-align: center;
-      vertical-align: middle;
-
-      &:first-of-type {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 0px;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 0px;
-      }
-
-      &:last-of-type {
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 5px;
-        border-right: ($grid * .2) solid $border-color;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 5px;
-      }
-    }
   }
 
-  .installments__cell__content {
+  .installments--vertical__cell__content {
     @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     cursor: pointer;
     display: block;
-    line-height: ($grid * 8) - ($grid * .4);
+    line-height: ($grid * 5);
+    padding-bottom: ($grid * 2.4);
     padding-left: ($grid * 4);
-
-    @include respond-to-wide {
-      @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
-
-      line-height: ($grid * 4);
-      padding-left: 0;
-    }
+    padding-top: ($grid * 2.4);
   }
 
-  .installments__cell.is-hovered,
-  .installments__cell.is-focused {
+  .installments--vertical__cell.is-hovered,
+  .installments--vertical__cell.is-focused {
     color: map-get($colors, klarna-blue);
   }
 
   .is-selected {
     border-bottom-color: transparent;
     border-top-color: transparent;
-
-    @include respond-to-wide {
-      border-bottom-color: $border-color;
-      border-left-color: transparent;
-      border-right-color: transparent;
-      border-top-color: $border-color;
-    }
   }
 
-  .installments__cell__highlight {
+  .installments--vertical__cell__highlight {
     border: ($grid * .4) solid map-get($colors, klarna-blue);
     border-radius: 5px;
     box-sizing: border-box;
@@ -140,10 +93,6 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
     top: -1px;
     z-index: 5;
 
-    @include respond-to-wide {
-      height: ($grid * 15);
-    }
-
     &.has-position {
       transition: transform $transition-duration $highlightTransitionEasing, height $transition-duration $highlightTransitionEasing, width $transition-duration $highlightTransitionEasing;
     }
@@ -151,10 +100,5 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
   .is-after-selected {
     border-top-color: transparent;
-
-    @include respond-to-wide {
-      border-left-color: transparent;
-      border-top-color: $border-color;
-    }
   }
 }
