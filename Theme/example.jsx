@@ -112,7 +112,7 @@ import * as List from '@klarna/ui/List'`,
           color_link: '#00ce3e',
           color_text: 'green',
           color_text_secondary: 'red',
-          radius_border: '0'
+          radius_border: '10px'
         }}>
 
         <div>
