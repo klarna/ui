@@ -7,7 +7,6 @@ import defaultStyles from './styles.scss'
 import compose from '../../lib/compose'
 
 const baseClass = 'installments--vertical'
-const TRANSITION_DURATION = 500
 
 const classes = {
   input: `${baseClass}__input`,
@@ -61,7 +60,6 @@ const Vertical = React.createClass({
 
   componentWillReceiveProps (props) {
     if (props.value !== undefined) {
-      const label = this.getSelectedLabel(props.value)
       this.setState({
         previouslySelected: this.props.value
       })

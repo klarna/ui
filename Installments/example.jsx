@@ -3,10 +3,10 @@ import Installments from '../Installments'
 import {LIVE_WIDE} from '../Showroom/variationTypes'
 
 const options = [
-  { key: 'installments_3', content: 'Long one line text in div' },
-  { key: 'installments_6', content: '$64.17/mo. array of elements' },
-  { key: 'installments_12', content: 'Simple text content' },
-  { key: 'installments_24', content: 'Force new line' }
+  { key: 'installments_3', content: 'Lorem ipsum dolor sit amet' },
+  { key: 'installments_6', content: 'Et consequetur bla bla' },
+  { key: 'installments_12', content: 'Lorem ipsum dolor sit amet' },
+  { key: 'installments_24', content: 'Et consequetur bla bla' }
 ]
 
 export default {
