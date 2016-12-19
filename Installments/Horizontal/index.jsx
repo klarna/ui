@@ -19,26 +19,6 @@ const classes = {
 
 const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
 
-const calculateHighlightPosition = (selected) => {
-  if (!selected) {
-    return {}
-  }
-
-  const BORDER_SIZE = 1
-
-  const left = selected.offsetLeft + BORDER_SIZE
-  const top = selected.offsetTop + BORDER_SIZE
-  const width = selected.offsetWidth
-  const height = selected.offsetHeight
-
-  return {
-    left,
-    top,
-    width,
-    height
-  }
-}
-
 const Horizontal = React.createClass({
   displayName: 'Installments.Horizontal',
 
@@ -66,16 +46,7 @@ const Horizontal = React.createClass({
   getInitialState () {
     return {
       hover: undefined,
-      previouslySelected: undefined,
-      highlight: {
-        position: {
-          width: undefined,
-          height: undefined,
-          left: undefined,
-          top: undefined
-        },
-        transitions: false
-      }
+      previouslySelected: undefined
     }
   },
 
@@ -86,8 +57,6 @@ const Horizontal = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-
-    this.setHighlightPosition(calculateHighlightPosition(this.getSelectedLabel()))
   },
 
   componentWillReceiveProps (props) {
@@ -96,14 +65,6 @@ const Horizontal = React.createClass({
       this.setState({
         previouslySelected: this.props.value
       })
-
-      this.setHighlightPosition(calculateHighlightPosition(label))
-
-      if (this.state.highlight.transitions !== true) {
-        setTimeout(() => {
-          this.setHighlightTransitions(true)
-        }, TRANSITION_DURATION)
-      }
     }
   },
 
@@ -118,41 +79,6 @@ const Horizontal = React.createClass({
 
   getSelectedLabel (key) {
     return this.refs[`${key || this.props.value}-label`]
-  },
-
-  setHighlightPosition (position) {
-    this.setState({
-      highlight: {
-        ...this.state.highlight,
-        position: {
-          ...this.state.highlight.position,
-          ...position
-        }
-      }
-    })
-  },
-
-  resetHighlightPosition () {
-    this.setHighlightPosition({
-      width: 0,
-      height: 0,
-      left: 0,
-      top: 0
-    })
-    this.refs.highlight.style.display = 'none'
-
-    setTimeout(() => {
-      this.refs.highlight.style.display = 'block'
-    })
-  },
-
-  setHighlightTransitions (enabled) {
-    this.setState({
-      highlight: {
-        ...this.state.highlight,
-        transitions: enabled
-      }
-    })
   },
 
   render () {
