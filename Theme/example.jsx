@@ -204,9 +204,9 @@ import * as List from '@klarna/ui/List'`,
             name='installments'
             value='installments_24'
             options={[
-              { key: 'installments_6', value: '$64.17/mo.', connector: 'for', info: ' 6 months' },
-              { key: 'installments_12', value: '$32.09/mo.', connector: 'for', info: ' 12 months' },
-              { key: 'installments_24', value: '$16.05/mo.', connector: 'for', info: ' 24 months' }
+              { key: 'installments_6', value: '$64.17/mo.', content: '$64.17/mo.', connector: 'for', info: ' 6 months' },
+              { key: 'installments_12', value: '$32.09/mo.', content: '$32.09/mo.', connector: 'for', info: ' 12 months' },
+              { key: 'installments_24', value: '$16.05/mo.', content: '$16.05/mo.', connector: 'for', info: ' 24 months' }
             ]}
           />
         </div>
