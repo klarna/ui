@@ -20,14 +20,14 @@ export default {
       Regular: <Installments
         onChange={(key) => console.log('You selected', key)}
         name='installments'
-        value='installments_12'
+        defaultValue='installments_12'
         options={options}
       />,
 
       Focused: <Installments
         onChange={(key) => console.log('You selected', key)}
         name='installments3'
-        value='installments_12'
+        defaultValue='installments_12'
         focus='installments_6'
         options={options}
       />,
@@ -36,7 +36,7 @@ export default {
         layout='horizontal'
         onChange={(key) => console.log('You selected', key)}
         name='installments'
-        value='installments_12'
+        defaultValue='installments_12'
         options={options}
       />,
 
@@ -44,7 +44,7 @@ export default {
         layout='vertical'
         onChange={(key) => console.log('You selected', key)}
         name='installments'
-        value='installments_12'
+        defaultValue='installments_12'
         options={options}
       />
     }

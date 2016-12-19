@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
+import uncontrolled from '../../decorators/uncontrolled'
 import defaultStyles from './styles.scss'
 import debounce from '../../lib/debounce'
 import compose from '../../lib/compose'
@@ -278,22 +279,13 @@ const Vertical = React.createClass({
               id={ids.content}>
               {content}
             </div>
+            <span
+              className={classNames(classes.cellHighlight)}
+              style={{...highlightDynamicStyles}}
+            />
           </label>
         })}
       </div>
-      <span
-        ref='highlight'
-        className={classNames(
-          classes.cellHighlight,
-          { 'has-position': this.state.highlight.transitions }
-        )}
-        id={ids.highlight}
-        style={{
-          ...highlightDynamicStyles,
-          ...highlightPositionStyles,
-          ...(selected !== undefined ? { opacity: 1 } : {})
-        }}
-      />
     </div>)
   }
 })
@@ -318,6 +310,12 @@ const cellDynamicStyles = ({ borderRadius, borderColor, borderColorSelected, lab
 })
 
 export default compose(
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlerName: 'onChange',
+    handlerSelector: (x) => x
+  }),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,
