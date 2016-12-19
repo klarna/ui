@@ -302,8 +302,8 @@ const onCellClick = hoverEndHandler
 
 const cellDynamicStyles = ({ borderRadius, borderColor, borderColorSelected, labelColor }, hovered, isFirst, isLast) => ({
   borderTopLeftRadius: isFirst ? borderRadius : undefined,
-  borderBottomLeftRadius: isFirst ? borderRadius : undefined,
-  borderTopRightRadius: isLast ? borderRadius : undefined,
+  borderTopRightRadius: isFirst ? borderRadius : undefined,
+  borderBottomLeftRadius: isLast ? borderRadius : undefined,
   borderBottomRightRadius: isLast ? borderRadius : undefined,
   color: hovered ? borderColorSelected : labelColor,
   borderColor
