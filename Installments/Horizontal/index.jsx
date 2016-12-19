@@ -4,7 +4,6 @@ import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 import uncontrolled from '../../decorators/uncontrolled'
 import defaultStyles from './styles.scss'
-import debounce from '../../lib/debounce'
 import compose from '../../lib/compose'
 
 const baseClass = 'installments--horizontal'
@@ -17,12 +16,6 @@ const classes = {
   cell: `${baseClass}__cell`,
   cellHighlight: `${baseClass}__cell__highlight`
 }
-
-const vendorPrefixTransformation = (transformation) => ({
-  msTransform: transformation,
-  WebkitTransform: transformation,
-  transform: transformation
-})
 
 const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
 
@@ -205,12 +198,6 @@ const Horizontal = React.createClass({
         borderRadius: customize.borderRadius
       }
       : undefined
-
-    const highlightPositionStyles = {
-      width: this.state.highlight.position.width,
-      height: this.state.highlight.position.height,
-      ...vendorPrefixTransformation(`translate(${this.state.highlight.position.left}px, ${this.state.highlight.position.top}px)`)
-    }
 
     const ids = id
       ? {

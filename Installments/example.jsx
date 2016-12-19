@@ -1,6 +1,6 @@
 import React from 'react'
 import Installments from '../Installments'
-import {LIVE, LIVE_WIDE} from '../Showroom/variationTypes'
+import {LIVE_WIDE} from '../Showroom/variationTypes'
 
 const options = [
   { key: 'installments_3', content: 'Long one line text in div' },
@@ -13,7 +13,7 @@ export default {
   title: 'Installments',
 
   examples: {
-    require: `import Installments from '@klarna/ui/Installments'`,
+    require: 'import Installments from \'@klarna/ui/Installments\'',
     type: LIVE_WIDE,
 
     examples: {
