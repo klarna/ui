@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, {Component, PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import Horizontal from './Horizontal'
 import Vertical from './Vertical'
@@ -9,23 +9,40 @@ const baseClass = 'installments'
 
 const classNames = classNamesBind.bind(defaultStyles)
 
-function Installments ({layout, ...props}) {
-  switch (layout) {
-    case 'horizontal':
-      return <Horizontal {...props} />
+class Installments extends Component {
+  componentDidMount () {
+    this.wrapper && this.wrapper.addEventListener('animationstart', (e) => {
+      switch (e.animationName) {
+        case defaultStyles.onLayoutChangeToNarrow:
+        case defaultStyles.onLayoutChangeToWide:
+          this.forceUpdate()
+          return
+      }
+    })
+  }
 
-    case 'vertical':
-      return <Vertical {...props} />
+  render () {
+    const {layout, ...props} = this.props
 
-    case 'auto':
-    default:
-      const wide = window.innerWidth > MOBILE_MAX_WIDTH
+    switch (layout) {
+      case 'horizontal':
+        return <Horizontal {...props} />
 
-      return <div className={classNames(baseClass)}>
-        {wide
-          ? <Horizontal {...props} />
-          : <Vertical {...props} />}
-      </div>
+      case 'vertical':
+        return <Vertical {...props} />
+
+      case 'auto':
+      default:
+        const wide = window.innerWidth > MOBILE_MAX_WIDTH
+
+        return <div
+          className={classNames(baseClass)}
+          ref={(wrapper) => { this.wrapper = wrapper }}>
+          {wide
+            ? <Horizontal {...props} />
+            : <Vertical {...props} />}
+        </div>
+    }
   }
 }
 

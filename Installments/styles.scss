@@ -1,6 +1,20 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
-.installments {
+@keyframes onLayoutChangeToNarrow {
+  from {opacity: 1}
+  to {opacity: 1}
+}
 
+@keyframes onLayoutChangeToWide {
+  from {opacity: 1}
+  to {opacity: 1}
+}
+
+.installments {
+  animation: onLayoutChangeToNarrow .5s;
+
+  @include respond-to-wide {
+    animation: onLayoutChangeToWide .5s;
+  }
 }
