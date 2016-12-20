@@ -91,6 +91,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   box-sizing: border-box;
   cursor: pointer;
   display: block;
+  height: ($grid * 15);
   left: -1px;
   opacity: 0;
   pointer-events: none;
@@ -99,10 +100,6 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   top: -1px;
   transition: opacity .4s ease;
   z-index: 5;
-
-  @include respond-to-ie((9,10)) {
-    height: ($grid * 15);
-  }
 
   .is-selected & {
     opacity: 1;
