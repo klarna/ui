@@ -87,17 +87,17 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 .installments--vertical__cell__highlight {
   border: ($grid * .4) solid map-get($colors, klarna-blue);
   border-radius: 5px;
+  bottom: -1px;
   box-sizing: border-box;
   cursor: pointer;
   display: block;
-  height: calc(100% + 2px);
   left: -1px;
   opacity: 0;
   pointer-events: none;
   position: absolute;
+  right: -1px;
   top: -1px;
   transition: opacity .4s ease;
-  width: calc(100% + 2px);
   z-index: 5;
 
   .is-selected & {
