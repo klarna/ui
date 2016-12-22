@@ -145,7 +145,7 @@ const Radio = React.createClass({
               type='radio'
               onBlur={onBlur}
               checked={key === value}
-              onChange={() => onChange && onChange(key)}
+              onChange={() => onChange && key !== value && onChange(key)}
               onFocus={(e) => onFocus && onFocus(key, e)}
               ref={key}
               value={key}
