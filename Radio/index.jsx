@@ -5,6 +5,7 @@ import compose from '../lib/compose'
 import uncontrolled from '../decorators/uncontrolled'
 import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
+import getActiveElement from '../lib/getActiveElement'
 
 const baseClass = 'radio'
 
@@ -54,7 +55,7 @@ const Radio = React.createClass({
   componentDidMount () {
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
@@ -63,7 +64,7 @@ const Radio = React.createClass({
   componentDidUpdate () {
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }

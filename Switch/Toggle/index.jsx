@@ -4,6 +4,7 @@ import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 import compose from '../../lib/compose'
 import defaultStyles from './styles.scss'
+import getActiveElement from '../../lib/getActiveElement'
 
 const baseClass = 'switch'
 
@@ -134,13 +135,13 @@ const Toggle = React.createClass({
   },
 
   componentDidMount () {
-    if (this.props.focus && document.activeElement !== this.refs.input) {
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
   },
 
   componentDidUpdate () {
-    if (this.props.focus && document.activeElement !== this.refs.input) {
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
   },
