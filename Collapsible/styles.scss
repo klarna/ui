@@ -1,3 +1,5 @@
 .wrapper {
-  transition: all 0.4s cubic-bezier(.02,.33,.44,1);
+  transition-duration: 0.4s;
+  transition-property: height, opacity;
+  transition-timing-function: cubic-bezier(.02,.33,.44,1);
 }
