@@ -13,8 +13,8 @@ export default class Collapsible extends Component {
   }
 
   componentDidMount () {
-    this.debouncedResizeHandler = debounce(() => this.onResize())
-    window.addEventListener('resize', this.debouncedResizeHandler)
+    this.debouncedUpdateHeight = debounce(() => this.updateHeight())
+    window.addEventListener('resize', this.debouncedUpdateHeight)
 
     this.updateHeight()
   }
@@ -23,7 +23,7 @@ export default class Collapsible extends Component {
     // Clean the reference to the content element since we are unmounting.
     // We check if it is defined in updateHeight before doing any update.
     this.content = null
-    window.removeEventListener('resize', this.debouncedResizeHandler)
+    window.removeEventListener('resize', this.debouncedUpdateHeight)
   }
 
   componentWillReceiveProps (nextProps) {
@@ -34,10 +34,6 @@ export default class Collapsible extends Component {
   }
 
   componentDidUpdate () {
-    this.updateHeight()
-  }
-
-  onResize () {
     this.updateHeight()
   }
 
