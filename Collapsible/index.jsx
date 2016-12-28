@@ -7,7 +7,8 @@ export default class Collapsible extends Component {
     super()
 
     this.state = {
-      height: 0
+      height: 0,
+      shouldRenderChildren: false
     }
   }
 
@@ -25,6 +26,13 @@ export default class Collapsible extends Component {
     window.removeEventListener('resize', this.debouncedResizeHandler)
   }
 
+  componentWillReceiveProps (nextProps) {
+    // The collapsed content is only rendered if it is expanded at least once
+    if (!nextProps.collapsed && !this.state.shouldRenderChildren) {
+      this.setState({ shouldRenderChildren: true })
+    }
+  }
+
   componentDidUpdate () {
     this.updateHeight()
   }
@@ -34,6 +42,10 @@ export default class Collapsible extends Component {
   }
 
   updateHeight () {
+    // We don't need to update the height of collapsed
+    // content (it will be zero)
+    if (this.props.collapsed) { return }
+
     // Since update can happen asynchronously (debounced),
     // it might be executed after the component was already
     // unmounted.
@@ -63,11 +75,19 @@ export default class Collapsible extends Component {
             // to be expanded). '10' is a magic number 🎩
             overflow: this.state.height - height > 10 ? 'hidden' : 'visible'
           }}>
-          {children}
+          {this.state.shouldRenderChildren && children}
         </div>}
       </Motion>
     </div>
   }
 }
 
-const getHeight = (node) => node.children[0].children[0].getBoundingClientRect().height
+const getHeight = (node) => {
+  const container = node.children[0]
+  if (!container) { return 0 }
+
+  const content = container.children[0]
+  if (!content) { return 0 }
+
+  return content.getBoundingClientRect().height
+}
