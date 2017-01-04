@@ -19,6 +19,7 @@ class BackdropExample extends Component {
         </Button.Primary>
 
         {this.state.open && <Backdrop
+          pinBody
           onClick={() => this.setState({ open: false })}
         />}
       </div>
@@ -28,6 +29,6 @@ class BackdropExample extends Component {
 
 export const live = <BackdropExample />
 
-export const code = '<Backdrop />'
+export const code = '<Backdrop pinBody />'
 
 export const require = 'import Backdrop from \'@klarna/ui/Backdrop\''

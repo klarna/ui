@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
@@ -9,23 +9,43 @@ const classes = {
 }
 
 export default class Backdrop extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      top: undefined
+    }
+  }
+
   componentWillMount () {
     if (this.props.pinBody) {
-      // TODO pin window
+      pinBody(this)
     }
+  }
+
+  componentWillUnmount () {
+    unPinBody(this.state.top)
   }
 
   componentDidUpdate () {
     if (this.props.pinBody) {
-      // TODO pin if not pinned already
+      pinBody(this)
     }
   }
 
   render () {
-    const {children, styles, ...props} = this.props
+    const {
+      children,
+      pinBody,
+      styles,
+      ...props
+    } = this.props
     const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-    return <div className={classNames(baseClass)} {...props}>
+    return <div
+      className={classNames(baseClass)}
+      style={pinBody ? {top: this.state.top} : undefined}
+      {...props}>
       <div className={classNames(classes.smoke)}>
         {children}
       </div>
@@ -33,18 +53,23 @@ export default class Backdrop extends Component {
   }
 }
 
-const pinBody = () => {
+const pinBody = (component) => {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-  width: 100%;
-  height: 100%;
-  position: fixed;
 
-document.body.setAttribute('class', 'locked')
-document.body.style.top = `-${scrollTop}px`
+  document.body.style.height = '100%'
+  document.body.style.position = 'fixed'
+  document.body.style.top = `-${scrollTop}px`
+  document.body.style.width = '100%'
 
-this.setState({
-  top: scrollTop
-})
+  if (component.state.top !== scrollTop) {
+    component.setState({top: scrollTop})
+  }
+}
 
-  // TODO whatever Pierre did
+const unPinBody = (top) => {
+  document.body.style.height = 'auto'
+  document.body.style.position = 'static'
+  document.body.style.top = '0'
+  document.body.style.width = 'auto'
+  document.body.scrollTop = top
 }
