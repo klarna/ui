@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Motion, spring} from 'react-motion'
 import debounce from '../lib/debounce'
+import defaultStyles from './styles.scss'
 
 export default class Collapsible extends Component {
   constructor () {
@@ -12,8 +12,8 @@ export default class Collapsible extends Component {
   }
 
   componentDidMount () {
-    this.debouncedResizeHandler = debounce(() => this.onResize())
-    window.addEventListener('resize', this.debouncedResizeHandler)
+    this.debouncedUpdateHeight = debounce(() => this.updateHeight())
+    window.addEventListener('resize', this.debouncedUpdateHeight)
 
     this.updateHeight()
   }
@@ -22,22 +22,25 @@ export default class Collapsible extends Component {
     // Clean the reference to the content element since we are unmounting.
     // We check if it is defined in updateHeight before doing any update.
     this.content = null
-    window.removeEventListener('resize', this.debouncedResizeHandler)
+    window.removeEventListener('resize', this.debouncedUpdateHeight)
   }
 
-  componentDidUpdate () {
-    this.updateHeight()
+  componentWillReceiveProps (nextProps) {
+    this.updateHeight(nextProps)
   }
 
-  onResize () {
-    this.updateHeight()
-  }
-
-  updateHeight () {
+  /**
+   * Updates the known height of the content, a very costly
+   * operation that should be done as little as possible.
+   */
+  updateHeight (nextProps) {
     // Since update can happen asynchronously (debounced),
     // it might be executed after the component was already
     // unmounted.
     if (!this.content) { return }
+
+    // We don't need to update the height of a collapsed content
+    if (nextProps && nextProps.collapsed || !nextProps && this.props.collapsed) { return }
 
     const height = getHeight(this.content)
 
@@ -50,24 +53,25 @@ export default class Collapsible extends Component {
     const {children, collapsed} = this.props
 
     return <div ref={(div) => { this.content = div }}>
-      <Motion style={{
-        height: spring(collapsed ? 0 : this.state.height),
-        opacity: spring(collapsed ? 0 : 1)
-      }}>
-        {({height, opacity}) => <div
-          style={{
-            height,
-            opacity,
-            // Overflow rule to enable content to overflow outside the collapsible
-            // once the animation is close to be complete (the last few pixels take a while
-            // to be expanded). '10' is a magic number 🎩
-            overflow: this.state.height - height > 10 ? 'hidden' : 'visible'
-          }}>
-          {children}
-        </div>}
-      </Motion>
+      <div
+        className={defaultStyles.wrapper}
+        style={{
+          height: collapsed ? 0 : this.state.height,
+          opacity: collapsed ? 0 : 1,
+          overflow: collapsed ? 'hidden' : 'visible'
+        }}>
+        {children}
+      </div>
     </div>
   }
 }
 
-const getHeight = (node) => node.children[0].children[0].getBoundingClientRect().height
+const getHeight = (node) => {
+  const container = node.children[0]
+  if (!container) { return 0 }
+
+  const content = container.children[0]
+  if (!content) { return 0 }
+
+  return content.getBoundingClientRect().height
+}
