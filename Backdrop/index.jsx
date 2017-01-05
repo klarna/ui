@@ -71,5 +71,6 @@ const unPinBody = (top) => {
   document.body.style.position = 'static'
   document.body.style.top = '0'
   document.body.style.width = 'auto'
-  document.body.scrollTop = top
+  console.log('the top', top)
+  document.documentElement.scrollTop = document.body.scrollTop = top
 }
