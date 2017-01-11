@@ -25,22 +25,22 @@ export default class Collapsible extends Component {
     window.removeEventListener('resize', this.debouncedUpdateHeight)
   }
 
-  componentWillReceiveProps (nextProps) {
-    this.updateHeight(nextProps)
+  componentDidUpdate () {
+    this.updateHeight()
   }
 
   /**
    * Updates the known height of the content, a very costly
    * operation that should be done as little as possible.
    */
-  updateHeight (nextProps) {
+  updateHeight () {
     // Since update can happen asynchronously (debounced),
     // it might be executed after the component was already
     // unmounted.
     if (!this.content) { return }
 
     // We don't need to update the height of a collapsed content
-    if (nextProps && nextProps.collapsed || !nextProps && this.props.collapsed) { return }
+    if (this.props.collapsed) { return }
 
     const height = getHeight(this.content)
 
