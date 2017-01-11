@@ -36,6 +36,7 @@ import Search from '../icons/Search'
 import SMS from '../icons/SMS'
 import Warning from '../icons/Warning'
 import Wrong from '../icons/Wrong'
+import Add from '../icons/Add'
 import colors from '../icons/constants/colors'
 import name from '../lib/name'
 
@@ -67,6 +68,7 @@ const icons = {
     Chevron.Up,
     Checkmark,
     Close,
+    Add,
     Cross,
     Details,
     Download,
