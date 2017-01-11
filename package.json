@@ -20,6 +20,7 @@
   "author": "Klarna front end people",
   "dependencies": {
     "classnames": "2.2.5",
+    "collect-fps": "^1.0.0",
     "parse-color": "1.0.0",
     "react-context-props": "^0.1.4"
   },
@@ -55,8 +56,8 @@
     "node-sass": "3.13.0",
     "normalize.css": "^4.1.1",
     "null-loader": "^0.1.1",
-    "phantomjs-prebuilt": "2.1.7",
     "phantomjs-polyfill": "0.0.2",
+    "phantomjs-prebuilt": "2.1.7",
     "postcss-loader": "^0.13.0",
     "ramda": "^0.21.0",
     "react": "15.3.2",

@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import {Motion, spring} from 'react-motion'
+import collectFPS from 'collect-fps'
 
 export default class Collapsible extends Component {
   constructor (props) {
     super()
 
     this.state = {
-      height: 0
+      height: 0,
+      animated: true
     }
   }
 
@@ -18,7 +20,7 @@ export default class Collapsible extends Component {
 
   componentWillReceiveProps (nextProps) {
     if (!this.props.collapsed !== nextProps.collapsed) {
-      this.setState({ height: calculateHeight(this.content) })
+      this.setState({ height: calculateHeight(this.content) }, () => this.checkPerfomance())
     }
   }
 
@@ -26,25 +28,61 @@ export default class Collapsible extends Component {
     const {children, collapsed} = this.props
 
     return <div ref={(div) => { this.content = div }}>
+      {
+        this.state.animated
+          ? this.renderAnimation(children, collapsed)
+          : this.renderRegular(children, collapsed)
+      }
+    </div>
+  }
+
+  /**
+   * Disable animation on devices with poor performance
+   */
+  checkPerfomance () {
+    if (this.state.animated) {
+      collectFPS((error, fps) => {
+        if (error || fps < 30) {
+          this.setState({ animated: false })
+        }
+      })
+    }
+  }
+
+  renderRegular (children, collapsed) {
+    return (
+      <div
+        style={{
+          display: collapsed ? 'none' : 'block'
+        }}>
+        {children}
+      </div>
+    )
+  }
+
+  renderAnimation (children, collapsed) {
+    return (
       <Motion style={{
         height: spring(collapsed ? 0 : this.state.height),
         opacity: spring(collapsed ? 0 : 1)
       }}>
-        {({height, opacity}) => <div
-          style={{
-            // once it is fully expanded, we set the heigh to auto
-            // and let the browser take care of the size
-            height: height === this.state.height ? 'auto' : height,
-            opacity,
-            // Overflow rule to enable content to overflow outside the collapsible
-            // once the animation is close to be complete (the last few pixels take a while
-            // to be expanded). '10' is a magic number 🎩
-            overflow: this.state.height - height > 10 ? 'hidden' : 'visible'
-          }}>
-          {children}
-        </div>}
+        {({height, opacity}) => {
+          return <div
+            style={{
+              // once it is fully expanded, we set the heigh to auto
+              // and let the browser take care of the size
+              height: height === this.state.height ? 'auto' : height,
+              opacity,
+              // Overflow rule to enable content to overflow outside the collapsible
+              // once the animation is close to be complete (the last few pixels take a while
+              // to be expanded). '10' is a magic number 🎩
+              overflow: this.state.height - height > 10 ? 'hidden' : 'visible'
+            }}>
+            {children}
+          </div>
+        }}
       </Motion>
-    </div>
+    )
   }
 }
 
@@ -59,3 +97,4 @@ const calculateHeight = (node) => {
 
   return content.getBoundingClientRect().height
 }
+
