@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import {Motion, spring} from 'react-motion'
-import debounce from '../lib/debounce'
 
 export default class Collapsible extends Component {
-  constructor () {
+  constructor (props) {
     super()
 
     this.state = {
@@ -12,37 +11,14 @@ export default class Collapsible extends Component {
   }
 
   componentDidMount () {
-    this.debouncedResizeHandler = debounce(() => this.onResize())
-    window.addEventListener('resize', this.debouncedResizeHandler)
-
-    this.updateHeight()
+    if (!this.props.collapsed) {
+      this.setState({ height: calculateHeight(this.content) })
+    }
   }
 
-  componentWillUnmount () {
-    // Clean the reference to the content element since we are unmounting.
-    // We check if it is defined in updateHeight before doing any update.
-    this.content = null
-    window.removeEventListener('resize', this.debouncedResizeHandler)
-  }
-
-  componentDidUpdate () {
-    this.updateHeight()
-  }
-
-  onResize () {
-    this.updateHeight()
-  }
-
-  updateHeight () {
-    // Since update can happen asynchronously (debounced),
-    // it might be executed after the component was already
-    // unmounted.
-    if (!this.content) { return }
-
-    const height = getHeight(this.content)
-
-    if (this.state.height !== height) {
-      this.setState({ height })
+  componentWillReceiveProps (nextProps) {
+    if (!nextProps.collapsed && this.props.collapsed) {
+      this.setState({ height: calculateHeight(this.content) })
     }
   }
 
@@ -56,7 +32,9 @@ export default class Collapsible extends Component {
       }}>
         {({height, opacity}) => <div
           style={{
-            height,
+            // once it is fully expanded, we set the heigh to auto
+            // and let the browser take care of the size
+            height: getHeight(collapsed, height, this.state.height),
             opacity,
             // Overflow rule to enable content to overflow outside the collapsible
             // once the animation is close to be complete (the last few pixels take a while
@@ -70,4 +48,19 @@ export default class Collapsible extends Component {
   }
 }
 
-const getHeight = (node) => node.children[0].children[0].getBoundingClientRect().height
+const getHeight = (collapsed, animatedHeight, actualHeight) => {
+  if (collapsed) { return animatedHeight }
+  return animatedHeight === actualHeight ? 'auto' : animatedHeight
+}
+
+const calculateHeight = (node) => {
+  if (!node) { return 0 }
+
+  const container = node.children[0]
+  if (!container) { return 0 }
+
+  const content = container.children[0]
+  if (!content) { return 0 }
+
+  return content.getBoundingClientRect().height
+}

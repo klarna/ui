@@ -9,6 +9,7 @@ import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 import brandVolumeLevels from '../../lib/brandVolumeLevels'
 import defaultStyles from '../styles.scss'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'button'
 
@@ -124,7 +125,7 @@ Secondary.defaultProps = {
 
 Secondary.propTypes = {
   brandVolume: PropTypes.oneOf(brandVolumeLevels),
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   customize: PropTypes.shape({
     backgroundColor: PropTypes.string.isRequired,
