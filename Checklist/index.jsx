@@ -4,6 +4,7 @@ import themeable from '../decorators/themeable'
 import overridable from '../decorators/overridable'
 import compose from '../lib/compose'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'checklist'
 
@@ -36,7 +37,7 @@ ChecklistMain.displayName = 'Checklist.Main'
 
 ChecklistMain.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   chromeless: PropTypes.bool,
   id: PropTypes.string,
   styles: PropTypes.object,
@@ -93,7 +94,7 @@ ChecklistItem.displayName = 'Checklist.Item'
 
 ChecklistItem.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object,
   customize: PropTypes.shape({

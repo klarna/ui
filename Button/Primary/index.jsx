@@ -9,6 +9,7 @@ import Price from '../Price'
 import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 import brandVolumeLevels from '../../lib/brandVolumeLevels'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'button'
 
@@ -105,7 +106,7 @@ Primary.defaultProps = {
 
 Primary.propTypes = {
   brandVolume: PropTypes.oneOf(brandVolumeLevels),
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   customize: PropTypes.shape({
     backgroundColor: PropTypes.string.isRequired,

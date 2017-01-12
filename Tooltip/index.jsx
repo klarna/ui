@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'tooltip'
 
@@ -23,7 +24,7 @@ export default function Tooltip ({ className, arrow, children, inverse, styles, 
 Tooltip.propTypes = {
   className: PropTypes.string,
   arrow: PropTypes.oneOf(arrows),
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   inverse: PropTypes.bool,
   styles: PropTypes.object

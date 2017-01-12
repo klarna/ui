@@ -6,6 +6,7 @@ import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 import compose from '../../lib/compose'
 import isThemeable from '../../Text/isThemeable'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'paragraph--primary'
 
@@ -45,7 +46,7 @@ Primary.defaultProps = {
 }
 
 Primary.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   condensed: PropTypes.bool,
