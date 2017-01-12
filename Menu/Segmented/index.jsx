@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'segmented'
 
@@ -15,7 +16,7 @@ export default React.createClass({
   displayName: 'Segmented',
 
   propTypes: {
-    children: PropTypes.node,
+    children: childrenPropType,
     className: PropTypes.string,
     id: PropTypes.string,
     name: PropTypes.string.isRequired,

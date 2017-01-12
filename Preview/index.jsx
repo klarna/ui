@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import contains from '../lib/contains'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'preview'
 
@@ -31,7 +32,7 @@ Main.displayName = 'Preview.Main'
 
 Main.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -50,7 +51,7 @@ Content.displayName = 'Preview.Content'
 
 Content.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -69,7 +70,7 @@ Title.displayName = 'Preview.Title'
 
 Title.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -97,7 +98,7 @@ Link.displayName = 'Preview.Link'
 
 Link.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }

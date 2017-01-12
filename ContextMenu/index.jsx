@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'context-menu'
 
@@ -24,7 +25,7 @@ Main.displayName = 'ContextMenu.Main'
 
 Main.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -52,7 +53,7 @@ Link.displayName = 'ContextMenu.Link'
 
 Link.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -71,7 +72,7 @@ Item.displayName = 'ContextMenu.Item'
 
 Item.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }

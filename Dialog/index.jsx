@@ -4,6 +4,7 @@ import compose from '../lib/compose'
 import defaultStyles from './styles.scss'
 import themeable from '../decorators/themeable'
 import overridable from '../decorators/overridable'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'dialog'
 
@@ -42,7 +43,7 @@ function DialogMain ({children, className, customize, style, styles, ...props}) 
 DialogMain.displayName = 'Dialog.Main'
 
 DialogMain.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   id: PropTypes.string,
   styles: PropTypes.object
@@ -73,7 +74,7 @@ export function Icon ({children, className, left, styles, ...props}) {
 Icon.displayName = 'Dialog.Icon'
 
 Icon.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   id: PropTypes.string,
   left: PropTypes.bool,
@@ -104,7 +105,7 @@ export function Content ({children, className, id, styles, ...props}) {
 Content.displayName = 'Dialog.Content'
 
 Content.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   id: PropTypes.string,
   styles: PropTypes.object
@@ -134,7 +135,7 @@ export function Footer ({children, className, id, styles, ...props}) {
 Footer.displayName = 'Dialog.Footer'
 
 Footer.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   id: PropTypes.string,
   styles: PropTypes.object
@@ -177,7 +178,7 @@ export function Overlay ({
 Overlay.displayName = 'Dialog.Overlay'
 
 Overlay.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   id: PropTypes.string,
   show: PropTypes.bool,

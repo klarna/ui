@@ -6,6 +6,7 @@ import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
 import compose from '../lib/compose'
 import isThemeable from '../Text/isThemeable'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'subtitle'
 
@@ -44,7 +45,7 @@ Subtitle.defaultProps = {
 }
 
 Subtitle.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   id: PropTypes.string,

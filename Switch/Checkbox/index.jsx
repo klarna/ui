@@ -4,6 +4,7 @@ import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 import compose from '../../lib/compose'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'switch--checkbox'
 
@@ -35,7 +36,7 @@ const Checkbox = React.createClass({
 
   propTypes: {
     align: PropTypes.oneOf(alignments),
-    children: PropTypes.node,
+    children: childrenPropType,
     className: PropTypes.string,
     customize: PropTypes.shape({
       backgroundColor: PropTypes.string.isRequired,
