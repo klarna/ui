@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import defaultStyles from '../styles.scss'
+import childrenPropType from '../../propTypes/children'
 
 export default function Price ({ children, ...props }) {
   return (
@@ -12,6 +13,6 @@ export default function Price ({ children, ...props }) {
 Price.displayName = 'Button.Price'
 
 Price.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string
 }

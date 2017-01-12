@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'paragraph--legal'
 
@@ -41,7 +42,7 @@ Legal.defaultProps = {
 }
 
 Legal.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   condensed: PropTypes.bool,

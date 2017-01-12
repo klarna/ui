@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import Checkmark from '../../icons/Checkmark'
+import getActiveElement from '../../lib/getActiveElement'
 
 const baseClass = 'selector--options'
 
@@ -32,7 +33,7 @@ export default React.createClass({
   componentDidMount () {
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
@@ -41,7 +42,7 @@ export default React.createClass({
   componentDidUpdate () {
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }

@@ -6,6 +6,7 @@ import compose from '../lib/compose'
 import uncontrolled from '../decorators/uncontrolled'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 function Fieldset ({
   className,
@@ -66,7 +67,7 @@ Fieldset.defaultProps = {
 }
 
 Fieldset.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   fields: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,

@@ -4,6 +4,8 @@ import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 import compose from '../../lib/compose'
 import defaultStyles from './styles.scss'
+import getActiveElement from '../../lib/getActiveElement'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'switch'
 
@@ -112,7 +114,7 @@ const Toggle = React.createClass({
   },
 
   propTypes: {
-    children: PropTypes.node,
+    children: childrenPropType,
     className: PropTypes.string,
     customize: PropTypes.shape({
       backgroundColor: PropTypes.string.isRequired,
@@ -134,13 +136,13 @@ const Toggle = React.createClass({
   },
 
   componentDidMount () {
-    if (this.props.focus && document.activeElement !== this.refs.input) {
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
   },
 
   componentDidUpdate () {
-    if (this.props.focus && document.activeElement !== this.refs.input) {
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
   },
