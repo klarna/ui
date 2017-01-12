@@ -82,86 +82,86 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
     type: LIVE_WIDE,
 
     examples: {
-      // Regular: <Radio
-      //   onChange={(key) => console.log(key)}
-      //   name='radio-regular'
-      //   options={optionsWithContent}
-      //   defaultValue='lorem'
-      // />,
-      //
+      Regular: <Radio
+        onChange={(key) => console.log(key)}
+        name='radio-regular'
+        options={optionsWithContent}
+        defaultValue='lorem'
+      />,
+
       'Without content': <Radio
         name='radio-uncontrolled-borderful-with-content'
         onChange={(key) => console.log(key)}
         options={options}
       />,
-      //
-      // Controlled: <Radio
-      //   focus='sit'
-      //   name='radio-uncontrolled'
-      //   onChange={(key) => console.log(key)}
-      //   options={options}
-      //   value='ipsum'
-      // />,
-      //
-      // Borderless: <Radio
-      //   borderless
-      //   name='radio-borderless'
-      //   onChange={(key) => console.log(key)}
-      //   options={options}
-      //   defaultValue='lorem'
-      // />,
-      //
-      // Disabled: <Radio
-      //   disabled
-      //   name='radio-disabled'
-      //   onChange={(key) => console.log(key)}
-      //   options={options}
-      //   defaultValue='lorem'
-      // />,
-      //
-      // 'One field disabled': <Radio
-      //   onChange={(key) => console.log(key)}
-      //   name='radio-one-disabled'
-      //   options={[
-      //     ...optionsWithContent.slice(0, 2),
-      //     {...optionsWithContent[2], disabled: true}
-      //   ]}
-      //   defaultValue='lorem'
-      // />,
-      //
-      // 'Borderless and disabled': <Radio
-      //   borderless
-      //   disabled
-      //   name='radio-borderless-disabled'
-      //   options={options}
-      //   defaultValue='lorem'
-      //                            />,
-      //
-      // 'With a single option': <Radio
-      //   name='radio-with-a-single-option'
-      //   options={[{
-      //     key: 'lorem',
-      //     label: 'Lorem',
-      //     description: 'Lorem Ipsum is simply dummy.',
-      //     aside: card,
-      //     content: <Paragraph.Secondary condensed>
-      //       Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
-      //     </Paragraph.Secondary>,
-      //     leftPad: true
-      //   }]}
-      // />,
-      //
-      // 'Dynamic styling': <Radio
-      //   customize={{
-      //     backgroundColor: '#660080',
-      //     borderRadius: '10px',
-      //     bulletColor: '#00ce3e',
-      //     textPrimaryColor: 'green',
-      //     textSecondaryColor: 'red'
-      //   }}
-      //   name='radio-with-dynamic-styling'
-      //   options={options}
-      // />
+
+      Controlled: <Radio
+        focus='sit'
+        name='radio-uncontrolled'
+        onChange={(key) => console.log(key)}
+        options={options}
+        value='ipsum'
+      />,
+
+      Borderless: <Radio
+        borderless
+        name='radio-borderless'
+        onChange={(key) => console.log(key)}
+        options={options}
+        defaultValue='lorem'
+      />,
+
+      Disabled: <Radio
+        disabled
+        name='radio-disabled'
+        onChange={(key) => console.log(key)}
+        options={options}
+        defaultValue='lorem'
+      />,
+
+      'One field disabled': <Radio
+        onChange={(key) => console.log(key)}
+        name='radio-one-disabled'
+        options={[
+          ...optionsWithContent.slice(0, 2),
+          {...optionsWithContent[2], disabled: true}
+        ]}
+        defaultValue='lorem'
+      />,
+
+      'Borderless and disabled': <Radio
+        borderless
+        disabled
+        name='radio-borderless-disabled'
+        options={options}
+        defaultValue='lorem'
+                                 />,
+
+      'With a single option': <Radio
+        name='radio-with-a-single-option'
+        options={[{
+          key: 'lorem',
+          label: 'Lorem',
+          description: 'Lorem Ipsum is simply dummy.',
+          aside: card,
+          content: <Paragraph.Secondary condensed>
+            Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
+          </Paragraph.Secondary>,
+          leftPad: true
+        }]}
+      />,
+
+      'Dynamic styling': <Radio
+        customize={{
+          backgroundColor: '#660080',
+          borderRadius: '10px',
+          bulletColor: '#00ce3e',
+          textPrimaryColor: 'green',
+          textSecondaryColor: 'red'
+        }}
+        name='radio-with-dynamic-styling'
+        options={options}
+      />
     }
   }
 }

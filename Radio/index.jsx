@@ -53,7 +53,6 @@ const Radio = React.createClass({
   },
 
   componentDidMount () {
-    console.log('radio mount')
     if (
       this.props.focus &&
       getActiveElement(document) !== this.refs[this.props.focus]
@@ -63,7 +62,6 @@ const Radio = React.createClass({
   },
 
   componentDidUpdate () {
-    console.log('radio update')
     if (
       this.props.focus &&
       getActiveElement(document) !== this.refs[this.props.focus]
