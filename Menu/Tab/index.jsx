@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import getActiveElement from '../../lib/getActiveElement'
 
 const baseClass = 'tab-menu'
 
@@ -64,7 +65,7 @@ export default React.createClass({
 
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
@@ -75,7 +76,7 @@ export default React.createClass({
 
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
