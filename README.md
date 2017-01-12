@@ -55,10 +55,10 @@ Then:
 
 1. Send a PR.
 2. Once approved (with 👍 reaction or a _LGTM_ comment):
-	1. Merge to master
+  1. Merge to master
   2. Pull master locally
   3. Update the version using `npm version <major|minor|patch> -m "Some message describing what happened"` (tag will have `v` prefix). The message will be published as the [release notes in Github](https://github.com/klarna/ui/releases).
   4. Push master and the new tag as well. (`git push origin master --follow-tags`)
-  5. Go to https://github.com/klarna/ui/releases, click on "Draft a new release" and add notes for your release version. Make sure to enter the number of your release including the `v` in the "Tag version" field, ie. `v4.13.2`
+  5. Go to https://github.com/klarna/ui/releases, click on "Draft a new release" and add notes for your release version. Make sure to enter the number of your release including the `v` in the "Tag version" field, ie. `v4.13.2`
 
 Travis will take care of publishing your new version to npm. In a matter of minutes it should be ready. You can check the status of the release publication by reading the log of the build corresponding to your tag. The list of Travis builds can be found in https://travis-ci.org/klarna/ui/builds
