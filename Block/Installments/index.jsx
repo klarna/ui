@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'block--installments'
 
@@ -27,7 +28,7 @@ Main.displayName = 'Block.Installments.Main'
 
 Main.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -46,7 +47,7 @@ Title.displayName = 'Block.Installments.Title'
 
 Title.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -65,7 +66,7 @@ Content.displayName = 'Block.Installments.Content'
 
 Content.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -112,7 +113,7 @@ Value.displayName = 'Block.Installments.Value'
 Value.propTypes = {
   clarification: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   title: PropTypes.string.isRequired,
   styles: PropTypes.object,

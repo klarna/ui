@@ -5,6 +5,7 @@ import overridable from '../../decorators/overridable'
 import uncontrolled from '../../decorators/uncontrolled'
 import defaultStyles from './styles.scss'
 import compose from '../../lib/compose'
+import getActiveElement from '../../lib/getActiveElement'
 
 const baseClass = 'installments--horizontal'
 
@@ -52,7 +53,7 @@ const Horizontal = React.createClass({
   componentDidMount () {
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
@@ -69,7 +70,7 @@ const Horizontal = React.createClass({
   componentDidUpdate () {
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }

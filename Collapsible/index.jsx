@@ -19,7 +19,7 @@ export default class Collapsible extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (!this.props.collapsed !== nextProps.collapsed) {
+    if (!nextProps.collapsed && this.props.collapsed) {
       this.setState({ height: calculateHeight(this.content) }, () => this.checkPerfomance())
     }
   }
@@ -66,24 +66,27 @@ export default class Collapsible extends Component {
         height: spring(collapsed ? 0 : this.state.height),
         opacity: spring(collapsed ? 0 : 1)
       }}>
-        {({height, opacity}) => {
-          return <div
-            style={{
-              // once it is fully expanded, we set the heigh to auto
-              // and let the browser take care of the size
-              height: height === this.state.height ? 'auto' : height,
-              opacity,
-              // Overflow rule to enable content to overflow outside the collapsible
-              // once the animation is close to be complete (the last few pixels take a while
-              // to be expanded). '10' is a magic number 🎩
-              overflow: this.state.height - height > 10 ? 'hidden' : 'visible'
-            }}>
-            {children}
-          </div>
-        }}
+        {({height, opacity}) => <div
+          style={{
+            // once it is fully expanded, we set the heigh to auto
+            // and let the browser take care of the size
+            height: getHeight(collapsed, height, this.state.height),
+            opacity,
+            // Overflow rule to enable content to overflow outside the collapsible
+            // once the animation is close to be complete (the last few pixels take a while
+            // to be expanded). '10' is a magic number 🎩
+            overflow: this.state.height - height > 10 ? 'hidden' : 'visible'
+          }}>
+          {children}
+        </div>}
       </Motion>
     )
   }
+}
+
+const getHeight = (collapsed, animatedHeight, actualHeight) => {
+  if (collapsed) { return animatedHeight }
+  return animatedHeight === actualHeight ? 'auto' : animatedHeight
 }
 
 const calculateHeight = (node) => {

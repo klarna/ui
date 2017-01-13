@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react'
 import * as Paragraph from '../../Paragraph'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'list--iconic'
 
@@ -24,7 +25,7 @@ Wrapper.displayName = 'List.Iconic.Wrapper'
 
 Wrapper.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -65,7 +66,7 @@ Item.displayName = 'List.Iconic.Item'
 
 Item.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   icon: PropTypes.node,
   id: PropTypes.string,
   styles: PropTypes.object

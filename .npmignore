@@ -9,3 +9,4 @@ tests
 *.ttf
 example-built.js
 example-built.js.map
+browserslist
