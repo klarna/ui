@@ -156,6 +156,7 @@ const Radio = React.createClass({
               className={classNames(
                 classes.option,
                 {
+                  'is-selected': key === value,
                   'is-focused': !isDisabled && focus === key,
                   'left-pad': leftPad && !singleOption,
                   'is-disabled': isDisabled
