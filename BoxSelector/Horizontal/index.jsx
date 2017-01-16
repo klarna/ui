@@ -1,13 +1,15 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
-import uncontrolled from '../../decorators/uncontrolled'
+import {
+  themeable,
+  overridable,
+  uncontrolled
+} from '@klarna/higher-order-components'
+import compose from 'ramda/src/compose'
 import defaultStyles from './styles.scss'
-import compose from '../../lib/compose'
 import getActiveElement from '../../lib/getActiveElement'
 
-const baseClass = 'installments--horizontal'
+const baseClass = 'box-selector--horizontal'
 
 const classes = {
   input: `${baseClass}__input`,

@@ -24,7 +24,7 @@ export default {
         options={options}
       />,
 
-    Focused: <BoxSelector
+      Focused: <BoxSelector
         onChange={(key) => console.log('You selected', key)}
         name='box-selector3'
         defaultValue='box-selector_12'
@@ -32,7 +32,7 @@ export default {
         options={options}
       />,
 
-    Horizontal: <BoxSelector
+      Horizontal: <BoxSelector
         layout='horizontal'
         onChange={(key) => console.log('You selected', key)}
         name='box-selector4'
@@ -40,7 +40,7 @@ export default {
         options={options}
       />,
 
-    Vertical: <BoxSelector
+      Vertical: <BoxSelector
         layout='vertical'
         onChange={(key) => console.log('You selected', key)}
         name='box-selector5'
