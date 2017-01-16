@@ -69,6 +69,10 @@
   padding-bottom: ($grid * 3);
   padding-top: ($grid * 3);
   width: 100%;
+
+  .is-selected & {
+    cursor: auto;
+  }
 }
 
 .radio__option__inner {
