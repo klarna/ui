@@ -1,20 +1,21 @@
 {
   "name": "@klarna/ui",
-  "version": "3.0.0",
+  "version": "5.0.0",
   "description": "Klarna's UI Components",
   "repository": {
     "type": "git",
     "url": "https://github.com/klarna/ui"
   },
   "license": "SEE LICENSE IN LICENSE",
-  "main": "index.js",
+  "main": "index-built.js",
   "scripts": {
     "start": "webpack-dev-server --port 7777 --host 0.0.0.0 --history-api-fallback",
     "build": "webpack",
     "test": "standard && sass-lint -c .sass-lint.yml '**/*.scss' -v -q && karma start karma.conf.js",
     "test:unit": "karma start karma.conf.js",
     "lint": "standard && sass-lint -c .sass-lint.yml '**/*.scss' -v -q",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "prepublish": "npm run build"
   },
   "author": "Klarna front end people",
   "dependencies": {

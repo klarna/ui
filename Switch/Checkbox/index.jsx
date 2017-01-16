@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import getActiveElement from '../../lib/getActiveElement'
+import childrenPropType from '../../propTypes/children'
 
 import compose from 'ramda/src/compose'
 import {
@@ -40,7 +42,7 @@ const Checkbox = React.createClass({
 
   propTypes: {
     align: PropTypes.oneOf(alignments),
-    children: PropTypes.node,
+    children: childrenPropType,
     className: PropTypes.string,
     customize: PropTypes.shape({
       backgroundColor: PropTypes.string.isRequired,
@@ -51,6 +53,7 @@ const Checkbox = React.createClass({
     disabled: PropTypes.bool,
     error: PropTypes.bool,
     focus: PropTypes.bool,
+    id: PropTypes.string,
     legal: PropTypes.bool,
     name: PropTypes.string,
     onBlur: PropTypes.func,
@@ -61,19 +64,19 @@ const Checkbox = React.createClass({
   },
 
   componentDidMount () {
-    if (this.props.focus && document.activeElement !== this.refs.input) {
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
   },
 
   componentDidUpdate () {
-    if (this.props.focus && document.activeElement !== this.refs.input) {
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
   },
 
   getInitialState () {
-    return { pressed: false }
+    return {pressed: false}
   },
 
   render () {
@@ -95,9 +98,9 @@ const Checkbox = React.createClass({
       ...remainingProps
     } = this.props
 
-    const { pressed } = this.state
+    const {pressed} = this.state
 
-    const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+    const classNames = classNamesBind.bind({...defaultStyles, ...styles})
     const cls = classNames(baseClass, {
       'is-checked': value,
       'is-focused': focus && !disabled,
@@ -112,8 +115,16 @@ const Checkbox = React.createClass({
     const onMouseDown = !disabled && press(this)
     const onMouseUp = !disabled && release(this)
 
+    const ids = {
+      bullet: `${name}__bullet`,
+      bulletCheckmark: `${name}__bullet__checkmark`,
+      label: `${name}__label`,
+      wrapper: `${name}__wrapper`
+    }
+
     return (<div
       className={cls}
+      id={ids.wrapper}
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       {...remainingProps}>
@@ -132,11 +143,13 @@ const Checkbox = React.createClass({
       <label
         className={classNames(classes.label)}
         htmlFor={name}
+        id={ids.label}
         style={customize && !error && !disabled ? {
           color: customize.textColor
         } : undefined}>
         <div
           className={classNames(classes.bullet)}
+          id={ids.bullet}
           style={customize && (value ? {
             backgroundColor: customize.backgroundColor,
             borderColor: customize.backgroundColor,
@@ -147,6 +160,7 @@ const Checkbox = React.createClass({
           })}></div>
         <svg
           className={classNames(classes.bulletCheckmark)}
+          id={ids.bulletCheckmark}
           width='14px'
           height='14px'
           viewBox='0 0 14 14'>

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from '../styles.scss'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'list--unordered'
 
@@ -16,7 +17,8 @@ export default function Unordered ({children, className, styles, ...props}) {
 Unordered.displayName = 'List.Unordered'
 
 Unordered.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }

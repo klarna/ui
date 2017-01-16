@@ -75,7 +75,7 @@
   left: 0;
   position: relative;
   top: ($grid * .8);
-  transition: all .2s ease;
+  transition: background-color .2s ease, border-color .2s ease;
   width: ($grid * 7.4);
 
   .is-checked & {
@@ -98,7 +98,7 @@
   left: ($grid * .2);
   position: absolute;
   top: ($grid * .2);
-  transition: all .2s ease;
+  transition: transform .2s ease;
   width: ($grid * 4);
 
   .is-checked & {

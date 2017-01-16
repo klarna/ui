@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'label'
 
@@ -39,9 +40,10 @@ export default function Label ({
 }
 
 Label.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   design: PropTypes.oneOf(designs),
+  id: PropTypes.string,
   inverted: PropTypes.bool,
   outline: PropTypes.bool,
   styles: PropTypes.object

@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from './styles.scss'
-import palette from '../lib/palette'
-
 import compose from 'ramda/src/compose'
 import {overridable, themeable} from '@klarna/higher-order-components'
+
+import defaultStyles from './styles.scss'
+import palette from '../lib/palette'
+import isThemeable from '../Text/isThemeable'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'subtitle'
 
@@ -43,20 +45,21 @@ Subtitle.defaultProps = {
 }
 
 Subtitle.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
+  id: PropTypes.string,
   margins: PropTypes.bool,
   style: PropTypes.object,
   styles: PropTypes.object
 }
 
 export default compose(
-  themeable((customizations, props) => ({
+  themeable(isThemeable((customizations, props) => ({
     style: {
       ...props.style,
       color: customizations.color_header
     }
-  })),
+  }))),
   overridable(defaultStyles)
 )(Subtitle)

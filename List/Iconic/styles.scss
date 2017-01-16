@@ -2,13 +2,13 @@
 @import '../../css/mixins/index';
 
 .list--iconic--wrapper {
-  list-style: none;
   margin: 0;
   padding: 0;
   width: 100%;
 }
 
 .list--iconic--item {
+  display: table;
   margin: 0;
   overflow: auto;
   padding: 0;
@@ -19,18 +19,11 @@
 }
 
 .list--iconic--item__icon {
-  float: left;
   height: ($grid * 12);
-  margin-right: ($grid * 4);
   width: ($grid * 12);
 
   svg {
     display: block;
+    padding-right: ($grid * 4);
   }
-}
-
-.list--iconic--item__content {
-  float: left;
-  margin-top: ($grid * -2);
-  width: calc(100% - #{($grid * 16)});
 }

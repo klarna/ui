@@ -19,6 +19,7 @@ export default React.createClass({
   propTypes: {
     className: PropTypes.string,
     data: PropTypes.array.isRequired,
+    id: PropTypes.string,
     onSelect: PropTypes.func,
     styles: PropTypes.object
   },
@@ -27,20 +28,35 @@ export default React.createClass({
     const {
       className,
       data,
+      id,
       onSelect,
       styles,
       ...remainingProps
     } = this.props
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+    const ids = id
+      ? {
+        description: (key) => `${id}__${key}__description`,
+        icon: (key) => `${id}__${key}__icon`,
+        label: (key) => `${id}__${key}__label`,
+        option: (key) => `${id}__${key}__option`
+      } : {
+        description: () => {},
+        icon: () => {},
+        label: () => {},
+        option: () => {}
+      }
 
     return (
       <div
         className={classNames(baseClass, 'title', className)}
+        id={id}
         {...remainingProps}>
         {data.map(({ key, label, description }) => [
           <a
             href={`#${key}`}
+            id={ids.option(key)}
             onClick={(e) => {
               e.preventDefault()
               onSelect && onSelect(key)
@@ -48,19 +64,22 @@ export default React.createClass({
             className={classNames(classes.item)}
             key={key}>
             <div
-              className={classNames(classes.label)} >
+              className={classNames(classes.label)}
+              id={ids.label(key)}>
               {label}
             </div>
             {
               description && (
                 <div
-                  className={classNames(classes.description)} >
+                  className={classNames(classes.description)}
+                  id={ids.description(key)}>
                   {description}
                 </div>
               )
             }
             <Right
               className={classNames(classes.icon)}
+              id={ids.icon(key)}
               color='black'
             />
           </a>

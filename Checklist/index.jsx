@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
 import {overridable, themeable} from '@klarna/higher-order-components'
@@ -12,7 +13,7 @@ const classes = {
   checkmark: `${baseClass}__checkmark`
 }
 
-function ChecklistMain ({ chromeless, className, children, customize, style, styles }) {
+function ChecklistMain ({ chromeless, className, children, customize, style, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const dynamicStyles = customize
@@ -26,7 +27,8 @@ function ChecklistMain ({ chromeless, className, children, customize, style, sty
       ...dynamicStyles,
       ...style
     }}
-    className={classNames(baseClass, { chromeless }, className)}>
+    className={classNames(baseClass, { chromeless }, className)}
+    {...props}>
     {children}
   </ul>
 }
@@ -35,8 +37,9 @@ ChecklistMain.displayName = 'Checklist.Main'
 
 ChecklistMain.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   chromeless: PropTypes.bool,
+  id: PropTypes.string,
   styles: PropTypes.object,
   customize: PropTypes.shape({
     borderColor: PropTypes.string.isRequired,
@@ -55,7 +58,7 @@ export const Main = compose(
   overridable(defaultStyles)
 )(ChecklistMain)
 
-function ChecklistItem ({ className, children, customize, styles }) {
+function ChecklistItem ({className, children, customize, id, styles, ...props}) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const listItemDynamicStyles = customize
     ? { color: customize.textColor }
@@ -63,12 +66,19 @@ function ChecklistItem ({ className, children, customize, styles }) {
   const iconDynamicStyles = customize
     ? { stroke: customize.strokeColor }
     : undefined
+  const ids = id
+    ? {
+      checkmark: `${id}__checkmark`
+    } : {}
 
   return <li
     className={classNames(classes.item, className)}
-    style={listItemDynamicStyles}>
+    id={id}
+    style={listItemDynamicStyles}
+    {...props}>
     <svg
       className={classNames(classes.checkmark)}
+      id={ids.checkmark}
       style={iconDynamicStyles}
       viewBox='0 0 25 25'
       aria-labelledby='Checkmark'
@@ -84,7 +94,8 @@ ChecklistItem.displayName = 'Checklist.Item'
 
 ChecklistItem.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
+  id: PropTypes.string,
   styles: PropTypes.object,
   customize: PropTypes.shape({
     strokeColor: PropTypes.string.isRequired,

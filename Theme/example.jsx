@@ -195,10 +195,22 @@ import * as List from '@klarna/ui/List'`,
             onChange={(key) => console.log('You selected', key)}
             defaultValue='installments_24'
             options={[
-              { key: 'installments_3', content: <div>Long one line text in div</div> },
-              { key: 'installments_6', content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>] },
-              { key: 'installments_12', content: 'Simple text content' },
-              { key: 'installments_24', content: <div><div>Force</div><div>new line</div></div> }
+              {
+                content: 'Lorem ipsum dolor sit amet',
+                key: 'installments_3'
+              },
+              {
+                content: 'Et consequetur bla bla',
+                key: 'installments_6'
+              },
+              {
+                content: 'Lorem ipsum dolor sit amet',
+                key: 'installments_12'
+              },
+              {
+                content: 'Et consequetur bla bla',
+                key: 'installments_24'
+              }
             ]}
           />
         </div>
@@ -242,8 +254,16 @@ import * as List from '@klarna/ui/List'`,
             Primary Paragraph, primary design
           </Paragraph.Primary>
 
+          <Paragraph.Primary margins color='error'>
+            An error text should reject custom style in favor of the initial style.
+          </Paragraph.Primary>
+
           <Paragraph.Secondary margins>
             Paragraph, secondary design
+          </Paragraph.Secondary>
+
+          <Paragraph.Secondary margins color='warning'>
+            An error text should reject custom style in favor of the initial style.
           </Paragraph.Secondary>
 
           <Paragraph.Legal margins>

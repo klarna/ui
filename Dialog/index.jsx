@@ -1,6 +1,10 @@
-import React, { PropTypes } from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
+import compose from '../lib/compose'
 import defaultStyles from './styles.scss'
+import themeable from '../decorators/themeable'
+import overridable from '../decorators/overridable'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'dialog'
 
@@ -15,26 +19,48 @@ const classes = {
   table: `${baseClass}__table`
 }
 
-export function Main ({ children, className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+function DialogMain ({children, className, customize, style, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+
+  const dynamicStyles = customize
+  ? {
+    borderRadius: customize.borderRadius
+  } : {}
 
   return (
-    <div className={classNames(baseClass, className)} {...props}>
+    <div
+      style={{
+        ...dynamicStyles,
+        ...style
+      }}
+      className={classNames(baseClass, className)}
+      {...props}>
       {children}
     </div>
   )
 }
 
-Main.displayName = 'Dialog.Main'
+DialogMain.displayName = 'Dialog.Main'
 
-Main.propTypes = {
-  children: PropTypes.node,
+DialogMain.propTypes = {
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Icon ({ children, className, left, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export const Main = compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderRadius: customizations.radius_border
+    }
+  })),
+  overridable(defaultStyles)
+)(DialogMain)
+
+export function Icon ({children, className, left, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return (
     <div
@@ -48,20 +74,28 @@ export function Icon ({ children, className, left, styles, ...props }) {
 Icon.displayName = 'Dialog.Icon'
 
 Icon.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   left: PropTypes.bool,
   styles: PropTypes.object
 }
 
-export function Content ({ children, className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Content ({children, className, id, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      inner: `${id}__inner`
+    } : {}
 
   return (
     <div
       className={classNames(classes.content, className)}
+      id={id}
       {...props}>
-      <div className={classNames(classes.contentInner)}>
+      <div
+        className={classNames(classes.contentInner)}
+        id={ids.inner}>
         {children}
       </div>
     </div>
@@ -71,20 +105,27 @@ export function Content ({ children, className, styles, ...props }) {
 Content.displayName = 'Dialog.Content'
 
 Content.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Footer ({ children, className, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Footer ({children, className, id, styles, ...props}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      inner: `${id}__inner`
+    } : {}
 
   return (
     <div
       className={classNames(classes.footer, className)}
+      id={id}
       {...props}>
       <div
-        className={classNames(classes.footerInner)}>
+        className={classNames(classes.footerInner)}
+        id={ids.inner}>
         {children}
       </div>
     </div>
@@ -94,22 +135,39 @@ export function Footer ({ children, className, styles, ...props }) {
 Footer.displayName = 'Dialog.Footer'
 
 Footer.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Overlay ({ children, className, show, wide, styles, ...props }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+export function Overlay ({
+  children,
+  className,
+  id,
+  show,
+  styles,
+  wide,
+  ...props
+}) {
+  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      cell: `${id}__cell`,
+      table: `${id}__table`
+    } : {}
 
   return (
     <div
       className={classNames(classes.overlay, { 'is-visible': show, wide }, className)}
+      id={id}
       {...props}>
       <div
-        className={classNames(classes.table)}>
+        className={classNames(classes.table)}
+        id={ids.table}>
         <div
-          className={classNames(classes.cell)}>
+          className={classNames(classes.cell)}
+          id={ids.cell}>
           {children}
         </div>
       </div>
@@ -120,8 +178,9 @@ export function Overlay ({ children, className, show, wide, styles, ...props }) 
 Overlay.displayName = 'Dialog.Overlay'
 
 Overlay.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   show: PropTypes.bool,
   styles: PropTypes.object
 }

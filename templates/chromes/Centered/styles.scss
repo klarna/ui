@@ -3,14 +3,28 @@
 
 .chrome--centered {
   text-align: center;
+
+  > div {
+    padding: ($grid * 4) 0;
+
+    @include respond-to-wide {
+      padding: 0;
+    }
+  }
 }
 
 .chrome--centered__title:not(:first-child) {
-  padding-top: ($grid * 7.2);
+  padding-top: ($grid * 5.2);
+}
+
+.chrome--centered__title {
+  display: block;
+  margin: 0 auto;
+  max-width: ($grid * 63);
 }
 
 .chrome--centered__title + .chrome--centered__paragraph--primary {
-  padding-top: ($grid * 2.4);
+  padding-top: ($grid * 1.4);
 }
 
 .chrome--centered__button--accept {
@@ -30,7 +44,11 @@
 }
 
 .chrome--centered__paragraph--primary + .chrome--centered__button--accept {
-  margin-top: ($grid * 8.2);
+  margin-top: ($grid * 6.2);
+}
+
+.chrome--centered__button--accept + .chrome--centered__button--cancel {
+  padding-top: ($grid * 3.6);
 }
 
 .chrome--centered__paragraph--legal {

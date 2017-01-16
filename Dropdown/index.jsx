@@ -53,6 +53,7 @@ const Dropdown = React.createClass({
       labelColor: PropTypes.string.isRequired,
       selectedColor: PropTypes.string.isRequired
     }),
+    id: PropTypes.string,
     label: PropTypes.string.isRequired,
     loading: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
@@ -105,6 +106,7 @@ const Dropdown = React.createClass({
       disabled,
       error, // eslint-disable-line no-unused-vars
       focus, // eslint-disable-line no-unused-vars
+      id,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
@@ -168,9 +170,20 @@ const Dropdown = React.createClass({
       ? { color: customize.labelColor }
       : undefined
 
+    const ids = id
+      ? {
+        label: `${id}__label`,
+        option: (i) => `${id}__option__${i}`,
+        select: `${id}__select`,
+        selected: `${id}__selected`
+      } : {
+        option: () => {}
+      }
+
     const selectElement = <select
       className={classNames(classes.select)}
       disabled={disabled || loading}
+      id={ids.select}
       onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
@@ -179,7 +192,11 @@ const Dropdown = React.createClass({
       value={value || ''}
       {...props}>
       {options && options.map((attributes) => (
-        <option key={attributes.key} value={attributes.key} {...attributes}>
+        <option
+          key={attributes.key}
+          id={ids.option(attributes.key)}
+          value={attributes.key}
+          {...attributes}>
           {attributes.label}
         </option>
       ))}
@@ -187,6 +204,7 @@ const Dropdown = React.createClass({
 
     const selectedOptionElement = (selectedOption) => <div
       className={classNames(classes.currentOption)}
+      id={ids.selected}
       style={selectedDynamicStyles}>
       {selectedOption.label}
     </div>
@@ -194,12 +212,14 @@ const Dropdown = React.createClass({
     return (
       <div
         className={cls}
+        id={id}
         onClick={onClick}
         onMouseEnter={onMouseEnter(this)}
         onMouseLeave={onMouseLeave(this)}
         style={dynamicStyles}>
         <label
           className={classNames(classes.label)}
+          id={ids.label}
           style={labelDynamicStyles}>
           {label}
         </label>

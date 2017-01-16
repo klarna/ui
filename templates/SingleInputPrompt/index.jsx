@@ -8,6 +8,7 @@ import {uncontrolled} from '@klarna/higher-order-components'
 
 function SingleInputPrompt ({
   accept,
+  brandVolume,
   cancel,
   focus,
   label,
@@ -25,6 +26,7 @@ function SingleInputPrompt ({
   ...props
 }) {
   return <Centered
+    brandVolume={brandVolume}
     onAccept={onAccept}
     onCancel={onCancel}
     illustration={illustration}
@@ -39,6 +41,7 @@ function SingleInputPrompt ({
     <div className={defaultStyles['single-input-prompt__content']}>
       <Input
         centered
+        big
         focus={focus}
         label={label}
         onBlur={onBlur}

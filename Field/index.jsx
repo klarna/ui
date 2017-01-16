@@ -62,6 +62,7 @@ const Field = React.createClass({
       labelColor: PropTypes.string.isRequired,
       inputColor: PropTypes.string.isRequired
     }),
+    id: PropTypes.string,
     input: PropTypes.func,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
@@ -144,6 +145,7 @@ const Field = React.createClass({
       disabled,
       error,
       icon,
+      id,
       Input,
       focus,
       label,
@@ -216,9 +218,16 @@ const Field = React.createClass({
       ? { color: customize.inputColor }
       : {}
 
+    const ids = id
+      ? {
+        input: `${id}__input`,
+        label: `${id}__label`
+      } : {}
+
     const inputProps = {
       className: classNames(icon ? classes.iconInput : classes.input),
       disabled: disabled,
+      id: ids.input,
       value: value || '',
       onBlur: onBlur,
       onChange: onChange,
@@ -239,6 +248,7 @@ const Field = React.createClass({
     return (
       <div
         className={cls}
+        id={id}
         onClick={onClick}
         style={dynamicStyles}
         onMouseEnter={this.onMouseEnter}
@@ -253,6 +263,7 @@ const Field = React.createClass({
 
         <label
           className={classNames(icon ? classes.iconLabel : classes.label)}
+          id={ids.label}
           style={labelDynamicStyles}>
           {label}
         </label>

@@ -4,6 +4,7 @@ import Dropdown from '../Dropdown'
 import Input from '../Input'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
 import {uncontrolled} from '@klarna/higher-order-components'
@@ -14,6 +15,7 @@ function Fieldset ({
   fields,
   fieldType,
   focus,
+  id,
   margins,
   onBlur,
   onChange,
@@ -25,6 +27,7 @@ function Fieldset ({
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   return <div
     className={classNames('fieldset', { 'default-margins': margins }, className)}
+    id={id}
     {...props}>
     {fields && fields.map((field) => {
       const FieldType = getFieldType(fieldType, field)
@@ -32,6 +35,7 @@ function Fieldset ({
       return <FieldType
         key={field.name}
         focus={focus === field.name}
+        id={`${id}__${field.name}`}
         value={values && values[field.name]}
         onBlur={handleBlur(onBlur, field.name)}
         onChange={handleChange(values, onChange, field.name)}
@@ -64,7 +68,7 @@ Fieldset.defaultProps = {
 }
 
 Fieldset.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   fields: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -72,6 +76,7 @@ Fieldset.propTypes = {
   })),
   fieldType: PropTypes.oneOf(['field', 'input']),
   focus: PropTypes.string,
+  id: PropTypes.string,
   margins: PropTypes.bool,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,

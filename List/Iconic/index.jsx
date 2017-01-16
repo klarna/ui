@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import * as Paragraph from '../../Paragraph'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'list--iconic'
 
@@ -12,30 +13,61 @@ const classes = {
   wrapper: `${baseClass}--wrapper`
 }
 
-export function Wrapper ({className, children, styles}) {
+export function Wrapper ({className, children, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  return <ul className={classNames(classes.wrapper, className)}>
+  return <ul className={classNames(classes.wrapper, className)} {...props}>
     {children}
   </ul>
 }
 
 Wrapper.displayName = 'List.Iconic.Wrapper'
 
-export function Item ({className, icon, children, styles}) {
+Wrapper.propTypes = {
+  className: PropTypes.string,
+  children: childrenPropType,
+  id: PropTypes.string,
+  styles: PropTypes.object
+}
+
+export function Item ({className, icon, id, children, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      tbody: `${id}__tbody`,
+      tr: `${id}__tr`,
+      icon: `${id}__icon`,
+      contentTd: `${id}__content-td`,
+      content: `${id}__content`
+    } : {}
 
-  return <li className={classNames(classes.item, className)}>
-    <div className={classNames(classes.itemIcon)}>
-      {icon}
-    </div>
-
-    <div className={classNames(classes.content)}>
-      <Paragraph.Secondary>
-        {children}
-      </Paragraph.Secondary>
-    </div>
-  </li>
+  return <div
+    className={classNames(classes.item)}
+    id={id}
+    {...props}>
+    <tbody id={ids.tbody}>
+      <tr id={ids.tr}>
+        <td
+          className={classNames(classes.itemIcon)}
+          id={ids.icon}>
+          {icon}
+        </td>
+        <td id={ids.contentTd}>
+          <Paragraph.Secondary id={ids.content}>
+            {children}
+          </Paragraph.Secondary>
+        </td>
+      </tr>
+    </tbody>
+  </div>
 }
 
 Item.displayName = 'List.Iconic.Item'
+
+Item.propTypes = {
+  className: PropTypes.string,
+  children: childrenPropType,
+  icon: PropTypes.node,
+  id: PropTypes.string,
+  styles: PropTypes.object
+}

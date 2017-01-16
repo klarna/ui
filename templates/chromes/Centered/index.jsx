@@ -22,6 +22,7 @@ const classes = {
 }
 
 export default function Centered ({
+  brandVolume,
   className,
   children,
   error,
@@ -45,7 +46,7 @@ export default function Centered ({
       {labels.title}
     </Title.Primary>
 
-    {paragraphs.map((text, index) => (<Paragraph.Secondary
+    {labels.summary && paragraphs.map((text, index) => (<Paragraph.Secondary
       key={index}
       className={classNames(classes.paragraphPrimary)}>
       {text}
@@ -54,6 +55,7 @@ export default function Centered ({
     {children}
 
     {labels.accept && onAccept && <Button.Primary
+      brandVolume={brandVolume}
       onClick={onAccept}
       loading={loading}
       className={classNames(classes.buttonAccept)}>

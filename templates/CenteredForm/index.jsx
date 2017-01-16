@@ -6,6 +6,7 @@ import defaultStyles from './styles.scss'
 
 export default function CenteredForm ({
   accept,
+  brandVolume,
   cancel,
   illustration,
   onAccept,
@@ -18,6 +19,7 @@ export default function CenteredForm ({
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
   return <Centered
+    brandVolume={brandVolume}
     onAccept={onAccept}
     onCancel={onCancel}
     illustration={illustration}

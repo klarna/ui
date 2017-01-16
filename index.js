@@ -23,6 +23,7 @@ export { default as Radio } from './Radio'
 export { default as Selector } from './Selector'
 export { default as Subtitle } from './Subtitle'
 import * as TheSwitch from './Switch'
+import * as TheTemplates from './templates'
 import * as TheText from './Text'
 export { default as TextLabel } from './TextLabel'
 import * as TheTitle from './Title'
@@ -40,5 +41,6 @@ export const Menu = TheMenu
 export const Paragraph = TheParagraph
 export const Preview = ThePreview
 export const Switch = TheSwitch
+export const templates = TheTemplates
 export const Text = TheText
 export const Title = TheTitle

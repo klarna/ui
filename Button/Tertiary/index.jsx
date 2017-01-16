@@ -1,13 +1,14 @@
 import React, { PropTypes } from 'react'
+import compose from 'ramda/src/compose'
+import parseColor from 'parse-color'
+import {overridable, themeable} from '@klarna/higher-order-components'
+import classNamesBind from 'classnames/bind'
+
 import Loader from '../../Loader'
 import Price from '../Price'
-import classNamesBind from 'classnames/bind'
-import defaultStyles from '../styles.scss'
-import parseColor from 'parse-color'
 import contains from '../../lib/contains'
-
-import compose from 'ramda/src/compose'
-import {overridable, themeable} from '@klarna/higher-order-components'
+import defaultStyles from '../styles.scss'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'button'
 
@@ -26,6 +27,7 @@ function Tertiary (props) {
     className,
     customize,
     disabled,
+    id,
     loading,
     size,
     style,
@@ -61,6 +63,13 @@ function Tertiary (props) {
       borderRadius: customize.borderRadius
     } : {}
 
+  const ids = id
+    ? {
+      darkening: `${id}__darkening`,
+      label: `${id}__label`,
+      labelAlt: `${id}__label--alt`
+    } : {}
+
   return (
     <button
       className={cls}
@@ -84,6 +93,7 @@ function Tertiary (props) {
               isDisabled ||
                 <span
                   className={classNames(classes.labelAlt)}
+                  id={ids.labelAlt}
                   title={content}
                   style={{color: customize.textColor}}>
                 </span>
@@ -105,13 +115,14 @@ Tertiary.defaultProps = {
 }
 
 Tertiary.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   customize: PropTypes.shape({
     backgroundColor: PropTypes.string.isRequired,
     borderRadius: PropTypes.string.isRequired,
     textColor: PropTypes.string.isRequired
   }),
+  id: PropTypes.string,
   size: PropTypes.oneOf(sizes),
   loading: PropTypes.bool,
   success: PropTypes.bool,

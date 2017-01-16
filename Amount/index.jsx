@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'amount-text'
 
@@ -23,7 +24,8 @@ Amount.defaultProps = {
 
 Amount.propTypes = {
   color: PropTypes.oneOf(palette),
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }

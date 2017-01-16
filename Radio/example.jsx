@@ -26,7 +26,7 @@ const optionsWithContent = [
     label: 'Lorem',
     description: 'Lorem Ipsum is simply dummy.',
     aside: card,
-    content: <Paragraph.Secondary condensed>
+    content: <Paragraph.Secondary style={{marginBottom: -10}}>
       Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
     </Paragraph.Secondary>,
     leftPad: true
@@ -38,6 +38,8 @@ const optionsWithContent = [
     description: 'Amet et consequetur',
     content: <div>
       <BoxSelector
+        name='installments'
+        layout='horizontal'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
         defaultValue='installments_6'

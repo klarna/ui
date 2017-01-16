@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react'
-import classNamesBind from 'classnames/bind'
-import defaultStyles from './styles.scss'
-import palette from '../lib/palette'
-
 import compose from 'ramda/src/compose'
 import {overridable, themeable} from '@klarna/higher-order-components'
+import classNamesBind from 'classnames/bind'
+
+import defaultStyles from './styles.scss'
+import palette from '../lib/palette'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'link'
 
@@ -40,12 +41,13 @@ function Link ({
 }
 
 Link.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   color: PropTypes.oneOf(palette),
   customize: PropTypes.shape({
     textColor: PropTypes.string.isRequired
   }),
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 

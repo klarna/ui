@@ -1,0 +1,107 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+$highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
+
+.installments--horizontal {
+  box-sizing: border-box;
+  display: table;
+  position: relative;
+  table-layout: fixed;
+  width: 100%;
+
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+.installments--horizontal__input {
+  display: block;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+.installments--horizontal__row {
+  display: table-row;
+}
+
+.installments--horizontal__cell {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  border: ($grid * .2) solid $border-color;
+  border-right: 0;
+  box-sizing: border-box;
+  color: map-get($colors, black);
+  cursor: pointer;
+  display: table-cell;
+  height: ($grid * 15);
+  position: relative;
+  text-align: center;
+  transition: border-color .4s ease;
+  vertical-align: middle;
+
+  &:first-of-type {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  &:last-of-type {
+    border-bottom-right-radius: 5px;
+    border-right: ($grid * .2) solid $border-color;
+    border-top-right-radius: 5px;
+  }
+
+  &.is-selected {
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+
+  &.is-after-selected {
+    border-left-color: transparent;
+  }
+
+  &.is-previously-selected,
+  &.is-after-previously-selected {
+    transition: border 0ms;
+  }
+}
+
+.installments--horizontal__cell__content {
+  @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  cursor: pointer;
+  display: block;
+  line-height: ($grid * 4);
+  padding-left: 0;
+}
+
+.installments--horizontal__cell.is-hovered,
+.installments--horizontal__cell.is-focused {
+  color: map-get($colors, klarna-blue);
+}
+
+.installments--horizontal__cell__highlight {
+  border: ($grid * .4) solid map-get($colors, klarna-blue);
+  border-radius: 5px;
+  bottom: -1px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: ($grid * 15);
+  left: -1px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  transition: opacity .4s ease;
+  z-index: 5;
+
+  .is-selected & {
+    opacity: 1;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'tooltip'
 
@@ -11,11 +12,11 @@ export const arrows = [
   'right', 'right-top', 'right-bottom'
 ]
 
-export default function Tooltip ({ className, arrow, children, inverse, styles }) {
+export default function Tooltip ({ className, arrow, children, inverse, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (<div
-    className={classNames(baseClass, arrow, className, { inverse })}>
+    className={classNames(baseClass, arrow, className, { inverse })} {...props}>
     {children}
   </div>)
 }
@@ -23,7 +24,8 @@ export default function Tooltip ({ className, arrow, children, inverse, styles }
 Tooltip.propTypes = {
   className: PropTypes.string,
   arrow: PropTypes.oneOf(arrows),
-  children: PropTypes.node,
+  children: childrenPropType,
+  id: PropTypes.string,
   inverse: PropTypes.bool,
   styles: PropTypes.object
 }

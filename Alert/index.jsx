@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'alert'
 
@@ -26,8 +27,9 @@ export function Error ({ children, className, styles, ...remainingProps }) {
 Error.displayName = 'Alert.Error'
 
 Error.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -46,8 +48,9 @@ export function Warning ({ children, className, styles, ...remainingProps }) {
 Warning.displayName = 'Alert.Warning'
 
 Warning.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -66,8 +69,9 @@ export function Title ({ children, className, styles, ...remainingProps }) {
 Title.displayName = 'Alert.Title'
 
 Title.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }
 
@@ -86,7 +90,8 @@ export function Paragraph ({ children, className, styles, ...remainingProps }) {
 Paragraph.displayName = 'Alert.Paragraph'
 
 Paragraph.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
+  id: PropTypes.string,
   styles: PropTypes.object
 }

@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import getActiveElement from '../../lib/getActiveElement'
 
 import compose from 'ramda/src/compose'
 import {uncontrolled, uniqueName} from '@klarna/higher-order-components'
@@ -44,6 +45,7 @@ const Tab = React.createClass({
       key: PropTypes.string.isRequired
     })).isRequired,
     className: PropTypes.string,
+    id: PropTypes.string,
     tabDisplay: PropTypes.oneOf(tabDisplays),
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
@@ -66,7 +68,7 @@ const Tab = React.createClass({
 
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
@@ -77,7 +79,7 @@ const Tab = React.createClass({
 
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }

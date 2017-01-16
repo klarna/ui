@@ -141,6 +141,9 @@ export default {
           Pay now!
           <Button.Price>14:-</Button.Price>
         </Button.Primary>,
+        'High brand volume': <Button.Primary brandVolume='high'>
+          Start your journey
+        </Button.Primary>,
         Disabled: <Button.Primary disabled>Click me!</Button.Primary>,
         Loading: <Button.Primary loading>Click me!</Button.Primary>,
         'Loading with customization': <Button.Primary
@@ -163,6 +166,9 @@ export default {
         Custom: <Button.Secondary
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
+        </Button.Secondary>,
+        'High brand volume': <Button.Secondary brandVolume='high'>
+          Start your journey
         </Button.Secondary>,
         Disabled: <Button.Secondary disabled>Click me!</Button.Secondary>,
         Loading: <Button.Secondary loading>Click me!</Button.Secondary>,
@@ -228,7 +234,9 @@ export default {
 
       examples: {
         'Default color scheme': [
-          <Block.Plain key='0' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='0'
+            style={{display: 'inline-block', padding: '20px'}}>
             <Back />
           </Block.Plain>,
 

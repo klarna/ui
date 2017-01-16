@@ -49,6 +49,7 @@ const Input = React.createClass({
     big: PropTypes.bool,
     centered: PropTypes.bool,
     giant: PropTypes.bool,
+    id: PropTypes.string,
     input: PropTypes.func,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
@@ -116,6 +117,7 @@ const Input = React.createClass({
       focus, // eslint-disable-line no-unused-vars
       giant,
       icon,
+      id,
       Input,
       label,
       left, // eslint-disable-line no-unused-vars
@@ -154,9 +156,16 @@ const Input = React.createClass({
       className
     )
 
+    const ids = id
+      ? {
+        input: `${id}__input`,
+        label: `${id}__label`
+      } : {}
+
     const inputProps = {
       className: classNames(icon ? classes.iconInput : classes.input),
       disabled: disabled,
+      id: ids.input,
       value: value || '',
       onBlur: onBlur,
       onChange: onChange,
@@ -173,6 +182,7 @@ const Input = React.createClass({
     return (
       <div
         className={cls}
+        id={id}
         onClick={onClick}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
@@ -183,7 +193,8 @@ const Input = React.createClass({
         }
 
         <label
-          className={classNames(icon ? classes.iconLabel : classes.label)}>
+          className={classNames(icon ? classes.iconLabel : classes.label)}
+          id={ids.label}>
           {label}
         </label>
 

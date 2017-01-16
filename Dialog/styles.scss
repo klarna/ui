@@ -20,7 +20,7 @@
     border-radius: ($grid * 1.6);
     height: auto;
     margin: ($grid * 6) auto;
-    padding: ($grid * 12);
+    padding: ($grid * 10) ($grid * 12);
     text-align: left; // override dialog__wrapper text-align
     width: ($grid * 87);
   }
@@ -129,7 +129,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  transition: all 0.3s ease;
+  transition: opacity .3s ease, z-index .3s ease;
   width: 100%;
   z-index: -1;
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import BoxSelector from '../BoxSelector'
-import { LIVE_WIDE } from '../Showroom/variationTypes'
+import {LIVE_WIDE} from '../Showroom/variationTypes'
 
 const options = [
-  { key: 'installments_3', content: <div>Long one line text in div</div> },
-  { key: 'installments_6', content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>] },
-  { key: 'installments_12', content: 'Simple text content' },
-  { key: 'installments_24', content: <div><div>Force</div><div>new line</div></div> }
+  { key: 'box-selector_3', content: 'Lorem ipsum dolor sit amet' },
+  { key: 'box-selector_6', content: 'Et consequetur bla bla' },
+  { key: 'box-selector_12', content: 'Lorem ipsum dolor sit amet' },
+  { key: 'box-selector_24', content: 'Et consequetur bla bla' }
 ]
 
 export default {
@@ -17,23 +17,36 @@ export default {
     type: LIVE_WIDE,
 
     examples: {
-      Regular: (
-        <BoxSelector
-          onChange={(key) => console.log('You selected', key)}
-          name='installments'
-          defaultValue='installments_12'
-          options={options}
-        />
-      ),
+      Regular: <BoxSelector
+        onChange={(key) => console.log('You selected', key)}
+        name='box-selector'
+        defaultValue='box-selector_12'
+        options={options}
+      />,
 
-      Controlled: (
-        <BoxSelector
-          onChange={(key) => console.log('You selected', key)}
-          value='installments_24'
-          focus='installments_6'
-          options={options}
-        />
-      )
+    Focused: <BoxSelector
+        onChange={(key) => console.log('You selected', key)}
+        name='box-selector3'
+        defaultValue='box-selector_12'
+        focus='box-selector_6'
+        options={options}
+      />,
+
+    Horizontal: <BoxSelector
+        layout='horizontal'
+        onChange={(key) => console.log('You selected', key)}
+        name='box-selector4'
+        defaultValue='box-selector_12'
+        options={options}
+      />,
+
+    Vertical: <BoxSelector
+        layout='vertical'
+        onChange={(key) => console.log('You selected', key)}
+        name='box-selector5'
+        defaultValue='box-selector_12'
+        options={options}
+      />
     }
   }
 }

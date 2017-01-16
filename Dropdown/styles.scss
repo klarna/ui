@@ -15,7 +15,7 @@
   position: relative;
   text-align: left;
   top: ($grid * -.2);
-  transition: all .2s ease;
+  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
 
   &:after {
     background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMTRweCIgaGVpZ2h0PSIxNHB4IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGcgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ4OCwgLTQyOCkiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4OCwgNDI5KSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0Ij48L3JlY3Q+PHBhdGggZD0iTTExLDUgTDcsOSBMMyw1IiBzdHJva2U9IiMzQzNDM0UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==');
@@ -111,7 +111,7 @@
   line-height: ($grid * 10);
   padding: 0 ($grid * 4);
   position: absolute;
-  transition: all .2s ease;
+  transition: transform .2s ease, color .2s ease, left .2s ease, top .2s ease, font-size .2s ease;
   white-space: nowrap;
 
   @include respond-to-wide {
