@@ -1,52 +1,41 @@
 import React, {Component} from 'react'
 import {Motion, spring} from 'react-motion'
-import collectFPS from 'collect-fps'
 
 export default class Collapsible extends Component {
   constructor (props) {
     super()
 
     this.state = {
-      height: 0,
-      animated: true
+      height: 0
     }
   }
 
   componentDidMount () {
     if (!this.props.collapsed) {
       this.setState({ height: calculateHeight(this.content) })
+      this.props.onStartFPSCollection()
     }
   }
 
   componentWillReceiveProps (nextProps) {
     if (!nextProps.collapsed && this.props.collapsed) {
-      this.setState({ height: calculateHeight(this.content) }, () => this.checkPerfomance())
+      this.setState({ height: calculateHeight(this.content) })
+      this.props.onStartFPSCollection()
+    } else if (nextProps.collapsed && !this.props.collapsed) {
+      this.props.onStartFPSCollection()
     }
   }
 
   render () {
-    const {children, collapsed} = this.props
+    const {children, collapsed, onEndFPSCollection} = this.props
 
     return <div ref={(div) => { this.content = div }}>
       {
-        this.state.animated
-          ? this.renderAnimation(children, collapsed)
-          : this.renderRegular(children, collapsed)
+        this.state.lowFPS
+          ? this.renderRegular(children, collapsed)
+          : this.renderAnimation(children, collapsed, onEndFPSCollection)
       }
     </div>
-  }
-
-  /**
-   * Disable animation on devices with poor performance
-   */
-  checkPerfomance () {
-    if (this.state.animated) {
-      collectFPS((error, fps) => {
-        if (error || fps < 30) {
-          this.setState({ animated: false })
-        }
-      })
-    }
   }
 
   renderRegular (children, collapsed) {
@@ -60,12 +49,14 @@ export default class Collapsible extends Component {
     )
   }
 
-  renderAnimation (children, collapsed) {
+  renderAnimation (children, collapsed, onEndFPSCollection) {
     return (
-      <Motion style={{
-        height: spring(collapsed ? 0 : this.state.height),
-        opacity: spring(collapsed ? 0 : 1)
-      }}>
+      <Motion
+        style={{
+          height: spring(collapsed ? 0 : this.state.height),
+          opacity: spring(collapsed ? 0 : 1)
+        }}
+        onRest={onEndFPSCollection}>
         {({height, opacity}) => <div
           style={{
             // once it is fully expanded, we set the heigh to auto
@@ -100,4 +91,3 @@ const calculateHeight = (node) => {
 
   return content.getBoundingClientRect().height
 }
-
