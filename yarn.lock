@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@klarna/higher-order-components@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.4.0.tgz#a1e1e0cf46543d32b7978dbb1275b4f536bbf55c"
+  dependencies:
+    collect-fps "2.0.0"
+    seed-random "^2.2.0"
+
 Base64@~0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/Base64/-/Base64-0.2.1.tgz#ba3a4230708e186705065e66babdd4c35cf60028"
@@ -1314,9 +1321,9 @@ collapse-white-space@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/collapse-white-space/-/collapse-white-space-1.0.2.tgz#9c463fb9c6d190d2dcae21a356a01bcae9eeef6d"
 
-collect-fps@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/collect-fps/-/collect-fps-1.1.0.tgz#e071299861bd5ee1b8e36ff4bfba2407236e05bd"
+collect-fps@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/collect-fps/-/collect-fps-2.0.0.tgz#62adee44763dbebe681c4cba8757265d6f26916e"
 
 color-convert@^1.3.0:
   version "1.5.0"
@@ -5030,6 +5037,10 @@ saucelabs@^1.0.1:
 sax@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
+
+seed-random@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/seed-random/-/seed-random-2.2.0.tgz#2a9b19e250a817099231a5b99a4daf80b7fbed54"
 
 "semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", semver@~4.3.3:
   version "4.3.6"
