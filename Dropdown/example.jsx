@@ -38,6 +38,11 @@ import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'`,
           value='ipsum'
         />,
 
+        'Selected without label': <Dropdown
+          options={options}
+          value='ipsum'
+        />,
+
         'With focus': <Dropdown
           label='Lorem ipsum'
           options={options}
