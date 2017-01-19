@@ -12,6 +12,7 @@ import * as Title from '../Title'
 import Radio from '../Radio'
 import Subtitle from '../Subtitle'
 import * as Paragraph from '../Paragraph'
+import * as Selector from '../Selector'
 import * as List from '../List'
 import { Back, Hamburger } from '../IconButton'
 import { LIVE } from '../Showroom/variationTypes'
@@ -296,6 +297,19 @@ import * as List from '@klarna/ui/List'`,
             forfuraj ratjoj vaŭis.
           </List.Item>
         </List.Ordered>
+
+        <Selector.Input
+          label='Organization type'
+        />
+        <Selector.Input
+          label='Please select an organization type'
+          placeholder='Organization type'
+          error
+        />
+        <Selector.Input
+          label='Organization type'
+          value='This is the value'
+        />
       </Theme>
     }
   }
