@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
+import compose from '../../lib/compose'
 import defaultStyles from './styles.scss'
 import * as programmaticFocus from '../../lib/features/programmaticFocus'
 import * as fieldStates from '../../lib/features/fieldStates'
@@ -8,6 +9,8 @@ import * as stacking from '../../lib/features/stacking'
 import { handleKeyDown } from '../../lib/features/keyboardEvents'
 import MouseflowExclude from '../../MouseflowExclude'
 import { Select } from '../../IconButton'
+import themeable from '../../decorators/themeable'
+import overridable from '../../decorators/overridable'
 
 const baseClass = 'input'
 
@@ -26,8 +29,8 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-export default React.createClass({
-  displayName: 'Input',
+const SelectorInput = React.createClass({
+  displayName: 'SelectorInput',
 
   getDefaultProps () {
     return {
@@ -45,9 +48,19 @@ export default React.createClass({
     }
   },
 
+  getInitialState () {
+    return { hover: false }
+  },
+
   propTypes: {
     big: PropTypes.bool,
     centered: PropTypes.bool,
+    customize: PropTypes.shape({
+      borderColor: PropTypes.string.isRequired,
+      borderColorSelected: PropTypes.string.isRequired,
+      labelColor: PropTypes.string.isRequired,
+      inputColor: PropTypes.string.isRequired
+    }),
     giant: PropTypes.bool,
     id: PropTypes.string,
     input: PropTypes.func,
@@ -76,6 +89,14 @@ export default React.createClass({
     programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
   },
 
+  onMouseEnter () {
+    this.setState({ hover: true })
+  },
+
+  onMouseLeave () {
+    this.setState({ hover: false })
+  },
+
   render () {
     const {
       big,
@@ -83,6 +104,7 @@ export default React.createClass({
       className,
       center, // eslint-disable-line no-unused-vars
       centered,
+      customize,
       disabled,
       error, // eslint-disable-line no-unused-vars
       focus, // eslint-disable-line no-unused-vars
@@ -103,6 +125,7 @@ export default React.createClass({
       placeholder,
       right, // eslint-disable-line no-unused-vars
       square,
+      style,
       styles,
       top, // eslint-disable-line no-unused-vars
       value,
@@ -110,6 +133,25 @@ export default React.createClass({
       ...props
     } = this.props
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+    const hasNonDefaultState = disabled || warning || error
+    const useDynamicStyles = customize && !hasNonDefaultState
+
+    const dynamicStyles = useDynamicStyles
+      ? {
+        borderColor: this.state.hover || focus
+          ? customize.borderColorSelected
+          : customize.borderColor
+      }
+      : undefined
+
+    const labelDynamicStyles = useDynamicStyles
+      ? { color: customize.labelColor }
+      : undefined
+
+    const inputDynamicStyles = useDynamicStyles
+      ? { color: customize.inputColor }
+      : undefined
 
     const cls = classNames(
       (icon ? classes.icon : baseClass), {
@@ -142,13 +184,17 @@ export default React.createClass({
       onKeyDown: handleKeyDown(this.props),
       onFocus: onFocus,
       ref: 'input',
+      style: {
+        ...inputDynamicStyles,
+        ...style
+      },
       ...props
     }
 
     const inputElement = (
       <div {...inputProps}>
         {
-          placeholder
+          (error || warning) && placeholder && !value
           ? <span className={classNames(classes.inputPlaceholder)}>{placeholder}</span>
           : value
         }
@@ -159,7 +205,10 @@ export default React.createClass({
       <div
         className={cls}
         id={id}
-        onClick={onClick}>
+        onClick={onClick}
+        onMouseEnter={this.onMouseEnter}
+        onMouseLeave={this.onMouseLeave}
+        style={dynamicStyles}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
             icon: classNames(classes.iconIcon),
@@ -170,7 +219,8 @@ export default React.createClass({
 
         <label
           className={classNames(icon ? classes.iconLabel : classes.label)}
-          id={ids.label}>
+          id={ids.label}
+          style={labelDynamicStyles}>
           {label}
         </label>
 
@@ -185,3 +235,17 @@ export default React.createClass({
     )
   }
 })
+
+export default compose(
+  themeable((customizations, props) => ({
+    customize: {
+      ...props.customize,
+      borderColor: customizations.color_border,
+      borderColorSelected: customizations.color_border_selected,
+      labelColor: customizations.color_text_secondary,
+      inputColor: customizations.color_text
+    }
+  })),
+  overridable(defaultStyles)
+)(SelectorInput)
+
