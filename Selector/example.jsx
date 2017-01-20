@@ -1,6 +1,7 @@
 import React from 'react'
 import * as Selector from '../Selector'
-import Input from '../Input'
+import Input, { icons } from '../Input'
+import Fieldset from '../Fieldset'
 import UncontrolledSelector from '../uncontrolled/Selector'
 import { LIVE } from '../Showroom/variationTypes'
 
@@ -19,54 +20,6 @@ export default {
   icon: 'Baseline',
 
   variations: [
-    {
-      title: 'Selector Input',
-      require: 'import * as Selector from \'@klarna/ui/Selector\'',
-      type: LIVE,
-
-      examples: {
-        Regular: <Selector.Input
-          onClick={(e) => { console.info('it was clicked', e)}}
-          label='Organization type'
-        />,
-        RegularValue: <Selector.Input
-          onClick={(e) => { console.info('it was clicked', e)}}
-          label='Organization type'
-          value='This is the value'
-        />,
-        Big: <Selector.Input label='Organization type' big />,
-        BigValue: <Selector.Input label='Organization type' big value='This is the value' />,
-        Giant: <Selector.Input label='Organization type' giant />,
-        GiantValue: <Selector.Input label='Organization type' giant value='This is the value' />,
-        Focused: <Selector.Input label='Organization type' focus />,
-        'Fake focused': <Selector.Input label='Organization type' focus='fake' />,
-        Disabled: <Selector.Input disabled label='Address' />,
-        DisabledValue: <Selector.Input disabled label='Address' value='16, Corn street' />,
-        'Exclude Mouseflow': <Selector.Input
-          mouseflowExclude
-          label='Address'
-          value='16, Corn street'
-        />,
-        'With error': <Selector.Input label='Please select an Organization type' placeholder='Organization type' error />,
-        'With warning': <Selector.Input
-          label='Please select another Organization type'
-          warning
-          value='This is the wrong type?'
-        />,
-        'Normal Input': <Input
-          onChange={(v) => v}
-          label='Organization type'
-          value='This is the value'
-        />,
-        'Normal Input error': <Input
-          onChange={(v) => v}
-          error
-          label='Please enter Organization type'
-          placeholder='Foobar'
-        />
-      }
-    },
-
     {
       title: 'Options Selector',
       require: `import * as Selector from '@klarna/ui/Selector'
@@ -103,6 +56,41 @@ import UncontrolledSelector from '@klarna/ui/uncontrolled/Selector'`,
           data={directData}
           onSelect={(v) => (v)}
         />
+      }
+    },
+
+    {
+      title: 'Selector Input',
+      require: `import Fieldset from '@klarna/ui/Fieldset'
+import * as Selector from '@klarna/ui/Selector'`,
+      type: LIVE,
+
+      examples: {
+        Variations: <Fieldset margins>
+          <Selector.Input
+            onClick={(e) => { console.info('it was clicked', e) }}
+            label='Organization type'
+          />
+          <Selector.Input
+            label='Organization type'
+            value='Standard Organization'
+          />
+          <Selector.Input
+            error
+            label='Please select an organization type'
+            placeholder='Organization type'
+          />
+          <Selector.Input
+            icon={icons.BANK}
+            label='Organization type'
+          />
+          <Selector.Input
+            icon={icons.BANK}
+            error
+            label='Please select an organization type'
+            placeholder='Organization type'
+          />
+        </Fieldset>
       }
     }
   ]
