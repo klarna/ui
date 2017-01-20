@@ -69,25 +69,30 @@ import * as Selector from '@klarna/ui/Selector'`,
         Variations: <Fieldset margins>
           <Selector.Input
             onClick={(e) => { console.info('it was clicked', e) }}
+            link='Select'
             label='Organization type'
           />
           <Selector.Input
             label='Organization type'
+            link='Select'
             value='Standard Organization'
           />
           <Selector.Input
             error
             label='Please select an organization type'
+            link='Select'
             placeholder='Organization type'
           />
           <Selector.Input
             icon={icons.BANK}
             label='Organization type'
+            link='Select'
           />
           <Selector.Input
             icon={icons.BANK}
             error
             label='Please select an organization type'
+            link='Select'
             placeholder='Organization type'
           />
         </Fieldset>

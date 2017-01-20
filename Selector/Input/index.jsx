@@ -64,6 +64,7 @@ const SelectorInput = React.createClass({
     giant: PropTypes.bool,
     id: PropTypes.string,
     input: PropTypes.func,
+    link: PropTypes.string,
     loading: PropTypes.bool,
     label: PropTypes.string.isRequired,
     mouseflowExclude: PropTypes.bool,
@@ -113,6 +114,7 @@ const SelectorInput = React.createClass({
       id,
       label,
       left, // eslint-disable-line no-unused-vars
+      link,
       loading,
       mouseflowExclude,
       onBlur,
@@ -228,7 +230,7 @@ const SelectorInput = React.createClass({
           : inputElement
         }
         <div className={classNames(classes.linkWrapper)}>
-          <Select label={'Select'} />
+          <Select label={link} />
         </div>
       </div>
     )
