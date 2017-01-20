@@ -24,7 +24,7 @@ const classes = {
   input: `${baseClass}__input`,
   inputPlaceholder: `${baseClass}__input-placeholder`,
   label: `${baseClass}__label`,
-  linkWrapper: `${baseClass}__link-wrapper`,
+  linkWrapper: `${baseClass}__link-wrapper`
 }
 
 export const icons = inlinedIcon.INLINED_ICONS
@@ -111,7 +111,6 @@ const SelectorInput = React.createClass({
       giant,
       icon,
       id,
-      Input,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,

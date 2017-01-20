@@ -94,8 +94,8 @@ $stackable-border-width: $grid * .2;
   height: ($grid * 10);
   line-height: ($grid * 10);
   position: relative;
-  transition: border-color .2s ease;
   text-align: left;
+  transition: border-color .2s ease;
 
   &.big {
     height: ($grid * 12);
