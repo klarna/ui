@@ -300,14 +300,17 @@ import * as List from '@klarna/ui/List'`,
 
         <Selector.Input
           label='Organization type'
+          link='Select'
         />
         <Selector.Input
           label='Please select an organization type'
           placeholder='Organization type'
+          link='Select'
           error
         />
         <Selector.Input
           label='Organization type'
+          link='Select'
           value='This is the value'
         />
       </Theme>
