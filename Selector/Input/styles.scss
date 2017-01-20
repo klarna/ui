@@ -276,8 +276,11 @@ $stackable-border-width: $grid * .2;
   height: ($grid * 10);
   line-height: ($grid * 10);
   outline: none;
-  padding: 0;
+  overflow: hidden;
+  padding-right: ($grid * 4);
   position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 100%;
 
   @include respond-to-wide {
