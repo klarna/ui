@@ -68,7 +68,7 @@ import * as Selector from '@klarna/ui/Selector'`,
       examples: {
         Variations: <Fieldset margins>
           <Selector.Input
-            onClick={(e) => { console.info('it was clicked', e) }}
+            onClick={(e) => console.info('it was clicked', e)}
             link='Select'
             label='Organization type'
           />
