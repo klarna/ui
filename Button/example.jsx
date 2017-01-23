@@ -141,9 +141,16 @@ export default {
           Pay now!
           <Button.Price>14:-</Button.Price>
         </Button.Primary>,
-        'High brand volume': <Button.Primary brandVolume='high'>
-          Start your journey
-        </Button.Primary>,
+        'High brand volume': (
+          <div>
+            <Button.Primary brandVolume='high'>
+              Start your journey
+            </Button.Primary>
+            <Button.Primary brandVolume='high' size='big' style={{marginTop: 10}}>
+              Start your journey
+            </Button.Primary>
+          </div>
+        ),
         Disabled: <Button.Primary disabled>Click me!</Button.Primary>,
         Loading: <Button.Primary loading>Click me!</Button.Primary>,
         'Loading with customization': <Button.Primary
@@ -167,9 +174,16 @@ export default {
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
         </Button.Secondary>,
-        'High brand volume': <Button.Secondary brandVolume='high'>
-          Start your journey
-        </Button.Secondary>,
+        'High brand volume': (
+          <div>
+            <Button.Secondary brandVolume='high'>
+              Start your journey
+            </Button.Secondary>
+            <Button.Secondary brandVolume='high' size='big' style={{marginTop: 10}}>
+              Start your journey
+            </Button.Secondary>
+          </div>
+        ),
         Disabled: <Button.Secondary disabled>Click me!</Button.Secondary>,
         Loading: <Button.Secondary loading>Click me!</Button.Secondary>,
         'Loading with customization': <Button.Secondary
