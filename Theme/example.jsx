@@ -100,6 +100,12 @@ import * as List from '@klarna/ui/List'`,
     type: LIVE,
 
     examples: {
+      'Brand Volume': (
+        <Theme brandVolume='high'>
+          <Button.Primary style={{marginRight: 10}}> Try Me! </Button.Primary>
+          <Button.Secondary> Try Me! </Button.Secondary>
+        </Theme>
+      ),
       Regular: <Theme
         customizations={{
           color_border: '#660080',

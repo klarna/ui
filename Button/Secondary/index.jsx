@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { withPropsFromContext } from 'react-context-props'
 import Loader from '../../Loader'
 import Price from '../Price'
 import classNamesBind from 'classnames/bind'
@@ -141,6 +142,7 @@ Secondary.propTypes = {
 }
 
 export default compose(
+  (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
       ...customize,
