@@ -1,5 +1,7 @@
 import { PropTypes } from 'react'
 import { getContextualizer } from 'react-context-props'
+import brandVolumeLevels from '../lib/brandVolumeLevels'
+
 
 const Theme = getContextualizer({
   customizations: PropTypes.shape({
@@ -15,7 +17,8 @@ const Theme = getContextualizer({
     color_details: PropTypes.string.isRequired,
     color_text_secondary: PropTypes.string.isRequired,
     radius_border: PropTypes.string.isRequired
-  })
+  }),
+  brandVolume: PropTypes.oneOf(brandVolumeLevels)
 })
 
 Theme.displayName = 'Theme'

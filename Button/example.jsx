@@ -2,6 +2,7 @@ import React from 'react'
 import { Back, Close, Hamburger, Options, Search, Select } from '../IconButton'
 import * as Block from '../Block'
 import * as Button from '../Button'
+import Theme from '../Theme'
 // import * as Paragraph from '../Paragraph'
 import { LIVE } from '../Showroom/variationTypes'
 
