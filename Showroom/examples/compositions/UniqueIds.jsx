@@ -131,14 +131,14 @@ export default {
               title='Estimated total'
               value='€100'
             />
-          <Block.Installments.Value
+            <Block.Installments.Value
               clarification='†'
               id='block-installments-value'
               title='APR'
               value='9.99%'
             />
-        </Block.Installments.Content>
-      </Block.Installments.Main>
+          </Block.Installments.Content>
+        </Block.Installments.Main>
       }
     },
 
