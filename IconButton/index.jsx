@@ -1,5 +1,6 @@
 export Back from './Back'
 export Close from './Close'
+export Select from './Select'
 export Hamburger from './Hamburger'
 export Options from './Options'
 export Search from './Search'

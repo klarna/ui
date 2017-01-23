@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Selector from '../Selector'
+import Fieldset from '../Fieldset'
 import { LIVE } from '../Showroom/variationTypes'
 
 const optionsData = [
@@ -55,6 +56,46 @@ export default {
             onSelect={(v) => (v)}
           />
         )
+      }
+    },
+
+    {
+      title: 'Selector Input',
+      require: `import Fieldset from '@klarna/ui/Fieldset'
+import * as Selector from '@klarna/ui/Selector'`,
+      type: LIVE,
+
+      examples: {
+        Variations: <Fieldset margins>
+          <Selector.Input
+            onClick={(e) => console.info('it was clicked', e)}
+            link='Select'
+            label='Organization type'
+          />
+          <Selector.Input
+            label='Organization type'
+            link='Select'
+            value='Standard Organization'
+          />
+          <Selector.Input
+            error
+            label='Please select an organization type'
+            link='Select'
+            placeholder='Organization type'
+          />
+          <Selector.Input
+            icon={icons.BANK}
+            label='Organization type'
+            link='Select'
+          />
+          <Selector.Input
+            icon={icons.BANK}
+            error
+            label='Please select an organization type'
+            link='Select'
+            placeholder='Organization type'
+          />
+        </Fieldset>
       }
     }
   ]
