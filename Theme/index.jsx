@@ -2,7 +2,6 @@ import { PropTypes } from 'react'
 import { getContextualizer } from 'react-context-props'
 import brandVolumeLevels from '../lib/brandVolumeLevels'
 
-
 const Theme = getContextualizer({
   customizations: PropTypes.shape({
     color_button: PropTypes.string.isRequired,
