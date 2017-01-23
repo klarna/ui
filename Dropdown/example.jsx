@@ -31,6 +31,11 @@ export default {
           value='lorem'
         />,
 
+        'Selected without label': <Dropdown
+          options={options}
+          value='ipsum'
+        />,
+
         'With name': <Dropdown
           label='Lorem ipsum'
           name='dolor-sit-amet'
