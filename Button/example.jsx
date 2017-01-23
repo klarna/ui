@@ -1,5 +1,5 @@
 import React from 'react'
-import { Back, Close, Select, Hamburger, Options, Search } from '../IconButton'
+import { Back, Close, Hamburger, Options, Search, Select } from '../IconButton'
 import * as Block from '../Block'
 import * as Button from '../Button'
 // import * as Paragraph from '../Paragraph'
@@ -229,7 +229,7 @@ export default {
 
     {
       title: 'Iconic Buttons',
-      require: 'import { Back, Close, Hamburger, Options, Search } from \'@klarna/ui/IconButton\'',
+      require: 'import { Back, Close, Hamburger, Options, Search, Select } from \'@klarna/ui/IconButton\'',
       type: LIVE,
 
       examples: {
