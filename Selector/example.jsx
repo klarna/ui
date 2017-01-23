@@ -1,6 +1,7 @@
 import React from 'react'
 import * as Selector from '../Selector'
 import Fieldset from '../Fieldset'
+import {icons} from '../Input'
 import { LIVE } from '../Showroom/variationTypes'
 
 const optionsData = [
