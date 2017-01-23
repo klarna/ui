@@ -25,7 +25,7 @@ const Options = React.createClass({
       borderColor: PropTypes.string.isRequired,
       bulletColor: PropTypes.string.isRequired,
       labelColor: PropTypes.string.isRequired,
-      labelColorSelected: PropTypes.string.isRequired,
+      labelColorSelected: PropTypes.string.isRequired
     }),
     data: PropTypes.array.isRequired,
     focus: PropTypes.any,
@@ -157,7 +157,7 @@ const Options = React.createClass({
 
   onOptionMouseLeave (key) {
     this.setState({ hover: undefined })
-  },
+  }
 })
 
 export default compose(
