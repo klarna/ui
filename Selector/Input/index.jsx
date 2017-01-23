@@ -10,7 +10,7 @@ import { Select } from '../../IconButton'
 import themeable from '../../decorators/themeable'
 import overridable from '../../decorators/overridable'
 
-const baseClass = 'input'
+const baseClass = 'selector-input'
 
 const classes = {
   icon: `${baseClass}--icon`,

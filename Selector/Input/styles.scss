@@ -83,7 +83,7 @@ $stackable-border-width: $grid * .2;
   }
 }
 
-%input {
+%selector-input {
   @include stackable-input();
 
   border-bottom: ($grid * .2) solid $border-color;
@@ -168,17 +168,17 @@ $stackable-border-width: $grid * .2;
   }
 
   &.is-centered {
-    .input__label {
+    .selector-input__label {
       padding: 0;
       width: 100%;
     }
 
-    .input--icon__input {
+    .selector-input--icon__input {
       padding: 0 40px;
     }
 
-    .input__input,
-    .input__label {
+    .selector-input__input,
+    .selector-input__label {
       text-align: center;
     }
   }
@@ -195,7 +195,7 @@ $stackable-border-width: $grid * .2;
   }
 }
 
-%input__label {
+%selector-input__label {
   @include typography(map-get($font-sizes, big-body-mobile), regular);
 
   color: map-get($colors, 'grey-text');
@@ -264,7 +264,7 @@ $stackable-border-width: $grid * .2;
   }
 }
 
-%input__input {
+%selector-input__input {
   @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -287,8 +287,8 @@ $stackable-border-width: $grid * .2;
     @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
   }
 
-  & .input__input-placeholder {
-    // This should be the same color and font weight as .input__label.
+  & .selector-input__input-placeholder {
+    // This should be the same color and font weight as .selector-input__label.
     color: map-get($colors, grey-text);
     font-weight: normal;
   }
@@ -342,32 +342,32 @@ $stackable-border-width: $grid * .2;
   }
 }
 
-.input {
-  @extend %input;
+.selector-input {
+  @extend %selector-input;
 }
 
-.input__label {
-  @extend %input__label;
+.selector-input__label {
+  @extend %selector-input__label;
 }
 
-.input__input {
-  @extend %input__input;
+.selector-input__input {
+  @extend %selector-input__input;
 }
 
-.input--icon {
-  @extend %input;
+.selector-input--icon {
+  @extend %selector-input;
 }
 
-.input--icon__label {
-  @extend %input__label;
+.selector-input--icon__label {
+  @extend %selector-input__label;
 }
 
-.input--icon__input {
-  @extend %input__input;
+.selector-input--icon__input {
+  @extend %selector-input__input;
 }
 
-.input--icon__label,
-.input--icon__input {
+.selector-input--icon__label,
+.selector-input--icon__input {
   padding-left: ($grid * 6);
 
   .giant & {
@@ -375,7 +375,7 @@ $stackable-border-width: $grid * .2;
   }
 }
 
-.input--icon__icon {
+.selector-input--icon__icon {
   display: block;
   fill-rule: evenodd;
   height: ($grid * 4);
@@ -397,23 +397,23 @@ $stackable-border-width: $grid * .2;
     @include illustration__fill(map-get($colors, grey-icon));
   }
 
-  .input--icon:hover &__fill {
+  .selector-input--icon:hover &__fill {
     @include illustration__fill(map-get($colors, blue-hover));
   }
 
-  .input--icon.is-focused &__fill {
+  .selector-input--icon.is-focused &__fill {
     @include illustration__fill(map-get($colors, blue-hover));
   }
 
-  .input--icon.is-error &__fill {
+  .selector-input--icon.is-error &__fill {
     @include illustration__fill(map-get($colors, red));
   }
 
-  .input--icon.is-warning &__fill {
+  .selector-input--icon.is-warning &__fill {
     @include illustration__fill(map-get($colors, warning-border));
   }
 
-  .input--icon.is-disabled &__fill {
+  .selector-input--icon.is-disabled &__fill {
     @include illustration__fill(map-get($colors, grey-lines));
   }
 
@@ -421,28 +421,28 @@ $stackable-border-width: $grid * .2;
     @include illustration__stroke(map-get($colors, grey-icon));
   }
 
-  .input--icon:hover &__stroke {
+  .selector-input--icon:hover &__stroke {
     @include illustration__stroke(map-get($colors, blue-hover));
   }
 
-  .input--icon.is-focused &__stroke {
+  .selector-input--icon.is-focused &__stroke {
     @include illustration__stroke(map-get($colors, blue-hover));
   }
 
-  .input--icon.is-error &__stroke {
+  .selector-input--icon.is-error &__stroke {
     @include illustration__stroke(map-get($colors, red));
   }
 
-  .input--icon.is-warning &__stroke {
+  .selector-input--icon.is-warning &__stroke {
     @include illustration__stroke(map-get($colors, warning-border));
   }
 
-  .input--icon.is-disabled &__stroke {
+  .selector-input--icon.is-disabled &__stroke {
     @include illustration__stroke(map-get($colors, grey-lines));
   }
 }
 
-.input--icon__placeholder {
+.selector-input--icon__placeholder {
   background: map-get($colors, grey-lines);
   display: block;
   height: ($grid * 4);
@@ -461,10 +461,11 @@ $stackable-border-width: $grid * .2;
   }
 }
 
-.input__link-wrapper {
+.selector-input__link-wrapper {
   line-height: ($grid * 4);
   margin-top: ($grid * -2);
   position: absolute;
   right: 0;
   top: 50%;
 }
+
