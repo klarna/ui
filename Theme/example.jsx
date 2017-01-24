@@ -93,6 +93,12 @@ import * as List from '@klarna/ui/List'`,
     type: LIVE,
 
     examples: {
+      'Brand Volume': (
+        <Theme brandVolume='high'>
+          <Button.Primary style={{marginRight: 10}}> Try Me! </Button.Primary>
+          <Button.Secondary> Try Me! </Button.Secondary>
+        </Theme>
+      ),
       Regular: <Theme
         customizations={{
           color_border: '#660080',
@@ -316,6 +322,10 @@ import * as List from '@klarna/ui/List'`,
           label='Organization type'
           link='Select'
           value='This is the value'
+        />
+        <Selector.Options
+          data={options}
+          value={2}
         />
       </Theme>
     }

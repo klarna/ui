@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import compose from 'ramda/src/compose'
 import {overridable, themeable} from '@klarna/higher-order-components'
+import { withPropsFromContext } from 'react-context-props'
 import classNamesBind from 'classnames/bind'
 import parseColor from 'parse-color'
 
@@ -122,6 +123,7 @@ Primary.propTypes = {
 }
 
 export default compose(
+  (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
       ...customize,
