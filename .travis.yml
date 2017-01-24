@@ -4,6 +4,13 @@ node_js:
 script:
 - npm test
 - curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py && python weigh_in.py index-built.js
+addons:
+  apt:
+    packages:
+    - xvfb
+install:
+- export DISPLAY=':99.0'
+- Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 deploy:
   provider: npm
   email: ui-admin.e@klarna.com
