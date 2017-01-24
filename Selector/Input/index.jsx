@@ -1,14 +1,13 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import compose from '../../lib/compose'
+import {themeable, overridable} from '@klarna/higher-order-components'
+import compose from 'ramda/src/compose'
 import defaultStyles from './styles.scss'
 import * as fieldStates from '../../lib/features/fieldStates'
 import * as inlinedIcon from '../../lib/features/inlinedIcon'
 import * as stacking from '../../lib/features/stacking'
 import MouseflowExclude from '../../MouseflowExclude'
 import { Select } from '../../IconButton'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
 
 const baseClass = 'selector-input'
 
@@ -221,4 +220,3 @@ export default compose(
   })),
   overridable(defaultStyles)
 )(SelectorInput)
-

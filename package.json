@@ -19,7 +19,7 @@
   },
   "author": "Klarna front end people",
   "dependencies": {
-    "@klarna/higher-order-components": "^0.4.0",
+    "@klarna/higher-order-components": "^0.4.1",
     "classnames": "2.2.5",
     "parse-color": "1.0.0",
     "react-context-props": "^0.1.4"
@@ -60,9 +60,9 @@
     "phantomjs-prebuilt": "2.1.7",
     "postcss-loader": "^0.13.0",
     "ramda": "^0.21.0",
-    "react": "15.3.2",
+    "react": "15.4.0",
     "react-addons-test-utils": "^15.0.2",
-    "react-dom": "15.3.2",
+    "react-dom": "15.4.0",
     "react-element-to-jsx-string": "^4.1.0",
     "react-maskedinput": "^3.3.1",
     "react-motion": "^0.4.2",
