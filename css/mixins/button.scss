@@ -55,8 +55,8 @@
   &.has-price {
     padding: 0 ($grid * 4);
     text-align: left;
-    
-    &.brand-volume-high {
+
+    &.brand-volume-high.big {
       padding: 0 ($grid * 6);
     }
   }
