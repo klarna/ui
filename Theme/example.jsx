@@ -319,6 +319,10 @@ import * as List from '@klarna/ui/List'`,
           link='Select'
           value='This is the value'
         />
+        <Selector.Options
+          data={options}
+          value={2}
+        />
       </Theme>
     }
   }

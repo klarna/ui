@@ -221,4 +221,3 @@ export default compose(
   })),
   overridable(defaultStyles)
 )(SelectorInput)
-
