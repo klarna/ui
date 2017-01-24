@@ -146,24 +146,8 @@ export default {
             <Button.Primary brandVolume='high'>
               Start your journey
             </Button.Primary>
-            <Button.Primary brandVolume='high' size='big' style={{marginTop: 10, display: 'block'}}>
+            <Button.Primary brandVolume='high' size='big' style={{marginTop: 10}}>
               Start your journey
-            </Button.Primary>
-          </div>
-        ),
-        'High brand volume with price': (
-          <div>
-            <Button.Primary brandVolume='high'>
-              Pay now
-              <Button.Price>
-                12$
-              </Button.Price>
-            </Button.Primary>
-            <Button.Primary brandVolume='high' size='big' style={{marginTop: 10, display: 'block'}}>
-              Pay now
-              <Button.Price>
-                12$
-              </Button.Price>
             </Button.Primary>
           </div>
         ),
