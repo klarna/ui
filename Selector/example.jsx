@@ -73,9 +73,11 @@ import * as Selector from '@klarna/ui/Selector'`,
             label='Organization type'
           />
           <Selector.Input
+            onClick={(e) => console.info('click event disabled', e)}
             label='Organization type'
             link='Select'
             value='Standard Organization'
+            disabled
           />
           <Selector.Input
             error

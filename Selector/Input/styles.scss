@@ -161,6 +161,7 @@ $stackable-border-width: $grid * .2;
 
   &.is-disabled {
     border-color: map-get($colors, grey-lines);
+    cursor: default;
 
     &:hover {
       border-color: map-get($colors, grey-lines);
