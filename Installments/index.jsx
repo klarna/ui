@@ -33,7 +33,8 @@ class Installments extends Component {
 
       case 'auto':
       default:
-        const wide = window.innerWidth > MOBILE_MAX_WIDTH
+        const currentWidth = window.innerWidth || document.body.clientWidth
+        const wide = currentWidth >= MOBILE_MAX_WIDTH
 
         return <div
           className={classNames(baseClass)}
