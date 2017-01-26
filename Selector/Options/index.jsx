@@ -108,7 +108,7 @@ const Options = React.createClass({
             : undefined
 
           const labelDynamicStyles = useDynamicStyles
-            ? { color: (isHovered || isSelected) ? customize.labelColorSelected : customize.labelColor }
+            ? { color: isHovered ? customize.labelColorSelected : customize.labelColor }
             : undefined
 
           return [

@@ -177,10 +177,11 @@ const SelectorInput = React.createClass({
       <div
         className={cls}
         id={id}
-        onClick={onClick}
+        onClick={(e) => !disabled && onClick && onClick(e)}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
         style={dynamicStyles}>
+
         {
           inlinedIcon.renderInlinedIcon(this.props, {
             icon: classNames(classes.iconIcon),
@@ -200,9 +201,12 @@ const SelectorInput = React.createClass({
           ? <MouseflowExclude>{inputElement}</MouseflowExclude>
           : inputElement
         }
-        <div className={classNames(classes.linkWrapper)}>
-          <Select label={link} />
-        </div>
+
+        {!disabled && (
+          <div className={classNames(classes.linkWrapper)}>
+            <Select label={link} />
+          </div>
+        )}
       </div>
     )
   }
