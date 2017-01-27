@@ -1,6 +1,6 @@
 {
   "name": "@klarna/ui",
-  "version": "5.5.0",
+  "version": "6.0.0-rc.0",
   "description": "Klarna's UI Components",
   "repository": {
     "type": "git",
