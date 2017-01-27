@@ -192,9 +192,11 @@ import * as List from '@klarna/ui/List'`,
         </Fieldset>
 
         <Fieldset margins>
-          <Field top label='Address' defaultValue='16, Corn street' focus='fake' />
+          <Dropdown top left size='1/2' label='Title' options={options} defaultValue={1} />
+          <Field top right size='1/2' label='Address' defaultValue='16, Corn street' />
           <Field square label='Given name' />
-          <Field bottom error label='Family name' />
+          <Field bottom left size='1/2' error label='Family name' />
+          <Dropdown bottom right size='1/2' label='Middle name' options={options} focus='fake' />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
