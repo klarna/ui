@@ -3,6 +3,7 @@
 
 .switch--checkbox {
   position: relative;
+  box-sizing: content-box;
 
   &.is-disabled {
     opacity: .2;
