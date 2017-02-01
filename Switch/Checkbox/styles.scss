@@ -2,6 +2,7 @@
 @import '../../css/mixins/index';
 
 .switch--checkbox {
+  box-sizing: content-box;
   position: relative;
 
   &.is-disabled {
