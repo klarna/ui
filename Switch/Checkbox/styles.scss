@@ -2,8 +2,8 @@
 @import '../../css/mixins/index';
 
 .switch--checkbox {
-  position: relative;
   box-sizing: content-box;
+  position: relative;
 
   &.is-disabled {
     opacity: .2;
