@@ -169,15 +169,17 @@ export default compose(
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
-    handlerName: 'onFocus',
-    handlerSelector: (x) => x,
-    resetHandlerName: 'onBlur'
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
   }),
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
-    handlerName: 'onChange',
-    handlerSelector: (x) => x
+    handlers: {
+      onChange: () => field => field
+    }
   }),
   uniqueName,
   themeable((customizations, props) => ({

@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@klarna/higher-order-components@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.4.1.tgz#406d29c0ad3c1aaa95e10a804bebd8aa5c0d4f44"
+"@klarna/higher-order-components@0.5.0":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.5.1.tgz#587bcc5a8b1fc4aa19fb2ff7c433f2631c376b1d"
   dependencies:
     collect-fps "2.0.0"
     seed-random "^2.2.0"
@@ -3606,11 +3606,7 @@ lowlight@^1.2.0:
   dependencies:
     highlight.js "~9.9.0"
 
-lru-cache@2:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.7.3.tgz#6d4524e8b955f95d4f5b58851ce21dd72fb4e952"
-
-lru-cache@2.2.x:
+lru-cache@2, lru-cache@2.2.x:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.2.4.tgz#6c658619becf14031d0d0b594b16042ce4dc063d"
 

@@ -89,14 +89,16 @@ export default compose(
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
-    handlerName: 'onFocus',
-    handlerSelector: (x) => x,
-    resetHandlerName: 'onBlur'
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
   }),
   uncontrolled({
     prop: 'values',
     defaultProp: 'defaultValues',
-    handlerName: 'onChange',
-    handlerSelector: (x) => x
+    handlers: {
+      onChange: () => value => value
+    }
   })
 )(Fieldset)

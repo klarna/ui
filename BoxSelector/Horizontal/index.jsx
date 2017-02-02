@@ -227,8 +227,9 @@ export default compose(
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
-    handlerName: 'onChange',
-    handlerSelector: (x) => x
+    handlers: {
+      onChange: () => value => value
+    }
   }),
   themeable((customizations, props) => ({
     customize: {
