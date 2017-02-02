@@ -1,0 +1,14 @@
+.dialog {
+  background: map-get($colors, white);
+  display: flex;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  //
+  // @include respond-to-wide {
+  //   transform: translate();
+  //   width: ($grid * 87);
+  // }
+}
