@@ -19,7 +19,7 @@
   },
   "author": "Klarna front end people",
   "dependencies": {
-    "@klarna/higher-order-components": "0.5.0",
+    "@klarna/higher-order-components": "0.5.1",
     "classnames": "2.2.5",
     "parse-color": "1.0.0",
     "react-context-props": "^0.1.4"
