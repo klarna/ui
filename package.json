@@ -83,7 +83,8 @@
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
-    "react-motion": "^0.4.2"
+    "react-motion": "^0.4.2",
+    "ramda": "^0.21.0"
   },
   "standard": {
     "globals": [
