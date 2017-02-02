@@ -1,6 +1,8 @@
 import React from 'react'
 
 const NODE_COMMENT = 8
+const COMMENT_START = 'MouseflowExcludeStart'
+const COMMENT_END = 'MouseflowExcludeEnd'
 
 const MouseflowExclude = React.createClass({
   displayName: 'MouseflowExclude',
@@ -8,20 +10,18 @@ const MouseflowExclude = React.createClass({
   render () {
     return (
       <span ref={(span) => {
-        if (span == null) {
+        const firstChild = span && span.childNodes && span.childNodes[0]
+
+        if (firstChild == null) {
           return
         }
 
-        if (span.childNodes[0].nodeType === NODE_COMMENT && span.childNodes[0].textContent === 'MouseflowExcludeStart') {
+        if (firstChild.nodeType === NODE_COMMENT && firstChild.textContent === COMMENT_START) {
           return
         }
 
-        span.insertBefore(
-          document.createComment('MouseflowExcludeStart'),
-          span.childNodes[0]
-        )
-
-        span.appendChild(document.createComment('MouseflowExcludeEnd'))
+        span.insertBefore(document.createComment(COMMENT_START), firstChild)
+        span.appendChild(document.createComment(COMMENT_END))
       }}>
         {this.props.children}
       </span>
