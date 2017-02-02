@@ -3,6 +3,7 @@ import { Motion, spring } from 'react-motion'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../../lib/getActiveElement'
+import debounce from '../../lib/debounce'
 
 const baseClass = 'tab-menu'
 
@@ -85,7 +86,7 @@ export default React.createClass({
   },
 
   componentWillUnmount () {
-    window.removeEventListener('resize', this.resizeListener)
+    window.removeEventListener('resize', debounce(this.resizeListener))
   },
 
   resizeListener () {
