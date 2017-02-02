@@ -74,6 +74,13 @@ export default React.createClass({
   componentDidMount (prevProps) {
     setTimeout(() => update(this))
 
+    window.addEventListener(
+      'resize',
+      () => window.requestAnimationFrame
+        ? window.requestAnimationFrame(() => update(this))
+        : update(this)
+    )
+
     if (
       this.props.focus &&
       getActiveElement(document) !== this.refs[this.props.focus]
