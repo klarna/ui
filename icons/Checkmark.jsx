@@ -18,7 +18,7 @@ export default function Checkmark ({ color, styles, className, stroke, ...props 
       <path
         d='M5 13.69l4.49 4.23L19.37 8'
         className={classNames('illustration__stroke')}
-        style={stroke ? {stroke} : undefined}/>
+        style={stroke ? {stroke} : undefined} />
     </svg>
   )
 }

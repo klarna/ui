@@ -71,7 +71,7 @@
     "sass-loader": "^3.2.0",
     "seed-random": "^2.2.0",
     "sinon": "git+https://github.com/sinonjs/sinon.git",
-    "standard": "^6.0.8",
+    "standard": "8.6.0",
     "stringify-object": "^2.4.0",
     "style-loader": "^0.12.4",
     "url-loader": "^0.5.6",

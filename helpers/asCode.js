@@ -81,14 +81,14 @@ const reFormatObjectProps = (code) =>
         }
       }
 
-      const matchArray = line.match(/{(\[.+?\])}/)
+      const matchArray = line.match(/{(\[.+?])}/)
       if (matchArray) {
         try {
           const arr = eval('(' + matchArray[1] + ')') // eslint-disable-line no-eval
           const baseIndentation = getIndentation(line)
 
           const lines = inspect(arr, { indent: '  ' }).split('\n')
-          lines[0] = line.replace(/{\[.+?\]}.*/, '{[')
+          lines[0] = line.replace(/{\[.+?]}.*/, '{[')
           lines[lines.length - 1] = ']}'
 
           if (line.trim().endsWith('/>')) {

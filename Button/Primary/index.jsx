@@ -51,7 +51,7 @@ function Primary ({
     : 'white'
 
   const loadingOrContent = loading
-    ? <Loader inline color={loaderColor}/>
+    ? <Loader inline color={loaderColor} />
     : (success ? '✔' : children)
 
   const customizations = customize

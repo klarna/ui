@@ -157,7 +157,7 @@ const Checkbox = React.createClass({
           } : {
             borderColor: focus && customize.borderColorSelected,
             boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
-          })}></div>
+          })} />
         <svg
           className={classNames(classes.bulletCheckmark)}
           id={ids.bulletCheckmark}
@@ -165,7 +165,7 @@ const Checkbox = React.createClass({
           height='14px'
           viewBox='0 0 14 14'>
           <g fill='none'>
-            <rect x='0' y='0' width='14' height='14' rx='2'></rect>
+            <rect x='0' y='0' width='14' height='14' rx='2' />
             <path
               className={classNames(classes.bulletCheckmarkStroke)}
               d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'

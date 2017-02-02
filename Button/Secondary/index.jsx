@@ -56,7 +56,7 @@ function Secondary ({
   const content = (success ? '✔' : children)
 
   const loadingOrContent = loading
-    ? <Loader inline color={loaderColor}/>
+    ? <Loader inline color={loaderColor} />
     : content
 
   const customizations = customize
@@ -99,13 +99,12 @@ function Secondary ({
             className={classNames(classes.label)}>
             {loadingOrContent}
             {
-              isDisabled ||
-                <span
-                  className={classNames(classes.labelAlt)}
-                  id={ids.labelAlt}
-                  title={content}
-                  style={{color: customize.textColor}}>
-                </span>
+              isDisabled || <span
+                className={classNames(classes.labelAlt)}
+                id={ids.labelAlt}
+                title={content}
+                style={{color: customize.textColor}}
+              />
             }
           </div>
         ]

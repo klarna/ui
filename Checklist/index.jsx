@@ -84,7 +84,7 @@ function ChecklistItem ({className, children, customize, id, styles, ...props}) 
       aria-labelledby='Checkmark'
       height='20px'
       width='20px'>
-      <path d='M5 13.69l4.49 4.23L19.37 8'></path>
+      <path d='M5 13.69l4.49 4.23L19.37 8' />
     </svg>
     {children}
   </li>

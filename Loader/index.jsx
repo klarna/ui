@@ -85,7 +85,11 @@ export default function Loader ({
         <path d={`M 0,${half} A ${half},${half} 0 0,1 -${corner},${quarter}`} stroke={`url(#gradient-${_color.join('-')}-2)`} />
         <path d={`M -${corner},${quarter} A ${half},${half} 0 0,1 -${corner},-${quarter}`} stroke={`url(#gradient-${_color.join('-')}-3)`} />
         <path d={`M -${corner},-${quarter} A ${half},${half} 0 0,1 0,-${half}`} stroke={`url(#gradient-${_color.join('-')}-4)`} />
-        <path d={`M 0,-${half} A ${half},${half} 0 0,1 ${corner},-${quarter}`} stroke={`url(#gradient-${_color.join('-')}-5)`} strokeLinecap='round'/>
+        <path
+          d={`M 0,-${half} A ${half},${half} 0 0,1 ${corner},-${quarter}`}
+          stroke={`url(#gradient-${_color.join('-')}-5)`}
+          strokeLinecap='round'
+        />
       </g>
     </svg>
   )
