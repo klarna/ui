@@ -14,11 +14,13 @@ install:
 - curl -o- -L https://yarnpkg.com/install.sh | bash
 - export PATH="$HOME/.yarn/bin:$PATH"
 - yarn install
+- curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
+  && python weigh_in.py index-built.js
 deploy:
   provider: npm
   email: ui-admin.e@klarna.com
   api_key:
-    secure: Ly4hx6DeE6Gu1Y20KvpJYNqilDvWTnubUfCwgrx9NFK30/JjLljoGzQckDvL6Lt3vxdearRqSUPYk+e2KJybF9qjduXBHjO1iZ7jfRTxrSomSweJ1JLcl25249Z5IH2wd87bHC+KwdxWZKv4/jDavdUS7RXL5BM7E4/TDuvRhIgjHMDT44U2ZFi3nSwOp2Rc4h3M0Ox2GCcWmHcEbh9N5q2ZaQpk3JB3vUeBvTOorbAobS8NqYn5UbJRmN79ejhQMQd9lPnu4YawyfbgzZCwzLMhQI63kcOFjw9+bHPK06WlVrgZ5sPCMyYgQ+yW2rQnp8CsJ7kQApz/Lh5MyC89g3lYzug6EqtxWGPjba10QxKEqsu1x6a3TmfJCNP2CKe3ecnEWYkojGDIZlRafylljJT2cQ08lYUOYmYcivlYK360ZOlaJ0fS3GGfaSdDgoNzH8ygfrfaA922c9aneM+xk45macyK8Z81dccFKzdGXdzLjkGFBGI0uAI3bc2ciRmCbFNFieWJpPV1i2ZQCRa3+YLyLl1nU+XPaAqSbxevwPtHlaS3qhJYE+hjSMaCBrK/P7XeoF5OvUErbq5q2+9H6swDDjuS9KcAHF4MlshEcqZNu3Dt2Yd4zCya3bbS5uR6TqApjIW3Mrm1LlRGTI9DSExjWexvNODqfDgkef0cskA=
+    secure: JveRJbGP5jYktjXJ17yfNp+iR0R1AEMJOBSzbK3qg4iMnlETYWbd590yq2RMjNFBrBJGSkxbXoZpzeFfD5H547CELEJ8tyJJ0V8XSAXqB3SijytEf+t0V0VyBPYUMMuJ8YMmrikZfLVd8YXPy1hZrr1gN20QSetQJ3n8Z54JswkbyDvOiHkR5YnWgOtYu+8+s5fJ10XCP2u7gHw/7sKuDL1HxKW8vnWA5et076YoACM0mEepgo6wxkbMB1B99bYYqDzzZmFEYWaqTZjUC1bkMGfTA2Uv8eyZPiItHWnv4zoa9atoL1C4sYiir/VSrPNnurBdlyMTJu7mgECahnm5ORXzZ1nGLfGD64jzixWAGC3mCy6ukgQzlOWpWDSfePb7Ni8Vg/5bpDk4gNlVrxKpyfZn3GS+P1nfZ5Vi0xRceVBNQ2oDSAXPRldR9IS2dHErPl20D2t2+JLe4GkRzx/jQYO/EIqU396FDUDyHCiRlFj5GlDmy8nOw83H12syUZWQQKWoA5YgUoaCSK+dL5SjFEj/Cabh7+DuV0tEeU7lNUUT7NlvBSLBhdas29RDJ9Xc81h71hfumAPQUl5MIJhqclE+bV9TJB+aJRs207qGbzSjvoQ5+xKoU64iOSmfZd2x9Peqb3ibtTNFxkXIGvrufRuL41np810Pfd5PqjEfYvo=
   on:
     tags: true
     repo: klarna/ui
