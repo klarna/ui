@@ -74,12 +74,7 @@ export default React.createClass({
   componentDidMount (prevProps) {
     setTimeout(() => update(this))
 
-    window.addEventListener(
-      'resize',
-      () => window.requestAnimationFrame
-        ? window.requestAnimationFrame(() => update(this))
-        : update(this)
-    )
+    window.addEventListener('resize', this.resizeListener)
 
     if (
       this.props.focus &&
@@ -87,6 +82,16 @@ export default React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
+  },
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.resizeListener)
+  },
+
+  resizeListener () {
+    window.requestAnimationFrame
+      ? window.requestAnimationFrame(() => update(this))
+      : update(this)
   },
 
   render () {
