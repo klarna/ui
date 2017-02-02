@@ -3,7 +3,8 @@ import classNamesBind from 'classnames/bind'
 import {
   themeable,
   overridable,
-  uncontrolled
+  uncontrolled,
+  uniqueName
 } from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
 import defaultStyles from './styles.scss'
@@ -240,5 +241,6 @@ export default compose(
       labelColor: customizations.color_text
     }
   })),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  uniqueName
 )(Horizontal)
