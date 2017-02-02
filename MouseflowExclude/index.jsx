@@ -8,17 +8,19 @@ const MouseflowExclude = React.createClass({
   render () {
     return (
       <span ref={(span) => {
-        if (span == null) {
+        const firstChild = span && span.childNodes && span.childNodes[0]
+
+        if (firstChild == null) {
           return
         }
 
-        if (span.childNodes[0].nodeType === NODE_COMMENT && span.childNodes[0].textContent === 'MouseflowExcludeStart') {
+        if (firstChild.nodeType === NODE_COMMENT && firstChild.textContent === 'MouseflowExcludeStart') {
           return
         }
 
         span.insertBefore(
           document.createComment('MouseflowExcludeStart'),
-          span.childNodes[0]
+          firstChild
         )
 
         span.appendChild(document.createComment('MouseflowExcludeEnd'))
