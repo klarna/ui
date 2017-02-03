@@ -1,4 +1,5 @@
 export Alert from '../../Alert/example'
+export Backdrop from '../../Backdrop/example'
 export Block from '../../Block/example'
 export Button from '../../Button/example'
 export Checklist from '../../Checklist/example'
