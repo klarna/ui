@@ -133,7 +133,8 @@ const Dropdown = React.createClass({
       {
         'is-loading': loading,
         'is-selected': value != null,
-        square
+        square,
+        'empty-label': label == null || label === ''
       },
       fieldStates.getClassName(this.props),
       stacking.position.getClassName(this.props),

@@ -168,6 +168,10 @@
   .is-disabled & {
     color: map-get($colors, grey-lines);
   }
+
+  .empty-label & {
+    top: 0;
+  }
 }
 
 .dropdown__select {

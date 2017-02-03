@@ -59,14 +59,9 @@ export default class Collapsible extends Component {
         onRest={onEndFPSCollection}>
         {({height, opacity}) => <div
           style={{
-            // once it is fully expanded, we set the heigh to auto
-            // and let the browser take care of the size
             height: getHeight(collapsed, height, this.state.height),
             opacity,
-            // Overflow rule to enable content to overflow outside the collapsible
-            // once the animation is close to be complete (the last few pixels take a while
-            // to be expanded). '10' is a magic number 🎩
-            overflow: this.state.height - height > 10 ? 'hidden' : 'visible'
+            overflow: shouldOverflow(collapsed, height, this.state.height)
           }}>
           {children}
         </div>}
@@ -75,6 +70,20 @@ export default class Collapsible extends Component {
   }
 }
 
+/**
+ * Overflow rule to enable content to overflow outside the collapsible
+ * once the animation is close to be complete (the last few pixels take a while
+ * to be expanded). '10' is a magic number 🎩
+ */
+const shouldOverflow = (collapsed, animatedHeight, actualHeight) => {
+  const notYetAlmostExpanded = actualHeight - animatedHeight > 10
+  return (collapsed || notYetAlmostExpanded) ? 'hidden' : 'visible'
+}
+
+/**
+ * Once it is fully expanded, we set the heigh to auto
+ * and let the browser take care of the size
+ */
 const getHeight = (collapsed, animatedHeight, actualHeight) => {
   if (collapsed) { return animatedHeight }
   return animatedHeight === actualHeight ? 'auto' : animatedHeight

@@ -12,6 +12,7 @@ import * as Title from '../Title'
 import Radio from '../Radio'
 import Subtitle from '../Subtitle'
 import * as Paragraph from '../Paragraph'
+import * as Selector from '../Selector'
 import * as List from '../List'
 import { Back, Hamburger } from '../IconButton'
 import { LIVE } from '../Showroom/variationTypes'
@@ -99,6 +100,12 @@ import * as List from '@klarna/ui/List'`,
     type: LIVE,
 
     examples: {
+      'Brand Volume': (
+        <Theme brandVolume='high'>
+          <Button.Primary style={{marginRight: 10}}> Try Me! </Button.Primary>
+          <Button.Secondary> Try Me! </Button.Secondary>
+        </Theme>
+      ),
       Regular: <Theme
         customizations={{
           color_border: '#660080',
@@ -193,9 +200,11 @@ import * as List from '@klarna/ui/List'`,
         </Fieldset>
 
         <Fieldset margins>
-          <Field top label='Address' value='16, Corn street' focus='fake' />
+          <Dropdown top left size='1/2' label='Title' options={options} value={1} />
+          <Field top right size='1/2' label='Address' value='16, Corn street' />
           <Field square label='Given name' />
-          <Field bottom error label='Family name' />
+          <Field bottom left size='1/2' error label='Family name' />
+          <Dropdown bottom right size='1/2' label='Middle name' options={options} focus='fake' />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
@@ -296,6 +305,26 @@ import * as List from '@klarna/ui/List'`,
             forfuraj ratjoj vaŭis.
           </List.Item>
         </List.Ordered>
+
+        <Selector.Input
+          label='Organization type'
+          link='Select'
+        />
+        <Selector.Input
+          label='Please select an organization type'
+          placeholder='Organization type'
+          link='Select'
+          error
+        />
+        <Selector.Input
+          label='Organization type'
+          link='Select'
+          value='This is the value'
+        />
+        <Selector.Options
+          data={options}
+          value={2}
+        />
       </Theme>
     }
   }

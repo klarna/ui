@@ -1,5 +1,5 @@
 import React from 'react'
-import { Back, Close, Hamburger, Options, Search } from '../IconButton'
+import { Back, Close, Hamburger, Options, Search, Select } from '../IconButton'
 import * as Block from '../Block'
 import * as Button from '../Button'
 // import * as Paragraph from '../Paragraph'
@@ -141,9 +141,32 @@ export default {
           Pay now!
           <Button.Price>14:-</Button.Price>
         </Button.Primary>,
-        'High brand volume': <Button.Primary brandVolume='high'>
-          Start your journey
-        </Button.Primary>,
+        'High brand volume': (
+          <div>
+            <Button.Primary brandVolume='high'>
+              Start your journey
+            </Button.Primary>
+            <Button.Primary brandVolume='high' size='big' style={{marginTop: 10, display: 'block'}}>
+              Start your journey
+            </Button.Primary>
+          </div>
+        ),
+        'High brand volume with price': (
+          <div>
+            <Button.Primary brandVolume='high'>
+              Pay now
+              <Button.Price>
+                12$
+              </Button.Price>
+            </Button.Primary>
+            <Button.Primary brandVolume='high' size='big' style={{marginTop: 10, display: 'block'}}>
+              Pay now
+              <Button.Price>
+                12$
+              </Button.Price>
+            </Button.Primary>
+          </div>
+        ),
         Disabled: <Button.Primary disabled>Click me!</Button.Primary>,
         Loading: <Button.Primary loading>Click me!</Button.Primary>,
         'Loading with customization': <Button.Primary
@@ -167,9 +190,16 @@ export default {
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
         </Button.Secondary>,
-        'High brand volume': <Button.Secondary brandVolume='high'>
-          Start your journey
-        </Button.Secondary>,
+        'High brand volume': (
+          <div>
+            <Button.Secondary brandVolume='high'>
+              Start your journey
+            </Button.Secondary>
+            <Button.Secondary brandVolume='high' size='big' style={{marginTop: 10}}>
+              Start your journey
+            </Button.Secondary>
+          </div>
+        ),
         Disabled: <Button.Secondary disabled>Click me!</Button.Secondary>,
         Loading: <Button.Secondary loading>Click me!</Button.Secondary>,
         'Loading with customization': <Button.Secondary
@@ -229,7 +259,7 @@ export default {
 
     {
       title: 'Iconic Buttons',
-      require: 'import { Back, Close, Hamburger, Options, Search } from \'@klarna/ui/IconButton\'',
+      require: 'import { Back, Close, Hamburger, Options, Search, Select } from \'@klarna/ui/IconButton\'',
       type: LIVE,
 
       examples: {
@@ -263,6 +293,10 @@ export default {
           </Block.Plain>,
 
           <Block.Plain key='1' style={{padding: '20px'}}>
+            <Select label='Select' />
+          </Block.Plain>,
+
+          <Block.Plain key='2' style={{padding: '20px'}}>
             <Close label='Close' color='gray' left />
           </Block.Plain>
         ],

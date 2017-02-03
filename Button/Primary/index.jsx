@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { withPropsFromContext } from 'react-context-props'
 import classNamesBind from 'classnames/bind'
 import Loader from '../../Loader'
 import contains from '../../lib/contains'
@@ -122,6 +123,7 @@ Primary.propTypes = {
 }
 
 export default compose(
+  (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
       ...customize,
