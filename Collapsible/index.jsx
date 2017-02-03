@@ -31,7 +31,7 @@ export default class Collapsible extends Component {
 
     return <div ref={(div) => { this.content = div }}>
       {
-        this.state.lowFPS
+        this.props.lowFPS
           ? this.renderRegular(children, collapsed)
           : this.renderAnimation(children, collapsed, onEndFPSCollection)
       }
