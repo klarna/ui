@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
@@ -28,34 +28,14 @@ const update = (component) => {
   }
 }
 
-export default React.createClass({
-  displayName: 'Menu.Tab',
-
-  getDefaultProps () {
-    return {
-      tabDisplay: 'fluid'
+export default class Tab extends Component {
+  constructor () {
+    super()
+    this.state = {
+      left: 0,
+      width: 0
     }
-  },
-
-  propTypes: {
-    options: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.node.isRequired,
-      key: PropTypes.string.isRequired
-    })).isRequired,
-    className: PropTypes.string,
-    id: PropTypes.string,
-    tabDisplay: PropTypes.oneOf(tabDisplays),
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    white: PropTypes.bool
-  },
-
-  getInitialState () {
-    return { width: 0, left: 0 }
-  },
+  }
 
   componentDidUpdate (prevProps) {
     if (
@@ -70,7 +50,7 @@ export default React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   componentDidMount (prevProps) {
     setTimeout(() => update(this))
@@ -83,17 +63,17 @@ export default React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   componentWillUnmount () {
     window.removeEventListener('resize', debounce(this.resizeListener))
-  },
+  }
 
   resizeListener () {
     window.requestAnimationFrame
       ? window.requestAnimationFrame(() => update(this))
       : update(this)
-  },
+  }
 
   render () {
     const { left, width } = this.state
@@ -158,4 +138,26 @@ export default React.createClass({
       </div>
     )
   }
-})
+}
+
+Tab.defaultProps = {
+  tabDisplay: 'fluid'
+}
+
+Tab.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.node.isRequired,
+    key: PropTypes.string.isRequired
+  })).isRequired,
+  className: PropTypes.string,
+  id: PropTypes.string,
+  tabDisplay: PropTypes.oneOf(tabDisplays),
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  white: PropTypes.bool
+}
+
+Tab.displayName = 'Menu.Tab'
