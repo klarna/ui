@@ -32,11 +32,7 @@ export default class Tab extends Component {
   constructor () {
     super()
 
-    this.resizeListener = debounce(() => {
-      window.requestAnimationFrame
-        ? window.requestAnimationFrame(() => update(this))
-        : update(this)
-    })
+    this.resizeListener = debounce(() update(this))
 
     this.state = {
       left: 0,
