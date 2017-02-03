@@ -111,7 +111,8 @@ const Radio = React.createClass({
       <div
         className={classNames(baseClass, {
           borderless,
-          'is-focused': focus != null
+          'is-focused': focus != null,
+          'no-animations': lowFPS
         }, className)}
         id={name}
         style={baseStyle}
