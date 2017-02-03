@@ -31,6 +31,13 @@ const update = (component) => {
 export default class Tab extends Component {
   constructor () {
     super()
+
+    this.resizeListener = debounce(() => {
+      window.requestAnimationFrame
+        ? window.requestAnimationFrame(() => update(this))
+        : update(this)
+    })
+
     this.state = {
       left: 0,
       width: 0
@@ -66,13 +73,11 @@ export default class Tab extends Component {
   }
 
   componentWillUnmount () {
-    window.removeEventListener('resize', debounce(this.resizeListener))
+    window.removeEventListener('resize', this.resizeListener)
   }
 
   resizeListener () {
-    window.requestAnimationFrame
-      ? window.requestAnimationFrame(() => update(this))
-      : update(this)
+
   }
 
   render () {
