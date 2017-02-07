@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
 import compose from '../lib/compose'
 import themeable from '../decorators/themeable'
@@ -40,6 +40,17 @@ function RadioMark ({ customize, checked, disabled, onClick, lowFPS }) {
       </Motion>
     </svg>
   )
+}
+
+RadioMark.propTypes = {
+  checked: PropTypes.bool,
+  customize: PropTypes.shape({
+    backgroundColor: PropTypes.string.isRequired,
+    bulletColor: PropTypes.string.isRequired
+  }),
+  disabled: PropTypes.bool,
+  lowFPS: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 export default compose(
