@@ -7,14 +7,13 @@ import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../lib/getActiveElement'
 import {notifyOnLowFPS} from '@klarna/higher-order-components'
+import RadioMark from '../RadioMark'
 
 const baseClass = 'radio'
 
 const classes = {
   option: `${baseClass}__option`,
   optionAside: `${baseClass}__option__aside`,
-  optionBullet: `${baseClass}__option__bullet`,
-  optionCheckmark: `${baseClass}__option__checkmark`,
   optionDescription: `${baseClass}__option__description`,
   optionLabel: `${baseClass}__option__label`,
   optionInput: `${baseClass}__option__input`,
@@ -99,13 +98,6 @@ const Radio = React.createClass({
     const baseStyle = customize ? { borderRadius: customize.borderRadius } : undefined
     const labelStyle = customize ? { color: customize.textPrimaryColor } : undefined
     const descriptionStyle = customize ? { color: customize.textSecondaryColor } : undefined
-    const bulletStyle = customize
-      ? {
-        backgroundColor: customize.backgroundColor,
-        borderColor: customize.backgroundColor
-      }
-      : undefined
-    const checkmarkStyle = customize ? { backgroundColor: customize.bulletColor } : undefined
 
     return (
       <div
@@ -180,18 +172,7 @@ const Radio = React.createClass({
                   className={classNames(classes.optionHeaderInner)}
                   id={ids.headerInner}>
                   {!singleOption && <div className={classNames(classes.optionLeft, classes.optionLeftmost)} id={ids.left}>
-                    <div className={classNames(classes.optionWrapper)} id={ids.wrapper}>
-                      <div
-                        className={classNames(classes.optionBullet)}
-                        id={ids.bullet}
-                        style={key === value ? bulletStyle : undefined}
-                      />
-                      <div
-                        className={classNames(classes.optionCheckmark)}
-                        id={ids.checkmark}
-                        style={key === value ? checkmarkStyle : undefined}
-                      />
-                    </div>
+                    <RadioMark checked={key === value} disabled={isDisabled} customize={customize} />
                   </div>}
 
                   <div
