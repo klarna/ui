@@ -7,13 +7,14 @@ const grayLines = '#cbcbcd'
 const klarnaBlue = '#0074c8'
 const white = 'white'
 
-function RadioMark ({ customize, checked, disabled, onClick }) {
+function RadioMark ({ customize, checked, disabled, onClick, lowFPS }) {
   const backgroundColor = customize ? customize.backgroundColor : klarnaBlue
   const bulletColor = customize ? customize.bulletColor : white
+  const scale = checked ? 1 : 3
 
   return (
     <svg width='14' height='14' onClick={onClick}>
-      <Motion style={{ scale: spring(checked ? 1 : 3) }}>
+      <Motion style={{ scale: lowFPS ? scale : spring(scale) }}>
         {({ scale }) => (
           <g>
             <circle cx='7' cy='7' r='7' fill={grayLines} />

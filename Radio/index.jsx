@@ -172,7 +172,7 @@ const Radio = React.createClass({
                   className={classNames(classes.optionHeaderInner)}
                   id={ids.headerInner}>
                   {!singleOption && <div className={classNames(classes.optionLeft, classes.optionLeftmost)} id={ids.left}>
-                    <RadioMark checked={key === value} disabled={isDisabled} customize={customize} />
+                    <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
                   </div>}
 
                   <div
