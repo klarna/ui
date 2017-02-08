@@ -133,6 +133,10 @@
   transition: background-color .2s ease, border-color .2s ease;
   width: ($grid * 2.8);
 
+  .no-animations & {
+    transition: unset;
+  }
+
   .radio__option__input:checked + .radio__option & {
     background: map-get($colors, klarna-blue);
     border-color: map-get($colors, klarna-blue);
@@ -157,6 +161,10 @@
   transform: scale(3, 3);
   transition: opacity .2s ease, transform .2s ease;
   width: ($grid * .8);
+
+  .no-animations & {
+    transition: unset;
+  }
 
   .radio__option__input:checked + .radio__option & {
     opacity: 1;

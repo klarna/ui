@@ -13,23 +13,50 @@ export default class Collapsible extends Component {
   componentDidMount () {
     if (!this.props.collapsed) {
       this.setState({ height: calculateHeight(this.content) })
+      this.props.onStartFPSCollection()
     }
   }
 
   componentWillReceiveProps (nextProps) {
     if (!nextProps.collapsed && this.props.collapsed) {
       this.setState({ height: calculateHeight(this.content) })
+      this.props.onStartFPSCollection()
+    } else if (nextProps.collapsed && !this.props.collapsed) {
+      this.props.onStartFPSCollection()
     }
   }
 
   render () {
-    const {children, collapsed} = this.props
+    const {children, collapsed, onEndFPSCollection} = this.props
 
     return <div ref={(div) => { this.content = div }}>
-      <Motion style={{
-        height: spring(collapsed ? 0 : this.state.height),
-        opacity: spring(collapsed ? 0 : 1)
-      }}>
+      {
+        this.props.lowFPS
+          ? this.renderRegular(children, collapsed)
+          : this.renderAnimation(children, collapsed, onEndFPSCollection)
+      }
+    </div>
+  }
+
+  renderRegular (children, collapsed) {
+    return (
+      <div
+        style={{
+          display: collapsed ? 'none' : 'block'
+        }}>
+        {children}
+      </div>
+    )
+  }
+
+  renderAnimation (children, collapsed, onEndFPSCollection) {
+    return (
+      <Motion
+        style={{
+          height: spring(collapsed ? 0 : this.state.height),
+          opacity: spring(collapsed ? 0 : 1)
+        }}
+        onRest={onEndFPSCollection}>
         {({height, opacity}) => <div
           style={{
             height: getHeight(collapsed, height, this.state.height),
@@ -39,7 +66,7 @@ export default class Collapsible extends Component {
           {children}
         </div>}
       </Motion>
-    </div>
+    )
   }
 }
 

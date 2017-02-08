@@ -6,6 +6,7 @@ import uncontrolled from '../decorators/uncontrolled'
 import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../lib/getActiveElement'
+import {notifyOnLowFPS} from '@klarna/higher-order-components'
 
 const baseClass = 'radio'
 
@@ -47,6 +48,9 @@ const Radio = React.createClass({
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onEndFPSCollection: PropTypes.func,
+    onStartFPSCollection: PropTypes.func,
+    lowFPS: PropTypes.bool,
     options: PropTypes.array.isRequired,
     styles: PropTypes.object,
     value: PropTypes.any
@@ -82,6 +86,9 @@ const Radio = React.createClass({
       onBlur,
       onChange,
       onFocus,
+      onEndFPSCollection,
+      onStartFPSCollection,
+      lowFPS,
       styles,
       value,
       ...remainingProps
@@ -104,7 +111,8 @@ const Radio = React.createClass({
       <div
         className={classNames(baseClass, {
           borderless,
-          'is-focused': focus != null
+          'is-focused': focus != null,
+          'no-animations': lowFPS
         }, className)}
         id={name}
         style={baseStyle}
@@ -219,6 +227,9 @@ const Radio = React.createClass({
               </label>
 
               {content && <Collapsible
+                onStartFPSCollection={onStartFPSCollection}
+                onEndFPSCollection={onEndFPSCollection}
+                lowFPS={lowFPS}
                 collapsed={isDisabled || !singleOption && key !== value}>
                 <div
                   className={classNames(classes.optionContent)}
@@ -235,6 +246,7 @@ const Radio = React.createClass({
 })
 
 export default compose(
+  notifyOnLowFPS({threshold: 10}),
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
