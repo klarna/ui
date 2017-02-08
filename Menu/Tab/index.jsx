@@ -1,8 +1,9 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../../lib/getActiveElement'
+import debounce from '../../lib/debounce'
 
 import compose from 'ramda/src/compose'
 import {uncontrolled, uniqueName} from '@klarna/higher-order-components'
@@ -30,34 +31,17 @@ const update = (component) => {
   }
 }
 
-const Tab = React.createClass({
-  displayName: 'Menu.Tab',
+export default class Tab extends Component {
+  constructor () {
+    super()
 
-  getDefaultProps () {
-    return {
-      tabDisplay: 'fluid'
+    this.resizeListener = debounce(() => update(this))
+
+    this.state = {
+      left: 0,
+      width: 0
     }
-  },
-
-  propTypes: {
-    options: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.node.isRequired,
-      key: PropTypes.string.isRequired
-    })).isRequired,
-    className: PropTypes.string,
-    id: PropTypes.string,
-    tabDisplay: PropTypes.oneOf(tabDisplays),
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    white: PropTypes.bool
-  },
-
-  getInitialState () {
-    return { width: 0, left: 0 }
-  },
+  }
 
   componentDidUpdate (prevProps) {
     if (
@@ -72,10 +56,12 @@ const Tab = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   componentDidMount (prevProps) {
     setTimeout(() => update(this))
+
+    window.addEventListener('resize', this.resizeListener)
 
     if (
       this.props.focus &&
@@ -83,7 +69,11 @@ const Tab = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.resizeListener)
+  }
 
   render () {
     const { left, width } = this.state
@@ -148,23 +138,26 @@ const Tab = React.createClass({
       </div>
     )
   }
-})
+}
 
-export default compose(
-  uncontrolled({
-    prop: 'focus',
-    defaultProp: 'autoFocus',
-    handlers: {
-      onFocus: () => field => field,
-      onBlur: () => () => undefined
-    }
-  }),
-  uncontrolled({
-    prop: 'value',
-    defaultProp: 'defaultValue',
-    handlers: {
-      onChange: () => value => value
-    }
-  }),
-  uniqueName
-)(Tab)
+Tab.defaultProps = {
+  tabDisplay: 'fluid'
+}
+
+Tab.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.node.isRequired,
+    key: PropTypes.string.isRequired
+  })).isRequired,
+  className: PropTypes.string,
+  id: PropTypes.string,
+  tabDisplay: PropTypes.oneOf(tabDisplays),
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  white: PropTypes.bool
+}
+
+Tab.displayName = 'Menu.Tab'

@@ -123,47 +123,6 @@
   width: 0;
 }
 
-.radio__option__bullet {
-  background: white;
-  border: ($grid * .2) solid $border-color;
-  border-radius: ($grid * 2.8);
-  box-sizing: border-box;
-  display: block;
-  height: ($grid * 2.8);
-  transition: background-color .2s ease, border-color .2s ease;
-  width: ($grid * 2.8);
-
-  .radio__option__input:checked + .radio__option & {
-    background: map-get($colors, klarna-blue);
-    border-color: map-get($colors, klarna-blue);
-
-    .is-disabled & {
-      background: map-get($colors, grey-lines);
-      border-color: map-get($colors, grey-lines);
-    }
-  }
-}
-
-.radio__option__checkmark {
-  background: white;
-  border-radius: ($grid * 1.2);
-  content: '';
-  display: block;
-  height: ($grid * .8);
-  left: ($grid * 1);
-  opacity: 0;
-  position: absolute;
-  top: ($grid * 1);
-  transform: scale(3, 3);
-  transition: opacity .2s ease, transform .2s ease;
-  width: ($grid * .8);
-
-  .radio__option__input:checked + .radio__option & {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-}
-
 .radio__option__label {
   @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
