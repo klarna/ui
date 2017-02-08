@@ -1,13 +1,17 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import Collapsible from '../Collapsible'
-import compose from '../lib/compose'
-import uncontrolled from '../decorators/uncontrolled'
-import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../lib/getActiveElement'
-import {notifyOnLowFPS} from '@klarna/higher-order-components'
 import RadioMark from '../RadioMark'
+
+import compose from 'ramda/src/compose'
+import {
+  notifyOnLowFPS,
+  themeable,
+  uncontrolled,
+  uniqueName
+} from '@klarna/higher-order-components'
 
 const baseClass = 'radio'
 
@@ -231,15 +235,17 @@ export default compose(
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
-    handlerName: 'onFocus',
-    handlerSelector: (x) => x,
-    resetHandlerName: 'onBlur'
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
   }),
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
-    handlerName: 'onChange',
-    handlerSelector: (x) => x
+    handlers: {
+      onChange: () => value => value
+    }
   }),
   themeable((customizations, props) => ({
     customize: {
@@ -250,5 +256,6 @@ export default compose(
       textPrimaryColor: customizations.color_text,
       textSecondaryColor: customizations.color_text_secondary
     }
-  }))
+  })),
+  uniqueName
 )(Radio)

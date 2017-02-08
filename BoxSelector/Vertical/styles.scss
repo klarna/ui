@@ -3,7 +3,7 @@
 
 $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
-.installments--vertical {
+.box-selector--vertical {
   box-sizing: border-box;
   display: block;
   position: relative;
@@ -16,7 +16,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   }
 }
 
-.installments--vertical__cell__content {
+.box-selector--vertical__cell__content {
   @include typography(map-get($font-sizes, big-body-mobile), semi-bold);
 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -28,12 +28,12 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   padding-top: ($grid * 2.4);
 }
 
-.installments--vertical__cell.is-hovered,
-.installments--vertical__cell.is-focused {
+.box-selector--vertical__cell.is-hovered,
+.box-selector--vertical__cell.is-focused {
   color: map-get($colors, klarna-blue);
 }
 
-.installments--vertical__input {
+.box-selector--vertical__input {
   display: block;
   height: 0;
   opacity: 0;
@@ -41,11 +41,11 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   width: 0;
 }
 
-.installments--vertical__row {
+.box-selector--vertical__row {
   display: block;
 }
 
-.installments--vertical__cell {
+.box-selector--vertical__cell {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   border: ($grid * .2) solid $border-color;
   border-bottom: 0;
@@ -84,7 +84,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   }
 }
 
-.installments--vertical__cell__highlight {
+.box-selector--vertical__cell__highlight {
   border: ($grid * .4) solid map-get($colors, klarna-blue);
   border-radius: 5px;
   bottom: -1px;

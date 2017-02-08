@@ -6,10 +6,15 @@ import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
-import compose from '../lib/compose'
 import MouseflowExclude from '../MouseflowExclude'
-import themeable from '../decorators/themeable'
-import overridable from '../decorators/overridable'
+
+import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled,
+  uniqueName
+} from '@klarna/higher-order-components'
 
 const baseClass = 'field'
 
@@ -273,6 +278,21 @@ const Field = React.createClass({
 })
 
 export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlers: {
+      onFocus: () => () => true,
+      onBlur: () => () => false
+    }
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => e => e.target.value
+    }
+  }),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,
@@ -283,5 +303,6 @@ export default compose(
       inputColor: customizations.color_text
     }
   })),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  uniqueName
 )(Field)

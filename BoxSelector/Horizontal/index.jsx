@@ -1,13 +1,16 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
-import uncontrolled from '../../decorators/uncontrolled'
+import {
+  themeable,
+  overridable,
+  uncontrolled,
+  uniqueName
+} from '@klarna/higher-order-components'
+import compose from 'ramda/src/compose'
 import defaultStyles from './styles.scss'
-import compose from '../../lib/compose'
 import getActiveElement from '../../lib/getActiveElement'
 
-const baseClass = 'installments--vertical'
+const baseClass = 'box-selector--horizontal'
 
 const classes = {
   input: `${baseClass}__input`,
@@ -19,8 +22,8 @@ const classes = {
 
 const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
 
-const Vertical = React.createClass({
-  displayName: 'Installments.Vertical',
+const Horizontal = React.createClass({
+  displayName: 'BoxSelector.Horizontal',
 
   propTypes: {
     options: PropTypes.arrayOf(PropTypes.shape({
@@ -214,8 +217,8 @@ const onCellClick = hoverEndHandler
 
 const cellDynamicStyles = ({ borderRadius, borderColor, borderColorSelected, labelColor }, hovered, isFirst, isLast) => ({
   borderTopLeftRadius: isFirst ? borderRadius : undefined,
-  borderTopRightRadius: isFirst ? borderRadius : undefined,
-  borderBottomLeftRadius: isLast ? borderRadius : undefined,
+  borderBottomLeftRadius: isFirst ? borderRadius : undefined,
+  borderTopRightRadius: isLast ? borderRadius : undefined,
   borderBottomRightRadius: isLast ? borderRadius : undefined,
   color: hovered ? borderColorSelected : labelColor,
   borderColor
@@ -225,8 +228,9 @@ export default compose(
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
-    handlerName: 'onChange',
-    handlerSelector: (x) => x
+    handlers: {
+      onChange: () => value => value
+    }
   }),
   themeable((customizations, props) => ({
     customize: {
@@ -237,5 +241,6 @@ export default compose(
       labelColor: customizations.color_text
     }
   })),
-  overridable(defaultStyles)
-)(Vertical)
+  overridable(defaultStyles),
+  uniqueName
+)(Horizontal)

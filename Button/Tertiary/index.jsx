@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
+import compose from 'ramda/src/compose'
+import parseColor from 'parse-color'
+import {overridable, themeable} from '@klarna/higher-order-components'
+import classNamesBind from 'classnames/bind'
+
 import Loader from '../../Loader'
 import Price from '../Price'
-import classNamesBind from 'classnames/bind'
-import parseColor from 'parse-color'
 import contains from '../../lib/contains'
-import compose from '../../lib/compose'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
 import defaultStyles from '../styles.scss'
 import childrenPropType from '../../propTypes/children'
 
@@ -52,7 +52,7 @@ function Tertiary (props) {
   const content = (success ? '✔' : children)
 
   const loadingOrContent = loading
-    ? <Loader inline color={loaderColor}/>
+    ? <Loader inline color={loaderColor} />
     : content
 
   const customizations = customize
@@ -90,13 +90,12 @@ function Tertiary (props) {
           <div key={2} className={classNames(classes.label)}>
             {loadingOrContent}
             {
-              isDisabled ||
-                <span
-                  className={classNames(classes.labelAlt)}
-                  id={ids.labelAlt}
-                  title={content}
-                  style={{color: customize.textColor}}>
-                </span>
+              isDisabled || <span
+                className={classNames(classes.labelAlt)}
+                id={ids.labelAlt}
+                title={content}
+                style={{color: customize.textColor}}
+              />
             }
           </div>
         ]

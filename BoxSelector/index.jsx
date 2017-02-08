@@ -5,11 +5,11 @@ import Vertical from './Vertical'
 import defaultStyles from './styles.scss'
 import {MOBILE_MAX_WIDTH} from '../settings'
 
-const baseClass = 'installments'
+const baseClass = 'box-selector'
 
 const classNames = classNamesBind.bind(defaultStyles)
 
-class Installments extends Component {
+class BoxSelector extends Component {
   componentDidMount () {
     this.wrapper && this.wrapper.addEventListener('animationstart', (e) => {
       switch (e.animationName) {
@@ -47,12 +47,12 @@ class Installments extends Component {
   }
 }
 
-Installments.defaultProps = {
+BoxSelector.defaultProps = {
   layout: 'auto'
 }
 
-Installments.propTypes = {
+BoxSelector.propTypes = {
   layout: PropTypes.oneOf(['auto', 'horizontal', 'vertical'])
 }
 
-export default Installments
+export default BoxSelector

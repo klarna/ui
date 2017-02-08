@@ -7,14 +7,14 @@ export default ({className, children, title, circleFill}) => (
       <circle cx='50' cy='50' r='50' fill='#EFF4F9' />
       {children}
     </g>
-    {circleFill && <circle fill={circleFill} cx='90' cy='15' r='10'/>}
+    {circleFill && <circle fill={circleFill} cx='90' cy='15' r='10' />}
   </svg>
 )
 
 export const Page = () => (
   <g>
-    <path d='M87.5 10H25v83.294C32.356 97.55 40.89 100 50 100h40V12.5c0-1.38-1.12-2.5-2.5-2.5' fill='#FFF'/>
-    <path d='M14.5 10c-1.38 0-2.5 1.12-2.5 2.5L11 50v10l-1 20c4.04 5.38 9.15 9.908 15 13.294V10H14.5z' fill='#EFF4F9'/>
-    <path d='M12.5 10c-1.38 0-2.5 1.12-2.5 2.5V80c1.52 2.025 3.196 3.925 5 5.694V10h-2.5z' fill='#C3CFE2'/>
+    <path d='M87.5 10H25v83.294C32.356 97.55 40.89 100 50 100h40V12.5c0-1.38-1.12-2.5-2.5-2.5' fill='#FFF' />
+    <path d='M14.5 10c-1.38 0-2.5 1.12-2.5 2.5L11 50v10l-1 20c4.04 5.38 9.15 9.908 15 13.294V10H14.5z' fill='#EFF4F9' />
+    <path d='M12.5 10c-1.38 0-2.5 1.12-2.5 2.5V80c1.52 2.025 3.196 3.925 5 5.694V10h-2.5z' fill='#C3CFE2' />
   </g>
 )

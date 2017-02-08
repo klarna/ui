@@ -5,6 +5,9 @@ import defaultStyles from './styles.scss'
 import getActiveElement from '../../lib/getActiveElement'
 import debounce from '../../lib/debounce'
 
+import compose from 'ramda/src/compose'
+import {uncontrolled, uniqueName} from '@klarna/higher-order-components'
+
 const baseClass = 'tab-menu'
 
 const classes = {
@@ -28,7 +31,7 @@ const update = (component) => {
   }
 }
 
-export default class Tab extends Component {
+class Tab extends Component {
   constructor () {
     super()
 
@@ -72,10 +75,6 @@ export default class Tab extends Component {
     window.removeEventListener('resize', this.resizeListener)
   }
 
-  resizeListener () {
-
-  }
-
   render () {
     const { left, width } = this.state
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
@@ -113,7 +112,7 @@ export default class Tab extends Component {
           })
 
           return [
-            (<input
+            <input
               className={classNames(classes.input)}
               type='radio'
               name={name}
@@ -124,8 +123,8 @@ export default class Tab extends Component {
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === value}
               value={key}
-            />),
-            (<label
+            />,
+            <label
               id={`${id}-tab`}
               style={tabDisplay === 'static' ? {
                 width: `${(100 / options.length)}%`
@@ -133,7 +132,7 @@ export default class Tab extends Component {
               className={tabClass}
               htmlFor={id}>
               {label}
-            </label>)
+            </label>
           ]
         })}
       </div>
@@ -162,3 +161,22 @@ Tab.propTypes = {
 }
 
 Tab.displayName = 'Menu.Tab'
+
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => value => value
+    }
+  }),
+  uniqueName
+)(Tab)

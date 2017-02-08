@@ -3,7 +3,7 @@
 
 $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
 
-.installments--horizontal {
+.box-selector--horizontal {
   box-sizing: border-box;
   display: table;
   position: relative;
@@ -17,7 +17,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   }
 }
 
-.installments--horizontal__input {
+.box-selector--horizontal__input {
   display: block;
   height: 0;
   opacity: 0;
@@ -25,11 +25,11 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   width: 0;
 }
 
-.installments--horizontal__row {
+.box-selector--horizontal__row {
   display: table-row;
 }
 
-.installments--horizontal__cell {
+.box-selector--horizontal__cell {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   border: ($grid * .2) solid $border-color;
   border-right: 0;
@@ -69,7 +69,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   }
 }
 
-.installments--horizontal__cell__content {
+.box-selector--horizontal__cell__content {
   @include typography(map-get($font-sizes, big-body-desktop), semi-bold);
 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -79,12 +79,12 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   padding-left: 0;
 }
 
-.installments--horizontal__cell.is-hovered,
-.installments--horizontal__cell.is-focused {
+.box-selector--horizontal__cell.is-hovered,
+.box-selector--horizontal__cell.is-focused {
   color: map-get($colors, klarna-blue);
 }
 
-.installments--horizontal__cell__highlight {
+.box-selector--horizontal__cell__highlight {
   border: ($grid * .4) solid map-get($colors, klarna-blue);
   border-radius: 5px;
   bottom: -1px;

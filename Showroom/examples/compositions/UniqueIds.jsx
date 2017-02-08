@@ -11,7 +11,7 @@ import Field from '../../../Field'
 import Fieldset from '../../../Fieldset'
 import {Back, Close} from '../../../IconButton'
 import Input from '../../../Input'
-import Installments from '../../../Installments'
+import BoxSelector from '../../../BoxSelector'
 import Label from '../../../Label'
 import Link from '../../../Link'
 import * as List from '../../../List'
@@ -123,7 +123,7 @@ export default {
       examples: {
         Block: <Block.Installments.Main id='block-installments'>
           <Block.Installments.Title id='block-installments-title'>
-            Your Installments
+            Your BoxSelector
           </Block.Installments.Title>
           <Block.Installments.Content id='block-installments-content'>
             <Block.Installments.Value
@@ -343,12 +343,12 @@ import * as Button from '@klarna/ui/Button'`,
     },
 
     {
-      title: 'Installments',
-      require: 'import Installments from \'@klarna/ui/Installments\'',
+      title: 'BoxSelector',
+      require: 'import BoxSelector from \'@klarna/ui/BoxSelector\'',
       type: LIVE,
 
       examples: {
-        Installments: <Installments
+        BoxSelector: <BoxSelector
           onChange={(key) => console.log('You selected', key)}
           id='installments'
           name='installments'
@@ -553,7 +553,7 @@ import * as Button from '@klarna/ui/Button'`,
               label: 'Sit',
               description: 'Amet et consequetur',
               content: <div>
-                <Installments
+                <BoxSelector
                   name='installments'
                   onChange={(key) => console.log('You selected', key)}
                   options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}

@@ -11,7 +11,7 @@
   to {opacity: 1}
 }
 
-.installments {
+.box-selector {
   animation: onLayoutChangeToNarrow .5s;
 
   @include respond-to-wide {

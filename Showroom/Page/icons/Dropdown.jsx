@@ -11,7 +11,7 @@ export default ({className}) => (
         {
           [18, 27, 36, 45].map((y, i) => <rect key={i} x='6' y={y} width='4' height='4' rx='2' />)
         }
-        <rect y='4' width='35' height='2' rx='1'/>
+        <rect y='4' width='35' height='2' rx='1' />
       </g>
       <g fill='#4F627F'>
         <rect x='15' y='19' width='20' height='2' rx='1' />

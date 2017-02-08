@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
-import compose from '../lib/compose'
-import themeable from '../decorators/themeable'
+import compose from 'ramda/src/compose'
+import {themeable} from '@klarna/higher-order-components'
 
 const grayLines = '#cbcbcd'
 const klarnaBlue = '#0074c8'

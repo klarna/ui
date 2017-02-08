@@ -1,11 +1,16 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import compose from '../../lib/compose'
+import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled,
+  uniqueName
+} from '@klarna/higher-order-components'
+
 import defaultStyles from './styles.scss'
 import Checkmark from '../../icons/Checkmark'
 import getActiveElement from '../../lib/getActiveElement'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
 
 const baseClass = 'selector--options'
 
@@ -161,6 +166,22 @@ const Options = React.createClass({
 })
 
 export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => field => field
+    }
+  }),
+  uniqueName,
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,

@@ -4,10 +4,11 @@ import Field from '../../Field'
 import * as Paragraph from '../../Paragraph'
 import Cross from '../../icons/Cross'
 import Loader from '../../Loader'
-import compose from '../../lib/compose'
-import uncontrolled from '../../decorators/uncontrolled'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+
+import compose from 'ramda/src/compose'
+import {uncontrolled} from '@klarna/higher-order-components'
 
 const baseClass = 'code-prompt'
 
@@ -108,14 +109,16 @@ export default compose(
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
-    handlerName: 'onFocus',
-    handlerSelector: () => true,
-    resetHandlerName: 'onBlur'
+    handlers: {
+      onFocus: () => () => true,
+      onBlur: () => () => false
+    }
   }),
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
-    handlerName: 'onChange',
-    handlerSelector: (e) => e.target.value
+    handlers: {
+      onChange: () => e => e.target.value
+    }
   })
 )(CodePrompt)
