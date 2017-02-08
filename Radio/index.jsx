@@ -3,11 +3,11 @@ import classNamesBind from 'classnames/bind'
 import Collapsible from '../Collapsible'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../lib/getActiveElement'
-import {notifyOnLowFPS} from '@klarna/higher-order-components'
 import RadioMark from '../RadioMark'
 
 import compose from 'ramda/src/compose'
 import {
+  notifyOnLowFPS,
   themeable,
   uncontrolled,
   uniqueName

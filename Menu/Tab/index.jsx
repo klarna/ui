@@ -31,7 +31,7 @@ const update = (component) => {
   }
 }
 
-export default class Tab extends Component {
+class Tab extends Component {
   constructor () {
     super()
 
@@ -161,3 +161,22 @@ Tab.propTypes = {
 }
 
 Tab.displayName = 'Menu.Tab'
+
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => value => value
+    }
+  }),
+  uniqueName
+)(Tab)
