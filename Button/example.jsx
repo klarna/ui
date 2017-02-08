@@ -309,7 +309,17 @@ export default {
           <Block.Plain key='4' blue style={{display: 'inline-block', padding: 20}}>
             <Search color='inverse' />
           </Block.Plain>
-        ]
+        ],
+
+        'Pinned to corner': <Block.Plain
+          style={{
+            width: 300,
+            height: 300,
+            position: 'relative'
+          }}>
+          <Back topLeft label='Back' />
+          <Close topRight left label='Close' />
+        </Block.Plain>
       }
     }
   ]

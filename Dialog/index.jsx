@@ -1,13 +1,14 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import defaultStyles from './styles.scss'
+import deepMerge from 'deepmerge'
+import defaultStyles from './styles'
 
 const baseClass = 'dialog'
 
 export default function Dialog ({className, children, styles, ...props}) {
-  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const finalStyles = deepMerge(defaultStyles, styles)
 
-  return <div className={classNames(baseClass, className)}>
+  return <div style={finalStyles.dialog}>
     {children}
   </div>
 }
