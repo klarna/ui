@@ -246,7 +246,7 @@ const Radio = React.createClass({
 })
 
 export default compose(
-  notifyOnLowFPS({threshold: 30}),
+  notifyOnLowFPS({threshold: 10}),
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
