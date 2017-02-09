@@ -13,7 +13,17 @@ const classes = {
   stroke: 'illustration__stroke'
 }
 
-const Options = ({className, color, id, label, left, styles, ...props}) => {
+const Options = ({
+  className,
+  color,
+  id,
+  label,
+  left,
+  styles,
+  topLeft,
+  topRight,
+  ...props
+}) => {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const ids = id
     ? {
@@ -22,7 +32,14 @@ const Options = ({className, color, id, label, left, styles, ...props}) => {
     } : {}
 
   return <div
-    className={classNames(classes.iconButton, className)}
+    className={classNames(
+      classes.iconButton,
+      {
+        'top-right': topRight,
+        'top-left': topLeft
+      },
+      className
+    )}
     id={id}
     {...props}>
     <svg

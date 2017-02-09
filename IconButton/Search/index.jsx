@@ -13,7 +13,17 @@ const classes = {
   stroke: 'illustration__stroke'
 }
 
-const Search = ({className, color, id, label, left, styles, ...props}) => {
+const Search = ({
+  className,
+  color,
+  id,
+  label,
+  left,
+  styles,
+  topLeft,
+  topRight,
+  ...props
+}) => {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
   const ids = id
     ? {
@@ -21,7 +31,15 @@ const Search = ({className, color, id, label, left, styles, ...props}) => {
       label: `${id}__label`
     } : {}
 
-  return <div className={classNames(classes.iconButton, className)} {...props}>
+  return <div className={classNames(
+      classes.iconButton,
+      {
+        'top-right': topRight,
+        'top-left': topLeft
+      },
+      className
+    )}
+    {...props}>
     <svg
       className={classNames('illustration', 'button', color)}
       id={ids.illustration}
