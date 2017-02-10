@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 import {Motion, spring} from 'react-motion'
 
 export default class Collapsible extends Component {
@@ -27,13 +27,13 @@ export default class Collapsible extends Component {
   }
 
   render () {
-    const {children, collapsed, defaultCollapsed, onEndFPSCollection} = this.props
+    const {children, collapsed, defaultCollapsed, onEndFPSCollection, minimumHeight} = this.props
 
     return <div ref={(div) => { this.content = div }}>
       {
         this.props.lowFPS
           ? this.renderRegular(children, collapsed)
-          : this.renderAnimation(children, defaultCollapsed, collapsed, onEndFPSCollection)
+          : this.renderAnimation(children, defaultCollapsed, collapsed, onEndFPSCollection, minimumHeight)
       }
     </div>
   }
@@ -49,21 +49,25 @@ export default class Collapsible extends Component {
     )
   }
 
-  renderAnimation (children, defaultCollapsed, collapsed, onEndFPSCollection) {
+  renderAnimation (children, defaultCollapsed, collapsed, onEndFPSCollection, minimumHeight) {
     return (
       <Motion
         defaultStyles={defaultCollapsed ? {
-          height: collapsed ? 0 : this.state.height,
+          height: collapsed ? minimumHeight : this.state.height,
           opacity: collapsed ? 0 : 1
         } : undefined}
         style={{
-          height: spring(collapsed ? 0 : this.state.height),
+          height: spring(collapsed ? minimumHeight : this.state.height),
           opacity: spring(collapsed ? 0 : 1)
         }}
         onRest={onEndFPSCollection}>
         {({height, opacity}) => <div
           style={{
-            height: getHeight(collapsed, height, this.state.height),
+            height: getHeight(
+              collapsed,
+              height + calculateHeight(this.content) - this.state.height,
+              calculateHeight(this.content)
+            ),
             opacity,
             overflow: shouldOverflow(collapsed, height, this.state.height)
           }}>
@@ -72,6 +76,14 @@ export default class Collapsible extends Component {
       </Motion>
     )
   }
+}
+
+Collapsible.propTypes = {
+  minimumHeight: PropTypes.number
+}
+
+Collapsible.defaultProps = {
+  minimumHeight: 0
 }
 
 /**

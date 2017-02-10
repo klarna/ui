@@ -108,6 +108,27 @@ export default {
         expandLabel='Show me all the options'
         collapsedOptions={2}
       />,
+
+    'Partially collapsed & preselected': <StateFullyCollapsed
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        defaultValue='ipsum'
+        collapsedOptions={2}
+      />,
+
+    'Partially collapsed & first selected': <StateFullyCollapsed
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        defaultValue='lorem'
+        collapsedOptions={2}
+      />,
+
+    'Partially collapsed & wrong one selected': <StateFullyCollapsed
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        defaultValue='asdfasdf'
+        collapsedOptions={2}
+      />,
       //
       // Controlled: <Radio
       //   focus='sit'

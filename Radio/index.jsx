@@ -90,6 +90,10 @@ class Radio extends Component {
         : []
     }
 
+    const isExpanded = fullyExpanded || (
+      value && optionLists.collapsed.find(({key}) => key === value) != null
+    )
+
     return (
       <div
         className={classNames(baseClass, {
@@ -217,7 +221,8 @@ class Radio extends Component {
           onStartFPSCollection={onStartFPSCollection}
           onEndFPSCollection={onEndFPSCollection}
           lowFPS={lowFPS}
-          collapsed={!fullyExpanded}>
+          minimumHeight={49}
+          collapsed={!isExpanded}>
           <div>
             {optionLists.collapsed.map((option) => {
               const {
@@ -334,12 +339,28 @@ class Radio extends Component {
           </div>
         </Collapsible>}
 
-        {expandLabel && <Motion style={{opacity: spring(fullyExpanded ? 0 : 1)}}>
-          {({opacity}) => <ExpandLabel
-            onClick={onExpand}
-            label={expandLabel}
-            style={{opacity}}
-          />}
+        {expandLabel && <Motion
+          style={{
+            opacity: spring(isExpanded ? 0 : 1),
+            height: spring(isExpanded ? 0 : 49, {stiffness: 40, damping: 15})
+          }}>
+          {({opacity, height}) => opacity > 0 && <div>
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                width: '100%',
+                backgroundColor: 'white',
+                boxShadow: 'white 0 0 5px',
+                height
+              }}
+            />
+            <ExpandLabel
+              onClick={onExpand}
+              label={expandLabel}
+              style={{opacity}}
+            />
+          </div>}
         </Motion>}
       </div>
     )
