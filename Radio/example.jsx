@@ -91,6 +91,12 @@ export default {
         options={options}
       />,
 
+      'Partially collapsed': <Radio
+        options={optionsWithContent}
+        expandedOptions={1}
+        expandLabel='Show me all the options'
+      />,
+
       Controlled: <Radio
         focus='sit'
         name='radio'

@@ -1,10 +1,5 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import Collapsible from '../Collapsible'
-import defaultStyles from './styles.scss'
-import getActiveElement from '../lib/getActiveElement'
-import RadioMark from '../RadioMark'
-
 import compose from 'ramda/src/compose'
 import {
   notifyOnLowFPS,
@@ -12,6 +7,12 @@ import {
   uncontrolled,
   uniqueName
 } from '@klarna/higher-order-components'
+
+import Collapsible from '../Collapsible'
+import defaultStyles from './styles.scss'
+import getActiveElement from '../lib/getActiveElement'
+import RadioMark from '../RadioMark'
+import ExpandLabel from './ExpandLabel'
 
 const baseClass = 'radio'
 
@@ -31,34 +32,7 @@ const classes = {
   optionContent: `${baseClass}__option__content`
 }
 
-const Radio = React.createClass({
-  displayName: 'Radio',
-
-  propTypes: {
-    borderless: PropTypes.bool,
-    className: PropTypes.string,
-    customize: PropTypes.shape({
-      backgroundColor: PropTypes.string.isRequired,
-      borderRadius: PropTypes.string.isRequired,
-      bulletColor: PropTypes.string.isRequired,
-      textPrimaryColor: PropTypes.string.isRequired,
-      textSecondaryColor: PropTypes.string.isRequired
-    }),
-    disabled: PropTypes.bool,
-    focus: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onEndFPSCollection: PropTypes.func,
-    onStartFPSCollection: PropTypes.func,
-    lowFPS: PropTypes.bool,
-    options: PropTypes.array.isRequired,
-    styles: PropTypes.object,
-    value: PropTypes.any
-  },
-
+class Radio extends Component {
   componentDidMount () {
     if (
       this.props.focus &&
@@ -66,7 +40,7 @@ const Radio = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   componentDidUpdate () {
     if (
@@ -75,7 +49,7 @@ const Radio = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   render () {
     const {
@@ -85,6 +59,8 @@ const Radio = React.createClass({
       focus,
       options,
       disabled: allDisabled,
+      expandedOptions,
+      expandLabel,
       name,
       onBlur,
       onChange,
@@ -225,10 +201,38 @@ const Radio = React.createClass({
             </div>
           ]
         })}
+        {expandLabel && <ExpandLabel label={expandLabel} />}
       </div>
     )
   }
-})
+}
+
+Radio.propTypes = {
+  borderless: PropTypes.bool,
+  className: PropTypes.string,
+  customize: PropTypes.shape({
+    backgroundColor: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+    bulletColor: PropTypes.string.isRequired,
+    textPrimaryColor: PropTypes.string.isRequired,
+    textSecondaryColor: PropTypes.string.isRequired
+  }),
+  disabled: PropTypes.bool,
+  expandedOptions: PropTypes.number,
+  expandLabel: PropTypes.string,
+  focus: PropTypes.string,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onEndFPSCollection: PropTypes.func,
+  onStartFPSCollection: PropTypes.func,
+  lowFPS: PropTypes.bool,
+  options: PropTypes.array.isRequired,
+  styles: PropTypes.object,
+  value: PropTypes.any
+}
 
 export default compose(
   notifyOnLowFPS({threshold: 10}),
