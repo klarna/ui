@@ -24,7 +24,7 @@ export default {
     zIndex: 1
   },
 
-  hover: {
+  active: {
     backgroundColor: LIGHT_GREY.hover
   }
 }

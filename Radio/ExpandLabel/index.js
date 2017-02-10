@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react'
 import deepMerge from 'deepmerge'
 import compose from 'ramda/src/compose'
 import withHoverStyles from '../../lib/toMoveToHoCs/withHoverStyles'
+import withTouchStyles from '../../lib/toMoveToHoCs/withTouchStyles'
 
 import * as Chevron from '../../icons/Chevron'
 import defaultStyles, {chevron} from './styles'
@@ -24,5 +25,6 @@ ExpandLabel.defaultProps = {
 }
 
 export default compose(
-  withHoverStyles(defaultStyles.hover)
+  withHoverStyles(defaultStyles.active),
+  withTouchStyles(defaultStyles.active)
 )(ExpandLabel)

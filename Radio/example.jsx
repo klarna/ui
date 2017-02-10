@@ -109,21 +109,21 @@ export default {
         collapsedOptions={2}
       />,
 
-    'Partially collapsed & preselected': <StateFullyCollapsed
+      'Partially collapsed & preselected': <StateFullyCollapsed
         options={optionsWithContent}
         expandLabel='Show me all the options'
         defaultValue='ipsum'
         collapsedOptions={2}
       />,
 
-    'Partially collapsed & first selected': <StateFullyCollapsed
+      'Partially collapsed & first selected': <StateFullyCollapsed
         options={optionsWithContent}
         expandLabel='Show me all the options'
         defaultValue='lorem'
         collapsedOptions={2}
       />,
 
-    'Partially collapsed & wrong one selected': <StateFullyCollapsed
+      'Partially collapsed & wrong one selected': <StateFullyCollapsed
         options={optionsWithContent}
         expandLabel='Show me all the options'
         defaultValue='asdfasdf'
