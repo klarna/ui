@@ -67,6 +67,7 @@
     "react-maskedinput": "^3.3.1",
     "react-motion": "^0.4.2",
     "react-syntax-highlighter": "^2.2.0",
+    "recompose": "^0.22.0",
     "resolve-url-loader": "^1.2.0",
     "sass-lint": "^1.9.1",
     "sass-loader": "^3.2.0",

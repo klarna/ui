@@ -6,10 +6,10 @@ import withHoverStyles from '../../lib/toMoveToHoCs/withHoverStyles'
 import * as Chevron from '../../icons/Chevron'
 import defaultStyles, {chevron} from './styles'
 
-function ExpandLabel ({label, styles, ...props}) {
+function ExpandLabel ({label, style, styles, ...props}) {
   const finalStyles = deepMerge(defaultStyles.base, styles)
 
-  return <footer style={finalStyles} {...props}>
+  return <footer style={{...finalStyles, ...style}} {...props}>
     {label} <Chevron.Down color='black' style={chevron} />
   </footer>
 }

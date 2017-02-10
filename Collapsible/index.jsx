@@ -27,13 +27,13 @@ export default class Collapsible extends Component {
   }
 
   render () {
-    const {children, collapsed, onEndFPSCollection} = this.props
+    const {children, collapsed, defaultCollapsed, onEndFPSCollection} = this.props
 
     return <div ref={(div) => { this.content = div }}>
       {
         this.props.lowFPS
           ? this.renderRegular(children, collapsed)
-          : this.renderAnimation(children, collapsed, onEndFPSCollection)
+          : this.renderAnimation(children, defaultCollapsed, collapsed, onEndFPSCollection)
       }
     </div>
   }
@@ -49,9 +49,13 @@ export default class Collapsible extends Component {
     )
   }
 
-  renderAnimation (children, collapsed, onEndFPSCollection) {
+  renderAnimation (children, defaultCollapsed, collapsed, onEndFPSCollection) {
     return (
       <Motion
+        defaultStyles={defaultCollapsed ? {
+          height: collapsed ? 0 : this.state.height,
+          opacity: collapsed ? 0 : 1
+        } : undefined}
         style={{
           height: spring(collapsed ? 0 : this.state.height),
           opacity: spring(collapsed ? 0 : 1)

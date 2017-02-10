@@ -7,7 +7,7 @@ import {
   uncontrolled,
   uniqueName
 } from '@klarna/higher-order-components'
-
+import {Motion, spring} from 'react-motion'
 import Collapsible from '../Collapsible'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../lib/getActiveElement'
@@ -59,11 +59,13 @@ class Radio extends Component {
       focus,
       options,
       disabled: allDisabled,
-      expandedOptions,
+      collapsedOptions,
       expandLabel,
+      fullyExpanded,
       name,
       onBlur,
       onChange,
+      onExpand,
       onFocus,
       onEndFPSCollection,
       onStartFPSCollection,
@@ -79,6 +81,15 @@ class Radio extends Component {
     const labelStyle = customize ? { color: customize.textPrimaryColor } : undefined
     const descriptionStyle = customize ? { color: customize.textSecondaryColor } : undefined
 
+    const optionLists = {
+      visible: collapsedOptions
+        ? options.slice(0, -collapsedOptions)
+        : options,
+      collapsed: collapsedOptions
+        ? options.slice(-collapsedOptions)
+        : []
+    }
+
     return (
       <div
         className={classNames(baseClass, {
@@ -89,7 +100,7 @@ class Radio extends Component {
         id={name}
         style={baseStyle}
         {...remainingProps}>
-        {options.map((option) => {
+        {optionLists.visible.map((option) => {
           const {
             key,
             label,
@@ -201,7 +212,135 @@ class Radio extends Component {
             </div>
           ]
         })}
-        {expandLabel && <ExpandLabel label={expandLabel} />}
+
+        {collapsedOptions && <Collapsible
+          onStartFPSCollection={onStartFPSCollection}
+          onEndFPSCollection={onEndFPSCollection}
+          lowFPS={lowFPS}
+          collapsed={!fullyExpanded}>
+          <div>
+            {optionLists.collapsed.map((option) => {
+              const {
+                key,
+                label,
+                description,
+                disabled,
+                aside,
+                content,
+                leftPad,
+                ...restOfProps
+              } = option
+
+              const isDisabled = allDisabled || disabled
+              const id = `${name}-${key}`
+              const ids = {
+                aside: `${id}__aside`,
+                bullet: `${id}__bullet`,
+                checkmark: `${id}__checkmark`,
+                content: `${id}__content`,
+                description: `${id}__description`,
+                header: `${id}__header`,
+                headerInner: `${id}__header--inner`,
+                label: `${id}__label`,
+                labelInner: `${id}__label--inner`,
+                left: `${id}__left`,
+                right: `${id}__right`,
+                wrapper: `${id}__wrapper`
+              }
+
+              return [
+                <input
+                  className={classNames(classes.optionInput)}
+                  id={id}
+                  name={name}
+                  type='radio'
+                  onBlur={onBlur}
+                  checked={key === value}
+                  onChange={() => onChange && key !== value && onChange(key)}
+                  onFocus={(e) => onFocus && onFocus(key, e)}
+                  ref={key}
+                  value={key}
+                  disabled={isDisabled}
+                />,
+                <div
+                  className={classNames(
+                    classes.option,
+                    {
+                      'is-selected': key === value,
+                      'is-focused': !isDisabled && focus === key,
+                      'left-pad': leftPad && !singleOption,
+                      'is-disabled': isDisabled
+                    }
+                  )}
+                  id={ids.label}
+                  {...restOfProps}>
+                  <label
+                    htmlFor={`${name}-${key}`}
+                    className={classNames(classes.optionHeader)}
+                    id={ids.header}>
+                    <div
+                      className={classNames(classes.optionHeaderInner)}
+                      id={ids.headerInner}>
+                      {!singleOption && <div className={classNames(classes.optionLeft, classes.optionLeftmost)} id={ids.left}>
+                        <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
+                      </div>}
+
+                      <div
+                        className={classNames(
+                          classes.optionRight,
+                          {
+                            [classes.optionRightmost]: !aside,
+                            [classes.optionLeftmost]: singleOption
+                          }
+                        )}
+                        id={ids.right}>
+                        <div
+                          className={classNames(classes.optionLabel)}
+                          id={ids.labelInner}
+                          style={labelStyle}>
+                          {label}
+                        </div>
+
+                        {description && <div
+                          className={classNames(classes.optionDescription)}
+                          id={ids.description}
+                          style={descriptionStyle}>
+                          {description}
+                        </div>}
+                      </div>
+
+                      {aside && <div
+                        className={classNames(classes.optionAside, classes.optionRightmost)}
+                        id={ids.aside}>
+                        {aside}
+                      </div>}
+                    </div>
+                  </label>
+
+                  {content && <Collapsible
+                    onStartFPSCollection={onStartFPSCollection}
+                    onEndFPSCollection={onEndFPSCollection}
+                    lowFPS={lowFPS}
+                    collapsed={isDisabled || !singleOption && key !== value}>
+                    <div
+                      className={classNames(classes.optionContent)}
+                      id={ids.content}>
+                      {content}
+                    </div>
+                  </Collapsible>}
+                </div>
+              ]
+            })}
+          </div>
+        </Collapsible>}
+
+        {expandLabel && <Motion style={{opacity: spring(fullyExpanded ? 0 : 1)}}>
+          {({opacity}) => <ExpandLabel
+            onClick={onExpand}
+            label={expandLabel}
+            style={{opacity}}
+          />}
+        </Motion>}
       </div>
     )
   }
@@ -218,8 +357,10 @@ Radio.propTypes = {
     textSecondaryColor: PropTypes.string.isRequired
   }),
   disabled: PropTypes.bool,
-  expandedOptions: PropTypes.number,
+  collapsedOptions: PropTypes.number,
   expandLabel: PropTypes.string,
+  fullyExpanded: PropTypes.bool,
+  onExpand: PropTypes.func,
   focus: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
@@ -232,6 +373,10 @@ Radio.propTypes = {
   options: PropTypes.array.isRequired,
   styles: PropTypes.object,
   value: PropTypes.any
+}
+
+Radio.defaultProps = {
+  fullyExpanded: false
 }
 
 export default compose(
