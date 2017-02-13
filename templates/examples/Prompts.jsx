@@ -195,6 +195,7 @@ export default {
       examples: {
         Regular: {
           inline: <CodePrompt
+            id='code-prompt'
             defaultValue='123'
             label='The numbers'
             title='Enter the magic numbers'
