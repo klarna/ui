@@ -403,6 +403,13 @@ Radio.defaultProps = {
 export default compose(
   notifyOnLowFPS({threshold: 10}),
   uncontrolled({
+    prop: 'fullyExpanded',
+    defaultProp: 'autoFullyExpanded',
+    handlers: {
+      onExpand: () => () => true
+    }
+  }),
+  uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
