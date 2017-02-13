@@ -13,7 +13,7 @@ export default {
   title: 'BoxSelector',
 
   examples: {
-    require: 'import BoxSelector from \'@klarna/ui/BoxSelector\'',
+    require: `import BoxSelector from '@klarna/ui/BoxSelector'`,
     type: LIVE_WIDE,
 
     examples: {

@@ -8,7 +8,7 @@ export default {
   icon: 'Label',
 
   examples: {
-    require: 'import Label from \'@klarna/ui/Label\'',
+    require: `import Label from '@klarna/ui/Label'`,
     type: LIVE,
 
     examples: {

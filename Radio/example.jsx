@@ -76,7 +76,7 @@ export default {
   title: 'Radio',
 
   examples: {
-    require: 'import Radio from \'@klarna/ui/Radio\'',
+    require: `import Radio from '@klarna/ui/Radio'`,
     type: LIVE_WIDE,
 
     examples: {

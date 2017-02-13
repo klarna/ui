@@ -6,7 +6,7 @@ export default {
   title: 'Fieldset',
 
   examples: {
-    require: 'import Fieldset from \'@klarna/ui/Fieldset\'',
+    require: `import Fieldset from '@klarna/ui/Fieldset'`,
     type: LIVE,
 
     examples: {

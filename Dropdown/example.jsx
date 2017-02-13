@@ -15,7 +15,7 @@ export default {
   variations: [
     {
       title: 'Single',
-      require: 'import Dropdown from \'@klarna/ui/Dropdown\'',
+      require: `import Dropdown from '@klarna/ui/Dropdown'`,
       type: LIVE,
 
       examples: {

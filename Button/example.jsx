@@ -114,7 +114,7 @@ export default {
 
     {
       title: 'Primary',
-      require: 'import * as Button from \'@klarna/ui/Button\'',
+      require: `import * as Button from '@klarna/ui/Button'`,
       type: LIVE,
 
       examples: {
@@ -179,7 +179,7 @@ export default {
 
     {
       title: 'Secondary',
-      require: 'import * as Button from \'@klarna/ui/Button\'',
+      require: `import * as Button from '@klarna/ui/Button'`,
       type: LIVE,
 
       examples: {
@@ -224,7 +224,7 @@ export default {
 
     {
       title: 'Tertiary',
-      require: 'import * as Button from \'@klarna/ui/Button\'',
+      require: `import * as Button from '@klarna/ui/Button'`,
       type: LIVE,
 
       examples: {
@@ -259,7 +259,7 @@ export default {
 
     {
       title: 'Iconic Buttons',
-      require: 'import { Back, Close, Hamburger, Options, Search, Select } from \'@klarna/ui/IconButton\'',
+      require: `import { Back, Close, Hamburger, Options, Search, Select } from '@klarna/ui/IconButton'`,
       type: LIVE,
 
       examples: {

@@ -9,7 +9,7 @@ export default {
   variations: [
     {
       title: 'Error',
-      require: 'import * as Alert from \'@klarna/ui/Alert\'',
+      require: `import * as Alert from '@klarna/ui/Alert'`,
       type: LIVE,
 
       examples: {
@@ -29,7 +29,7 @@ export default {
 
     {
       title: 'Warning',
-      require: 'import * as Alert from \'@klarna/ui/Alert\'',
+      require: `import * as Alert from '@klarna/ui/Alert'`,
       type: LIVE,
 
       examples: {
