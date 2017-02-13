@@ -8,6 +8,7 @@ export default function CenteredForm ({
   accept,
   brandVolume,
   cancel,
+  id,
   illustration,
   onAccept,
   onCancel,
@@ -17,11 +18,19 @@ export default function CenteredForm ({
   ...props
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      centered: `${id}__centered`,
+      content: `${id}__content`,
+      fieldset: `${id}__fieldset`
+    }
+    : {}
 
   return <Centered
     brandVolume={brandVolume}
     onAccept={onAccept}
     onCancel={onCancel}
+    id={ids.centered}
     illustration={illustration}
     labels={{
       accept,
@@ -29,8 +38,11 @@ export default function CenteredForm ({
       summary,
       title
     }}>
-    <div className={classNames('centered-form__content')}>
+    <div
+      id={ids.content}
+      className={classNames('centered-form__content')}>
       <Fieldset
+        id={ids.fieldset}
         {...props}
       />
     </div>
