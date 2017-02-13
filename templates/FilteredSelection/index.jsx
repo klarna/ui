@@ -25,6 +25,7 @@ function FilteredSelection ({
   alternative,
   className,
   focus,
+  id,
   label,
   onAlternative,
   onBlur,
@@ -39,22 +40,40 @@ function FilteredSelection ({
   ...props
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      dialogContent: `${id}__dialog-content`,
+      title: `${id}__title`,
+      summary: `${id}__summary`,
+      fieldset: `${id}__fieldset`,
+      input: `${id}__input`,
+      selectorDirect: `${id}__selector-direct`,
+      alternativeWrapper: `${id}__alternative-wrapper`,
+      alternativeLink: `${id}__alternative-link`
+    }
+    : {}
 
   return <Dialog.Content
+    id={ids.dialogContent}
     className={classNames(baseClass, className)}
     {...props}>
     <Title.Primary
+      id={ids.title}
       className={classNames(classes.title)}>
       {title}
     </Title.Primary>
 
     <Paragraph.Secondary
+      id={ids.summary}
       className={classNames(classes.summary)}>
       {summary}
     </Paragraph.Secondary>
 
-    <Fieldset className={classNames(classes.input)}>
+    <Fieldset
+      id={ids.fieldset}
+      className={classNames(classes.input)}>
       <Input
+        id={ids.input}
         focus={focus}
         icon='search'
         label={label}
@@ -66,14 +85,19 @@ function FilteredSelection ({
     </Fieldset>
 
     <Selector.Direct
+      id={ids.selectorDirect}
       className={classNames(classes.selector)}
       name={title.toLowerCase().replace(/[^a-zA-Z]/g, '')}
       onSelect={onSelect}
       data={options}
     />
 
-    <Paragraph.Primary margins>
-      <Link onClick={onAlternative}>
+    <Paragraph.Primary
+      id={ids.alternativeWrapper}
+      margins>
+      <Link
+        id={ids.alternativeLink}
+        onClick={onAlternative}>
         {alternative}
       </Link>
     </Paragraph.Primary>
