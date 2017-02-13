@@ -18,6 +18,7 @@ export default {
       examples: {
         Regular: {
           inline: <SingleInputPrompt
+            id='single-input-prompt'
             focus
             illustration={<DemoIcon />}
             title='Welcome to the site'
@@ -102,6 +103,7 @@ export default {
       examples: {
         Regular: {
           inline: <CenteredForm
+            id='centered-form'
             accept='Continue'
             cancel='I’d rather get a car'
             defaultValues={{
