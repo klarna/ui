@@ -1,6 +1,4 @@
 import React from 'react'
-import compose from 'ramda/src/compose'
-import {withState, withHandlers} from 'recompose'
 import Radio from '../Radio'
 import * as Checklist from '../Checklist'
 import * as Paragraph from '../Paragraph'
@@ -74,16 +72,6 @@ const optionsWithContent = [
   }
 ]
 
-const StateFullyCollapsed = compose(
-  withState('fullyExpanded', 'onExpand', false),
-  withHandlers({
-    onExpand: props => () => {
-      console.log('this is being called')
-      props.onExpand(!props.fullyExpanded)
-    }
-  })
-)(Radio)
-
 export default {
   title: 'Radio',
 
@@ -92,105 +80,91 @@ export default {
     type: LIVE_WIDE,
 
     examples: {
-      // Regular: <Radio
-      //   onChange={(key) => console.log(key)}
-      //   options={optionsWithContent}
-      //   defaultValue='lorem'
-      // />,
-      //
-      // 'Without content': <Radio
-      //   onChange={(key) => console.log(key)}
-      //   options={options}
-      // />,
-
-      'Partially collapsed': <StateFullyCollapsed
+      Regular: <Radio
+        onChange={(key) => console.log(key)}
         options={optionsWithContent}
-        expandLabel='Show me all the options'
-        collapsedOptions={2}
-      />,
-
-      'Partially collapsed & preselected': <StateFullyCollapsed
-        options={optionsWithContent}
-        expandLabel='Show me all the options'
-        defaultValue='ipsum'
-        collapsedOptions={2}
-      />,
-
-      'Partially collapsed & first selected': <StateFullyCollapsed
-        options={optionsWithContent}
-        expandLabel='Show me all the options'
         defaultValue='lorem'
+      />,
+
+      'Without content': <Radio
+        onChange={(key) => console.log(key)}
+        options={options}
+      />,
+
+      'Partially collapsed': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
         collapsedOptions={2}
       />,
 
-      'Partially collapsed & wrong one selected': <StateFullyCollapsed
+      Controlled: <Radio
+        focus='sit'
+        name='radio'
+        onChange={(key) => console.log(key)}
+        options={options}
+        value='ipsum'
+      />,
+
+      'Partially collapsed & controlled': <Radio
         options={optionsWithContent}
         expandLabel='Show me all the options'
-        defaultValue='asdfasdf'
         collapsedOptions={2}
+        fullyExpanded={false}
       />,
-      //
-      // Controlled: <Radio
-      //   focus='sit'
-      //   name='radio'
-      //   onChange={(key) => console.log(key)}
-      //   options={options}
-      //   value='ipsum'
-      // />,
-      //
-      // Borderless: <Radio
-      //   borderless
-      //   onChange={(key) => console.log(key)}
-      //   options={options}
-      //   defaultValue='lorem'
-      // />,
-      //
-      // Disabled: <Radio
-      //   disabled
-      //   onChange={(key) => console.log(key)}
-      //   options={options}
-      //   defaultValue='lorem'
-      // />,
-      //
-      // 'One field disabled': <Radio
-      //   onChange={(key) => console.log(key)}
-      //   options={[
-      //     ...optionsWithContent.slice(0, 2),
-      //     {...optionsWithContent[2], disabled: true}
-      //   ]}
-      //   defaultValue='lorem'
-      // />,
-      //
-      // 'Borderless and disabled': <Radio
-      //   borderless
-      //   disabled
-      //   options={options}
-      //   defaultValue='lorem'
-      // />,
-      //
-      // 'With a single option': <Radio
-      //   options={[{
-      //     key: 'lorem',
-      //     label: 'Lorem',
-      //     description: 'Lorem Ipsum is simply dummy.',
-      //     aside: card,
-      //     content: <Paragraph.Secondary condensed>
-      //       Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
-      //     </Paragraph.Secondary>,
-      //     leftPad: true
-      //   }]}
-      // />,
-      //
-      // 'Dynamic styling': <Radio
-      //   customize={{
-      //     backgroundColor: '#660080',
-      //     borderRadius: '10px',
-      //     bulletColor: '#00ce3e',
-      //     textPrimaryColor: 'green',
-      //     textSecondaryColor: 'red'
-      //   }}
-      //   options={options}
-      // />
+
+      Borderless: <Radio
+        borderless
+        onChange={(key) => console.log(key)}
+        options={options}
+        defaultValue='lorem'
+      />,
+
+      Disabled: <Radio
+        disabled
+        onChange={(key) => console.log(key)}
+        options={options}
+        defaultValue='lorem'
+      />,
+
+      'One field disabled': <Radio
+        onChange={(key) => console.log(key)}
+        options={[
+          ...optionsWithContent.slice(0, 2),
+          {...optionsWithContent[2], disabled: true}
+        ]}
+        defaultValue='lorem'
+      />,
+
+      'Borderless and disabled': <Radio
+        borderless
+        disabled
+        options={options}
+        defaultValue='lorem'
+      />,
+
+      'With a single option': <Radio
+        options={[{
+          key: 'lorem',
+          label: 'Lorem',
+          description: 'Lorem Ipsum is simply dummy.',
+          aside: card,
+          content: <Paragraph.Secondary condensed>
+            Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
+          </Paragraph.Secondary>,
+          leftPad: true
+        }]}
+      />,
+
+      'Dynamic styling': <Radio
+        customize={{
+          backgroundColor: '#660080',
+          borderRadius: '10px',
+          bulletColor: '#00ce3e',
+          textPrimaryColor: 'green',
+          textSecondaryColor: 'red'
+        }}
+        options={options}
+      />
     }
   }
 }
