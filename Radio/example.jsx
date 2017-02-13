@@ -94,7 +94,7 @@ export default {
       'Partially collapsed': <Radio
         options={optionsWithContent}
         expandLabel='Show me all the options'
-        collapsedOptions={2}
+        visibleOptions={1}
       />,
 
       Controlled: <Radio
@@ -108,7 +108,7 @@ export default {
       'Partially collapsed & controlled': <Radio
         options={optionsWithContent}
         expandLabel='Show me all the options'
-        collapsedOptions={2}
+        visibleOptions={1}
         fullyExpanded={false}
       />,
 

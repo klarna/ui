@@ -59,7 +59,7 @@ class Radio extends Component {
       focus,
       options,
       disabled: allDisabled,
-      collapsedOptions,
+      visibleOptions,
       expandLabel,
       fullyExpanded,
       name,
@@ -82,11 +82,11 @@ class Radio extends Component {
     const descriptionStyle = customize ? { color: customize.textSecondaryColor } : undefined
 
     const optionLists = {
-      visible: collapsedOptions
-        ? options.slice(0, -collapsedOptions)
+      visible: visibleOptions
+        ? options.slice(0, visibleOptions)
         : options,
-      collapsed: collapsedOptions
-        ? options.slice(-collapsedOptions)
+      collapsed: visibleOptions
+        ? options.slice(visibleOptions)
         : []
     }
 
@@ -217,7 +217,7 @@ class Radio extends Component {
           ]
         })}
 
-        {collapsedOptions && <Collapsible
+        {visibleOptions && <Collapsible
           onStartFPSCollection={onStartFPSCollection}
           onEndFPSCollection={onEndFPSCollection}
           lowFPS={lowFPS}
@@ -378,7 +378,7 @@ Radio.propTypes = {
     textSecondaryColor: PropTypes.string.isRequired
   }),
   disabled: PropTypes.bool,
-  collapsedOptions: PropTypes.number,
+  visibleOptions: PropTypes.number,
   expandLabel: PropTypes.string,
   fullyExpanded: PropTypes.bool,
   onExpand: PropTypes.func,
