@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
+import deepMerge from 'deepmerge'
 import {
   notifyOnLowFPS,
   themeable,
@@ -10,12 +10,9 @@ import {
 import {Motion, spring} from 'react-motion'
 import Option from './Option'
 import Collapsible from '../Collapsible'
-import defaultStyles from './styles.scss'
-import defaultStylesJS from './styles'
+import defaultStyles from './styles'
 import getActiveElement from '../lib/getActiveElement'
 import ExpandLabel from './ExpandLabel'
-
-const baseClass = 'radio'
 
 class Radio extends Component {
   componentDidMount () {
@@ -39,7 +36,6 @@ class Radio extends Component {
   render () {
     const {
       borderless,
-      className,
       customize,
       focus, // eslint-disable-line no-unused-vars
       options,
@@ -60,7 +56,7 @@ class Radio extends Component {
       ...remainingProps
     } = this.props
 
-    const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+    const finalStyles = deepMerge(defaultStyles, styles.radio)
     const singleOption = options.length === 1
     const baseStyle = customize ? { borderRadius: customize.borderRadius } : undefined
     const labelStyle = customize ? { color: customize.textPrimaryColor } : undefined
@@ -94,15 +90,16 @@ class Radio extends Component {
       onEndFPSCollection,
       onFocus,
       onChange,
-      name
+      name,
+      styles: styles.option
     })
 
     return (
       <div
         id={name}
         style={{
-          ...defaultStylesJS.base.main,
-          ...(borderless ? defaultStylesJS.borderless.main : {}),
+          ...finalStyles.base.main,
+          ...(borderless ? finalStyles.borderless.main : {}),
           ...baseStyle
         }}
         {...remainingProps}>
@@ -177,7 +174,11 @@ Radio.propTypes = {
 }
 
 Radio.defaultProps = {
-  fullyExpanded: false
+  fullyExpanded: false,
+  styles: {
+    radio: {},
+    option: {}
+  }
 }
 
 export default compose(

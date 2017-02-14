@@ -1,4 +1,5 @@
 import React from 'react'
+import deepMerge from 'deepmerge'
 import RadioMark from '../../RadioMark'
 import Collapsible from '../../Collapsible'
 import defaultStyles from './styles'
@@ -18,7 +19,8 @@ export default ({
   onEndFPSCollection,
   onFocus,
   onChange,
-  name
+  name,
+  styles
 }) => (option, index) => {
   const {
     key,
@@ -48,9 +50,11 @@ export default ({
     wrapper: `${id}__wrapper`
   }
 
+  const finalStyles = deepMerge(defaultStyles, styles)
+
   return [
     <input
-      style={defaultStyles.base.input}
+      style={finalStyles.base.input}
       id={id}
       name={name}
       type='radio'
@@ -64,24 +68,24 @@ export default ({
     />,
     <div
       style={{
-                ...defaultStyles.base.main,
-                ...( index === 0 ? defaultStyles.first.main : {}),
-                ...( index === options.length - 1 ? defaultStyles.last.main : {}),
-                ...(borderless ? defaultStyles.borderless.main : {})
+                ...finalStyles.base.main,
+                ...( index === 0 ? finalStyles.first.main : {}),
+                ...( index === options.length - 1 ? finalStyles.last.main : {}),
+                ...(borderless ? finalStyles.borderless.main : {})
               }}
       id={ids.label}
       {...restOfProps}>
       <label
         htmlFor={`${name}-${key}`}
-        style={defaultStyles.base.header}
+        style={finalStyles.base.header}
         id={ids.header}>
         <div
-          style={defaultStyles.base.inner}
+          style={finalStyles.base.inner}
           id={ids.headerInner}>
           {!singleOption && <div
             style={{
-                      ...defaultStyles.base.left,
-                      ...defaultStyles.base.leftmost
+                      ...finalStyles.base.left,
+                      ...finalStyles.base.leftmost
                     }}
             id={ids.left}>
             <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
@@ -89,16 +93,16 @@ export default ({
 
           <div
             style={{
-                      ...defaultStyles.base.right,
-                      ...(aside ? {} : defaultStyles.base.rightmost),
-                      ...(singleOption ? defaultStyles.base.leftmost : {})
+                      ...finalStyles.base.right,
+                      ...(aside ? {} : finalStyles.base.rightmost),
+                      ...(singleOption ? finalStyles.base.leftmost : {})
                     }}
             id={ids.right}>
             <div
               id={ids.labelInner}
               style={{
-                        ...defaultStyles.base.label,
-                        ...(isDisabled ? defaultStyles.disabled.label : {}),
+                        ...finalStyles.base.label,
+                        ...(isDisabled ? finalStyles.disabled.label : {}),
                         ...labelStyle}}>
               {label}
             </div>
@@ -106,8 +110,8 @@ export default ({
             {description && <div
               id={ids.description}
               style={{
-                        ...defaultStyles.base.description,
-                        ...(isDisabled ? defaultStyles.disabled.description : {}),
+                        ...finalStyles.base.description,
+                        ...(isDisabled ? finalStyles.disabled.description : {}),
                         ...descriptionStyle
                       }}>
               {description}
@@ -116,8 +120,8 @@ export default ({
 
           {aside && <div
             style={{
-                      ...defaultStyles.base.aside,
-                      ...defaultStyles.base.rightmost
+                      ...finalStyles.base.aside,
+                      ...finalStyles.base.rightmost
                     }}
             id={ids.aside}>
             {aside}
@@ -132,8 +136,8 @@ export default ({
         collapsed={isDisabled || !singleOption && key !== value}>
         <div
           style={{
-                    ...defaultStyles.base.content,
-                    ...(leftPad && !singleOption ? defaultStyles.leftPad.content : {})
+                    ...finalStyles.base.content,
+                    ...(leftPad && !singleOption ? finalStyles.leftPad.content : {})
                   }}
           id={ids.content}>
           {content}
