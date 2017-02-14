@@ -154,7 +154,6 @@ class Radio extends Component {
                 {
                   'is-selected': key === value,
                   'is-focused': !isDisabled && focus === key,
-                  'left-pad': leftPad && !singleOption,
                   'is-disabled': isDisabled
                 }
               )}
@@ -204,7 +203,10 @@ class Radio extends Component {
                   </div>
 
                   {aside && <div
-                    className={classNames(classes.optionAside, classes.optionRightmost)}
+                    style={{
+                      ...defaultStylesJS.base.aside,
+                      ...defaultStylesJS.base.rightmost
+                    }}
                     id={ids.aside}>
                     {aside}
                   </div>}
@@ -217,7 +219,10 @@ class Radio extends Component {
                 lowFPS={lowFPS}
                 collapsed={isDisabled || !singleOption && key !== value}>
                 <div
-                  className={classNames(classes.optionContent)}
+                  style={{
+                    ...defaultStylesJS.base.content,
+                    ...(leftPad && !singleOption ? defaultStylesJS.leftPad.content : {})
+                  }}
                   id={ids.content}>
                   {content}
                 </div>
