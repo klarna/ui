@@ -136,7 +136,7 @@ class Radio extends Component {
 
           return [
             <input
-              className={classNames(classes.optionInput)}
+              style={defaultStylesJS.base.input}
               id={id}
               name={name}
               type='radio'
