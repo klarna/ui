@@ -105,7 +105,7 @@ class Radio extends Component {
         id={name}
         style={baseStyle}
         {...remainingProps}>
-        {optionLists.visible.map((option) => {
+        {optionLists.visible.map((option, index) => {
           const {
             key,
             label,
@@ -149,14 +149,12 @@ class Radio extends Component {
               disabled={isDisabled}
             />,
             <div
-              className={classNames(
-                classes.option,
-                {
-                  'is-selected': key === value,
-                  'is-focused': !isDisabled && focus === key,
-                  'is-disabled': isDisabled
-                }
-              )}
+              style={{
+                ...defaultStylesJS.base.main,
+                ...( index === 0 ? defaultStylesJS.first.main : {}),
+                ...( index === options.length - 1 ? defaultStylesJS.last.main : {}),
+                ...(borderless ? defaultStylesJS.borderless.main : {})
+              }}
               id={ids.label}
               {...restOfProps}>
               <label
