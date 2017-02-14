@@ -11,6 +11,7 @@ import {Motion, spring} from 'react-motion'
 import Option from './Option'
 import Collapsible from '../Collapsible'
 import defaultStyles from './styles.scss'
+import defaultStylesJS from './styles'
 import getActiveElement from '../lib/getActiveElement'
 import ExpandLabel from './ExpandLabel'
 
@@ -40,7 +41,7 @@ class Radio extends Component {
       borderless,
       className,
       customize,
-      focus,
+      focus, // eslint-disable-line no-unused-vars
       options,
       disabled: allDisabled,
       visibleOptions,
@@ -95,15 +96,15 @@ class Radio extends Component {
       onChange,
       name
     })
+
     return (
       <div
-        className={classNames(baseClass, {
-          borderless,
-          'is-focused': focus != null,
-          'no-animations': lowFPS
-        }, className)}
         id={name}
-        style={baseStyle}
+        style={{
+          ...defaultStylesJS.base.main,
+          ...(borderless ? defaultStylesJS.borderless.main : {}),
+          ...baseStyle
+        }}
         {...remainingProps}>
         {optionLists.visible.map(OptionWithProps)}
 
