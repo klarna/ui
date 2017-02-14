@@ -8,6 +8,7 @@ import {
   uniqueName
 } from '@klarna/higher-order-components'
 import {Motion, spring} from 'react-motion'
+import defaultStylesJS from './Option/styles'
 import Collapsible from '../Collapsible'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../lib/getActiveElement'
@@ -187,9 +188,12 @@ class Radio extends Component {
                     </div>
 
                     {description && <div
-                      className={classNames(classes.optionDescription)}
                       id={ids.description}
-                      style={descriptionStyle}>
+                      style={{
+                        ...defaultStylesJS.base.description,
+                        ...(isDisabled ? defaultStylesJS.disabled.description : {}),
+                        ...descriptionStyle
+                      }}>
                       {description}
                     </div>}
                   </div>
