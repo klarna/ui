@@ -24,6 +24,7 @@ const classes = {
 export default function Centered ({
   brandVolume,
   className,
+  smallTitle,
   children,
   error,
   labels,
@@ -42,7 +43,8 @@ export default function Centered ({
     {illustration}
 
     <Title.Primary
-      className={classNames(classes.title)}>
+      className={classNames(classes.title)}
+      small={smallTitle}>
       {labels.title}
     </Title.Primary>
 
