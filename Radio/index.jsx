@@ -181,9 +181,11 @@ class Radio extends Component {
                     )}
                     id={ids.right}>
                     <div
-                      className={classNames(classes.optionLabel)}
                       id={ids.labelInner}
-                      style={labelStyle}>
+                      style={{
+                        ...defaultStylesJS.base.label,
+                        ...(isDisabled ? defaultStylesJS.disabled.label : {}),
+                        ...labelStyle}}>
                       {label}
                     </div>
 

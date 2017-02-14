@@ -71,13 +71,13 @@ export default {
     wrapper: {
       position: 'relative'
     },
-    label: {
+    label: typographize({
       fontFamily: fontFamilies.BASE,
-      fontSize: fontSizes.MAIN_BODY_BIG.mobile,
+      fontSize: grid(fontSizes.MAIN_BODY_BIG.mobile),
       fontWeight: fontWeights.SEMI_BOLD,
       display: 'block',
       lineHeight: grid(4)
-    },
+    }),
     description: typographize({
       fontFamily: fontFamilies.BASE,
       fontSize: grid(fontSizes.MAIN_BODY.mobile),
