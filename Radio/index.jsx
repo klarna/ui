@@ -162,10 +162,10 @@ class Radio extends Component {
               {...restOfProps}>
               <label
                 htmlFor={`${name}-${key}`}
-                className={classNames(classes.optionHeader)}
+                style={defaultStylesJS.base.header}
                 id={ids.header}>
                 <div
-                  className={classNames(classes.optionHeaderInner)}
+                  style={defaultStylesJS.base.inner}
                   id={ids.headerInner}>
                   {!singleOption && <div className={classNames(classes.optionLeft, classes.optionLeftmost)} id={ids.left}>
                     <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
