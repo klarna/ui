@@ -1,4 +1,6 @@
 import React from 'react'
+import deepMerge from 'deepmerge'
+import defaultStyles from './styles'
 
 function Option ({
   key,
@@ -8,8 +10,11 @@ function Option ({
   aside,
   content,
   leftPad,
+  styles,
   ...props
 }) {
+  const finalStyles = deepMerge(defaultStyles.base, styles)
+
   const isDisabled = allDisabled || disabled
   const id = `${name}-${key}`
   const ids = {
@@ -29,7 +34,6 @@ function Option ({
 
   return <div>
     <input
-      className={classNames(classes.optionInput)}
       id={id}
       name={name}
       type='radio'
@@ -40,6 +44,7 @@ function Option ({
       ref={key}
       value={key}
       disabled={isDisabled}
+      style={finalStyles.base.input}
     />
     <div
       className={classNames(
@@ -52,15 +57,24 @@ function Option ({
         }
       )}
       id={ids.label}
+      style={finalStyles.base.option}
       {...restOfProps}>
       <label
         htmlFor={`${name}-${key}`}
         className={classNames(classes.optionHeader)}
+        style={finalStyles.base.header}
         id={ids.header}>
         <div
           className={classNames(classes.optionHeaderInner)}
+          style={finalStyles.base.inner}
           id={ids.headerInner}>
-          {!singleOption && <div className={classNames(classes.optionLeft, classes.optionLeftmost)} id={ids.left}>
+          {!singleOption && <div
+            style={{...finalStyles.base.left, ...finalStyles.base.leftmost}}
+            className={classNames(
+              classes.optionLeft,
+              classes.optionLeftmost
+            )}
+            id={ids.left}>
             <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
           </div>}
 
