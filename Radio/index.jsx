@@ -8,30 +8,13 @@ import {
   uniqueName
 } from '@klarna/higher-order-components'
 import {Motion, spring} from 'react-motion'
-import defaultStylesJS from './Option/styles'
+import Option from './Option'
 import Collapsible from '../Collapsible'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../lib/getActiveElement'
-import RadioMark from '../RadioMark'
 import ExpandLabel from './ExpandLabel'
 
 const baseClass = 'radio'
-
-const classes = {
-  option: `${baseClass}__option`,
-  optionAside: `${baseClass}__option__aside`,
-  optionDescription: `${baseClass}__option__description`,
-  optionLabel: `${baseClass}__option__label`,
-  optionInput: `${baseClass}__option__input`,
-  optionLeft: `${baseClass}__option__left`,
-  optionLeftmost: `${baseClass}__option__leftmost`,
-  optionRight: `${baseClass}__option__right`,
-  optionRightmost: `${baseClass}__option__rightmost`,
-  optionHeader: `${baseClass}__option__header`,
-  optionHeaderInner: `${baseClass}__option__inner`,
-  optionWrapper: `${baseClass}__option__wrapper`,
-  optionContent: `${baseClass}__option__content`
-}
 
 class Radio extends Component {
   componentDidMount () {
@@ -95,6 +78,23 @@ class Radio extends Component {
       value && optionLists.collapsed.find(({key}) => key === value) != null
     )
 
+    const OptionWithProps = Option({
+      allDisabled,
+      onBlur,
+      value,
+      options,
+      borderless,
+      singleOption,
+      customize,
+      lowFPS,
+      labelStyle,
+      descriptionStyle,
+      onStartFPSCollection,
+      onEndFPSCollection,
+      onFocus,
+      onChange,
+      name
+    })
     return (
       <div
         className={classNames(baseClass, {
@@ -105,129 +105,7 @@ class Radio extends Component {
         id={name}
         style={baseStyle}
         {...remainingProps}>
-        {optionLists.visible.map((option, index) => {
-          const {
-            key,
-            label,
-            description,
-            disabled,
-            aside,
-            content,
-            leftPad,
-            ...restOfProps
-          } = option
-
-          const isDisabled = allDisabled || disabled
-          const id = `${name}-${key}`
-          const ids = {
-            aside: `${id}__aside`,
-            bullet: `${id}__bullet`,
-            checkmark: `${id}__checkmark`,
-            content: `${id}__content`,
-            description: `${id}__description`,
-            header: `${id}__header`,
-            headerInner: `${id}__header--inner`,
-            label: `${id}__label`,
-            labelInner: `${id}__label--inner`,
-            left: `${id}__left`,
-            right: `${id}__right`,
-            wrapper: `${id}__wrapper`
-          }
-
-          return [
-            <input
-              style={defaultStylesJS.base.input}
-              id={id}
-              name={name}
-              type='radio'
-              onBlur={onBlur}
-              checked={key === value}
-              onChange={() => onChange && key !== value && onChange(key)}
-              onFocus={(e) => onFocus && onFocus(key, e)}
-              ref={key}
-              value={key}
-              disabled={isDisabled}
-            />,
-            <div
-              style={{
-                ...defaultStylesJS.base.main,
-                ...( index === 0 ? defaultStylesJS.first.main : {}),
-                ...( index === options.length - 1 ? defaultStylesJS.last.main : {}),
-                ...(borderless ? defaultStylesJS.borderless.main : {})
-              }}
-              id={ids.label}
-              {...restOfProps}>
-              <label
-                htmlFor={`${name}-${key}`}
-                style={defaultStylesJS.base.header}
-                id={ids.header}>
-                <div
-                  style={defaultStylesJS.base.inner}
-                  id={ids.headerInner}>
-                  {!singleOption && <div
-                    style={{
-                      ...defaultStylesJS.base.left,
-                      ...defaultStylesJS.base.leftmost
-                    }}
-                    id={ids.left}>
-                    <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
-                  </div>}
-
-                  <div
-                    style={{
-                      ...defaultStylesJS.base.right,
-                      ...(aside ? {} : defaultStylesJS.base.rightmost),
-                      ...(singleOption ? defaultStylesJS.base.leftmost : {})
-                    }}
-                    id={ids.right}>
-                    <div
-                      id={ids.labelInner}
-                      style={{
-                        ...defaultStylesJS.base.label,
-                        ...(isDisabled ? defaultStylesJS.disabled.label : {}),
-                        ...labelStyle}}>
-                      {label}
-                    </div>
-
-                    {description && <div
-                      id={ids.description}
-                      style={{
-                        ...defaultStylesJS.base.description,
-                        ...(isDisabled ? defaultStylesJS.disabled.description : {}),
-                        ...descriptionStyle
-                      }}>
-                      {description}
-                    </div>}
-                  </div>
-
-                  {aside && <div
-                    style={{
-                      ...defaultStylesJS.base.aside,
-                      ...defaultStylesJS.base.rightmost
-                    }}
-                    id={ids.aside}>
-                    {aside}
-                  </div>}
-                </div>
-              </label>
-
-              {content && <Collapsible
-                onStartFPSCollection={onStartFPSCollection}
-                onEndFPSCollection={onEndFPSCollection}
-                lowFPS={lowFPS}
-                collapsed={isDisabled || !singleOption && key !== value}>
-                <div
-                  style={{
-                    ...defaultStylesJS.base.content,
-                    ...(leftPad && !singleOption ? defaultStylesJS.leftPad.content : {})
-                  }}
-                  id={ids.content}>
-                  {content}
-                </div>
-              </Collapsible>}
-            </div>
-          ]
-        })}
+        {optionLists.visible.map(OptionWithProps)}
 
         {visibleOptions && <Collapsible
           onStartFPSCollection={onStartFPSCollection}
@@ -236,118 +114,7 @@ class Radio extends Component {
           minimumHeight={49}
           collapsed={!isExpanded}>
           <div>
-            {optionLists.collapsed.map((option) => {
-              const {
-                key,
-                label,
-                description,
-                disabled,
-                aside,
-                content,
-                leftPad,
-                ...restOfProps
-              } = option
-
-              const isDisabled = allDisabled || disabled
-              const id = `${name}-${key}`
-              const ids = {
-                aside: `${id}__aside`,
-                bullet: `${id}__bullet`,
-                checkmark: `${id}__checkmark`,
-                content: `${id}__content`,
-                description: `${id}__description`,
-                header: `${id}__header`,
-                headerInner: `${id}__header--inner`,
-                label: `${id}__label`,
-                labelInner: `${id}__label--inner`,
-                left: `${id}__left`,
-                right: `${id}__right`,
-                wrapper: `${id}__wrapper`
-              }
-
-              return [
-                <input
-                  className={classNames(classes.optionInput)}
-                  id={id}
-                  name={name}
-                  type='radio'
-                  onBlur={onBlur}
-                  checked={key === value}
-                  onChange={() => onChange && key !== value && onChange(key)}
-                  onFocus={(e) => onFocus && onFocus(key, e)}
-                  ref={key}
-                  value={key}
-                  disabled={isDisabled}
-                />,
-                <div
-                  className={classNames(
-                    classes.option,
-                    {
-                      'is-selected': key === value,
-                      'is-focused': !isDisabled && focus === key,
-                      'left-pad': leftPad && !singleOption,
-                      'is-disabled': isDisabled
-                    }
-                  )}
-                  id={ids.label}
-                  {...restOfProps}>
-                  <label
-                    htmlFor={`${name}-${key}`}
-                    className={classNames(classes.optionHeader)}
-                    id={ids.header}>
-                    <div
-                      className={classNames(classes.optionHeaderInner)}
-                      id={ids.headerInner}>
-                      {!singleOption && <div className={classNames(classes.optionLeft, classes.optionLeftmost)} id={ids.left}>
-                        <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
-                      </div>}
-
-                      <div
-                        className={classNames(
-                          classes.optionRight,
-                          {
-                            [classes.optionRightmost]: !aside,
-                            [classes.optionLeftmost]: singleOption
-                          }
-                        )}
-                        id={ids.right}>
-                        <div
-                          className={classNames(classes.optionLabel)}
-                          id={ids.labelInner}
-                          style={labelStyle}>
-                          {label}
-                        </div>
-
-                        {description && <div
-                          className={classNames(classes.optionDescription)}
-                          id={ids.description}
-                          style={descriptionStyle}>
-                          {description}
-                        </div>}
-                      </div>
-
-                      {aside && <div
-                        className={classNames(classes.optionAside, classes.optionRightmost)}
-                        id={ids.aside}>
-                        {aside}
-                      </div>}
-                    </div>
-                  </label>
-
-                  {content && <Collapsible
-                    onStartFPSCollection={onStartFPSCollection}
-                    onEndFPSCollection={onEndFPSCollection}
-                    lowFPS={lowFPS}
-                    collapsed={isDisabled || !singleOption && key !== value}>
-                    <div
-                      className={classNames(classes.optionContent)}
-                      id={ids.content}>
-                      {content}
-                    </div>
-                  </Collapsible>}
-                </div>
-              ]
-            })}
+            {optionLists.collapsed.map(OptionWithProps)}
           </div>
         </Collapsible>}
 

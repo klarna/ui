@@ -1,19 +1,35 @@
 import React from 'react'
-import deepMerge from 'deepmerge'
+import RadioMark from '../../RadioMark'
+import Collapsible from '../../Collapsible'
 import defaultStyles from './styles'
 
-function Option ({
-  key,
-  label,
-  description,
-  disabled,
-  aside,
-  content,
-  leftPad,
-  styles,
-  ...props
-}) {
-  const finalStyles = deepMerge(defaultStyles.base, styles)
+export default ({
+  allDisabled,
+  onBlur,
+  value,
+  options,
+  borderless,
+  singleOption,
+  customize,
+  lowFPS,
+  labelStyle,
+  descriptionStyle,
+  onStartFPSCollection,
+  onEndFPSCollection,
+  onFocus,
+  onChange,
+  name
+}) => (option, index) => {
+  const {
+    key,
+    label,
+    description,
+    disabled,
+    aside,
+    content,
+    leftPad,
+    ...restOfProps
+  } = option
 
   const isDisabled = allDisabled || disabled
   const id = `${name}-${key}`
@@ -32,8 +48,9 @@ function Option ({
     wrapper: `${id}__wrapper`
   }
 
-  return <div>
+  return [
     <input
+      style={defaultStyles.base.input}
       id={id}
       name={name}
       type='radio'
@@ -44,66 +61,64 @@ function Option ({
       ref={key}
       value={key}
       disabled={isDisabled}
-      style={finalStyles.base.input}
-    />
+    />,
     <div
-      className={classNames(
-        classes.option,
-        {
-          'is-selected': key === value,
-          'is-focused': !isDisabled && focus === key,
-          'left-pad': leftPad && !singleOption,
-          'is-disabled': isDisabled
-        }
-      )}
+      style={{
+                ...defaultStyles.base.main,
+                ...( index === 0 ? defaultStyles.first.main : {}),
+                ...( index === options.length - 1 ? defaultStyles.last.main : {}),
+                ...(borderless ? defaultStyles.borderless.main : {})
+              }}
       id={ids.label}
-      style={finalStyles.base.option}
       {...restOfProps}>
       <label
         htmlFor={`${name}-${key}`}
-        className={classNames(classes.optionHeader)}
-        style={finalStyles.base.header}
+        style={defaultStyles.base.header}
         id={ids.header}>
         <div
-          className={classNames(classes.optionHeaderInner)}
-          style={finalStyles.base.inner}
+          style={defaultStyles.base.inner}
           id={ids.headerInner}>
           {!singleOption && <div
-            style={{...finalStyles.base.left, ...finalStyles.base.leftmost}}
-            className={classNames(
-              classes.optionLeft,
-              classes.optionLeftmost
-            )}
+            style={{
+                      ...defaultStyles.base.left,
+                      ...defaultStyles.base.leftmost
+                    }}
             id={ids.left}>
             <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
           </div>}
 
           <div
-            className={classNames(
-              classes.optionRight,
-              {
-                [classes.optionRightmost]: !aside,
-                [classes.optionLeftmost]: singleOption
-              }
-            )}
+            style={{
+                      ...defaultStyles.base.right,
+                      ...(aside ? {} : defaultStyles.base.rightmost),
+                      ...(singleOption ? defaultStyles.base.leftmost : {})
+                    }}
             id={ids.right}>
             <div
-              className={classNames(classes.optionLabel)}
               id={ids.labelInner}
-              style={labelStyle}>
+              style={{
+                        ...defaultStyles.base.label,
+                        ...(isDisabled ? defaultStyles.disabled.label : {}),
+                        ...labelStyle}}>
               {label}
             </div>
 
             {description && <div
-              className={classNames(classes.optionDescription)}
               id={ids.description}
-              style={descriptionStyle}>
+              style={{
+                        ...defaultStyles.base.description,
+                        ...(isDisabled ? defaultStyles.disabled.description : {}),
+                        ...descriptionStyle
+                      }}>
               {description}
             </div>}
           </div>
 
           {aside && <div
-            className={classNames(classes.optionAside, classes.optionRightmost)}
+            style={{
+                      ...defaultStyles.base.aside,
+                      ...defaultStyles.base.rightmost
+                    }}
             id={ids.aside}>
             {aside}
           </div>}
@@ -116,11 +131,14 @@ function Option ({
         lowFPS={lowFPS}
         collapsed={isDisabled || !singleOption && key !== value}>
         <div
-          className={classNames(classes.optionContent)}
+          style={{
+                    ...defaultStyles.base.content,
+                    ...(leftPad && !singleOption ? defaultStyles.leftPad.content : {})
+                  }}
           id={ids.content}>
           {content}
         </div>
       </Collapsible>}
     </div>
-  </div>
+  ]
 }
