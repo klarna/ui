@@ -172,13 +172,11 @@ class Radio extends Component {
                   </div>}
 
                   <div
-                    className={classNames(
-                      classes.optionRight,
-                      {
-                        [classes.optionRightmost]: !aside,
-                        [classes.optionLeftmost]: singleOption
-                      }
-                    )}
+                    style={{
+                      ...defaultStylesJS.base.right,
+                      ...(aside ? {} : defaultStylesJS.base.rightmost),
+                      ...(singleOption ? defaultStylesJS.base.leftmost : {})
+                    }}
                     id={ids.right}>
                     <div
                       id={ids.labelInner}
