@@ -114,4 +114,9 @@
 
 .switch--checkbox__bullet__checkmark__stroke {
   stroke: map-get($colors, white);
+  transition: opacity 0.2s ease;
+
+  &.is-hidden {
+    opacity: 0;
+  }
 }
