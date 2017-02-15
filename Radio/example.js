@@ -45,7 +45,7 @@ const optionsWithContent = [
         defaultValue='installments_6'
       />
       <Checklist.Main style={{marginTop: '20px'}}>
-        <Checklist.Item>Just one click and you're done</Checklist.Item>
+        <Checklist.Item>Just one click and you’re done</Checklist.Item>
         <Checklist.Item>Very little hassle</Checklist.Item>
         <Checklist.Item>Just do it! It can be done today, so why wait for  tomorrow?</Checklist.Item>
       </Checklist.Main>
