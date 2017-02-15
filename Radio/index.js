@@ -136,6 +136,7 @@ class Radio extends Component {
               onClick={onExpand}
               label={expandLabel}
               style={{opacity}}
+              styles={styles.expandLabel}
             />
           </div>}
         </Motion>}
@@ -169,7 +170,11 @@ Radio.propTypes = {
   onStartFPSCollection: PropTypes.func,
   lowFPS: PropTypes.bool,
   options: PropTypes.array.isRequired,
-  styles: PropTypes.object,
+  styles: PropTypes.shape({
+    radio: PropTypes.object,
+    option: PropTypes.object,
+    expandLabel: PropTypes.object
+  }),
   value: PropTypes.any
 }
 
@@ -177,7 +182,8 @@ Radio.defaultProps = {
   fullyExpanded: false,
   styles: {
     radio: {},
-    option: {}
+    option: {},
+    expandLabel: {}
   }
 }
 
