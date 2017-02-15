@@ -3,6 +3,7 @@ export const LIGHT_GREY = {
   hover: '#EDEDEF'
 }
 
+export const BLACK = '#3C3C3E'
 export const GREY_TEXT = '#8E8E90'
 export const GREY_LINES = '#CBCBCD'
 export const GREY_SELECTOR_LINES = '#E5E5E6'

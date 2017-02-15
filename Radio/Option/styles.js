@@ -1,14 +1,10 @@
 import grid from '../../settings/grid'
+import typographize from '../../settings/typographize'
 import * as palette from '../../settings/palette'
 import {BORDER_RADIUS} from '../../settings/themes/default/assorted'
 import * as fontFamilies from '../../settings/fontFamilies'
 import * as fontSizes from '../../settings/fontSizes'
 import * as fontWeights from '../../settings/fontWeights'
-
-const typographize = style => ({...style, ...{
-  WebkitFontSmoothing: 'antialiased',
-  textRendering: 'geometricPrecision'
-}})
 
 export default {
   base: {

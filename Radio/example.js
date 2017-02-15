@@ -7,6 +7,14 @@ import BoxSelector from '../BoxSelector'
 import Dropdown from '../Dropdown'
 import Subtitle from '../Subtitle'
 
+import grid from '../settings/grid'
+import * as palette from '../settings/palette'
+import * as fontFamilies from '../settings/fontFamilies'
+import * as fontSizes from '../settings/fontSizes'
+import * as fontWeights from '../settings/fontWeights'
+import {BORDER_RADIUS} from '../settings/themes/default/assorted'
+import typographize from '../settings/typographize'
+
 const options = [
   {key: 'lorem', label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
   {key: 'sit', label: 'Sit', description: 'Amet et consequetur'},
@@ -71,6 +79,94 @@ const optionsWithContent = [
     </div>
   }
 ]
+
+const fullStylesOverride = {
+  radio: {
+    base: {
+      main: {
+        borderWidth: grid(0.4),
+        borderStyle: 'dashed',
+        borderColor: palette.BLACK,
+        borderRadius: grid(2),
+      }
+    }
+  },
+  option: {
+    base: {
+      content: {
+        paddingBottom: grid(6),
+        paddingLeft: grid(6),
+        paddingRight: grid(6)
+      },
+      aside: {
+        display: 'table-cell',
+        paddingLeft: grid(3),
+        textAlign: 'right',
+        verticalAlign: 'top'
+      },
+      input: {
+        display: 'block',
+        height: 0,
+        opacity: 0,
+        position: 'absolute',
+        width: 0
+      },
+      main: {
+        borderBottomWidth: grid(0.4),
+        borderBottomStyle: 'dashed',
+        borderBottomColor: palette.BLACK,
+      },
+      label: {
+        fontFamily: fontFamilies.CODE,
+        color: palette.GREY_LINES
+      },
+      description: {
+        fontFamily: fontFamilies.CODE,
+        color: palette.BLACK
+      }
+    },
+    first: {
+      main: {
+        backgroundColor: palette.DISABLED_BACKGROUND
+      }
+    },
+    last: {
+      main: {
+        borderBottom: 'none',
+        borderBottomLeftRadius: grid(BORDER_RADIUS),
+        borderBottomRightRadius: grid(BORDER_RADIUS)
+      }
+    },
+    selected: {
+      header: {
+        cursor: 'crosshair'
+      }
+    },
+    leftPad: {
+      content: {
+        paddingLeft: grid(9.8)
+      }
+    }
+
+  },
+  expandLabel: {
+    base: {
+      main: {
+        backgroundColor: palette.WHITE,
+        fontFamily: fontFamilies.CODE
+      },
+      chevron: {
+        transform: `translateY(${grid(1)}) scale(2)`
+      }
+    },
+
+    active: {
+      main: {
+        backgroundColor: palette.GREY_LINES
+      }
+    }
+  }
+}
 
 export default {
   title: 'Radio',
@@ -164,6 +260,13 @@ export default {
           textSecondaryColor: 'red'
         }}
         options={options}
+      />,
+
+      'Full styles override': <Radio
+        options={options}
+        visibleOptions={1}
+        expandLabel='Show the other options'
+        styles={fullStylesOverride}
       />
     }
   }

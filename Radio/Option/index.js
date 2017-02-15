@@ -68,16 +68,19 @@ export default ({
     />,
     <div
       style={{
-                ...finalStyles.base.main,
-                ...( index === 0 ? finalStyles.first.main : {}),
-                ...( index === options.length - 1 ? finalStyles.last.main : {}),
-                ...(borderless ? finalStyles.borderless.main : {})
-              }}
+        ...finalStyles.base.main,
+        ...( index === 0 ? finalStyles.first.main : {}),
+        ...( options.indexOf(options.find(option => option.key === key)) === options.length - 1 ? finalStyles.last.main : {}),
+        ...(borderless ? finalStyles.borderless.main : {})
+      }}
       id={ids.label}
       {...restOfProps}>
       <label
         htmlFor={`${name}-${key}`}
-        style={finalStyles.base.header}
+        style={{
+          ...finalStyles.base.header,
+          ...(key === value ? finalStyles.selected.header : {})
+        }}
         id={ids.header}>
         <div
           style={finalStyles.base.inner}
@@ -93,36 +96,37 @@ export default ({
 
           <div
             style={{
-                      ...finalStyles.base.right,
-                      ...(aside ? {} : finalStyles.base.rightmost),
-                      ...(singleOption ? finalStyles.base.leftmost : {})
-                    }}
+              ...finalStyles.base.right,
+              ...(aside ? {} : finalStyles.base.rightmost),
+              ...(singleOption ? finalStyles.base.leftmost : {})
+            }}
             id={ids.right}>
             <div
               id={ids.labelInner}
               style={{
-                        ...finalStyles.base.label,
-                        ...(isDisabled ? finalStyles.disabled.label : {}),
-                        ...labelStyle}}>
+                ...finalStyles.base.label,
+                ...(isDisabled ? finalStyles.disabled.label : {}),
+                ...labelStyle
+              }}>
               {label}
             </div>
 
             {description && <div
               id={ids.description}
               style={{
-                        ...finalStyles.base.description,
-                        ...(isDisabled ? finalStyles.disabled.description : {}),
-                        ...descriptionStyle
-                      }}>
+                ...finalStyles.base.description,
+                ...(isDisabled ? finalStyles.disabled.description : {}),
+                ...descriptionStyle
+              }}>
               {description}
             </div>}
           </div>
 
           {aside && <div
             style={{
-                      ...finalStyles.base.aside,
-                      ...finalStyles.base.rightmost
-                    }}
+              ...finalStyles.base.aside,
+              ...finalStyles.base.rightmost
+            }}
             id={ids.aside}>
             {aside}
           </div>}
@@ -136,9 +140,9 @@ export default ({
         collapsed={isDisabled || !singleOption && key !== value}>
         <div
           style={{
-                    ...finalStyles.base.content,
-                    ...(leftPad && !singleOption ? finalStyles.leftPad.content : {})
-                  }}
+              ...finalStyles.base.content,
+              ...(leftPad && !singleOption ? finalStyles.leftPad.content : {})
+            }}
           id={ids.content}>
           {content}
         </div>
