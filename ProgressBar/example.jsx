@@ -11,10 +11,14 @@ class TimedExample extends React.Component {
   }
 
   componentDidMount () {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       const add = Math.random() * 100
       this.setState({ percentage: (this.state.percentage + add) % 100 })
     }, 1000)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.interval)
   }
 
   render () {
