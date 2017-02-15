@@ -1,30 +1,37 @@
 import React, {PropTypes} from 'react'
 import deepMerge from 'deepmerge'
 import compose from 'ramda/src/compose'
-import withHoverStyles from '../../lib/toMoveToHoCs/withHoverStyles'
-import withTouchStyles from '../../lib/toMoveToHoCs/withTouchStyles'
+import {withTouchProps, withHoverProps} from '@klarna/higher-order-components'
 
 import * as Chevron from '../../icons/Chevron'
 import defaultStyles from './styles'
 
-function ExpandLabel ({label, style, styles, ...props}) {
-  const finalStyles = deepMerge(defaultStyles.base, styles)
+function ExpandLabel ({active, label, style, styles, ...props}) {
+  const finalStyles = deepMerge(defaultStyles, styles)
 
-  return <footer style={{...finalStyles.main, ...style}} {...props}>
-    {label} <Chevron.Down color='black' style={finalStyles.chevron} />
+  return <footer
+    style={{
+      ...finalStyles.base.main,
+      ...(active ? finalStyles.active.main : {}),
+      ...style
+    }}
+    {...props}>
+    {label} <Chevron.Down color='black' style={finalStyles.base.chevron} />
   </footer>
 }
 
 ExpandLabel.propTypes = {
   label: PropTypes.string.isRequired,
+  active: PropTypes.bool,
   styles: PropTypes.object
 }
 
 ExpandLabel.defaultProps = {
-  styles: {}
+  styles: {},
+  active: false
 }
 
 export default compose(
-  withHoverStyles(defaultStyles.active),
-  withTouchStyles(defaultStyles.active)
+  withHoverProps({active: true}),
+  withTouchProps({active: true})
 )(ExpandLabel)
