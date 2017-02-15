@@ -1,10 +1,36 @@
 @import '../css/settings';
-@import '../css/mixins/index';
 
 .progressbar {
-  @include progressbar;
+  border: 0.5px solid;
+  border-radius: $border-radius * 5;
+  height: 10px;
+
+  &.light-blue {
+    border-color: map-get($colors, light-blue);
+  }
+
+  &.blue {
+    border-color: map-get($colors, klarna-blue);
+  }
+
+  &.gray {
+    border-color: map-get($colors, grey-lines);
+  }
 }
 
 .progressbar-fill {
-  @include progressbar-fill;
+  border-radius: $border-radius * 5;
+  height: 100%;
+
+  &.light-blue {
+    background-color: map-get($colors, light-blue);
+  }
+
+  &.blue {
+    background-color: map-get($colors, klarna-blue);
+  }
+
+  &.gray {
+    background-color: map-get($colors, grey-lines);
+  }
 }
