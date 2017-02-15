@@ -50,7 +50,7 @@ export default ({
     wrapper: `${id}__wrapper`
   }
 
-  const finalStyles = deepMerge(defaultStyles, styles)
+  const finalStyles = deepMerge(defaultStyles, styles.option)
 
   return [
     <input
@@ -87,11 +87,17 @@ export default ({
           id={ids.headerInner}>
           {!singleOption && <div
             style={{
-                      ...finalStyles.base.left,
-                      ...finalStyles.base.leftmost
-                    }}
+              ...finalStyles.base.left,
+              ...finalStyles.base.leftmost
+            }}
             id={ids.left}>
-            <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
+            <RadioMark
+              checked={key === value}
+              disabled={isDisabled}
+              customize={customize}
+              lowFPS={lowFPS}
+              styles={styles.radioMark ? styles.radioMark : {}}
+            />
           </div>}
 
           <div

@@ -91,7 +91,7 @@ class Radio extends Component {
       onFocus,
       onChange,
       name,
-      styles: styles.option
+      styles
     })
 
     return (
@@ -183,7 +183,8 @@ Radio.defaultProps = {
   styles: {
     radio: {},
     option: {},
-    expandLabel: {}
+    expandLabel: {},
+    radioMark: {}
   }
 }
 

@@ -165,6 +165,44 @@ const fullStylesOverride = {
         backgroundColor: palette.GREY_LINES
       }
     }
+  },
+  radioMark: {
+    base: {
+      main: {
+        width: grid(4),
+        height: grid(4)
+      },
+      borderCircle: {
+        cx: grid(2),
+        cy: grid(2),
+        r: grid(2),
+      },
+      backgroundCircle: {
+        cx: grid(2),
+        cy: grid(2),
+        r: grid(2),
+        fill: 'red'
+      },
+      whiteCircle: {
+        cx: grid(2),
+        cy: grid(2),
+        r: grid(0.4),
+      },
+      bulletCircle: {
+        cx: grid(2),
+        cy: grid(2),
+        r: grid(0.4),
+      },
+      animation: {
+        transform: scale => `matrix(${scale}, 0, 0, ${scale}, ${10 - scale * 10}, ${10 - scale * 10})`,
+        scale: 4
+      }
+    },
+    checked: {
+      animation: {
+        scale: 1
+      }
+    }
   }
 }
 
