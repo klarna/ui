@@ -2,6 +2,28 @@ import React from 'react'
 import ProgressBar from '../ProgressBar'
 import { LIVE } from '../Showroom/variationTypes'
 
+class TimedExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      percentage: 0
+    }
+  }
+
+  componentDidMount () {
+    setInterval(() => {
+      const add = Math.random() * 100
+      this.setState({ percentage: (this.state.percentage + add) % 100 })
+    }, 1000)
+  }
+
+  render () {
+    return (
+      <ProgressBar percentage={this.state.percentage} />
+    )
+  }
+}
+
 export default {
   title: 'ProgressBar',
 
@@ -23,7 +45,9 @@ export default {
       'Custom inline styles': <ProgressBar
         percentage={50}
         style={{height: '20px', width: '70%'}}
-      />
+      />,
+
+      'Animated': <TimedExample />
     }
   }
 }
