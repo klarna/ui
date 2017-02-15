@@ -13,6 +13,7 @@ function SingleInputPrompt ({
   focus,
   label,
   legal,
+  id,
   illustration,
   onAccept,
   onBlur,
@@ -25,10 +26,18 @@ function SingleInputPrompt ({
   loading,
   ...props
 }) {
+  const ids = id
+    ? {
+      centered: `${id}__centered`,
+      content: `${id}__content`,
+      input: `${id}__input`
+    }
+    : {}
   return <Centered
     brandVolume={brandVolume}
     onAccept={onAccept}
     onCancel={onCancel}
+    id={ids.centered}
     illustration={illustration}
     loading={loading}
     labels={{
@@ -38,8 +47,11 @@ function SingleInputPrompt ({
       summary,
       title
     }}>
-    <div className={defaultStyles['single-input-prompt__content']}>
+    <div
+      id={ids.content}
+      className={defaultStyles['single-input-prompt__content']}>
       <Input
+        id={ids.input}
         centered
         big
         focus={focus}

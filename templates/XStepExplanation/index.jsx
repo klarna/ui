@@ -14,21 +14,36 @@ const classes = {
 const classNames = classNamesBind.bind(defaultStyles)
 
 export default function XStepExplanation ({
+  id,
   accept,
   bullets,
   onAccept,
   title,
   ...props
 }) {
+  const ids = id
+    ? {
+      centered: `${id}__centered`,
+      listWrapper: `${id}__list-wrapper`,
+      listItem: index => `${id}__list-item__${index}`
+    }
+    : {
+      listItem: () => ''
+    }
+
   return <Centered
+    id={ids.centered}
     labels={{
       title,
       accept
     }}
     onAccept={onAccept}
     {...props}>
-    <List.Iconic.Wrapper className={classNames(classes.list)}>
+    <List.Iconic.Wrapper
+      id={ids.listWrapper}
+      className={classNames(classes.list)}>
       {bullets.map(({icon, content}, i) => <List.Iconic.Item
+        id={ids.listItem(i)}
         icon={icon}
         key={i}>
         {content}

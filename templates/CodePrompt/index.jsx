@@ -33,6 +33,7 @@ function CodePrompt ({
   error,
   errorMessage,
   focus,
+  id,
   label,
   loading,
   message,
@@ -51,8 +52,22 @@ function CodePrompt ({
   const loadingText = loading
   loading = loading || loadingText === ''
   error = errorMessage && error == null ? true : error
+  const ids = id
+    ? {
+      centered: `${id}__centered`,
+      field: `${id}__field`,
+      errorWrapper: `${id}__error-wrapper`,
+      errorParagraph: `${id}__error-paragraph`,
+      errorIcon: `${id}__error__icon`,
+      loadingWrapper: `${id}__loading-wrapper`,
+      loadingIcon: `${id}__loading-icon`,
+      loadingParagraph: `${id}__loading-paragraph`,
+      message: `${id}__message`
+    }
+    : {}
 
   return <Centered
+    id={ids.centered}
     labels={{summary, title}}
     {...props}>
     <Field
@@ -60,6 +75,7 @@ function CodePrompt ({
       disabled={!!loading}
       error={error}
       focus={focus}
+      id={ids.field}
       label={label}
       maxLength={length}
       onBlur={onBlur}
@@ -73,11 +89,15 @@ function CodePrompt ({
       value={value}
     />
 
-    {errorMessage && <div className={classNames(classes.error)}>
+    {errorMessage && <div
+      id={ids.errorWrapper}
+      className={classNames(classes.error)}>
       <Paragraph.Primary
+        id={ids.errorParagraph}
         className={classNames(classes.errorParagraph)}
         color='error'>
         <Cross
+          id={ids.errorIcon}
           className={classNames(classes.errorIcon)}
           color='error'
         />
@@ -85,20 +105,23 @@ function CodePrompt ({
       </Paragraph.Primary>
     </div>}
 
-    {loading && <div className={classNames(classes.loading)}>
+    {loading && <div
+      id={ids.loadingWrapper}
+      className={classNames(classes.loading)}>
       <Loader
+        id={ids.loadingIcon}
         className={classNames(classes.loadingLoader)}
         size='small'
       />
-      {loadingText !== '' && (
-        <Paragraph.Secondary
-          className={classNames(classes.loadingParagraph)}>
-          {loadingText}
-        </Paragraph.Secondary>
-      )}
+      {loadingText !== '' && <Paragraph.Secondary
+        id={ids.loadingParagraph}
+        className={classNames(classes.loadingParagraph)}>
+        {loadingText}
+      </Paragraph.Secondary>}
     </div>}
 
     {message && <Paragraph.Secondary
+      id={ids.message}
       className={classNames(classes.message)}>
       {message}
     </Paragraph.Secondary>}
