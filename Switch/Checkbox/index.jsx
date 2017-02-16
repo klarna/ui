@@ -18,6 +18,7 @@ const classes = {
   bullet: `${baseClass}__bullet`,
   bulletCheckmark: `${baseClass}__bullet__checkmark`,
   bulletCheckmarkStroke: `${baseClass}__bullet__checkmark__stroke`,
+  bulletCheckmarkFill: `${baseClass}__bullet__checkmark__fill`,
   label: `${baseClass}__label`,
   input: `${baseClass}__input`
 }
@@ -51,6 +52,7 @@ const Checkbox = React.createClass({
       textColor: PropTypes.string.isRequired
     }),
     disabled: PropTypes.bool,
+    partial: PropTypes.bool,
     error: PropTypes.bool,
     focus: PropTypes.bool,
     id: PropTypes.string,
@@ -86,6 +88,7 @@ const Checkbox = React.createClass({
       children,
       customize,
       disabled,
+      partial,
       error,
       focus,
       legal,
@@ -167,11 +170,18 @@ const Checkbox = React.createClass({
           <g fill='none'>
             <rect x='0' y='0' width='14' height='14' rx='2' />
             <path
-              className={classNames(classes.bulletCheckmarkStroke)}
+              className={classNames(classes.bulletCheckmarkStroke, partial && 'is-hidden')}
               d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
               style={customize ? {
                 stroke: customize.bulletColor
               } : undefined}
+            />
+            <rect
+              x='3'
+              y='6'
+              width='8'
+              height='2'
+              className={classNames(classes.bulletCheckmarkFill, partial || 'is-hidden')}
             />
           </g>
         </svg>
