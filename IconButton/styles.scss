@@ -3,22 +3,42 @@
 
 .icon-button {
   cursor: pointer;
+  display: inline-block;
   height: ($grid * 4);
   overflow: visible;
   position: relative;
   width: ($grid * 4);
+
+  .bg-wrapper {
+    border-radius: 100%;
+    border: ($grid * 2) solid transparent;
+    left: 0;
+    margin: -10px;
+    position: absolute;
+    top: 0;
+
+    &:active {
+      background: map-get($colors, blue-active-background);
+      border-color: map-get($colors, blue-active-background);
+
+      &.gray {
+        background: map-get($colors, grey-active-background);
+        border-color: map-get($colors, grey-active-background);
+      }
+
+      &.inverse {
+        background: map-get($colors, klarna-blue-hover);
+        border-color: map-get($colors, klarna-blue-hover);
+      }
+    }
+  }
 
   .illustration {
     &.button {
       @include illustration(map-get($colors, klarna-blue));
 
       background: transparent;
-      border: ($grid * 2) solid transparent;
-      border-radius: 100%;
-      height: ($grid * 4);
-      margin: ($grid * -2);
       transition: stroke .2s ease, fill .2s ease, color .2s ease;
-      width: ($grid * 4);
 
       &.gray {
         @include illustration(map-get($colors, grey-text));
@@ -55,25 +75,7 @@
       }
     }
   }
-
-  &:active {
-    .illustration.button {
-      background: map-get($colors, blue-active-background);
-      border-color: map-get($colors, blue-active-background);
-
-      &.gray {
-        background: map-get($colors, grey-active-background);
-        border-color: map-get($colors, grey-active-background);
-      }
-
-      &.inverse {
-        background: map-get($colors, klarna-blue-hover);
-        border-color: map-get($colors, klarna-blue-hover);
-      }
-    }
-  }
 }
-
 
 .illustration__label {
   @include typography(map-get($font-sizes, label-desktop), semi-bold);

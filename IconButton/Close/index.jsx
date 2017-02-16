@@ -7,6 +7,7 @@ import compose from 'ramda/src/compose'
 import {overridable, themeable} from '@klarna/higher-order-components'
 
 const classes = {
+  bgWrapper: 'bg-wrapper',
   iconButton: 'icon-button',
   fill: 'illustration__fill',
   label: 'illustration__label',
@@ -25,25 +26,27 @@ const Close = ({className, color, id, label, left, styles, ...props}) => {
     className={classNames(classes.iconButton, className)}
     id={id}
     {...props}>
-    <svg
-      className={classNames('illustration', 'button', color)}
-      id={ids.illustration}
-      strokeLinecap='round'
-      strokeWidth='2'
-      viewBox='0 0 25 25'
-      height='20px'
-      width='20px'>
-      <line x1='6' x2='19' y1='6' y2='19'
-        className={classNames(classes.stroke)} />
-      <line x1='19' x2='6' y1='6' y2='19'
-        className={classNames(classes.stroke)} />
-    </svg>
+    <div className={classNames(classes.bgWrapper, color)}>
+      <svg
+        className={classNames('illustration', 'button', color)}
+        id={ids.illustration}
+        strokeLinecap='round'
+        strokeWidth='2'
+        viewBox='0 0 25 25'
+        height='20px'
+        width='20px'>
+        <line x1='6' x2='19' y1='6' y2='19'
+          className={classNames(classes.stroke)} />
+        <line x1='19' x2='6' y1='6' y2='19'
+          className={classNames(classes.stroke)} />
+      </svg>
 
-    <span
-      className={classNames(classes.label, { left }, color)}
-      id={ids.label}>
-      {label}
-    </span>
+      <span
+        className={classNames(classes.label, { left }, color)}
+        id={ids.label}>
+        {label}
+      </span>
+    </div>
   </div>
 }
 
