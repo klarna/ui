@@ -10,10 +10,7 @@ import Subtitle from '../Subtitle'
 import grid from '../settings/grid'
 import * as palette from '../settings/palette'
 import * as fontFamilies from '../settings/fontFamilies'
-import * as fontSizes from '../settings/fontSizes'
-import * as fontWeights from '../settings/fontWeights'
 import {BORDER_RADIUS} from '../settings/themes/default/assorted'
-import typographize from '../settings/typographize'
 
 const options = [
   {key: 'lorem', label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
@@ -87,7 +84,7 @@ const fullStylesOverride = {
         borderWidth: grid(0.4),
         borderStyle: 'dashed',
         borderColor: palette.BLACK,
-        borderRadius: grid(2),
+        borderRadius: grid(2)
       }
     }
   },
@@ -114,7 +111,7 @@ const fullStylesOverride = {
       main: {
         borderBottomWidth: grid(0.4),
         borderBottomStyle: 'dashed',
-        borderBottomColor: palette.BLACK,
+        borderBottomColor: palette.BLACK
       },
       label: {
         fontFamily: fontFamilies.CODE,
@@ -175,7 +172,7 @@ const fullStylesOverride = {
       borderCircle: {
         cx: grid(2),
         cy: grid(2),
-        r: grid(2),
+        r: grid(2)
       },
       backgroundCircle: {
         cx: grid(2),
@@ -186,12 +183,12 @@ const fullStylesOverride = {
       whiteCircle: {
         cx: grid(2),
         cy: grid(2),
-        r: grid(0.4),
+        r: grid(0.4)
       },
       bulletCircle: {
         cx: grid(2),
         cy: grid(2),
-        r: grid(0.4),
+        r: grid(0.4)
       },
       animation: {
         transform: scale => `matrix(${scale}, 0, 0, ${scale}, ${10 - scale * 10}, ${10 - scale * 10})`,

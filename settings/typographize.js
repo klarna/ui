@@ -1,4 +1,5 @@
-export default style => ({...style, ...{
+export default style => ({
+  ...style,
   WebkitFontSmoothing: 'antialiased',
   textRendering: 'geometricPrecision'
-}})
+})

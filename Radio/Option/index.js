@@ -69,8 +69,8 @@ export default ({
     <div
       style={{
         ...finalStyles.base.main,
-        ...( index === 0 ? finalStyles.first.main : {}),
-        ...( options.indexOf(options.find(option => option.key === key)) === options.length - 1 ? finalStyles.last.main : {}),
+        ...(index === 0 ? finalStyles.first.main : {}),
+        ...(options.indexOf(options.find(option => option.key === key)) === options.length - 1 ? finalStyles.last.main : {}),
         ...(borderless ? finalStyles.borderless.main : {})
       }}
       id={ids.label}
@@ -146,9 +146,9 @@ export default ({
         collapsed={isDisabled || !singleOption && key !== value}>
         <div
           style={{
-              ...finalStyles.base.content,
-              ...(leftPad && !singleOption ? finalStyles.leftPad.content : {})
-            }}
+            ...finalStyles.base.content,
+            ...(leftPad && !singleOption ? finalStyles.leftPad.content : {})
+          }}
           id={ids.content}>
           {content}
         </div>
