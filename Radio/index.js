@@ -14,7 +14,20 @@ import defaultStyles from './styles'
 import getActiveElement from '../lib/getActiveElement'
 import ExpandLabel from './ExpandLabel'
 
+// The minimum/initial height of the ExpandLabel is 49 pixels. Unfortunately
+// it seems to be no way to get rid of this magic number without triggering
+// an animation on load
+const EXPAND_LABEL_INITIAL_HEIGHT = 49
+
 class Radio extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      expandLabelInitialHeight: EXPAND_LABEL_INITIAL_HEIGHT
+    }
+  }
+
   componentDidMount () {
     if (
       this.props.focus &&
@@ -109,7 +122,7 @@ class Radio extends Component {
           onStartFPSCollection={onStartFPSCollection}
           onEndFPSCollection={onEndFPSCollection}
           lowFPS={lowFPS}
-          minimumHeight={49}
+          minimumHeight={this.state.expandLabelInitialHeight}
           collapsed={!isExpanded}>
           <div>
             {optionLists.collapsed.map(OptionWithProps)}
@@ -119,7 +132,7 @@ class Radio extends Component {
         {expandLabel && <Motion
           style={{
             opacity: spring(isExpanded ? 0 : 1),
-            height: spring(isExpanded ? 0 : 49, {stiffness: 40, damping: 15})
+            height: spring(isExpanded ? 0 : this.state.expandLabelInitialHeight, {stiffness: 40, damping: 15})
           }}>
           {({opacity, height}) => opacity > 0 && <div>
             <div
@@ -133,6 +146,9 @@ class Radio extends Component {
               }}
             />
             <ExpandLabel
+              onDOMElement={footer => footer && footer.getBoundingClientRect && (height => this.state.expandLabelInitialHeight !== height && this.setState({
+                expandLabelInitialHeight: height
+              }))(footer.getBoundingClientRect().height)}
               onClick={onExpand}
               label={expandLabel}
               style={{opacity}}

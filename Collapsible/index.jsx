@@ -50,12 +50,15 @@ export default class Collapsible extends Component {
   }
 
   renderAnimation (children, defaultCollapsed, collapsed, onEndFPSCollection, minimumHeight) {
+    // defaultStyles={defaultCollapsed ? {
+    //   height: collapsed ? minimumHeight : this.state.height,
+    //   opacity: collapsed ? 0 : 1
+    // } : undefined}
+    console.log('collapsed', collapsed)
+    console.log('minimumHeight', minimumHeight)
+    console.log('height', this.state.height)
     return (
       <Motion
-        defaultStyles={defaultCollapsed ? {
-          height: collapsed ? minimumHeight : this.state.height,
-          opacity: collapsed ? 0 : 1
-        } : undefined}
         style={{
           height: spring(collapsed ? minimumHeight : this.state.height),
           opacity: spring(collapsed ? 0 : 1)
@@ -65,7 +68,10 @@ export default class Collapsible extends Component {
           style={{
             height: getHeight(
               collapsed,
-              height + calculateHeight(this.content) - this.state.height,
+              height + (collapsed
+                ? 0
+                : calculateHeight(this.content) - this.state.height
+              ),
               calculateHeight(this.content)
             ),
             opacity,

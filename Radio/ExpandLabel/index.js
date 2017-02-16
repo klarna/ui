@@ -6,10 +6,11 @@ import {withTouchProps, withHoverProps} from '@klarna/higher-order-components'
 import * as Chevron from '../../icons/Chevron'
 import defaultStyles from './styles'
 
-function ExpandLabel ({active, label, style, styles, ...props}) {
+function ExpandLabel ({active, label, onDOMElement, style, styles, ...props}) {
   const finalStyles = deepMerge(defaultStyles, styles)
 
   return <footer
+    ref={(domElement) => onDOMElement(domElement)}
     style={{
       ...finalStyles.base.main,
       ...(active ? finalStyles.active.main : {}),
