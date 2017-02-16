@@ -27,7 +27,7 @@ export default {
         Controlled: <Dropdown
           label='Lorem ipsum'
           options={options}
-          focus
+          focus='real'
           value='lorem'
         />,
 

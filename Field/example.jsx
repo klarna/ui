@@ -20,7 +20,7 @@ export default {
         Controlled: <Field
           label='Enter your email'
           value='someone@example.com'
-          focus
+          focus='real'
         />,
 
         Big: <Field label='Enter your email' big />,
