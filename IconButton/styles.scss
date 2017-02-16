@@ -34,6 +34,7 @@
   }
 
   .illustration {
+    pointer-events: none;
     &.button {
       @include illustration(map-get($colors, klarna-blue));
 
