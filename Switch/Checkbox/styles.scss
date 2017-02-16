@@ -120,3 +120,12 @@
     opacity: 0;
   }
 }
+
+.switch--checkbox__bullet__checkmark__fill {
+  fill: map-get($colors, white);
+  transition: opacity 0.2s ease;
+
+  &.is-hidden {
+    opacity: 0;
+  }
+}

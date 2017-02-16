@@ -18,6 +18,7 @@ const classes = {
   bullet: `${baseClass}__bullet`,
   bulletCheckmark: `${baseClass}__bullet__checkmark`,
   bulletCheckmarkStroke: `${baseClass}__bullet__checkmark__stroke`,
+  bulletCheckmarkFill: `${baseClass}__bullet__checkmark__fill`,
   label: `${baseClass}__label`,
   input: `${baseClass}__input`
 }
@@ -175,13 +176,13 @@ const Checkbox = React.createClass({
                 stroke: customize.bulletColor
               } : undefined}
             />
-            <line
-              className={classNames(classes.bulletCheckmarkStroke, partial || 'is-hidden')}
-              x1='3'
-              x2='11'
-              y1='7'
-              y2='7'
-              strokeWidth='2' />
+            <rect
+              x='3'
+              y='6'
+              width='8'
+              height='2'
+              className={classNames(classes.bulletCheckmarkFill, partial || 'is-hidden')}
+            />
           </g>
         </svg>
         {children}
