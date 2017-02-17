@@ -5,6 +5,7 @@ export default {
     dialog: {
       backgroundColor: 'white',
       borderRadius: grid(1.6),
+      boxSizing: 'border-box',
       height: 'auto',
       marginBottom: grid(6),
       marginLeft: 'auto',
@@ -14,6 +15,7 @@ export default {
       paddingLeft: grid(12),
       paddingRight: grid(12),
       paddingTop: grid(10),
+      position: 'relative',
       width: grid(87)
     }
   }
