@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import {Motion, spring} from 'react-motion'
-import debounce from '../lib/debounce'
 
 export default class Collapsible extends Component {
-  constructor () {
+  constructor (props) {
     super()
 
     this.state = {
@@ -12,54 +11,92 @@ export default class Collapsible extends Component {
   }
 
   componentDidMount () {
-    this.debouncedResizeHandler = debounce(() => this.onResize())
-    window.addEventListener('resize', this.debouncedResizeHandler)
-
-    this.updateHeight()
+    if (!this.props.collapsed) {
+      this.setState({ height: calculateHeight(this.content) })
+      this.props.onStartFPSCollection()
+    }
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.debouncedResizeHandler)
-  }
-
-  componentDidUpdate () {
-    this.updateHeight()
-  }
-
-  onResize () {
-    this.updateHeight()
-  }
-
-  updateHeight () {
-    const height = getHeight(this.content)
-
-    if (this.state.height !== height) {
-      this.setState({ height })
+  componentWillReceiveProps (nextProps) {
+    if (!nextProps.collapsed && this.props.collapsed) {
+      this.setState({ height: calculateHeight(this.content) })
+      this.props.onStartFPSCollection()
+    } else if (nextProps.collapsed && !this.props.collapsed) {
+      this.props.onStartFPSCollection()
     }
   }
 
   render () {
-    const {children, collapsed} = this.props
+    const {children, collapsed, onEndFPSCollection} = this.props
 
     return <div ref={(div) => { this.content = div }}>
-      <Motion style={{
-        height: spring(collapsed ? 0 : this.state.height),
-        opacity: spring(collapsed ? 0 : 1)
-      }}>
+      {
+        this.props.lowFPS
+          ? this.renderRegular(children, collapsed)
+          : this.renderAnimation(children, collapsed, onEndFPSCollection)
+      }
+    </div>
+  }
+
+  renderRegular (children, collapsed) {
+    return (
+      <div
+        style={{
+          display: collapsed ? 'none' : 'block'
+        }}>
+        {children}
+      </div>
+    )
+  }
+
+  renderAnimation (children, collapsed, onEndFPSCollection) {
+    return (
+      <Motion
+        style={{
+          height: spring(collapsed ? 0 : this.state.height),
+          opacity: spring(collapsed ? 0 : 1)
+        }}
+        onRest={onEndFPSCollection}>
         {({height, opacity}) => <div
           style={{
-            height,
+            height: getHeight(collapsed, height, this.state.height),
             opacity,
-            // Overflow rule to enable content to overflow outside the collapsible
-            // once the animation is close to be complete (the last few pixels take a while
-            // to be expanded). '10' is a magic number 🎩
-            overflow: this.state.height - height > 10 ? 'hidden' : 'visible'
+            overflow: shouldOverflow(collapsed, height, this.state.height)
           }}>
           {children}
         </div>}
       </Motion>
-    </div>
+    )
   }
 }
 
-const getHeight = (node) => node.children[0].children[0].getBoundingClientRect().height
+/**
+ * Overflow rule to enable content to overflow outside the collapsible
+ * once the animation is close to be complete (the last few pixels take a while
+ * to be expanded). '10' is a magic number 🎩
+ */
+const shouldOverflow = (collapsed, animatedHeight, actualHeight) => {
+  const notYetAlmostExpanded = actualHeight - animatedHeight > 10
+  return (collapsed || notYetAlmostExpanded) ? 'hidden' : 'visible'
+}
+
+/**
+ * Once it is fully expanded, we set the heigh to auto
+ * and let the browser take care of the size
+ */
+const getHeight = (collapsed, animatedHeight, actualHeight) => {
+  if (collapsed) { return animatedHeight }
+  return animatedHeight === actualHeight ? 'auto' : animatedHeight
+}
+
+const calculateHeight = (node) => {
+  if (!node) { return 0 }
+
+  const container = node.children[0]
+  if (!container) { return 0 }
+
+  const content = container.children[0]
+  if (!content) { return 0 }
+
+  return content.getBoundingClientRect().height
+}

@@ -1,9 +1,10 @@
 import React from 'react'
 import Centered from '../chromes/Centered'
 import Input from '../../Input'
-import compose from '../../lib/compose'
-import uncontrolled from '../../decorators/uncontrolled'
 import defaultStyles from './styles.scss'
+
+import compose from 'ramda/src/compose'
+import {uncontrolled} from '@klarna/higher-order-components'
 
 function SingleInputPrompt ({
   accept,
@@ -12,6 +13,7 @@ function SingleInputPrompt ({
   focus,
   label,
   legal,
+  id,
   illustration,
   onAccept,
   onBlur,
@@ -24,10 +26,18 @@ function SingleInputPrompt ({
   loading,
   ...props
 }) {
+  const ids = id
+    ? {
+      centered: `${id}__centered`,
+      content: `${id}__content`,
+      input: `${id}__input`
+    }
+    : {}
   return <Centered
     brandVolume={brandVolume}
     onAccept={onAccept}
     onCancel={onCancel}
+    id={ids.centered}
     illustration={illustration}
     loading={loading}
     labels={{
@@ -37,8 +47,11 @@ function SingleInputPrompt ({
       summary,
       title
     }}>
-    <div className={defaultStyles['single-input-prompt__content']}>
+    <div
+      id={ids.content}
+      className={defaultStyles['single-input-prompt__content']}>
       <Input
+        id={ids.input}
         centered
         big
         focus={focus}
@@ -58,14 +71,16 @@ export default compose(
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
-    handlerName: 'onFocus',
-    handlerSelector: () => true,
-    resetHandlerName: 'onBlur'
+    handlers: {
+      onFocus: () => () => true,
+      onBlur: () => () => false
+    }
   }),
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
-    handlerName: 'onChange',
-    handlerSelector: (e) => e.target.value
+    handlers: {
+      onChange: () => e => e.target.value
+    }
   })
 )(SingleInputPrompt)

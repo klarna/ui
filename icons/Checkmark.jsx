@@ -3,7 +3,7 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import colors from './constants/colors'
 
-export default function Checkmark ({ color, styles, className, ...props }) {
+export default function Checkmark ({ color, styles, className, stroke, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -17,7 +17,8 @@ export default function Checkmark ({ color, styles, className, ...props }) {
       {...props}>
       <path
         d='M5 13.69l4.49 4.23L19.37 8'
-        className={classNames('illustration__stroke')} />
+        className={classNames('illustration__stroke')}
+        style={stroke ? {stroke} : undefined} />
     </svg>
   )
 }

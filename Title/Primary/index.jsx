@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
+import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
+
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
-import compose from '../../lib/compose'
 import isThemeable from '../../Text/isThemeable'
+import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'title--primary'
 
@@ -50,7 +51,7 @@ Primary.defaultProps = {
 }
 
 Primary.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   color: PropTypes.oneOf(palette),
   id: PropTypes.string,

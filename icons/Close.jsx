@@ -16,7 +16,7 @@ export default function Close ({ color, styles, className, ...props }) {
       <g
         className={classNames('illustration__stroke')}
         transform='translate(2.5, 2.5)'>
-        <circle cx='7.5' cy='7.5' r='7.5'></circle>
+        <circle cx='7.5' cy='7.5' r='7.5' />
         <path
           d='M10,10 L5,5'
           strokeLinecap='round'

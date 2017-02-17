@@ -1,25 +1,21 @@
 import React from 'react'
 import Fieldset from '../Fieldset'
 import Theme from '../Theme'
+import BoxSelector from '../BoxSelector'
 import * as Button from '../Button'
 import * as Checklist from '../Checklist'
 import Dropdown from '../Dropdown'
 import Field from '../Field'
-import Installments from '../Installments'
 import Link from '../Link'
 import * as Switch from '../Switch'
 import * as Title from '../Title'
 import Radio from '../Radio'
 import Subtitle from '../Subtitle'
 import * as Paragraph from '../Paragraph'
+import * as Selector from '../Selector'
 import * as List from '../List'
 import { Back, Hamburger } from '../IconButton'
 import { LIVE } from '../Showroom/variationTypes'
-
-import statefulFocus from '../lib/decorators/statefulFocus'
-import statefulValue from '../lib/decorators/statefulValue'
-
-const FocusableThemeableCheckbox = statefulValue(statefulFocus(Switch.Checkbox))
 
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
@@ -43,11 +39,10 @@ const optionsWithContent = [
     label: 'Sit',
     description: 'Amet et consequetur',
     content: <div>
-      <Installments
-        name='installments'
+      <BoxSelector
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
-        value='installments_6'
+        defaultValue='installments_6'
       />
       <Checklist.Main style={{marginTop: '20px'}}>
         <Checklist.Item>Just one click and you're done</Checklist.Item>
@@ -65,14 +60,13 @@ const optionsWithContent = [
       <Subtitle>Choose your destiny</Subtitle>
 
       <Dropdown
-        name='ipsum-uncontrolled-dropdown'
         options={[
           {key: 'coffee', label: 'Coffee'},
           {key: 'chai', label: 'Chai'},
           {key: 'latte', label: 'Latte'}
         ]}
         label='Infusion'
-        value='coffee'
+        defaultValue='coffee'
       />
     </div>
   }
@@ -83,12 +77,12 @@ export default {
 
   examples: {
     require: `import Theme from '@klarna/ui/Theme'
+import BoxSelector from '@klarna/ui/BoxSelector'
 import * as Button from '@klarna/ui/Button'
 import * as Checklist from '@klarna/ui/Checklist'
 import Dropdown from '@klarna/ui/Dropdown'
 import * as Field from '@klarna/ui/Field'
 import Field from '@klarna/ui/Field'
-import Installments from '@klarna/ui/Installments'
 import Link from '@klarna/ui/Link'
 import * as Switch from '@klarna/ui/Switch'
 import * as Title from '@klarna/ui/Title'
@@ -99,6 +93,12 @@ import * as List from '@klarna/ui/List'`,
     type: LIVE,
 
     examples: {
+      'Brand Volume': (
+        <Theme brandVolume='high'>
+          <Button.Primary style={{marginRight: 10}}> Try Me! </Button.Primary>
+          <Button.Secondary> Try Me! </Button.Secondary>
+        </Theme>
+      ),
       Regular: <Theme
         customizations={{
           color_border: '#660080',
@@ -166,7 +166,7 @@ import * as List from '@klarna/ui/List'`,
         <div style={{padding: '20px 0'}}>
           <Checklist.Main>
             <Checklist.Item>
-              Just one click and you're done
+              Just one click and you’re done
             </Checklist.Item>
             <Checklist.Item>
               Very little hassle
@@ -180,33 +180,46 @@ import * as List from '@klarna/ui/List'`,
         <div style={{padding: '20px 0'}}>
           <Radio
             onChange={(key) => console.log(key)}
-            name='radio-regular'
             options={optionsWithContent}
             defaultValue='lorem'
           />
         </div>
 
         <Fieldset margins>
-          <Dropdown top label='Given name' options={options} value={1} />
+          <Dropdown top label='Given name' options={options} defaultValue={1} />
           <Dropdown square label='Middle name' options={options} />
           <Dropdown bottom label='Last name' options={options} focus='fake' />
         </Fieldset>
 
         <Fieldset margins>
-          <Field top label='Address' value='16, Corn street' focus='fake' />
+          <Dropdown top left size='1/2' label='Title' options={options} defaultValue={1} />
+          <Field top right size='1/2' label='Address' defaultValue='16, Corn street' />
           <Field square label='Given name' />
-          <Field bottom error label='Family name' />
+          <Field bottom left size='1/2' error label='Family name' />
+          <Dropdown bottom right size='1/2' label='Middle name' options={options} focus='fake' />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>
-          <Installments
+          <BoxSelector
             onChange={(key) => console.log('You selected', key)}
-            name='installments'
-            value='installments_24'
+            defaultValue='installments_24'
             options={[
-              { key: 'installments_6', value: '$64.17/mo.', connector: 'for', info: ' 6 months' },
-              { key: 'installments_12', value: '$32.09/mo.', connector: 'for', info: ' 12 months' },
-              { key: 'installments_24', value: '$16.05/mo.', connector: 'for', info: ' 24 months' }
+              {
+                content: 'Lorem ipsum dolor sit amet',
+                key: 'installments_3'
+              },
+              {
+                content: 'Et consequetur bla bla',
+                key: 'installments_6'
+              },
+              {
+                content: 'Lorem ipsum dolor sit amet',
+                key: 'installments_12'
+              },
+              {
+                content: 'Et consequetur bla bla',
+                key: 'installments_24'
+              }
             ]}
           />
         </div>
@@ -216,21 +229,21 @@ import * as List from '@klarna/ui/List'`,
         </div>
 
         <div style={{paddingBottom: '20px'}}>
-          <Switch.Toggle name='fries'>
+          <Switch.Toggle>
             Would you like fries?
           </Switch.Toggle>
-          <Switch.Toggle value name='fries'>
+          <Switch.Toggle defaultValue>
             Would you like fries?
           </Switch.Toggle>
-          <FocusableThemeableCheckbox name='fries-2'>
+          <Switch.Checkbox>
             Would you like fries?
-          </FocusableThemeableCheckbox>
-          <FocusableThemeableCheckbox value name='fries-3'>
+          </Switch.Checkbox>
+          <Switch.Checkbox defaultValue>
             Would you like fries?
-          </FocusableThemeableCheckbox>
-          <FocusableThemeableCheckbox value error name='fries-4'>
+          </Switch.Checkbox>
+          <Switch.Checkbox defaultValue error>
             Should be red
-          </FocusableThemeableCheckbox>
+          </Switch.Checkbox>
         </div>
 
         <div style={{paddingBottom: '20px'}}>
@@ -296,6 +309,26 @@ import * as List from '@klarna/ui/List'`,
             forfuraj ratjoj vaŭis.
           </List.Item>
         </List.Ordered>
+
+        <Selector.Input
+          label='Organization type'
+          link='Select'
+        />
+        <Selector.Input
+          label='Please select an organization type'
+          placeholder='Organization type'
+          link='Select'
+          error
+        />
+        <Selector.Input
+          label='Organization type'
+          link='Select'
+          value='This is the value'
+        />
+        <Selector.Options
+          data={options}
+          value={2}
+        />
       </Theme>
     }
   }

@@ -1,7 +1,12 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import getActiveElement from '../../lib/getActiveElement'
+import debounce from '../../lib/debounce'
+
+import compose from 'ramda/src/compose'
+import {uncontrolled, uniqueName} from '@klarna/higher-order-components'
 
 const baseClass = 'tab-menu'
 
@@ -26,34 +31,17 @@ const update = (component) => {
   }
 }
 
-export default React.createClass({
-  displayName: 'Menu.Tab',
+class Tab extends Component {
+  constructor () {
+    super()
 
-  getDefaultProps () {
-    return {
-      tabDisplay: 'fluid'
+    this.resizeListener = debounce(() => update(this))
+
+    this.state = {
+      left: 0,
+      width: 0
     }
-  },
-
-  propTypes: {
-    options: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.node.isRequired,
-      key: PropTypes.string.isRequired
-    })).isRequired,
-    className: PropTypes.string,
-    id: PropTypes.string,
-    tabDisplay: PropTypes.oneOf(tabDisplays),
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    white: PropTypes.bool
-  },
-
-  getInitialState () {
-    return { width: 0, left: 0 }
-  },
+  }
 
   componentDidUpdate (prevProps) {
     if (
@@ -64,22 +52,28 @@ export default React.createClass({
 
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   componentDidMount (prevProps) {
     setTimeout(() => update(this))
 
+    window.addEventListener('resize', this.resizeListener)
+
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.resizeListener)
+  }
 
   render () {
     const { left, width } = this.state
@@ -118,7 +112,7 @@ export default React.createClass({
           })
 
           return [
-            (<input
+            <input
               className={classNames(classes.input)}
               type='radio'
               name={name}
@@ -129,8 +123,8 @@ export default React.createClass({
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === value}
               value={key}
-            />),
-            (<label
+            />,
+            <label
               id={`${id}-tab`}
               style={tabDisplay === 'static' ? {
                 width: `${(100 / options.length)}%`
@@ -138,10 +132,51 @@ export default React.createClass({
               className={tabClass}
               htmlFor={id}>
               {label}
-            </label>)
+            </label>
           ]
         })}
       </div>
     )
   }
-})
+}
+
+Tab.defaultProps = {
+  tabDisplay: 'fluid'
+}
+
+Tab.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.node.isRequired,
+    key: PropTypes.string.isRequired
+  })).isRequired,
+  className: PropTypes.string,
+  id: PropTypes.string,
+  tabDisplay: PropTypes.oneOf(tabDisplays),
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  white: PropTypes.bool
+}
+
+Tab.displayName = 'Menu.Tab'
+
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => value => value
+    }
+  }),
+  uniqueName
+)(Tab)

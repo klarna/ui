@@ -32,12 +32,16 @@
 
   &:hover,
   &:focus,
-  &:active,
-  .selector--options__input:checked + & {
+  &:active {
     .selector--options__label{
       color: map-get($colors, klarna-blue);
     }
+  }
 
+  &:hover,
+  &:focus,
+  &:active,
+  .selector--options__input:checked + & {
     &::before {
       // border-bottom: ($grid * .2) solid map-get($colors, blue-hover);
       // border-top: ($grid * .2) solid map-get($colors, blue-hover);

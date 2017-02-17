@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
-import compose from '../lib/compose'
-import overridable from '../decorators/overridable'
+import compose from 'ramda/src/compose'
+import {overridable} from '@klarna/higher-order-components'
 import defaultStyles from './styles.scss'
+import childrenPropType from '../propTypes/children'
 
 const baseClass = 'strong'
 
@@ -19,7 +20,7 @@ Strong.defaultProps = {
 }
 
 Strong.propTypes = {
-  children: PropTypes.node,
+  children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }

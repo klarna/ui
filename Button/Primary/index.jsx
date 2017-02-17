@@ -1,14 +1,16 @@
 import React, { PropTypes } from 'react'
+import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
+import { withPropsFromContext } from 'react-context-props'
 import classNamesBind from 'classnames/bind'
-import Loader from '../../Loader'
-import contains from '../../lib/contains'
-import compose from '../../lib/compose'
-import defaultStyles from '../styles.scss'
 import parseColor from 'parse-color'
+
+import Loader from '../../Loader'
 import Price from '../Price'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
+import contains from '../../lib/contains'
 import brandVolumeLevels from '../../lib/brandVolumeLevels'
+import childrenPropType from '../../propTypes/children'
+import defaultStyles from '../styles.scss'
 
 const baseClass = 'button'
 
@@ -49,7 +51,7 @@ function Primary ({
     : 'white'
 
   const loadingOrContent = loading
-    ? <Loader inline color={loaderColor}/>
+    ? <Loader inline color={loaderColor} />
     : (success ? '✔' : children)
 
   const customizations = customize
@@ -105,7 +107,7 @@ Primary.defaultProps = {
 
 Primary.propTypes = {
   brandVolume: PropTypes.oneOf(brandVolumeLevels),
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   customize: PropTypes.shape({
     backgroundColor: PropTypes.string.isRequired,
@@ -121,6 +123,7 @@ Primary.propTypes = {
 }
 
 export default compose(
+  (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
       ...customize,

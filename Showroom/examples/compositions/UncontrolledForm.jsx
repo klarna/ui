@@ -1,12 +1,12 @@
 import React from 'react'
+import BoxSelector from '../../../BoxSelector'
 import Fieldset from '../../../Fieldset'
-import UncontrolledDropdown from '../../../uncontrolled/Dropdown'
-import UncontrolledField from '../../../uncontrolled/Field'
-import * as UncontrolledSwitch from '../../../uncontrolled/Switch'
+import Dropdown from '../../../Dropdown'
+import Field from '../../../Field'
+import * as Switch from '../../../Switch'
 import * as Button from '../../../Button'
-import UncontrolledSelector from '../../../uncontrolled/Selector'
-import * as UncontrolledMenu from '../../../uncontrolled/Menu'
-import UncontrolledInstallments from '../../../uncontrolled/Installments'
+import * as Selector from '../../../Selector'
+import * as Menu from '../../../Menu'
 import Radio from '../../../Radio'
 import Subtitle from '../../../Subtitle'
 import * as Paragraph from '../../../Paragraph'
@@ -35,8 +35,7 @@ const optionsWithContent = [
     label: 'Sit',
     description: 'Amet et consequetur',
     content: <div>
-      <UncontrolledInstallments
-        name='inner-installments'
+      <BoxSelector
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
         value='installments_6'
@@ -56,8 +55,7 @@ const optionsWithContent = [
     content: <div>
       <Subtitle>Choose your destiny</Subtitle>
 
-      <UncontrolledDropdown
-        name='ipsum-uncontrolled-dropdown-random-more-stuff'
+      <Dropdown
         options={[
           {key: 'coffee', label: 'Coffee'},
           {key: 'chai', label: 'Chai'},
@@ -79,18 +77,18 @@ export default {
 
       example: <form>
         <Fieldset margins>
-          <UncontrolledMenu.Tab
+          <Menu.Tab
             name='consumer-type'
             options={[
               {key: 'person', label: 'Person'},
               {key: 'company', label: 'Company'}
             ]}
-            value='person'
+            defaultValue='person'
           />
         </Fieldset>
 
         <Fieldset margins>
-          <UncontrolledSelector
+          <Selector.Options
             name='shipping-option'
             data={[
               {key: 'express', label: 'Express shipping'},
@@ -100,22 +98,22 @@ export default {
         </Fieldset>
 
         <Fieldset margins>
-          <UncontrolledField
+          <Field
             label='First name'
             name='firstname'
             top left size='1/2'
           />
-          <UncontrolledField
+          <Field
             label='Last name'
             name='lastname'
             top right size='1/2'
           />
-          <UncontrolledField
+          <Field
             label='Street address'
             name='streetaddress'
             square size='3/4'
           />
-          <UncontrolledDropdown
+          <Dropdown
             label='Continent'
             name='continent'
             center size='1/4'
@@ -129,12 +127,12 @@ export default {
               {key: 'oceania', label: 'Oceania'}
             ]}
           />
-          <UncontrolledField
+          <Field
             label='Email'
             name='email'
             bottom left size='1/2'
           />
-          <UncontrolledField
+          <Field
             label='Phone number'
             name='phonenumber'
             bottom right size='1/2'
@@ -142,15 +140,15 @@ export default {
         </Fieldset>
 
         <Fieldset margins>
-          <UncontrolledSwitch.Checkbox
+          <Switch.Checkbox
             name='separate-shipping-address'>
             Separate shipping address
-          </UncontrolledSwitch.Checkbox>
+          </Switch.Checkbox>
         </Fieldset>
 
         <Fieldset margins>
           <Subtitle>How many installments do you want to have?</Subtitle>
-          <UncontrolledInstallments
+          <BoxSelector
             name='installments'
             options={[
               {

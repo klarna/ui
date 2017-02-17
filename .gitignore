@@ -1,6 +1,8 @@
 node_modules
 npm-debug.log
+yarn-error.log
 .idea/
+yarn-error.log
 *.woff
 *.eot
 *.woff2

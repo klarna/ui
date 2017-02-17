@@ -22,6 +22,7 @@ export default {
       examples: {
         Regular: {
           inline: <Selection
+            id='selection'
             title='What option do you prefer?'
             summary='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
             options={optionsData}
@@ -50,6 +51,7 @@ export default {
       examples: {
         Regular: {
           inline: <FilteredSelection
+            id='filtered-selection'
             title='Select your flavor'
             summary='Photo booth distillery man bun, bitters stumptown freegan cliche cronut green juice.'
             label='Start typing a flavor'
@@ -100,6 +102,7 @@ export default {
       examples: {
         Regular: {
           inline: <CenteredSelection
+            id='centered-selection'
             illustration={<DemoIcon />}
             title='Select your flavor'
             summary='Photo booth distillery man bun, bitters stumptown freegan cliche cronut green juice.'

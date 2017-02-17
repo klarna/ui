@@ -20,6 +20,7 @@ export default {
       examples: {
         Regular: {
           inline: <Landing
+            id='landing'
             illustration={<DemoIcon />}
             labels={{
               title: 'Welcome to the site',
@@ -235,6 +236,7 @@ export default {
       examples: {
         Regular: {
           inline: <Explanation
+            id='explanation'
             title='This is how the product works'
             content='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
             legal='Drinking vinegar unicorn fam pork belly prism. Vegan bicycle rights raclette tofu squid lomo coloring book, meggings marfa PBR&B bushwick. '
@@ -258,6 +260,7 @@ export default {
       examples: {
         Regular: {
           inline: <XStepExplanation
+            id='x-step-explanation'
             title='This is the main feature headline'
             accept='Continue'
             bullets={[
@@ -369,6 +372,7 @@ export default {
       examples: {
         Regular: {
           inline: <ConfirmData
+            id='confirm-data'
             title='Are these your favorite flavors?'
             summary='Street art tattooed live-edge, kitsch four loko hashtag paleo banh mi art party. Viral flexitarian paleo, stumptown dreamcatcher ennui pitchfork bitters squid cornhole roof party tattooed truffaut woke.'
             info={[
@@ -408,6 +412,7 @@ export default {
       examples: {
         Regular: {
           inline: <ReviewData
+            id='review-data'
             title='Review the chosen flavors'
             summary='Street art tattooed live-edge, kitsch four loko hashtag paleo banh mi art party. Viral flexitarian paleo, stumptown dreamcatcher ennui pitchfork bitters squid cornhole roof party tattooed truffaut woke.'
             info={[

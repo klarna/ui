@@ -4,7 +4,7 @@ import Base, {Page} from './Base'
 export default ({className}) => (
   <Base className={className} title='Input' circleFill='#F79839'>
     <Page />
-    <rect fill='#4F627F' x='35' y='30' width='30' height='2' rx='1'/>
+    <rect fill='#4F627F' x='35' y='30' width='30' height='2' rx='1' />
     {
       [58, 70].map((y, i) => (
         <g fill='#C3CFE2' key={i} transform={`translate(20 ${y})`}>

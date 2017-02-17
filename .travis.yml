@@ -3,12 +3,25 @@ node_js:
 - '6'
 script:
 - npm test
-- curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py && python weigh_in.py index-built.js
+- curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
+  && python weigh_in.py index-built.js
+addons:
+  apt:
+    packages:
+    - xvfb
+install:
+- export DISPLAY=':99.0'
+- Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH="$HOME/.yarn/bin:$PATH"
+- yarn install
+- curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
+  && python weigh_in.py index-built.js
 deploy:
   provider: npm
   email: ui-admin.e@klarna.com
   api_key:
-    secure: Ly4hx6DeE6Gu1Y20KvpJYNqilDvWTnubUfCwgrx9NFK30/JjLljoGzQckDvL6Lt3vxdearRqSUPYk+e2KJybF9qjduXBHjO1iZ7jfRTxrSomSweJ1JLcl25249Z5IH2wd87bHC+KwdxWZKv4/jDavdUS7RXL5BM7E4/TDuvRhIgjHMDT44U2ZFi3nSwOp2Rc4h3M0Ox2GCcWmHcEbh9N5q2ZaQpk3JB3vUeBvTOorbAobS8NqYn5UbJRmN79ejhQMQd9lPnu4YawyfbgzZCwzLMhQI63kcOFjw9+bHPK06WlVrgZ5sPCMyYgQ+yW2rQnp8CsJ7kQApz/Lh5MyC89g3lYzug6EqtxWGPjba10QxKEqsu1x6a3TmfJCNP2CKe3ecnEWYkojGDIZlRafylljJT2cQ08lYUOYmYcivlYK360ZOlaJ0fS3GGfaSdDgoNzH8ygfrfaA922c9aneM+xk45macyK8Z81dccFKzdGXdzLjkGFBGI0uAI3bc2ciRmCbFNFieWJpPV1i2ZQCRa3+YLyLl1nU+XPaAqSbxevwPtHlaS3qhJYE+hjSMaCBrK/P7XeoF5OvUErbq5q2+9H6swDDjuS9KcAHF4MlshEcqZNu3Dt2Yd4zCya3bbS5uR6TqApjIW3Mrm1LlRGTI9DSExjWexvNODqfDgkef0cskA=
+    secure: sm/sV7T0vrBzAvF0E4jT0b2jsEJ5IKds4RG+KKz8crcv48effc9q0qR1SX2s8UYwCWp5m4bB4GN2ptH8dhBcVVU88bp93LETrjjKGUf9HPBTd+tKd8HaU1iFOWIJrlqiGWyuc8pLSBDjuJbyd9C+zNdQrF0iVxvHC3/NkOyMlepToWdvtmI/NzFeEHXydtydWUjEOI1IB0vZpNI608dqvFhD22bWbCPbRXulgPI8p2fPZ7M55ZbCV0AMolF/jLVxqtn/QM+G10z9mkH1pnWwiAOoRf73zP8sJHeCNV0ht6WPftTA71XrQHmUm9l3pkwlWLXtf1EQ5FAdzVb4EdLLvAYMp7WwZfHLl1T0EaYg1TIsuGUQyLKVlOAFBMg6U8zGc2taW7yusV3lVbtgF0GILIxvWkhixBU2IQHfHBTXBQnuXrBF4PG+Yt/tzr0GfqaAqG1PRfczzIKhuEBMgWDFZq7AgJK9h2kkgAdjz0vynGp5impaY6EVLwsIdgK53990DRZyRjO3yxgHRGzlk3irQbcwcDso1kjIVtet7fmHLCnbJGlVLNZpNBNU0L3PEiGLQ/DXf7ZMoeSZu3xkCmv2cEKad515AuOau4XvPGd7/kezZwmYtuD8UUgr2BJ1r+bqqaX5r1KmW3hXoQJQBo8qT7sIuRSQCsNE3gdmaKlRx6I=
   on:
     tags: true
     repo: klarna/ui

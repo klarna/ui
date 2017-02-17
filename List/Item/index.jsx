@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
-import compose from '../../lib/compose'
 import defaultStyles from '../styles.scss'
+import childrenPropType from '../../propTypes/children'
+
+import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
 
 const baseClass = 'list__item'
 
@@ -42,7 +43,7 @@ Item.displayName = 'List.Item'
 
 Item.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: childrenPropType,
   color: PropTypes.string,
   condensed: PropTypes.bool,
   id: PropTypes.string,

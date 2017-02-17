@@ -1,13 +1,15 @@
 import React, { PropTypes } from 'react'
-import Loader from '../../Loader'
-import Price from '../Price'
+import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
+import { withPropsFromContext } from 'react-context-props'
 import classNamesBind from 'classnames/bind'
 import parseColor from 'parse-color'
+
+import Loader from '../../Loader'
+import Price from '../Price'
 import contains from '../../lib/contains'
-import compose from '../../lib/compose'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
 import brandVolumeLevels from '../../lib/brandVolumeLevels'
+import childrenPropType from '../../propTypes/children'
 import defaultStyles from '../styles.scss'
 
 const baseClass = 'button'
@@ -54,7 +56,7 @@ function Secondary ({
   const content = (success ? '✔' : children)
 
   const loadingOrContent = loading
-    ? <Loader inline color={loaderColor}/>
+    ? <Loader inline color={loaderColor} />
     : content
 
   const customizations = customize
@@ -97,13 +99,12 @@ function Secondary ({
             className={classNames(classes.label)}>
             {loadingOrContent}
             {
-              isDisabled ||
-                <span
-                  className={classNames(classes.labelAlt)}
-                  id={ids.labelAlt}
-                  title={content}
-                  style={{color: customize.textColor}}>
-                </span>
+              isDisabled || <span
+                className={classNames(classes.labelAlt)}
+                id={ids.labelAlt}
+                title={content}
+                style={{color: customize.textColor}}
+              />
             }
           </div>
         ]
@@ -124,7 +125,7 @@ Secondary.defaultProps = {
 
 Secondary.propTypes = {
   brandVolume: PropTypes.oneOf(brandVolumeLevels),
-  children: PropTypes.node,
+  children: childrenPropType,
   className: PropTypes.string,
   customize: PropTypes.shape({
     backgroundColor: PropTypes.string.isRequired,
@@ -140,6 +141,7 @@ Secondary.propTypes = {
 }
 
 export default compose(
+  (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
       ...customize,

@@ -1,23 +1,30 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import Collapsible from '../Collapsible'
-import compose from '../lib/compose'
-import uncontrolled from '../decorators/uncontrolled'
-import themeable from '../decorators/themeable'
 import defaultStyles from './styles.scss'
+import getActiveElement from '../lib/getActiveElement'
+import RadioMark from '../RadioMark'
+
+import compose from 'ramda/src/compose'
+import {
+  notifyOnLowFPS,
+  themeable,
+  uncontrolled,
+  uniqueName
+} from '@klarna/higher-order-components'
 
 const baseClass = 'radio'
 
 const classes = {
   option: `${baseClass}__option`,
   optionAside: `${baseClass}__option__aside`,
-  optionBullet: `${baseClass}__option__bullet`,
-  optionCheckmark: `${baseClass}__option__checkmark`,
   optionDescription: `${baseClass}__option__description`,
   optionLabel: `${baseClass}__option__label`,
   optionInput: `${baseClass}__option__input`,
   optionLeft: `${baseClass}__option__left`,
+  optionLeftmost: `${baseClass}__option__leftmost`,
   optionRight: `${baseClass}__option__right`,
+  optionRightmost: `${baseClass}__option__rightmost`,
   optionHeader: `${baseClass}__option__header`,
   optionHeaderInner: `${baseClass}__option__inner`,
   optionWrapper: `${baseClass}__option__wrapper`,
@@ -44,6 +51,9 @@ const Radio = React.createClass({
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onEndFPSCollection: PropTypes.func,
+    onStartFPSCollection: PropTypes.func,
+    lowFPS: PropTypes.bool,
     options: PropTypes.array.isRequired,
     styles: PropTypes.object,
     value: PropTypes.any
@@ -52,7 +62,7 @@ const Radio = React.createClass({
   componentDidMount () {
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
@@ -61,7 +71,7 @@ const Radio = React.createClass({
   componentDidUpdate () {
     if (
       this.props.focus &&
-      document.activeElement !== this.refs[this.props.focus]
+      getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
     }
@@ -79,6 +89,9 @@ const Radio = React.createClass({
       onBlur,
       onChange,
       onFocus,
+      onEndFPSCollection,
+      onStartFPSCollection,
+      lowFPS,
       styles,
       value,
       ...remainingProps
@@ -89,19 +102,13 @@ const Radio = React.createClass({
     const baseStyle = customize ? { borderRadius: customize.borderRadius } : undefined
     const labelStyle = customize ? { color: customize.textPrimaryColor } : undefined
     const descriptionStyle = customize ? { color: customize.textSecondaryColor } : undefined
-    const bulletStyle = customize
-      ? {
-        backgroundColor: customize.backgroundColor,
-        borderColor: customize.backgroundColor
-      }
-      : undefined
-    const checkmarkStyle = customize ? { backgroundColor: customize.bulletColor } : undefined
 
     return (
       <div
         className={classNames(baseClass, {
           borderless,
-          'is-focused': focus != null
+          'is-focused': focus != null,
+          'no-animations': lowFPS
         }, className)}
         id={name}
         style={baseStyle}
@@ -143,7 +150,7 @@ const Radio = React.createClass({
               type='radio'
               onBlur={onBlur}
               checked={key === value}
-              onChange={() => onChange && onChange(key)}
+              onChange={() => onChange && key !== value && onChange(key)}
               onFocus={(e) => onFocus && onFocus(key, e)}
               ref={key}
               value={key}
@@ -153,6 +160,7 @@ const Radio = React.createClass({
               className={classNames(
                 classes.option,
                 {
+                  'is-selected': key === value,
                   'is-focused': !isDisabled && focus === key,
                   'left-pad': leftPad && !singleOption,
                   'is-disabled': isDisabled
@@ -167,23 +175,18 @@ const Radio = React.createClass({
                 <div
                   className={classNames(classes.optionHeaderInner)}
                   id={ids.headerInner}>
-                  {!singleOption && <div className={classNames(classes.optionLeft)} id={ids.left}>
-                    <div className={classNames(classes.optionWrapper)} id={ids.wrapper}>
-                      <div
-                        className={classNames(classes.optionBullet)}
-                        id={ids.bullet}
-                        style={key === value ? bulletStyle : undefined}
-                      />
-                      <div
-                        className={classNames(classes.optionCheckmark)}
-                        id={ids.checkmark}
-                        style={key === value ? checkmarkStyle : undefined}
-                      />
-                    </div>
+                  {!singleOption && <div className={classNames(classes.optionLeft, classes.optionLeftmost)} id={ids.left}>
+                    <RadioMark checked={key === value} disabled={isDisabled} customize={customize} lowFPS={lowFPS} />
                   </div>}
 
                   <div
-                    className={classNames(classes.optionRight)}
+                    className={classNames(
+                      classes.optionRight,
+                      {
+                        [classes.optionRightmost]: !aside,
+                        [classes.optionLeftmost]: singleOption
+                      }
+                    )}
                     id={ids.right}>
                     <div
                       className={classNames(classes.optionLabel)}
@@ -201,7 +204,7 @@ const Radio = React.createClass({
                   </div>
 
                   {aside && <div
-                    className={classNames(classes.optionAside)}
+                    className={classNames(classes.optionAside, classes.optionRightmost)}
                     id={ids.aside}>
                     {aside}
                   </div>}
@@ -209,6 +212,9 @@ const Radio = React.createClass({
               </label>
 
               {content && <Collapsible
+                onStartFPSCollection={onStartFPSCollection}
+                onEndFPSCollection={onEndFPSCollection}
+                lowFPS={lowFPS}
                 collapsed={isDisabled || !singleOption && key !== value}>
                 <div
                   className={classNames(classes.optionContent)}
@@ -225,18 +231,21 @@ const Radio = React.createClass({
 })
 
 export default compose(
+  notifyOnLowFPS({threshold: 10}),
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
-    handlerName: 'onFocus',
-    handlerSelector: (x) => x,
-    resetHandlerName: 'onBlur'
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
   }),
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
-    handlerName: 'onChange',
-    handlerSelector: (x) => x
+    handlers: {
+      onChange: () => value => value
+    }
   }),
   themeable((customizations, props) => ({
     customize: {
@@ -247,5 +256,6 @@ export default compose(
       textPrimaryColor: customizations.color_text,
       textSecondaryColor: customizations.color_text_secondary
     }
-  }))
+  })),
+  uniqueName
 )(Radio)

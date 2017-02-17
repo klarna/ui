@@ -6,10 +6,14 @@ import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
-import compose from '../lib/compose'
 import MouseflowExclude from '../MouseflowExclude'
-import themeable from '../decorators/themeable'
-import overridable from '../decorators/overridable'
+import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled,
+  uniqueName
+} from '@klarna/higher-order-components'
 
 const baseClass = 'dropdown'
 
@@ -50,7 +54,7 @@ const Dropdown = React.createClass({
       selectedColor: PropTypes.string.isRequired
     }),
     id: PropTypes.string,
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     loading: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
     onBlur: PropTypes.func,
@@ -133,7 +137,8 @@ const Dropdown = React.createClass({
       {
         'is-loading': loading,
         'is-selected': value != null,
-        square
+        square,
+        'empty-label': label == null || label === ''
       },
       fieldStates.getClassName(this.props),
       stacking.position.getClassName(this.props),
@@ -248,6 +253,21 @@ const onMouseLeave = (component) => () =>
   })
 
 export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlers: {
+      onFocus: () => () => true,
+      onBlur: () => () => false
+    }
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => e => e.target.value
+    }
+  }),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,
@@ -258,5 +278,6 @@ export default compose(
       selectedColor: customizations.color_text
     }
   })),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  uniqueName
 )(Dropdown)

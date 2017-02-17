@@ -1,6 +1,5 @@
 import React from 'react'
 import Dropdown from '../Dropdown'
-import UncontrolledDropdown from '../uncontrolled/Dropdown'
 import Fieldset from '../Fieldset'
 import { LIVE, LIVE_WIDE } from '../Showroom/variationTypes'
 
@@ -16,8 +15,7 @@ export default {
   variations: [
     {
       title: 'Single',
-      require: `import Dropdown from '@klarna/ui/Dropdown'
-import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'`,
+      require: 'import Dropdown from \'@klarna/ui/Dropdown\'',
       type: LIVE,
 
       examples: {
@@ -26,22 +24,22 @@ import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'`,
           options={options}
         />,
 
-        Uncontrolled: <UncontrolledDropdown
-          name='dropdown-lorem-ipsum'
+        Controlled: <Dropdown
           label='Lorem ipsum'
           options={options}
+          focus
+          value='lorem'
         />,
 
-        'With value selected': <Dropdown
-          label='Lorem ipsum'
+        'Selected without label': <Dropdown
           options={options}
           value='ipsum'
         />,
 
-        'With focus': <Dropdown
+        'With name': <Dropdown
           label='Lorem ipsum'
+          name='dolor-sit-amet'
           options={options}
-          focus
         />,
 
         'With fake focus': <Dropdown
@@ -85,37 +83,70 @@ import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'`,
 
     {
       title: 'Stacked',
-      require: `import UncontrolledDropdown from '@klarna/ui/uncontrolled/Dropdown'
+      require: `import Dropdown from '@klarna/ui/Dropdown'
 import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE_WIDE,
 
       examples: {
         'Two fields': <Fieldset>
-          <UncontrolledDropdown
-            left size='1/2' name='dropdown-given-name' label='Given name' options={options} />
-          <UncontrolledDropdown
-            right size='1/2' name='dropdown-last-name' label='Middle name' options={options} />
+          <Dropdown
+            left size='1/2'
+            label='Given name'
+            options={options}
+          />
+          <Dropdown
+            right size='1/2'
+            label='Middle name'
+            options={options}
+          />
         </Fieldset>,
 
         Many: <Fieldset>
-          <UncontrolledDropdown
-            top left size='1/2' name='many-given-name' label='Given name' options={options} />
-          <UncontrolledDropdown
-            center size='1/4' name='many-middle-name' label='Middle name' options={options} />
-          <UncontrolledDropdown
-            top right size='1/4' name='many-last-name' label='Last name' options={options} />
-          <UncontrolledDropdown
-            left square size='1/5' name='many-number' label='Number' options={options} />
-          <UncontrolledDropdown
-            right square size='4/5' name='many-street-address' label='Street Address' options={options} />
-          <UncontrolledDropdown
-            left square size='1/3' name='many-pokemon' label='Your favorite pokémon' options={options} />
-          <UncontrolledDropdown
-            right square size='2/3' name='many-android-iphone' label='Android or iPhone: please explain' options={options} />
-          <UncontrolledDropdown
-            left bottom size='2/5' name='many-date-of-birth' label='Date of Birth' options={options} />
-          <UncontrolledDropdown
-            right bottom size='3/5' name='many-mobile-phone-number' label='Mobile phone number' options={options} />
+          <Dropdown
+            top left size='1/2'
+            label='Given name'
+            options={options}
+          />
+          <Dropdown
+            center size='1/4'
+            label='Middle name'
+            options={options}
+          />
+          <Dropdown
+            top right size='1/4'
+            label='Last name'
+            options={options}
+          />
+          <Dropdown
+            left square size='1/5'
+            label='Number'
+            options={options}
+          />
+          <Dropdown
+            right square size='4/5'
+            label='Street Address'
+            options={options}
+          />
+          <Dropdown
+            left square size='1/3'
+            label='Your favorite pokémon'
+            options={options}
+          />
+          <Dropdown
+            right square size='2/3'
+            label='Android or iPhone: please explain'
+            options={options}
+          />
+          <Dropdown
+            left bottom size='2/5'
+            label='Date of Birth'
+            options={options}
+          />
+          <Dropdown
+            right bottom size='3/5'
+            label='Mobile phone number'
+            options={options}
+          />
         </Fieldset>
       }
     }

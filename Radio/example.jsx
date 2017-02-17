@@ -3,8 +3,8 @@ import Radio from '../Radio'
 import * as Checklist from '../Checklist'
 import * as Paragraph from '../Paragraph'
 import { LIVE_WIDE } from '../Showroom/variationTypes'
-import UncontrolledInstallments from '../uncontrolled/Installments'
-import UncontrolledDropdown from '../uncontrolled/Dropdown'
+import BoxSelector from '../BoxSelector'
+import Dropdown from '../Dropdown'
 import Subtitle from '../Subtitle'
 
 const options = [
@@ -26,7 +26,7 @@ const optionsWithContent = [
     label: 'Lorem',
     description: 'Lorem Ipsum is simply dummy.',
     aside: card,
-    content: <Paragraph.Secondary condensed>
+    content: <Paragraph.Secondary style={{marginBottom: -10}}>
       Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
     </Paragraph.Secondary>,
     leftPad: true
@@ -37,11 +37,12 @@ const optionsWithContent = [
     label: 'Sit',
     description: 'Amet et consequetur',
     content: <div>
-      <UncontrolledInstallments
+      <BoxSelector
         name='installments'
+        layout='horizontal'
         onChange={(key) => console.log('You selected', key)}
         options={[{content: <div>Long one line text in div</div>, key: 'installments_3'}, {content: [<div key='1'>$64.17/mo.</div>, <div key='2'>array of elements</div>], key: 'installments_6'}]}
-        value='installments_6'
+        defaultValue='installments_6'
       />
       <Checklist.Main style={{marginTop: '20px'}}>
         <Checklist.Item>Just one click and you're done</Checklist.Item>
@@ -58,15 +59,14 @@ const optionsWithContent = [
     content: <div>
       <Subtitle>Choose your destiny</Subtitle>
 
-      <UncontrolledDropdown
-        name='ipsum-uncontrolled-dropdown'
+      <Dropdown
         options={[
           {key: 'coffee', label: 'Coffee'},
           {key: 'chai', label: 'Chai'},
           {key: 'latte', label: 'Latte'}
         ]}
         label='Infusion'
-        value='coffee'
+        defaultValue='coffee'
       />
     </div>
   }
@@ -76,27 +76,24 @@ export default {
   title: 'Radio',
 
   examples: {
-    require: `import Radio from '@klarna/ui/Radio'
-import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
+    require: 'import Radio from \'@klarna/ui/Radio\'',
     type: LIVE_WIDE,
 
     examples: {
       Regular: <Radio
         onChange={(key) => console.log(key)}
-        name='radio-regular'
         options={optionsWithContent}
         defaultValue='lorem'
       />,
 
       'Without content': <Radio
-        name='radio-uncontrolled-borderful-with-content'
         onChange={(key) => console.log(key)}
         options={options}
       />,
 
       Controlled: <Radio
         focus='sit'
-        name='radio-uncontrolled'
+        name='radio'
         onChange={(key) => console.log(key)}
         options={options}
         value='ipsum'
@@ -104,7 +101,6 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
 
       Borderless: <Radio
         borderless
-        name='radio-borderless'
         onChange={(key) => console.log(key)}
         options={options}
         defaultValue='lorem'
@@ -112,7 +108,6 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
 
       Disabled: <Radio
         disabled
-        name='radio-disabled'
         onChange={(key) => console.log(key)}
         options={options}
         defaultValue='lorem'
@@ -120,7 +115,6 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
 
       'One field disabled': <Radio
         onChange={(key) => console.log(key)}
-        name='radio-one-disabled'
         options={[
           ...optionsWithContent.slice(0, 2),
           {...optionsWithContent[2], disabled: true}
@@ -131,13 +125,11 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
       'Borderless and disabled': <Radio
         borderless
         disabled
-        name='radio-borderless-disabled'
         options={options}
         defaultValue='lorem'
-                                 />,
+      />,
 
       'With a single option': <Radio
-        name='radio-with-a-single-option'
         options={[{
           key: 'lorem',
           label: 'Lorem',
@@ -158,7 +150,6 @@ import UncontrolledRadio from '@klarna/ui/uncontrolled/Radio'`,
           textPrimaryColor: 'green',
           textSecondaryColor: 'red'
         }}
-        name='radio-with-dynamic-styling'
         options={options}
       />
     }
