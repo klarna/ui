@@ -1,4 +1,4 @@
-const grid = x => `${x * 5}px`
+import grid from '../settings/grid'
 
 export default {
   base: {
@@ -6,8 +6,14 @@ export default {
       backgroundColor: 'white',
       borderRadius: grid(1.6),
       height: 'auto',
-      margin: `${grid(6)} auto`,
-      padding: `${grid(10)} ${grid(12)}`,
+      marginBottom: grid(6),
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      marginTop: grid(6),
+      paddingBottom: grid(10),
+      paddingLeft: grid(12),
+      paddingRight: grid(12),
+      paddingTop: grid(10),
       width: grid(87)
     }
   }
