@@ -7,6 +7,11 @@ import BoxSelector from '../BoxSelector'
 import Dropdown from '../Dropdown'
 import Subtitle from '../Subtitle'
 
+import grid from '../settings/grid'
+import * as palette from '../settings/palette'
+import * as fontFamilies from '../settings/fontFamilies'
+import {BORDER_RADIUS} from '../settings/themes/default/assorted'
+
 const options = [
   {key: 'lorem', label: 'Lorem', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'},
   {key: 'sit', label: 'Sit', description: 'Amet et consequetur'},
@@ -45,7 +50,7 @@ const optionsWithContent = [
         defaultValue='installments_6'
       />
       <Checklist.Main style={{marginTop: '20px'}}>
-        <Checklist.Item>Just one click and you're done</Checklist.Item>
+        <Checklist.Item>Just one click and you’re done</Checklist.Item>
         <Checklist.Item>Very little hassle</Checklist.Item>
         <Checklist.Item>Just do it! It can be done today, so why wait for  tomorrow?</Checklist.Item>
       </Checklist.Main>
@@ -72,11 +77,137 @@ const optionsWithContent = [
   }
 ]
 
+const fullStylesOverride = {
+  radio: {
+    base: {
+      main: {
+        borderWidth: grid(0.4),
+        borderStyle: 'dashed',
+        borderColor: palette.BLACK,
+        borderRadius: grid(2)
+      }
+    }
+  },
+  option: {
+    base: {
+      content: {
+        paddingBottom: grid(6),
+        paddingLeft: grid(6),
+        paddingRight: grid(6)
+      },
+      aside: {
+        display: 'table-cell',
+        paddingLeft: grid(3),
+        textAlign: 'right',
+        verticalAlign: 'top'
+      },
+      input: {
+        display: 'block',
+        height: 0,
+        opacity: 0,
+        position: 'absolute',
+        width: 0
+      },
+      main: {
+        borderBottomWidth: grid(0.4),
+        borderBottomStyle: 'dashed',
+        borderBottomColor: palette.BLACK
+      },
+      label: {
+        fontFamily: fontFamilies.CODE,
+        color: palette.GREY_LINES
+      },
+      description: {
+        fontFamily: fontFamilies.CODE,
+        color: palette.BLACK
+      }
+    },
+    first: {
+      main: {
+        backgroundColor: palette.DISABLED_BACKGROUND
+      }
+    },
+    last: {
+      main: {
+        borderBottom: 'none',
+        borderBottomLeftRadius: grid(BORDER_RADIUS),
+        borderBottomRightRadius: grid(BORDER_RADIUS)
+      }
+    },
+    selected: {
+      header: {
+        cursor: 'crosshair'
+      }
+    },
+    leftPad: {
+      content: {
+        paddingLeft: grid(9.8)
+      }
+    }
+
+  },
+  expandLabel: {
+    base: {
+      main: {
+        backgroundColor: palette.WHITE,
+        fontFamily: fontFamilies.CODE
+      },
+      chevron: {
+        transform: `translateY(${grid(1)}) scale(2)`
+      }
+    },
+
+    active: {
+      main: {
+        backgroundColor: palette.GREY_LINES
+      }
+    }
+  },
+  radioMark: {
+    base: {
+      main: {
+        width: grid(4),
+        height: grid(4)
+      },
+      borderCircle: {
+        cx: grid(2),
+        cy: grid(2),
+        r: grid(2)
+      },
+      backgroundCircle: {
+        cx: grid(2),
+        cy: grid(2),
+        r: grid(2),
+        fill: 'red'
+      },
+      whiteCircle: {
+        cx: grid(2),
+        cy: grid(2),
+        r: grid(0.4)
+      },
+      bulletCircle: {
+        cx: grid(2),
+        cy: grid(2),
+        r: grid(0.4)
+      },
+      animation: {
+        transform: scale => `matrix(${scale}, 0, 0, ${scale}, ${10 - scale * 10}, ${10 - scale * 10})`,
+        scale: 4
+      }
+    },
+    checked: {
+      animation: {
+        scale: 1
+      }
+    }
+  }
+}
+
 export default {
   title: 'Radio',
 
   examples: {
-    require: 'import Radio from \'@klarna/ui/Radio\'',
+    require: `import Radio from '@klarna/ui/Radio'`,
     type: LIVE_WIDE,
 
     examples: {
@@ -91,12 +222,25 @@ export default {
         options={options}
       />,
 
+      'Partially collapsed': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        visibleOptions={1}
+      />,
+
       Controlled: <Radio
         focus='sit'
         name='radio'
         onChange={(key) => console.log(key)}
         options={options}
         value='ipsum'
+      />,
+
+      'Partially collapsed & controlled': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        visibleOptions={1}
+        fullyExpanded={false}
       />,
 
       Borderless: <Radio
@@ -151,6 +295,13 @@ export default {
           textSecondaryColor: 'red'
         }}
         options={options}
+      />,
+
+      'Full styles override': <Radio
+        options={options}
+        visibleOptions={1}
+        expandLabel='Show the other options'
+        styles={fullStylesOverride}
       />
     }
   }

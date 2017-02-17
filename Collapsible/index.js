@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 import {Motion, spring} from 'react-motion'
 
 export default class Collapsible extends Component {
@@ -27,47 +27,58 @@ export default class Collapsible extends Component {
   }
 
   render () {
-    const {children, collapsed, onEndFPSCollection} = this.props
+    const {children, collapsed, defaultCollapsed, onEndFPSCollection, minimumHeight} = this.props
 
     return <div ref={(div) => { this.content = div }}>
       {
         this.props.lowFPS
           ? this.renderRegular(children, collapsed)
-          : this.renderAnimation(children, collapsed, onEndFPSCollection)
+          : this.renderAnimation(children, defaultCollapsed, collapsed, onEndFPSCollection, minimumHeight)
       }
     </div>
   }
 
   renderRegular (children, collapsed) {
-    return (
-      <div
-        style={{
-          display: collapsed ? 'none' : 'block'
-        }}>
-        {children}
-      </div>
-    )
+    return <div
+      style={{
+        display: collapsed ? 'none' : 'block'
+      }}>
+      {children}
+    </div>
   }
 
-  renderAnimation (children, collapsed, onEndFPSCollection) {
-    return (
-      <Motion
+  renderAnimation (children, defaultCollapsed, collapsed, onEndFPSCollection, minimumHeight) {
+    return <Motion
+      style={{
+        height: spring(collapsed ? minimumHeight : this.state.height),
+        opacity: spring(collapsed ? 0 : 1)
+      }}
+      onRest={onEndFPSCollection}>
+      {({height, opacity}) => <div
         style={{
-          height: spring(collapsed ? 0 : this.state.height),
-          opacity: spring(collapsed ? 0 : 1)
-        }}
-        onRest={onEndFPSCollection}>
-        {({height, opacity}) => <div
-          style={{
-            height: getHeight(collapsed, height, this.state.height),
-            opacity,
-            overflow: shouldOverflow(collapsed, height, this.state.height)
-          }}>
-          {children}
-        </div>}
-      </Motion>
-    )
+          height: getHeight(
+            collapsed,
+            height + (collapsed
+              ? 0
+              : calculateHeight(this.content) - this.state.height
+            ),
+            calculateHeight(this.content)
+          ),
+          opacity,
+          overflow: shouldOverflow(collapsed, height, this.state.height)
+        }}>
+        {children}
+      </div>}
+    </Motion>
   }
+}
+
+Collapsible.propTypes = {
+  minimumHeight: PropTypes.number
+}
+
+Collapsible.defaultProps = {
+  minimumHeight: 0
 }
 
 /**
