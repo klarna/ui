@@ -216,6 +216,10 @@
       }
     }
   }
+
+  &.brand-volume-high {
+    border-radius: ($grid * 6);
+  }
 }
 
 .button__menu {
