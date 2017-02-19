@@ -2,13 +2,11 @@ import React, { PropTypes } from 'react'
 import compose from 'ramda/src/compose'
 import parseColor from 'parse-color'
 import {overridable, themeable} from '@klarna/higher-order-components'
-import { withPropsFromContext } from 'react-context-props'
 import classNamesBind from 'classnames/bind'
 
 import Loader from '../../Loader'
 import Price from '../Price'
 import contains from '../../lib/contains'
-import brandVolumeLevels from '../../lib/brandVolumeLevels'
 import defaultStyles from '../styles.scss'
 import childrenPropType from '../../propTypes/children'
 
@@ -25,7 +23,6 @@ export const sizes = ['small', 'big']
 
 function Tertiary (props) {
   const {
-    brandVolume,
     children,
     className,
     customize,
@@ -43,8 +40,7 @@ function Tertiary (props) {
     'is-disabled': disabled,
     'is-loading': loading,
     'dynamic-styling': customize,
-    'has-price': contains(Price, children),
-    'brand-volume-high': brandVolume === 'high'
+    'has-price': contains(Price, children)
   }, className)
 
   const isDisabled = (loading || success || disabled)
@@ -112,14 +108,12 @@ function Tertiary (props) {
 Tertiary.displayName = 'Button.Tertiary'
 
 Tertiary.defaultProps = {
-  brandVolume: 'low',
   loading: false,
   success: false,
   disabled: false
 }
 
 Tertiary.propTypes = {
-  brandVolume: PropTypes.oneOf(brandVolumeLevels),
   children: childrenPropType,
   className: PropTypes.string,
   customize: PropTypes.shape({
@@ -136,7 +130,6 @@ Tertiary.propTypes = {
 }
 
 export default compose(
-  (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
       ...customize,
