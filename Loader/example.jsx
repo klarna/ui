@@ -10,7 +10,7 @@ export default {
   variations: [
     {
       title: 'Primary',
-      require: 'import Loader from \'@klarna/ui/Loader\'',
+      require: `import Loader from '@klarna/ui/Loader'`,
       type: LIVE,
 
       examples: {
@@ -24,7 +24,7 @@ export default {
 
     {
       title: 'Secondary',
-      require: 'import Loader from \'@klarna/ui/Loader\'',
+      require: `import Loader from '@klarna/ui/Loader'`,
       type: LIVE,
 
       examples: {
@@ -37,7 +37,7 @@ export default {
 
     {
       title: 'White',
-      require: 'import Loader from \'@klarna/ui/Loader\'',
+      require: `import Loader from '@klarna/ui/Loader'`,
       type: LIVE,
 
       examples: {

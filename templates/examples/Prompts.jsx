@@ -12,7 +12,7 @@ export default {
   variations: [
     {
       title: 'SingleInputPrompt',
-      require: 'import SingleInputPrompt from \'@klarna/ui/templates/SingleInputPrompt\'',
+      require: `import SingleInputPrompt from '@klarna/ui/templates/SingleInputPrompt'`,
       type: TEMPLATE,
 
       examples: {
@@ -96,7 +96,7 @@ export default {
 
     {
       title: 'CenteredForm',
-      require: 'import CenteredForm from \'@klarna/ui/templates/CenteredForm\'',
+      require: `import CenteredForm from '@klarna/ui/templates/CenteredForm'`,
       type: TEMPLATE,
 
       examples: {
@@ -187,7 +187,7 @@ export default {
 
     {
       title: 'CodePrompt',
-      require: 'import CodePrompt from \'@klarna/ui/templates/CodePrompt\'',
+      require: `import CodePrompt from '@klarna/ui/templates/CodePrompt'`,
       type: TEMPLATE,
 
       examples: {

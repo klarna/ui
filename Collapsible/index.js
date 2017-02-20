@@ -39,42 +39,37 @@ export default class Collapsible extends Component {
   }
 
   renderRegular (children, collapsed) {
-    return (
-      <div
-        style={{
-          display: collapsed ? 'none' : 'block'
-        }}>
-        {children}
-      </div>
-    )
+    return <div
+      style={{
+        display: collapsed ? 'none' : 'block'
+      }}>
+      {children}
+    </div>
   }
 
   renderAnimation (children, defaultCollapsed, collapsed, onEndFPSCollection, minimumHeight) {
-    return (
-      <Motion
-        defaultStyles={defaultCollapsed ? {
-          height: collapsed ? minimumHeight : this.state.height,
-          opacity: collapsed ? 0 : 1
-        } : undefined}
+    return <Motion
+      style={{
+        height: spring(collapsed ? minimumHeight : this.state.height),
+        opacity: spring(collapsed ? 0 : 1)
+      }}
+      onRest={onEndFPSCollection}>
+      {({height, opacity}) => <div
         style={{
-          height: spring(collapsed ? minimumHeight : this.state.height),
-          opacity: spring(collapsed ? 0 : 1)
-        }}
-        onRest={onEndFPSCollection}>
-        {({height, opacity}) => <div
-          style={{
-            height: getHeight(
-              collapsed,
-              height + calculateHeight(this.content) - this.state.height,
-              calculateHeight(this.content)
+          height: getHeight(
+            collapsed,
+            height + (collapsed
+              ? 0
+              : calculateHeight(this.content) - this.state.height
             ),
-            opacity,
-            overflow: shouldOverflow(collapsed, height, this.state.height)
-          }}>
-          {children}
-        </div>}
-      </Motion>
-    )
+            calculateHeight(this.content)
+          ),
+          opacity,
+          overflow: shouldOverflow(collapsed, height, this.state.height)
+        }}>
+        {children}
+      </div>}
+    </Motion>
   }
 }
 

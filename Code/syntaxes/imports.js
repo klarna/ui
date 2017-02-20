@@ -9,8 +9,8 @@ module.exports = (hljs) => ({
 
     {
       className: 'string',
-      begin: '\'',
-      end: '\'',
+      begin: `'`,
+      end: `'`,
       relevance: 0,
       contains: [
         {
