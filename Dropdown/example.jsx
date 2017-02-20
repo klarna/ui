@@ -1,7 +1,7 @@
 import React from 'react'
 import Dropdown from '../Dropdown'
 import Fieldset from '../Fieldset'
-import { LIVE, LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
+import { LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
 
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
