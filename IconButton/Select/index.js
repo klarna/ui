@@ -94,10 +94,10 @@ Select.propTypes = {
 }
 
 export default compose(
+  withDisplayName('Select'),
   themeable(() => ({color: 'gray'})),
   overridable(defaultStyles),
   withHoverProps({hover: true}),
   withMouseDownProps({active: true}),
-  withTouchProps({active: true}),
-  withDisplayName('Select')
+  withTouchProps({active: true})
 )(Select)

@@ -90,10 +90,10 @@ Options.propTypes = {
 }
 
 export default compose(
+  withDisplayName('Options'),
   themeable(() => ({color: 'gray'})),
   overridable(defaultStyles),
   withHoverProps({hover: true}),
   withMouseDownProps({active: true}),
-  withTouchProps({active: true}),
-  withDisplayName('Options')
+  withTouchProps({active: true})
 )(Options)

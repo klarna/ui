@@ -97,10 +97,10 @@ Search.propTypes = {
 }
 
 export default compose(
+  withDisplayName('Search'),
   themeable(() => ({color: 'gray'})),
   overridable(defaultStyles),
   withHoverProps({hover: true}),
   withMouseDownProps({active: true}),
-  withTouchProps({active: true}),
-  withDisplayName('Search')
+  withTouchProps({active: true})
 )(Search)

@@ -95,10 +95,10 @@ Close.propTypes = {
 }
 
 export default compose(
+  withDisplayName('Close'),
   themeable(() => ({color: 'gray'})),
   overridable(defaultStyles),
   withHoverProps({hover: true}),
   withMouseDownProps({active: true}),
-  withTouchProps({active: true}),
-  withDisplayName('Close')
+  withTouchProps({active: true})
 )(Close)

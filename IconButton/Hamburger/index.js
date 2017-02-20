@@ -93,10 +93,10 @@ Hamburger.propTypes = {
 }
 
 export default compose(
+  withDisplayName('Hamburger'),
   themeable(() => ({color: 'gray'})),
   overridable(defaultStyles),
   withHoverProps({hover: true}),
   withMouseDownProps({active: true}),
-  withTouchProps({active: true}),
-  withDisplayName('Hamburger')
+  withTouchProps({active: true})
 )(Hamburger)

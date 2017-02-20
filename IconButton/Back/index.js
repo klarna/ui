@@ -89,10 +89,10 @@ Back.propTypes = {
 }
 
 export default compose(
+  withDisplayName('Back'),
   themeable(() => ({color: 'gray'})),
   overridable(defaultStyles),
   withHoverProps({hover: true}),
   withMouseDownProps({active: true}),
-  withTouchProps({active: true}),
-  withDisplayName('Back')
+  withTouchProps({active: true})
 )(Back)
