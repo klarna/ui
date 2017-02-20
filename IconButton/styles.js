@@ -22,14 +22,10 @@ export default {
       left: 0,
       margin: grid(-2),
       position: 'absolute',
-      top: 0
+      top: 0,
     },
     illustration: {
       pointerEvents: 'none'
-    },
-    fill: {
-      fill: palette.KLARNA_BLUE,
-      transition: 'fill .2s ease'
     },
     label: typographize({
       color: palette.KLARNA_BLUE,
@@ -49,17 +45,21 @@ export default {
     }),
     stroke: {
       stroke: palette.KLARNA_BLUE,
+      fill: 'none',
+      transition: 'stroke .2s ease'
+    },
+    fill: {
+      fill: palette.KLARNA_BLUE,
       transition: 'fill .2s ease'
-    }
+    },
     button: {
-      backgroundColor: 'transparent',
-      transition: 'stroke .2s ease, fill .2s ease, color .2s ease'
+      backgroundColor: 'transparent'
     }
   },
 
   active: [
     ['base', palette.BLUE_ACTIVE_BACKGROUND],
-    ['grey', palette.GREY_ACTIVE_BACKGROUND],
+    ['gray', palette.GREY_ACTIVE_BACKGROUND],
     ['inverse', palette.KLARNA_BLUE_HOVER]
   ].reduce((active, [state, color]) => ({
     ...active,
@@ -71,12 +71,25 @@ export default {
     }
   }), {}),
 
-  grey: {
+  gray: {
     fill: {
-      fill: palette.GREY_TEXT
+      fill: palette.GREY_TEXT,
+      transition: 'fill .2s ease'
     },
     stroke: {
+      fill: 'none',
+      transition: 'stroke .2s ease',
       stroke: palette.GREY_TEXT
+    },
+    label: {
+      color: palette.GREY_TEXT
+    }
+  },
+
+  light: {
+    label: {
+      fontWeight: fontWeights.REGULAR,
+      textTransform: 'none'
     }
   },
 
@@ -85,60 +98,74 @@ export default {
       fill: palette.WHITE
     },
     stroke: {
+      fill: 'none',
+      transition: 'stroke .2s ease',
       stroke: palette.WHITE
+    },
+    label: {
+      color: palette.WHITE,
+      transition: 'fill .2s ease'
     }
   },
 
   hover: [
     ['base', palette.KLARNA_BLUE_HOVER],
-    ['grey', palette.BLACK],
+    ['gray', palette.BLACK],
     ['inverse', palette.WHITE]
   ].reduce((hover, [state, color]) => ({
-      ...hover,
-      [state]: {
-        fill: {
-          fill: color
-        },
-        stroke: {
-          stroke: color
-        },
-        label: {
-          color: color
-        }
+    ...hover,
+    [state]: {
+      fill: {
+        fill: color
+      },
+      stroke: {
+        stroke: color
+      },
+      label: {
+        color: color
       }
-    }), {})
-  },
+    }
+  }), {}),
 
   left: {
-    left: 'auto',
-    right: grid(4),
-    textAlign: 'right'
-  }
-}
+    label: {
+      left: 'auto',
+      right: grid(4),
+      textAlign: 'right'
+    }
+  },
 
-.icon-button {
-  .bg-wrapper { &:active { &.gray { } &.inverse { } } }
-  .illustration { &.button { &.gray { } &.inverse { } } }
+  topRight: {
+    main: {
+      position: 'absolute',
+      display: 'block',
+      right: grid(4),
+      top: grid(4)
+    }
+  },
 
-  &:hover {
-    .illustration.button { &.gray { } &.inverse { } }
-    .illustration__label { &.gray { } &.inverse { } }
-  }
-}
+  topLeft: {
+    main: {
+      position: 'absolute',
+      display: 'block',
+      left: grid(4),
+      top: grid(4)
+    }
+  },
 
-.illustration__label {
-  &.left { }
+  mobile: {
+    topRight: {
+      main: {
+        right: grid(6),
+        top: grid(6)
+      }
+    },
 
-  &.gray {
-    color: map-get($colors, grey-text);
-  }
-
-  &.inverse {
-    color: map-get($colors, white);
-  }
-
-  &--light {
-    font-weight: map-get($font-weights, regular);
-    text-transform: none;
+    topLeft: {
+      main: {
+        left: grid(6),
+        top: grid(6)
+      }
+    }
   }
 }
