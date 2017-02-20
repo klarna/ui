@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import defaultStylesJS from '../styles'
+import defaultStyles from '../styles'
 import withDisplayName from '../withDisplayName'
 import {
   withHoverProps,
@@ -36,16 +36,16 @@ const Back = ({
     id={id}
     style={{
       // TODO: Use `mobile` variation as well (styles.js:156)
-      ...defaultStylesJS.base.main,
-      ...(topRight ? defaultStylesJS.topRight.main : {}),
-      ...(topLeft ? defaultStylesJS.topLeft.main : {}),
+      ...defaultStyles.base.main,
+      ...(topRight ? defaultStyles.topRight.main : {}),
+      ...(topLeft ? defaultStyles.topLeft.main : {}),
     }}
     {...props}>
     <div
       id={ids.wrapper}
       style={{
-        ...defaultStylesJS.base.wrapper,
-        ...(active ? defaultStylesJS.active[colorMode].wrapper : {})
+        ...defaultStyles.base.wrapper,
+        ...(active ? defaultStyles.active[colorMode].wrapper : {})
       }}>
       <svg
         id={ids.illustration}
@@ -57,18 +57,18 @@ const Back = ({
         <path
           d='M15,6l-6.5,6.5l6.5,6.5'
           style={{
-            ...defaultStylesJS[colorMode].stroke,
-            ...(hover ? defaultStylesJS.hover[colorMode].stroke : {})
+            ...defaultStyles[colorMode].stroke,
+            ...(hover ? defaultStyles.hover[colorMode].stroke : {})
           }}
         />
       </svg>
       <span
         id={ids.label}
         style={{
-          ...defaultStylesJS.base.label,
-          ...(left ? defaultStylesJS.left.label : {}),
-          ...defaultStylesJS[colorMode].label,
-          ...(hover ? defaultStylesJS.hover[colorMode].label : {})
+          ...defaultStyles.base.label,
+          ...(left ? defaultStyles.left.label : {}),
+          ...defaultStyles[colorMode].label,
+          ...(hover ? defaultStyles.hover[colorMode].label : {})
         }}>
         {label}
       </span>
@@ -86,7 +86,7 @@ Back.propTypes = {
 
 export default compose(
   themeable(() => ({color: 'gray'})),
-  overridable(defaultStylesJS),
+  overridable(defaultStyles),
   withHoverProps({hover: true}),
   withMouseDownProps({active: true}),
   withTouchProps({active: true}),
