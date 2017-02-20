@@ -91,12 +91,25 @@ export default {
         options={options}
       />,
 
+      'Partially collapsed': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        visibleOptions={1}
+      />,
+
       Controlled: <Radio
         focus='sit'
         name='radio'
         onChange={(key) => console.log(key)}
         options={options}
         value='ipsum'
+      />,
+
+      'Partially collapsed & controlled': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        visibleOptions={1}
+        fullyExpanded={false}
       />,
 
       Borderless: <Radio
