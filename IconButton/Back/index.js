@@ -14,13 +14,13 @@ import compose from 'ramda/src/compose'
 const Back = ({
   active,
   color,
+  hover,
   id,
   label,
   left,
-  hover,
-  styles,
   topLeft,
   topRight,
+  styles,
   ...props
 }) => {
   const ids = id

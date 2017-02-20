@@ -18,9 +18,9 @@ const Search = ({
   id,
   label,
   left,
-  styles,
   topLeft,
   topRight,
+  styles,
   ...props
 }) => {
   const ids = id

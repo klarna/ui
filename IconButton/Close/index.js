@@ -18,9 +18,9 @@ const Close = ({
   label,
   left,
   hover,
-  styles,
   topLeft,
   topRight,
+  styles,
   ...props
 }) => {
   const ids = id

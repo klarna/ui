@@ -1,34 +1,53 @@
 import React, { PropTypes } from 'react'
-import classNamesBind from 'classnames/bind'
-import {themeable, overridable} from '@klarna/higher-order-components'
-import compose from 'ramda/src/compose'
-import defaultStyles from '../styles.scss'
+import defaultStyles from '../styles'
 import withDisplayName from '../withDisplayName'
+import {
+  withHoverProps,
+  withMouseDownProps,
+  withTouchProps,
+  overridable,
+  themeable
+} from '@klarna/higher-order-components'
 
-const classes = {
-  bgWrapper: 'bg-wrapper',
-  iconButton: 'icon-button',
-  fill: 'illustration__fill',
-  label: 'illustration__label',
-  labelLight: 'illustration__label--light',
-  stroke: 'illustration__stroke'
-}
+import compose from 'ramda/src/compose'
 
-const Select = ({className, color, id, label, left, styles, ...props}) => {
-  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+const Select = ({
+  active,
+  color,
+  hover,
+  id,
+  label,
+  left,
+  topLeft,
+  topRight,
+  styles,
+  ...props
+}) => {
   const ids = id
     ? {
       illustration: `${id}__illustration`,
-      label: `${id}__label`
+      label: `${id}__label`,
+      wrapper: `${id}__wrapper`
     } : {}
 
+  const colorMode = color == null ? 'base' : color
+
   return <div
-    className={classNames(classes.iconButton, className)}
     id={id}
+    style={{
+      // TODO: Use `mobile` variation as well (styles.js:156)
+      ...defaultStyles.base.main,
+      ...(topRight ? defaultStyles.topRight.main : {}),
+      ...(topLeft ? defaultStyles.topLeft.main : {}),
+    }}
     {...props}>
-    <div className={classNames(classes.bgWrapper, color)}>
+    <div
+      id={ids.wrapper}
+      style={{
+        ...defaultStyles.base.wrapper,
+        ...(active ? defaultStyles.active[colorMode].wrapper : {})
+      }}>
       <svg
-        className={classNames('illustration', 'button', color)}
         id={ids.illustration}
         strokeLinecap='round'
         strokeWidth='2'
@@ -36,14 +55,22 @@ const Select = ({className, color, id, label, left, styles, ...props}) => {
         height='20px'
         width='20px'>
         <path
-          className={classNames(classes.stroke)}
           d='M9,6l4,4l-4,4'
+          style={{
+            ...defaultStyles[colorMode].stroke,
+            ...(hover ? defaultStyles.hover[colorMode].stroke : {})
+          }}
         />
       </svg>
 
       <span
-        className={classNames(classes.label, classes.labelLight, { left }, color)}
-        id={ids.label}>
+        id={ids.label}
+        style={{
+          ...defaultStyles.base.label,
+          ...(left ? defaultStyles.left.label : {}),
+          ...defaultStyles[colorMode].label,
+          ...(hover ? defaultStyles.hover[colorMode].label : {})
+        }}>
         {label}
       </span>
     </div>
@@ -55,8 +82,9 @@ Select.defaultProps = {
 }
 
 Select.propTypes = {
-  className: PropTypes.string,
+  active: PropTypes.bool,
   color: PropTypes.oneOf(['gray', 'inverse', 'blue']),
+  hover: PropTypes.bool,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -64,5 +92,8 @@ Select.propTypes = {
 export default compose(
   themeable(() => ({color: 'gray'})),
   overridable(defaultStyles),
+  withHoverProps({hover: true}),
+  withMouseDownProps({active: true}),
+  withTouchProps({active: true}),
   withDisplayName('Select')
 )(Select)
