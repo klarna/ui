@@ -1,22 +1,20 @@
 import React, { PropTypes } from 'react'
-import classNamesBind from 'classnames/bind'
-import defaultStyles from '../styles.scss'
+import defaultStyles from '../styles'
 import withDisplayName from '../withDisplayName'
+import {
+  withHoverProps,
+  withMouseDownProps,
+  withTouchProps,
+  overridable,
+  themeable
+} from '@klarna/higher-order-components'
 
 import compose from 'ramda/src/compose'
-import {overridable, themeable} from '@klarna/higher-order-components'
-
-const classes = {
-  bgWrapper: 'bg-wrapper',
-  iconButton: 'icon-button',
-  fill: 'illustration__fill',
-  label: 'illustration__label',
-  stroke: 'illustration__stroke'
-}
 
 const Search = ({
-  className,
+  active,
   color,
+  hover,
   id,
   label,
   left,
@@ -25,24 +23,31 @@ const Search = ({
   topRight,
   ...props
 }) => {
-  const classNames = classNamesBind.bind({...defaultStyles, ...styles})
   const ids = id
     ? {
       illustration: `${id}__illustration`,
-      label: `${id}__label`
+      label: `${id}__label`,
+      wrapper: `${id}__wrapper`
     } : {}
 
-  return <div className={classNames(
-      classes.iconButton,
-      {
-        'top-right': topRight,
-        'top-left': topLeft
-      },
-      className
-    )} {...props}>
-    <div className={classNames(classes.bgWrapper, color)}>
+  const colorMode = color == null ? 'base' : color
+
+  return <div
+    id={id}
+    style={{
+      // TODO: Use `mobile` variation as well (styles.js:156)
+      ...defaultStyles.base.main,
+      ...(topRight ? defaultStyles.topRight.main : {}),
+      ...(topLeft ? defaultStyles.topLeft.main : {}),
+    }}
+    {...props}>
+    <div
+      id={ids.wrapper}
+      style={{
+        ...defaultStyles.base.wrapper,
+        ...(active ? defaultStyles.active[colorMode].wrapper : {})
+      }}>
       <svg
-        className={classNames('illustration', 'button', color)}
         id={ids.illustration}
         viewBox='0 0 25 25'
         strokeWidth='2'
@@ -50,16 +55,29 @@ const Search = ({
         height='20px'
         width='20px'>
         <circle
-          className={classNames(classes.stroke)}
-          cx={10.5} cy={10.5} r={5.5} />
+          cx={10.5} cy={10.5} r={5.5}
+          style={{
+            ...defaultStyles[colorMode].stroke,
+            ...(hover ? defaultStyles.hover[colorMode].stroke : {})
+          }}
+        />
         <line
-          className={classNames(classes.stroke)}
-          x1={15} x2={19.2} y1={15} y2={19.2} />
+          x1={15} x2={19.2} y1={15} y2={19.2}
+          style={{
+            ...defaultStyles[colorMode].stroke,
+            ...(hover ? defaultStyles.hover[colorMode].stroke : {})
+          }}
+        />
       </svg>
 
       <span
-        className={classNames(classes.label, { left }, color)}
-        id={ids.label}>
+        id={ids.label}
+        style={{
+          ...defaultStyles.base.label,
+          ...(left ? defaultStyles.left.label : {}),
+          ...defaultStyles[colorMode].label,
+          ...(hover ? defaultStyles.hover[colorMode].label : {})
+        }}>
         {label}
       </span>
     </div>
@@ -67,8 +85,9 @@ const Search = ({
 }
 
 Search.propTypes = {
-  className: PropTypes.string,
+  active: PropTypes.bool,
   color: PropTypes.oneOf(['gray', 'inverse', 'blue']),
+  hover: PropTypes.bool,
   id: PropTypes.string,
   styles: PropTypes.object
 }
@@ -76,5 +95,8 @@ Search.propTypes = {
 export default compose(
   themeable(() => ({color: 'gray'})),
   overridable(defaultStyles),
+  withHoverProps({hover: true}),
+  withMouseDownProps({active: true}),
+  withTouchProps({active: true}),
   withDisplayName('Search')
 )(Search)
