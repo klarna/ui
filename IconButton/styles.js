@@ -22,7 +22,7 @@ export default {
       left: 0,
       margin: grid(-2),
       position: 'absolute',
-      top: 0,
+      top: 0
     },
     illustration: {
       pointerEvents: 'none'
@@ -141,6 +141,11 @@ export default {
       display: 'block',
       right: grid(4),
       top: grid(4)
+    },
+    label: {
+      left: 'auto',
+      right: grid(4),
+      textAlign: 'right'
     }
   },
 

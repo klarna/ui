@@ -11,14 +11,6 @@ import {
 
 import compose from 'ramda/src/compose'
 
-const classes = {
-  bgWrapper: 'bg-wrapper',
-  iconButton: 'icon-button',
-  fill: 'illustration__fill',
-  label: 'illustration__label',
-  stroke: 'illustration__stroke'
-}
-
 const Hamburger = ({
   active,
   color,
@@ -46,7 +38,7 @@ const Hamburger = ({
       // TODO: Use `mobile` variation as well (styles.js:156)
       ...defaultStyles.base.main,
       ...(topRight ? defaultStyles.topRight.main : {}),
-      ...(topLeft ? defaultStyles.topLeft.main : {}),
+      ...(topLeft ? defaultStyles.topLeft.main : {})
     }}
     {...props}>
     <div
@@ -77,9 +69,10 @@ const Hamburger = ({
         id={ids.label}
         style={{
           ...defaultStyles.base.label,
-          ...(left ? defaultStyles.left.label : {}),
           ...defaultStyles[colorMode].label,
-          ...(hover ? defaultStyles.hover[colorMode].label : {})
+          ...(hover ? defaultStyles.hover[colorMode].label : {}),
+          ...(left ? defaultStyles.left.label : {}),
+          ...(topRight ? defaultStyles.topRight.label : {})
         }}>
         {label}
       </span>
@@ -93,6 +86,9 @@ Hamburger.propTypes = {
   color: PropTypes.oneOf(['gray', 'inverse', 'blue']),
   hover: PropTypes.bool,
   id: PropTypes.string,
+  left: PropTypes.bool,
+  topLeft: PropTypes.bool,
+  topRight: PropTypes.bool,
   styles: PropTypes.object
 }
 

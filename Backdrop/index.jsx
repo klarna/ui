@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import defaultStyles from './styles'
 
 export default function Backdrop ({className, styles, ...props}) {

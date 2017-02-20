@@ -38,7 +38,7 @@ const Select = ({
       // TODO: Use `mobile` variation as well (styles.js:156)
       ...defaultStyles.base.main,
       ...(topRight ? defaultStyles.topRight.main : {}),
-      ...(topLeft ? defaultStyles.topLeft.main : {}),
+      ...(topLeft ? defaultStyles.topLeft.main : {})
     }}
     {...props}>
     <div
@@ -67,9 +67,10 @@ const Select = ({
         id={ids.label}
         style={{
           ...defaultStyles.base.label,
-          ...(left ? defaultStyles.left.label : {}),
           ...defaultStyles[colorMode].label,
-          ...(hover ? defaultStyles.hover[colorMode].label : {})
+          ...(hover ? defaultStyles.hover[colorMode].label : {}),
+          ...(left ? defaultStyles.left.label : {}),
+          ...(topRight ? defaultStyles.topRight.label : {})
         }}>
         {label}
       </span>
@@ -86,6 +87,9 @@ Select.propTypes = {
   color: PropTypes.oneOf(['gray', 'inverse', 'blue']),
   hover: PropTypes.bool,
   id: PropTypes.string,
+  left: PropTypes.bool,
+  topLeft: PropTypes.bool,
+  topRight: PropTypes.bool,
   styles: PropTypes.object
 }
 
