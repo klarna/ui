@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import {overridable} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
@@ -6,7 +7,7 @@ import childrenPropType from '../../propTypes/children'
 
 const baseClass = 'paragraph--legal'
 
-export default function Legal ({
+function Legal ({
   children,
   className,
   color,
@@ -50,3 +51,7 @@ Legal.propTypes = {
   margins: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default overridable(
+  defaultStyles
+)(Legal)
