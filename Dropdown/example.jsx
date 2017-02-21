@@ -1,7 +1,7 @@
 import React from 'react'
 import Dropdown from '../Dropdown'
 import Fieldset from '../Fieldset'
-import { LIVE, LIVE_WIDE } from '../Showroom/variationTypes'
+import { LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
 
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
@@ -16,68 +16,148 @@ export default {
     {
       title: 'Single',
       require: 'import Dropdown from \'@klarna/ui/Dropdown\'',
-      type: LIVE,
+      type: MANUAL,
 
       examples: {
-        Regular: <Dropdown
-          label='Lorem ipsum'
-          options={options}
-        />,
+        Regular: {
+          live: <Dropdown
+            label='Lorem ipsum'
+            options={options}
+          />,
+          code:
+`<Dropdown
+  label='Lorem ipsum'
+  options={options}
+/>`
+        },
 
-        Controlled: <Dropdown
-          label='Lorem ipsum'
-          options={options}
-          focus
-          value='lorem'
-        />,
+        Controlled: {
+          live: <Dropdown
+            label='Lorem ipsum'
+            options={options}
+            focus={false}
+            value='lorem'
+          />,
+          code:
+`<Dropdown
+  label='Lorem ipsum'
+  options={options}
+  focus={false}
+  value='lorem'
+/>`
+        },
 
-        'Selected without label': <Dropdown
-          options={options}
-          value='ipsum'
-        />,
+        'Selected without label': {
+          live: <Dropdown
+            options={options}
+            value='ipsum'
+          />,
+          code:
+`<Dropdown
+  options={options}
+  value='ipsum'
+/>`
+        },
 
-        'With name': <Dropdown
-          label='Lorem ipsum'
-          name='dolor-sit-amet'
-          options={options}
-        />,
+        'With name': {
+          live: <Dropdown
+            label='Lorem ipsum'
+            name='dolor-sit-amet'
+            options={options}
+          />,
+          code:
+`<Dropdown
+  label='Lorem ipsum'
+  name='dolor-sit-amet'
+  options={options}
+/>`
+        },
 
-        'With fake focus': <Dropdown
-          focus='fake'
-          label='Lorem ipsum'
-          options={options}
-        />,
+        'With fake focus': {
+          live: <Dropdown
+            focus='fake'
+            label='Lorem ipsum'
+            options={options}
+          />,
+          code:
+`<Dropdown
+  focus='fake'
+  label='Lorem ipsum'
+  options={options}
+/>`
+        },
 
-        Loading: <Dropdown
-          label='Wait...'
-          loading
-          options={options}
-        />,
+        Loading: {
+          live: <Dropdown
+            label='Wait...'
+            loading
+            options={options}
+          />,
+          code:
+`<Dropdown
+  label='Wait...'
+  loading
+  options={options}
+/>`
+        },
 
-        Disabled: <Dropdown
-          disabled
-          label='Disabled'
-          options={options}
-        />,
+        Disabled: {
+          live: <Dropdown
+            disabled
+            label='Disabled'
+            options={options}
+          />,
+          code:
+`<Dropdown
+  disabled
+  label='Disabled'
+  options={options}
+/>`
+        },
 
-        'Exclude Mouseflow': <Dropdown
-          mouseflowExclude
-          label='Disabled'
-          value='lorem'
-          options={options}
-        />,
+        'Exclude Mouseflow': {
+          live: <Dropdown
+            mouseflowExclude
+            label='Disabled'
+            value='lorem'
+            options={options}
+          />,
+          code:
+`<Dropdown
+  mouseflowExclude
+  label='Disabled'
+  value='lorem'
+  options={options}
+/>,`
+        },
 
-        'With error': <Dropdown
-          label='Something went wrong'
-          error
-          options={options}
-        />,
+        'With error': {
+          live: <Dropdown
+            label='Something went wrong'
+            error
+            options={options}
+          />,
+          code:
+`<Dropdown
+  label='Something went wrong'
+  error
+  options={options}
+/>,`
+        },
 
-        'With warning': <Dropdown
-          label='Something is incorect'
-          warning
-          options={options}
-        />
+        'With warning': {
+          live: <Dropdown
+            label='Something is incorect'
+            warning
+            options={options}
+          />,
+          code:
+`<Dropdown
+  label='Something is incorect'
+  warning
+  options={options}
+/>`
+        }
       }
     },
 
