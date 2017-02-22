@@ -217,7 +217,7 @@ class Radio extends Component {
           ]
         })}
 
-        {visibleOptions && <Collapsible
+        {optionLists.collapsed.length > 0 && <Collapsible
           onStartFPSCollection={onStartFPSCollection}
           onEndFPSCollection={onEndFPSCollection}
           lowFPS={lowFPS}
