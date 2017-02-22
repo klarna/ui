@@ -12,49 +12,106 @@ export default {
     {
       title: 'Single',
       require: 'import Field from \'@klarna/ui/Field\'',
-      type: LIVE,
+      type: MANUAL,
 
       examples: {
-        Regular: <Field label='Enter your email' />,
+        Regular: {
+          live: <Field label='Enter your email' />,
+          code: `<Field label='Enter your email' />`
+        },
 
-        Controlled: <Field
-          label='Enter your email'
-          value='someone@example.com'
-          focus
-        />,
+        Controlled: {
+          live: <Field
+            label='Enter your email'
+            value='someone@example.com'
+            focus={false}
+          />,
+          code:
+`<Field
+  label='Enter your email'
+  value='someone@example.com'
+  focus={false}
+/>`
+        },
 
-        Big: <Field label='Enter your email' big />,
+        Big: {
+          live: <Field label='Enter your email' big />,
+          code: `<Field label='Enter your email' big />`
+        },
 
-        'Pin code variation': <Field
-          pinCode
-          label='Enter your email'
-        />,
+        'Pin code variation': {
+          live: <Field
+            pinCode
+            label='Enter your email'
+          />,
+          code:
+`<Field
+  pinCode
+  label='Enter your email'
+/>`
+        },
 
-        'With name': <Field name='email' label='Enter your email' />,
+        'With name': {
+          live: <Field name='email' label='Enter your email' />,
+          code: `<Field name='email' label='Enter your email' />`
+        },
 
-        'With fake focus': <Field label='Enter your email' focus='fake' />,
+        'With fake focus': {
+          live: <Field label='Enter your email' focus='fake' />,
+          code: `<Field label='Enter your email' focus='fake' />`
+        },
 
-        Disabled: <Field disabled label='Address' defaultValue='16, Corn street' />,
+        Disabled: {
+          live: <Field disabled label='Address' defaultValue='16, Corn street' />,
+          code: `<Field disabled label='Address' defaultValue='16, Corn street' />`
+        },
 
-        'Exclude Mouseflow': <Field
-          mouseflowExclude
-          label='Address'
-          defaultValue='16, Corn street'
-        />,
+        'Exclude Mouseflow': {
+          live: <Field
+            mouseflowExclude
+            label='Address'
+            defaultValue='16, Corn street'
+          />,
+          code:
+`<Field
+  mouseflowExclude
+  label='Address'
+  defaultValue='16, Corn street'
+/>`
+        },
 
-        'With error': <Field label='Invalid email' error defaultValue='invalid@' />,
+        'With error': {
+          live: <Field label='Invalid email' error defaultValue='invalid@' />,
+          code: `<Field label='Invalid email' error defaultValue='invalid@' />`
+        },
 
-        'With warning': <Field
-          label='Are you sure the domain is exanple?'
-          warning
-          defaultValue='email@exanple.com'
-        />,
+        'With warning': {
+          live: <Field
+            label='Are you sure the domain is exanple?'
+            warning
+            defaultValue='email@exanple.com'
+          />,
+          code:
+`<Field
+  label='Are you sure the domain is exanple?'
+  warning
+  defaultValue='email@exanple.com'
+/>`
+        },
 
-        'With customizations': <Field
-          customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
-          label='Favorite color'
-          defaultValue='Purple'
-        />
+        'With customizations': {
+          live: <Field
+            customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
+            label='Favorite color'
+            defaultValue='Purple'
+          />,
+          code:
+`<Field
+  customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
+  label='Favorite color'
+  defaultValue='Purple'
+/>`
+        }
       }
     },
 
