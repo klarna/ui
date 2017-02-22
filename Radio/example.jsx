@@ -97,6 +97,18 @@ export default {
         visibleOptions={1}
       />,
 
+      'Completely collapsed': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        visibleOptions={0}
+      />,
+
+      'Partially collapsed with options that fit the configuration': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        visibleOptions={50}
+      />,
+
       Controlled: <Radio
         focus='sit'
         name='radio'
@@ -105,11 +117,18 @@ export default {
         value='ipsum'
       />,
 
-      'Partially collapsed & controlled': <Radio
+      'Partially collapsed & controlled (not expanded)': <Radio
         options={optionsWithContent}
         expandLabel='Show me all the options'
         visibleOptions={1}
         fullyExpanded={false}
+      />,
+
+      'Partially collapsed & controlled (expanded)': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        visibleOptions={1}
+        fullyExpanded
       />,
 
       Borderless: <Radio
