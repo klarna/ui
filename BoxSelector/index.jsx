@@ -60,4 +60,4 @@ BoxSelector.propTypes = {
   layout: PropTypes.oneOf(['auto', 'horizontal', 'vertical'])
 }
 
-export default overridable(defaultStyles, BoxSelector)
+export default overridable(defaultStyles)(BoxSelector)
