@@ -34,16 +34,14 @@ const classes = {
 
 class Radio extends Component {
   componentDidMount () {
-    if (
-      this.props.focus &&
-      this.refs[this.props.focus] &&
-      getActiveElement(document) !== this.refs[this.props.focus]
-    ) {
-      this.refs[this.props.focus].focus()
-    }
+    this.applyFocus()
   }
 
   componentDidUpdate () {
+    this.applyFocus()
+  }
+
+  applyFocus () {
     if (
       this.props.focus &&
       this.refs[this.props.focus] &&
