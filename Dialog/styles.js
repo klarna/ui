@@ -11,39 +11,38 @@ export default {
     }
   },
 
-  desktop: {
+  floating: {
     dialog: {
       borderRadius: grid(1.6),
       marginLeft: 'auto',
       marginRight: 'auto',
       height: 'auto',
-      paddingBottom: grid(10),
-      paddingLeft: grid(12),
-      paddingRight: grid(12),
-      paddingTop: grid(10),
       width: grid(87)
     }
   },
 
-  narrow: {
+  fixed: {
     dialog: {
       height: '100%',
-      paddingBottom: grid(10),
-      paddingLeft: grid(6),
-      paddingRight: grid(6),
-      paddingTop: grid(10),
       weight: '100%'
     }
   },
 
-  mobile: {
+  bigPadding: {
     dialog: {
-      height: '100%',
       paddingBottom: grid(10),
       paddingLeft: grid(12),
       paddingRight: grid(12),
-      paddingTop: grid(10),
-      weight: '100%'
+      paddingTop: grid(10)
+    }
+  },
+
+  smallPadding: {
+    dialog: {
+      paddingBottom: grid(10),
+      paddingLeft: grid(8),
+      paddingRight: grid(8),
+      paddingTop: grid(10)
     }
   }
 }
