@@ -15,6 +15,17 @@
     );
   }
 
+  .visibilityHidden {
+    visibility: hidden;
+    height: 0;
+
+    .button__price {
+      float: none;
+      padding-left: 0;
+      margin-left: 0;
+    }
+  }
+
   .button--primary__darkening {
     background: black;
     bottom: 0;
@@ -58,6 +69,17 @@
     @include button__price(
       $border-color: map-get($colors, klarna-blue)
     );
+  }
+
+  .visibilityHidden {
+    visibility: hidden;
+    height: 0;
+
+    .button__price {
+      float: none;
+      padding-left: 0;
+      margin-left: 0;
+    }
   }
 
   &:hover,
@@ -149,6 +171,18 @@
       $border-color: map-get($colors, klarna-blue)
     );
   }
+
+  .visibilityHidden {
+    visibility: hidden;
+    height: 0;
+
+    .button__price {
+      float: none;
+      padding-left: 0;
+      margin-left: 0;
+    }
+  }
+
 
   &:hover,
   &:focus {
