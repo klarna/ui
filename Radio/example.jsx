@@ -105,11 +105,18 @@ export default {
         value='ipsum'
       />,
 
-      'Partially collapsed & controlled': <Radio
+      'Partially collapsed & controlled (not expanded)': <Radio
         options={optionsWithContent}
         expandLabel='Show me all the options'
         visibleOptions={1}
         fullyExpanded={false}
+      />,
+
+      'Partially collapsed & controlled (expanded)': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        visibleOptions={1}
+        fullyExpanded
       />,
 
       Borderless: <Radio
