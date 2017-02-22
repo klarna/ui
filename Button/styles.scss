@@ -1,6 +1,19 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
+@mixin loading-or-success() {
+  .visibilityHidden {
+    visibility: hidden;
+    height: 0;
+
+    .button__price {
+      float: none;
+      padding-left: 0;
+      margin-left: 0;
+    }
+  }
+}
+
 .button--primary {
   @include button(
     $background: map-get($colors, klarna-blue),
@@ -15,16 +28,7 @@
     );
   }
 
-  .visibilityHidden {
-    visibility: hidden;
-    height: 0;
-
-    .button__price {
-      float: none;
-      padding-left: 0;
-      margin-left: 0;
-    }
-  }
+  @include loading-or-success();
 
   .button--primary__darkening {
     background: black;
@@ -71,16 +75,7 @@
     );
   }
 
-  .visibilityHidden {
-    visibility: hidden;
-    height: 0;
-
-    .button__price {
-      float: none;
-      padding-left: 0;
-      margin-left: 0;
-    }
-  }
+  @include loading-or-success();
 
   &:hover,
   &:focus {
@@ -172,17 +167,7 @@
     );
   }
 
-  .visibilityHidden {
-    visibility: hidden;
-    height: 0;
-
-    .button__price {
-      float: none;
-      padding-left: 0;
-      margin-left: 0;
-    }
-  }
-
+  @include loading-or-success();
 
   &:hover,
   &:focus {
