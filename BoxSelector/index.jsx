@@ -3,7 +3,6 @@ import classNamesBind from 'classnames/bind'
 import {
   overridable
 } from '@klarna/higher-order-components'
-import compose from 'ramda/src/compose'
 import Horizontal from './Horizontal'
 import Vertical from './Vertical'
 import defaultStyles from './styles.scss'
@@ -61,6 +60,4 @@ BoxSelector.propTypes = {
   layout: PropTypes.oneOf(['auto', 'horizontal', 'vertical'])
 }
 
-export default compose(
-  overridable(defaultStyles)
-)(BoxSelector)
+export default overridable(defaultStyles, BoxSelector)
