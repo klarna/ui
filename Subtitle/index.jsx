@@ -38,6 +38,8 @@ function Subtitle ({
   )
 }
 
+Subtitle.displayName = 'Subtitle'
+
 Subtitle.defaultProps = {
   color: 'black',
   condensed: false,
