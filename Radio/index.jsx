@@ -90,9 +90,9 @@ class Radio extends Component {
         : []
     }
 
-    const isExpanded = fullyExpanded || (
-      value && optionLists.collapsed.find(({key}) => key === value) != null
-    )
+    const isExpanded = fullyExpanded ||
+      (optionLists.collapsed.length === 0) ||
+      (value && optionLists.collapsed.find(({key}) => key === value) != null)
 
     return (
       <div
