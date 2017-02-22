@@ -97,6 +97,12 @@ export default {
         visibleOptions={1}
       />,
 
+      'Completely collapsed': <Radio
+        options={optionsWithContent}
+        expandLabel='Show me all the options'
+        visibleOptions={0}
+      />,
+
       'Partially collapsed with options that fit the configuration': <Radio
         options={optionsWithContent}
         expandLabel='Show me all the options'

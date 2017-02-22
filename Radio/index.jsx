@@ -82,10 +82,10 @@ class Radio extends Component {
     const descriptionStyle = customize ? { color: customize.textSecondaryColor } : undefined
 
     const optionLists = {
-      visible: visibleOptions
+      visible: typeof visibleOptions !== 'undefined'
         ? options.slice(0, visibleOptions)
         : options,
-      collapsed: visibleOptions
+      collapsed: typeof visibleOptions !== 'undefined'
         ? options.slice(visibleOptions)
         : []
     }
