@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
+import * as Paragraph from '../Paragraph'
 
 import compose from 'ramda/src/compose'
 import {overridable, themeable} from '@klarna/higher-order-components'
@@ -10,10 +11,11 @@ const baseClass = 'checklist'
 
 const classes = {
   item: `${baseClass}__item`,
-  checkmark: `${baseClass}__checkmark`
+  checkmark: `${baseClass}__checkmark`,
+  title: `${baseClass}__title`
 }
 
-function ChecklistMain ({ chromeless, className, children, customize, style, styles, ...props }) {
+function ChecklistMain ({ chromeless, className, children, customize, style, styles, title, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const dynamicStyles = customize
@@ -29,8 +31,19 @@ function ChecklistMain ({ chromeless, className, children, customize, style, sty
     }}
     className={classNames(baseClass, { chromeless }, className)}
     {...props}>
+    {title && renderTitle(title, classNames(classes.title))}
     {children}
   </ul>
+}
+
+function renderTitle (title, className) {
+  return (
+    <li>
+      <Paragraph.Primary className={className}>
+        <strong>{title}</strong>
+      </Paragraph.Primary>
+    </li>
+  )
 }
 
 ChecklistMain.displayName = 'Checklist.Main'
@@ -41,6 +54,7 @@ ChecklistMain.propTypes = {
   chromeless: PropTypes.bool,
   id: PropTypes.string,
   styles: PropTypes.object,
+  title: PropTypes.string,
   customize: PropTypes.shape({
     borderColor: PropTypes.string.isRequired,
     borderRadius: PropTypes.string.isRequired
