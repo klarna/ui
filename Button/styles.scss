@@ -3,13 +3,13 @@
 
 @mixin loading-or-success() {
   .visibilityHidden {
-    visibility: hidden;
     height: 0;
+    visibility: hidden;
 
     .button__price {
       float: none;
-      padding-left: 0;
       margin-left: 0;
+      padding-left: 0;
     }
   }
 }
