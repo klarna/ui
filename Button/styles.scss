@@ -1,6 +1,19 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
+@mixin loading-or-success() {
+  .visibilityHidden {
+    height: 0;
+    visibility: hidden;
+
+    .button__price {
+      float: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+}
+
 .button--primary {
   @include button(
     $background: map-get($colors, klarna-blue),
@@ -14,6 +27,8 @@
       $border-color: white
     );
   }
+
+  @include loading-or-success();
 
   .button--primary__darkening {
     background: black;
@@ -59,6 +74,8 @@
       $border-color: map-get($colors, klarna-blue)
     );
   }
+
+  @include loading-or-success();
 
   &:hover,
   &:focus {
@@ -149,6 +166,8 @@
       $border-color: map-get($colors, klarna-blue)
     );
   }
+
+  @include loading-or-success();
 
   &:hover,
   &:focus {
