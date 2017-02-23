@@ -118,7 +118,7 @@ export default {
       type: LIVE,
 
       examples: {
-        Small: <Button.Primary size='small'>Click me!</Button.Primary>,
+        Small: <Button.Primary href='http://google.com' size='small'>Click me!</Button.Primary>,
         Regular: <Button.Primary>Click me!</Button.Primary>,
         Big: <Button.Primary size='big'>Click me!</Button.Primary>,
         Custom: <Button.Primary

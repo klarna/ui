@@ -69,7 +69,7 @@ function Primary ({
     } : {}
 
   return (
-    <button
+    <a
       className={cls}
       disabled={loading || success || disabled}
       id={id}
@@ -92,7 +92,7 @@ function Primary ({
         />
       ]
       : loadingOrContent}
-    </button>
+    </a>
   )
 }
 
