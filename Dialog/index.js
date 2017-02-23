@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react'
 import deepMerge from 'deepmerge'
 import compose from 'ramda/src/compose'
+import {withDisplayName} from '@klarna/higher-order-components'
+import withLayoutProps from '../lib/hocToMove/withLayoutProps'
 import defaultStyles from './styles'
 
 function Dialog ({
@@ -45,15 +47,17 @@ Dialog.defaultProps = {
 }
 
 export default compose(
+  withDisplayName('Dialog'),
   withLayoutProps({
     narrow: {
-      layout: 'narrow'
+      fixed: true,
+      smallPadding: true
     },
     mobile: {
-      layout: 'mobile'
+      fixed: true
     },
     desktop: {
-      layout: 'desktop'
+      smallPadding: true
     }
   })
-)
+)(Dialog)
