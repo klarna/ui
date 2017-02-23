@@ -34,17 +34,17 @@ const classes = {
 
 class Radio extends Component {
   componentDidMount () {
-    if (
-      this.props.focus &&
-      getActiveElement(document) !== this.refs[this.props.focus]
-    ) {
-      this.refs[this.props.focus].focus()
-    }
+    this.applyFocus()
   }
 
   componentDidUpdate () {
+    this.applyFocus()
+  }
+
+  applyFocus () {
     if (
       this.props.focus &&
+      this.refs[this.props.focus] &&
       getActiveElement(document) !== this.refs[this.props.focus]
     ) {
       this.refs[this.props.focus].focus()
@@ -82,17 +82,17 @@ class Radio extends Component {
     const descriptionStyle = customize ? { color: customize.textSecondaryColor } : undefined
 
     const optionLists = {
-      visible: visibleOptions
+      visible: typeof visibleOptions !== 'undefined'
         ? options.slice(0, visibleOptions)
         : options,
-      collapsed: visibleOptions
+      collapsed: typeof visibleOptions !== 'undefined'
         ? options.slice(visibleOptions)
         : []
     }
 
-    const isExpanded = fullyExpanded || (
-      value && optionLists.collapsed.find(({key}) => key === value) != null
-    )
+    const isExpanded = fullyExpanded ||
+      (optionLists.collapsed.length === 0) ||
+      (value && optionLists.collapsed.find(({key}) => key === value) != null)
 
     return (
       <div
@@ -217,7 +217,7 @@ class Radio extends Component {
           ]
         })}
 
-        {visibleOptions && <Collapsible
+        {optionLists.collapsed.length > 0 && <Collapsible
           onStartFPSCollection={onStartFPSCollection}
           onEndFPSCollection={onEndFPSCollection}
           lowFPS={lowFPS}
