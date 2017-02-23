@@ -12,40 +12,85 @@ export default {
     {
       title: 'Single',
       require: `import Input from '@klarna/ui/Input'`,
-      type: LIVE,
+      type: MANUAL,
 
       examples: {
-        Regular: <Input label='Enter your email' />,
+        Regular: {
+          live: <Input label='Enter your email' />,
+          code: `<Input label='Enter your email' />`
+        },
 
-        Controlled: <Input
-          label='Enter your email'
-          value='someone@example.com'
-          focus
-        />,
+        Controlled: {
+          live: <Input
+            label='Enter your email'
+            value='someone@example.com'
+            focus={false}
+          />,
+          code:
+`<Input
+  label='Enter your email'
+  value='someone@example.com'
+  focus={false}
+/>`
+        },
 
-        Big: <Input label='Enter your email' big />,
+        Big: {
+          live: <Input label='Enter your email' big />,
+          code: `<Input label='Enter your email' big />`
+        },
 
-        Giant: <Input label='Enter your email' giant />,
+        Giant: {
+          live: <Input label='Enter your email' giant />,
+          code: `<Input label='Enter your email' giant />`
+        },
 
-        'With name': <Input label='Enter your email' name='email' />,
+        'With name': {
+          live: <Input label='Enter your email' name='email' />,
+          code: `<Input label='Enter your email' name='email' />`
+        },
 
-        'Fake focused': <Input label='Enter your email' focus='fake' />,
+        'Fake focused': {
+          live: <Input label='Enter your email' focus='fake' />,
+          code: `<Input label='Enter your email' focus='fake' />`
+        },
 
-        Disabled: <Input disabled label='Address' defaultValue='16, Corn street' />,
+        Disabled: {
+          live: <Input disabled label='Address' defaultValue='16, Corn street' />,
+          code: `<Input disabled label='Address' defaultValue='16, Corn street' />`
+        },
 
-        'Exclude Mouseflow': <Input
-          mouseflowExclude
-          label='Address'
-          defaultValue='16, Corn street'
-        />,
+        'Exclude Mouseflow': {
+          live: <Input
+            mouseflowExclude
+            label='Address'
+            defaultValue='16, Corn street'
+          />,
+          code:
+`<Input
+  mouseflowExclude
+  label='Address'
+  defaultValue='16, Corn street'
+/>`
+        },
 
-        'With error': <Input label='Invalid email' error defaultValue='invalid@' />,
+        'With error': {
+          live: <Input label='Invalid email' error defaultValue='invalid@' />,
+          code: `<Input label='Invalid email' error defaultValue='invalid@' />`
+        },
 
-        'With warning': <Input
-          label='Are you sure the domain is exanple?'
-          warning
-          defaultValue='email@exanple.com'
-        />
+        'With warning': {
+          live: <Input
+            label='Are you sure the domain is exanple?'
+            warning
+            defaultValue='email@exanple.com'
+          />,
+          code:
+`<Input
+  label='Are you sure the domain is exanple?'
+  warning
+  defaultValue='email@exanple.com'
+/>`
+        }
       }
     },
 

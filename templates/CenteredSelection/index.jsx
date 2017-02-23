@@ -11,6 +11,7 @@ const classes = {
 }
 
 export default function CenteredSelection ({
+  id,
   illustration,
   onSelect,
   options,
@@ -20,8 +21,15 @@ export default function CenteredSelection ({
   ...props
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
+  const ids = id
+    ? {
+      centered: `${id}__centered`,
+      selectorDirect: `${id}__selector-direct`
+    }
+    : {}
 
   return <Centered
+    id={ids.centered}
     illustration={illustration}
     labels={{
       summary,
@@ -29,6 +37,7 @@ export default function CenteredSelection ({
     }}
     {...props}>
     <Selector.Direct
+      id={ids.selectorDirect}
       className={classNames(classes.selector)}
       data={options}
       onSelect={onSelect}

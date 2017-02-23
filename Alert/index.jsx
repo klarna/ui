@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
+import compose from 'ramda/src/compose'
+import {overridable} from '@klarna/higher-order-components'
 
 const baseClass = 'alert'
 
@@ -12,7 +14,7 @@ const classes = {
   warning: `${baseClass}--warning`
 }
 
-export function Error ({ children, className, styles, ...remainingProps }) {
+function AlertError ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -24,16 +26,20 @@ export function Error ({ children, className, styles, ...remainingProps }) {
   )
 }
 
-Error.displayName = 'Alert.Error'
+AlertError.displayName = 'Alert.Error'
 
-Error.propTypes = {
+AlertError.propTypes = {
   children: childrenPropType,
   className: PropTypes.string,
   id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Warning ({ children, className, styles, ...remainingProps }) {
+export const Error = compose(
+  overridable(defaultStyles)
+)(AlertError)
+
+export function AlertWarning ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -45,16 +51,20 @@ export function Warning ({ children, className, styles, ...remainingProps }) {
   )
 }
 
-Warning.displayName = 'Alert.Warning'
+AlertWarning.displayName = 'Alert.Warning'
 
-Warning.propTypes = {
+AlertWarning.propTypes = {
   children: childrenPropType,
   className: PropTypes.string,
   id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Title ({ children, className, styles, ...remainingProps }) {
+export const Warning = compose(
+  overridable(defaultStyles)
+)(AlertWarning)
+
+function AlertTitle ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -66,16 +76,20 @@ export function Title ({ children, className, styles, ...remainingProps }) {
   )
 }
 
-Title.displayName = 'Alert.Title'
+AlertTitle.displayName = 'Alert.Title'
 
-Title.propTypes = {
+AlertTitle.propTypes = {
   children: childrenPropType,
   className: PropTypes.string,
   id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Paragraph ({ children, className, styles, ...remainingProps }) {
+export const Title = compose(
+  overridable(defaultStyles)
+)(AlertTitle)
+
+export function AlertParagraph ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -87,11 +101,15 @@ export function Paragraph ({ children, className, styles, ...remainingProps }) {
   )
 }
 
-Paragraph.displayName = 'Alert.Paragraph'
+AlertParagraph.displayName = 'Alert.Paragraph'
 
-Paragraph.propTypes = {
+AlertParagraph.propTypes = {
   children: childrenPropType,
   className: PropTypes.string,
   id: PropTypes.string,
   styles: PropTypes.object
 }
+
+export const Paragraph = compose(
+  overridable(defaultStyles)
+)(AlertParagraph)

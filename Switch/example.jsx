@@ -107,6 +107,10 @@ export default {
           Disabled checkbox
         </Switch.Checkbox>,
 
+        Partial: <Switch.Checkbox defaultValue partial>
+          Partially checked
+        </Switch.Checkbox>,
+
         'With error': <Switch.Checkbox error>
           Checkbox with error
         </Switch.Checkbox>,

@@ -229,7 +229,7 @@ export default {
 
       examples: {
         Small: <Button.Tertiary size='small'>Click me!</Button.Tertiary>,
-        Regular: <Button.Tertiary>Click me!</Button.Tertiary>,
+        Regular: <Button.Tertiary brandVolume='high'>Click me!</Button.Tertiary>,
         Big: <Button.Tertiary size='big'>Click me!</Button.Tertiary>,
         Custom: <Button.Tertiary
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>

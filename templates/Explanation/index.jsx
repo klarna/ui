@@ -17,26 +17,41 @@ export default function Explanation ({
   className,
   content,
   legal,
+  id,
   title,
   styles,
   ...props
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
+  const ids = id
+    ? {
+      dialogContent: `${id}__dialog-content`,
+      title: `${id}__title`,
+      paragraph: `${id}__paragraph`,
+      legal: `${id}__legal`
+    }
+    : {}
+
   return <Dialog.Content
+    id={ids.dialogContent}
     className={classNames(baseClass, className)}
     {...props}>
     <Title.Primary
+      id={ids.title}
       className={classNames(classes.title)}>
       {title}
     </Title.Primary>
 
     <Paragraph.Primary
+      id={ids.paragraph}
       className={classNames(classes.content)}>
       {content}
     </Paragraph.Primary>
 
-    <Paragraph.Legal className={classNames(classes.legal)}>
+    <Paragraph.Legal
+      id={ids.legal}
+      className={classNames(classes.legal)}>
       {legal}
     </Paragraph.Legal>
   </Dialog.Content>

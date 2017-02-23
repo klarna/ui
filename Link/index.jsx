@@ -40,6 +40,8 @@ function Link ({
   </a>
 }
 
+Link.displayName = 'Link'
+
 Link.propTypes = {
   children: childrenPropType,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
