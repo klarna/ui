@@ -51,6 +51,28 @@ class Radio extends Component {
     }
   }
 
+  componentWillUpdate (nextProps) {
+    const { options, visibleOptions, value, onExpand } = nextProps
+
+    const shouldExpand = value &&
+      this.getOptionsLists(options, visibleOptions).collapsed.find(({key}) => key === value) != null
+
+    if (shouldExpand) {
+      onExpand()
+    }
+  }
+
+  getOptionsLists (options, visibleOptions) {
+    return {
+      visible: typeof visibleOptions !== 'undefined'
+        ? options.slice(0, visibleOptions)
+        : options,
+      collapsed: typeof visibleOptions !== 'undefined'
+        ? options.slice(visibleOptions)
+        : []
+    }
+  }
+
   render () {
     const {
       borderless,
@@ -81,18 +103,9 @@ class Radio extends Component {
     const labelStyle = customize ? { color: customize.textPrimaryColor } : undefined
     const descriptionStyle = customize ? { color: customize.textSecondaryColor } : undefined
 
-    const optionLists = {
-      visible: typeof visibleOptions !== 'undefined'
-        ? options.slice(0, visibleOptions)
-        : options,
-      collapsed: typeof visibleOptions !== 'undefined'
-        ? options.slice(visibleOptions)
-        : []
-    }
+    const optionLists = this.getOptionsLists(options, visibleOptions)
 
-    const isExpanded = fullyExpanded ||
-      (optionLists.collapsed.length === 0) ||
-      (value && optionLists.collapsed.find(({key}) => key === value) != null)
+    const isExpanded = fullyExpanded || optionLists.collapsed.length === 0
 
     return (
       <div
