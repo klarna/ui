@@ -51,7 +51,7 @@ class Radio extends Component {
     }
   }
 
-  componentWillUpdate (nextProps) {
+  componentWillReceiveProps (nextProps) {
     const { options, visibleOptions, value, onExpand } = nextProps
 
     const shouldExpand = value &&
