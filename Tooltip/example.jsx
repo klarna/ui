@@ -7,7 +7,7 @@ export default {
   icon: 'Tooltip',
 
   examples: {
-    require: 'import Tooltip from \'@klarna/ui/Tooltip\'',
+    require: `import Tooltip from '@klarna/ui/Tooltip'`,
     type: LIVE,
 
     examples: {

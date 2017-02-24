@@ -11,7 +11,7 @@ export default {
   variations: [
     {
       title: 'Single',
-      require: 'import Input from \'@klarna/ui/Input\'',
+      require: `import Input from '@klarna/ui/Input'`,
       type: MANUAL,
 
       examples: {

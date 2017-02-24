@@ -11,7 +11,7 @@ export default {
   variations: [
     {
       title: 'Single',
-      require: 'import Field from \'@klarna/ui/Field\'',
+      require: `import Field from '@klarna/ui/Field'`,
       type: MANUAL,
 
       examples: {
