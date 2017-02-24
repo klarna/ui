@@ -1,5 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
+import {
+  overridable
+} from '@klarna/higher-order-components'
 import Horizontal from './Horizontal'
 import Vertical from './Vertical'
 import defaultStyles from './styles.scss'
@@ -47,6 +50,8 @@ class BoxSelector extends Component {
   }
 }
 
+BoxSelector.displayName = 'BoxSelector'
+
 BoxSelector.defaultProps = {
   layout: 'auto'
 }
@@ -55,4 +60,4 @@ BoxSelector.propTypes = {
   layout: PropTypes.oneOf(['auto', 'horizontal', 'vertical'])
 }
 
-export default BoxSelector
+export default overridable(defaultStyles)(BoxSelector)
