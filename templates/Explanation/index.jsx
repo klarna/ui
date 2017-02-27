@@ -1,6 +1,5 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as Dialog from '../../Dialog'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
 import defaultStyles from './styles.scss'
@@ -33,10 +32,8 @@ export default function Explanation ({
     }
     : {}
 
-  return <Dialog.Content
-    id={ids.dialogContent}
-    className={classNames(baseClass, className)}
-    {...props}>
+  return <div
+    id={ids.dialogContent} {...props}>
     <Title.Primary
       id={ids.title}
       className={classNames(classes.title)}>
@@ -54,5 +51,5 @@ export default function Explanation ({
       className={classNames(classes.legal)}>
       {legal}
     </Paragraph.Legal>
-  </Dialog.Content>
+  </div>
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as Dialog from '../../../Dialog'
 import * as Button from '../../../Button'
 import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
 import Cross from '../../../icons/Cross'
 import Link from '../../../Link'
 import defaultStyles from './styles.scss'
+import defaultStylesJS from './styles'
 
 const baseClass = 'chrome--centered'
 
@@ -54,9 +54,11 @@ export default function Centered ({
       paragraph: () => ''
     }
 
-  return <Dialog.Content
+  return <div
     id={ids.dialogContent}
-    className={classNames(baseClass, className)}>
+    style={{
+      ...defaultStylesJS.base.main
+    }}>
     {illustration}
 
     <Title.Primary
@@ -113,5 +115,5 @@ export default function Centered ({
       className={classNames(classes.legal)}>
       {labels.legal}
     </Paragraph.Legal>}
-  </Dialog.Content>
+  </div>
 }

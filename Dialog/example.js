@@ -139,6 +139,18 @@ export default {
         </Dialog>
       </div>
 
+      <Code.Block
+        standalone
+        language='imports'
+        style={{
+          marginBottom: grid(4)
+        }}>
+        {`import Backdrop from '@klarna/ui/Backdrop'
+import Dialog from '@klarna/ui/Dialog'
+import {Back, Close} from '@klarna/ui/IconButton'
+import * as Title from '@klarna/ui/Title'`}
+      </Code.Block>
+
       <Code.Block standalone>
         {firstExample}
       </Code.Block>

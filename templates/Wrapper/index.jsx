@@ -1,5 +1,5 @@
 import React from 'react'
-import * as Dialog from '../../Dialog'
+import Dialog from '../../Dialog'
 import { Back, Close } from '../../IconButton'
 
 export default function Wrapper ({
@@ -9,28 +9,17 @@ export default function Wrapper ({
   onClose,
   ...props
 }) {
-  return (
-    <Dialog.Overlay
-      className={className}
-      show
-      {...props}>
-      <Dialog.Main>
-        {onBack && <Dialog.Icon left>
-          <Back
-            onClick={onBack}
-            color='gray'
-          />
-        </Dialog.Icon>}
-
-        {onClose && <Dialog.Icon>
-          <Close
-            onClick={onClose}
-            color='gray'
-          />
-        </Dialog.Icon>}
-
-        {children}
-      </Dialog.Main>
-    </Dialog.Overlay>
-  )
+  return <Dialog {...props}>
+    {onBack && <Back
+      onClick={onBack}
+      color='gray'
+      topLeft
+    />}
+    {onClose && <Close
+      onClick={onClose}
+      color='gray'
+      topRight
+    />}
+    {children}
+  </Dialog>
 }
