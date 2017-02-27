@@ -7,5 +7,5 @@ import * as Title from '../Title'
 export default html2react({
   h1: (props) => <Title.Primary margins {...props} />,
   p: (props) => <Paragraph.Primary margins {...props} />,
-  strong: Strong,
+  strong: Strong
 })
