@@ -25,7 +25,7 @@ const ProgressBar = ({
       className={classNames('progressbar', borderColor, className)}
       id={id}
       {...props}>
-      <Motion style={{ percentage: spring(percentage) }}>
+      <Motion defaultStyle={{ percentage: 0 }} style={{ percentage: spring(percentage) }}>
         {({ percentage }) =>
           <div
             className={classNames('progressbar-fill', fillColor)}

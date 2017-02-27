@@ -8,7 +8,7 @@ export default {
   variations: [
     {
       title: 'Unordered',
-      require: 'import * as List from \'@klarna/ui/List\'',
+      require: `import * as List from '@klarna/ui/List'`,
       type: LIVE,
 
       examples: {
@@ -77,7 +77,7 @@ export default {
 
     {
       title: 'Ordered',
-      require: 'import * as List from \'@klarna/ui/List\'',
+      require: `import * as List from '@klarna/ui/List'`,
       type: LIVE,
 
       examples: {
@@ -161,7 +161,7 @@ export default {
 
     {
       title: 'Iconic',
-      require: 'import * as List from \'@klarna/ui/List\'',
+      require: `import * as List from '@klarna/ui/List'`,
       type: LIVE,
 
       examples: {

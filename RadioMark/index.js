@@ -2,37 +2,51 @@ import React, { PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
 import compose from 'ramda/src/compose'
 import {themeable} from '@klarna/higher-order-components'
+import deepMerge from 'deepmerge'
+import defaultStyles from './styles'
 
-const grayLines = '#cbcbcd'
-const klarnaBlue = '#0074c8'
-const white = 'white'
-
-function RadioMark ({ customize, checked, disabled, onClick, lowFPS }) {
-  const backgroundColor = customize ? customize.backgroundColor : klarnaBlue
-  const bulletColor = customize ? customize.bulletColor : white
-  const scale = checked ? 1 : 3
+function RadioMark ({
+  customize,
+  checked,
+  disabled,
+  onClick,
+  lowFPS,
+  styles,
+  ...props
+}) {
+  const finalStyles = deepMerge(defaultStyles, styles)
+  const scale = checked
+    ? finalStyles.checked.animation.scale
+    : finalStyles.base.animation.scale
 
   return (
-    <svg width='14' height='14' onClick={onClick}>
-      <Motion style={{ scale: lowFPS ? scale : spring(scale) }}>
+    <svg
+      width={finalStyles.base.main.width}
+      height={finalStyles.base.main.height}
+      onClick={onClick}
+      {...props}>
+      <Motion
+        style={{
+          scale: lowFPS
+            ? scale
+            : spring(scale)
+        }}>
         {({ scale }) => (
           <g>
-            <circle cx='7' cy='7' r='7' fill={grayLines} />
-            <circle cx='7' cy='7' r='7' fill={disabled ? grayLines : backgroundColor} style={{ opacity: 1 - (scale - 1) / 2 }} />
+            <circle {...finalStyles.base.borderCircle} />
+            <circle
+              {...finalStyles.base.backgroundCircle}
+              {...(customize ? {fill: customize.backgroundColor} : {})}
+              {...(disabled ? finalStyles.disabled.backgroundCircle : {})}
+              style={{ opacity: 1 - (scale - 1) / 2 }}
+            />
             {/* tranformOrigin using matrices: http://stackoverflow.com/questions/6711610/how-to-set-transform-origin-in-svg#6714140 */}
-            <g transform={`matrix(${scale}, 0, 0, ${scale}, ${7 - scale * 7}, ${7 - scale * 7})`}>
+            <g transform={finalStyles.base.animation.transform(scale)}>
+              <circle {...finalStyles.base.whiteCircle} />
               <circle
-                cx='7'
-                cy='7'
-                fill={white}
-                r='2'
-              />
-              <circle
-                cx='7'
-                cy='7'
-                fill={bulletColor}
+                {...finalStyles.base.bulletCircle}
+                {...(customize ? {fill: customize.bulletColor} : {})}
                 opacity={1 - (scale - 1) / 2}
-                r='2'
               />
             </g>
           </g>
@@ -50,7 +64,20 @@ RadioMark.propTypes = {
   }),
   disabled: PropTypes.bool,
   lowFPS: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  styles: PropTypes.shape({
+    base: PropTypes.object,
+    disabled: PropTypes.object,
+    checked: PropTypes.object
+  })
+}
+
+RadioMark.defaultProps = {
+  styles: {
+    base: {},
+    disabled: {},
+    checked: {}
+  }
 }
 
 export default compose(
