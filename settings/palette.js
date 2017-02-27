@@ -4,6 +4,9 @@ export const LIGHT_GREY = {
 }
 
 export const BLACK = '#3C3C3E'
+export const ERROR_BACKGROUND = '#FFF8F7'
+export const ERROR_HOVER = '#EF8B6F'
+export const ERROR_TEXT = '#E63200'
 export const GREY_TEXT = '#8E8E90'
 export const GREY_LINES = '#CBCBCD'
 export const GREY_SELECTOR_LINES = '#E5E5E6'

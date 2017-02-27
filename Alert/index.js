@@ -14,31 +14,6 @@ const classes = {
   warning: `${baseClass}--warning`
 }
 
-function AlertError ({ children, className, styles, ...remainingProps }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
-
-  return (
-    <div
-      className={classNames(classes.error, className)}
-      {...remainingProps}>
-      {children}
-    </div>
-  )
-}
-
-AlertError.displayName = 'Alert.Error'
-
-AlertError.propTypes = {
-  children: childrenPropType,
-  className: PropTypes.string,
-  id: PropTypes.string,
-  styles: PropTypes.object
-}
-
-export const Error = compose(
-  overridable(defaultStyles)
-)(AlertError)
-
 export function AlertWarning ({ children, className, styles, ...remainingProps }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
