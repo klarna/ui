@@ -118,12 +118,17 @@ export default {
       type: LIVE,
 
       examples: {
-        Small: <Button.Primary href='http://google.com' size='small'>Click me!</Button.Primary>,
+        Small: <Button.Primary size='small'>Click me!</Button.Primary>,
         Regular: <Button.Primary>Click me!</Button.Primary>,
         Big: <Button.Primary size='big'>Click me!</Button.Primary>,
         Custom: <Button.Primary
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
+        </Button.Primary>,
+        'As a link': <Button.Primary
+          href='http://klarna.com'
+          target='_blank'>
+          Open the homepage
         </Button.Primary>,
         'With price small': <Button.Primary size='small'>
           Pay now!
@@ -190,6 +195,11 @@ export default {
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
         </Button.Secondary>,
+        'As a link': <Button.Secondary
+          href='http://klarna.com'
+          target='_blank'>
+          Open the homepage
+        </Button.Secondary>,
         'High brand volume': (
           <div>
             <Button.Secondary brandVolume='high'>
@@ -234,6 +244,11 @@ export default {
         Custom: <Button.Tertiary
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
+        </Button.Tertiary>,
+        'As a link': <Button.Tertiary
+          href='http://klarna.com'
+          target='_blank'>
+          Open the homepage
         </Button.Tertiary>,
         Disabled: <Button.Tertiary disabled>Click me!</Button.Tertiary>,
         Loading: <Button.Tertiary loading>Click me!</Button.Tertiary>,
