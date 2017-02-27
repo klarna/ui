@@ -112,8 +112,8 @@
   overflow: hidden;
   padding: 0 ($grid * 4);
   position: absolute;
-  transition: transform .2s ease, color .2s ease, left .2s ease, top .2s ease, font-size .2s ease;
   text-overflow: ellipsis;
+  transition: transform .2s ease, color .2s ease, left .2s ease, top .2s ease, font-size .2s ease;
   white-space: nowrap;
   width: calc(100% - #{($grid * 12)});
 
