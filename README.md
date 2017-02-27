@@ -16,7 +16,7 @@ You can use the UI components either with [React](https://facebook.github.io/rea
 React and React-Motion are peer-dependencies of this project, meaning that if you intend to consume the components from within your own project, you must make sure to have React and React-Motion available. The easiest way is to add them as dependencies of your project:
 
 ```sh
-npm install react react-motion --save
+npm install react react-motion ramda --save
 ```
 
 This package doesn't have a build, so you must have a Babel pipeline to use it. [Read more about how to config it](https://github.com/klarna/ui/wiki/Webpack-config).
