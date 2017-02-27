@@ -109,10 +109,13 @@
 
   color: map-get($colors, 'grey-text');
   line-height: ($grid * 10);
+  overflow: hidden;
   padding: 0 ($grid * 4);
   position: absolute;
   transition: transform .2s ease, color .2s ease, left .2s ease, top .2s ease, font-size .2s ease;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  width: calc(100% - #{($grid * 12)});
 
   @include respond-to-wide {
     @include typography(map-get($font-sizes, big-body-desktop), regular);
@@ -151,8 +154,12 @@
 
   color: map-get($colors, black);
   line-height: ($grid * 10);
+  overflow: hidden;
   padding: 0 ($grid * 4);
   position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: calc(100% - #{($grid * 12)});
 
   @include respond-to-wide {
     @include typography(map-get($font-sizes, big-body-desktop), semi-bold);

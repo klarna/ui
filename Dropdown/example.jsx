@@ -5,7 +5,7 @@ import { LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
 
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
-  { key: 'lorem', label: 'Lorem' },
+  { key: 'lorem', label: 'Lorem sit amet' },
   { key: 'ipsum', label: 'Ipsum' }
 ]
 
