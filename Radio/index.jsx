@@ -52,12 +52,13 @@ class Radio extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    const { fullyExpanded } = this.props
     const { options, visibleOptions, value, onExpand } = nextProps
 
     const shouldExpand = value &&
       this.getOptionsLists(options, visibleOptions).collapsed.find(({key}) => key === value) != null
 
-    if (shouldExpand) {
+    if (shouldExpand && !fullyExpanded) {
       onExpand()
     }
   }
