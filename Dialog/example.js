@@ -51,7 +51,34 @@ const secondExample = `<div
     height: 700,
     width: 400
   }}>
-  <Dialog layout='mobile'>
+  <Dialog fixed>
+    <Back topLeft label='BACK' />
+    <Close topRight label='CLOSE' />
+    <div style={{textAlign: 'center', width: '100%'}}>
+      <GettingStarted.Implementation />
+      <Title.Primary style={{paddingTop: grid(5.2)}}>
+        Hello Dialog
+      </Title.Primary>
+      <Paragraph.Secondary style={{paddingTop: grid(1.4)}}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </Paragraph.Secondary>
+      <Button.Primary style={{marginTop: grid(6.2)}}>
+        Complete this step
+      </Button.Primary>
+    </div>
+  </Dialog>
+</div>`
+
+const thirdExample = `<div
+  style={{
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: palette.GREY_LINES,
+    flex: 1,
+    height: 640,
+    width: 280
+  }}>
+  <Dialog fixed smallPadding>
     <Back topLeft label='BACK' />
     <Close topRight label='CLOSE' />
     <div style={{textAlign: 'center', width: '100%'}}>
@@ -142,7 +169,7 @@ export default {
             height: 700,
             width: 400
           }}>
-          <Dialog layout='mobile'>
+          <Dialog fixed>
             <Back topLeft label='BACK' />
             <Close topRight label='CLOSE' />
             <div style={{textAlign: 'center', width: '100%'}}>
@@ -183,28 +210,44 @@ export default {
       </Subtitle>
       <div
         style={{
-          borderWidth: 1,
-          borderStyle: 'solid',
-          borderColor: palette.GREY_LINES,
-          height: 640,
-          width: 280
+          display: 'flex',
+          width: '100%'
         }}>
-        <Dialog layout='narrow'>
-          <Back topLeft label='BACK' />
-          <Close topRight label='CLOSE' />
-          <div style={{textAlign: 'center', width: '100%'}}>
-            <GettingStarted.Implementation />
-            <Title.Primary style={{paddingTop: grid(5.2)}}>
-              Hello Dialog
-            </Title.Primary>
-            <Paragraph.Secondary style={{paddingTop: grid(1.4)}}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Paragraph.Secondary>
-            <Button.Primary style={{marginTop: grid(6.2)}}>
-              Complete this step
-            </Button.Primary>
-          </div>
-        </Dialog>
+        <div
+          style={{
+            borderWidth: 1,
+            borderStyle: 'solid',
+            borderColor: palette.GREY_LINES,
+            flex: 1,
+            height: 640,
+            width: 280
+          }}>
+          <Dialog fixed smallPadding>
+            <Back topLeft label='BACK' />
+            <Close topRight label='CLOSE' />
+            <div style={{textAlign: 'center', width: '100%'}}>
+              <GettingStarted.Implementation />
+              <Title.Primary style={{paddingTop: grid(5.2)}}>
+                Hello Dialog
+              </Title.Primary>
+              <Paragraph.Secondary style={{paddingTop: grid(1.4)}}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </Paragraph.Secondary>
+              <Button.Primary style={{marginTop: grid(6.2)}}>
+                Complete this step
+              </Button.Primary>
+            </div>
+          </Dialog>
+        </div>
+
+        <Code.Block
+          style={{
+            flex: 1,
+            marginLeft: grid(4),
+            maxWidth: 'calc(100% - 300px)'
+          }}>
+          {thirdExample}
+        </Code.Block>
       </div>
     </section>
   }
