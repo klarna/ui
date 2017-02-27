@@ -17,8 +17,14 @@ function Dialog ({
   return <div
     style={{
       ...finalStyles.base.dialog,
-      ...(fixed ? finalStyles.fixed.dialog : finalStyles.smallPadding.dialog),
-      ...(smallPadding ? finalStyles.smallPadding.dialog : finalStyles.bigPadding.dialog)
+      ...(fixed
+        ? finalStyles.fixed.dialog
+        : finalStyles.floating.dialog
+      ),
+      ...(smallPadding
+        ? finalStyles.smallPadding.dialog
+        : finalStyles.bigPadding.dialog
+      )
     }}
     {...props}>
     {children}
