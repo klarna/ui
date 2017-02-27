@@ -29,12 +29,14 @@ function Secondary ({
   className,
   customize,
   disabled,
+  href,
   id,
   loading,
   size,
   style,
   styles,
   success,
+  target,
   ...props
 }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
@@ -78,8 +80,46 @@ function Secondary ({
       labelAlt: `${id}__label--alt`
     } : {}
 
-  return (
-    <button
+  const markup = href || target
+    ? <a
+      className={cls}
+      disabled={isDisabled}
+      href={href}
+      id={id}
+      style={{
+        ...customizations,
+        ...style
+      }}
+      target={target}
+      {...props}>
+      {
+        customize ? [
+          loading || <div key={1}
+            className={classNames(classes.darkening)}
+            id={ids.darkening}
+            style={customize && {
+              borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
+            }}
+          />,
+          <div
+            key={2}
+            id={ids.label}
+            className={classNames(classes.label)}>
+            {loadingOrContent}
+            {
+              isDisabled || <span
+                className={classNames(classes.labelAlt)}
+                id={ids.labelAlt}
+                title={content}
+                style={{color: customize.textColor}}
+              />
+            }
+          </div>
+        ]
+        : loadingOrContent
+      }
+    </a>
+    : <button
       className={cls}
       disabled={isDisabled}
       id={id}
@@ -115,7 +155,8 @@ function Secondary ({
         : loadingOrContent
       }
     </button>
-  )
+
+  return markup
 }
 
 Secondary.displayName = 'Button.Secondary'
@@ -136,12 +177,14 @@ Secondary.propTypes = {
     borderRadius: PropTypes.string.isRequired,
     textColor: PropTypes.string.isRequired
   }),
-  id: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
-  loading: PropTypes.bool,
-  success: PropTypes.bool,
   disabled: PropTypes.bool,
-  styles: PropTypes.object
+  href: PropTypes.string,
+  id: PropTypes.string,
+  loading: PropTypes.bool,
+  size: PropTypes.oneOf(sizes),
+  styles: PropTypes.object,
+  success: PropTypes.bool,
+  target: PropTypes.string
 }
 
 export default compose(
