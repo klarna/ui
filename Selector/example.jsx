@@ -21,7 +21,7 @@ export default {
   variations: [
     {
       title: 'Options Selector',
-      require: 'import * as Selector from \'@klarna/ui/Selector\'',
+      require: `import * as Selector from '@klarna/ui/Selector'`,
       type: LIVE,
 
       examples: {
@@ -47,7 +47,7 @@ export default {
 
     {
       title: 'Direct Selector',
-      require: 'import * as Selector from \'@klarna/ui/Selector\'',
+      require: `import * as Selector from '@klarna/ui/Selector'`,
       type: LIVE,
 
       examples: {

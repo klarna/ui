@@ -50,9 +50,15 @@ function Primary ({
     ? parseColor(customize.textColor).rgb
     : 'white'
 
-  const loadingOrContent = loading
-    ? <Loader inline color={loaderColor} />
-    : (success ? '✔' : children)
+  const content = (success ? '✔' : children)
+
+  const loadingOrContent =
+    <span>
+      <div className={loading ? classNames('visibilityHidden') : ''}>
+        {content}
+      </div>
+      {loading ? <Loader inline color={loaderColor} /> : null}
+    </span>
 
   const customizations = customize
     ? {

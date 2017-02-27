@@ -6,7 +6,7 @@ export default {
   title: 'Checklist',
   icon: 'Checklist',
   examples: {
-    require: 'import * as Checklist from \'@klarna/ui/Checklist\'',
+    require: `import * as Checklist from '@klarna/ui/Checklist'`,
     type: LIVE,
 
     examples: {
