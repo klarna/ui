@@ -10,7 +10,6 @@ export default function Wrapper ({
   onClose,
   ...props
 }) {
-
   const ids = id
     ? {
       closeDialogIcon: `${id}__close-dialog-icon`,
