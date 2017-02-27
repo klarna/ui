@@ -8,6 +8,13 @@ import { SHOWCASE } from '../Showroom/variationTypes'
 import grid from '../settings/grid'
 import * as palette from '../settings/palette'
 
+const htmlCode = `<div>
+  {html2KlarnaUI(\`
+    <h1>Hello Klarna UI</h1>
+    <p>This has some <strong>highlighting</strong></p>
+  \`)}
+</div>`
+
 export default {
   title: 'html2KlarnaUI',
 
@@ -40,12 +47,7 @@ export default {
 
         <div style={{flex: 1, margin: `0px 0 0 20px`}}>
           <Code.Block standalone style={{marginBottom: grid(3)}}>
-            {`<div>
-      {html2KlarnaUI(\`
-    <h1>Hello Klarna UI</h1>
-    <p>This has some <strong>highlighting</strong></p>
-    \`)}
-  </div>`}
+            {htmlCode}
           </Code.Block>
 
           <Subtitle margins>Formatting text automatically from HTML</Subtitle>
