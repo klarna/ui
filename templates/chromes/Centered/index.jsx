@@ -27,6 +27,7 @@ export default function Centered ({
   smallTitle,
   children,
   error,
+  footer,
   labels,
   id,
   illustration,
@@ -59,61 +60,67 @@ export default function Centered ({
     style={{
       ...defaultStylesJS.base.main
     }}>
-    {illustration}
+    <div style={{...defaultStylesJS.base.content}}>
+      {illustration}
 
-    <Title.Primary
-      id={ids.title}
-      className={classNames(classes.title)}
-      small={smallTitle}>
-      {labels.title}
-    </Title.Primary>
+      <Title.Primary
+        id={ids.title}
+        className={classNames(classes.title)}
+        small={smallTitle}>
+        {labels.title}
+      </Title.Primary>
 
-    {labels.summary && paragraphs.map((text, index) => (<Paragraph.Secondary
-      key={index}
-      id={ids.paragraph(index)}
-      className={classNames(classes.paragraphPrimary)}>
-      {text}
-    </Paragraph.Secondary>))}
+      {labels.summary && paragraphs.map((text, index) => (<Paragraph.Secondary
+        key={index}
+        id={ids.paragraph(index)}
+        className={classNames(classes.paragraphPrimary)}>
+        {text}
+      </Paragraph.Secondary>))}
 
-    {children}
+      {children}
 
-    {labels.accept && onAccept && <Button.Primary
-      id={ids.accept}
-      brandVolume={brandVolume}
-      onClick={onAccept}
-      loading={loading}
-      className={classNames(classes.buttonAccept)}>
-      {labels.accept}
-    </Button.Primary>}
+      {labels.accept && onAccept && <Button.Primary
+        id={ids.accept}
+        brandVolume={brandVolume}
+        onClick={onAccept}
+        loading={loading}
+        className={classNames(classes.buttonAccept)}>
+        {labels.accept}
+      </Button.Primary>}
 
-    {labels.cancel && onCancel && <Paragraph.Primary
-      id={ids.cancel}
-      className={classNames(classes.buttonCancel)}>
-      <Link onClick={onCancel}>
-        {labels.cancel}
-      </Link>
-    </Paragraph.Primary>}
+      {labels.cancel && onCancel && <Paragraph.Primary
+        id={ids.cancel}
+        className={classNames(classes.buttonCancel)}>
+        <Link onClick={onCancel}>
+          {labels.cancel}
+        </Link>
+      </Paragraph.Primary>}
 
-    {error && <div
-      id={ids.errorBlock}
-      className={classNames(classes.error)}>
-      <Paragraph.Primary
-        id={ids.errorParagraph}
-        className={classNames(classes.errorParagraph)}
-        color='error'>
-        <Cross
-          className={classNames(classes.errorIcon)}
-          color='error'
-          id={ids.errorIcon}
-        />
-        {error}
-      </Paragraph.Primary>
+      {error && <div
+        id={ids.errorBlock}
+        className={classNames(classes.error)}>
+        <Paragraph.Primary
+          id={ids.errorParagraph}
+          className={classNames(classes.errorParagraph)}
+          color='error'>
+          <Cross
+            className={classNames(classes.errorIcon)}
+            color='error'
+            id={ids.errorIcon}
+          />
+          {error}
+        </Paragraph.Primary>
+      </div>}
+
+      {labels.legal && <Paragraph.Legal
+        id={ids.legal}
+        className={classNames(classes.legal)}>
+        {labels.legal}
+      </Paragraph.Legal>}
+    </div>
+
+    {footer && <div style={{...defaultStylesJS.base.footer}}>
+      {footer}
     </div>}
-
-    {labels.legal && <Paragraph.Legal
-      id={ids.legal}
-      className={classNames(classes.legal)}>
-      {labels.legal}
-    </Paragraph.Legal>}
   </div>
 }

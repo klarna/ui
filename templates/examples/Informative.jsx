@@ -1,4 +1,5 @@
 import React from 'react'
+import * as Paragraph from '../../Paragraph'
 import ConfirmData from '../ConfirmData'
 import ReviewData from '../ReviewData'
 import Explanation from '../Explanation'
@@ -26,7 +27,8 @@ export default {
             boxSizing: 'border-box',
             borderWidth: grid(0.2),
             borderStyle: 'solid',
-            borderColor: palette.GREY_LINES
+            borderColor: palette.GREY_LINES,
+            height: 700
           }}>
           <Wrapper
             fixed
@@ -41,6 +43,7 @@ export default {
                 accept: 'Continue'
               }}
               onAccept={() => console.log('accept')}
+              footer={<Paragraph.Legal style={{marginTop: grid(4)}}>Lorem ipsum™</Paragraph.Legal>}
             />
           </Wrapper>
         </div>,

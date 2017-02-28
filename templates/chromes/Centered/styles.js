@@ -1,7 +1,18 @@
 export default {
   base: {
     main: {
-      textAlign: 'center'
+      textAlign: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      height: '100%'
+    },
+    content: {
+      margin: 'auto'
+    },
+    footer: {
+      alignSelf: 'flex-end',
+      margin: 'auto auto 0 auto'
     }
   }
 }
