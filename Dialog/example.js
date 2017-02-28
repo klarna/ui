@@ -52,8 +52,8 @@ const secondExample = `<div
     width: 400
   }}>
   <Dialog fixed>
-    <Back topLeft label='BACK' />
-    <Close topRight label='CLOSE' />
+    <Back topLeft largePadding label='BACK' />
+    <Close topRight largePadding label='CLOSE' />
     <div style={{textAlign: 'center', width: '100%'}}>
       <GettingStarted.Implementation />
       <Title.Primary style={{paddingTop: grid(5.2)}}>
@@ -182,8 +182,8 @@ import * as Title from '@klarna/ui/Title'`}
             width: 400
           }}>
           <Dialog fixed>
-            <Back topLeft label='BACK' />
-            <Close topRight label='CLOSE' />
+            <Back topLeft largePadding label='BACK' />
+            <Close topRight largePadding label='CLOSE' />
             <div style={{textAlign: 'center', width: '100%'}}>
               <GettingStarted.Implementation />
               <Title.Primary style={{paddingTop: grid(5.2)}}>

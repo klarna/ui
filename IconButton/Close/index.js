@@ -16,6 +16,7 @@ const Close = ({
   color,
   id,
   label,
+  largePadding,
   left,
   hover,
   topLeft,
@@ -35,10 +36,17 @@ const Close = ({
   return <div
     id={id}
     style={{
-      // TODO: Use `mobile` variation as well (styles.js:156)
       ...defaultStyles.base.main,
-      ...(topRight ? defaultStyles.topRight.main : {}),
-      ...(topLeft ? defaultStyles.topLeft.main : {})
+      ...(topRight
+        ? (largePadding
+          ? defaultStyles.largePadding.topRight.main
+          : defaultStyles.topRight.main)
+        : {}),
+      ...(topLeft
+        ? (largePadding
+          ? defaultStyles.largePadding.topLeft.main
+          : defaultStyles.topLeft.main)
+        : {})
     }}
     {...props}>
     <div
@@ -88,6 +96,7 @@ Close.propTypes = {
   color: PropTypes.oneOf(['gray', 'inverse', 'blue']),
   hover: PropTypes.bool,
   id: PropTypes.string,
+  largePadding: PropTypes.bool,
   left: PropTypes.bool,
   topLeft: PropTypes.bool,
   topRight: PropTypes.bool,

@@ -158,9 +158,11 @@ export default {
     }
   },
 
-  mobile: {
+  largePadding: {
     topRight: {
       main: {
+        position: 'absolute',
+        display: 'block',
         right: grid(6),
         top: grid(6)
       }
@@ -168,6 +170,8 @@ export default {
 
     topLeft: {
       main: {
+        position: 'absolute',
+        display: 'block',
         left: grid(6),
         top: grid(6)
       }
