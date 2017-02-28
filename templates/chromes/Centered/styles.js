@@ -12,7 +12,7 @@ export default {
     },
     footer: {
       alignSelf: 'flex-end',
-      margin: 'auto auto 0 auto'
+      margin: '0 auto'
     }
   }
 }
