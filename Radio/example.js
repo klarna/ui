@@ -228,6 +228,26 @@ export default {
         visibleOptions={1}
       />,
 
+      'Partially collapsed with a hidden one selected': <Radio
+        options={[
+          ...optionsWithContent,
+          {
+            key: 'not-lorem',
+            label: 'Lorem',
+            description: 'Lorem Ipsum is simply dummy.',
+            aside: card,
+            content: <Paragraph.Secondary style={{marginBottom: -10}}>
+              Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
+            </Paragraph.Secondary>,
+            leftPad: true
+          }
+        ]}
+        expandLabel='Show me all the options'
+        visibleOptions={2}
+        autoFullyExpanded
+        value='not-lorem'
+      />,
+
       'Completely collapsed': <Radio
         options={optionsWithContent}
         expandLabel='Show me all the options'
