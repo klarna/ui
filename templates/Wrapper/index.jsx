@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
+import Backdrop from '../../Backdrop'
 import Dialog from '../../Dialog'
 import { Back, Close } from '../../IconButton'
 
 export default function Wrapper ({
   children,
   id,
+  layout,
   onBack,
   onClose,
   ...props
@@ -16,19 +18,85 @@ export default function Wrapper ({
     }
     : {}
 
-  return <Dialog id={id} {...props}>
-    {onBack && <Back
-      onClick={onBack}
-      color='gray'
-      id={ids.backButton}
-      topLeft
-    />}
-    {onClose && <Close
-      onClick={onClose}
-      color='gray'
-      id={ids.closeButton}
-      topRight
-    />}
-    {children}
-  </Dialog>
+  switch (layout) {
+    case 'desktop':
+      return <div
+        style={{
+          alignItems: 'center',
+          display: 'flex',
+          height: '100%',
+          justifyContent: 'center',
+          width: '100%'
+        }}>
+        <Backdrop />
+        <Dialog id={id} {...props}>
+          {onBack && <Back
+            onClick={onBack}
+            color='gray'
+            id={ids.backButton}
+            topLeft
+          />}
+          {onClose && <Close
+            onClick={onClose}
+            color='gray'
+            id={ids.closeButton}
+            topRight
+          />}
+          {children}
+        </Dialog>
+      </div>
+
+    case 'mobile':
+      return <Dialog
+        fixed
+        id={id}
+        {...props}>
+        {onBack && <Back
+          onClick={onBack}
+          color='gray'
+          id={ids.backButton}
+          topLeft
+          largePadding
+        />}
+        {onClose && <Close
+          onClick={onClose}
+          color='gray'
+          id={ids.closeButton}
+          topRight
+          largePadding
+        />}
+        {children}
+      </Dialog>
+
+    case 'narrow':
+      return <Dialog
+        fixed
+        smallPadding
+        id={id}
+        {...props}>
+        {onBack && <Back
+          onClick={onBack}
+          color='gray'
+          id={ids.backButton}
+          topLeft
+          largePadding
+        />}
+        {onClose && <Close
+          onClick={onClose}
+          color='gray'
+          id={ids.closeButton}
+          topRight
+          largePadding
+        />}
+        {children}
+      </Dialog>
+  }
+}
+
+Wrapper.propTypes = {
+  layout: PropTypes.oneOf([
+    'desktop',
+    'mobile',
+    'narrow'
+  ]).isRequired
 }
