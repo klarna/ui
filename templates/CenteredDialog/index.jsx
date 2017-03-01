@@ -5,6 +5,7 @@ import * as Dialog from '../../Dialog'
 import * as Button from '../../Button'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
+import html2KlarnaUI from '../../html2KlarnaUI'
 import Cross from '../../icons/Cross'
 import defaultStyles from './styles.scss'
 
@@ -64,7 +65,7 @@ function CenteredDialog ({
         <Paragraph.Secondary
           id={ids.summary}
           className={classNames(classes.summary)}>
-          {summary}
+          {html2KlarnaUI(summary)}
         </Paragraph.Secondary>
       }
 
