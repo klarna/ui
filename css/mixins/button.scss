@@ -9,6 +9,7 @@
   box-sizing: border-box;
   color: $text-color;
   cursor: pointer;
+  display: inline-block;
   height: ($grid * 10);
   line-height: ($grid * 10) - ($grid * .4);
   outline: none;

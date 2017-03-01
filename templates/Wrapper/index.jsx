@@ -3,21 +3,30 @@ import Dialog from '../../Dialog'
 import { Back, Close } from '../../IconButton'
 
 export default function Wrapper ({
-  className,
   children,
+  id,
   onBack,
   onClose,
   ...props
 }) {
-  return <Dialog {...props}>
+  const ids = id
+    ? {
+      closeButton: `${id}__close-button`,
+      backButton: `${id}__back-button`
+    }
+    : {}
+
+  return <Dialog id={id} {...props}>
     {onBack && <Back
       onClick={onBack}
       color='gray'
+      id={ids.backButton}
       topLeft
     />}
     {onClose && <Close
       onClick={onClose}
       color='gray'
+      id={ids.closeButton}
       topRight
     />}
     {children}

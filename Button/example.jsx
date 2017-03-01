@@ -128,6 +128,11 @@ export default {
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
         </Button.Primary>,
+        'As a link': <Button.Primary
+          href='http://klarna.com'
+          target='_blank'>
+          Open the homepage
+        </Button.Primary>,
         'With price small': <Button.Primary size='small'>
           Pay now!
           <Button.Price>$12.0</Button.Price>
@@ -193,6 +198,11 @@ export default {
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
         </Button.Secondary>,
+        'As a link': <Button.Secondary
+          href='http://klarna.com'
+          target='_blank'>
+          Open the homepage
+        </Button.Secondary>,
         'High brand volume': (
           <div>
             <Button.Secondary brandVolume='high'>
@@ -237,6 +247,11 @@ export default {
         Custom: <Button.Tertiary
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
+        </Button.Tertiary>,
+        'As a link': <Button.Tertiary
+          href='http://klarna.com'
+          target='_blank'>
+          Open the homepage
         </Button.Tertiary>,
         Disabled: <Button.Tertiary disabled>Click me!</Button.Tertiary>,
         Loading: <Button.Tertiary loading>Click me!</Button.Tertiary>,

@@ -30,12 +30,14 @@ function Tertiary (props) {
     className,
     customize,
     disabled,
+    href,
     id,
     loading,
     size,
     style,
     styles,
     success,
+    target,
     ...remainingProps } = props
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
@@ -78,8 +80,41 @@ function Tertiary (props) {
       labelAlt: `${id}__label--alt`
     } : {}
 
-  return (
-    <button
+  const markup = href || target
+    ? <a
+      className={cls}
+      disabled={isDisabled}
+      href={href}
+      style={{
+        ...customizations,
+        ...style
+      }}
+      target={target}
+      {...remainingProps}>
+      {
+        customize ? [
+          loading || <div key={1}
+            className={classNames(classes.darkening)}
+            style={customize && {
+              borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
+            }}
+          />,
+          <div key={2} className={classNames(classes.label)}>
+            {loadingOrContent}
+            {
+              isDisabled || <span
+                className={classNames(classes.labelAlt)}
+                id={ids.labelAlt}
+                title={content}
+                style={{color: customize.textColor}}
+              />
+            }
+          </div>
+        ]
+        : loadingOrContent
+      }
+    </a>
+    : <button
       className={cls}
       disabled={isDisabled}
       style={{
@@ -110,7 +145,8 @@ function Tertiary (props) {
         : loadingOrContent
       }
     </button>
-  )
+
+  return markup
 }
 
 Tertiary.displayName = 'Button.Tertiary'
@@ -131,12 +167,14 @@ Tertiary.propTypes = {
     borderRadius: PropTypes.string.isRequired,
     textColor: PropTypes.string.isRequired
   }),
-  id: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
-  loading: PropTypes.bool,
-  success: PropTypes.bool,
   disabled: PropTypes.bool,
-  styles: PropTypes.object
+  href: PropTypes.string,
+  id: PropTypes.string,
+  loading: PropTypes.bool,
+  size: PropTypes.oneOf(sizes),
+  styles: PropTypes.object,
+  success: PropTypes.bool,
+  target: PropTypes.string
 }
 
 export default compose(
