@@ -31,8 +31,20 @@
   margin-top: ($grid * 6.2);
 }
 
-.dialog--centered__legal-paragraph {
-  padding-top: ($grid * 6.2);
+.dialog--centered__button {
+  display: block;
+  margin-bottom: ($grid * 3);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  &:first-child {
+    margin-top: ($grid * 6.2);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .dialog--centered__error {
@@ -48,4 +60,8 @@
 
 .dialog--centered__error-paragraph {
   display: inline-block;
+}
+
+.dialog--centered__legal-paragraph {
+  padding-top: ($grid * 6.2);
 }

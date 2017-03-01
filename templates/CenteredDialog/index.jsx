@@ -6,7 +6,6 @@ import * as Button from '../../Button'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
 import Cross from '../../icons/Cross'
-import Link from '../../Link'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'dialog--centered'
@@ -14,6 +13,7 @@ const baseClass = 'dialog--centered'
 const classes = {
   title: `${baseClass}__title`,
   summary: `${baseClass}__summary`,
+  button: `${baseClass}__button`,
   error: `${baseClass}__error`,
   errorIcon: `${baseClass}__error-icon`,
   errorParagraph: `${baseClass}__error-paragraph`,
@@ -34,15 +34,16 @@ function CenteredDialog ({
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
-  const ids = {
-    dialogContent: `${id}__dialog-content`,
-    title: `${id}__title`,
-    summary: `${id}__summary`,
-    errorBlock: `${id}__error-block`,
-    errorParagraph: `${id}__error-paragraph`,
-    errorIcon: `${id}__error-icon`,
-    legal: `${id}__legal`
-  }
+  const ids = id
+    ? {
+      dialogContent: `${id}__dialog-content`,
+      title: `${id}__title`,
+      summary: `${id}__summary`,
+      errorBlock: `${id}__error-block`,
+      errorParagraph: `${id}__error-paragraph`,
+      errorIcon: `${id}__error-icon`,
+      legal: `${id}__legal`
+    } : {}
 
   return (
     <Dialog.Content
@@ -71,6 +72,7 @@ function CenteredDialog ({
 
       {actions.length > 0 &&
         <ActionGenerator
+          classNames={classNames}
           actions={actions}
         />
       }
@@ -125,7 +127,7 @@ CenteredDialog.propTypes = {
 
 export default CenteredDialog
 
-const ActionGenerator = ({actions}) => {
+const ActionGenerator = ({actions, classNames}) => {
   return (
     <div>
       {actions.map(action => {
@@ -133,6 +135,7 @@ const ActionGenerator = ({actions}) => {
         return (
           <ButtonGenerator
             key={key}
+            classNames={classNames}
             {...action}
           />
         )
@@ -141,15 +144,31 @@ const ActionGenerator = ({actions}) => {
   )
 }
 
-const ButtonGenerator = ({type, label, ...remainingProps}) => {
+const ButtonGenerator = ({type, label, classNames, ...remainingProps}) => {
   switch (type) {
     case 'primary':
-      return <Button.Primary {...remainingProps}>{label}</Button.Primary>
+      return (
+        <Button.Primary
+          className={classNames(classes.button)}
+          {...remainingProps}>
+          {label}
+        </Button.Primary>
+      )
     case 'secondary':
-      return <Button.Secondary {...remainingProps}>{label}</Button.Secondary>
-    case 'tertiary':
-      return <Button.Tertiary {...remainingProps}>{label}</Button.Tertiary>
+      return (
+        <Button.Secondary
+          className={classNames(classes.button)}
+          {...remainingProps}>
+          {label}
+        </Button.Secondary>
+      )
     default:
-      return <Link>{label}</Link>
+      return (
+        <Button.Tertiary
+          className={classNames(classes.button)}
+          {...remainingProps}>
+          {label}
+        </Button.Tertiary>
+      )
   }
 }
