@@ -1,0 +1,51 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.dialog--centered {
+  text-align: center;
+
+  > div {
+    padding: ($grid * 4) 0;
+
+    @include respond-to-wide {
+      padding: 0;
+    }
+  }
+}
+
+.dialog--centered__title:not(:first-child) {
+  padding-top: ($grid * 5.2);
+}
+
+.dialog--centered__title {
+  display: block;
+  margin: 0 auto;
+  max-width: ($grid * 63);
+}
+
+.dialog--centered__title + .dialog--centered__summary {
+  padding-top: ($grid * 1.4);
+}
+
+.dialog--centered__summary {
+  margin-top: ($grid * 6.2);
+}
+
+.dialog--centered__legal-paragraph {
+  padding-top: ($grid * 6.2);
+}
+
+.dialog--centered__error {
+  padding-top: ($grid * 1.4);
+}
+
+.dialog--centered__error-icon {
+  display: inline-block;
+  margin-right: ($grid * 1);
+  position: relative;
+  top: ($grid * 1);
+}
+
+.dialog--centered__error-paragraph {
+  display: inline-block;
+}
