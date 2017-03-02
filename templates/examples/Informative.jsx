@@ -7,7 +7,7 @@ import Landing from '../Landing'
 import XStepExplanation from '../XStepExplanation'
 import Wrapper from '../Wrapper'
 import DemoIcon from './DemoIcon'
-import { LIVE, SHOWCASE, TEMPLATE } from '../../Showroom/variationTypes'
+import {SHOWCASE} from '../../Showroom/variationTypes'
 
 import Canvas from '../../Showroom/Lekplats/Canvas'
 import lekplats from '../../Showroom/Lekplats'

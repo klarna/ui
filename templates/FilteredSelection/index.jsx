@@ -1,6 +1,5 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as Dialog from '../../Dialog'
 import Fieldset from '../../Fieldset'
 import Input from '../../Input'
 import Link from '../../Link'
@@ -53,9 +52,8 @@ function FilteredSelection ({
     }
     : {}
 
-  return <Dialog.Content
+  return <div
     id={ids.dialogContent}
-    className={classNames(baseClass, className)}
     {...props}>
     <Title.Primary
       id={ids.title}
@@ -101,7 +99,7 @@ function FilteredSelection ({
         {alternative}
       </Link>
     </Paragraph.Primary>
-  </Dialog.Content>
+  </div>
 }
 
 export default compose(

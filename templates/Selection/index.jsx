@@ -1,6 +1,5 @@
 import React from 'react'
 import classNamesBind from 'classnames/bind'
-import * as Dialog from '../../Dialog'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
 import * as Selector from '../../Selector'
@@ -15,7 +14,6 @@ const classes = {
 }
 
 export default function Selection ({
-  className,
   id,
   onSelect,
   options,
@@ -34,9 +32,8 @@ export default function Selection ({
     }
     : {}
 
-  return <Dialog.Content
+  return <div
     id={ids.dialogContent}
-    className={classNames(baseClass, className)}
     {...props}>
     <Title.Primary
       id={ids.title}
@@ -57,5 +54,5 @@ export default function Selection ({
       onSelect={onSelect}
       data={options}
     />
-  </Dialog.Content>
+  </div>
 }
