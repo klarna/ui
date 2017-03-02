@@ -270,7 +270,7 @@ export default {
                 id: 'ok-button',
                 type: 'primary',
                 label: 'OK',
-                onClick: ()=>{console.log('OK')}
+                onClick: () => console.log('OK')
               },
               {
                 id: 'secondary-button',
@@ -296,7 +296,7 @@ export default {
                   id: 'ok-button',
                   type: 'primary',
                   label: 'OK',
-                  onClick: ()=>{console.log('OK')}
+                  onClick: () => console.log('OK')
                 },
                 {
                   id: 'secondary-button',
