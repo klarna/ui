@@ -10,6 +10,7 @@ const classes = {
   content: `${baseClass}--item__content`,
   item: `${baseClass}--item`,
   itemIcon: `${baseClass}--item__icon`,
+  itemText: `${baseClass}--item__text`,
   wrapper: `${baseClass}--wrapper`
 }
 
@@ -52,7 +53,9 @@ export function Item ({className, icon, id, children, styles, ...props}) {
           id={ids.icon}>
           {icon}
         </td>
-        <td id={ids.contentTd}>
+        <td
+          className={classNames(classes.itemText)}
+          id={ids.contentTd}>
           <Paragraph.Secondary id={ids.content}>
             {children}
           </Paragraph.Secondary>
