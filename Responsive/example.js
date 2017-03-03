@@ -4,6 +4,13 @@ import Dialog from '../Dialog'
 import {Back, Close} from '../IconButton'
 import {SHOWCASE} from '../Showroom/variationTypes'
 
+/*
+ *  TODO: Desired features:
+ *  - Show that the layout can be set up manually (example or variation with that)
+ *  - Show that the layout can be derived from a lambda that returns the layout upon receiving the window size information
+ *  - Show all the components that are responsive actually responding to the different layouts, capturing them from context
+ */
+
 export default {
   title: 'Responsive',
 
