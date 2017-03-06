@@ -28,12 +28,14 @@ function Primary ({
   className,
   customize,
   disabled,
+  href,
   id,
   loading,
   size,
   style,
   styles,
   success,
+  target,
   ...remainingProps
 }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
@@ -50,9 +52,15 @@ function Primary ({
     ? parseColor(customize.textColor).rgb
     : 'white'
 
-  const loadingOrContent = loading
-    ? <Loader inline color={loaderColor} />
-    : (success ? '✔' : children)
+  const content = (success ? '✔' : children)
+
+  const loadingOrContent =
+    <span>
+      <div className={loading ? classNames('visibilityHidden') : ''}>
+        {content}
+      </div>
+      {loading ? <Loader inline color={loaderColor} /> : null}
+    </span>
 
   const customizations = customize
     ? {
@@ -68,8 +76,34 @@ function Primary ({
       label: `${id}__label`
     } : {}
 
-  return (
-    <button
+  const markup = href || target
+    ? <a
+      className={cls}
+      disabled={loading || success || disabled}
+      id={id}
+      href={href}
+      target={target}
+      style={{
+        ...customizations,
+        ...style
+      }}
+      {...remainingProps}>
+      {customize ? [
+        <span
+          key={1}
+          className={classNames(classes.label)}
+          id={ids.label}>
+          {loadingOrContent}
+        </span>,
+        loading || disabled || <div key={2}
+          className={classNames(classes.darkening)}
+          id={ids.darkening}
+          style={{borderRadius: customize.borderRadius}}
+        />
+      ]
+      : loadingOrContent}
+    </a>
+    : <button
       className={cls}
       disabled={loading || success || disabled}
       id={id}
@@ -93,7 +127,8 @@ function Primary ({
       ]
       : loadingOrContent}
     </button>
-  )
+
+  return markup
 }
 
 Primary.displayName = 'Button.Primary'
@@ -114,12 +149,14 @@ Primary.propTypes = {
     borderRadius: PropTypes.string.isRequired,
     textColor: PropTypes.string.isRequired
   }),
-  id: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
-  loading: PropTypes.bool,
-  success: PropTypes.bool,
   disabled: PropTypes.bool,
-  styles: PropTypes.object
+  href: PropTypes.string,
+  id: PropTypes.string,
+  loading: PropTypes.bool,
+  size: PropTypes.oneOf(sizes),
+  styles: PropTypes.object,
+  success: PropTypes.bool,
+  target: PropTypes.string
 }
 
 export default compose(

@@ -7,7 +7,7 @@ export default {
   title: 'Strong',
 
   examples: {
-    require: 'import Strong from \'@klarna/ui/Strong\'',
+    require: `import Strong from '@klarna/ui/Strong'`,
     type: LIVE,
 
     examples: {

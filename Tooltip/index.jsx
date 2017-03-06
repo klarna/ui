@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
+import compose from 'ramda/src/compose'
+import {overridable} from '@klarna/higher-order-components'
 
 const baseClass = 'tooltip'
 
@@ -12,7 +14,7 @@ export const arrows = [
   'right', 'right-top', 'right-bottom'
 ]
 
-export default function Tooltip ({ className, arrow, children, inverse, styles, ...props }) {
+function Tooltip ({ className, arrow, children, inverse, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (<div
@@ -20,6 +22,8 @@ export default function Tooltip ({ className, arrow, children, inverse, styles, 
     {children}
   </div>)
 }
+
+Tooltip.displayName = 'Tooltip'
 
 Tooltip.propTypes = {
   className: PropTypes.string,
@@ -29,3 +33,7 @@ Tooltip.propTypes = {
   inverse: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default compose(
+  overridable(defaultStyles)
+)(Tooltip)

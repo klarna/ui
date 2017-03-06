@@ -15,6 +15,8 @@ function Strong ({children, styles, ...props}) {
   </strong>
 }
 
+Strong.displayName = 'Strong'
+
 Strong.defaultProps = {
   styles: {}
 }

@@ -33,7 +33,8 @@ export default function Footer () {
     <Button.Primary
       size='small'
       className={styles['footer__get-in-touch']}
-      onClick={() => window.open('https://github.com/klarna/ui/issues')}>
+      href='https://github.com/klarna/ui/issues'
+      target='_blank'>
       Get in touch
     </Button.Primary>
   </footer>

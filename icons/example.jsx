@@ -37,6 +37,7 @@ import SMS from '../icons/SMS'
 import Warning from '../icons/Warning'
 import Wrong from '../icons/Wrong'
 import Add from '../icons/Add'
+import Refresh from '../icons/Refresh'
 import colors from '../icons/constants/colors'
 import name from '../lib/name'
 
@@ -82,7 +83,8 @@ const icons = {
     Phone,
     Question,
     Remind,
-    Search
+    Search,
+    Refresh
   ]
 }
 
