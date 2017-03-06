@@ -9,6 +9,7 @@ export default function Wrapper ({
   layout,
   onBack,
   onClose,
+  visible,
   ...props
 }) {
   const ids = id
@@ -27,6 +28,7 @@ export default function Wrapper ({
           height: '100%',
           justifyContent: 'center',
           left: 0,
+          opacity: visible ? 1 : 0,
           position: 'absolute',
           top: 0,
           width: '100%'
@@ -54,6 +56,7 @@ export default function Wrapper ({
         style={{
           height: '100%',
           left: 0,
+          opacity: visible ? 1 : 0,
           position: 'absolute',
           top: 0,
           width: '100%'
@@ -85,6 +88,7 @@ export default function Wrapper ({
         style={{
           height: '100%',
           left: 0,
+          opacity: visible ? 1 : 0,
           position: 'absolute',
           top: 0,
           width: '100%'
@@ -115,9 +119,14 @@ export default function Wrapper ({
 }
 
 Wrapper.propTypes = {
+  children: PropTypes.node,
+  id: PropTypes.string,
   layout: PropTypes.oneOf([
     'desktop',
     'mobile',
     'narrow'
-  ]).isRequired
+  ]).isRequired,
+  onBack: PropTypes.func,
+  onClose: PropTypes.func,
+  visible: PropTypes.bool
 }

@@ -21,7 +21,8 @@ function SingleInputPromptExample ({
   highBrandVolume,
   uncontrolled,
   withError,
-  loading
+  loading,
+  visible
 }) {
 
   const singleInputPrompt = uncontrolled
@@ -63,6 +64,7 @@ function SingleInputPromptExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
     {singleInputPrompt}
@@ -90,6 +92,11 @@ function SingleInputPromptExample ({
 }
 
 SingleInputPromptExample.options = [
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
+  },
   {
     label: 'Desktop',
     name: 'desktop',
@@ -128,13 +135,15 @@ SingleInputPromptExample.defaultProps = {
   highBrandVolume: false,
   uncontrolled: true,
   withError: false,
-  loading: false
+  loading: false,
+  visible: false
 }
 
 function CenteredFormExample ({
   desktop,
   narrow,
-  highBrandVolume
+  highBrandVolume,
+  visible
 }) {
   const content = <Wrapper
     layout={desktop
@@ -143,6 +152,7 @@ function CenteredFormExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
     <CenteredForm
@@ -223,13 +233,19 @@ CenteredFormExample.options = [
     label: 'High brand volume',
     name: 'highBrandVolume',
     value: false
+  },
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
   }
 ]
 
 CenteredFormExample.defaultProps = {
   desktop: false,
   narrow: false,
-  highBrandVolume: false
+  highBrandVolume: false,
+  visible: false
 }
 
 function CodePromptExample ({
@@ -238,7 +254,8 @@ function CodePromptExample ({
   uncontrolled,
   withMessage,
   withError,
-  loading
+  loading,
+  visible
 }) {
   const codePrompt = uncontrolled
     ? <CodePrompt
@@ -274,6 +291,7 @@ function CodePromptExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
     {codePrompt}
@@ -301,6 +319,11 @@ function CodePromptExample ({
 }
 
 CodePromptExample.options = [
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
+  },
   {
     label: 'Desktop',
     name: 'desktop',
@@ -339,7 +362,8 @@ CodePromptExample.defaultProps = {
   uncontrolled: false,
   withMessage: false,
   withError: false,
-  loading: false
+  loading: false,
+  visible: false
 }
 
 export default {

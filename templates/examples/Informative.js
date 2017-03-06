@@ -17,6 +17,40 @@ import asCode from '../../helpers/asCode'
 import grid from '../../settings/grid'
 import * as palette from '../../settings/palette'
 
+function IOSChrome ({children}) {
+  return <div
+    style={{
+      height: '100%',
+      left: 0,
+      position: 'absolute',
+      top: 0,
+      width: '100%'
+    }}>
+    <div
+      style={{
+        backgroundColor: 'black',
+        height: 30,
+        width: '100%'
+      }}
+    />
+    <div
+      style={{
+        height: 'calc(100% - 60px)',
+        position: 'relative',
+        width: '100%'
+      }}>
+      {children}
+    </div>
+    <div
+      style={{
+        backgroundColor: 'black',
+        height: 30,
+        width: '100%'
+      }}
+    />
+  </div>
+}
+
 function LandingExample ({
   desktop,
   narrow,
@@ -26,7 +60,8 @@ function LandingExample ({
   withSecondaryButton,
   loading,
   withPrimaryButton,
-  multipleParagraphs
+  multipleParagraphs,
+  visible
 }) {
   const content = <Wrapper
     layout={desktop
@@ -35,6 +70,7 @@ function LandingExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
     <Landing
@@ -61,6 +97,10 @@ function LandingExample ({
     />
   </Wrapper>
 
+  const withIOSChrome = <IOSChrome>
+    {content}
+  </IOSChrome>
+
   return <div
     style={{
       marginRight: grid(4),
@@ -73,7 +113,7 @@ function LandingExample ({
           ? [280, 500]
           : [400, 600]
         )}>
-      {content}
+      {desktop || !visible ? content : withIOSChrome}
     </Canvas>
 
     <Code.Block standalone style={{marginTop: 20}}>
@@ -83,6 +123,11 @@ function LandingExample ({
 }
 
 LandingExample.options = [
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
+  },
   {
     label: 'Desktop',
     name: 'desktop',
@@ -131,6 +176,7 @@ LandingExample.options = [
 ]
 
 LandingExample.defaultProps = {
+  visible: false,
   desktop: false,
   narrow: false,
   highBrandVolume: false,
@@ -143,7 +189,8 @@ LandingExample.defaultProps = {
 
 function ExplanationExample ({
   desktop,
-  narrow
+  narrow,
+  visible
 }) {
   const content = <Wrapper
     layout={desktop
@@ -152,6 +199,7 @@ function ExplanationExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}>
     <Explanation
       id='explanation'
@@ -192,18 +240,25 @@ ExplanationExample.options = [
     label: 'Narrow',
     name: 'narrow',
     value: false
+  },
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
   }
 ]
 
 ExplanationExample.defaultProps = {
   desktop: false,
-  narrow: false
+  narrow: false,
+  visible: false
 }
 
 function XStepExplanationExample ({
   desktop,
   narrow,
-  highBrandVolume
+  highBrandVolume,
+  visible
 }) {
   const content = <Wrapper
     layout={desktop
@@ -212,6 +267,7 @@ function XStepExplanationExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
     <XStepExplanation
@@ -302,19 +358,26 @@ XStepExplanationExample.options = [
     label: 'High brand volume',
     name: 'highBrandVolume',
     value: false
+  },
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
   }
 ]
 
 XStepExplanationExample.defaultProps = {
   desktop: false,
   narrow: false,
-  highBrandVolume: false
+  highBrandVolume: false,
+  visible: false
 }
 
 function ConfirmDataExample ({
   desktop,
   narrow,
-  highBrandVolume
+  highBrandVolume,
+  visible
 }) {
   const content = <Wrapper
     layout={desktop
@@ -323,6 +386,7 @@ function ConfirmDataExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
     <ConfirmData
@@ -377,19 +441,26 @@ ConfirmDataExample.options = [
     label: 'High brand volume',
     name: 'highBrandVolume',
     value: false
+  },
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
   }
 ]
 
 ConfirmDataExample.defaultProps = {
   desktop: false,
   narrow: false,
-  highBrandVolume: false
+  highBrandVolume: false,
+  visible: false
 }
 
 function ReviewDataExample ({
   desktop,
   narrow,
-  highBrandVolume
+  highBrandVolume,
+  visible
 }) {
   const content = <Wrapper
     layout={desktop
@@ -398,6 +469,7 @@ function ReviewDataExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
     <ReviewData
@@ -451,13 +523,19 @@ ReviewDataExample.options = [
     label: 'High brand volume',
     name: 'highBrandVolume',
     value: false
+  },
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
   }
 ]
 
 ReviewDataExample.defaultProps = {
   desktop: false,
   narrow: false,
-  highBrandVolume: false
+  highBrandVolume: false,
+  visible: false
 }
 
 export default {

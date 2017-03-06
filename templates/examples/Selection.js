@@ -21,7 +21,8 @@ import * as palette from '../../settings/palette'
 
 function SelectionExample ({
   desktop,
-  narrow
+  narrow,
+  visible
 }) {
   const content = <Wrapper
     layout={desktop
@@ -30,6 +31,7 @@ function SelectionExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('welcome back')}>
     <Selection
@@ -73,18 +75,25 @@ SelectionExample.options = [
     label: 'Narrow',
     name: 'narrow',
     value: false
+  },
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
   }
 ]
 
 SelectionExample.defaultProps = {
   desktop: false,
-  narrow: false
+  narrow: false,
+  visible: false
 }
 
 function FilteredSelectionExample ({
   desktop,
   narrow,
-  uncontrolled
+  uncontrolled,
+  visible
 }) {
   const filteredSelectionExample = uncontrolled
     ? <FilteredSelection
@@ -127,6 +136,7 @@ function FilteredSelectionExample ({
       onSelect={(e) => console.log('selection', e)}
       value='A'
     />
+
   const content = <Wrapper
     layout={desktop
       ? 'desktop'
@@ -134,6 +144,7 @@ function FilteredSelectionExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('welcome back')}>
     {filteredSelectionExample}
@@ -162,6 +173,11 @@ function FilteredSelectionExample ({
 
 FilteredSelectionExample.options = [
   {
+    label: 'Visible',
+    name: 'visible',
+    value: true
+  },
+  {
     label: 'Desktop',
     name: 'desktop',
     value: false
@@ -181,13 +197,15 @@ FilteredSelectionExample.options = [
 FilteredSelectionExample.defaultProps = {
   desktop: false,
   narrow: false,
-  uncontrolled: false
+  uncontrolled: false,
+  visible: false
 }
 
 function CenteredSelectionExample ({
   desktop,
   narrow,
-  uncontrolled
+  uncontrolled,
+  visible
 }) {
   const content = <Wrapper
     layout={desktop
@@ -196,6 +214,7 @@ function CenteredSelectionExample ({
         ? 'narrow'
         : 'mobile'
       )}
+    visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('welcome back')}>
     <CenteredSelection
@@ -242,6 +261,11 @@ function CenteredSelectionExample ({
 
 CenteredSelectionExample.options = [
   {
+    label: 'Visible',
+    name: 'visible',
+    value: true
+  },
+  {
     label: 'Desktop',
     name: 'desktop',
     value: false
@@ -255,7 +279,8 @@ CenteredSelectionExample.options = [
 
 CenteredSelectionExample.defaultProps = {
   desktop: false,
-  narrow: false
+  narrow: false,
+  visible: false
 }
 
 export default {
