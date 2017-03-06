@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Centered from '../chromes/Centered'
 import TextLabel from '../../TextLabel'
 import * as Title from '../../Title'
@@ -53,4 +53,18 @@ export default function ConfirmData ({
       ])}
     </div>
   </Centered>
+}
+
+ConfirmData.propTypes = {
+  accept: PropTypes.string,
+  cancel: PropTypes.string,
+  id: PropTypes.string,
+  info: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.node
+    })
+  ),
+  summary: PropTypes.string,
+  title: PropTypes.string
 }

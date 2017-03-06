@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
@@ -55,4 +55,19 @@ export default function Selection ({
       data={options}
     />
   </div>
+}
+
+Selection.propTypes = {
+  id: PropTypes.string,
+  onSelect: PropTypes.func,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string,
+      label: PropTypes.string,
+      value: PropTypes.node
+    })
+  ),
+  summary: PropTypes.string,
+  title: PropTypes.string,
+  styles: PropTypes.object
 }

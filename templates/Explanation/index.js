@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import * as Paragraph from '../../Paragraph'
 import * as Title from '../../Title'
@@ -52,4 +52,13 @@ export default function Explanation ({
       {legal}
     </Paragraph.Legal>
   </div>
+}
+
+Explanation.propTypes = {
+  className: PropTypes.string,
+  content: PropTypes.node,
+  legal: PropTypes.node,
+  id: PropTypes.string,
+  title: PropTypes.string,
+  styles: PropTypes.object
 }

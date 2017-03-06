@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Centered from '../chromes/Centered'
 import Input from '../../Input'
 import defaultStyles from './styles.scss'
@@ -65,6 +65,26 @@ function SingleInputPrompt ({
       />
     </div>
   </Centered>
+}
+
+SingleInputPrompt.propTypes = {
+  accept: PropTypes.string,
+  brandVolume: PropTypes.oneOf(['low', 'high']),
+  cancel: PropTypes.string,
+  focus: PropTypes.bool,
+  label: PropTypes.string,
+  legal: PropTypes.string,
+  loading: PropTypes.bool,
+  id: PropTypes.string,
+  illustration: PropTypes.node,
+  onAccept: PropTypes.func,
+  onBlur: PropTypes.func,
+  onCancel: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  summary: PropTypes.string,
+  title: PropTypes.string,
+  value: PropTypes.string
 }
 
 export default compose(

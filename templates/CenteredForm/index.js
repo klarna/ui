@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Centered from '../chromes/Centered'
 import Fieldset from '../../Fieldset'
 import classNamesBind from 'classnames/bind'
@@ -47,4 +47,20 @@ export default function CenteredForm ({
       />
     </div>
   </Centered>
+}
+
+CenteredForm.propTypes = {
+  accept: PropTypes.string,
+  brandVolume: PropTypes.oneOf(['low', 'high']),
+  cancel: PropTypes.string,
+  id: PropTypes.string,
+  illustration: PropTypes.node,
+  onAccept: PropTypes.func,
+  onCancel: PropTypes.func,
+  styles: PropTypes.object,
+  summary: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
+  title: PropTypes.string
 }

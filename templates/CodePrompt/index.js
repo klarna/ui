@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Centered from '../chromes/Centered'
 import Field from '../../Field'
 import * as Paragraph from '../../Paragraph'
@@ -126,6 +126,25 @@ function CodePrompt ({
       {message}
     </Paragraph.Secondary>}
   </Centered>
+}
+
+CodePrompt.propTypes = {
+  error: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  focus: PropTypes.bool,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  loading: PropTypes.bool,
+  message: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  summary: PropTypes.string,
+  styles: PropTypes.object,
+  title: PropTypes.string,
+  value: PropTypes.string,
+  length: PropTypes.number,
+  pattern: PropTypes.string
 }
 
 export default compose(

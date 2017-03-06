@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import * as Paragraph from '../../Paragraph'
 import TextLabel from '../../TextLabel'
 import * as Title from '../../Title'
@@ -35,4 +35,13 @@ export default function ReviewData ({
       {legal}
     </Paragraph.Legal>
   </Centered>
+}
+
+ReviewData.propTypes = {
+  accept: PropTypes.string,
+  info: PropTypes.string,
+  legal: PropTypes.string,
+  onAccept: PropTypes.func,
+  summary: PropTypes.string,
+  title: PropTypes.string
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Centered from '../chromes/Centered'
 import * as List from '../../List'
 
@@ -50,4 +50,17 @@ export default function XStepExplanation ({
       </List.Iconic.Item>)}
     </List.Iconic.Wrapper>
   </Centered>
+}
+
+XStepExplanation.propTypes = {
+  id: PropTypes.string,
+  accept: PropTypes.string,
+  bullets: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.node,
+      content: PropTypes.node
+    })
+  ),
+  onAccept: PropTypes.func,
+  title: PropTypes.string
 }

@@ -102,6 +102,30 @@ function FilteredSelection ({
   </div>
 }
 
+FilteredSelection.propTypes = {
+  alternative: PropTypes.string,
+  className: PropTypes.string,
+  focus: PropTypes.bool,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  onAlternative: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onSelect: PropTypes.func,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string,
+      label: PropTypes.string,
+      value: PropTypes.node
+    })
+  ),
+  summary: PropTypes.string,
+  title: PropTypes.string,
+  value: PropTypes.string,
+  styles: PropTypes.object
+}
+
 export default compose(
   uncontrolled({
     prop: 'focus',

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Centered from '../chromes/Centered'
 import * as Selector from '../../Selector'
 import classNamesBind from 'classnames/bind'
@@ -43,4 +43,20 @@ export default function CenteredSelection ({
       onSelect={onSelect}
     />
   </Centered>
+}
+
+CenteredSelection.propTypes = {
+  id: PropTypes.string,
+  illustration: PropTypes.node,
+  onSelect: PropTypes.func,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string,
+      label: PropTypes.string,
+      description: PropTypes.string
+    })
+  ),
+  styles: PropTypes.object,
+  summary: PropTypes.string,
+  title: PropTypes.string
 }
