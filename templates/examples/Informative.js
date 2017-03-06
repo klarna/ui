@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import * as Paragraph from '../../Paragraph'
+import CenteredDialog from '../CenteredDialog'
 import ConfirmData from '../ConfirmData'
 import ReviewData from '../ReviewData'
 import Explanation from '../Explanation'
@@ -7,7 +8,7 @@ import Landing from '../Landing'
 import XStepExplanation from '../XStepExplanation'
 import Wrapper from '../Wrapper'
 import DemoIcon from './DemoIcon'
-import {SHOWCASE} from '../../Showroom/variationTypes'
+import {SHOWCASE, TEMPLATE} from '../../Showroom/variationTypes'
 
 import Canvas from '../../Showroom/Lekplats/Canvas'
 import lekplats from '../../Showroom/Lekplats'
@@ -556,6 +557,42 @@ export default {
       example: React.createElement(
         lekplats(ExplanationExample.options)(ExplanationExample)
       )
+    },
+
+    {
+      title: 'CenteredDialog',
+      require: `import CenteredDialog from '@klarna/ui/templates/CenteredDialog'`,
+      type: TEMPLATE,
+
+      examples: {
+        Regular: {
+          inline: <CenteredDialog
+            id='centered-dialog'
+            illustration={<DemoIcon />}
+            title='Dialog Title'
+            summary='Dialog summary <strong>that supports HTML</strong> tags and convert them into KlarnaUI syntax.<br/><br/>Which plays well with output from localization tools.'
+            actions={[
+              {
+                id: 'ok-button',
+                type: 'primary',
+                label: 'OK',
+                onClick: () => console.log('OK')
+              },
+              {
+                id: 'secondary-button',
+                type: 'secondary',
+                label: 'Secondary'
+              },
+              {
+                id: 'take-me-away-button',
+                label: 'Go to Google.com',
+                target: '_blank',
+                href: 'http://www.google.com'
+              }
+            ]}
+          />
+        }
+      }
     },
 
     {

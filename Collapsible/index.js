@@ -42,7 +42,8 @@ export default class Collapsible extends Component {
     return <div
       style={{
         display: 'block',
-        height: collapsed ? minimumHeight : 'auto'
+        height: collapsed ? minimumHeight : 'auto',
+        opacity: collapsed ? 0 : 1
       }}>
       {children}
     </div>
