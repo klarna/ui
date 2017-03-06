@@ -80,6 +80,32 @@ function Secondary ({
       labelAlt: `${id}__label--alt`
     } : {}
 
+  const innerMarkup = customize
+    ? [
+      loading || <div key={1}
+        className={classNames(classes.darkening)}
+        id={ids.darkening}
+        style={customize && {
+          borderRadius: `${Math.max(parseInt(customize.borderRadius, 10) - 1, 0)}px`
+        }}
+      />,
+      <div
+        key={2}
+        id={ids.label}
+        className={classNames(classes.label)}>
+        {loadingOrContent}
+        {
+          isDisabled || <span
+            className={classNames(classes.labelAlt)}
+            id={ids.labelAlt}
+            title={content}
+            style={{color: customize.textColor}}
+          />
+        }
+      </div>
+    ]
+    : loadingOrContent
+
   const markup = href || target
     ? <a
       className={cls}
@@ -92,32 +118,7 @@ function Secondary ({
       }}
       target={target}
       {...props}>
-      {
-        customize ? [
-          loading || <div key={1}
-            className={classNames(classes.darkening)}
-            id={ids.darkening}
-            style={customize && {
-              borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
-            }}
-          />,
-          <div
-            key={2}
-            id={ids.label}
-            className={classNames(classes.label)}>
-            {loadingOrContent}
-            {
-              isDisabled || <span
-                className={classNames(classes.labelAlt)}
-                id={ids.labelAlt}
-                title={content}
-                style={{color: customize.textColor}}
-              />
-            }
-          </div>
-        ]
-        : loadingOrContent
-      }
+      {innerMarkup}
     </a>
     : <button
       className={cls}
@@ -128,32 +129,7 @@ function Secondary ({
         ...style
       }}
       {...props}>
-      {
-        customize ? [
-          loading || <div key={1}
-            className={classNames(classes.darkening)}
-            id={ids.darkening}
-            style={customize && {
-              borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
-            }}
-          />,
-          <div
-            key={2}
-            id={ids.label}
-            className={classNames(classes.label)}>
-            {loadingOrContent}
-            {
-              isDisabled || <span
-                className={classNames(classes.labelAlt)}
-                id={ids.labelAlt}
-                title={content}
-                style={{color: customize.textColor}}
-              />
-            }
-          </div>
-        ]
-        : loadingOrContent
-      }
+      {innerMarkup}
     </button>
 
   return markup
