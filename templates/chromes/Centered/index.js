@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import * as Button from '../../../Button'
 import * as Paragraph from '../../../Paragraph'
@@ -123,4 +123,26 @@ export default function Centered ({
       {footer}
     </div>}
   </div>
+}
+
+Centered.propTypes = {
+  brandVolume: PropTypes.oneOf(['low', 'high']),
+  className: PropTypes.string,
+  smallTitle: PropTypes.bool,
+  children: PropTypes.node,
+  error: PropTypes.bool,
+  footer: PropTypes.node,
+  labels: PropTypes.shape({
+    accept: PropTypes.string,
+    cancel: PropTypes.string,
+    legal: PropTypes.string,
+    title: PropTypes.string,
+    summary: PropTypes.string,
+  }).isRequired,
+  id: PropTypes.string,
+  illustration: PropTypes.node,
+  loading: PropTypes.bool,
+  onAccept: PropTypes.func,
+  onCancel: PropTypes.func,
+  styles: PropTypes.object
 }

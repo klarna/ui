@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import Fieldset from '../../Fieldset'
 import Input from '../../Input'

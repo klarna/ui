@@ -17,7 +17,7 @@ import asCode from '../../helpers/asCode'
 import grid from '../../settings/grid'
 import * as palette from '../../settings/palette'
 
-function IOSChrome ({children}) {
+function IOSChrome ({children, chrome}) {
   return <div
     style={{
       height: '100%',
@@ -29,13 +29,13 @@ function IOSChrome ({children}) {
     <div
       style={{
         backgroundColor: 'black',
-        height: 30,
+        height: chrome ? 30 : 0,
         width: '100%'
       }}
     />
     <div
       style={{
-        height: 'calc(100% - 60px)',
+        height: chrome ? 'calc(100% - 60px)' : '100%',
         position: 'relative',
         width: '100%'
       }}>
@@ -44,7 +44,7 @@ function IOSChrome ({children}) {
     <div
       style={{
         backgroundColor: 'black',
-        height: 30,
+        height: chrome ? 30 : 0,
         width: '100%'
       }}
     />
@@ -97,10 +97,6 @@ function LandingExample ({
     />
   </Wrapper>
 
-  const withIOSChrome = <IOSChrome>
-    {content}
-  </IOSChrome>
-
   return <div
     style={{
       marginRight: grid(4),
@@ -113,7 +109,9 @@ function LandingExample ({
           ? [280, 500]
           : [400, 600]
         )}>
-      {desktop || !visible ? content : withIOSChrome}
+      <IOSChrome chrome={!desktop && visible}>
+        {content}
+      </IOSChrome>
     </Canvas>
 
     <Code.Block standalone style={{marginTop: 20}}>
