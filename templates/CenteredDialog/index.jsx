@@ -40,6 +40,7 @@ function CenteredDialog ({
       dialogContent: `${id}__dialog-content`,
       title: `${id}__title`,
       summary: `${id}__summary`,
+      actionBlock: `${id}__actions`,
       errorBlock: `${id}__error-block`,
       errorParagraph: `${id}__error-paragraph`,
       errorIcon: `${id}__error-icon`,
@@ -73,6 +74,7 @@ function CenteredDialog ({
 
       {actions.length > 0 &&
         <ActionGenerator
+          id={ids.actionBlock}
           classNames={classNames}
           actions={actions}
         />
@@ -128,9 +130,9 @@ CenteredDialog.propTypes = {
 
 export default CenteredDialog
 
-const ActionGenerator = ({actions, classNames}) => {
+const ActionGenerator = ({id, actions, classNames}) => {
   return (
-    <div>
+    <div id={id}>
       {actions.map(action => {
         const key = `${action.id}.${action.type || 'action'}`
         return (
