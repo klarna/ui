@@ -35,7 +35,7 @@ export default function Wrapper ({
         case 1:
           return {
             contentOpacity: spring(
-              previouslyInterpolatedStyles[0].everythingOpacity === 1
+              previouslyInterpolatedStyles[0].everythingOpacity > 0.8
                 ? 1
                 : 0
             )
@@ -59,19 +59,24 @@ export default function Wrapper ({
             }}>
             <Backdrop />
             <Dialog id={id} {...props}>
-              {onBack && <Back
-                onClick={onBack}
-                color='gray'
-                id={ids.backButton}
-                topLeft
-              />}
-              {onClose && <Close
-                onClick={onClose}
-                color='gray'
-                id={ids.closeButton}
-                topRight
-              />}
-              {children}
+              <div
+                style={{
+                  opacity: interpolatingStyles[1].contentOpacity
+                }}>
+                {onBack && <Back
+                  onClick={onBack}
+                  color='gray'
+                  id={ids.backButton}
+                  topLeft
+                />}
+                {onClose && <Close
+                  onClick={onClose}
+                  color='gray'
+                  id={ids.closeButton}
+                  topRight
+                />}
+                {children}
+              </div>
             </Dialog>
           </div>
 
