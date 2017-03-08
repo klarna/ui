@@ -83,6 +83,7 @@ function Tertiary (props) {
   const markup = href || target
     ? <a
       className={cls}
+      id={id}
       disabled={isDisabled}
       href={href}
       style={{
@@ -116,6 +117,7 @@ function Tertiary (props) {
     </a>
     : <button
       className={cls}
+      id={id}
       disabled={isDisabled}
       style={{
         ...customizations,
