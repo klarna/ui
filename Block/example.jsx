@@ -26,6 +26,12 @@ export default {
             value='9.99%'
           />
         </Block.Installments.Content>
+      </Block.Installments.Main>,
+
+      'Left-Aligned': <Block.Installments.Main leftAlign>
+        <Block.Installments.Content>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+        </Block.Installments.Content>
       </Block.Installments.Main>
     }
   }

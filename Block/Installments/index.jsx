@@ -14,11 +14,11 @@ const classes = {
   values: `${baseClass}__values`
 }
 
-export function Main ({ className, children, styles, ...props }) {
+export function Main ({ className, children, leftAlign, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <div className={classNames(baseClass, className)} {...props}>
+    <div className={classNames(baseClass, className, 'left-align': leftAlign)} {...props}>
       {children}
     </div>
   )
@@ -27,6 +27,7 @@ export function Main ({ className, children, styles, ...props }) {
 Main.displayName = 'Block.Installments.Main'
 
 Main.propTypes = {
+  leftAlign: PropTypes.bool,
   className: PropTypes.string,
   children: childrenPropType,
   id: PropTypes.string,
