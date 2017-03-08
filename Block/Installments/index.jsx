@@ -16,7 +16,6 @@ const classes = {
   values: `${baseClass}__values`
 }
 
-export function InstallmentsMain ({ className, children, styles, ...props }) {
 function InstallmentsMain ({ className, children, leftAlign, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
