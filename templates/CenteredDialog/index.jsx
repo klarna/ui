@@ -38,13 +38,13 @@ function CenteredDialog ({
   const ids = id
     ? {
       dialogContent: `${id}__dialog-content`,
-      title: `${id}__title`,
-      summary: `${id}__summary`,
-      actionBlock: `${id}__actions`,
-      errorBlock: `${id}__error-block`,
-      errorParagraph: `${id}__error-paragraph`,
-      errorIcon: `${id}__error-icon`,
-      legal: `${id}__legal`
+      title: `${id}__dialog-title`,
+      summary: `${id}__dialog-summary`,
+      actionBlock: `${id}__dialog-actions`,
+      errorBlock: `${id}__dialog-error-block`,
+      errorParagraph: `${id}__dialog-error-paragraph`,
+      errorIcon: `${id}__dialog-error-icon`,
+      legal: `${id}__dialog-legal`
     } : {}
 
   return (
@@ -147,11 +147,18 @@ const ActionGenerator = ({id, actions, classNames}) => {
   )
 }
 
-const ButtonGenerator = ({type, label, classNames, ...remainingProps}) => {
+const ButtonGenerator = ({type, label, classNames, id, ...remainingProps}) => {
+  const ids = id
+    ? {
+      primary: `${id}__dialog-button-primary`,
+      secondary: `${id}__dialog-button-secondary`,
+      tertiary: `${id}__dialog-button-tertiary`
+    } : {}
   switch (type) {
     case 'primary':
       return (
         <Button.Primary
+          id={ids.primary}
           className={classNames(classes.button)}
           {...remainingProps}>
           {label}
@@ -160,6 +167,7 @@ const ButtonGenerator = ({type, label, classNames, ...remainingProps}) => {
     case 'secondary':
       return (
         <Button.Secondary
+          id={ids.secondary}
           className={classNames(classes.button)}
           {...remainingProps}>
           {label}
@@ -168,6 +176,7 @@ const ButtonGenerator = ({type, label, classNames, ...remainingProps}) => {
     default:
       return (
         <Button.Tertiary
+          id={ids.tertiary}
           className={classNames(classes.button)}
           {...remainingProps}>
           {label}
