@@ -3634,11 +3634,7 @@ lowlight@^1.2.0:
   dependencies:
     highlight.js "~9.9.0"
 
-lru-cache@2:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.7.3.tgz#6d4524e8b955f95d4f5b58851ce21dd72fb4e952"
-
-lru-cache@2.2.x:
+lru-cache@2, lru-cache@2.2.x:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.2.4.tgz#6c658619becf14031d0d0b594b16042ce4dc063d"
 
@@ -4700,6 +4696,10 @@ rc@^1.1.2, rc@~1.1.6:
 react-context-props@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/react-context-props/-/react-context-props-0.1.4.tgz#ff6811e0656dfc613bf7efe0981a6d8bbf226ffc"
+
+react-device-simulator@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/react-device-simulator/-/react-device-simulator-0.1.3.tgz#db930bee9303708bb8bf0509949244abc7494b53"
 
 react-dom@15.4.0:
   version "15.4.0"

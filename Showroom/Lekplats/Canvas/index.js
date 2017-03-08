@@ -1,4 +1,5 @@
 import React from 'react'
+import DeviceSimulator from 'react-device-simulator'
 import * as Paragraph from '../../../Paragraph'
 import grid from '../../../settings/grid'
 import * as palette from '../../../settings/palette'
@@ -16,6 +17,7 @@ const defaultStyles = {
       display: 'flex',
       height: grid(140),
       justifyContent: 'center',
+      position: 'relative',
       width: '100%'
     },
 
@@ -31,18 +33,11 @@ const defaultStyles = {
 
 export default function Canvas ({children, dimensions, ...props}) {
   return <div style={defaultStyles.base.main} {...props}>
-    <div
-      style={{
-        ...defaultStyles.base.artboard,
-        ...(dimensions ? {
-          height: dimensions[1],
-          width: dimensions[0]
-        }: {})
-      }}>
+    <DeviceSimulator devices={[{name: 'Super Small', width: 320, height: 480}]}>
       {range(0, 9).map(() => <Paragraph.Primary>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </Paragraph.Primary>)}
       {children}
-    </div>
+    </DeviceSimulator>
   </div>
 }
