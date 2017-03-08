@@ -13,13 +13,15 @@ npm install @klarna/ui --save
 
 You can use the UI components either with [React](https://facebook.github.io/react/) and [Preact](https://preactjs.com/). [Learn more in the docs](https://github.com/klarna/ui/wiki/Preact).
 
-React and React-Motion are peer-dependencies of this project, meaning that if you intend to consume the components from within your own project, you must make sure to have React and React-Motion available. The easiest way is to add them as dependencies of your project:
+This project has several peer dependencies that it needs to work. Although they are no technically _peer_ dependencies, we need to treat them that way to ensure that Webpack does not bundle them twice in the final builds of the consumer projects.
+
+Install all peer dependencies with:
 
 ```sh
-npm install react react-motion --save
+npm install react react-motion html2react ramda --save
 ```
 
-This package doesn't have a build, so you must have a Babel pipeline to use it. [Read more about how to config it](https://github.com/klarna/ui/wiki/Webpack-config).
+This package has a build, but usage of it is not recommended. You must have a Babel pipeline to use it. [Read more about how to config it](https://github.com/klarna/ui/wiki/Webpack-config).
 
 ## Wiki
 

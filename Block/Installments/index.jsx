@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../../propTypes/children'
+import compose from 'ramda/src/compose'
+import {overridable} from '@klarna/higher-order-components'
 
 const baseClass = 'block--installments'
 
@@ -14,7 +16,8 @@ const classes = {
   values: `${baseClass}__values`
 }
 
-export function Main ({ className, children, leftAlign, styles, ...props }) {
+export function InstallmentsMain ({ className, children, styles, ...props }) {
+function InstallmentsMain ({ className, children, leftAlign, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -24,9 +27,9 @@ export function Main ({ className, children, leftAlign, styles, ...props }) {
   )
 }
 
-Main.displayName = 'Block.Installments.Main'
+InstallmentsMain.displayName = 'Block.Installments.Main'
 
-Main.propTypes = {
+InstallmentsMain.propTypes = {
   leftAlign: PropTypes.bool,
   className: PropTypes.string,
   children: childrenPropType,
@@ -34,7 +37,11 @@ Main.propTypes = {
   styles: PropTypes.object
 }
 
-export function Title ({ className, children, styles, ...props }) {
+export const Main = compose(
+  overridable(defaultStyles)
+)(InstallmentsMain)
+
+function InstallmentsTitle ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -44,16 +51,20 @@ export function Title ({ className, children, styles, ...props }) {
   )
 }
 
-Title.displayName = 'Block.Installments.Title'
+InstallmentsTitle.displayName = 'Block.Installments.Title'
 
-Title.propTypes = {
+InstallmentsTitle.propTypes = {
   className: PropTypes.string,
   children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Content ({ className, children, styles, ...props }) {
+export const Title = compose(
+  overridable(defaultStyles)
+)(InstallmentsTitle)
+
+function InstallmentsContent ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
@@ -63,16 +74,20 @@ export function Content ({ className, children, styles, ...props }) {
   )
 }
 
-Content.displayName = 'Block.Installments.Content'
+InstallmentsContent.displayName = 'Block.Installments.Content'
 
-Content.propTypes = {
+InstallmentsContent.propTypes = {
   className: PropTypes.string,
   children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
 
-export function Value ({ className, clarification, children, id, title, styles, value, ...props }) {
+export const Content = compose(
+  overridable(defaultStyles)
+)(InstallmentsContent)
+
+function InstallmentsValue ({ className, clarification, children, id, title, styles, value, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const ids = id
@@ -109,9 +124,9 @@ export function Value ({ className, clarification, children, id, title, styles, 
   )
 }
 
-Value.displayName = 'Block.Installments.Value'
+InstallmentsValue.displayName = 'Block.Installments.Value'
 
-Value.propTypes = {
+InstallmentsValue.propTypes = {
   clarification: PropTypes.string,
   className: PropTypes.string,
   children: childrenPropType,
@@ -120,3 +135,7 @@ Value.propTypes = {
   styles: PropTypes.object,
   value: PropTypes.string.isRequired
 }
+
+export const Value = compose(
+  overridable(defaultStyles)
+)(InstallmentsValue)

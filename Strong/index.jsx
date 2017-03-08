@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
-import compose from '../lib/compose'
-import overridable from '../decorators/overridable'
+import compose from 'ramda/src/compose'
+import {overridable} from '@klarna/higher-order-components'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
@@ -14,6 +14,8 @@ function Strong ({children, styles, ...props}) {
     {children}
   </strong>
 }
+
+Strong.displayName = 'Strong'
 
 Strong.defaultProps = {
   styles: {}

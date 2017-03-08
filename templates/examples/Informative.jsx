@@ -2,6 +2,7 @@ import React from 'react'
 import ConfirmData from '../ConfirmData'
 import ReviewData from '../ReviewData'
 import Explanation from '../Explanation'
+import CenteredDialog from '../CenteredDialog'
 import Landing from '../Landing'
 import XStepExplanation from '../XStepExplanation'
 import Wrapper from '../Wrapper'
@@ -20,6 +21,7 @@ export default {
       examples: {
         Regular: {
           inline: <Landing
+            id='landing'
             illustration={<DemoIcon />}
             labels={{
               title: 'Welcome to the site',
@@ -235,6 +237,7 @@ export default {
       examples: {
         Regular: {
           inline: <Explanation
+            id='explanation'
             title='This is how the product works'
             content='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
             legal='Drinking vinegar unicorn fam pork belly prism. Vegan bicycle rights raclette tofu squid lomo coloring book, meggings marfa PBR&B bushwick. '
@@ -251,6 +254,69 @@ export default {
     },
 
     {
+      title: 'CenteredDialog',
+      require: 'import CenteredDialog from \'@klarna/ui/templates/CenteredDialog\'',
+      type: TEMPLATE,
+
+      examples: {
+        Regular: {
+          inline: <CenteredDialog
+            id='centered-dialog'
+            illustration={<DemoIcon />}
+            title='Dialog Title'
+            summary='Dialog summary <strong>that supports HTML</strong> tags and convert them into KlarnaUI syntax.<br/><br/>Which plays well with output from localization tools.'
+            actions={[
+              {
+                id: 'ok-button',
+                type: 'primary',
+                label: 'OK',
+                onClick: () => console.log('OK')
+              },
+              {
+                id: 'secondary-button',
+                type: 'secondary',
+                label: 'Secondary'
+              },
+              {
+                id: 'take-me-away-button',
+                label: 'Go to Google.com',
+                target: '_blank',
+                href: 'http://www.google.com'
+              }
+            ]}
+          />,
+          wrapper: <Wrapper>
+            <CenteredDialog
+              id='centered-dialog'
+              illustration={<DemoIcon />}
+              title='Dialog Title'
+              summary='Dialog summary <strong>that supports HTML</strong> tags and convert them into KlarnaUI syntax.<br/><br/>Which plays well with output from localization tools.'
+              actions={[
+                {
+                  id: 'ok-button',
+                  type: 'primary',
+                  label: 'OK',
+                  onClick: () => console.log('OK')
+                },
+                {
+                  id: 'secondary-button',
+                  type: 'secondary',
+                  label: 'Secondary'
+                },
+                {
+                  id: 'take-me-away-button',
+                  label: 'Go to Google.com',
+                  target: '_blank',
+                  href: 'http://www.google.com'
+                }
+              ]}
+            />
+          </Wrapper>
+        }
+      }
+    },
+
+    {
       title: 'XStepExplanation',
       require: 'import XStepExplanation from \'@klarna/ui/templates/XStepExplanation\'',
       type: TEMPLATE,
@@ -258,6 +324,7 @@ export default {
       examples: {
         Regular: {
           inline: <XStepExplanation
+            id='x-step-explanation'
             title='This is the main feature headline'
             accept='Continue'
             bullets={[
@@ -369,6 +436,7 @@ export default {
       examples: {
         Regular: {
           inline: <ConfirmData
+            id='confirm-data'
             title='Are these your favorite flavors?'
             summary='Street art tattooed live-edge, kitsch four loko hashtag paleo banh mi art party. Viral flexitarian paleo, stumptown dreamcatcher ennui pitchfork bitters squid cornhole roof party tattooed truffaut woke.'
             info={[
@@ -408,6 +476,7 @@ export default {
       examples: {
         Regular: {
           inline: <ReviewData
+            id='review-data'
             title='Review the chosen flavors'
             summary='Street art tattooed live-edge, kitsch four loko hashtag paleo banh mi art party. Viral flexitarian paleo, stumptown dreamcatcher ennui pitchfork bitters squid cornhole roof party tattooed truffaut woke.'
             info={[

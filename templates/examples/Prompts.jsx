@@ -12,12 +12,13 @@ export default {
   variations: [
     {
       title: 'SingleInputPrompt',
-      require: 'import SingleInputPrompt from \'@klarna/ui/templates/SingleInputPrompt\'',
+      require: `import SingleInputPrompt from '@klarna/ui/templates/SingleInputPrompt'`,
       type: TEMPLATE,
 
       examples: {
         Regular: {
           inline: <SingleInputPrompt
+            id='single-input-prompt'
             focus
             illustration={<DemoIcon />}
             title='Welcome to the site'
@@ -96,12 +97,13 @@ export default {
 
     {
       title: 'CenteredForm',
-      require: 'import CenteredForm from \'@klarna/ui/templates/CenteredForm\'',
+      require: `import CenteredForm from '@klarna/ui/templates/CenteredForm'`,
       type: TEMPLATE,
 
       examples: {
         Regular: {
           inline: <CenteredForm
+            id='centered-form'
             accept='Continue'
             cancel='I’d rather get a car'
             defaultValues={{
@@ -187,12 +189,13 @@ export default {
 
     {
       title: 'CodePrompt',
-      require: 'import CodePrompt from \'@klarna/ui/templates/CodePrompt\'',
+      require: `import CodePrompt from '@klarna/ui/templates/CodePrompt'`,
       type: TEMPLATE,
 
       examples: {
         Regular: {
           inline: <CodePrompt
+            id='code-prompt'
             defaultValue='123'
             label='The numbers'
             title='Enter the magic numbers'

@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
-import compose from '../../lib/compose'
+import {themeable, overridable} from '@klarna/higher-order-components'
+import compose from 'ramda/src/compose'
 import defaultStyles from '../styles.scss'
 import withDisplayName from '../withDisplayName'
 
 const classes = {
+  bgWrapper: 'bg-wrapper',
   iconButton: 'icon-button',
   fill: 'illustration__fill',
   label: 'illustration__label',
@@ -26,25 +26,27 @@ const Select = ({className, color, id, label, left, styles, ...props}) => {
     className={classNames(classes.iconButton, className)}
     id={id}
     {...props}>
-    <svg
-      className={classNames('illustration', 'button', color)}
-      id={ids.illustration}
-      strokeLinecap='round'
-      strokeWidth='2'
-      viewBox='0 0 21 21'
-      height='20px'
-      width='20px'>
-      <path
-        className={classNames(classes.stroke)}
-        d='M9,6l4,4l-4,4'
-      />
-    </svg>
+    <div className={classNames(classes.bgWrapper, color)}>
+      <svg
+        className={classNames('illustration', 'button', color)}
+        id={ids.illustration}
+        strokeLinecap='round'
+        strokeWidth='2'
+        viewBox='0 0 21 21'
+        height='20px'
+        width='20px'>
+        <path
+          className={classNames(classes.stroke)}
+          d='M9,6l4,4l-4,4'
+        />
+      </svg>
 
-    <span
-      className={classNames(classes.label, classes.labelLight, { left }, color)}
-      id={ids.label}>
-      {label}
-    </span>
+      <span
+        className={classNames(classes.label, classes.labelLight, { left }, color)}
+        id={ids.label}>
+        {label}
+      </span>
+    </div>
   </div>
 }
 

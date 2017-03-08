@@ -3,10 +3,12 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
 import childrenPropType from '../propTypes/children'
+import compose from 'ramda/src/compose'
+import {overridable} from '@klarna/higher-order-components'
 
 const baseClass = 'text-label'
 
-export default function TextLabel ({
+function TextLabel ({
   className,
   children,
   color,
@@ -25,6 +27,8 @@ export default function TextLabel ({
   )
 }
 
+TextLabel.displayName = 'TextLabel'
+
 TextLabel.defaultProps = {
   margins: false,
   styles: {}
@@ -38,3 +42,7 @@ TextLabel.propTypes = {
   margins: PropTypes.bool,
   styles: PropTypes.object
 }
+
+export default compose(
+  overridable(defaultStyles)
+)(TextLabel)

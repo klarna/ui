@@ -26,7 +26,7 @@ export default function Bank ({ color, styles, className, ...props }) {
           width='14.9203181'
           height='4.84131601'
           fill='white'>
-          <use xlinkHref='#path-1'></use>
+          <use xlinkHref='#path-1' />
         </mask>
       </defs>
       <g

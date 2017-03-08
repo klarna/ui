@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
+import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
+
 import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
-import compose from '../lib/compose'
-import themeable from '../decorators/themeable'
-import overridable from '../decorators/overridable'
 import childrenPropType from '../propTypes/children'
 
 const baseClass = 'link'
@@ -39,6 +39,8 @@ function Link ({
     {children}
   </a>
 }
+
+Link.displayName = 'Link'
 
 Link.propTypes = {
   children: childrenPropType,

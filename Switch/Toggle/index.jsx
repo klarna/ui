@@ -1,11 +1,16 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
-import compose from '../../lib/compose'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../../lib/getActiveElement'
 import childrenPropType from '../../propTypes/children'
+
+import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled,
+  uniqueName
+} from '@klarna/higher-order-components'
 
 const baseClass = 'switch'
 
@@ -252,6 +257,21 @@ const Toggle = React.createClass({
 })
 
 export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlers: {
+      onFocus: () => () => true,
+      onBlur: () => () => false
+    }
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => field => field
+    }
+  }),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,
@@ -260,5 +280,6 @@ export default compose(
       textColor: customizations.color_text
     }
   })),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  uniqueName
 )(Toggle)

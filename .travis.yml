@@ -5,11 +5,23 @@ script:
 - npm test
 - curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
   && python weigh_in.py index-built.js
+addons:
+  apt:
+    packages:
+    - xvfb
+install:
+- export DISPLAY=':99.0'
+- Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH="$HOME/.yarn/bin:$PATH"
+- yarn install
+- curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
+  && python weigh_in.py index-built.js
 deploy:
   provider: npm
   email: ui-admin.e@klarna.com
   api_key:
-    secure: JveRJbGP5jYktjXJ17yfNp+iR0R1AEMJOBSzbK3qg4iMnlETYWbd590yq2RMjNFBrBJGSkxbXoZpzeFfD5H547CELEJ8tyJJ0V8XSAXqB3SijytEf+t0V0VyBPYUMMuJ8YMmrikZfLVd8YXPy1hZrr1gN20QSetQJ3n8Z54JswkbyDvOiHkR5YnWgOtYu+8+s5fJ10XCP2u7gHw/7sKuDL1HxKW8vnWA5et076YoACM0mEepgo6wxkbMB1B99bYYqDzzZmFEYWaqTZjUC1bkMGfTA2Uv8eyZPiItHWnv4zoa9atoL1C4sYiir/VSrPNnurBdlyMTJu7mgECahnm5ORXzZ1nGLfGD64jzixWAGC3mCy6ukgQzlOWpWDSfePb7Ni8Vg/5bpDk4gNlVrxKpyfZn3GS+P1nfZ5Vi0xRceVBNQ2oDSAXPRldR9IS2dHErPl20D2t2+JLe4GkRzx/jQYO/EIqU396FDUDyHCiRlFj5GlDmy8nOw83H12syUZWQQKWoA5YgUoaCSK+dL5SjFEj/Cabh7+DuV0tEeU7lNUUT7NlvBSLBhdas29RDJ9Xc81h71hfumAPQUl5MIJhqclE+bV9TJB+aJRs207qGbzSjvoQ5+xKoU64iOSmfZd2x9Peqb3ibtTNFxkXIGvrufRuL41np810Pfd5PqjEfYvo=
+    secure: sm/sV7T0vrBzAvF0E4jT0b2jsEJ5IKds4RG+KKz8crcv48effc9q0qR1SX2s8UYwCWp5m4bB4GN2ptH8dhBcVVU88bp93LETrjjKGUf9HPBTd+tKd8HaU1iFOWIJrlqiGWyuc8pLSBDjuJbyd9C+zNdQrF0iVxvHC3/NkOyMlepToWdvtmI/NzFeEHXydtydWUjEOI1IB0vZpNI608dqvFhD22bWbCPbRXulgPI8p2fPZ7M55ZbCV0AMolF/jLVxqtn/QM+G10z9mkH1pnWwiAOoRf73zP8sJHeCNV0ht6WPftTA71XrQHmUm9l3pkwlWLXtf1EQ5FAdzVb4EdLLvAYMp7WwZfHLl1T0EaYg1TIsuGUQyLKVlOAFBMg6U8zGc2taW7yusV3lVbtgF0GILIxvWkhixBU2IQHfHBTXBQnuXrBF4PG+Yt/tzr0GfqaAqG1PRfczzIKhuEBMgWDFZq7AgJK9h2kkgAdjz0vynGp5impaY6EVLwsIdgK53990DRZyRjO3yxgHRGzlk3irQbcwcDso1kjIVtet7fmHLCnbJGlVLNZpNBNU0L3PEiGLQ/DXf7ZMoeSZu3xkCmv2cEKad515AuOau4XvPGd7/kezZwmYtuD8UUgr2BJ1r+bqqaX5r1KmW3hXoQJQBo8qT7sIuRSQCsNE3gdmaKlRx6I=
   on:
     tags: true
     repo: klarna/ui

@@ -7,7 +7,7 @@ export default {
   icon: 'Preview',
 
   examples: {
-    require: 'import * as Preview from \'@klarna/ui/Preview\'',
+    require: `import * as Preview from '@klarna/ui/Preview'`,
     type: LIVE,
 
     examples: {

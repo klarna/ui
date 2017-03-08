@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react'
+import compose from 'ramda/src/compose'
+import {overridable, themeable} from '@klarna/higher-order-components'
 import { withPropsFromContext } from 'react-context-props'
-import Loader from '../../Loader'
-import Price from '../Price'
 import classNamesBind from 'classnames/bind'
 import parseColor from 'parse-color'
+
+import Loader from '../../Loader'
+import Price from '../Price'
 import contains from '../../lib/contains'
-import compose from '../../lib/compose'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
 import brandVolumeLevels from '../../lib/brandVolumeLevels'
-import defaultStyles from '../styles.scss'
 import childrenPropType from '../../propTypes/children'
+import defaultStyles from '../styles.scss'
 
 const baseClass = 'button'
 
@@ -29,12 +29,14 @@ function Secondary ({
   className,
   customize,
   disabled,
+  href,
   id,
   loading,
   size,
   style,
   styles,
   success,
+  target,
   ...props
 }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
@@ -55,9 +57,13 @@ function Secondary ({
 
   const content = (success ? '✔' : children)
 
-  const loadingOrContent = loading
-    ? <Loader inline color={loaderColor}/>
-    : content
+  const loadingOrContent =
+    <span>
+      <div className={loading ? classNames('visibilityHidden') : ''}>
+        {content}
+      </div>
+      {loading ? <Loader inline color={loaderColor} /> : null}
+    </span>
 
   const customizations = customize
     ? {
@@ -74,8 +80,47 @@ function Secondary ({
       labelAlt: `${id}__label--alt`
     } : {}
 
-  return (
-    <button
+  const innerMarkup = customize
+    ? [
+      loading || <div key={1}
+        className={classNames(classes.darkening)}
+        id={ids.darkening}
+        style={customize && {
+          borderRadius: `${Math.max(parseInt(customize.borderRadius, 10) - 1, 0)}px`
+        }}
+      />,
+      <div
+        key={2}
+        id={ids.label}
+        className={classNames(classes.label)}>
+        {loadingOrContent}
+        {
+          isDisabled || <span
+            className={classNames(classes.labelAlt)}
+            id={ids.labelAlt}
+            title={content}
+            style={{color: customize.textColor}}
+          />
+        }
+      </div>
+    ]
+    : loadingOrContent
+
+  const markup = href || target
+    ? <a
+      className={cls}
+      disabled={isDisabled}
+      href={href}
+      id={id}
+      style={{
+        ...customizations,
+        ...style
+      }}
+      target={target}
+      {...props}>
+      {innerMarkup}
+    </a>
+    : <button
       className={cls}
       disabled={isDisabled}
       id={id}
@@ -84,35 +129,10 @@ function Secondary ({
         ...style
       }}
       {...props}>
-      {
-        customize ? [
-          loading || <div key={1}
-            className={classNames(classes.darkening)}
-            id={ids.darkening}
-            style={customize && {
-              borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
-            }}
-          />,
-          <div
-            key={2}
-            id={ids.label}
-            className={classNames(classes.label)}>
-            {loadingOrContent}
-            {
-              isDisabled ||
-                <span
-                  className={classNames(classes.labelAlt)}
-                  id={ids.labelAlt}
-                  title={content}
-                  style={{color: customize.textColor}}>
-                </span>
-            }
-          </div>
-        ]
-        : loadingOrContent
-      }
+      {innerMarkup}
     </button>
-  )
+
+  return markup
 }
 
 Secondary.displayName = 'Button.Secondary'
@@ -133,12 +153,14 @@ Secondary.propTypes = {
     borderRadius: PropTypes.string.isRequired,
     textColor: PropTypes.string.isRequired
   }),
-  id: PropTypes.string,
-  size: PropTypes.oneOf(sizes),
-  loading: PropTypes.bool,
-  success: PropTypes.bool,
   disabled: PropTypes.bool,
-  styles: PropTypes.object
+  href: PropTypes.string,
+  id: PropTypes.string,
+  loading: PropTypes.bool,
+  size: PropTypes.oneOf(sizes),
+  styles: PropTypes.object,
+  success: PropTypes.bool,
+  target: PropTypes.string
 }
 
 export default compose(

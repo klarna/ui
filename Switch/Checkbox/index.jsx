@@ -1,11 +1,16 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
-import themeable from '../../decorators/themeable'
-import overridable from '../../decorators/overridable'
-import compose from '../../lib/compose'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../../lib/getActiveElement'
 import childrenPropType from '../../propTypes/children'
+
+import compose from 'ramda/src/compose'
+import {
+  overridable,
+  themeable,
+  uncontrolled,
+  uniqueName
+} from '@klarna/higher-order-components'
 
 const baseClass = 'switch--checkbox'
 
@@ -13,6 +18,7 @@ const classes = {
   bullet: `${baseClass}__bullet`,
   bulletCheckmark: `${baseClass}__bullet__checkmark`,
   bulletCheckmarkStroke: `${baseClass}__bullet__checkmark__stroke`,
+  bulletCheckmarkFill: `${baseClass}__bullet__checkmark__fill`,
   label: `${baseClass}__label`,
   input: `${baseClass}__input`
 }
@@ -46,6 +52,7 @@ const Checkbox = React.createClass({
       textColor: PropTypes.string.isRequired
     }),
     disabled: PropTypes.bool,
+    partial: PropTypes.bool,
     error: PropTypes.bool,
     focus: PropTypes.bool,
     id: PropTypes.string,
@@ -81,6 +88,7 @@ const Checkbox = React.createClass({
       children,
       customize,
       disabled,
+      partial,
       error,
       focus,
       legal,
@@ -98,7 +106,7 @@ const Checkbox = React.createClass({
     const classNames = classNamesBind.bind({...defaultStyles, ...styles})
     const cls = classNames(baseClass, {
       'is-checked': value,
-      'is-focused': focus,
+      'is-focused': focus && !disabled,
       'is-pressed': pressed,
       'is-disabled': disabled,
       'is-error': error,
@@ -129,6 +137,7 @@ const Checkbox = React.createClass({
         name={name}
         type='checkbox'
         checked={value}
+        disabled={disabled}
         onBlur={onBlur}
         onChange={() => !disabled && onChange && onChange(!value)}
         onFocus={onFocus}
@@ -151,7 +160,7 @@ const Checkbox = React.createClass({
           } : {
             borderColor: focus && customize.borderColorSelected,
             boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
-          })}></div>
+          })} />
         <svg
           className={classNames(classes.bulletCheckmark)}
           id={ids.bulletCheckmark}
@@ -159,13 +168,20 @@ const Checkbox = React.createClass({
           height='14px'
           viewBox='0 0 14 14'>
           <g fill='none'>
-            <rect x='0' y='0' width='14' height='14' rx='2'></rect>
+            <rect x='0' y='0' width='14' height='14' rx='2' />
             <path
-              className={classNames(classes.bulletCheckmarkStroke)}
+              className={classNames(classes.bulletCheckmarkStroke, partial && 'is-hidden')}
               d='M3.8,6.67583361 L6.40484483,9.5982824 L10.7279517,4.2'
               style={customize ? {
                 stroke: customize.bulletColor
               } : undefined}
+            />
+            <rect
+              x='3'
+              y='6'
+              width='8'
+              height='2'
+              className={classNames(classes.bulletCheckmarkFill, partial || 'is-hidden')}
             />
           </g>
         </svg>
@@ -176,6 +192,21 @@ const Checkbox = React.createClass({
 })
 
 export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlers: {
+      onFocus: () => () => true,
+      onBlur: () => () => false
+    }
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => field => field
+    }
+  }),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,
@@ -185,5 +216,6 @@ export default compose(
       borderColorSelected: customizations.color_border_selected
     }
   })),
-  overridable(defaultStyles)
+  overridable(defaultStyles),
+  uniqueName
 )(Checkbox)

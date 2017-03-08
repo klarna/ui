@@ -4,6 +4,9 @@ import defaultStyles from './styles.scss'
 import getActiveElement from '../../lib/getActiveElement'
 import childrenPropType from '../../propTypes/children'
 
+import compose from 'ramda/src/compose'
+import {uncontrolled, uniqueName} from '@klarna/higher-order-components'
+
 const baseClass = 'segmented'
 
 const classes = {
@@ -13,7 +16,7 @@ const classes = {
 
 export const tabDisplays = ['fluid', 'static']
 
-export default React.createClass({
+const Segmented = React.createClass({
   displayName: 'Segmented',
 
   propTypes: {
@@ -109,19 +112,38 @@ export default React.createClass({
               onFocus={(e) => onFocus && onFocus(key, e)}
               checked={key === value}
               value={key}
-            />),
-            (<label
-              id={`${id}-tab`}
-              style={tabDisplay === 'static' ? {
-                width: `${(100 / options.length)}%`
-              } : undefined}
-              className={tabClass}
-              htmlFor={id}>
-              {label}
-            </label>)
+             />),
+          (<label
+            id={`${id}-tab`}
+            style={tabDisplay === 'static' ? {
+              width: `${(100 / options.length)}%`
+            } : undefined}
+            className={tabClass}
+            htmlFor={id}>
+            {label}
+          </label>)
           ]
         })}
       </div>
     )
   }
 })
+
+export default compose(
+  uncontrolled({
+    prop: 'focus',
+    defaultProp: 'autoFocus',
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
+  }),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => value => value
+    }
+  }),
+  uniqueName
+)(Segmented)

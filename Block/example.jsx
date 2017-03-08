@@ -7,7 +7,7 @@ export default {
   icon: 'Block',
 
   examples: {
-    require: 'import * as Block from \'@klarna/ui/Block\'',
+    require: `import * as Block from '@klarna/ui/Block'`,
     type: LIVE,
 
     examples: {

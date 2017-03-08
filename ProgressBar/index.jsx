@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
+import { Motion, spring } from 'react-motion'
 
 const colors = ['blue', 'light-blue', 'gray']
 
@@ -24,11 +25,15 @@ const ProgressBar = ({
       className={classNames('progressbar', borderColor, className)}
       id={id}
       {...props}>
-      <div
-        className={classNames('progressbar-fill', fillColor)}
-        id={ids.progress}
-        style={{width: `${percentage}%`}}
-      />
+      <Motion defaultStyle={{ percentage: 0 }} style={{ percentage: spring(percentage) }}>
+        {({ percentage }) =>
+          <div
+            className={classNames('progressbar-fill', fillColor)}
+            id={ids.progress}
+            style={{width: `${percentage}%`}}
+        />
+      }
+      </Motion>
     </div>
   )
 }

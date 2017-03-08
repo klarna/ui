@@ -13,7 +13,7 @@
   </head>
   <body>
 
-    <div id="root"></div>
+    <div id="root" />
 
     {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
     <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>

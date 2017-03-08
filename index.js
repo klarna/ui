@@ -1,6 +1,7 @@
 import * as TheAlert from './Alert'
 export { default as Amount } from './Amount'
 import * as TheBlock from './Block'
+export { default as BoxSelector } from './BoxSelector'
 import * as TheButton from './Button'
 import * as TheChecklist from './Checklist'
 import * as TheContextMenu from './ContextMenu'
@@ -11,7 +12,6 @@ export { default as Fieldset } from './Fieldset'
 import * as TheIconButton from './IconButton'
 import * as TheIcons from './icons'
 export { default as Input } from './Input'
-export { default as Installments } from './Installments'
 export { default as Label } from './Label'
 export { default as Link } from './Link'
 export { default as Loader } from './Loader'
@@ -28,13 +28,6 @@ import * as TheText from './Text'
 export { default as TextLabel } from './TextLabel'
 import * as TheTitle from './Title'
 export { default as Tooltip } from './Tooltip'
-import * as TheUncontrolledMenu from './uncontrolled/Menu'
-import * as TheUncontrolledSwitch from './uncontrolled/Switch'
-export { default as UncontrolledDropdown } from './uncontrolled/Dropdown'
-export { default as UncontrolledField } from './uncontrolled/Field'
-export { default as UncontrolledInput } from './uncontrolled/Input'
-export { default as UncontrolledRadio } from './uncontrolled/Radio'
-export { default as UncontrolledSelector } from './uncontrolled/Selector'
 
 export const Alert = TheAlert
 export const Block = TheBlock
@@ -51,5 +44,3 @@ export const Switch = TheSwitch
 export const templates = TheTemplates
 export const Text = TheText
 export const Title = TheTitle
-export const UncontrolledMenu = TheUncontrolledMenu
-export const UncontrolledSwitch = TheUncontrolledSwitch

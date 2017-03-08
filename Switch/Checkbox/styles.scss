@@ -73,7 +73,7 @@
     right: 0;
   }
 
-  .switch--checkbox:not(.dynamic-styling) .switch--checkbox__label:hover & {
+  .switch--checkbox:not(.dynamic-styling):not(.is-disabled) .switch--checkbox__label:hover & {
     border-color: map-get($colors, blue-hover);
   }
 
@@ -114,4 +114,18 @@
 
 .switch--checkbox__bullet__checkmark__stroke {
   stroke: map-get($colors, white);
+  transition: opacity 0.2s ease;
+
+  &.is-hidden {
+    opacity: 0;
+  }
+}
+
+.switch--checkbox__bullet__checkmark__fill {
+  fill: map-get($colors, white);
+  transition: opacity 0.2s ease;
+
+  &.is-hidden {
+    opacity: 0;
+  }
 }

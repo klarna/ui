@@ -1,6 +1,5 @@
 import React from 'react'
 import Input, { icons } from '../Input'
-import UncontrolledInput from '../uncontrolled/Input'
 import Fieldset from '../Fieldset'
 import { LIVE, LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
 import ReactMaskedInput from 'react-maskedinput'
@@ -12,50 +11,104 @@ export default {
   variations: [
     {
       title: 'Single',
-      require: `import Input from '@klarna/ui/Input'
-import UncontrolledInput from '@klarna/ui/uncontrolled/Input'`,
-      type: LIVE,
+      require: `import Input from '@klarna/ui/Input'`,
+      type: MANUAL,
 
       examples: {
-        Regular: <Input label='Enter your email' />,
-        Uncontrolled: <UncontrolledInput
-          name='input-uncontrolled'
-          label='Enter your email'
-        />,
-        Big: <Input label='Enter your email' big />,
-        Giant: <Input label='Enter your email' giant />,
-        Focused: <Input label='Enter your email' focus />,
-        'Fake focused': <Input label='Enter your email' focus='fake' />,
-        Disabled: <Input disabled label='Address' value='16, Corn street' />,
-        'Exclude Mouseflow': <Input
-          mouseflowExclude
-          label='Address'
-          value='16, Corn street'
-        />,
-        'With error': <Input label='Invalid email' error value='invalid@' />,
-        'With warning': <Input
-          label='Are you sure the domain is exanple?'
-          warning
-          value='email@exanple.com'
-        />
+        Regular: {
+          live: <Input label='Enter your email' />,
+          code: `<Input label='Enter your email' />`
+        },
+
+        Controlled: {
+          live: <Input
+            label='Enter your email'
+            value='someone@example.com'
+            focus={false}
+          />,
+          code:
+`<Input
+  label='Enter your email'
+  value='someone@example.com'
+  focus={false}
+/>`
+        },
+
+        Big: {
+          live: <Input label='Enter your email' big />,
+          code: `<Input label='Enter your email' big />`
+        },
+
+        Giant: {
+          live: <Input label='Enter your email' giant />,
+          code: `<Input label='Enter your email' giant />`
+        },
+
+        'With name': {
+          live: <Input label='Enter your email' name='email' />,
+          code: `<Input label='Enter your email' name='email' />`
+        },
+
+        'Fake focused': {
+          live: <Input label='Enter your email' focus='fake' />,
+          code: `<Input label='Enter your email' focus='fake' />`
+        },
+
+        Disabled: {
+          live: <Input disabled label='Address' defaultValue='16, Corn street' />,
+          code: `<Input disabled label='Address' defaultValue='16, Corn street' />`
+        },
+
+        'Exclude Mouseflow': {
+          live: <Input
+            mouseflowExclude
+            label='Address'
+            defaultValue='16, Corn street'
+          />,
+          code:
+`<Input
+  mouseflowExclude
+  label='Address'
+  defaultValue='16, Corn street'
+/>`
+        },
+
+        'With error': {
+          live: <Input label='Invalid email' error defaultValue='invalid@' />,
+          code: `<Input label='Invalid email' error defaultValue='invalid@' />`
+        },
+
+        'With warning': {
+          live: <Input
+            label='Are you sure the domain is exanple?'
+            warning
+            defaultValue='email@exanple.com'
+          />,
+          code:
+`<Input
+  label='Are you sure the domain is exanple?'
+  warning
+  defaultValue='email@exanple.com'
+/>`
+        }
       }
     },
 
     {
       title: 'Override',
-      require: `import UncontrolledInput from '@klarna/ui/uncontrolled/Input'
+      require: `import Input from '@klarna/ui/Input'
 import ReactMaskedInput from 'react-maskedinput'`,
       type: MANUAL,
 
       examples: {
         'Masked credit card input': {
-          live: <UncontrolledInput
+          live: <Input
             label='Credit card number'
             Input={ReactMaskedInput}
             mask='1111 1111 1111 1111'
             placeholder=' '
           />,
-          code: `<UncontrolledInput
+          code: `<Input
   label='Credit card number'
   Input={ReactMaskedInput}
   mask='1111 1111 1111 1111'
@@ -67,88 +120,75 @@ import ReactMaskedInput from 'react-maskedinput'`,
 
     {
       title: 'With Icons',
-      require: `import UncontrolledInput from '@klarna/ui/uncontrolled/Input'
+      require: `import Input from '@klarna/ui/Input'
 import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE,
 
       examples: {
         Regular: [
           <Fieldset margins key={0}>
-            <UncontrolledInput
-              name='icon-card'
+            <Input
               icon={icons.BANK}
               label='Please enter your bank account number' />
           </Fieldset>,
           <Fieldset margins key={1}>
-            <UncontrolledInput
-              name='icon-card'
+            <Input
               icon={icons.CARD}
               label='Please enter your credit card number' />
           </Fieldset>,
           <Fieldset margins key={2}>
-            <UncontrolledInput
-              name='icon-calendar'
+            <Input
               icon={icons.CALENDAR}
               label='Date of Birth' />
           </Fieldset>,
           <Fieldset margins key={3}>
-            <UncontrolledInput
-              name='icon-lock'
+            <Input
               icon={icons.LOCK}
               type='password'
               label='Password' />
           </Fieldset>,
           <Fieldset margins key={4}>
-            <UncontrolledInput
-              name='icon-person'
+            <Input
               icon={icons.PERSON}
               label='Enter your user name' />
           </Fieldset>,
           <Fieldset margins key={5}>
-            <UncontrolledInput
-              name='icon-email'
+            <Input
               icon={icons.EMAIL}
               label='Enter your email address' />
           </Fieldset>,
           <Fieldset margins key={6}>
-            <UncontrolledInput
-              name='icon-phone'
+            <Input
               icon={icons.PHONE}
               label='Mobile number' />
           </Fieldset>,
           <Fieldset margins key={7}>
-            <UncontrolledInput
-              name='icon-close'
+            <Input
               icon={icons.CLOSE}
               label='Enter an incorrect value (?)' />
           </Fieldset>,
           <Fieldset margins key={8}>
-            <UncontrolledInput
-              name='icon-question'
+            <Input
               icon={icons.QUESTION}
               label='Are we sure about these being field icons?' />
           </Fieldset>,
           <Fieldset margins key={9}>
-            <UncontrolledInput
-              name='icon-check'
+            <Input
               icon={icons.CHECK}
               label='These look like button icons really' />
           </Fieldset>,
           <Fieldset margins key={10}>
-            <UncontrolledInput
-              name='icon-logout'
+            <Input
               icon={icons.LOGOUT}
               label='Write something to log out' />
           </Fieldset>,
           <Fieldset margins key={11}>
-            <UncontrolledInput
-              name='icon-search'
+            <Input
               icon={icons.SEARCH}
               label='Write something to search' />
           </Fieldset>,
           <Fieldset margins key={12}>
-            <UncontrolledInput
-              name='icon-giant'
+            <Input
               giant
               icon={icons.PHONE}
               label='Line number' />
@@ -159,32 +199,32 @@ import Fieldset from '@klarna/ui/Fieldset'`,
 
     {
       title: 'Stacked',
-      require: `import UncontrolledInput from '@klarna/ui/uncontrolled/Input'
+      require: `import Input from '@klarna/ui/Input'
 import Fieldset from '@klarna/ui/Fieldset'`,
       type: LIVE_WIDE,
 
       examples: {
         'Two fields': <Fieldset margins>
-          <UncontrolledInput left size='1/2' name='two-given-name' label='Given name' />
-          <UncontrolledInput right size='1/2' name='two-middle-name' label='Middle name' />
+          <Input left size='1/2' label='Given name' />
+          <Input right size='1/2' label='Middle name' />
         </Fieldset>,
 
         'Card like form': <Fieldset margins>
-          <UncontrolledInput name='card-number' label='Card number' />
-          <UncontrolledInput left size='1/2' name='card-expiration' label='MM / YY' />
-          <UncontrolledInput right size='1/2' name='card-ccv' label='CCV' />
+          <Input label='Card number' />
+          <Input left size='1/2' label='MM / YY' />
+          <Input right size='1/2' label='CCV' />
         </Fieldset>,
 
         Many: <Fieldset margins>
-          <UncontrolledInput left size='1/2' name='many-given-name' label='Given name' />
-          <UncontrolledInput center size='1/4' name='many-middle-name' label='Middle name' />
-          <UncontrolledInput right size='1/4' name='many-last-name' label='Last name' />
-          <UncontrolledInput left size='1/5' name='many-number' label='Number' />
-          <UncontrolledInput right size='4/5' name='many-street-address' label='Street Address' />
-          <UncontrolledInput left size='1/3' name='many-pokemon' label='Your favorite pokémon' />
-          <UncontrolledInput right size='2/3' name='many-android-iphone' label='Android or iPhone: please explain' />
-          <UncontrolledInput left size='2/5' name='many-date-of-birth' label='Date of Birth' />
-          <UncontrolledInput right size='3/5' name='many-mobile-phone-number' label='Mobile phone number' />
+          <Input left size='1/2' label='Given name' />
+          <Input center size='1/4' label='Middle name' />
+          <Input right size='1/4' label='Last name' />
+          <Input left size='1/5' label='Number' />
+          <Input right size='4/5' label='Street Address' />
+          <Input left size='1/3' label='Your favorite pokémon' />
+          <Input right size='2/3' label='Android or iPhone: please explain' />
+          <Input left size='2/5' label='Date of Birth' />
+          <Input right size='3/5' label='Mobile phone number' />
         </Fieldset>
       }
     }

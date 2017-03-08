@@ -3,10 +3,13 @@ module.exports = (hljs) => ({
   contains: [
     {
       className: 'component',
-      begin: '</?', end: '/?>',
+      begin: '</?',
+      end: '/?>',
       contains: [
         {
-          className: 'component', begin: /[^\/><\s]+/, relevance: 0
+          className: 'component',
+          begin: /[^/><\s]+/,
+          relevance: 0
         },
         {
           endsWithParent: true,

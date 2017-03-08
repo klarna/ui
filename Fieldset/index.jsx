@@ -2,11 +2,12 @@ import React, { PropTypes} from 'react'
 import Field from '../Field'
 import Dropdown from '../Dropdown'
 import Input from '../Input'
-import compose from '../lib/compose'
-import uncontrolled from '../decorators/uncontrolled'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
+
+import compose from 'ramda/src/compose'
+import {uncontrolled} from '@klarna/higher-order-components'
 
 function Fieldset ({
   className,
@@ -88,14 +89,16 @@ export default compose(
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
-    handlerName: 'onFocus',
-    handlerSelector: (x) => x,
-    resetHandlerName: 'onBlur'
+    handlers: {
+      onFocus: () => field => field,
+      onBlur: () => () => undefined
+    }
   }),
   uncontrolled({
     prop: 'values',
     defaultProp: 'defaultValues',
-    handlerName: 'onChange',
-    handlerSelector: (x) => x
+    handlers: {
+      onChange: () => value => value
+    }
   })
 )(Fieldset)
