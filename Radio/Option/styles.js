@@ -5,6 +5,7 @@ import {BORDER_RADIUS} from '../../settings/themes/default/assorted'
 import * as fontFamilies from '../../settings/fontFamilies'
 import * as fontSizes from '../../settings/fontSizes'
 import * as fontWeights from '../../settings/fontWeights'
+import { isMobile } from '../../lib/device'
 
 export default {
   base: {
@@ -125,7 +126,7 @@ export default {
   },
   leftPad: {
     content: {
-      paddingLeft: grid(9.8)
+      paddingLeft: isMobile() ? grid(4) : grid(9.8)
     }
   }
 }
