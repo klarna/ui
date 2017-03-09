@@ -126,7 +126,8 @@ export default {
   },
   leftPad: {
     content: {
-      paddingLeft: isMobile() ? grid(4) : grid(9.8)
+      paddingLeft: isMobile() ? grid(4) : grid(9.8),
+      paddingRight: isMobile() ? grid(4) : grid(9.8)
     }
   }
 }
