@@ -1,6 +1,15 @@
 import React from 'react'
 import * as Dialog from '../../Dialog'
 import { Back, Close } from '../../IconButton'
+import defaultStyles from './styles.scss'
+import classNamesBind from 'classnames/bind'
+
+const baseClass = 'wrapper'
+
+const classes = {
+  cell: `${baseClass}__cell`,
+  table: `${baseClass}__table`
+}
 
 export default function Wrapper ({
   className,
@@ -8,8 +17,11 @@ export default function Wrapper ({
   id,
   onBack,
   onClose,
+  verticalCenter,
   ...props
 }) {
+  const classNames = classNamesBind.bind({...defaultStyles})
+
   const ids = id
     ? {
       closeDialogIcon: `${id}__close-dialog-icon`,
@@ -41,7 +53,16 @@ export default function Wrapper ({
             id={ids.closeButton}
           />
         </Dialog.Icon>}
-        {children}
+        {verticalCenter &&
+          <div className={classNames(classes.table)}>
+            <div className={classNames(classes.cell)}>
+              {children}
+            </div>
+          </div>
+        }
+        {!verticalCenter &&
+          children
+        }
       </Dialog.Main>
     </Dialog.Overlay>
   )
