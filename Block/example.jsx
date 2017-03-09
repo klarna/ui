@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Block from '../Block'
+import { Primary as Paragraph } from '../Paragraph'
 import { LIVE } from '../Showroom/variationTypes'
 
 export default {
@@ -30,7 +31,9 @@ export default {
 
       'Left-Aligned': <Block.Installments.Main leftAlign>
         <Block.Installments.Content>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+          <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+          </Paragraph>
         </Block.Installments.Content>
       </Block.Installments.Main>
     }
