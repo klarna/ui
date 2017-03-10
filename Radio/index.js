@@ -5,7 +5,8 @@ import {
   notifyOnLowFPS,
   themeable,
   uncontrolled,
-  uniqueName
+  uniqueName,
+  withLayoutProps
 } from '@klarna/higher-order-components'
 import {Motion, spring} from 'react-motion'
 import Option from './Option'
@@ -86,6 +87,7 @@ class Radio extends Component {
       onEndFPSCollection,
       onStartFPSCollection,
       lowFPS,
+      thinPadding,
       styles,
       value,
       ...remainingProps
@@ -117,6 +119,7 @@ class Radio extends Component {
       onFocus,
       onChange,
       name,
+      thinPadding,
       styles
     })
 
@@ -204,6 +207,7 @@ Radio.propTypes = {
     option: PropTypes.object,
     expandLabel: PropTypes.object
   }),
+  thinPadding: PropTypes.bool,
   value: PropTypes.any
 }
 
@@ -214,10 +218,19 @@ Radio.defaultProps = {
     option: {},
     expandLabel: {},
     radioMark: {}
-  }
+  },
+  thinPadding: false
 }
 
 export default compose(
+  withLayoutProps({
+    desktop: {
+      thinPadding: false
+    },
+    mobile: {
+      thinPadding: true
+    }
+  }),
   notifyOnLowFPS({threshold: 10}),
   uncontrolled({
     prop: 'fullyExpanded',

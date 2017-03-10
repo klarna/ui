@@ -20,6 +20,7 @@ export default ({
   onFocus,
   onChange,
   name,
+  thinPadding,
   styles
 }) => (option, index) => {
   const {
@@ -145,7 +146,8 @@ export default ({
         collapsed={isDisabled || !singleOption && key !== value}>
         <div
           style={{
-            ...finalStyles.base.content
+            ...finalStyles.base.content,
+            ...(thinPadding ? finalStyles.thinPadding.content : {})
           }}
           id={ids.content}>
           {content}
