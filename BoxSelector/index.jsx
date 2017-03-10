@@ -6,7 +6,7 @@ import {
 import Horizontal from './Horizontal'
 import Vertical from './Vertical'
 import defaultStyles from './styles.scss'
-import {MOBILE_MAX_WIDTH} from '../settings'
+import { isMobile } from '../lib/device'
 
 const baseClass = 'box-selector'
 
@@ -36,8 +36,7 @@ class BoxSelector extends Component {
 
       case 'auto':
       default:
-        const currentWidth = window.innerWidth || document.body.clientWidth
-        const wide = currentWidth >= MOBILE_MAX_WIDTH
+        const wide = !isMobile()
 
         return <div
           className={classNames(baseClass)}

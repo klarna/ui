@@ -7,6 +7,7 @@ import BoxSelector from '../BoxSelector'
 import Dropdown from '../Dropdown'
 import Subtitle from '../Subtitle'
 
+import { isMobile } from '../lib/device'
 import grid from '../settings/grid'
 import * as palette from '../settings/palette'
 import * as fontFamilies from '../settings/fontFamilies'
@@ -33,8 +34,7 @@ const optionsWithContent = [
     aside: card,
     content: <Paragraph.Secondary style={{marginBottom: -10}}>
       Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
-    </Paragraph.Secondary>,
-    leftPad: true
+    </Paragraph.Secondary>
   },
 
   {
@@ -92,8 +92,8 @@ const fullStylesOverride = {
     base: {
       content: {
         paddingBottom: grid(6),
-        paddingLeft: grid(6),
-        paddingRight: grid(6)
+        paddingLeft: isMobile() ? grid(6) : grid(9.8),
+        paddingRight: isMobile() ? grid(6) : grid(9.8)
       },
       aside: {
         display: 'table-cell',
@@ -138,13 +138,7 @@ const fullStylesOverride = {
       header: {
         cursor: 'crosshair'
       }
-    },
-    leftPad: {
-      content: {
-        paddingLeft: grid(9.8)
-      }
     }
-
   },
   expandLabel: {
     base: {
@@ -300,8 +294,7 @@ export default {
           aside: card,
           content: <Paragraph.Secondary condensed>
             Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
-          </Paragraph.Secondary>,
-          leftPad: true
+          </Paragraph.Secondary>
         }]}
       />,
 
