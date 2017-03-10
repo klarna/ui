@@ -10,7 +10,8 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     example: './example',
-    index: './index'
+    index: './index',
+    'responsive-example': './responsive-example'
   },
   output: {
     path: './',
@@ -62,7 +63,16 @@ module.exports = {
     new WebpackHtmlWebpackPlugin({
       favicon: './favicon.ico',
       title: 'Klarna UI components',
+      chunk: ['example'],
       template: 'example.html'
+    }),
+    new WebpackHtmlWebpackPlugin({
+      // favicon: './favicon.ico',
+      // inject: false,
+      title: 'Klarna UI components',
+      chunk: ['responsive-example'],
+      template: 'responsive-example.html',
+      filenam: 'responsive-example.html'
     }),
     new Webpack.DefinePlugin({
       'process.env.REACT_SYNTAX_HIGHLIGHTER_LIGHT_BUILD': true,

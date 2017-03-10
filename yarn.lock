@@ -4681,6 +4681,10 @@ react-context-props@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/react-context-props/-/react-context-props-0.1.4.tgz#ff6811e0656dfc613bf7efe0981a6d8bbf226ffc"
 
+react-device-simulator@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-device-simulator/-/react-device-simulator-0.1.4.tgz#b0d33c889c65a867abea65678da3382b53e88164"
+
 react-dom@15.4.0:
   version "15.4.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.0.tgz#6a97a69000966570db48c746bc4b7b0ca50d1534"
@@ -4700,6 +4704,14 @@ react-element-to-jsx-string@^4.1.0:
     sortobject "^1.0.0"
     stringify-object "^2.3.1"
     traverse "^0.6.6"
+
+react-entanglement-web-storage-adapter@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-entanglement-web-storage-adapter/-/react-entanglement-web-storage-adapter-1.0.0.tgz#87b649478ea70403c2c41cc230e4b9def687e966"
+
+react-entanglement@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-entanglement/-/react-entanglement-1.0.0.tgz#2111eb82c04504b98b11719dd911687cffcf03a9"
 
 react-maskedinput@^3.3.1:
   version "3.3.4"

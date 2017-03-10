@@ -19,6 +19,15 @@ export default (theWindow = window) => {
       window.removeEventListener('resize', this.listener)
     }
 
+    componentDidUpdate () {
+      const {width, height} = this.state
+      const {breakpoints, onLayout} = this.props
+      const previousLayout = this.layout
+
+      this.layout = breakpoints(width, height)
+      onLayout && this.layout !== previousLayout && onLayout(this.layout)
+    }
+
     render () {
       const {children, breakpoints} = this.props
       const {height, width} = this.state
@@ -31,6 +40,7 @@ export default (theWindow = window) => {
 
   Responsive.propTypes = {
     breakpoints: PropTypes.func,
+    onLayout: PropTypes.func,
     children: PropTypes.node
   }
 
