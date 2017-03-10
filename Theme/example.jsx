@@ -30,8 +30,7 @@ const optionsWithContent = [
     description: 'Lorem Ipsum is simply dummy.',
     content: <Paragraph.Secondary condensed>
       Offal man braid XOXO DIY, pok pok tbh poke post-ironic neutra try-hard small batch.
-    </Paragraph.Secondary>,
-    leftPad: true
+    </Paragraph.Secondary>
   },
 
   {

@@ -29,7 +29,6 @@ export default ({
     disabled,
     aside,
     content,
-    leftPad,
     ...restOfProps
   } = option
 
@@ -146,8 +145,7 @@ export default ({
         collapsed={isDisabled || !singleOption && key !== value}>
         <div
           style={{
-            ...finalStyles.base.content,
-            ...(leftPad && !singleOption ? finalStyles.leftPad.content : {})
+            ...finalStyles.base.content
           }}
           id={ids.content}>
           {content}
