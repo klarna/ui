@@ -72,7 +72,7 @@ module.exports = {
       title: 'Klarna UI components',
       chunk: ['responsive-example'],
       template: 'responsive-example.html',
-      filenam: 'responsive-example.html'
+      filename: 'responsive-example.html'
     }),
     new Webpack.DefinePlugin({
       'process.env.REACT_SYNTAX_HIGHLIGHTER_LIGHT_BUILD': true,

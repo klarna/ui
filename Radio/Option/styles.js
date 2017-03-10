@@ -11,8 +11,8 @@ export default {
   base: {
     content: {
       paddingBottom: grid(4),
-      paddingLeft: isMobile() ? grid(4) : grid(9.8),
-      paddingRight: isMobile() ? grid(4) : grid(9.8)
+      paddingLeft: grid(9.8),
+      paddingRight: grid(9.8)
     },
     aside: {
       display: 'table-cell',
@@ -122,6 +122,12 @@ export default {
   selected: {
     header: {
       cursor: 'auto'
+    }
+  },
+  thinPadding: {
+    content: {
+      paddingLeft: grid(4),
+      paddingRight: grid(4)
     }
   }
 }
