@@ -5,14 +5,13 @@ import {BORDER_RADIUS} from '../../settings/themes/default/assorted'
 import * as fontFamilies from '../../settings/fontFamilies'
 import * as fontSizes from '../../settings/fontSizes'
 import * as fontWeights from '../../settings/fontWeights'
-import { isMobile } from '../../lib/device'
 
 export default {
   base: {
     content: {
       paddingBottom: grid(4),
-      paddingLeft: isMobile() ? grid(4) : grid(9.8),
-      paddingRight: isMobile() ? grid(4) : grid(9.8)
+      paddingLeft: grid(4),
+      paddingRight: grid(4)
     },
     aside: {
       display: 'table-cell',
@@ -122,6 +121,12 @@ export default {
   selected: {
     header: {
       cursor: 'auto'
+    }
+  },
+  padded: {
+    content: {
+      paddingLeft: grid(9.8),
+      paddingRight: grid(9.8)
     }
   }
 }

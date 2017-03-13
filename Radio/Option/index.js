@@ -15,11 +15,12 @@ export default ({
   lowFPS,
   labelStyle,
   descriptionStyle,
-  onStartFPSCollection,
+  name,
+  onChange,
   onEndFPSCollection,
   onFocus,
-  onChange,
-  name,
+  onStartFPSCollection,
+  padded,
   styles
 }) => (option, index) => {
   const {
@@ -145,7 +146,8 @@ export default ({
         collapsed={isDisabled || !singleOption && key !== value}>
         <div
           style={{
-            ...finalStyles.base.content
+            ...finalStyles.base.content,
+            ...(padded ? finalStyles.padded.content : {})
           }}
           id={ids.content}>
           {content}
