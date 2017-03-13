@@ -8,11 +8,13 @@ import {
   uniqueName
 } from '@klarna/higher-order-components'
 import {Motion, spring} from 'react-motion'
+import componentQueries from 'react-component-queries'
 import Option from './Option'
 import Collapsible from '../Collapsible'
 import defaultStyles from './styles'
 import getActiveElement from '../lib/getActiveElement'
 import ExpandLabel from './ExpandLabel'
+import * as breakpoints from '../settings/breakpoints'
 
 // The minimum/initial height of the ExpandLabel is 49 pixels. Unfortunately
 // it seems to be no way to get rid of this magic number without triggering
@@ -86,6 +88,7 @@ class Radio extends Component {
       onEndFPSCollection,
       onStartFPSCollection,
       lowFPS,
+      padded,
       styles,
       value,
       ...remainingProps
@@ -117,6 +120,7 @@ class Radio extends Component {
       onFocus,
       onChange,
       name,
+      padded,
       styles
     })
 
@@ -199,6 +203,7 @@ Radio.propTypes = {
   onStartFPSCollection: PropTypes.func,
   lowFPS: PropTypes.bool,
   options: PropTypes.array.isRequired,
+  padded: PropTypes.bool,
   styles: PropTypes.shape({
     radio: PropTypes.object,
     option: PropTypes.object,
@@ -218,6 +223,11 @@ Radio.defaultProps = {
 }
 
 export default compose(
+  componentQueries(
+    ({width}) => width > breakpoints.MOBILE_MAX_WIDTH
+      ? {padded: true}
+      : {padded: false}
+  ),
   notifyOnLowFPS({threshold: 10}),
   uncontrolled({
     prop: 'fullyExpanded',

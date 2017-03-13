@@ -986,6 +986,10 @@ base64id@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/base64id/-/base64id-1.0.0.tgz#47688cb99bb6804f0e06d3e763b1c32e57d8e6b6"
 
+batch-processor@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/batch-processor/-/batch-processor-1.0.0.tgz#75c95c32b748e0850d10c2b168f6bdbe9891ace8"
+
 batch@0.5.3, batch@^0.5.3:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.5.3.tgz#3f3414f380321743bfc1042f9a83ff1d5824d464"
@@ -1850,6 +1854,12 @@ electron@^1.4.15:
   dependencies:
     electron-download "^3.0.1"
     extract-zip "^1.0.3"
+
+element-resize-detector@1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/element-resize-detector/-/element-resize-detector-1.1.8.tgz#f293ce063d170ff9dab6a3a3e25d801b49fec3bf"
+  dependencies:
+    batch-processor "^1.0.0"
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -3554,6 +3564,10 @@ lodash@3.10.1, lodash@^3.10.1, lodash@^3.5.0, lodash@^3.8.0, lodash@^3.9.3:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
+lodash@4.15.0:
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.15.0.tgz#3162391d8f0140aa22cf8f6b3c34d6b7f63d3aa9"
+
 lodash@^4.0.0, lodash@^4.13.1, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
@@ -4677,6 +4691,12 @@ rc@^1.1.2, rc@~1.1.6:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
+react-component-queries@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-component-queries/-/react-component-queries-2.1.1.tgz#1a5fa4de54f96a8d09a6179273e1469417e6223b"
+  dependencies:
+    invariant "^2.2.0"
+
 react-context-props@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/react-context-props/-/react-context-props-0.1.4.tgz#ff6811e0656dfc613bf7efe0981a6d8bbf226ffc"
@@ -4713,6 +4733,14 @@ react-motion@^0.4.2:
   dependencies:
     performance-now "^0.2.0"
     raf "^3.1.0"
+
+react-sizeme@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-sizeme/-/react-sizeme-2.2.0.tgz#f5b23126a014aafc97fb8b0b5af1575f7e9bbed2"
+  dependencies:
+    element-resize-detector "1.1.8"
+    invariant "^2.2.0"
+    lodash "4.15.0"
 
 react-syntax-highlighter@^2.2.0:
   version "2.11.0"
