@@ -39,11 +39,15 @@ const styles = {
 }
 
 const update = (component) => {
+  const options = component.props.options
   component.setState({
     optionContentSizes: Array.from(component.domElement.childNodes)
-      .slice(0, -1)
-      .map(domNode =>
-        domNode.getBoundingClientRect().height - OPTION_HEIGHT
+      .slice(0, -2)
+      .map((domNode, index) =>
+        domNode.getBoundingClientRect().height - OPTION_HEIGHT +
+        (options[index].description
+          ? 0
+          : 20)
       )
   })
 }
@@ -106,7 +110,13 @@ class Radio extends Component {
           key={optionName}
           style={{
             translateY: spring(
-              (index * OPTION_HEIGHT) +
+              (options.slice(0, index).reduce(
+                (height, option) =>
+                  option.description
+                    ? height + OPTION_HEIGHT
+                    : height + OPTION_HEIGHT - 20
+                , 0
+              )) +
               (selectedIndex !== undefined && selectedIndex < index
                 ? optionContentSizes[selectedIndex]
                 : 0)

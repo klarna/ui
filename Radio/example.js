@@ -15,7 +15,6 @@ export default {
         name='regular'
         options={[
           {
-            description: 'Buy now and pay 3 months later',
             label: 'Buy Now, Pay Later',
             name: 'buy-now-pay-later',
             content: <Paragraph.Secondary>
