@@ -27,6 +27,7 @@ const defaultStyles = {
       paddingTop: OPTION_CONTENT_PADDING
     },
     header: {
+      display: 'block',
       position: 'relative',
       paddingLeft: grid(7)
     },
@@ -34,6 +35,13 @@ const defaultStyles = {
       position: 'absolute',
       left: 0,
       top: 'calc(50% - 8px)'
+    },
+    input: {
+      display: 'block',
+      height: 0,
+      opacity: 0,
+      position: 'absolute',
+      width: 0
     },
     // paragraph: {
     //   base: {
@@ -91,9 +99,11 @@ const defaultStyles = {
 export default function Option ({
   children,
   description,
+  id,
   index,
   label,
   name,
+  onChange,
   padded,
   previousOptionHeight,
   previousSelected,
@@ -107,6 +117,14 @@ export default function Option ({
       zIndex: index
     }}
     {...props}>
+    <input
+      style={defaultStyles.base.input}
+      id={`${name}-${id}`}
+      name={name}
+      type='radio'
+      checked={selected}
+      onChange={() => onChange && !selected && onChange()}
+    />
     <div style={defaultStyles.base.outerShadowContainer}>
       <Shadow
         show={selected}
@@ -117,7 +135,8 @@ export default function Option ({
       <Shadow reversed show={previousSelected} />
     </div>
 
-    <header
+    <label
+      htmlFor={`${name}-${id}`}
       style={{
         ...defaultStyles.base.header,
         ...(radioMarkRight ? defaultStyles.radioMarkRight.header : {})
@@ -136,7 +155,8 @@ export default function Option ({
       <Paragraph.Secondary condensed style={{paddingBottom: 0}}>
         {description}
       </Paragraph.Secondary>
-    </header>
+    </label>
+
     {children && <Motion
       style={{opacity: spring(selected ? 1 : 0)}}>
       {({opacity}) => <div

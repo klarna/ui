@@ -1,7 +1,11 @@
 import React, {Component} from 'react'
 import {Motion, spring} from 'react-motion'
 import componentQueries from 'react-component-queries'
-import {uncontrolled} from '@klarna/higher-order-components'
+import {
+  uncontrolled,
+  uniqueName,
+  withDisplayName
+} from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
 import Option, {OPTION_HEIGHT} from './Option'
 import Shadow from './Shadow'
@@ -69,6 +73,7 @@ class Radio extends Component {
 
   render () {
     const {
+      name,
       onChange,
       options,
       padded,
@@ -98,9 +103,9 @@ class Radio extends Component {
       }}
       {...props}>
       {options.map((optionProps, index) => {
-        const {content, ...option} = optionProps
+        const {content, name: optionName, ...option} = optionProps
         return <Motion
-          key={option.name}
+          key={optionName}
           style={{
             translateY: spring(
               (index * OPTION_HEIGHT) +
@@ -116,14 +121,16 @@ class Radio extends Component {
             }}>
             <Option
               index={index}
-              onClick={() => onChange(option.name)}
+              name={name}
+              id={optionName}
+              onChange={() => onChange(optionName)}
               padded={padded}
               previousSelected={index > 0
                 ? options[index - 1].name === value
                 : false
               }
               radioMarkRight={radioMarkRight}
-              selected={option.name === value}
+              selected={optionName === value}
               {...option}>
               {content}
             </Option>
@@ -154,6 +161,7 @@ class Radio extends Component {
 }
 
 export default compose(
+  withDisplayName('Radio'),
   componentQueries(
     ({width}) => width > breakpoints.MOBILE_MAX_WIDTH
       ? {padded: true}
@@ -165,5 +173,6 @@ export default compose(
     handlers: {
       onChange: () => name => name
     }
-  })
+  }),
+  uniqueName
 )(Radio)
