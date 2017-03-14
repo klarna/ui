@@ -4,7 +4,6 @@ import deepMerge from 'deepmerge'
 
 import grid from '../../settings/grid'
 import rgba from '../../settings/rgba'
-import * as palette from '../../settings/palette'
 
 const shadowColor = rgba(0x9C)(0xAA)(0xBB)
 

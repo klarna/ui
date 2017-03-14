@@ -1,158 +1,172 @@
 import React from 'react'
-import deepMerge from 'deepmerge'
+import {Motion, spring} from 'react-motion'
+import * as Title from '../../Title'
+import * as Paragraph from '../../Paragraph'
+import Shadow from '../Shadow'
 import RadioMark from '../../RadioMark'
-import Collapsible from '../../Collapsible'
-import defaultStyles from './styles'
 
-export default ({
-  allDisabled,
-  onBlur,
-  value,
-  options,
-  borderless,
-  singleOption,
-  customize,
-  lowFPS,
-  labelStyle,
-  descriptionStyle,
+import grid from '../../settings/grid'
+import rgba from '../../settings/rgba'
+import * as palette from '../../settings/palette'
+
+export const OPTION_HEIGHT = 16 * 5
+export const OPTION_CONTENT_PADDING = grid(4)
+
+const defaultStyles = {
+  base: {
+    main: {
+      backgroundColor: palette.WHITE,
+      cursor: 'pointer',
+      paddingBottom: grid(4),
+      paddingTop: grid(4),
+      position: 'relative',
+      width: '100%',
+      WebkitTapHighlightColor: rgba(0)(0)(0)(0)
+    },
+    content: {
+      paddingTop: OPTION_CONTENT_PADDING
+    },
+    header: {
+      display: 'block',
+      position: 'relative',
+      paddingLeft: grid(7)
+    },
+    radioMarkWrapper: {
+      position: 'absolute',
+      left: 0,
+      top: 'calc(50% - 8px)'
+    },
+    input: {
+      display: 'block',
+      height: 0,
+      opacity: 0,
+      position: 'absolute',
+      width: 0
+    },
+    // paragraph: {
+    //   base: {
+    //     main: {
+    //       color: theme.color.paragraph,
+    //       fontFamily: theme.fontFamily.base,
+    //       fontSize: theme.fontSize.text,
+    //       fontWeight: theme.fontWeight.paragraph,
+    //       lineHeight: theme.lineHeight.paragraph,
+    //       marginBottom: 0,
+    //       marginTop: 0,
+    //       paddingTop: theme.paddingTop.paragraph
+    //     }
+    //   }
+    // },
+    innerShadowContainer: {
+      top: 0,
+      position: 'absolute',
+      pointerEvents: 'none',
+      left: 0,
+      width: '100%',
+      height: '100%'
+    },
+    outerShadowContainer: {
+      top: grid(-4),
+      position: 'absolute',
+      pointerEvents: 'none',
+      left: 0,
+      width: '100%',
+      height: '100%'
+    }
+  },
+  notFirst: {
+    topLine: {
+      opacity: 1
+    }
+  },
+  radioMarkRight: {
+    header: {
+      paddingLeft: undefined
+    },
+    radioMarkWrapper: {
+      left: undefined,
+      right: 0
+    }
+  },
+  padded: {
+    content: {
+      paddingLeft: grid(7),
+      paddingRight: grid(7)
+    }
+  }
+}
+
+export default function Option ({
+  children,
+  description,
+  id,
+  index,
+  label,
   name,
   onChange,
-  onEndFPSCollection,
-  onFocus,
-  onStartFPSCollection,
   padded,
-  styles
-}) => (option, index) => {
-  const {
-    key,
-    label,
-    description,
-    disabled,
-    aside,
-    content,
-    ...restOfProps
-  } = option
-
-  const isDisabled = allDisabled || disabled
-  const id = `${name}-${key}`
-  const ids = {
-    aside: `${id}__aside`,
-    bullet: `${id}__bullet`,
-    checkmark: `${id}__checkmark`,
-    content: `${id}__content`,
-    description: `${id}__description`,
-    header: `${id}__header`,
-    headerInner: `${id}__header--inner`,
-    label: `${id}__label`,
-    labelInner: `${id}__label--inner`,
-    left: `${id}__left`,
-    right: `${id}__right`,
-    wrapper: `${id}__wrapper`
-  }
-
-  const finalStyles = deepMerge(defaultStyles, styles.option)
-
-  return [
+  previousOptionHeight,
+  previousSelected,
+  radioMarkRight,
+  selected,
+  ...props
+}) {
+  return <div
+    style={{
+      ...defaultStyles.base.main,
+      zIndex: index
+    }}
+    {...props}>
     <input
-      style={finalStyles.base.input}
-      id={id}
+      style={defaultStyles.base.input}
+      id={`${name}-${id}`}
       name={name}
       type='radio'
-      onBlur={onBlur}
-      checked={key === value}
-      onChange={() => onChange && key !== value && onChange(key)}
-      onFocus={(e) => onFocus && onFocus(key, e)}
-      ref={key}
-      value={key}
-      disabled={isDisabled}
-    />,
-    <div
-      style={{
-        ...finalStyles.base.main,
-        ...(index === 0 ? finalStyles.first.main : {}),
-        ...(options.indexOf(options.find(option => option.key === key)) === options.length - 1 ? finalStyles.last.main : {}),
-        ...(borderless ? finalStyles.borderless.main : {})
-      }}
-      id={ids.label}
-      {...restOfProps}>
-      <label
-        htmlFor={`${name}-${key}`}
-        style={{
-          ...finalStyles.base.header,
-          ...(key === value ? finalStyles.selected.header : {})
-        }}
-        id={ids.header}>
-        <div
-          style={finalStyles.base.inner}
-          id={ids.headerInner}>
-          {!singleOption && <div
-            style={{
-              ...finalStyles.base.left,
-              ...finalStyles.base.leftmost
-            }}
-            id={ids.left}>
-            <RadioMark
-              checked={key === value}
-              disabled={isDisabled}
-              customize={customize}
-              lowFPS={lowFPS}
-              styles={styles.radioMark ? styles.radioMark : {}}
-            />
-          </div>}
-
-          <div
-            style={{
-              ...finalStyles.base.right,
-              ...(aside ? {} : finalStyles.base.rightmost),
-              ...(singleOption ? finalStyles.base.leftmost : {})
-            }}
-            id={ids.right}>
-            <div
-              id={ids.labelInner}
-              style={{
-                ...finalStyles.base.label,
-                ...(isDisabled ? finalStyles.disabled.label : {}),
-                ...labelStyle
-              }}>
-              {label}
-            </div>
-
-            {description && <div
-              id={ids.description}
-              style={{
-                ...finalStyles.base.description,
-                ...(isDisabled ? finalStyles.disabled.description : {}),
-                ...descriptionStyle
-              }}>
-              {description}
-            </div>}
-          </div>
-
-          {aside && <div
-            style={{
-              ...finalStyles.base.aside,
-              ...finalStyles.base.rightmost
-            }}
-            id={ids.aside}>
-            {aside}
-          </div>}
-        </div>
-      </label>
-
-      {content && <Collapsible
-        onStartFPSCollection={onStartFPSCollection}
-        onEndFPSCollection={onEndFPSCollection}
-        lowFPS={lowFPS}
-        collapsed={isDisabled || !singleOption && key !== value}>
-        <div
-          style={{
-            ...finalStyles.base.content,
-            ...(padded ? finalStyles.padded.content : {})
-          }}
-          id={ids.content}>
-          {content}
-        </div>
-      </Collapsible>}
+      checked={selected}
+      onChange={() => onChange && !selected && onChange()}
+    />
+    <div style={defaultStyles.base.outerShadowContainer}>
+      <Shadow
+        show={selected}
+        withLine={index > 0 && !previousSelected && !selected}
+      />
     </div>
-  ]
+    <div style={defaultStyles.base.innerShadowContainer}>
+      <Shadow reversed show={previousSelected} />
+    </div>
+
+    <label
+      htmlFor={`${name}-${id}`}
+      style={{
+        ...defaultStyles.base.header,
+        ...(radioMarkRight ? defaultStyles.radioMarkRight.header : {})
+      }}>
+      <div
+        style={{
+          ...defaultStyles.base.radioMarkWrapper,
+          ...(radioMarkRight
+            ? defaultStyles.radioMarkRight.radioMarkWrapper
+            : {}
+          )
+        }}>
+        <RadioMark checked={selected} />
+      </div>
+      <Title.Secondary>{label}</Title.Secondary>
+      <Paragraph.Secondary condensed style={{paddingBottom: 0}}>
+        {description}
+      </Paragraph.Secondary>
+    </label>
+
+    {children && <Motion
+      style={{opacity: spring(selected ? 1 : 0)}}>
+      {({opacity}) => <div
+        style={{
+          ...defaultStyles.base.content,
+          ...(padded ? defaultStyles.padded.content : {}),
+          opacity
+        }}>
+        {children}
+      </div>}
+    </Motion>}
+  </div>
 }
