@@ -89,7 +89,14 @@ class Radio extends Component {
       ? options.findIndex(({name}) => name === value)
       : undefined
 
-    const rogueElementTranslateY = options.length * OPTION_HEIGHT +
+    const rogueElementTranslateY =
+      (options.reduce(
+        (height, option) =>
+          option.description
+            ? height + OPTION_HEIGHT
+            : height + OPTION_HEIGHT - 20
+        , 0
+      )) +
       (selectedIndex !== undefined
         ? optionContentSizes[selectedIndex]
         : 0)
@@ -105,7 +112,12 @@ class Radio extends Component {
       }}
       {...props}>
       {options.map((optionProps, index) => {
-        const {content, name: optionName, ...option} = optionProps
+        const {
+          content,
+          name: optionName,
+          ...option
+        } = optionProps
+
         return <Motion
           key={optionName}
           style={{
