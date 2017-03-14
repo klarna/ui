@@ -79,6 +79,12 @@ const defaultStyles = {
       left: undefined,
       right: 0
     }
+  },
+  padded: {
+    content: {
+      paddingLeft: grid(7),
+      paddingRight: grid(7)
+    }
   }
 }
 
@@ -88,6 +94,7 @@ export default function Option ({
   index,
   label,
   name,
+  padded,
   previousOptionHeight,
   previousSelected,
   radioMarkRight,
@@ -135,6 +142,7 @@ export default function Option ({
       {({opacity}) => <div
         style={{
           ...defaultStyles.base.content,
+          ...(padded ? defaultStyles.padded.content : {}),
           opacity
         }}>
         {children}

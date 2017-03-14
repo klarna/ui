@@ -1,12 +1,15 @@
 import React, {Component} from 'react'
 import {Motion, spring} from 'react-motion'
+import componentQueries from 'react-component-queries'
 import {uncontrolled} from '@klarna/higher-order-components'
+import compose from 'ramda/src/compose'
 import Option, {OPTION_HEIGHT} from './Option'
 import Shadow from './Shadow'
 import debounce from '../lib/debounce'
 
 import grid from '../settings/grid'
 import * as palette from '../settings/palette'
+import * as breakpoints from '../settings/breakpoints'
 
 const SHADOW_HEIGHT = 20
 
@@ -35,10 +38,10 @@ const styles = {
 const update = (component) => {
   component.setState({
     optionContentSizes: Array.from(component.domElement.childNodes)
-    .slice(0, -1)
-    .map(domNode =>
-      domNode.getBoundingClientRect().height - OPTION_HEIGHT
-    )
+      .slice(0, -1)
+      .map(domNode =>
+        domNode.getBoundingClientRect().height - OPTION_HEIGHT
+      )
   })
 }
 
@@ -65,7 +68,14 @@ class Radio extends Component {
   }
 
   render () {
-    const {onChange, options, value, radioMarkRight, ...props} = this.props
+    const {
+      onChange,
+      options,
+      padded,
+      radioMarkRight,
+      value,
+      ...props
+    } = this.props
     const {optionContentSizes} = this.state
 
     const selectedIndex = value != null
@@ -87,7 +97,8 @@ class Radio extends Component {
             : 0)
       }}
       {...props}>
-      {options.map((option, index) => {
+      {options.map((optionProps, index) => {
+        const {content, ...option} = optionProps
         return <Motion
           key={option.name}
           style={{
@@ -104,16 +115,17 @@ class Radio extends Component {
               transform: `translateY(${translateY}px)`
             }}>
             <Option
-              onClick={() => onChange(option.name)}
               index={index}
-              selected={option.name === value}
-              radioMarkRight={radioMarkRight}
+              onClick={() => onChange(option.name)}
+              padded={padded}
               previousSelected={index > 0
                 ? options[index - 1].name === value
                 : false
               }
+              radioMarkRight={radioMarkRight}
+              selected={option.name === value}
               {...option}>
-              {option.content}
+              {content}
             </Option>
           </div>}
         </Motion>
@@ -141,10 +153,17 @@ class Radio extends Component {
   }
 }
 
-export default uncontrolled({
-  prop: 'value',
-  defaultProp: 'defaultValue',
-  handlers: {
-    onChange: () => name => name
-  }
-})(Radio)
+export default compose(
+  componentQueries(
+    ({width}) => width > breakpoints.MOBILE_MAX_WIDTH
+      ? {padded: true}
+      : {padded: false}
+  ),
+  uncontrolled({
+    prop: 'value',
+    defaultProp: 'defaultValue',
+    handlers: {
+      onChange: () => name => name
+    }
+  })
+)(Radio)
