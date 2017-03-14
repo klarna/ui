@@ -3,6 +3,7 @@ import {Motion, spring} from 'react-motion'
 import {uncontrolled} from '@klarna/higher-order-components'
 import Option, {OPTION_HEIGHT} from './Option'
 import Shadow from './Shadow'
+import debounce from '../lib/debounce'
 
 import grid from '../settings/grid'
 import * as palette from '../settings/palette'
@@ -31,9 +32,22 @@ const styles = {
   }
 }
 
+const update = (component) => {
+  component.setState({
+    optionContentSizes: Array.from(component.domElement.childNodes)
+    .slice(0, -1)
+    .map(domNode =>
+      domNode.getBoundingClientRect().height - OPTION_HEIGHT
+    )
+  })
+}
+
+
 class Radio extends Component {
   constructor () {
     super()
+
+    this.resizeListener = debounce(() => update(this))
 
     this.state = {
       optionContentSizes: []
@@ -41,13 +55,13 @@ class Radio extends Component {
   }
 
   componentDidMount () {
-    this.setState({
-      optionContentSizes: Array.from(this.domElement.childNodes)
-      .slice(0, -1)
-      .map(domNode =>
-        domNode.getBoundingClientRect().height - OPTION_HEIGHT
-      )
-    })
+    window.addEventListener('resize', this.resizeListener)
+
+    this.resizeListener()
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.resizeListener)
   }
 
   render () {
