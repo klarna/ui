@@ -14,6 +14,15 @@
   }
 }
 
+a.button--primary {
+  display: table;
+
+  > span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
 .button--primary {
   @include button(
     $background: map-get($colors, klarna-blue),
@@ -58,6 +67,15 @@
     .button--primary__darkening {
       opacity: .3;
     }
+  }
+}
+
+a.button--secondary {
+  display: table;
+
+  > span {
+    display: table-cell;
+    vertical-align: middle;
   }
 }
 
@@ -148,6 +166,15 @@
         }
       }
     }
+  }
+}
+
+a.button--tertiary {
+  display: table;
+
+  > span {
+    display: table-cell;
+    vertical-align: middle;
   }
 }
 
