@@ -43,20 +43,6 @@ const defaultStyles = {
       position: 'absolute',
       width: 0
     },
-    // paragraph: {
-    //   base: {
-    //     main: {
-    //       color: theme.color.paragraph,
-    //       fontFamily: theme.fontFamily.base,
-    //       fontSize: theme.fontSize.text,
-    //       fontWeight: theme.fontWeight.paragraph,
-    //       lineHeight: theme.lineHeight.paragraph,
-    //       marginBottom: 0,
-    //       marginTop: 0,
-    //       paddingTop: theme.paddingTop.paragraph
-    //     }
-    //   }
-    // },
     innerShadowContainer: {
       top: 0,
       position: 'absolute',
@@ -102,6 +88,7 @@ export default function Option ({
   id,
   index,
   label,
+  lowFPS,
   name,
   onChange,
   padded,
@@ -149,7 +136,7 @@ export default function Option ({
             : {}
           )
         }}>
-        <RadioMark checked={selected} />
+        <RadioMark checked={selected} lowFPS={lowFPS} />
       </div>
       <Title.Secondary>{label}</Title.Secondary>
       <Paragraph.Secondary condensed style={{paddingBottom: 0}}>
@@ -158,7 +145,7 @@ export default function Option ({
     </label>
 
     {children && <Motion
-      style={{opacity: spring(selected ? 1 : 0)}}>
+      style={{opacity: lowFPS ? 1 : spring(selected ? 1 : 0)}}>
       {({opacity}) => <div
         style={{
           ...defaultStyles.base.content,

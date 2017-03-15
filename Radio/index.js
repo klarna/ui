@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Motion, spring} from 'react-motion'
 import componentQueries from 'react-component-queries'
 import {
+  notifyOnLowFPS,
   uncontrolled,
   uniqueName,
   withDisplayName
@@ -81,6 +82,9 @@ class Radio extends Component {
       padded,
       radioMarkRight,
       value,
+      onStartFPSCollection,
+      onEndFPSCollection,
+      lowFPS,
       ...props
     } = this.props
     const {optionContentSizes} = this.state
@@ -101,6 +105,8 @@ class Radio extends Component {
         ? optionContentSizes[selectedIndex]
         : 0)
 
+    console.log(lowFPS)
+
     return <div
       ref={domElement => { this.domElement = domElement }}
       style={{
@@ -118,32 +124,37 @@ class Radio extends Component {
           ...option
         } = optionProps
 
+        const translateY = (options.slice(0, index).reduce(
+            (height, option) =>
+              option.description
+                ? height + OPTION_HEIGHT
+                : height + OPTION_HEIGHT - 20
+            , 0
+          )) +
+          (selectedIndex !== undefined && selectedIndex < index
+            ? optionContentSizes[selectedIndex]
+            : 0)
+
         return <Motion
           key={optionName}
           style={{
-            translateY: spring(
-              (options.slice(0, index).reduce(
-                (height, option) =>
-                  option.description
-                    ? height + OPTION_HEIGHT
-                    : height + OPTION_HEIGHT - 20
-                , 0
-              )) +
-              (selectedIndex !== undefined && selectedIndex < index
-                ? optionContentSizes[selectedIndex]
-                : 0)
-            )
-          }}>
+            translateY: lowFPS ? translateY : spring(translateY)
+          }}
+          onRest={onEndFPSCollection}>
           {({translateY}) => <div
             style={{
               ...styles.base.optionWrapper,
               transform: `translateY(${translateY}px)`
             }}>
             <Option
-              index={index}
-              name={name}
               id={optionName}
-              onChange={() => onChange(optionName)}
+              index={index}
+              lowFPS={lowFPS}
+              name={name}
+              onChange={() => {
+                onChange(optionName)
+                onStartFPSCollection()
+              }}
               padded={padded}
               previousSelected={index > 0
                 ? options[index - 1].name === value
@@ -187,6 +198,7 @@ export default compose(
       ? {padded: true}
       : {padded: false}
   ),
+  notifyOnLowFPS({threshold: 10}),
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
