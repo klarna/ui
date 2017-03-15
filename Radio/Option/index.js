@@ -15,11 +15,12 @@ export default ({
   lowFPS,
   labelStyle,
   descriptionStyle,
-  onStartFPSCollection,
+  name,
+  onChange,
   onEndFPSCollection,
   onFocus,
-  onChange,
-  name,
+  onStartFPSCollection,
+  padded,
   styles
 }) => (option, index) => {
   const {
@@ -29,7 +30,6 @@ export default ({
     disabled,
     aside,
     content,
-    leftPad,
     ...restOfProps
   } = option
 
@@ -147,7 +147,7 @@ export default ({
         <div
           style={{
             ...finalStyles.base.content,
-            ...(leftPad && !singleOption ? finalStyles.leftPad.content : {})
+            ...(padded ? finalStyles.padded.content : {})
           }}
           id={ids.content}>
           {content}

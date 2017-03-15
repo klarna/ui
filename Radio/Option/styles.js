@@ -123,9 +123,10 @@ export default {
       cursor: 'auto'
     }
   },
-  leftPad: {
+  padded: {
     content: {
-      paddingLeft: grid(9.8)
+      paddingLeft: grid(9.8),
+      paddingRight: grid(9.8)
     }
   }
 }

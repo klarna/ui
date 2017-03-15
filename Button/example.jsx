@@ -198,6 +198,14 @@ export default {
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
         </Button.Secondary>,
+        'Custom with square border': <Button.Secondary
+          customize={{
+            textColor: '#F9FF3C',
+            borderRadius: 0,
+            backgroundColor: '#3500C8'
+          }}>
+          Beautiful!
+        </Button.Secondary>,
         'As a link': <Button.Secondary
           href='http://klarna.com'
           target='_blank'>
