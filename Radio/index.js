@@ -120,7 +120,7 @@ class Radio extends Component {
       onFocus,
       onChange,
       name,
-      padded,
+      padded: padded && options.length > 1,
       styles
     })
 
