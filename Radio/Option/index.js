@@ -13,7 +13,7 @@ import * as palette from '../../settings/palette'
 export const OPTION_HEIGHT = 16 * 5
 export const OPTION_CONTENT_PADDING = grid(4)
 
-const defaultStyleSheet = {
+const defaultStyles = {
   base: {
     main: {
       backgroundColor: palette.WHITE,
@@ -98,46 +98,46 @@ export default function Option ({
   previousSelected,
   radioMarkRight,
   selected,
-  styleSheet,
+  styles,
   ...props
 }) {
-  const finalStyleSheet = deepMerge(defaultStyleSheet, styleSheet)
+  const finalStyles = deepMerge(defaultStyles, styles)
 
   return <div
     style={{
-      ...finalStyleSheet.base.main,
+      ...finalStyles.base.main,
       zIndex: index
     }}
     {...props}>
     <input
-      style={finalStyleSheet.base.input}
+      style={finalStyles.base.input}
       id={`${name}-${id}`}
       name={name}
       type='radio'
       checked={selected}
       onChange={() => onChange && !selected && onChange()}
     />
-    <div style={finalStyleSheet.base.outerShadowContainer}>
+    <div style={finalStyles.base.outerShadowContainer}>
       <Shadow
         show={selected}
         withLine={index > 0 && !previousSelected && !selected}
       />
     </div>
-    <div style={finalStyleSheet.base.innerShadowContainer}>
+    <div style={finalStyles.base.innerShadowContainer}>
       <Shadow reversed show={previousSelected} />
     </div>
 
     <label
       htmlFor={`${name}-${id}`}
       style={{
-        ...finalStyleSheet.base.header,
-        ...(radioMarkRight ? finalStyleSheet.radioMarkRight.header : {})
+        ...finalStyles.base.header,
+        ...(radioMarkRight ? finalStyles.radioMarkRight.header : {})
       }}>
       <div
         style={{
-          ...finalStyleSheet.base.radioMarkWrapper,
+          ...finalStyles.base.radioMarkWrapper,
           ...(radioMarkRight
-            ? finalStyleSheet.radioMarkRight.radioMarkWrapper
+            ? finalStyles.radioMarkRight.radioMarkWrapper
             : {}
           )
         }}>
@@ -163,8 +163,8 @@ export default function Option ({
       style={{opacity: lowFPS ? 1 : spring(selected ? 1 : 0)}}>
       {({opacity}) => <div
         style={{
-          ...finalStyleSheet.base.content,
-          ...(padded ? finalStyleSheet.padded.content : {}),
+          ...finalStyles.base.content,
+          ...(padded ? finalStyles.padded.content : {}),
           opacity
         }}>
         {children}

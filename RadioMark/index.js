@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
 import compose from 'ramda/src/compose'
-import {themeable} from '@klarna/higher-order-components'
+import {
+  overridable,
+  themeable
+} from '@klarna/higher-order-components'
 import deepMerge from 'deepmerge'
 import defaultStyles from './styles'
 
@@ -81,6 +84,7 @@ RadioMark.defaultProps = {
 }
 
 export default compose(
+  overridable(defaultStyles),
   themeable((customizations, props) => ({
     customize: {
       ...props.customize,

@@ -204,7 +204,7 @@ export default {
         ]}
       />,
       'Full Styles Override': <Radio
-        styleSheet={{
+        styles={{
           radio: {
             base: {
               main: {

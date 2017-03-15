@@ -3,6 +3,7 @@ import {Motion, spring} from 'react-motion'
 import componentQueries from 'react-component-queries'
 import {
   notifyOnLowFPS,
+  overridable,
   uncontrolled,
   uniqueName,
   withDisplayName
@@ -18,7 +19,7 @@ import * as breakpoints from '../settings/breakpoints'
 
 const SHADOW_HEIGHT = 20
 
-const defaultStyleSheet = {
+const defaultStyles = {
   base: {
     main: {
       marginTop: -SHADOW_HEIGHT,
@@ -83,7 +84,7 @@ class Radio extends Component {
       options,
       padded,
       radioMarkRight,
-      styleSheet,
+      styles,
       value,
       onStartFPSCollection,
       onEndFPSCollection,
@@ -92,7 +93,7 @@ class Radio extends Component {
     } = this.props
     const {optionContentSizes} = this.state
 
-    const finalStyleSheet = deepMerge(defaultStyleSheet, styleSheet.radio)
+    const finalStyles = deepMerge(defaultStyles, styles.radio)
 
     const selectedIndex = value != null
       ? options.findIndex(({name}) => name === value)
@@ -113,7 +114,7 @@ class Radio extends Component {
     return <div
       ref={domElement => { this.domElement = domElement }}
       style={{
-        ...finalStyleSheet.base.main,
+        ...finalStyles.base.main,
         height: (options.length * OPTION_HEIGHT) + SHADOW_HEIGHT +
           (selectedIndex !== undefined
             ? optionContentSizes[selectedIndex]
@@ -146,7 +147,7 @@ class Radio extends Component {
           onRest={onEndFPSCollection}>
           {({translateY}) => <div
             style={{
-              ...finalStyleSheet.base.optionWrapper,
+              ...finalStyles.base.optionWrapper,
               transform: `translateY(${translateY}px)`
             }}>
             <Option
@@ -166,7 +167,7 @@ class Radio extends Component {
               }
               radioMarkRight={radioMarkRight}
               selected={optionName === value}
-              styleSheet={styleSheet.option}
+              styles={styles.option}
               {...option}>
               {content}
             </Option>
@@ -179,7 +180,7 @@ class Radio extends Component {
         }}>
         {({translateY}) => <div
           style={{
-            ...finalStyleSheet.base.rogueElement,
+            ...finalStyles.base.rogueElement,
             height: SHADOW_HEIGHT +
               (selectedIndex !== undefined
                 ? optionContentSizes[selectedIndex]
@@ -197,7 +198,7 @@ class Radio extends Component {
 }
 
 Radio.defaultProps = {
-  styleSheet: {
+  styles: {
     radio: {},
     option: {}
   }
@@ -211,6 +212,7 @@ export default compose(
       : {padded: false}
   ),
   notifyOnLowFPS({threshold: 10}),
+  overridable(Radio.defaultProps.styles),
   uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
