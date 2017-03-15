@@ -25,7 +25,7 @@ const options = [
 
 const optionsWithContent = [
   {
-    key: 'lorem',
+    name: 'lorem',
     label: 'Lorem',
     description: 'Lorem Ipsum is simply dummy.',
     content: <Paragraph.Secondary condensed>
@@ -34,7 +34,7 @@ const optionsWithContent = [
   },
 
   {
-    key: 'sit',
+    name: 'sit',
     label: 'Sit',
     description: 'Amet et consequetur',
     content: <div>
@@ -52,7 +52,7 @@ const optionsWithContent = [
   },
 
   {
-    key: 'ipsum',
+    name: 'ipsum',
     label: 'Ipsum',
     description: 'Dummy text ever since the 1500s.',
     content: <div>

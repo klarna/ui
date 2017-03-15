@@ -135,6 +135,73 @@ export default {
             </Paragraph.Secondary>
           }
         ]}
+      />,
+      'Dynamic Styling': <Radio
+        customize={{
+          backgroundColor: '#660080',
+          borderRadius: '10px',
+          bulletColor: '#00ce3e',
+          textPrimaryColor: 'green',
+          textSecondaryColor: 'red'
+        }}
+        options={[
+          {
+            label: 'Buy Now, Pay Later',
+            name: 'buy-now-pay-later',
+            content: <div>
+              <BoxSelector
+                name='installments'
+                layout='horizontal'
+                onChange={(key) => console.log('You selected', key)}
+                options={[
+                  {
+                    content: <div>Long one line text in div</div>,
+                    key: 'installments_3'
+                  },
+                  {
+                    content: [
+                      <div key='1'>$64.17/mo.</div>,
+                      <div key='2'>array of elements</div>
+                    ],
+                    key: 'installments_6'
+                  }
+                ]}
+                defaultValue='installments_6'
+              />
+              <Checklist.Main style={{marginTop: '20px'}}>
+                <Checklist.Item>Just one click and you’re done</Checklist.Item>
+                <Checklist.Item>Very little hassle</Checklist.Item>
+                <Checklist.Item>Just do it! It can be done today, so why wait for tomorrow?</Checklist.Item>
+              </Checklist.Main>
+            </div>
+          },
+          {
+            description: 'Pay over time with a low interest rate',
+            label: 'Planned Payments',
+            name: 'planned-payments',
+            content: <div>
+              <Subtitle>Choose your destiny</Subtitle>
+
+              <Dropdown
+                options={[
+                  {key: 'coffee', label: 'Coffee'},
+                  {key: 'chai', label: 'Chai'},
+                  {key: 'latte', label: 'Latte'}
+                ]}
+                label='Infusion'
+                defaultValue='coffee'
+              />
+            </div>
+          },
+          {
+            description: 'Slice it in many payments',
+            label: 'Slice it',
+            name: 'slice-it',
+            content: <Paragraph.Secondary>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Paragraph.Secondary>
+          }
+        ]}
       />
     }
   }

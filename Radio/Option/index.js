@@ -84,6 +84,7 @@ const defaultStyles = {
 
 export default function Option ({
   children,
+  customize,
   description,
   id,
   index,
@@ -136,10 +137,18 @@ export default function Option ({
             : {}
           )
         }}>
-        <RadioMark checked={selected} lowFPS={lowFPS} />
+        <RadioMark
+          checked={selected}
+          customize={customize}
+          lowFPS={lowFPS} />
       </div>
-      <Title.Secondary>{label}</Title.Secondary>
-      <Paragraph.Secondary condensed style={{paddingBottom: 0}}>
+      <Title.Secondary style={{color: customize.textPrimaryColor}}>{label}</Title.Secondary>
+      <Paragraph.Secondary
+        condensed
+        style={{
+          color: customize.textSecondaryColor,
+          paddingBottom: 0
+        }}>
         {description}
       </Paragraph.Secondary>
     </label>
@@ -156,4 +165,8 @@ export default function Option ({
       </div>}
     </Motion>}
   </div>
+}
+
+Option.defaultProps = {
+  customize: {}
 }

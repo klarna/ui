@@ -76,6 +76,7 @@ class Radio extends Component {
 
   render () {
     const {
+      customize,
       name,
       onChange,
       options,
@@ -145,6 +146,7 @@ class Radio extends Component {
               transform: `translateY(${translateY}px)`
             }}>
             <Option
+              customize={customize}
               id={optionName}
               index={index}
               lowFPS={lowFPS}
