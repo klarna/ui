@@ -8,6 +8,7 @@ import {
   withDisplayName
 } from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
+import deepMerge from 'deepmerge'
 import Option, {OPTION_HEIGHT} from './Option'
 import Shadow from './Shadow'
 import debounce from '../lib/debounce'
@@ -17,7 +18,7 @@ import * as breakpoints from '../settings/breakpoints'
 
 const SHADOW_HEIGHT = 20
 
-const styles = {
+const defaultStyleSheet = {
   base: {
     main: {
       marginTop: -SHADOW_HEIGHT,
@@ -82,6 +83,7 @@ class Radio extends Component {
       options,
       padded,
       radioMarkRight,
+      styleSheet,
       value,
       onStartFPSCollection,
       onEndFPSCollection,
@@ -89,6 +91,8 @@ class Radio extends Component {
       ...props
     } = this.props
     const {optionContentSizes} = this.state
+
+    const finalStyleSheet = deepMerge(defaultStyleSheet, styleSheet.radio)
 
     const selectedIndex = value != null
       ? options.findIndex(({name}) => name === value)
@@ -109,7 +113,7 @@ class Radio extends Component {
     return <div
       ref={domElement => { this.domElement = domElement }}
       style={{
-        ...styles.base.main,
+        ...finalStyleSheet.base.main,
         height: (options.length * OPTION_HEIGHT) + SHADOW_HEIGHT +
           (selectedIndex !== undefined
             ? optionContentSizes[selectedIndex]
@@ -142,7 +146,7 @@ class Radio extends Component {
           onRest={onEndFPSCollection}>
           {({translateY}) => <div
             style={{
-              ...styles.base.optionWrapper,
+              ...finalStyleSheet.base.optionWrapper,
               transform: `translateY(${translateY}px)`
             }}>
             <Option
@@ -162,6 +166,7 @@ class Radio extends Component {
               }
               radioMarkRight={radioMarkRight}
               selected={optionName === value}
+              styleSheet={styleSheet.option}
               {...option}>
               {content}
             </Option>
@@ -174,7 +179,7 @@ class Radio extends Component {
         }}>
         {({translateY}) => <div
           style={{
-            ...styles.base.rogueElement,
+            ...finalStyleSheet.base.rogueElement,
             height: SHADOW_HEIGHT +
               (selectedIndex !== undefined
                 ? optionContentSizes[selectedIndex]
@@ -188,6 +193,13 @@ class Radio extends Component {
         </div>}
       </Motion>
     </div>
+  }
+}
+
+Radio.defaultProps = {
+  styleSheet: {
+    radio: {},
+    option: {}
   }
 }
 

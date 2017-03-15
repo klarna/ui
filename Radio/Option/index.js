@@ -1,5 +1,6 @@
 import React from 'react'
 import {Motion, spring} from 'react-motion'
+import deepMerge from 'deepmerge'
 import * as Title from '../../Title'
 import * as Paragraph from '../../Paragraph'
 import Shadow from '../Shadow'
@@ -12,7 +13,7 @@ import * as palette from '../../settings/palette'
 export const OPTION_HEIGHT = 16 * 5
 export const OPTION_CONTENT_PADDING = grid(4)
 
-const defaultStyles = {
+const defaultStyleSheet = {
   base: {
     main: {
       backgroundColor: palette.WHITE,
@@ -97,43 +98,46 @@ export default function Option ({
   previousSelected,
   radioMarkRight,
   selected,
+  styleSheet,
   ...props
 }) {
+  const finalStyleSheet = deepMerge(defaultStyleSheet, styleSheet)
+
   return <div
     style={{
-      ...defaultStyles.base.main,
+      ...finalStyleSheet.base.main,
       zIndex: index
     }}
     {...props}>
     <input
-      style={defaultStyles.base.input}
+      style={finalStyleSheet.base.input}
       id={`${name}-${id}`}
       name={name}
       type='radio'
       checked={selected}
       onChange={() => onChange && !selected && onChange()}
     />
-    <div style={defaultStyles.base.outerShadowContainer}>
+    <div style={finalStyleSheet.base.outerShadowContainer}>
       <Shadow
         show={selected}
         withLine={index > 0 && !previousSelected && !selected}
       />
     </div>
-    <div style={defaultStyles.base.innerShadowContainer}>
+    <div style={finalStyleSheet.base.innerShadowContainer}>
       <Shadow reversed show={previousSelected} />
     </div>
 
     <label
       htmlFor={`${name}-${id}`}
       style={{
-        ...defaultStyles.base.header,
-        ...(radioMarkRight ? defaultStyles.radioMarkRight.header : {})
+        ...finalStyleSheet.base.header,
+        ...(radioMarkRight ? finalStyleSheet.radioMarkRight.header : {})
       }}>
       <div
         style={{
-          ...defaultStyles.base.radioMarkWrapper,
+          ...finalStyleSheet.base.radioMarkWrapper,
           ...(radioMarkRight
-            ? defaultStyles.radioMarkRight.radioMarkWrapper
+            ? finalStyleSheet.radioMarkRight.radioMarkWrapper
             : {}
           )
         }}>
@@ -142,11 +146,13 @@ export default function Option ({
           customize={customize}
           lowFPS={lowFPS} />
       </div>
-      <Title.Secondary style={{color: customize.textPrimaryColor}}>{label}</Title.Secondary>
+      <Title.Secondary style={{color: customize ? customize.textPrimaryColor : undefined}}>
+        {label}
+      </Title.Secondary>
       <Paragraph.Secondary
         condensed
         style={{
-          color: customize.textSecondaryColor,
+          color: customize ? customize.textSecondaryColor : undefined,
           paddingBottom: 0
         }}>
         {description}
@@ -157,16 +163,12 @@ export default function Option ({
       style={{opacity: lowFPS ? 1 : spring(selected ? 1 : 0)}}>
       {({opacity}) => <div
         style={{
-          ...defaultStyles.base.content,
-          ...(padded ? defaultStyles.padded.content : {}),
+          ...finalStyleSheet.base.content,
+          ...(padded ? finalStyleSheet.padded.content : {}),
           opacity
         }}>
         {children}
       </div>}
     </Motion>}
   </div>
-}
-
-Option.defaultProps = {
-  customize: {}
 }
