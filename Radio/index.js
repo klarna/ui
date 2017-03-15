@@ -105,8 +105,6 @@ class Radio extends Component {
         ? optionContentSizes[selectedIndex]
         : 0)
 
-    console.log(lowFPS)
-
     return <div
       ref={domElement => { this.domElement = domElement }}
       style={{
@@ -170,7 +168,7 @@ class Radio extends Component {
       })}
       <Motion
         style={{
-          translateY: spring(rogueElementTranslateY)
+          translateY: lowFPS ? rogueElementTranslateY : spring(rogueElementTranslateY)
         }}>
         {({translateY}) => <div
           style={{
