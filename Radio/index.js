@@ -94,10 +94,11 @@ class Radio extends Component {
     const {optionContentSizes} = this.state
 
     const finalStyles = deepMerge(defaultStyles, styles.radio)
+    let selectedIndex = options.findIndex(({name}) => name === value)
 
-    const selectedIndex = value != null
-      ? options.findIndex(({name}) => name === value)
-      : undefined
+    if (selectedIndex === -1) {
+      selectedIndex = null
+    }
 
     const rogueElementTranslateY =
       (options.reduce(
@@ -107,7 +108,7 @@ class Radio extends Component {
             : height + OPTION_HEIGHT - 20
         , 0
       )) +
-      (selectedIndex !== undefined
+      (selectedIndex !== null
         ? optionContentSizes[selectedIndex]
         : 0)
 
@@ -116,7 +117,7 @@ class Radio extends Component {
       style={{
         ...finalStyles.base.main,
         height: (options.length * OPTION_HEIGHT) + SHADOW_HEIGHT +
-          (selectedIndex !== undefined
+          (selectedIndex !== null
             ? optionContentSizes[selectedIndex]
             : 0)
       }}
@@ -135,7 +136,7 @@ class Radio extends Component {
                 : height + OPTION_HEIGHT - 20
             , 0
           )) +
-          (selectedIndex !== undefined && selectedIndex < index
+          (selectedIndex !== null && selectedIndex < index
             ? optionContentSizes[selectedIndex]
             : 0)
 
@@ -182,7 +183,7 @@ class Radio extends Component {
           style={{
             ...finalStyles.base.rogueElement,
             height: SHADOW_HEIGHT +
-              (selectedIndex !== undefined
+              (selectedIndex !== null
                 ? optionContentSizes[selectedIndex]
                 : 0),
             transform: `translateY(${translateY}px)`
