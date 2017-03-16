@@ -11,7 +11,7 @@
   cursor: pointer;
   display: inline-block;
   height: ($grid * 10);
-  line-height: ($grid * 10) - ($grid * .4);
+  line-height: inherit;
   outline: none;
   padding: 0 ($grid * 9);
   position: relative;
