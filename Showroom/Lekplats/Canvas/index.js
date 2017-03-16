@@ -33,7 +33,7 @@ const defaultStyles = {
 
 export default function Canvas ({children, dimensions, ...props}) {
   return <div style={defaultStyles.base.main} {...props}>
-    <DeviceSimulator devices={[{name: 'Super Small', width: 320, height: 480}]}>
+    <DeviceSimulator>
       {range(0, 9).map(() => <Paragraph.Primary>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </Paragraph.Primary>)}

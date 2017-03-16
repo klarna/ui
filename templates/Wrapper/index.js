@@ -1,10 +1,13 @@
 import React, {PropTypes} from 'react'
 import {StaggeredMotion, spring} from 'react-motion'
+import componentQueries from 'react-component-queries'
 import Backdrop from '../../Backdrop'
 import Dialog from '../../Dialog'
 import { Back, Close } from '../../IconButton'
 
-export default function Wrapper ({
+import * as breakpoints from '../../settings/breakpoints'
+
+function Wrapper ({
   children,
   id,
   layout,
@@ -80,7 +83,6 @@ export default function Wrapper ({
             </Dialog>
           </div>
 
-
         case 'mobile':
           return <div
             style={{
@@ -153,7 +155,6 @@ export default function Wrapper ({
       }
     })()}
   </StaggeredMotion>
-
 }
 
 Wrapper.propTypes = {
@@ -168,3 +169,24 @@ Wrapper.propTypes = {
   onClose: PropTypes.func,
   visible: PropTypes.bool
 }
+
+export default componentQueries({
+  queries: [
+    ({width, height}) => {
+      if (
+        width > breakpoints.MOBILE_MAX_WIDTH &&
+        height > breakpoints.MOBILE_MAX_HEIGHT
+      ) {
+        return {layout: 'desktop'}
+      } else if (width > breakpoints.NARROW_MAX_WIDTH) {
+        return {layout: 'mobile'}
+      } else {
+        return {layout: 'narrow'}
+      }
+    }
+  ],
+  config: {
+    monitorWidth: true,
+    monitorHeight: true
+  }
+})(Wrapper)

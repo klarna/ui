@@ -65,12 +65,6 @@ function LandingExample ({
   visible
 }) {
   const content = <Wrapper
-    layout={desktop
-      ? 'desktop'
-      : (narrow
-        ? 'narrow'
-        : 'mobile'
-      )}
     visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
@@ -104,15 +98,15 @@ function LandingExample ({
       width: `calc(80% - ${grid(4)})`
     }}>
     <Canvas
-      dimensions={desktop
-        ? undefined
-        : (narrow
-          ? [280, 500]
-          : [400, 600]
-        )}>
-      <IOSChrome chrome={!desktop && visible}>
-        {content}
-      </IOSChrome>
+      dimensions={
+        desktop
+          ? undefined
+          : (narrow
+            ? [280, 500]
+            : [400, 600]
+          )
+      }>
+      {content}
     </Canvas>
 
     <Code.Block standalone style={{marginTop: 20}}>
