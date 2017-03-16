@@ -16,10 +16,13 @@ const defaultStyles = {
       borderLeftWidth: 0,
       borderRightWidth: 0,
       borderTopWidth: grid(0.2),
-      display: 'flex',
+      display: navigator.userAgent.match(/MSIE 1/)
+        ? '-ms-flexbox'
+        : 'flex',
       justifyContent: 'center',
       paddingBottom: grid(1.8),
-      paddingTop: grid(1.8)
+      paddingTop: grid(1.8),
+      '-ms-flex-pack': 'center'
     },
     label: {
       marginRight: grid(1)
