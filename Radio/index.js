@@ -43,16 +43,22 @@ const defaultStyles = {
 
 const update = (component) => {
   const options = component.props.options
-  component.setState({
-    optionContentSizes: Array.from(component.domElement.childNodes)
-      .slice(0, -2)
-      .map((domNode, index) =>
-        domNode.getBoundingClientRect().height - OPTION_HEIGHT +
-        (options[index].description
-          ? 0
-          : 20)
-      )
-  })
+  const optionContentSizes = Array.from(component.domElement.childNodes)
+    .slice(0, -2)
+    .map((domNode, index) =>
+      domNode.getBoundingClientRect().height - OPTION_HEIGHT +
+      (options[index].description
+        ? 0
+        : 20)
+    )
+  const selectedIndex = options.findIndex(({name}) => name === component.props.value)
+  const height = (options.length * OPTION_HEIGHT) + SHADOW_HEIGHT +
+    (selectedIndex !== -1
+      ? optionContentSizes[selectedIndex]
+      : 0)
+
+  component.props.onHeightChange(height)
+  component.setState({ optionContentSizes })
 }
 
 class Radio extends Component {
@@ -76,6 +82,10 @@ class Radio extends Component {
     window.removeEventListener('resize', this.resizeListener)
   }
 
+  componentDidUpdate () {
+    this.resizeListener()
+  }
+
   render () {
     const {
       customize,
@@ -88,6 +98,7 @@ class Radio extends Component {
       value,
       onStartFPSCollection,
       onEndFPSCollection,
+      onHeightChange, // eslint-disable-line no-unused-vars
       lowFPS,
       ...props
     } = this.props
@@ -202,7 +213,8 @@ Radio.defaultProps = {
   styles: {
     radio: {},
     option: {}
-  }
+  },
+  onHeightChange: () => {}
 }
 
 export default compose(
