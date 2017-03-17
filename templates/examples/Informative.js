@@ -8,12 +8,11 @@ import Landing from '../Landing'
 import XStepExplanation from '../XStepExplanation'
 import Wrapper from '../Wrapper'
 import DemoIcon from './DemoIcon'
-import {SHOWCASE, TEMPLATE} from '../../Showroom/variationTypes'
+import {SHOWCASE} from '../../Showroom/variationTypes'
 
 import Lekplats from '../../Showroom/Lekplats'
 
 import grid from '../../settings/grid'
-import * as palette from '../../settings/palette'
 
 export default {
   title: 'Informative',
