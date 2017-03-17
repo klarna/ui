@@ -17,18 +17,18 @@ const defaultStyles = {
   base: {
     main: {
       backgroundColor: palette.WHITE,
-      cursor: 'pointer',
-      paddingBottom: grid(4),
-      paddingTop: grid(4),
       position: 'relative',
       width: '100%',
       WebkitTapHighlightColor: rgba(0)(0)(0)(0)
     },
     content: {
-      paddingTop: OPTION_CONTENT_PADDING
+      paddingBottom: OPTION_CONTENT_PADDING
     },
     header: {
+      cursor: 'pointer',
       display: 'block',
+      paddingBottom: grid(4),
+      paddingTop: grid(4),
       position: 'relative',
       paddingLeft: grid(7)
     },
