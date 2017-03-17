@@ -16,6 +16,7 @@ const defaultStyles = {
       borderColor: palette.GREY_LINES,
       display: 'flex',
       height: grid(140),
+      marginRight: grid(4),
       justifyContent: 'center',
       position: 'relative',
       width: '100%'
