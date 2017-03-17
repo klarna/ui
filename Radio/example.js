@@ -7,7 +7,6 @@ import Radio from '../Radio'
 import Subtitle from '../Subtitle'
 import { LIVE } from '../Showroom/variationTypes'
 
-
 export default {
   title: 'Radio',
 
@@ -221,14 +220,14 @@ export default {
           option: {
             base: {
               main: {
-                backgroundColor: 'hotpink',
+                backgroundColor: 'hotpink'
               },
               content: {
                 boxShadow: 'inset black 0 0 50px'
               },
               header: {
                 textTransform: 'uppercase'
-              },
+              }
             },
             notFirst: {
               main: {
