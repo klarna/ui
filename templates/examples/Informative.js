@@ -18,43 +18,7 @@ import asCode from '../../helpers/asCode'
 import grid from '../../settings/grid'
 import * as palette from '../../settings/palette'
 
-function IOSChrome ({children, chrome}) {
-  return <div
-    style={{
-      height: '100%',
-      left: 0,
-      position: 'absolute',
-      top: 0,
-      width: '100%'
-    }}>
-    <div
-      style={{
-        backgroundColor: 'black',
-        height: chrome ? 30 : 0,
-        width: '100%'
-      }}
-    />
-    <div
-      style={{
-        height: chrome ? 'calc(100% - 60px)' : '100%',
-        position: 'relative',
-        width: '100%'
-      }}>
-      {children}
-    </div>
-    <div
-      style={{
-        backgroundColor: 'black',
-        height: chrome ? 30 : 0,
-        width: '100%'
-      }}
-    />
-  </div>
-}
-
 function LandingExample ({
-  desktop,
-  narrow,
   highBrandVolume,
   withError,
   withLegalCopy,
@@ -97,15 +61,7 @@ function LandingExample ({
       marginRight: grid(4),
       width: `calc(80% - ${grid(4)})`
     }}>
-    <Canvas
-      dimensions={
-        desktop
-          ? undefined
-          : (narrow
-            ? [280, 500]
-            : [400, 600]
-          )
-      }>
+    <Canvas>
       {content}
     </Canvas>
 
@@ -120,16 +76,6 @@ LandingExample.options = [
     label: 'Visible',
     name: 'visible',
     value: true
-  },
-  {
-    label: 'Desktop',
-    name: 'desktop',
-    value: false
-  },
-  {
-    label: 'Narrow',
-    name: 'narrow',
-    value: false
   },
   {
     label: 'High brand volume',
@@ -170,8 +116,6 @@ LandingExample.options = [
 
 LandingExample.defaultProps = {
   visible: false,
-  desktop: false,
-  narrow: false,
   highBrandVolume: false,
   withError: false,
   withLegalCopy: false,
@@ -181,17 +125,9 @@ LandingExample.defaultProps = {
 }
 
 function ExplanationExample ({
-  desktop,
-  narrow,
   visible
 }) {
   const content = <Wrapper
-    layout={desktop
-      ? 'desktop'
-      : (narrow
-        ? 'narrow'
-        : 'mobile'
-      )}
     visible={visible}
     onBack={() => console.log('welcome back')}>
     <Explanation
@@ -207,13 +143,7 @@ function ExplanationExample ({
       marginRight: grid(4),
       width: `calc(80% - ${grid(4)})`
     }}>
-    <Canvas
-      dimensions={desktop
-        ? undefined
-        : (narrow
-          ? [280, 500]
-          : [400, 600]
-        )}>
+    <Canvas>
       {content}
     </Canvas>
 
@@ -225,16 +155,6 @@ function ExplanationExample ({
 
 ExplanationExample.options = [
   {
-    label: 'Desktop',
-    name: 'desktop',
-    value: false
-  },
-  {
-    label: 'Narrow',
-    name: 'narrow',
-    value: false
-  },
-  {
     label: 'Visible',
     name: 'visible',
     value: true
@@ -242,24 +162,14 @@ ExplanationExample.options = [
 ]
 
 ExplanationExample.defaultProps = {
-  desktop: false,
-  narrow: false,
   visible: false
 }
 
 function XStepExplanationExample ({
-  desktop,
-  narrow,
   highBrandVolume,
   visible
 }) {
   const content = <Wrapper
-    layout={desktop
-      ? 'desktop'
-      : (narrow
-        ? 'narrow'
-        : 'mobile'
-      )}
     visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
@@ -320,13 +230,7 @@ function XStepExplanationExample ({
       marginRight: grid(4),
       width: `calc(80% - ${grid(4)})`
     }}>
-    <Canvas
-      dimensions={desktop
-        ? undefined
-        : (narrow
-          ? [280, 500]
-          : [400, 600]
-        )}>
+    <Canvas>
       {content}
     </Canvas>
 
@@ -337,16 +241,6 @@ function XStepExplanationExample ({
 }
 
 XStepExplanationExample.options = [
-  {
-    label: 'Desktop',
-    name: 'desktop',
-    value: false
-  },
-  {
-    label: 'Narrow',
-    name: 'narrow',
-    value: false
-  },
   {
     label: 'High brand volume',
     name: 'highBrandVolume',
@@ -360,25 +254,15 @@ XStepExplanationExample.options = [
 ]
 
 XStepExplanationExample.defaultProps = {
-  desktop: false,
-  narrow: false,
   highBrandVolume: false,
   visible: false
 }
 
 function ConfirmDataExample ({
-  desktop,
-  narrow,
   highBrandVolume,
   visible
 }) {
   const content = <Wrapper
-    layout={desktop
-      ? 'desktop'
-      : (narrow
-        ? 'narrow'
-        : 'mobile'
-      )}
     visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
@@ -403,13 +287,7 @@ function ConfirmDataExample ({
       marginRight: grid(4),
       width: `calc(80% - ${grid(4)})`
     }}>
-    <Canvas
-      dimensions={desktop
-        ? undefined
-        : (narrow
-          ? [280, 500]
-          : [400, 600]
-        )}>
+    <Canvas>
       {content}
     </Canvas>
 
@@ -420,16 +298,6 @@ function ConfirmDataExample ({
 }
 
 ConfirmDataExample.options = [
-  {
-    label: 'Desktop',
-    name: 'desktop',
-    value: false
-  },
-  {
-    label: 'Narrow',
-    name: 'narrow',
-    value: false
-  },
   {
     label: 'High brand volume',
     name: 'highBrandVolume',
@@ -443,25 +311,15 @@ ConfirmDataExample.options = [
 ]
 
 ConfirmDataExample.defaultProps = {
-  desktop: false,
-  narrow: false,
   highBrandVolume: false,
   visible: false
 }
 
 function ReviewDataExample ({
-  desktop,
-  narrow,
   highBrandVolume,
   visible
 }) {
   const content = <Wrapper
-    layout={desktop
-      ? 'desktop'
-      : (narrow
-        ? 'narrow'
-        : 'mobile'
-      )}
     visible={visible}
     onBack={() => console.log('welcome back')}
     onClose={() => console.log('that was close')}>
@@ -485,13 +343,7 @@ function ReviewDataExample ({
       marginRight: grid(4),
       width: `calc(80% - ${grid(4)})`
     }}>
-    <Canvas
-      dimensions={desktop
-        ? undefined
-        : (narrow
-          ? [280, 500]
-          : [400, 600]
-        )}>
+    <Canvas>
       {content}
     </Canvas>
 
@@ -502,16 +354,6 @@ function ReviewDataExample ({
 }
 
 ReviewDataExample.options = [
-  {
-    label: 'Desktop',
-    name: 'desktop',
-    value: false
-  },
-  {
-    label: 'Narrow',
-    name: 'narrow',
-    value: false
-  },
   {
     label: 'High brand volume',
     name: 'highBrandVolume',
@@ -525,8 +367,77 @@ ReviewDataExample.options = [
 ]
 
 ReviewDataExample.defaultProps = {
-  desktop: false,
-  narrow: false,
+  highBrandVolume: false,
+  visible: false
+}
+
+function CenteredDialogExample ({
+  highBrandVolume,
+  visible
+}) {
+  const content = <Wrapper
+    visible={visible}
+    onBack={() => console.log('welcome back')}
+    onClose={() => console.log('that was close')}>
+    <CenteredDialog
+      id='centered-dialog'
+      illustration={<DemoIcon />}
+      title='Dialog Title'
+      summary='Dialog summary <strong>that supports HTML</strong> tags and convert them into KlarnaUI syntax.<br/><br/>Which plays well with output from localization tools.'
+      actions={[
+        {
+          id: 'ok-button',
+          type: 'primary',
+          label: 'OK',
+          brandVolume: highBrandVolume ? 'high' : 'low',
+          onClick: () => console.log('OK')
+        },
+        {
+          id: 'secondary-button',
+          type: 'secondary',
+          label: 'Secondary',
+          brandVolume: highBrandVolume ? 'high' : 'low'
+        },
+        {
+          id: 'take-me-away-button',
+          label: 'Go to Google.com',
+          target: '_blank',
+          href: 'http://www.google.com',
+          brandVolume: highBrandVolume ? 'high' : 'low'
+        }
+      ]}
+    />
+  </Wrapper>
+
+  return <div
+    style={{
+      marginRight: grid(4),
+      width: `calc(80% - ${grid(4)})`
+    }}>
+    <Canvas>
+      {content}
+    </Canvas>
+
+    <Code.Block standalone style={{marginTop: 20}}>
+      {asCode(content)}
+    </Code.Block>
+  </div>
+}
+
+CenteredDialogExample.options = [
+  {
+    label: 'High brand volume',
+    name: 'highBrandVolume',
+    value: false
+  },
+  {
+    label: 'Visible',
+    name: 'visible',
+    value: true
+  }
+]
+
+CenteredDialogExample.defaultProps = {
   highBrandVolume: false,
   visible: false
 }
@@ -555,38 +466,11 @@ export default {
 
     {
       title: 'CenteredDialog',
-      require: `import CenteredDialog from '@klarna/ui/templates/CenteredDialog'`,
-      type: TEMPLATE,
+      type: SHOWCASE,
 
-      examples: {
-        Regular: {
-          inline: <CenteredDialog
-            id='centered-dialog'
-            illustration={<DemoIcon />}
-            title='Dialog Title'
-            summary='Dialog summary <strong>that supports HTML</strong> tags and convert them into KlarnaUI syntax.<br/><br/>Which plays well with output from localization tools.'
-            actions={[
-              {
-                id: 'ok-button',
-                type: 'primary',
-                label: 'OK',
-                onClick: () => console.log('OK')
-              },
-              {
-                id: 'secondary-button',
-                type: 'secondary',
-                label: 'Secondary'
-              },
-              {
-                id: 'take-me-away-button',
-                label: 'Go to Google.com',
-                target: '_blank',
-                href: 'http://www.google.com'
-              }
-            ]}
-          />
-        }
-      }
+      example: React.createElement(
+        lekplats(CenteredDialogExample.options)(CenteredDialogExample)
+      )
     },
 
     {

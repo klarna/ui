@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, {PropTypes} from 'react'
 import childrenPropType from '../../propTypes/children'
 import classNamesBind from 'classnames/bind'
 import Dialog from '../../Dialog'
@@ -47,10 +47,11 @@ function CenteredDialog ({
       legal: `${id}__dialog-legal`
     } : {}
 
-  return <Dialog
-    id={ids.dialogContent}
-    className={classNames(baseClass, className)}>
-
+  return <div
+    id={id}
+    style={{
+      textAlign: 'center'
+    }}>
     {illustration}
 
     {title &&
@@ -104,7 +105,7 @@ function CenteredDialog ({
         {legal}
       </Paragraph.Legal>
     }
-  </Dialog>
+  </div>
 }
 
 CenteredDialog.defaultProps = {

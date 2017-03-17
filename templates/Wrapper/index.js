@@ -1,9 +1,11 @@
 import React, {PropTypes} from 'react'
 import {StaggeredMotion, spring} from 'react-motion'
 import componentQueries from 'react-component-queries'
+import {withDisplayName} from '@klarna/higher-order-components'
+import compose from 'ramda/src/compose'
 import Backdrop from '../../Backdrop'
 import Dialog from '../../Dialog'
-import { Back, Close } from '../../IconButton'
+import {Back, Close} from '../../IconButton'
 
 import * as breakpoints from '../../settings/breakpoints'
 
@@ -170,23 +172,26 @@ Wrapper.propTypes = {
   visible: PropTypes.bool
 }
 
-export default componentQueries({
-  queries: [
-    ({width, height}) => {
-      if (
-        width > breakpoints.MOBILE_MAX_WIDTH &&
-        height > breakpoints.MOBILE_MAX_HEIGHT
-      ) {
-        return {layout: 'desktop'}
-      } else if (width > breakpoints.NARROW_MAX_WIDTH) {
-        return {layout: 'mobile'}
-      } else {
-        return {layout: 'narrow'}
+export default compose(
+  withDisplayName('Wrapper'),
+  componentQueries({
+    queries: [
+      ({width, height}) => {
+        if (
+          width > breakpoints.MOBILE_MAX_WIDTH &&
+          height > breakpoints.MOBILE_MAX_HEIGHT
+        ) {
+          return {layout: 'desktop'}
+        } else if (width > breakpoints.NARROW_MAX_WIDTH) {
+          return {layout: 'mobile'}
+        } else {
+          return {layout: 'narrow'}
+        }
       }
+    ],
+    config: {
+      monitorWidth: true,
+      monitorHeight: true
     }
-  ],
-  config: {
-    monitorWidth: true,
-    monitorHeight: true
-  }
-})(Wrapper)
+  })
+)(Wrapper)
