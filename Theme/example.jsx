@@ -187,7 +187,7 @@ import * as List from '@klarna/ui/List'`,
         <Fieldset margins>
           <Dropdown top label='Given name' options={options} defaultValue={1} />
           <Dropdown square label='Middle name' options={options} />
-          <Dropdown bottom label='Last name' options={options} focus='fake' />
+          <Dropdown bottom label='Last name' options={options} autoFocus />
         </Fieldset>
 
         <Fieldset margins>
@@ -195,7 +195,7 @@ import * as List from '@klarna/ui/List'`,
           <Field top right size='1/2' label='Address' defaultValue='16, Corn street' />
           <Field square label='Given name' />
           <Field bottom left size='1/2' error label='Family name' />
-          <Dropdown bottom right size='1/2' label='Middle name' options={options} focus='fake' />
+          <Dropdown bottom right size='1/2' label='Middle name' options={options} autoFocus />
         </Fieldset>
 
         <div style={{paddingBottom: '20px'}}>

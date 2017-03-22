@@ -56,11 +56,6 @@ export default {
           code: `<Field name='email' label='Enter your email' />`
         },
 
-        'With fake focus': {
-          live: <Field label='Enter your email' focus='fake' />,
-          code: `<Field label='Enter your email' focus='fake' />`
-        },
-
         Disabled: {
           live: <Field disabled label='Address' defaultValue='16, Corn street' />,
           code: `<Field disabled label='Address' defaultValue='16, Corn street' />`
