@@ -128,7 +128,7 @@ class Radio extends Component {
       style={{
         ...finalStyles.base.main,
         height: (options.length * OPTION_HEIGHT) + SHADOW_HEIGHT +
-          (selectedIndex !== null
+          (selectedIndex !== null && optionContentSizes[selectedIndex]
             ? optionContentSizes[selectedIndex]
             : 0)
       }}
@@ -194,7 +194,7 @@ class Radio extends Component {
           style={{
             ...finalStyles.base.rogueElement,
             height: SHADOW_HEIGHT +
-              (selectedIndex !== null
+              (selectedIndex !== null && optionContentSizes[selectedIndex]
                 ? optionContentSizes[selectedIndex]
                 : 0),
             transform: `translateY(${translateY}px)`
