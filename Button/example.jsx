@@ -250,7 +250,7 @@ export default {
         Regular: <Button.Tertiary brandVolume='high'>Click me!</Button.Tertiary>,
         Big: <Button.Tertiary size='big'>Click me!</Button.Tertiary>,
         Custom: <Button.Tertiary
-          customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
+          customize={{borderRadius: '15px', backgroundColor: 'red'}}>
           Beautiful!
         </Button.Tertiary>,
         'As a link': <Button.Tertiary
@@ -262,7 +262,7 @@ export default {
         Loading: <Button.Tertiary loading>Click me!</Button.Tertiary>,
         'Loading with customization': <Button.Tertiary
           loading
-          customize={{backgroundColor: '#3500C8', borderRadius: '15px', textColor: '#F9FF3C'}}
+          customize={{backgroundColor: '#3500C8', borderRadius: '15px'}}
         />,
         Success: <Button.Tertiary success>Click me!</Button.Tertiary>,
         'Button with price small': <Button.Tertiary size='small'>

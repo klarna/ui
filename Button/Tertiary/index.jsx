@@ -23,6 +23,11 @@ const classes = {
 
 export const sizes = ['small', 'big']
 
+function addTransparency (color) {
+  const rgb = parseColor(color).rgb
+  return rgb ? `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 0.05)` : color
+}
+
 function Tertiary (props) {
   const {
     brandVolume,
@@ -51,7 +56,7 @@ function Tertiary (props) {
 
   const isDisabled = (loading || success || disabled)
 
-  const loaderColor = (customize || {}).textColor && (customize || {}).backgroundColor
+  const loaderColor = (customize || {}).backgroundColor
     ? parseColor(customize.backgroundColor).rgb
     : 'blue'
 
@@ -68,7 +73,7 @@ function Tertiary (props) {
   const customizations = customize
     ? {
       color: customize.backgroundColor,
-      backgroundColor: loading ? undefined : customize.backgroundColor,
+      backgroundColor: loading ? undefined : addTransparency(customize.backgroundColor),
       borderColor: customize.backgroundColor,
       borderRadius: customize.borderRadius
     } : {}
@@ -107,7 +112,7 @@ function Tertiary (props) {
                 className={classNames(classes.labelAlt)}
                 id={ids.labelAlt}
                 title={content}
-                style={{color: customize.textColor}}
+                style={{color: customize.backgroundColor}}
               />
             }
           </div>
@@ -139,7 +144,7 @@ function Tertiary (props) {
                 className={classNames(classes.labelAlt)}
                 id={ids.labelAlt}
                 title={content}
-                style={{color: customize.textColor}}
+                style={{color: customize.backgroundColor}}
               />
             }
           </div>
@@ -166,8 +171,7 @@ Tertiary.propTypes = {
   className: PropTypes.string,
   customize: PropTypes.shape({
     backgroundColor: PropTypes.string.isRequired,
-    borderRadius: PropTypes.string.isRequired,
-    textColor: PropTypes.string.isRequired
+    borderRadius: PropTypes.string.isRequired
   }),
   disabled: PropTypes.bool,
   href: PropTypes.string,
@@ -185,8 +189,7 @@ export default compose(
     customize: {
       ...customize,
       backgroundColor: customizations.color_button,
-      borderRadius: customizations.radius_border,
-      textColor: customizations.color_button_text
+      borderRadius: customizations.radius_border
     }
   })),
   overridable(defaultStyles)
