@@ -3,6 +3,7 @@ import compose from 'ramda/src/compose'
 import deepMerge from 'deepmerge'
 import {
   notifyOnLowFPS,
+  overridable,
   themeable,
   uncontrolled,
   uniqueName
@@ -81,6 +82,7 @@ class Radio extends Component {
       expandLabel,
       fullyExpanded,
       name,
+      noAnimation,
       onBlur,
       onChange,
       onExpand,
@@ -94,7 +96,7 @@ class Radio extends Component {
       ...remainingProps
     } = this.props
 
-    const finalStyles = deepMerge(defaultStyles, styles.radio)
+    const finalStyles = deepMerge(defaultStyles, (styles.radio || {}))
     const singleOption = options.length === 1
     const baseStyle = customize ? { borderRadius: customize.borderRadius } : undefined
     const labelStyle = customize ? { color: customize.textPrimaryColor } : undefined
@@ -112,7 +114,7 @@ class Radio extends Component {
       borderless,
       singleOption,
       customize,
-      lowFPS,
+      lowFPS: noAnimation || lowFPS,
       labelStyle,
       descriptionStyle,
       onStartFPSCollection,
@@ -138,7 +140,7 @@ class Radio extends Component {
         {optionLists.collapsed.length > 0 && <Collapsible
           onStartFPSCollection={onStartFPSCollection}
           onEndFPSCollection={onEndFPSCollection}
-          lowFPS={lowFPS}
+          lowFPS={noAnimation || lowFPS}
           minimumHeight={this.state.expandLabelInitialHeight}
           collapsed={!isExpanded}>
           <div>
@@ -196,6 +198,7 @@ Radio.propTypes = {
   focus: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
+  noAnimation: PropTypes.bool,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
@@ -221,6 +224,8 @@ Radio.defaultProps = {
     radioMark: {}
   }
 }
+
+Radio.displayName = 'Radio'
 
 export default compose(
   componentQueries(
@@ -261,5 +266,6 @@ export default compose(
       textSecondaryColor: customizations.color_text_secondary
     }
   })),
+  overridable(defaultStyles),
   uniqueName
 )(Radio)
