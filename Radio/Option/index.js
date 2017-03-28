@@ -1,5 +1,7 @@
 import React from 'react'
 import deepMerge from 'deepmerge'
+import * as Title from '../../Title'
+import * as Paragraph from '../../Paragraph'
 import RadioMark from '../../RadioMark'
 import Collapsible from '../../Collapsible'
 import defaultStyles from './styles'
@@ -50,7 +52,7 @@ export default ({
     wrapper: `${id}__wrapper`
   }
 
-  const finalStyles = deepMerge(defaultStyles, styles.option)
+  const finalStyles = deepMerge(defaultStyles, (styles.option || {}))
 
   return [
     <input
@@ -107,7 +109,7 @@ export default ({
               ...(singleOption ? finalStyles.base.leftmost : {})
             }}
             id={ids.right}>
-            <div
+            <Title.Secondary
               id={ids.labelInner}
               style={{
                 ...finalStyles.base.label,
@@ -115,9 +117,9 @@ export default ({
                 ...labelStyle
               }}>
               {label}
-            </div>
+            </Title.Secondary>
 
-            {description && <div
+            {description && <Paragraph.Secondary
               id={ids.description}
               style={{
                 ...finalStyles.base.description,
@@ -125,7 +127,7 @@ export default ({
                 ...descriptionStyle
               }}>
               {description}
-            </div>}
+            </Paragraph.Secondary>}
           </div>
 
           {aside && <div
