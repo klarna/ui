@@ -72,14 +72,18 @@ export default {
       fontSize: grid(fontSizes.MAIN_BODY_BIG.mobile),
       fontWeight: fontWeights.SEMI_BOLD,
       display: 'block',
-      lineHeight: grid(4)
+      lineHeight: grid(4),
+      paddingTop: 0,
+      paddingBottom: 0
     }),
     description: typographize({
       fontFamily: fontFamilies.BASE,
       fontSize: grid(fontSizes.MAIN_BODY.mobile),
       fontWeight: fontWeights.REGULAR,
       lineHeight: grid(4),
-      color: palette.GREY_TEXT
+      color: palette.GREY_TEXT,
+      paddingTop: 0,
+      paddingBottom: 1
     })
   },
   disabled: {
