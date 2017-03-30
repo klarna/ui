@@ -39,6 +39,7 @@
     z-index: 20;
   }
 
+  // --------------------------
   &.is-error {
     background-color: map-get($colors, error-background);
     border-color: map-get($colors, error-border);

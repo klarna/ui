@@ -1,0 +1,1 @@
+- The height of inputs and dropdowns should be _inside_ a grid box
