@@ -272,12 +272,12 @@ export default compose(
       onChange: () => field => field
     }
   }),
-  themeable((customizations, props) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
-      ...props.customize,
       backgroundColor: customizations.color_checkbox,
       bulletColor: customizations.color_checkbox_checkmark,
-      textColor: customizations.color_text
+      textColor: customizations.color_text,
+      ...customize
     }
   })),
   overridable(defaultStyles),

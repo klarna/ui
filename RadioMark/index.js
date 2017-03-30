@@ -81,11 +81,11 @@ RadioMark.defaultProps = {
 }
 
 export default compose(
-  themeable((customizations, props) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
-      ...props.customize,
       backgroundColor: customizations.color_checkbox,
-      bulletColor: customizations.color_checkbox_checkmark
+      bulletColor: customizations.color_checkbox_checkmark,
+      ...customize
     }
   }))
 )(RadioMark)
