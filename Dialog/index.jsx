@@ -49,10 +49,10 @@ DialogMain.propTypes = {
 }
 
 export const Main = compose(
-  themeable((customizations, props) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
-      ...props.customize,
-      borderRadius: customizations.radius_border
+      borderRadius: customizations.radius_border,
+      ...customize
     }
   })),
   overridable(defaultStyles)
