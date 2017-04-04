@@ -187,9 +187,9 @@ export default compose(
   (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
-      ...customize,
       backgroundColor: customizations.color_button,
-      borderRadius: customizations.radius_border
+      borderRadius: customizations.radius_border,
+      ...customize
     }
   })),
   overridable(defaultStyles)

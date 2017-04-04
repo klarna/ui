@@ -182,13 +182,13 @@ export default compose(
     }
   }),
   uniqueName,
-  themeable((customizations, props) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
-      ...props.customize,
       borderColor: customizations.color_border,
       bulletColor: customizations.color_checkbox_checkmark,
       labelColor: customizations.color_text_secondary,
-      labelColorSelected: customizations.color_text
+      labelColorSelected: customizations.color_text,
+      ...customize
     }
   })),
   overridable(defaultStyles)

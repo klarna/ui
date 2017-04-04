@@ -57,10 +57,10 @@ Secondary.propTypes = {
 }
 
 export default compose(
-  themeable(isThemeable((customizations, props) => ({
+  themeable(isThemeable((customizations, {style}) => ({
     style: {
-      ...props.style,
-      color: customizations.color_text_secondary
+      color: customizations.color_text_secondary,
+      ...style
     }
   }))),
   overridable(defaultStyles)
