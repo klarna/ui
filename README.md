@@ -40,6 +40,32 @@ npm start
 
 Open [localhost:7777/ui/](http://localhost:7777/ui/).
 
+## Visual regression tests
+
+Temporarily run Selenium Server + ChromeDriver locally until we set up SauceLabs or something:
+
+```sh
+npm run test:visual:setup
+```
+
+### Check
+
+```sh
+npm run test:visual
+```
+
+### Save new screenshots
+
+```sh
+npm run test:visual:add
+```
+
+### Update screenshots with diff
+
+```sh
+npm run test:visual:update
+```
+
 ## License
 
 Please check the [LICENSE](LICENSE) file.

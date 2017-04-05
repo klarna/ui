@@ -10,3 +10,5 @@ tests
 example-built.js
 example-built.js.map
 browserslist
+gemini-report/
+.gemini-react-tmp/
