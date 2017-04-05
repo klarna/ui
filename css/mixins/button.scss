@@ -111,6 +111,16 @@
       border-color: map-get($colors, klarna-blue);
     }
   }
+  
+  &.responsive {
+    width: $challenge-narrow-width;
+    margin-top: ($grid * 2);
+
+    @include respond-to-wide {
+      width: $challenge-wide-button-width;
+      margin-left: ($grid * 2);
+    }
+  }
 }
 
 @mixin button__price ($border-color) {
