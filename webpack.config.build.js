@@ -1,31 +1,15 @@
-import path from 'path'
-import Webpack from 'webpack'
-import WebpackHtmlWebpackPlugin from 'html-webpack-plugin'
-import WebpackErrorNotificationPlugin from 'webpack-error-notification'
+const path = require('path')
+const Webpack = require('webpack')
+const WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
+const WebpackErrorNotificationPlugin = require('webpack-error-notification')
 
-export default {
+module.exports = {
   cache: true,
   devtool: 'source-map',
-  devServer: {
-    host: '0.0.0.0',
-    port: 7777,
-    hot: true,
-    historyApiFallback: true
-  },
-  entry: {
-    example: [
-      'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:7777',
-      'webpack/hot/only-dev-server',
-      './example'
-    ],
-    index: './index'
-  },
+  entry: './index',
   output: {
     path: path.resolve('./'),
-    filename: '[name]-built.js',
-    chunkFilename: '[id].js',
-    publicPath: '/ui/',
+    filename: 'index-built.js',
     library: 'kui',
     libraryTarget: 'umd',
     umdNamedDefine: true
@@ -86,24 +70,22 @@ export default {
           { loader: 'file-loader' }
         ]
       }
-
     ]
   },
   plugins: [
     new WebpackErrorNotificationPlugin(),
     new Webpack.NoEmitOnErrorsPlugin(),
-    new Webpack.HotModuleReplacementPlugin(),
     new WebpackHtmlWebpackPlugin({
-      favicon: './favicon.ico',
+      template: './template.ejs',
       title: 'Klarna UI components',
-      template: 'example.html'
+      favicon: './favicon.ico'
     }),
     new Webpack.DefinePlugin({
       'process.env.REACT_SYNTAX_HIGHLIGHTER_LIGHT_BUILD': true,
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new Webpack.LoaderOptionsPlugin({
-      minimize: false,
+      minimize: true,
       debug: true
     })
   ]

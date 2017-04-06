@@ -1,12 +1,11 @@
 example
 karma.conf.js
-webpack.config.js
+webpack.config.build.babel.js
+webpack.config.dev.babel.js
 webpack.config.test.js
 tests
 *.woff
 *.eot
 *.woff2
 *.ttf
-example-built.js
-example-built.js.map
 browserslist
