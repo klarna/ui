@@ -5,6 +5,9 @@ import * as Button from '../Button'
 // import * as Paragraph from '../Paragraph'
 import { LIVE } from '../Showroom/variationTypes'
 
+import * as palette from '../settings/palette'
+import grid from '../settings/grid'
+
 export default {
   title: 'Button',
   icon: 'Button',
@@ -366,7 +369,33 @@ export default {
           <Block.Plain key='4' blue style={{display: 'inline-block', padding: 20}}>
             <Search color='inverse' />
           </Block.Plain>
-        ]
+        ],
+
+        'Pinned to corner': <Block.Plain
+          style={{
+            borderColor: palette.GREY_LINES,
+            borderStyle: 'solid',
+            borderWidth: grid(0.2),
+            width: 300,
+            height: 300,
+            position: 'relative'
+          }}>
+          <Back topLeft label='Back' />
+          <Close topRight left label='Close' />
+        </Block.Plain>,
+
+        'Pinned to corner with large padding for mobile': <Block.Plain
+          style={{
+            borderColor: palette.GREY_LINES,
+            borderStyle: 'solid',
+            borderWidth: grid(0.2),
+            width: 300,
+            height: 300,
+            position: 'relative'
+          }}>
+          <Back topLeft largePadding label='Back' />
+          <Close topRight largePadding left label='Close' />
+        </Block.Plain>
       }
     }
   ]
