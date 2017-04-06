@@ -121,6 +121,7 @@ export default {
         Small: <Button.Primary size='small'>Click me!</Button.Primary>,
         Regular: <Button.Primary>Click me!</Button.Primary>,
         Big: <Button.Primary size='big'>Click me!</Button.Primary>,
+        Responsive: <Button.Primary responsive>Click me!</Button.Primary>,
         Custom: <Button.Primary
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
@@ -191,6 +192,7 @@ export default {
         Small: <Button.Secondary size='small'>Click me!</Button.Secondary>,
         Regular: <Button.Secondary>Click me!</Button.Secondary>,
         Big: <Button.Secondary size='big'>Click me!</Button.Secondary>,
+        Responsive: <Button.Secondary responsive>Click me!</Button.Secondary>,
         Custom: <Button.Secondary
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
@@ -249,6 +251,7 @@ export default {
         Small: <Button.Tertiary size='small'>Click me!</Button.Tertiary>,
         Regular: <Button.Tertiary brandVolume='high'>Click me!</Button.Tertiary>,
         Big: <Button.Tertiary size='big'>Click me!</Button.Tertiary>,
+        Responsive: <Button.Tertiary responsive>Click me!</Button.Tertiary>,
         Custom: <Button.Tertiary
           customize={{borderRadius: '15px', backgroundColor: 'red'}}>
           Beautiful!
