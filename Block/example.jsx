@@ -41,8 +41,13 @@ export default {
         <Paragraph.Secondary>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
         </Paragraph.Secondary>
-      </Block.Bordered>
+      </Block.Bordered>,
 
+      'Custom-bordered': <Block.Bordered style={{borderRadius: 0}}>
+        <Paragraph.Secondary>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+        </Paragraph.Secondary>
+      </Block.Bordered>
     }
   }
 }
