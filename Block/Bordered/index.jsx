@@ -5,8 +5,7 @@ import childrenPropType from '../../propTypes/children'
 import defaultStyles from './styles.scss'
 import {
   overridable,
-  themeable,
-  uniqueName
+  themeable
 } from '@klarna/higher-order-components'
 
 const baseClass = 'block--bordered'

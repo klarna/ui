@@ -5,6 +5,7 @@
   background: map-get($colors, white);
   border: ($grid * .2) solid $border-color;
   border-radius: $border-radius;
+  box-sizing: border-box;
   display: block;
   margin: 0 auto;
   max-width: ($grid * 128);
