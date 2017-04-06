@@ -338,7 +338,7 @@ import * as List from '@klarna/ui/List'`,
           data={options}
           value={2}
         />
-      </Theme>,
+      </Theme>
     }
   }
 }

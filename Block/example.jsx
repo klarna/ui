@@ -38,10 +38,10 @@ export default {
       </Block.Installments.Main>,
 
       'Bordered': <Block.Bordered>
-          <Paragraph.Secondary>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
-          </Paragraph.Secondary>
-        </Block.Bordered>
+        <Paragraph.Secondary>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+        </Paragraph.Secondary>
+      </Block.Bordered>
 
     }
   }
