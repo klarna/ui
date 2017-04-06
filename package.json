@@ -9,8 +9,8 @@
   "license": "SEE LICENSE IN LICENSE",
   "main": "index-built.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.build.js",
     "test": "standard && sass-lint -c .sass-lint.yml '**/*.scss' -v -q && karma start karma.conf.js",
     "test:unit": "karma start karma.conf.js",
     "lint": "standard && sass-lint -c .sass-lint.yml '**/*.scss' -v -q",

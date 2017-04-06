@@ -1,14 +1,11 @@
 node_modules
 npm-debug.log
-yarn-error.log
 .idea/
 yarn-error.log
 *.woff
 *.eot
 *.woff2
 *.ttf
-example-built.js
-example-built.js.map
 index-built.js
 index-built.js.map
 index.html
