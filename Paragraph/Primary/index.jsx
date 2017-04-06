@@ -57,10 +57,10 @@ Primary.propTypes = {
 }
 
 export default compose(
-  themeable(isThemeable((customizations, props) => ({
+  themeable(isThemeable((customizations, {style}) => ({
     style: {
-      ...props.style,
-      color: customizations.color_text
+      color: customizations.color_text,
+      ...style
     }
   }))),
   overridable(defaultStyles)

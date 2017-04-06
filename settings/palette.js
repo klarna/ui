@@ -10,6 +10,7 @@ export const BACKDROP = {
 }
 
 export const BLACK = rgba(0x3C, 0x3C, 0x3E, 1)
+export const GREY_ICON = rgba(0xA9, 0xA9, 0xA9, 1)
 export const GREY_TEXT = rgba(0x8E, 0x8E, 0x90, 1)
 export const GREY_LINES = rgba(0xCB, 0xCB, 0xCD, 1)
 export const GREY_SELECTOR_LINES = rgba(0xE5, 0xE5, 0xE6, 1)
