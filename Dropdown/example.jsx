@@ -89,24 +89,6 @@ export default {
 />`
         },
 
-        'With fake focus': {
-          live: <Dropdown
-            focus='fake'
-            label='Lorem ipsum'
-            options={options}
-          />,
-          code:
-`<Dropdown
-  focus='fake'
-  label='Lorem ipsum'
-  options={[
-    { key: '', label: 'Pick one!', disabled: true, hidden: true },
-    { key: 'lorem', label: 'Lorem sit amet' },
-    { key: 'ipsum', label: 'Ipsum' }
-  ]}
-/>`
-        },
-
         Loading: {
           live: <Dropdown
             label='Wait...'
