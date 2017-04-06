@@ -35,7 +35,12 @@ export default {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
           </Paragraph>
         </Block.Installments.Content>
-      </Block.Installments.Main>
+      </Block.Installments.Main>,
+
+      'Bordered': <Block.Bordered>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+        </Block.Bordered>
+
     }
   }
 }

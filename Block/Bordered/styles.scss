@@ -1,0 +1,13 @@
+@import '../../css/settings';
+@import '../../css/mixins/index';
+
+.block--bordered {
+  background: map-get($colors, white);
+  border: ($grid * .2) solid $border-color;
+  border-radius: $border-radius;
+  display: block;
+  margin: 0 auto;
+  max-width: ($grid * 128);
+  overflow: auto;
+  padding: ($grid * 3);
+}
