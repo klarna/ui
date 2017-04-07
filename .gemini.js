@@ -1,9 +1,12 @@
+const ip = require('ip')
+
 module.exports = {
   system: {
     plugins: {
       babel: true,
       react: {
         webpackConfig: './webpack.config.js',
+        listenHost: ip.address(),
         port: 7777,
         replaceRootUrl: true
       }
