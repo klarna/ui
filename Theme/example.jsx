@@ -14,6 +14,7 @@ import Subtitle from '../Subtitle'
 import * as Paragraph from '../Paragraph'
 import * as Selector from '../Selector'
 import * as List from '../List'
+import * as Block from '../Block'
 import { Back, Hamburger } from '../IconButton'
 import { LIVE } from '../Showroom/variationTypes'
 
@@ -85,6 +86,7 @@ import Field from '@klarna/ui/Field'
 import Link from '@klarna/ui/Link'
 import * as Switch from '@klarna/ui/Switch'
 import * as Title from '@klarna/ui/Title'
+import * as Block from '@klarna/ui/Block'
 import Radio from '@klarna/ui/Radio'
 import Subtitle from '@klarna/ui/Subtitle'
 import * as Paragraph from '@klarna/ui/Paragraph'
@@ -174,6 +176,14 @@ import * as List from '@klarna/ui/List'`,
               Just do it! It can be done today, so why wait for  tomorrow?
             </Checklist.Item>
           </Checklist.Main>
+        </div>
+
+        <div style={{padding: '20px 0'}}>
+          <Block.Bordered>
+            <Paragraph.Secondary>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+            </Paragraph.Secondary>
+          </Block.Bordered>
         </div>
 
         <div style={{padding: '20px 0'}}>
