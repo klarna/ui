@@ -6,10 +6,13 @@ const WebpackErrorNotificationPlugin = require('webpack-error-notification')
 module.exports = {
   cache: true,
   devtool: 'source-map',
-  entry: './index',
+  entry: {
+    index: './index.js',
+    example: './example.js'
+  },
   output: {
     path: path.resolve('./'),
-    filename: 'index-built.js',
+    filename: '[name]-built.js',
     library: 'kui',
     libraryTarget: 'umd',
     umdNamedDefine: true

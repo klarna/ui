@@ -1,7 +1,9 @@
-example
+example.js
+example-built.js
+example-built.js.map
 karma.conf.js
-webpack.config.build.babel.js
-webpack.config.dev.babel.js
+webpack.config.build.js
+webpack.config.dev.js
 webpack.config.test.js
 tests
 *.woff
