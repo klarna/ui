@@ -115,6 +115,7 @@
   &.responsive {
     margin-top: ($grid * 2);
     width: $challenge-narrow-width;
+    min-width: $challenge-min-width;
 
     @include respond-to-wide {
       margin-left: ($grid * 2);
