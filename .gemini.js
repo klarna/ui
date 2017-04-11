@@ -5,7 +5,7 @@ module.exports = {
     plugins: {
       babel: true,
       react: {
-        webpackConfig: './webpack.config.js',
+        webpackConfig: './webpack.config.build.js',
         listenHost: ip.address(),
         port: 7777,
         replaceRootUrl: true

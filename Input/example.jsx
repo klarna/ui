@@ -49,11 +49,6 @@ export default {
           code: `<Input label='Enter your email' name='email' />`
         },
 
-        'Fake focused': {
-          live: <Input label='Enter your email' focus='fake' />,
-          code: `<Input label='Enter your email' focus='fake' />`
-        },
-
         Disabled: {
           live: <Input disabled label='Address' defaultValue='16, Corn street' />,
           code: `<Input disabled label='Address' defaultValue='16, Corn street' />`

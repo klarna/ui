@@ -3,41 +3,54 @@ var path = require('path')
 var devServerPort = 3808
 var devServerHostname = '127.0.0.1'
 
-var config = {
+module.exports = {
   output: {
     filename: 'test.build.js',
     path: 'tests/',
     publicPath: 'http://' + devServerHostname + ':' + devServerPort + '/tests'
   },
   resolve: {
-    fallback: [path.join(__dirname, 'node_modules')],
-    extensions: ['', '.js', '.jsx', '.es6'],
-    root: path.join(__dirname)
-  },
-  resolveLoader: {
-    fallback: [path.join(__dirname, 'node_modules')]
+    extensions: ['.js', '.jsx', '.es6'],
+    modules: [
+      path.resolve('./'),
+      'node_modules'
+    ]
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.(jsx?|es6)$/,
-        loader: 'babel'
+        exclude: path.resolve('node_modules/'),
+        use: [
+          { loader: 'babel-loader' }
+        ]
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        use: [
+          { loader: 'json-loader' }
+        ]
       },
       {
         test: /\.scss$/,
-        loaders: [
-          'style',
-          'css?modules,localIdentName=[local]',
-          'sass'
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[local]-[hash:base64:5]'
+            }
+          },
+          { loader: 'postcss-loader' },
+          { loader: 'sass-loader' }
         ]
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico|eot|woff|ttf|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
-        loader: 'null'
+        use: [
+          { loader: 'file-loader' }
+        ]
       }
     ]
   },
@@ -46,5 +59,3 @@ var config = {
     port: devServerPort
   }
 }
-
-module.exports = config

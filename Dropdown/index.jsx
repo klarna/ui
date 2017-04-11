@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
-import * as programmaticFocus from '../lib/features/programmaticFocus'
+import getActiveElement from '../lib/getActiveElement'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
@@ -53,6 +53,7 @@ const Dropdown = React.createClass({
       labelColor: PropTypes.string.isRequired,
       selectedColor: PropTypes.string.isRequired
     }),
+    focus: PropTypes.bool,
     id: PropTypes.string,
     label: PropTypes.string,
     loading: PropTypes.bool,
@@ -71,16 +72,19 @@ const Dropdown = React.createClass({
     ...fieldStates.propTypes,
     ...handleKeyDown.propTypes,
     ...stacking.position.propTypes,
-    ...programmaticFocus.propTypes,
     ...stacking.size.propTypes
   },
 
   componentDidMount () {
-    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.select)
+    if (this.props.focus && getActiveElement(document) !== this.refs.select) {
+      this.refs.select.focus()
+    }
   },
 
   componentDidUpdate () {
-    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.select)
+    if (this.props.focus && getActiveElement(document) !== this.refs.select) {
+      this.refs.select.focus()
+    }
   },
 
   onMouseEnter () {
@@ -138,11 +142,11 @@ const Dropdown = React.createClass({
         'is-loading': loading,
         'is-selected': value != null,
         square,
-        'empty-label': label == null || label === ''
+        'empty-label': label == null || label === '',
+        'is-focused': this.props.focus
       },
       fieldStates.getClassName(this.props),
       stacking.position.getClassName(this.props),
-      programmaticFocus.getClassName(this.props),
       stacking.size.getClassName(this.props),
       className
     )

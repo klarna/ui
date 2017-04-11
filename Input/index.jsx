@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
-import * as programmaticFocus from '../lib/features/programmaticFocus'
+import getActiveElement from '../lib/getActiveElement'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
@@ -48,6 +48,7 @@ const Input = React.createClass({
   propTypes: {
     big: PropTypes.bool,
     centered: PropTypes.bool,
+    focus: PropTypes.bool,
     giant: PropTypes.bool,
     id: PropTypes.string,
     input: PropTypes.func,
@@ -64,7 +65,6 @@ const Input = React.createClass({
     ...fieldStates.propTypes,
     ...handleKeyDown.propTypes,
     ...stacking.position.propTypes,
-    ...programmaticFocus.propTypes,
     ...stacking.size.propTypes
   },
 
@@ -87,7 +87,9 @@ const Input = React.createClass({
   },
 
   componentDidMount () {
-    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
+      this.refs.input.focus()
+    }
 
     this.refs.input.addEventListener &&
     this.refs.input.addEventListener('animationstart', (e) => {
@@ -102,7 +104,9 @@ const Input = React.createClass({
   },
 
   componentDidUpdate () {
-    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
+      this.refs.input.focus()
+    }
   },
 
   render () {
@@ -147,10 +151,10 @@ const Input = React.createClass({
         'is-centered': centered,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
-        square
+        square,
+        'is-focused': this.props.focus
       },
       fieldStates.getClassName(this.props),
-      programmaticFocus.getClassName(this.props),
       stacking.size.getClassName(this.props),
       stacking.position.getClassName(this.props),
       className
