@@ -31,6 +31,7 @@ function Primary ({
   href,
   id,
   loading,
+  responsive,
   size,
   style,
   styles,
@@ -45,7 +46,8 @@ function Primary ({
     'is-loading': loading,
     'dynamic-styling': customize,
     'has-price': contains(Price, children),
-    'brand-volume-high': brandVolume === 'high'
+    'brand-volume-high': brandVolume === 'high',
+    'responsive': responsive
   }, className)
 
   const loaderColor = (customize || {}).textColor && (customize || {}).backgroundColor

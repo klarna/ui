@@ -38,6 +38,7 @@ function Tertiary (props) {
     href,
     id,
     loading,
+    responsive,
     size,
     style,
     styles,
@@ -51,7 +52,8 @@ function Tertiary (props) {
     'is-loading': loading,
     'dynamic-styling': customize,
     'has-price': contains(Price, children),
-    'brand-volume-high': brandVolume === 'high'
+    'brand-volume-high': brandVolume === 'high',
+    'responsive': responsive
   }, className)
 
   const isDisabled = (loading || success || disabled)
