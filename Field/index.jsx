@@ -42,6 +42,7 @@ const Field = React.createClass({
       nonFloatingLabel: false,
       onChange: function () {},
       responsive: true,
+      skippable: false,
       pinCode: false,
       mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
@@ -71,11 +72,14 @@ const Field = React.createClass({
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
+    onSkipClick: PropTypes.func,
     nonFloatingLabel: PropTypes.bool,
     pattern: PropTypes.string,
     pinCode: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
     responsive: PropTypes.bool,
+    skipLabel: PropTypes.string,
+    skippable: PropTypes.bool,
     value: PropTypes.string,
     styles: PropTypes.object,
     ...inlinedIcon.propTypes,
@@ -166,6 +170,7 @@ const Field = React.createClass({
       pinCode,
       responsive,
       right, // eslint-disable-line no-unused-vars
+      skippable,
       square,
       value,
       size, // eslint-disable-line no-unused-vars
@@ -188,7 +193,8 @@ const Field = React.createClass({
         'non-floating-label': pinCode || nonFloatingLabel,
         'pin-code': pinCode,
         square,
-        'is-focused': this.props.focus
+        'is-focused': this.props.focus,
+        'is-skippable': skippable
       },
       fieldStates.getClassName(this.props),
       stacking.size.getClassName(this.props),
@@ -271,6 +277,13 @@ const Field = React.createClass({
           style={labelDynamicStyles}>
           {label}
         </label>
+        
+        {skippable && <a 
+          href="#"
+          onClick={onSkipClick}
+          className={classNames(classes.skipLink)}>
+          <span>{skipLink}</span></a>
+         }
 
         {mouseflowExclude
           ? <MouseflowExclude>{inputElement}</MouseflowExclude>
