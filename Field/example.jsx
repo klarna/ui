@@ -107,6 +107,17 @@ export default {
   defaultValue='Purple'
 />`
         }
+        'With Field link': {
+          live: <Field
+            label='Date Of Birth'
+            fieldLinkText='Skip'
+          />,
+          code:
+`<Field
+  label='Date Of Birth'
+  fieldLinkText='Skip'
+/>`
+        }
       }
     },
 
