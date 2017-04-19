@@ -7,6 +7,7 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
+import FieldLink from '../FieldLink'
 
 import compose from 'ramda/src/compose'
 import {
@@ -26,7 +27,8 @@ const classes = {
   iconInput: `${baseClass}--icon__input`,
   iconLabel: `${baseClass}--icon__label`,
   input: `${baseClass}__input`,
-  label: `${baseClass}__label`
+  label: `${baseClass}__label`,
+  skipLink: `${baseClass}--skip__link`
 }
 
 export const icons = inlinedIcon.INLINED_ICONS
@@ -41,8 +43,9 @@ const Field = React.createClass({
       loading: false,
       nonFloatingLabel: false,
       onChange: function () {},
+      onFieldLinkClick: function () {},
       responsive: true,
-      skippable: false,
+      fieldLinkText: '',
       pinCode: false,
       mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
@@ -63,6 +66,7 @@ const Field = React.createClass({
       labelColor: PropTypes.string.isRequired,
       inputColor: PropTypes.string.isRequired
     }),
+    fieldLinkText: PropTypes.string,
     focus: PropTypes.bool,
     id: PropTypes.string,
     input: PropTypes.func,
@@ -72,14 +76,12 @@ const Field = React.createClass({
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
-    onSkipClick: PropTypes.func,
+    onFieldLinkClick: PropTypes.func,
     nonFloatingLabel: PropTypes.bool,
     pattern: PropTypes.string,
     pinCode: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
     responsive: PropTypes.bool,
-    skipLabel: PropTypes.string,
-    skippable: PropTypes.bool,
     value: PropTypes.string,
     styles: PropTypes.object,
     ...inlinedIcon.propTypes,
@@ -155,6 +157,7 @@ const Field = React.createClass({
       icon,
       id,
       Input,
+      fieldLinkText,
       focus,
       label,
       left, // eslint-disable-line no-unused-vars
@@ -167,10 +170,10 @@ const Field = React.createClass({
       onEnter, // eslint-disable-line no-unused-vars
       onFocus,
       onTab, // eslint-disable-line no-unused-vars
+      onFieldLinkClick,
       pinCode,
       responsive,
       right, // eslint-disable-line no-unused-vars
-      skippable,
       square,
       value,
       size, // eslint-disable-line no-unused-vars
@@ -193,8 +196,7 @@ const Field = React.createClass({
         'non-floating-label': pinCode || nonFloatingLabel,
         'pin-code': pinCode,
         square,
-        'is-focused': this.props.focus,
-        'is-skippable': skippable
+        'is-focused': this.props.focus
       },
       fieldStates.getClassName(this.props),
       stacking.size.getClassName(this.props),
@@ -231,7 +233,8 @@ const Field = React.createClass({
     const ids = id
       ? {
         input: `${id}__input`,
-        label: `${id}__label`
+        label: `${id}__label`,
+        link: `${id}__${fieldLinkText}__fieldLink`
       } : {}
 
     const inputProps = {
@@ -277,17 +280,16 @@ const Field = React.createClass({
           style={labelDynamicStyles}>
           {label}
         </label>
-        
-        {skippable && <a 
-          href="#"
-          onClick={onSkipClick}
-          className={classNames(classes.skipLink)}>
-          <span>{skipLink}</span></a>
-         }
 
         {mouseflowExclude
           ? <MouseflowExclude>{inputElement}</MouseflowExclude>
           : inputElement
+        }
+
+        {fieldLinkText && <FieldLink
+          id={ids.link}
+          label={fieldLinkText}
+          onFieldLinkClick={onFieldLinkClick}/>
         }
       </div>
     )
