@@ -289,7 +289,7 @@ const Field = React.createClass({
         {fieldLinkText && <FieldLink
           id={ids.link}
           label={fieldLinkText}
-          onFieldLinkClick={onFieldLinkClick}/>
+          onFieldLinkClick={onFieldLinkClick} />
         }
       </div>
     )
