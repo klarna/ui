@@ -107,7 +107,7 @@ export default {
   defaultValue='Purple'
 />`
         },
-        
+
         'With Field link': {
           live: <Field
             label='Date Of Birth'
