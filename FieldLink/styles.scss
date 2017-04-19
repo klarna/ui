@@ -3,15 +3,15 @@
 
 .field-link {
   @include typography(map-get($font-sizes, 'text-label'), regular);
+  background-color: map-get($colors, light-grey);
+  border: 1px map-get($colors, light-grey) solid;
+  border-radius: ($grid * 4);
+  color: map-get($colors, black);
+  margin-right: ($grid * 3);
+  padding: 0 ($grid * 2);
   position: absolute;
   right: 0;
   top: 30%;
   text-decoration: none;
-  color: map-get($colors, black);
-  margin-right: ($grid * 3);
-  border: 1px map-get($colors, light-grey) solid;
-  border-radius: ($grid * 4);
   text-align: center;
-  padding: 0 ($grid * 2);
-  background-color: map-get($colors, light-grey);
 }
