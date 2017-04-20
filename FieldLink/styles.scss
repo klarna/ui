@@ -8,10 +8,11 @@
   border-radius: ($grid * 4);
   color: map-get($colors, black);
   margin-right: ($grid * 3);
+  margin-top: -($grid * 1.6);
   padding: 0 ($grid * 2);
   position: absolute;
   right: 0;
   text-align: center;
   text-decoration: none;
-  top: 30%;
+  top: 50%;
 }
