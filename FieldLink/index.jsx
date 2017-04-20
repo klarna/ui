@@ -7,7 +7,7 @@ const baseClass = 'field-link'
 class FieldLink extends React.Component {
   propTypes: {
     id: PropTypes.string,
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     onFieldLinkClick: PropTypes.func
   }
 
