@@ -7,6 +7,7 @@
   border: 1px map-get($colors, light-grey) solid;
   border-radius: ($grid * 4);
   color: map-get($colors, black);
+  cursor: pointer;
   margin-right: ($grid * 3);
   margin-top: -($grid * 1.6);
   padding: 0 ($grid * 2);
