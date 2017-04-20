@@ -22,7 +22,7 @@ class FieldLink extends React.Component {
 
     return (
       <a
-        href='#'
+        href="#"
         id={id}
         onClick={onFieldLinkClick}
         className={classNames(baseClass)}>
