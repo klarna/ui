@@ -27,8 +27,7 @@ const classes = {
   iconInput: `${baseClass}--icon__input`,
   iconLabel: `${baseClass}--icon__label`,
   input: `${baseClass}__input`,
-  label: `${baseClass}__label`,
-  skipLink: `${baseClass}--skip__link`
+  label: `${baseClass}__label`
 }
 
 export const icons = inlinedIcon.INLINED_ICONS
