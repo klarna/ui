@@ -106,6 +106,18 @@ export default {
   label='Favorite color'
   defaultValue='Purple'
 />`
+        },
+
+        'With Field link': {
+          live: <Field
+            label='Date Of Birth'
+            fieldLink='Skip'
+          />,
+          code:
+`<Field
+  label='Date Of Birth'
+  fieldLinkText='Skip'
+/>`
         }
       }
     },

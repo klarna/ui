@@ -1,0 +1,19 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.field-link {
+  @include typography(map-get($font-sizes, 'text-label'), regular);
+  background-color: map-get($colors, light-grey);
+  border: 1px map-get($colors, light-grey) solid;
+  border-radius: ($grid * 4);
+  color: map-get($colors, black);
+  cursor: pointer;
+  margin-right: ($grid * 3);
+  margin-top: -($grid * 1.6);
+  padding: 0 ($grid * 2);
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  top: 50%;
+}
