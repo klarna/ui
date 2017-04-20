@@ -45,7 +45,7 @@ const Field = React.createClass({
       onChange: function () {},
       onFieldLinkClick: function () {},
       responsive: true,
-      fieldLinkText: '',
+      fieldLink: '',
       pinCode: false,
       mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
@@ -66,8 +66,9 @@ const Field = React.createClass({
       labelColor: PropTypes.string.isRequired,
       inputColor: PropTypes.string.isRequired
     }),
-    fieldLinkText: PropTypes.string,
+    fieldLink: PropTypes.string,
     focus: PropTypes.bool,
+    hidden: PropTypes.bool,
     id: PropTypes.string,
     input: PropTypes.func,
     loading: PropTypes.bool,
@@ -157,8 +158,9 @@ const Field = React.createClass({
       icon,
       id,
       Input,
-      fieldLinkText,
+      fieldLink,
       focus,
+      hidden,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
@@ -192,6 +194,7 @@ const Field = React.createClass({
         'is-centered': centered || pinCode,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
+        'is-hidden': hidden,
         'non-responsive': !responsive,
         'non-floating-label': pinCode || nonFloatingLabel,
         'pin-code': pinCode,
@@ -234,7 +237,7 @@ const Field = React.createClass({
       ? {
         input: `${id}__input`,
         label: `${id}__label`,
-        link: `${id}__${fieldLinkText}__fieldLink`
+        link: `${id}__${fieldLink}__fieldLink`
       } : {}
 
     const inputProps = {
@@ -286,10 +289,10 @@ const Field = React.createClass({
           : inputElement
         }
 
-        {fieldLinkText && <FieldLink
+        {fieldLink && <FieldLink
           id={ids.link}
-          label={fieldLinkText}
-          onFieldLinkClick={onFieldLinkClick} />
+          label={fieldLink}
+          onFieldLinkClick={onFieldLinkClick}/>
         }
       </div>
     )
