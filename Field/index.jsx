@@ -236,7 +236,7 @@ const Field = React.createClass({
       ? {
         input: `${id}__input`,
         label: `${id}__label`,
-        link: `${id}__${fieldLink}__fieldLink`
+        link: `${id}__${fieldLink}__field-link`
       } : {}
 
     const inputProps = {
