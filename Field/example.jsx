@@ -111,7 +111,7 @@ export default {
         'With Field link': {
           live: <Field
             label='Date Of Birth'
-            fieldLinkText='Skip'
+            fieldLink='Skip'
           />,
           code:
 `<Field
