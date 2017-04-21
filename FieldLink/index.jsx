@@ -14,13 +14,12 @@ function FieldLink (props) {
   const classNames = classNamesBind.bind({ ...defaultStyles })
 
   return (
-    <a
-      href='#'
+    <span
       id={id}
       onClick={onFieldLinkClick}
       className={classNames(baseClass)}>
       {label}
-    </a>
+    </span>
   )
 }
 
