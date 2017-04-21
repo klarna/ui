@@ -4,32 +4,29 @@ import defaultStyles from './styles.scss'
 
 const baseClass = 'field-link'
 
-class FieldLink extends React.Component {
-  propTypes: {
-    id: PropTypes.string,
-    label: PropTypes.string,
-    onFieldLinkClick: PropTypes.func
-  }
+function FieldLink (props) {
+  const {
+    id,
+    label,
+    onFieldLinkClick
+  } = props
 
-  render () {
-    const {
-      id,
-      label,
-      onFieldLinkClick
-    } = this.props
+  const classNames = classNamesBind.bind({ ...defaultStyles })
 
-    const classNames = classNamesBind.bind({ ...defaultStyles })
+  return (
+    <span
+      id={id}
+      onClick={onFieldLinkClick}
+      className={classNames(baseClass)}>
+      {label}
+    </span>
+  )
+}
 
-    return (
-      <a
-        href='#'
-        id={id}
-        onClick={onFieldLinkClick}
-        className={classNames(baseClass)}>
-        {label}
-      </a>
-    )
-  }
+FieldLink.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string,
+  onFieldLinkClick: PropTypes.func
 }
 
 export default FieldLink
