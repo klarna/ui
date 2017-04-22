@@ -45,4 +45,12 @@
     top: $grid;
     width: ($grid * 4);
   }
+
+  &__title {
+    text-align: center;
+
+    & > strong {
+      font-weight: 600;
+    }
+  }
 }
