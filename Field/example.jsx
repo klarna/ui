@@ -121,15 +121,16 @@ export default {
         },
         'With Field Tooltip': {
           live: <Field
-            label='Phone Number'
+            arrow="bottom-right"
+            disabled
             fieldTooltip='We need your phone number for stuff'
-            arrow='bottom-right'
+            label='Phone Number'
           />,
           code:
 `<Field
-  label='Date Of Birth'
-  fieldTooltip='We need your phone number for stuff'
   arrow='bottom-right'
+  fieldTooltip='We need your phone number for stuff'
+  label='Date Of Birth'
 />`
         }
       }

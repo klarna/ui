@@ -247,9 +247,9 @@ const Dropdown = React.createClass({
 
         {fieldTooltip &&
           <FieldTooltip
-            id={ids.tooltip}
+            arrow={arrow}
             fieldTooltip={fieldTooltip}
-            arrow={arrow} />
+            id={ids.tooltip} />
         }
       </div>
     )
