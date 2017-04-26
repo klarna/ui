@@ -59,7 +59,7 @@ const FieldTooltip = React.createClass({
           onMouseOver={this.onMouseEnter}
           onMouseLeave={this.onMouseLeave}
           className={classNames(classes.icon)}>
-          <Question color='black'/>
+          <Question color='black' />
         </span>
         <Tooltip inverse arrow={arrow} className={classNames(classes.text, hover ? '' : 'is-hidden', arrow)}>
           {fieldTooltip}
