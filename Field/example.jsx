@@ -121,7 +121,7 @@ export default {
         },
         'With Field Tooltip': {
           live: <Field
-            arrow="bottom-right"
+            arrow='bottom-right'
             disabled
             fieldTooltip='We need your phone number for stuff'
             label='Phone Number'

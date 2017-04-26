@@ -127,7 +127,7 @@ export default {
 
         'Disabled with Tooltip': {
           live: <Dropdown
-            arrow="bottom-right"
+            arrow='bottom-right'
             disabled
             fieldTooltip='This dropdown is disabled'
             label='Disabled'
@@ -135,7 +135,7 @@ export default {
           />,
           code:
 `<Dropdown
-  arrow="bottom-right"
+  arrow='bottom-right'
   disabled
   fieldTooltip='This dropdown is disabled'
   label='Disabled'
