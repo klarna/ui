@@ -118,6 +118,19 @@ export default {
   label='Date Of Birth'
   fieldLinkText='Skip'
 />`
+        },
+        'With Field Tooltip': {
+          live: <Field
+            label='Phone Number'
+            fieldTooltip='We need your phone number for stuff'
+            arrow='bottom-right'
+          />,
+          code:
+`<Field
+  label='Date Of Birth'
+  fieldTooltip='We need your phone number for stuff'
+  arrow='bottom-right'
+/>`
         }
       }
     },

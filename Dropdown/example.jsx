@@ -125,6 +125,28 @@ export default {
 />`
         },
 
+        'Disabled with Tooltip': {
+          live: <Dropdown
+            disabled
+            label='Disabled'
+            fieldTooltip='This dropdown is disabled'
+            arrow="bottom-right"
+            options={options}
+          />,
+          code:
+`<Dropdown
+  disabled
+  label='Disabled'
+  fieldTooltip='This dropdown is disabled'
+  arrow="bottom-right"
+  options={[
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 'lorem', label: 'Lorem sit amet' },
+    { key: 'ipsum', label: 'Ipsum' }
+  ]}
+/>`
+        },
+
         'Exclude Mouseflow': {
           live: <Dropdown
             mouseflowExclude
