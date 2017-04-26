@@ -49,7 +49,7 @@ const FieldTooltip = React.createClass({
     } = this.state
 
     const classNames = classNamesBind.bind({ ...defaultStyles })
-    debugger
+
     return (
       <div>
         <span
@@ -61,7 +61,7 @@ const FieldTooltip = React.createClass({
           className={classNames(classes.icon)}>
           <Question color='black'/>
         </span>
-        <Tooltip inverse arrow={arrow} className={classNames(classes.text, this.state.hover ? '' : 'is-hidden', arrow)}>
+        <Tooltip inverse arrow={arrow} className={classNames(classes.text, hover ? '' : 'is-hidden', arrow)}>
           {fieldTooltip}
         </Tooltip>
       </div>
