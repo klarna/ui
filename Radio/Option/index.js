@@ -77,6 +77,7 @@ export default ({
         ...(borderless ? finalStyles.borderless.main : {})
       }}
       id={ids.label}
+      key={`${key}-${index}`}
       {...restOfProps}>
       <label
         htmlFor={`${name}-${key}`}
