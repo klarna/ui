@@ -42,7 +42,8 @@
     stroke: map-get($colors, klarna-blue);
     stroke-linecap: round;
     stroke-width: 2;
-    top: $grid;
+    top: ($grid / 2);
     width: ($grid * 4);
+    vertical-align: top;
   }
 }
