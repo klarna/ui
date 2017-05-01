@@ -289,10 +289,10 @@ export const renderInlinedIcon = ({ icon }, styles) => {
   }
 }
 
-renderInlinedIcon.defaultProps = {
+export const defaultProps = {
   icon: undefined
 }
 
-renderInlinedIcon.propTypes = {
+export const propTypes = {
   icon: PropTypes.oneOf(values(INLINED_ICONS))
 }

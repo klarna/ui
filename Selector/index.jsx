@@ -1,3 +1,7 @@
-export { default as Options } from './Options'
-export { default as Direct } from './Direct'
-export { default as Input } from './Input'
+import UIOptions from './Options'
+import UIDirect from './Direct'
+import UIInput from './Input'
+
+export const Options = UIOptions
+export const Direct = UIDirect
+export const Input = UIInput
