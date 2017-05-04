@@ -32,6 +32,7 @@ function Secondary ({
   href,
   id,
   loading,
+  responsive,
   size,
   style,
   styles,
@@ -46,7 +47,8 @@ function Secondary ({
     'is-loading': loading,
     'dynamic-styling': customize,
     'has-price': contains(Price, children),
-    'brand-volume-high': brandVolume === 'high'
+    'brand-volume-high': brandVolume === 'high',
+    'responsive': responsive
   }, className)
 
   const isDisabled = (loading || success || disabled)
@@ -80,6 +82,32 @@ function Secondary ({
       labelAlt: `${id}__label--alt`
     } : {}
 
+  const innerMarkup = customize
+    ? [
+      loading || <div key={1}
+        className={classNames(classes.darkening)}
+        id={ids.darkening}
+        style={customize && {
+          borderRadius: `${Math.max(parseInt(customize.borderRadius, 10) - 1, 0)}px`
+        }}
+      />,
+      <div
+        key={2}
+        id={ids.label}
+        className={classNames(classes.label)}>
+        {loadingOrContent}
+        {
+          isDisabled || <span
+            className={classNames(classes.labelAlt)}
+            id={ids.labelAlt}
+            title={content}
+            style={{color: customize.textColor}}
+          />
+        }
+      </div>
+    ]
+    : loadingOrContent
+
   const markup = href || target
     ? <a
       className={cls}
@@ -92,32 +120,7 @@ function Secondary ({
       }}
       target={target}
       {...props}>
-      {
-        customize ? [
-          loading || <div key={1}
-            className={classNames(classes.darkening)}
-            id={ids.darkening}
-            style={customize && {
-              borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
-            }}
-          />,
-          <div
-            key={2}
-            id={ids.label}
-            className={classNames(classes.label)}>
-            {loadingOrContent}
-            {
-              isDisabled || <span
-                className={classNames(classes.labelAlt)}
-                id={ids.labelAlt}
-                title={content}
-                style={{color: customize.textColor}}
-              />
-            }
-          </div>
-        ]
-        : loadingOrContent
-      }
+      {innerMarkup}
     </a>
     : <button
       className={cls}
@@ -128,32 +131,7 @@ function Secondary ({
         ...style
       }}
       {...props}>
-      {
-        customize ? [
-          loading || <div key={1}
-            className={classNames(classes.darkening)}
-            id={ids.darkening}
-            style={customize && {
-              borderRadius: `${parseInt(customize.borderRadius, 10) - 1}px`
-            }}
-          />,
-          <div
-            key={2}
-            id={ids.label}
-            className={classNames(classes.label)}>
-            {loadingOrContent}
-            {
-              isDisabled || <span
-                className={classNames(classes.labelAlt)}
-                id={ids.labelAlt}
-                title={content}
-                style={{color: customize.textColor}}
-              />
-            }
-          </div>
-        ]
-        : loadingOrContent
-      }
+      {innerMarkup}
     </button>
 
   return markup
@@ -191,10 +169,10 @@ export default compose(
   (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
-      ...customize,
       backgroundColor: customizations.color_button,
       borderRadius: customizations.radius_border,
-      textColor: customizations.color_button_text
+      textColor: customizations.color_button_text,
+      ...customize
     }
   })),
   overridable(defaultStyles)

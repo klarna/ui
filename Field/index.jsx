@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
-import * as programmaticFocus from '../lib/features/programmaticFocus'
+import getActiveElement from '../lib/getActiveElement'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
+import FieldLink from '../FieldLink'
 
 import compose from 'ramda/src/compose'
 import {
@@ -41,7 +42,9 @@ const Field = React.createClass({
       loading: false,
       nonFloatingLabel: false,
       onChange: function () {},
+      onFieldLinkClick: function () {},
       responsive: true,
+      fieldLink: '',
       pinCode: false,
       mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
@@ -62,6 +65,9 @@ const Field = React.createClass({
       labelColor: PropTypes.string.isRequired,
       inputColor: PropTypes.string.isRequired
     }),
+    fieldLink: PropTypes.string,
+    focus: PropTypes.bool,
+    hidden: PropTypes.bool,
     id: PropTypes.string,
     input: PropTypes.func,
     loading: PropTypes.bool,
@@ -70,6 +76,7 @@ const Field = React.createClass({
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
+    onFieldLinkClick: PropTypes.func,
     nonFloatingLabel: PropTypes.bool,
     pattern: PropTypes.string,
     pinCode: PropTypes.bool,
@@ -81,7 +88,6 @@ const Field = React.createClass({
     ...fieldStates.propTypes,
     ...handleKeyDown.propTypes,
     ...stacking.position.propTypes,
-    ...programmaticFocus.propTypes,
     ...stacking.size.propTypes
   },
 
@@ -104,7 +110,9 @@ const Field = React.createClass({
   },
 
   componentDidMount () {
-    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
+      this.refs.input.focus()
+    }
 
     this.refs.input.addEventListener &&
     this.refs.input.addEventListener('animationstart', (e) => {
@@ -119,7 +127,9 @@ const Field = React.createClass({
   },
 
   componentDidUpdate () {
-    programmaticFocus.maybeFocus(document)(this.props.focus, this.refs.input)
+    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
+      this.refs.input.focus()
+    }
   },
 
   onMouseEnter () {
@@ -147,7 +157,9 @@ const Field = React.createClass({
       icon,
       id,
       Input,
+      fieldLink,
       focus,
+      hidden,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
@@ -159,6 +171,7 @@ const Field = React.createClass({
       onEnter, // eslint-disable-line no-unused-vars
       onFocus,
       onTab, // eslint-disable-line no-unused-vars
+      onFieldLinkClick,
       pinCode,
       responsive,
       right, // eslint-disable-line no-unused-vars
@@ -180,13 +193,14 @@ const Field = React.createClass({
         'is-centered': centered || pinCode,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
+        'is-hidden': hidden,
         'non-responsive': !responsive,
         'non-floating-label': pinCode || nonFloatingLabel,
         'pin-code': pinCode,
-        square
+        square,
+        'is-focused': this.props.focus
       },
       fieldStates.getClassName(this.props),
-      programmaticFocus.getClassName(this.props),
       stacking.size.getClassName(this.props),
       stacking.position.getClassName(this.props),
       className
@@ -221,7 +235,8 @@ const Field = React.createClass({
     const ids = id
       ? {
         input: `${id}__input`,
-        label: `${id}__label`
+        label: `${id}__label`,
+        link: `${id}__field-link`
       } : {}
 
     const inputProps = {
@@ -272,6 +287,12 @@ const Field = React.createClass({
           ? <MouseflowExclude>{inputElement}</MouseflowExclude>
           : inputElement
         }
+
+        {fieldLink && <FieldLink
+          id={ids.link}
+          label={fieldLink}
+          onFieldLinkClick={onFieldLinkClick} />
+        }
       </div>
     )
   }
@@ -293,14 +314,14 @@ export default compose(
       onChange: () => e => e.target.value
     }
   }),
-  themeable((customizations, props) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
-      ...props.customize,
       borderColor: customizations.color_border,
       borderColorSelected: customizations.color_border_selected,
       borderRadius: customizations.radius_border,
       labelColor: customizations.color_text_secondary,
-      inputColor: customizations.color_text
+      inputColor: customizations.color_text,
+      ...customize
     }
   })),
   overridable(defaultStyles),

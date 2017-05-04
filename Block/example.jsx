@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Block from '../Block'
+import * as Paragraph from '../Paragraph'
 import { LIVE } from '../Showroom/variationTypes'
 
 export default {
@@ -26,7 +27,27 @@ export default {
             value='9.99%'
           />
         </Block.Installments.Content>
-      </Block.Installments.Main>
+      </Block.Installments.Main>,
+
+      'Left-Aligned': <Block.Installments.Main leftAlign>
+        <Block.Installments.Content>
+          <Paragraph.Primary>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+          </Paragraph.Primary>
+        </Block.Installments.Content>
+      </Block.Installments.Main>,
+
+      'Bordered': <Block.Bordered>
+        <Paragraph.Secondary>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+        </Paragraph.Secondary>
+      </Block.Bordered>,
+
+      'Custom-bordered': <Block.Bordered style={{borderRadius: 0}}>
+        <Paragraph.Secondary>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+        </Paragraph.Secondary>
+      </Block.Bordered>
     }
   }
 }

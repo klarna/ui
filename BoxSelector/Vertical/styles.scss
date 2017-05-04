@@ -23,9 +23,7 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   cursor: pointer;
   display: block;
   line-height: ($grid * 5);
-  padding-bottom: ($grid * 2.4);
-  padding-left: ($grid * 4);
-  padding-top: ($grid * 2.4);
+  padding: ($grid * 2.4) ($grid * 4);
 }
 
 .box-selector--vertical__cell.is-hovered,

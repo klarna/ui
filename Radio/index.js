@@ -3,16 +3,19 @@ import compose from 'ramda/src/compose'
 import deepMerge from 'deepmerge'
 import {
   notifyOnLowFPS,
+  overridable,
   themeable,
   uncontrolled,
   uniqueName
 } from '@klarna/higher-order-components'
 import {Motion, spring} from 'react-motion'
+import componentQueries from 'react-component-queries'
 import Option from './Option'
 import Collapsible from '../Collapsible'
 import defaultStyles from './styles'
 import getActiveElement from '../lib/getActiveElement'
 import ExpandLabel from './ExpandLabel'
+import * as breakpoints from '../settings/breakpoints'
 
 // The minimum/initial height of the ExpandLabel is 49 pixels. Unfortunately
 // it seems to be no way to get rid of this magic number without triggering
@@ -79,6 +82,7 @@ class Radio extends Component {
       expandLabel,
       fullyExpanded,
       name,
+      noAnimation,
       onBlur,
       onChange,
       onExpand,
@@ -86,12 +90,13 @@ class Radio extends Component {
       onEndFPSCollection,
       onStartFPSCollection,
       lowFPS,
+      padded,
       styles,
       value,
       ...remainingProps
     } = this.props
 
-    const finalStyles = deepMerge(defaultStyles, styles.radio)
+    const finalStyles = deepMerge(defaultStyles, (styles.radio || {}))
     const singleOption = options.length === 1
     const baseStyle = customize ? { borderRadius: customize.borderRadius } : undefined
     const labelStyle = customize ? { color: customize.textPrimaryColor } : undefined
@@ -110,6 +115,7 @@ class Radio extends Component {
       singleOption,
       customize,
       lowFPS,
+      noAnimation,
       labelStyle,
       descriptionStyle,
       onStartFPSCollection,
@@ -117,6 +123,7 @@ class Radio extends Component {
       onFocus,
       onChange,
       name,
+      padded: padded && options.length > 1,
       styles
     })
 
@@ -134,7 +141,7 @@ class Radio extends Component {
         {optionLists.collapsed.length > 0 && <Collapsible
           onStartFPSCollection={onStartFPSCollection}
           onEndFPSCollection={onEndFPSCollection}
-          lowFPS={lowFPS}
+          lowFPS={noAnimation || lowFPS}
           minimumHeight={this.state.expandLabelInitialHeight}
           collapsed={!isExpanded}>
           <div>
@@ -192,6 +199,7 @@ Radio.propTypes = {
   focus: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
+  noAnimation: PropTypes.bool,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
@@ -199,6 +207,7 @@ Radio.propTypes = {
   onStartFPSCollection: PropTypes.func,
   lowFPS: PropTypes.bool,
   options: PropTypes.array.isRequired,
+  padded: PropTypes.bool,
   styles: PropTypes.shape({
     radio: PropTypes.object,
     option: PropTypes.object,
@@ -217,7 +226,14 @@ Radio.defaultProps = {
   }
 }
 
+Radio.displayName = 'Radio'
+
 export default compose(
+  componentQueries(
+    ({width}) => width > breakpoints.MOBILE_MAX_WIDTH
+      ? {padded: true}
+      : {padded: false}
+  ),
   notifyOnLowFPS({threshold: 10}),
   uncontrolled({
     prop: 'fullyExpanded',
@@ -241,15 +257,16 @@ export default compose(
       onChange: () => value => value
     }
   }),
-  themeable((customizations, props) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
-      ...props.customize,
       backgroundColor: customizations.color_checkbox,
       bulletColor: customizations.color_checkbox_checkmark,
       borderRadius: customizations.radius_border,
       textPrimaryColor: customizations.color_text,
-      textSecondaryColor: customizations.color_text_secondary
+      textSecondaryColor: customizations.color_text_secondary,
+      ...customize
     }
   })),
+  overridable(defaultStyles),
   uniqueName
 )(Radio)

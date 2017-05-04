@@ -61,7 +61,7 @@ export default function GettingStarted ({example}) {
       </Subtitle>
 
       <Code.Block standalone>
-        npm install react react-motion @klarna/ui --save
+        npm install html2react ramda react react-motion @klarna/ui --save
       </Code.Block>
     </section>
   </Content>

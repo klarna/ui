@@ -1,5 +1,7 @@
 import React from 'react'
 import deepMerge from 'deepmerge'
+import * as Title from '../../Title'
+import * as Paragraph from '../../Paragraph'
 import RadioMark from '../../RadioMark'
 import Collapsible from '../../Collapsible'
 import defaultStyles from './styles'
@@ -15,11 +17,13 @@ export default ({
   lowFPS,
   labelStyle,
   descriptionStyle,
-  onStartFPSCollection,
+  name,
+  noAnimation,
+  onChange,
   onEndFPSCollection,
   onFocus,
-  onChange,
-  name,
+  onStartFPSCollection,
+  padded,
   styles
 }) => (option, index) => {
   const {
@@ -29,7 +33,6 @@ export default ({
     disabled,
     aside,
     content,
-    leftPad,
     ...restOfProps
   } = option
 
@@ -50,7 +53,7 @@ export default ({
     wrapper: `${id}__wrapper`
   }
 
-  const finalStyles = deepMerge(defaultStyles, styles.option)
+  const finalStyles = deepMerge(defaultStyles, (styles.option || {}))
 
   return [
     <input
@@ -74,6 +77,7 @@ export default ({
         ...(borderless ? finalStyles.borderless.main : {})
       }}
       id={ids.label}
+      key={`${key}-${index}`}
       {...restOfProps}>
       <label
         htmlFor={`${name}-${key}`}
@@ -107,7 +111,7 @@ export default ({
               ...(singleOption ? finalStyles.base.leftmost : {})
             }}
             id={ids.right}>
-            <div
+            <Title.Secondary
               id={ids.labelInner}
               style={{
                 ...finalStyles.base.label,
@@ -115,9 +119,9 @@ export default ({
                 ...labelStyle
               }}>
               {label}
-            </div>
+            </Title.Secondary>
 
-            {description && <div
+            {description && <Paragraph.Secondary
               id={ids.description}
               style={{
                 ...finalStyles.base.description,
@@ -125,7 +129,7 @@ export default ({
                 ...descriptionStyle
               }}>
               {description}
-            </div>}
+            </Paragraph.Secondary>}
           </div>
 
           {aside && <div
@@ -142,12 +146,12 @@ export default ({
       {content && <Collapsible
         onStartFPSCollection={onStartFPSCollection}
         onEndFPSCollection={onEndFPSCollection}
-        lowFPS={lowFPS}
+        lowFPS={noAnimation || lowFPS}
         collapsed={isDisabled || !singleOption && key !== value}>
         <div
           style={{
             ...finalStyles.base.content,
-            ...(leftPad && !singleOption ? finalStyles.leftPad.content : {})
+            ...(padded ? finalStyles.padded.content : {})
           }}
           id={ids.content}>
           {content}

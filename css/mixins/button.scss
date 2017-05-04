@@ -11,7 +11,7 @@
   cursor: pointer;
   display: inline-block;
   height: ($grid * 10);
-  line-height: ($grid * 10) - ($grid * .4);
+  line-height: inherit;
   outline: none;
   padding: 0 ($grid * 9);
   position: relative;
@@ -109,6 +109,17 @@
     &:focus {
       background: $background;
       border-color: map-get($colors, klarna-blue);
+    }
+  }
+
+  &.responsive {
+    margin-top: ($grid * 2);
+    min-width: $challenge-min-width;
+    width: $challenge-narrow-width;
+    
+    @include respond-to-wide {
+      margin-left: ($grid * 2);
+      width: $challenge-wide-button-width;
     }
   }
 }

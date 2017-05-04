@@ -5,7 +5,7 @@ import { LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
 
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
-  { key: 'lorem', label: 'Lorem' },
+  { key: 'lorem', label: 'Lorem sit amet' },
   { key: 'ipsum', label: 'Ipsum' }
 ]
 
@@ -27,7 +27,11 @@ export default {
           code:
 `<Dropdown
   label='Lorem ipsum'
-  options={options}
+  options={[
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 'lorem', label: 'Lorem sit amet' },
+    { key: 'ipsum', label: 'Ipsum' }
+  ]}
 />`
         },
 
@@ -41,7 +45,11 @@ export default {
           code:
 `<Dropdown
   label='Lorem ipsum'
-  options={options}
+  options={[
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 'lorem', label: 'Lorem sit amet' },
+    { key: 'ipsum', label: 'Ipsum' }
+  ]}
   focus={false}
   value='lorem'
 />`
@@ -54,7 +62,11 @@ export default {
           />,
           code:
 `<Dropdown
-  options={options}
+  options={[
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 'lorem', label: 'Lorem sit amet' },
+    { key: 'ipsum', label: 'Ipsum' }
+  ]}
   value='ipsum'
 />`
         },
@@ -69,21 +81,11 @@ export default {
 `<Dropdown
   label='Lorem ipsum'
   name='dolor-sit-amet'
-  options={options}
-/>`
-        },
-
-        'With fake focus': {
-          live: <Dropdown
-            focus='fake'
-            label='Lorem ipsum'
-            options={options}
-          />,
-          code:
-`<Dropdown
-  focus='fake'
-  label='Lorem ipsum'
-  options={options}
+  options={[
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 'lorem', label: 'Lorem sit amet' },
+    { key: 'ipsum', label: 'Ipsum' }
+  ]}
 />`
         },
 
@@ -97,7 +99,11 @@ export default {
 `<Dropdown
   label='Wait...'
   loading
-  options={options}
+  options={[
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 'lorem', label: 'Lorem sit amet' },
+    { key: 'ipsum', label: 'Ipsum' }
+  ]}
 />`
         },
 
@@ -111,7 +117,11 @@ export default {
 `<Dropdown
   disabled
   label='Disabled'
-  options={options}
+  options={[
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 'lorem', label: 'Lorem sit amet' },
+    { key: 'ipsum', label: 'Ipsum' }
+  ]}
 />`
         },
 
@@ -155,7 +165,11 @@ export default {
 `<Dropdown
   label='Something is incorect'
   warning
-  options={options}
+  options={[
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 'lorem', label: 'Lorem sit amet' },
+    { key: 'ipsum', label: 'Ipsum' }
+  ]}
 />`
         }
       }

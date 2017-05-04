@@ -2,6 +2,7 @@ import React from 'react'
 import ConfirmData from '../ConfirmData'
 import ReviewData from '../ReviewData'
 import Explanation from '../Explanation'
+import CenteredDialog from '../CenteredDialog'
 import Landing from '../Landing'
 import XStepExplanation from '../XStepExplanation'
 import Wrapper from '../Wrapper'
@@ -246,6 +247,69 @@ export default {
               title='This is how the product works'
               content='Chia williamsburg subway tile vaporware, live-edge kinfolk cardigan prism deep v retro seitan.'
               legal='Drinking vinegar unicorn fam pork belly prism. Vegan bicycle rights raclette tofu squid lomo coloring book, meggings marfa PBR&B bushwick. '
+            />
+          </Wrapper>
+        }
+      }
+    },
+
+    {
+      title: 'CenteredDialog',
+      require: 'import CenteredDialog from \'@klarna/ui/templates/CenteredDialog\'',
+      type: TEMPLATE,
+
+      examples: {
+        Regular: {
+          inline: <CenteredDialog
+            id='centered-dialog'
+            illustration={<DemoIcon />}
+            title='Dialog Title'
+            summary='Dialog summary <strong>that supports HTML</strong> tags and convert them into KlarnaUI syntax.<br/><br/>Which plays well with output from localization tools.'
+            actions={[
+              {
+                id: 'ok-button',
+                type: 'primary',
+                label: 'OK',
+                onClick: () => console.log('OK')
+              },
+              {
+                id: 'secondary-button',
+                type: 'secondary',
+                label: 'Secondary'
+              },
+              {
+                id: 'take-me-away-button',
+                label: 'Go to Google.com',
+                target: '_blank',
+                href: 'http://www.google.com'
+              }
+            ]}
+          />,
+          wrapper: <Wrapper>
+            <CenteredDialog
+              id='centered-dialog'
+              illustration={<DemoIcon />}
+              title='Dialog Title'
+              summary='Dialog summary <strong>that supports HTML</strong> tags and convert them into KlarnaUI syntax.<br/><br/>Which plays well with output from localization tools.'
+              actions={[
+                {
+                  id: 'ok-button',
+                  type: 'primary',
+                  label: 'OK',
+                  onClick: () => console.log('OK')
+                },
+                {
+                  id: 'secondary-button',
+                  type: 'secondary',
+                  label: 'Secondary'
+                },
+                {
+                  id: 'take-me-away-button',
+                  label: 'Go to Google.com',
+                  target: '_blank',
+                  href: 'http://www.google.com'
+                }
+              ]}
             />
           </Wrapper>
         }

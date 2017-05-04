@@ -104,11 +104,11 @@ ChecklistItem.propTypes = {
 }
 
 export const Item = compose(
-  themeable((customizations, props) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
-      ...props.customize,
       strokeColor: customizations.color_details,
-      textColor: customizations.color_text
+      textColor: customizations.color_text,
+      ...customize
     }
   })),
   overridable(defaultStyles)

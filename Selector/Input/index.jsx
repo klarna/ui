@@ -213,13 +213,13 @@ const SelectorInput = React.createClass({
 })
 
 export default compose(
-  themeable((customizations, props) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
-      ...props.customize,
       borderColor: customizations.color_border,
       borderColorSelected: customizations.color_border_selected,
       labelColor: customizations.color_text_secondary,
-      inputColor: customizations.color_text
+      inputColor: customizations.color_text,
+      ...customize
     }
   })),
   overridable(defaultStyles)

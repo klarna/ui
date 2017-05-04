@@ -31,6 +31,7 @@ function Primary ({
   href,
   id,
   loading,
+  responsive,
   size,
   style,
   styles,
@@ -45,7 +46,8 @@ function Primary ({
     'is-loading': loading,
     'dynamic-styling': customize,
     'has-price': contains(Price, children),
-    'brand-volume-high': brandVolume === 'high'
+    'brand-volume-high': brandVolume === 'high',
+    'responsive': responsive
   }, className)
 
   const loaderColor = (customize || {}).textColor && (customize || {}).backgroundColor
@@ -163,10 +165,10 @@ export default compose(
   (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
-      ...customize,
       backgroundColor: customizations.color_button,
       borderRadius: customizations.radius_border,
-      textColor: customizations.color_button_text
+      textColor: customizations.color_button_text,
+      ...customize
     }
   })),
   overridable(defaultStyles)

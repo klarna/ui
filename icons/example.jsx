@@ -22,6 +22,8 @@ import Letter from '../icons/Letter'
 import Lock from '../icons/Lock'
 import Logout from '../icons/Logout'
 import Mail from '../icons/Mail'
+import MediumCard from '../icons/MediumCard'
+import MediumPinDevice from '../icons/MediumPinDevice'
 import NotFound from '../icons/NotFound'
 import OpenLetter from '../icons/OpenLetter'
 import PadLock from '../icons/PadLock'
@@ -37,6 +39,7 @@ import SMS from '../icons/SMS'
 import Warning from '../icons/Warning'
 import Wrong from '../icons/Wrong'
 import Add from '../icons/Add'
+import Refresh from '../icons/Refresh'
 import colors from '../icons/constants/colors'
 import name from '../lib/name'
 
@@ -54,6 +57,11 @@ const icons = {
     Time,
     Warning,
     Wrong
+  ],
+
+  medium: [
+    MediumCard,
+    MediumPinDevice
   ],
 
   tiny: [
@@ -82,7 +90,8 @@ const icons = {
     Phone,
     Question,
     Remind,
-    Search
+    Search,
+    Refresh
   ]
 }
 
@@ -111,6 +120,20 @@ export default {
         />),
 
         Icons: icons.big.map((Icon) => <Icon key={Icon.name} />)
+      }
+    },
+
+    {
+      title: 'Medium',
+      require: compose(
+        join('\n'),
+        uniq,
+        map((component) => `import ${name(component).split('.')[0]} from '@klarna/ui/icons/${name(component).split('.')[0]}'`)
+      )(icons.medium),
+      type: LIVE,
+
+      examples: {
+        Medium: icons.medium.map((Icon) => <Icon key={Icon.name} />)
       }
     },
 

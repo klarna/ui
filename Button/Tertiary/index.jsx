@@ -23,6 +23,11 @@ const classes = {
 
 export const sizes = ['small', 'big']
 
+function addTransparency (color) {
+  const rgb = parseColor(color).rgb
+  return rgb ? `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 0.05)` : color
+}
+
 function Tertiary (props) {
   const {
     brandVolume,
@@ -33,6 +38,7 @@ function Tertiary (props) {
     href,
     id,
     loading,
+    responsive,
     size,
     style,
     styles,
@@ -46,12 +52,13 @@ function Tertiary (props) {
     'is-loading': loading,
     'dynamic-styling': customize,
     'has-price': contains(Price, children),
-    'brand-volume-high': brandVolume === 'high'
+    'brand-volume-high': brandVolume === 'high',
+    'responsive': responsive
   }, className)
 
   const isDisabled = (loading || success || disabled)
 
-  const loaderColor = (customize || {}).textColor && (customize || {}).backgroundColor
+  const loaderColor = (customize || {}).backgroundColor
     ? parseColor(customize.backgroundColor).rgb
     : 'blue'
 
@@ -68,7 +75,7 @@ function Tertiary (props) {
   const customizations = customize
     ? {
       color: customize.backgroundColor,
-      backgroundColor: loading ? undefined : customize.backgroundColor,
+      backgroundColor: loading ? undefined : addTransparency(customize.backgroundColor),
       borderColor: customize.backgroundColor,
       borderRadius: customize.borderRadius
     } : {}
@@ -83,6 +90,7 @@ function Tertiary (props) {
   const markup = href || target
     ? <a
       className={cls}
+      id={id}
       disabled={isDisabled}
       href={href}
       style={{
@@ -106,7 +114,7 @@ function Tertiary (props) {
                 className={classNames(classes.labelAlt)}
                 id={ids.labelAlt}
                 title={content}
-                style={{color: customize.textColor}}
+                style={{color: customize.backgroundColor}}
               />
             }
           </div>
@@ -116,6 +124,7 @@ function Tertiary (props) {
     </a>
     : <button
       className={cls}
+      id={id}
       disabled={isDisabled}
       style={{
         ...customizations,
@@ -137,7 +146,7 @@ function Tertiary (props) {
                 className={classNames(classes.labelAlt)}
                 id={ids.labelAlt}
                 title={content}
-                style={{color: customize.textColor}}
+                style={{color: customize.backgroundColor}}
               />
             }
           </div>
@@ -164,8 +173,7 @@ Tertiary.propTypes = {
   className: PropTypes.string,
   customize: PropTypes.shape({
     backgroundColor: PropTypes.string.isRequired,
-    borderRadius: PropTypes.string.isRequired,
-    textColor: PropTypes.string.isRequired
+    borderRadius: PropTypes.string.isRequired
   }),
   disabled: PropTypes.bool,
   href: PropTypes.string,
@@ -181,10 +189,9 @@ export default compose(
   (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
-      ...customize,
       backgroundColor: customizations.color_button,
       borderRadius: customizations.radius_border,
-      textColor: customizations.color_button_text
+      ...customize
     }
   })),
   overridable(defaultStyles)
