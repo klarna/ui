@@ -12,30 +12,31 @@ import * as fontWeights from '../../settings/fontWeights'
 const defaultStyles = {
   base: {
     main: {
+      color: 'inherit',
       margin: 0,
-      paddingTop: grid(0.4),
-      paddingBottom: grid(0.6),
+      paddingTop: grid(0.6),
+      paddingBottom: grid(0.4),
       ...typographize({
         fontFamily: fontFamilies.BASE,
-        fontSize: grid(fontSizes.MAIN_BODY_BIG.mobile),
-        fontWeight: fontWeights.SEMI_BOLD,
-        lineHeight: grid(3)
+        fontSize: grid(fontSizes.MAIN_BODY.mobile),
+        fontWeight: fontWeights.REGULAR,
+        lineHeight: grid(4)
       })
     }
   }
 }
 
-function Title ({ children, styles, ...props }) {
+function Paragraph ({ children, styles, ...props }) {
   const finalStyles = deepMerge(defaultStyles, styles)
 
-  return <h1 style={finalStyles.base.main} {...props}>
+  return <p style={finalStyles.base.main} {...props}>
     {children}
-  </h1>
+  </p>
 }
 
-Title.displayName = 'Alert.Title'
+Paragraph.displayName = 'Alert.Paragraph'
 
-Title.propTypes = {
+Paragraph.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string,
   styles: PropTypes.shape({
@@ -47,4 +48,4 @@ Title.propTypes = {
 
 export default compose(
   overridable(defaultStyles)
-)(Title)
+)(Paragraph)
