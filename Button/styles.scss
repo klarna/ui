@@ -31,12 +31,6 @@ a.button--primary {
     $darken-attributes: (background-color, border-color)
   );
 
-  .button__price {
-    @include button__price(
-      $border-color: white
-    );
-  }
-
   @include loading-or-success();
 
   .button--primary__darkening {
@@ -86,12 +80,6 @@ a.button--secondary {
     $darken-color: map-get($colors, klarna-blue),
     $darken-attributes: (background-color, border-color)
   );
-
-  .button__price {
-    @include button__price(
-      $border-color: map-get($colors, klarna-blue)
-    );
-  }
 
   @include loading-or-success();
 
@@ -187,12 +175,6 @@ a.button--tertiary {
   );
 
   border: 0;
-
-  .button__price {
-    @include button__price(
-      $border-color: map-get($colors, klarna-blue)
-    );
-  }
 
   @include loading-or-success();
 

@@ -116,26 +116,11 @@
     margin-top: ($grid * 2);
     min-width: $challenge-min-width;
     width: $challenge-narrow-width;
-    
+
     @include respond-to-wide {
       margin-left: ($grid * 2);
       width: $challenge-wide-button-width;
     }
-  }
-}
-
-@mixin button__price ($border-color) {
-  float: right;
-  margin-left: $grid * 4;
-  padding-left: $grid * 4;
-
-  &:before {
-    border-left: 1px solid rgba($border-color, .1);
-    content: ' ';
-    height: 20px;
-    position: relative;
-    right: 20px;
-    top: 1px;
   }
 }
 
