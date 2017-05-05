@@ -1,8 +1,5 @@
 import React from 'react'
 import * as Alert from '../Alert'
-import AlertError from '../Alert/Error'
-import AlertParagraph from '../Alert/Paragraph'
-import AlertTitle from '../Alert/Title'
 import { LIVE } from '../Showroom/variationTypes'
 
 export default {
@@ -16,17 +13,17 @@ export default {
       type: LIVE,
 
       examples: {
-        Regular: <AlertError>
-          <AlertTitle>
+        Regular: <Alert.Error>
+          <Alert.Title>
             An error alert box heading
-          </AlertTitle>
-          <AlertParagraph>
+          </Alert.Title>
+          <Alert.Paragraph>
             Some text inside helps to get an idea of how the alert would look like. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </AlertParagraph>
-          <AlertParagraph>
+          </Alert.Paragraph>
+          <Alert.Paragraph>
             ID: <em>a4c531de-e35d-4901-93ae-44e32639b4b1</em>
-          </AlertParagraph>
-        </AlertError>
+          </Alert.Paragraph>
+        </Alert.Error>
       }
     },
 
@@ -37,15 +34,15 @@ export default {
 
       examples: {
         Regular: <Alert.Warning>
-          <AlertTitle>
+          <Alert.Title>
             An error alert box heading
-          </AlertTitle>
-          <AlertParagraph>
+          </Alert.Title>
+          <Alert.Paragraph>
             Some text inside helps to get an idea of how the alert would look like. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </AlertParagraph>
-          <AlertParagraph>
+          </Alert.Paragraph>
+          <Alert.Paragraph>
             ID: <em>a4c531de-e35d-4901-93ae-44e32639b4b1</em>
-          </AlertParagraph>
+          </Alert.Paragraph>
         </Alert.Warning>
       }
     }

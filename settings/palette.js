@@ -14,5 +14,8 @@ export const GREY_SELECTOR_LINES = '#E5E5E6'
 export const DISABLED_BACKGROUND = '#FAFAFA'
 export const KLARNA_BLUE = '#0074C8'
 export const WHITE = '#FFFFFF'
+export const WARNING_BACKGROUND = '#FFFAF0'
+export const WARNING_HOVER = '#E2AF4A'
+export const WARNING_TEXT = '#ECB800'
 
 export const DISABLED_OPACITY = 0.2
