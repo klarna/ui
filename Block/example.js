@@ -43,7 +43,14 @@ export default {
         </Paragraph.Secondary>
       </Block.Bordered>,
 
-      'Custom-bordered': <Block.Bordered style={{borderRadius: 0}}>
+      'Custom-bordered': <Block.Bordered
+        styles={{
+          base: {
+            main: {
+              borderRadius: 0
+            }
+          }
+        }}>
         <Paragraph.Secondary>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
         </Paragraph.Secondary>
