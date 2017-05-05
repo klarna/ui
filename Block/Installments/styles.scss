@@ -13,12 +13,6 @@
   }
 }
 
-.block--installments__title {
-  @include subtitle;
-
-  text-align: center;
-}
-
 .block--installments__values {
   padding-top: $grid;
 }

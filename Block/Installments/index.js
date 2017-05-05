@@ -5,6 +5,8 @@ import childrenPropType from '../../propTypes/children'
 import compose from 'ramda/src/compose'
 import {overridable} from '@klarna/higher-order-components'
 
+export Title from './Title'
+
 const baseClass = 'block--installments'
 
 const classes = {
@@ -49,19 +51,6 @@ function InstallmentsTitle ({ className, children, styles, ...props }) {
     </div>
   )
 }
-
-InstallmentsTitle.displayName = 'Block.Installments.Title'
-
-InstallmentsTitle.propTypes = {
-  className: PropTypes.string,
-  children: childrenPropType,
-  id: PropTypes.string,
-  styles: PropTypes.object
-}
-
-export const Title = compose(
-  overridable(defaultStyles)
-)(InstallmentsTitle)
 
 function InstallmentsContent ({ className, children, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })

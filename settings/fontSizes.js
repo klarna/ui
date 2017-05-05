@@ -7,3 +7,4 @@ export const MAIN_BODY = {
   mobile: 2.6
 }
 export const AMOUNT_TEXT = 9.6
+export const SUBTITLE = 2.4

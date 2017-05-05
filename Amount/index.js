@@ -10,8 +10,8 @@ import * as fontSizes from '../settings/fontSizes'
 import * as fontWeights from '../settings/fontWeights'
 
 const defaultStyles = {
-  base: {
-    main: {
+  main: {
+    base: {
       margin: 0,
       paddingBottom: grid(0.8),
       paddingTop: grid(1.2),
@@ -54,8 +54,8 @@ function Amount ({ children, color, styles, ...props }) {
 
   return <p
     style={{
-      ...finalStyles.base.main,
-      ...finalStyles.base[color]
+      ...finalStyles.main.base,
+      ...finalStyles.main[color]
     }}
     {...props}>
     {children}
@@ -65,8 +65,8 @@ function Amount ({ children, color, styles, ...props }) {
 Amount.defaultProps = {
   color: 'black',
   styles: {
-    base: {
-      main: {}
+    main: {
+      base: {}
     }
   }
 }
@@ -76,8 +76,8 @@ Amount.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string,
   styles: PropTypes.shape({
-    base: PropTypes.shape({
-      main: PropTypes.object
+    main: PropTypes.shape({
+      base: PropTypes.object
     })
   })
 }
