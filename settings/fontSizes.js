@@ -6,3 +6,4 @@ export const MAIN_BODY = {
   desktop: 2.6,
   mobile: 2.6
 }
+export const AMOUNT_TEXT = 9.6
