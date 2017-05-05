@@ -41,19 +41,51 @@ export default {
       type: LIVE,
 
       examples: {
-        Big: <Block.Plain blue style={{padding: '20px'}}>
+        Big: <Block.Plain
+          blue
+          styles={{
+            main: {
+              base: {
+                padding: 20
+              }
+            }
+          }}>
           <Loader color='white' size='big' />
         </Block.Plain>,
 
-        Regular: <Block.Plain blue style={{padding: '20px'}}>
+        Regular: <Block.Plain
+          blue
+          styles={{
+            main: {
+              base: {
+                padding: 20
+              }
+            }
+          }}>
           <Loader color='white' />
         </Block.Plain>,
 
-        Small: <Block.Plain blue style={{padding: '20px'}}>
+        Small: <Block.Plain
+          blue
+          styles={{
+            main: {
+              base: {
+                padding: 20
+              }
+            }
+          }}>
           <Loader color='white' size='small' />
         </Block.Plain>,
 
-        Tiny: <Block.Plain blue style={{padding: '20px'}}>
+        Tiny: <Block.Plain
+          blue
+          styles={{
+            main: {
+              base: {
+                padding: 20
+              }
+            }
+          }}>
           <Loader color='white' size='tiny' />
         </Block.Plain>
       }

@@ -292,81 +292,228 @@ export default {
         'Default color scheme': [
           <Block.Plain
             key='0'
-            style={{display: 'inline-block', padding: '20px'}}>
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Back />
           </Block.Plain>,
 
-          <Block.Plain key='1' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='1'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Close />
           </Block.Plain>,
 
-          <Block.Plain key='2' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='2'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Hamburger />
           </Block.Plain>,
 
-          <Block.Plain key='3' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='3'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Options />
           </Block.Plain>,
 
-          <Block.Plain key='4' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='4'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Search />
           </Block.Plain>
         ],
 
         'With text': [
-          <Block.Plain key='0' style={{padding: '20px'}}>
+          <Block.Plain
+            key='0'
+            styles={{
+              main: {
+                base: {
+                  padding: '20px'
+                }
+              }
+            }}>
             <Back label='Back' />
           </Block.Plain>,
 
-          <Block.Plain key='1' style={{padding: '20px'}}>
+          <Block.Plain
+            key='1'
+            styles={{
+              main: {
+                base: {
+                  padding: '20px'
+                }
+              }
+            }}>
             <Select label='Select' />
           </Block.Plain>,
 
-          <Block.Plain key='2' style={{padding: '20px'}}>
+          <Block.Plain
+            key='2'
+            styles={{
+              main: {
+                base: {
+                  padding: '20px'
+                }
+              }
+            }}>
             <Close label='Close' color='gray' left />
           </Block.Plain>
         ],
 
         'Gray color scheme': [
-          <Block.Plain key='0' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='0'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Back color='gray' />
           </Block.Plain>,
 
-          <Block.Plain key='1' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='1'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Close color='gray' />
           </Block.Plain>,
 
-          <Block.Plain key='2' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='2'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Hamburger color='gray' />
           </Block.Plain>,
 
-          <Block.Plain key='3' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='3'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Options color='gray' />
           </Block.Plain>,
 
-          <Block.Plain key='4' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='4'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Search color='gray' />
           </Block.Plain>
         ],
 
         'Inverse color scheme': [
-          <Block.Plain key='0' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='0'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Back color='inverse' />
           </Block.Plain>,
 
-          <Block.Plain key='1' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='1'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Close color='inverse' />
           </Block.Plain>,
 
-          <Block.Plain key='2' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='2'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Hamburger color='inverse' />
           </Block.Plain>,
 
-          <Block.Plain key='3' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='3'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Options color='inverse' />
           </Block.Plain>,
 
-          <Block.Plain key='4' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='4'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Search color='inverse' />
           </Block.Plain>
         ]

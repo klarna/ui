@@ -68,7 +68,7 @@ export default {
           <Subtitle key={4} color='error'>Subtitle in error</Subtitle>,
           <Subtitle key={5} color='success'>Subtitle in success</Subtitle>,
           <Subtitle key={6} color='warning'>Subtitle in warning</Subtitle>,
-          <Block.Plain key={7} blue style={{padding: '10px'}}>
+          <Block.Plain key={7} blue styles={{main: {base: {padding: 10}}}}>
             <Subtitle color='white'>Subtitle in white</Subtitle>
           </Block.Plain>
         ],
