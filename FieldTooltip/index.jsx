@@ -14,20 +14,19 @@ const classes = {
 }
 
 function FieldTooltip ({active, arrow, id, fieldTooltip, ...props}) {
-    const classNames = classNamesBind.bind({ ...defaultStyles })
+  const classNames = classNamesBind.bind({ ...defaultStyles })
 
-    return <div>
-      <span
-        id={id}
-        className={classNames(classes.icon)}>
-        <Question color='black' />
-      </span>
-      <Tooltip inlined inverse arrow={arrow} className={classNames(classes.text, active ? '' : 'is-hidden', arrow)}>
-        {fieldTooltip}
-      </Tooltip>
-    </div>
-  }
-})
+  return <div>
+    <span
+      id={id}
+      className={classNames(classes.icon)}>
+      <Question color='black' />
+    </span>
+    <Tooltip inlined inverse arrow={arrow} className={classNames(classes.text, active ? '' : 'is-hidden', arrow)}>
+      {fieldTooltip}
+    </Tooltip>
+  </div>
+}
 
 FieldTooltip.propTypes = {
   active: PropTypes.bool,
