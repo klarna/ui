@@ -32,7 +32,7 @@ const FieldTooltip = React.createClass({
           className={classNames(classes.icon)}>
           <Question color='black' />
         </span>
-        <Tooltip inverse arrow={arrow} className={classNames(classes.text, active ? '' : 'is-hidden', arrow)}>
+        <Tooltip inverse inlined arrow={arrow} className={classNames(classes.text, active ? '' : 'is-hidden', arrow)}>
           {fieldTooltip}
         </Tooltip>
       </div>
