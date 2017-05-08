@@ -13,8 +13,6 @@
 }
 
 .field-tooltip__text {
-  margin-right: 10px !important;
-  position: absolute !important;
   transform: translateY(10px);
   transition: opacity .3s linear, transform .3s ease-out;
   -webkit-transition: opacity .3s linear, -webkit-transform .3s ease-out;
