@@ -18,7 +18,7 @@ function Tooltip ({ className, arrow, children, inlined, inverse, styles, ...pro
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (<div
-    className={classNames(baseClass, arrow, className, { inlined, inverse })} {...props}>
+    className={classNames(baseClass, arrow, className, { inlined }, { inverse })} {...props}>
     {children}
   </div>)
 }
