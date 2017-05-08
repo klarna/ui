@@ -4,7 +4,7 @@ import defaultStyles from './styles.scss'
 import Question from '../icons/Question.jsx'
 import Tooltip from '../Tooltip'
 import compose from 'ramda/src/compose'
-import {withHoverProps} from '@klarna/higher-order-components'
+import {withTouchProps, withHoverProps} from '@klarna/higher-order-components'
 
 const baseClass = 'field-tooltip'
 
