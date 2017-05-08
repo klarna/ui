@@ -129,6 +129,7 @@ export default {
           code:
 `<Field
   arrow='bottom-right'
+  disabled
   fieldTooltip='We need your phone number for stuff'
   label='Date Of Birth'
 />`
