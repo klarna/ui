@@ -3,6 +3,8 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import Question from '../icons/Question.jsx'
 import Tooltip from '../Tooltip'
+import compose from 'ramda/src/compose'
+import {withHoverProps} from '@klarna/higher-order-components'
 
 const baseClass = 'field-tooltip'
 
@@ -13,40 +15,13 @@ const classes = {
 
 const FieldTooltip = React.createClass({
 
-  getInitialState () {
-    return {
-      hover: undefined
-    }
-  },
-
-  onTooltipClick () {
-    this.setState({
-      hover: !this.state.hover
-    })
-  },
-
-  onMouseEnter () {
-    this.setState({
-      hover: true
-    })
-  },
-
-  onMouseLeave () {
-    this.setState({
-      hover: false
-    })
-  },
-
   render () {
     const {
+      active,
       arrow,
       id,
       fieldTooltip
     } = this.props
-
-    const {
-      hover
-    } = this.state
 
     const classNames = classNamesBind.bind({ ...defaultStyles })
 
@@ -61,7 +36,7 @@ const FieldTooltip = React.createClass({
           className={classNames(classes.icon)}>
           <Question color='black' />
         </span>
-        <Tooltip inverse arrow={arrow} className={classNames(classes.text, hover ? '' : 'is-hidden', arrow)}>
+        <Tooltip inverse arrow={arrow} className={classNames(classes.text, active ? '' : 'is-hidden', arrow)}>
           {fieldTooltip}
         </Tooltip>
       </div>
@@ -70,9 +45,17 @@ const FieldTooltip = React.createClass({
 })
 
 FieldTooltip.propTypes = {
+  active: PropTypes.bool,
   arrow: PropTypes.string,
   id: PropTypes.string,
   fieldTooltip: PropTypes.string
 }
 
-export default FieldTooltip
+FieldTooltip.defaultProps = {
+  active: false
+}
+
+export default compose(
+  withHoverProps({active: true}),
+  withTouchProps({active: true})
+)(FieldTooltip)
