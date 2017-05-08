@@ -29,10 +29,6 @@ const FieldTooltip = React.createClass({
       <div>
         <span
           id={id}
-          onClick={this.onTooltipClick}
-          onBlur={this.onMouseLeave}
-          onMouseOver={this.onMouseEnter}
-          onMouseLeave={this.onMouseLeave}
           className={classNames(classes.icon)}>
           <Question color='black' />
         </span>
