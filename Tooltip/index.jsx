@@ -14,11 +14,11 @@ export const arrows = [
   'right', 'right-top', 'right-bottom'
 ]
 
-function Tooltip ({ className, arrow, children, inverse, styles, ...props }) {
+function Tooltip ({ className, arrow, children, inlined, inverse, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (<div
-    className={classNames(baseClass, arrow, className, { inverse })} {...props}>
+    className={classNames(baseClass, arrow, className, { inlined, inverse })} {...props}>
     {children}
   </div>)
 }
@@ -30,6 +30,7 @@ Tooltip.propTypes = {
   arrow: PropTypes.oneOf(arrows),
   children: childrenPropType,
   id: PropTypes.string,
+  inlined: PropTypes.bool,
   inverse: PropTypes.bool,
   styles: PropTypes.object
 }
