@@ -48,7 +48,7 @@
     @include typography(map-get($font-sizes, main-body-desktop), regular);
   }
   
-   &.inlined {
+  &.inlined {
     margin-right: 10px;
     position: absolute;
   }
