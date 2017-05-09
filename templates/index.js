@@ -1,11 +1,23 @@
-export CenteredSelection from './CenteredSelection'
-export CompactFormPrompt from './CompactFormPrompt'
-export ConfirmData from './ConfirmData'
-export Explanation from './Explanation'
-export FilteredSelection from './FilteredSelection'
-export Landing from './Landing'
-export ReviewData from './ReviewData'
-export Selection from './Selection'
-export SingleInputPrompt from './SingleInputPrompt'
-export Wrapper from './Wrapper'
-export XStepExplanation from './XStepExplanation'
+import UICenteredSelection from './CenteredSelection'
+import UICompactFormPrompt from './CompactFormPrompt'
+import UIConfirmData from './ConfirmData'
+import UIExplanation from './Explanation'
+import UIFilteredSelection from './FilteredSelection'
+import UILanding from './Landing'
+import UIReviewData from './ReviewData'
+import UISelection from './Selection'
+import UISingleInputPrompt from './SingleInputPrompt'
+import UIWrapper from './Wrapper'
+import UIXStepExplanation from './XStepExplanation'
+
+export const CenteredSelection = UICenteredSelection
+export const CompactFormPrompt = UICompactFormPrompt
+export const ConfirmData = UIConfirmData
+export const Explanation = UIExplanation
+export const FilteredSelection = UIFilteredSelection
+export const Landing = UILanding
+export const ReviewData = UIReviewData
+export const Selection = UISelection
+export const SingleInputPrompt = UISingleInputPrompt
+export const Wrapper = UIWrapper
+export const XStepExplanation = UIXStepExplanation

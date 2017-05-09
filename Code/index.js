@@ -1,3 +1,7 @@
-export Block from './Block'
-export Highlight from './Highlight'
-export Inline from './Inline'
+import UIBlock from './Block'
+import UIHighlight from './Highlight'
+import UIInline from './Inline'
+
+export const Block = UIBlock
+export const Highlight = UIHighlight
+export const Inline = UIInline

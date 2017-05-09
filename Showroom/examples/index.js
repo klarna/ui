@@ -1,3 +1,7 @@
-export * as components from './components'
-export * as compositions from './compositions'
-export * as templates from './templates'
+import * as uiComponents from './components'
+import * as uiCompositions from './compositions'
+import * as uiTemplates from './templates'
+
+export const components = uiComponents
+export const compositions = uiCompositions
+export const templates = uiTemplates
