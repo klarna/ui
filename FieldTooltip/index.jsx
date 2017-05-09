@@ -19,7 +19,8 @@ function FieldTooltip ({active, arrow, id, fieldTooltip, ...props}) {
   return <div>
     <span
       id={id}
-      className={classNames(classes.icon)}>
+      className={classNames(classes.icon)}
+      {...props}>
       <Question color='black' />
     </span>
     <Tooltip inlined inverse arrow={arrow} className={classNames(classes.text, active ? '' : 'is-hidden', arrow)}>
