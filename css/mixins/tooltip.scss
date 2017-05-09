@@ -47,6 +47,11 @@
   @include respond-to-wide {
     @include typography(map-get($font-sizes, main-body-desktop), regular);
   }
+  
+  &.inlined {
+    margin-right: 10px;
+    position: absolute;
+  }
 
   &:after {
     content: '';

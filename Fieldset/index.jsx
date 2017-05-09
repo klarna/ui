@@ -14,13 +14,13 @@ function Fieldset ({
   children,
   fields,
   fieldType,
+  fieldLinkActions,
   focus,
   id,
   margins,
   onBlur,
   onChange,
   onFocus,
-  onFieldLinkClick,
   styles,
   values,
   ...props
@@ -41,7 +41,7 @@ function Fieldset ({
         onBlur={handleBlur(onBlur, field.name)}
         onChange={handleChange(values, onChange, field.name)}
         onFocus={handleFocus(onFocus, field.name)}
-        onFieldLinkClick={handleFieldLinkClick(onFieldLinkClick, field.name)}
+        onFieldLinkClick={handleFieldLinkClick(fieldLinkActions, field.fieldLinkType, field.name)}
         {...field}
       />
     })}
@@ -64,8 +64,8 @@ const handleBlur = (onBlur, name) => () =>
 const handleFocus = (onFocus, name) => () =>
   onFocus(name)
 
-const handleFieldLinkClick = (onFieldLinkClick, name) => () =>
-  onFieldLinkClick(name)
+const handleFieldLinkClick = (fieldLinkActions, fieldLinkType, name) => () =>
+  fieldLinkActions[fieldLinkType](name)
 
 Fieldset.defaultProps = {
   margins: false,

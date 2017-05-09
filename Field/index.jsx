@@ -8,6 +8,7 @@ import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
 import FieldLink from '../FieldLink'
+import FieldTooltip from '../FieldTooltip'
 
 import compose from 'ramda/src/compose'
 import {
@@ -45,6 +46,7 @@ const Field = React.createClass({
       onFieldLinkClick: function () {},
       responsive: true,
       fieldLink: '',
+      fieldTooltip: '',
       pinCode: false,
       mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
@@ -56,6 +58,7 @@ const Field = React.createClass({
   },
 
   propTypes: {
+    arrow: PropTypes.string,
     big: PropTypes.bool,
     centered: PropTypes.bool,
     customize: PropTypes.shape({
@@ -66,6 +69,7 @@ const Field = React.createClass({
       inputColor: PropTypes.string.isRequired
     }),
     fieldLink: PropTypes.string,
+    fieldTooltip: PropTypes.string,
     focus: PropTypes.bool,
     hidden: PropTypes.bool,
     id: PropTypes.string,
@@ -146,6 +150,7 @@ const Field = React.createClass({
 
   render () {
     const {
+      arrow,
       big,
       bottom, // eslint-disable-line no-unused-vars
       center, // eslint-disable-line no-unused-vars
@@ -158,6 +163,7 @@ const Field = React.createClass({
       id,
       Input,
       fieldLink,
+      fieldTooltip,
       focus,
       hidden,
       label,
@@ -236,7 +242,8 @@ const Field = React.createClass({
       ? {
         input: `${id}__input`,
         label: `${id}__label`,
-        link: `${id}__field-link`
+        link: `${id}__field-link`,
+        tooltip: `${id}__field-tooltip`
       } : {}
 
     const inputProps = {
@@ -292,6 +299,13 @@ const Field = React.createClass({
           id={ids.link}
           label={fieldLink}
           onFieldLinkClick={onFieldLinkClick} />
+        }
+
+        {fieldTooltip &&
+          <FieldTooltip
+            arrow={arrow}
+            fieldTooltip={fieldTooltip}
+            id={ids.tooltip} />
         }
       </div>
     )

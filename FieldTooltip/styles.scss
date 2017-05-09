@@ -1,0 +1,40 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.field-tooltip__icon {
+  margin-top: -($grid * 2);
+  padding: 0 ($grid * 2);
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  top: 50%;
+  z-index: 3;
+}
+
+.field-tooltip__text {
+  transform: translateY(10px);
+  transition: opacity .3s linear, transform .3s ease-out;
+  -webkit-transition: opacity .3s linear, -webkit-transform .3s ease-out;
+  -moz-transition: opacity .3s linear, -moz-transform .3s ease-out;
+  z-index: 3;
+}
+
+.bottom-right {
+  bottom: 50px;
+  right: -1px;
+}
+
+.top-right { 
+  right: -1px;
+  top: 30px;
+}
+
+.is-visible {
+  opacity: 1;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}

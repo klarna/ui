@@ -90,6 +90,10 @@
     &:hover {
       border-color: map-get($colors, grey-lines);
     }
+
+    &:after {
+      display: none;
+    }
   }
 
   &.is-loading {

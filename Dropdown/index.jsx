@@ -7,6 +7,7 @@ import * as inlinedIcon from '../lib/features/inlinedIcon'
 import * as stacking from '../lib/features/stacking'
 import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
+import FieldTooltip from '../FieldTooltip'
 import compose from 'ramda/src/compose'
 import {
   overridable,
@@ -34,6 +35,7 @@ const Dropdown = React.createClass({
 
   getDefaultProps () {
     return {
+      fieldTooltip: '',
       loading: false,
       onChange: function () {},
       mouseflowExclude: false,
@@ -103,12 +105,14 @@ const Dropdown = React.createClass({
 
   render () {
     const {
+      arrow,
       bottom, // eslint-disable-line no-unused-vars
       center, // eslint-disable-line no-unused-vars
       className,
       customize,
       disabled,
       error, // eslint-disable-line no-unused-vars
+      fieldTooltip,
       focus, // eslint-disable-line no-unused-vars
       id,
       label,
@@ -180,7 +184,8 @@ const Dropdown = React.createClass({
         label: `${id}__label`,
         option: (i) => `${id}__option__${i}`,
         select: `${id}__select`,
-        selected: `${id}__selected`
+        selected: `${id}__selected`,
+        tooltip: `${id}__field-tooltip`
       } : {
         option: () => {}
       }
@@ -238,6 +243,13 @@ const Dropdown = React.createClass({
         {mouseflowExclude
           ? <MouseflowExclude>{selectElement}</MouseflowExclude>
           : selectElement
+        }
+
+        {fieldTooltip &&
+          <FieldTooltip
+            arrow={arrow}
+            fieldTooltip={fieldTooltip}
+            id={ids.tooltip} />
         }
       </div>
     )
