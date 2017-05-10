@@ -26,6 +26,14 @@ function Fieldset ({
   ...props
 }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+  const ids = id != null
+    ? {
+      field: name => `${id}__${name}`
+    }
+    : {
+      field: () => undefined
+    }
+
   return <div
     className={classNames('fieldset', { 'default-margins': margins }, className)}
     id={id}
@@ -36,7 +44,7 @@ function Fieldset ({
       return <FieldType
         key={field.name}
         focus={focus === field.name}
-        id={`${id}__${field.name}`}
+        id={ids.field(field.name)}
         value={values && values[field.name]}
         onBlur={handleBlur(onBlur, field.name)}
         onChange={handleChange(values, onChange, field.name)}
