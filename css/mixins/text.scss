@@ -206,12 +206,3 @@
     padding: ($grid * 1.6) 0 ($grid * .4);
   }
 }
-
-@mixin amount-text {
-  @include typography(map-get($font-sizes, amount-text), light);
-  @include palette-colors();
-
-  line-height: ($grid * 10);
-  margin: 0;
-  padding: ($grid * 1.2) 0 ($grid * .8);
-}

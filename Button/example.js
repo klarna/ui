@@ -118,68 +118,93 @@ export default {
       type: LIVE,
 
       examples: {
-        Small: <Button.Primary size='small'>Click me!</Button.Primary>,
-        Regular: <Button.Primary>Click me!</Button.Primary>,
-        Big: <Button.Primary size='big'>Click me!</Button.Primary>,
-        Responsive: <Button.Primary responsive>Click me!</Button.Primary>,
+        Small: <Button.Primary size='small'>
+          Click me!
+        </Button.Primary>,
+
+        Regular: <Button.Primary>
+          Click me!
+        </Button.Primary>,
+
+        Big: <Button.Primary size='big'>
+          Click me!
+        </Button.Primary>,
+
+        Responsive: <Button.Primary responsive>
+          Click me!
+        </Button.Primary>,
+
         Custom: <Button.Primary
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
         </Button.Primary>,
+
         'As a link': <Button.Primary
           href='http://klarna.com'
           target='_blank'>
           Open the homepage
         </Button.Primary>,
+
         'With price small': <Button.Primary size='small'>
           Pay now!
           <Button.Price>$12.0</Button.Price>
         </Button.Primary>,
+
         'With price regular': <Button.Primary>
           Pay now!
           <Button.Price>$12.0</Button.Price>
         </Button.Primary>,
+
         'With price big': <Button.Primary size='big'>
           Pay now!
           <Button.Price>14:-</Button.Price>
         </Button.Primary>,
+
         'With price loading': <Button.Primary loading style={{width: '200px'}}>
           Pay now!
           <Button.Price>14:-</Button.Price>
         </Button.Primary>,
-        'High brand volume': (
-          <div>
-            <Button.Primary brandVolume='high'>
-              Start your journey
-            </Button.Primary>
-            <Button.Primary brandVolume='high' size='big' style={{marginTop: 10, display: 'block'}}>
-              Start your journey
-            </Button.Primary>
-          </div>
-        ),
-        'High brand volume with price': (
-          <div>
-            <Button.Primary brandVolume='high'>
-              Pay now
-              <Button.Price>
-                12$
-              </Button.Price>
-            </Button.Primary>
-            <Button.Primary brandVolume='high' size='big' style={{marginTop: 10, display: 'block'}}>
-              Pay now
-              <Button.Price>
-                12$
-              </Button.Price>
-            </Button.Primary>
-          </div>
-        ),
-        Disabled: <Button.Primary disabled>Click me!</Button.Primary>,
-        Loading: <Button.Primary loading>Click me!</Button.Primary>,
+
+        'High brand volume': <div>
+          <Button.Primary brandVolume='high'>
+            Start your journey
+          </Button.Primary>
+          <Button.Primary brandVolume='high' size='big' style={{marginTop: 10, display: 'block'}}>
+            Start your journey
+          </Button.Primary>
+        </div>,
+
+        'High brand volume with price': <div>
+          <Button.Primary brandVolume='high'>
+            Pay now
+            <Button.Price>
+              12$
+            </Button.Price>
+          </Button.Primary>
+          <Button.Primary brandVolume='high' size='big' style={{marginTop: 10, display: 'block'}}>
+            Pay now
+            <Button.Price>
+              12$
+            </Button.Price>
+          </Button.Primary>
+        </div>,
+
+        Disabled: <Button.Primary disabled>
+          Click me!
+        </Button.Primary>,
+
+        Loading: <Button.Primary loading>
+          Click me!
+        </Button.Primary>,
+
         'Loading with customization': <Button.Primary
           loading
           customize={{backgroundColor: '#3500C8', borderRadius: '15px', textColor: '#F9FF3C'}}
         />,
-        Success: <Button.Primary success>Click me!</Button.Primary>
+
+        Success: <Button.Primary success>
+          Click me!
+        </Button.Primary>
       }
     },
 
@@ -189,14 +214,27 @@ export default {
       type: LIVE,
 
       examples: {
-        Small: <Button.Secondary size='small'>Click me!</Button.Secondary>,
-        Regular: <Button.Secondary>Click me!</Button.Secondary>,
-        Big: <Button.Secondary size='big'>Click me!</Button.Secondary>,
-        Responsive: <Button.Secondary responsive>Click me!</Button.Secondary>,
+        Small: <Button.Secondary size='small'>
+          Click me!
+        </Button.Secondary>,
+
+        Regular: <Button.Secondary>
+          Click me!
+        </Button.Secondary>,
+
+        Big: <Button.Secondary size='big'>
+          Click me!
+        </Button.Secondary>,
+
+        Responsive: <Button.Secondary responsive>
+          Click me!
+        </Button.Secondary>,
+
         Custom: <Button.Secondary
           customize={{textColor: '#F9FF3C', borderRadius: '15px', backgroundColor: '#3500C8'}}>
           Beautiful!
         </Button.Secondary>,
+
         'Custom with square border': <Button.Secondary
           customize={{
             textColor: '#F9FF3C',
@@ -205,39 +243,52 @@ export default {
           }}>
           Beautiful!
         </Button.Secondary>,
+
         'As a link': <Button.Secondary
           href='http://klarna.com'
           target='_blank'>
           Open the homepage
         </Button.Secondary>,
-        'High brand volume': (
-          <div>
-            <Button.Secondary brandVolume='high'>
-              Start your journey
-            </Button.Secondary>
-            <Button.Secondary brandVolume='high' size='big' style={{marginTop: 10}}>
-              Start your journey
-            </Button.Secondary>
-          </div>
-        ),
-        Disabled: <Button.Secondary disabled>Click me!</Button.Secondary>,
-        Loading: <Button.Secondary loading>Click me!</Button.Secondary>,
+
+        'High brand volume': <div>
+          <Button.Secondary brandVolume='high'>
+            Start your journey
+          </Button.Secondary>
+          <Button.Secondary brandVolume='high' size='big' style={{marginTop: 10}}>
+            Start your journey
+          </Button.Secondary>
+        </div>,
+
+        Disabled: <Button.Secondary disabled>
+          Click me!
+        </Button.Secondary>,
+
+        Loading: <Button.Secondary loading>
+          Click me!
+        </Button.Secondary>,
+
         'Loading with customization': <Button.Secondary
           loading
           customize={{backgroundColor: '#3500C8', borderRadius: '15px', textColor: '#F9FF3C'}}
         />,
-        Success: <Button.Secondary success>Click me!</Button.Secondary>,
+
+        Success: <Button.Secondary success>
+          Click me!
+        </Button.Secondary>,
+
         'Button with price small': <Button.Secondary size='small'>
           Pay now!
-          <Button.Price>$12.0</Button.Price>
+          <Button.Price blue>$12.0</Button.Price>
         </Button.Secondary>,
+
         'Button with price': <Button.Secondary>
           Pay now!
-          <Button.Price>$12.0</Button.Price>
+          <Button.Price blue>$12.0</Button.Price>
         </Button.Secondary>,
+
         'Button with price big': <Button.Secondary size='big'>
           Pay now!
-          <Button.Price>14:-</Button.Price>
+          <Button.Price blue>14:-</Button.Price>
         </Button.Secondary>
       }
     },
@@ -248,34 +299,59 @@ export default {
       type: LIVE,
 
       examples: {
-        Small: <Button.Tertiary size='small'>Click me!</Button.Tertiary>,
-        Regular: <Button.Tertiary brandVolume='high'>Click me!</Button.Tertiary>,
-        Big: <Button.Tertiary size='big'>Click me!</Button.Tertiary>,
-        Responsive: <Button.Tertiary responsive>Click me!</Button.Tertiary>,
+        Small: <Button.Tertiary size='small'>
+          Click me!
+        </Button.Tertiary>,
+
+        Regular: <Button.Tertiary brandVolume='high'>
+          Click me!
+        </Button.Tertiary>,
+
+        Big: <Button.Tertiary size='big'>
+          Click me!
+        </Button.Tertiary>,
+
+        Responsive: <Button.Tertiary responsive>
+          Click me!
+        </Button.Tertiary>,
+
         Custom: <Button.Tertiary
           customize={{borderRadius: '15px', backgroundColor: 'red'}}>
           Beautiful!
         </Button.Tertiary>,
+
         'As a link': <Button.Tertiary
           href='http://klarna.com'
           target='_blank'>
           Open the homepage
         </Button.Tertiary>,
-        Disabled: <Button.Tertiary disabled>Click me!</Button.Tertiary>,
-        Loading: <Button.Tertiary loading>Click me!</Button.Tertiary>,
+
+        Disabled: <Button.Tertiary disabled>
+          Click me!
+        </Button.Tertiary>,
+
+        Loading: <Button.Tertiary loading>
+          Click me!
+        </Button.Tertiary>,
+
         'Loading with customization': <Button.Tertiary
           loading
           customize={{backgroundColor: '#3500C8', borderRadius: '15px'}}
         />,
-        Success: <Button.Tertiary success>Click me!</Button.Tertiary>,
+        Success: <Button.Tertiary success>
+          Click me!
+        </Button.Tertiary>,
+
         'Button with price small': <Button.Tertiary size='small'>
           Pay now!
           <Button.Price>$12.0</Button.Price>
         </Button.Tertiary>,
+
         'Button with price': <Button.Tertiary>
           Pay now!
           <Button.Price>$12.0</Button.Price>
         </Button.Tertiary>,
+
         'Button with price big': <Button.Tertiary size='big'>
           Pay now!
           <Button.Price>14:-</Button.Price>
@@ -292,81 +368,228 @@ export default {
         'Default color scheme': [
           <Block.Plain
             key='0'
-            style={{display: 'inline-block', padding: '20px'}}>
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Back />
           </Block.Plain>,
 
-          <Block.Plain key='1' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='1'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Close />
           </Block.Plain>,
 
-          <Block.Plain key='2' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='2'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Hamburger />
           </Block.Plain>,
 
-          <Block.Plain key='3' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='3'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Options />
           </Block.Plain>,
 
-          <Block.Plain key='4' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='4'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Search />
           </Block.Plain>
         ],
 
         'With text': [
-          <Block.Plain key='0' style={{padding: '20px'}}>
+          <Block.Plain
+            key='0'
+            styles={{
+              main: {
+                base: {
+                  padding: '20px'
+                }
+              }
+            }}>
             <Back label='Back' />
           </Block.Plain>,
 
-          <Block.Plain key='1' style={{padding: '20px'}}>
+          <Block.Plain
+            key='1'
+            styles={{
+              main: {
+                base: {
+                  padding: '20px'
+                }
+              }
+            }}>
             <Select label='Select' />
           </Block.Plain>,
 
-          <Block.Plain key='2' style={{padding: '20px'}}>
+          <Block.Plain
+            key='2'
+            styles={{
+              main: {
+                base: {
+                  padding: '20px'
+                }
+              }
+            }}>
             <Close label='Close' color='gray' left />
           </Block.Plain>
         ],
 
         'Gray color scheme': [
-          <Block.Plain key='0' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='0'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Back color='gray' />
           </Block.Plain>,
 
-          <Block.Plain key='1' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='1'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Close color='gray' />
           </Block.Plain>,
 
-          <Block.Plain key='2' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='2'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Hamburger color='gray' />
           </Block.Plain>,
 
-          <Block.Plain key='3' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='3'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Options color='gray' />
           </Block.Plain>,
 
-          <Block.Plain key='4' style={{display: 'inline-block', padding: '20px'}}>
+          <Block.Plain
+            key='4'
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Search color='gray' />
           </Block.Plain>
         ],
 
         'Inverse color scheme': [
-          <Block.Plain key='0' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='0'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Back color='inverse' />
           </Block.Plain>,
 
-          <Block.Plain key='1' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='1'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Close color='inverse' />
           </Block.Plain>,
 
-          <Block.Plain key='2' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='2'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Hamburger color='inverse' />
           </Block.Plain>,
 
-          <Block.Plain key='3' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='3'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Options color='inverse' />
           </Block.Plain>,
 
-          <Block.Plain key='4' blue style={{display: 'inline-block', padding: 20}}>
+          <Block.Plain
+            key='4'
+            blue
+            styles={{
+              main: {
+                base: {
+                  display: 'inline-block', padding: 20
+                }
+              }
+            }}>
             <Search color='inverse' />
           </Block.Plain>
         ]
