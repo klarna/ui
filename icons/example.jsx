@@ -19,6 +19,7 @@ import Download from '../icons/Download'
 import ExtendDate from '../icons/ExtendDate'
 import Items from '../icons/Items'
 import Letter from '../icons/Letter'
+import LocationPin from '../icons/LocationPin'
 import Lock from '../icons/Lock'
 import Logout from '../icons/Logout'
 import Mail from '../icons/Mail'
@@ -82,6 +83,7 @@ const icons = {
     Download,
     ExtendDate,
     Items,
+    LocationPin,
     Lock,
     Logout,
     Mail,
