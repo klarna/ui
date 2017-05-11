@@ -136,6 +136,12 @@ import Fieldset from '@klarna/ui/Fieldset'`,
               icon={icons.CALENDAR}
               label='Date of Birth' />
           </Fieldset>,
+          <Fieldset margins key={20}>
+            <Input
+              icon={icons.LOCATION}
+              type='postal_code'
+              label='Zip Code' />
+          </Fieldset>,
           <Fieldset margins key={3}>
             <Input
               icon={icons.LOCK}
