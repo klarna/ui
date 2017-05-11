@@ -187,6 +187,12 @@ import Fieldset from '@klarna/ui/Fieldset'`,
           </Fieldset>
           <Fieldset margins>
             <Field
+              icon={icons.LOCATION}
+              type='postal_code'
+              label='Zip Code' />
+          </Fieldset>
+          <Fieldset margins>
+            <Field
               icon={icons.LOCK}
               type='password'
               label='Password' />
