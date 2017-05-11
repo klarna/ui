@@ -1,3 +1,7 @@
-export Informative from '../../templates/examples/Informative'
-export Prompts from '../../templates/examples/Prompts'
-export Selection from '../../templates/examples/Selection'
+import UIInformative from '../../templates/examples/Informative'
+import UIPrompts from '../../templates/examples/Prompts'
+import UISelection from '../../templates/examples/Selection'
+
+export const Informative = UIInformative
+export const Prompts = UIPrompts
+export const Selection = UISelection
