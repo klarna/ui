@@ -11,3 +11,5 @@ tests
 *.woff2
 *.ttf
 browserslist
+gemini-report/
+.gemini-react-tmp/
