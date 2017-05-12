@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import classNamesBind from 'classnames/bind'
+import PropTypes from 'prop-types'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../lib/getActiveElement'
 import * as fieldStates from '../lib/features/fieldStates'

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
 import {overridable, themeable} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
