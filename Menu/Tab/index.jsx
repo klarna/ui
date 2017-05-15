@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'

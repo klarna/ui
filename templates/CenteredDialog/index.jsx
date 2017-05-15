@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import childrenPropType from '../../propTypes/children'
 import classNamesBind from 'classnames/bind'
 import * as Dialog from '../../Dialog'
