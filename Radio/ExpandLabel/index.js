@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import deepMerge from 'deepmerge'
 import compose from 'ramda/src/compose'
 import {withTouchProps, withHoverProps} from '@klarna/higher-order-components'

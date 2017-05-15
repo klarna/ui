@@ -1,6 +1,7 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
+import PropTypes from 'prop-types'
 import defaultStyles from './styles.scss'
 import {themeable, overridable} from '@klarna/higher-order-components'
 import childrenPropType from '../propTypes/children'

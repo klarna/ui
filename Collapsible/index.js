@@ -1,5 +1,6 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import {Motion, spring} from 'react-motion'
+import PropTypes from 'prop-types'
 
 export default class Collapsible extends Component {
   constructor (props) {
