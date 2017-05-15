@@ -1,6 +1,7 @@
 import React from 'react'
 import * as Block from '../Block'
 import * as Paragraph from '../Paragraph'
+import * as icons from '../icons'
 import { LIVE } from '../Showroom/variationTypes'
 
 export default {
@@ -35,6 +36,18 @@ export default {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
           </Paragraph.Primary>
         </Block.Installments.Content>
+      </Block.Installments.Main>,
+
+      'With Footer': <Block.Installments.Main leftAlign>
+        <Block.Installments.Content>
+          <Paragraph.Primary>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
+          </Paragraph.Primary>
+        </Block.Installments.Content>
+        <Block.Footer>
+          <icons.MediumCard />
+          <icons.MediumPinDevice />
+        </Block.Footer>
       </Block.Installments.Main>,
 
       'Bordered': <Block.Bordered>
