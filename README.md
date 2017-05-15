@@ -18,7 +18,7 @@ This project has several peer dependencies that it needs to work. Although they 
 Install all peer dependencies with:
 
 ```sh
-npm install react react-motion html2react ramda --save
+npm install prop-types react react-motion html2react ramda --save
 ```
 
 This package has a build, but usage of it is not recommended. You must have a Babel pipeline to use it. [Read more about how to config it](https://github.com/klarna/ui/wiki/Webpack-config).
