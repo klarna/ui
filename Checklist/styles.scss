@@ -7,7 +7,7 @@
   line-height: ($grid * 4);
   list-style: none;
   margin: ($grid * -.2) 0 0 0;
-  padding: ($grid * 2) ($grid * 4) ($grid * 1.8);
+  padding: ($grid * 2) ($grid * 4) ($grid * 2.8);
 
   &.chromeless {
     background: transparent;
@@ -20,7 +20,7 @@
     @include typography(map-get($font-sizes, main-body-mobile), regular);
 
     margin: 0;
-    padding: 0 0 ($grid * .4) ($grid * 5);
+    padding: ($grid * .2) 0 ($grid * .8) ($grid * 5);
 
     @include respond-to-wide {
       @include typography(map-get($font-sizes, main-body-desktop), regular);
