@@ -15,15 +15,15 @@ module.exports = {
     filename: '[name]-built.js',
     library: 'kui',
     libraryTarget: 'umd',
-    umdNamedDefine: true,
-    externals: [
-      'html2react',
-      'prop-types',
-      'ramda',
-      'react',
-      'react-motion'
-    ]
+    umdNamedDefine: true
   },
+  externals: [
+    'html2react',
+    'prop-types',
+    'ramda',
+    'react',
+    'react-motion'
+  ],
   resolve: {
     modules: [
       path.resolve('./'),
