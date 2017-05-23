@@ -148,6 +148,7 @@ import ReactTextMask from 'react-text-mask'`,
           live: <Field
             label='Credit card number'
             Input={ReactTextMask}
+            type='tel'
             mask={[
               /\d/, /\d/, /\d/, /\d/, ' ',
               /\d/, /\d/, /\d/, /\d/, ' ',
