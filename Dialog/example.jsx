@@ -1,18 +1,18 @@
-import React from 'react'
+import React, {Component} from 'react'
 import * as Button from '../Button'
 import * as Dialog from '../Dialog'
 import { Close } from '../IconButton'
 import { Title, Paragraph, Subtitle } from '../Text'
 import { MANUAL } from '../Showroom/variationTypes'
 
-const Example = React.createClass({
-  displayName: 'DialogExample',
+class DialogExample extends Component {
+  constructor () {
+    super()
 
-  getInitialState () {
-    return {
+    this.state = {
       open: false
     }
-  },
+  }
 
   render () {
     const close = () => this.setState({ open: false })
@@ -54,7 +54,7 @@ const Example = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default {
   title: 'Dialog',
