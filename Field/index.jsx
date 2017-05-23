@@ -57,25 +57,30 @@ class Field extends Component {
   }
 
   componentDidMount () {
-    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
-      this.refs.input.focus()
+    const input = this.rootDOMElement.querySelector('input')
+
+    if (input && this.props.focus && getActiveElement(document) !== input) {
+      input.focus()
     }
 
-    this.refs.input.addEventListener &&
-    this.refs.input.addEventListener('animationstart', (e) => {
-      switch (e.animationName) {
-        case defaultStyles.onAutoFillStart:
-          return this.onAutoFillStart()
+    if (input &&input.addEventListener) {
+      input.addEventListener('animationstart', (e) => {
+        switch (e.animationName) {
+          case defaultStyles.onAutoFillStart:
+            return this.onAutoFillStart()
 
-        case defaultStyles.onAutoFillCancel:
-          return this.onAutoFillCancel()
-      }
-    })
+          case defaultStyles.onAutoFillCancel:
+            return this.onAutoFillCancel()
+        }
+      })
+    }
   }
 
   componentDidUpdate () {
-    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
-      this.refs.input.focus()
+    const input = this.rootDOMElement.querySelector('input')
+
+    if (input && this.props.focus && getActiveElement(document) !== input) {
+      input.focus()
     }
   }
 
@@ -138,7 +143,7 @@ class Field extends Component {
         'non-floating-label': pinCode || nonFloatingLabel,
         'pin-code': pinCode,
         square,
-        'is-focused': this.props.focus
+        'is-focused': focus
       },
       fieldStates.getClassName(this.props),
       stacking.size.getClassName(this.props),
@@ -208,7 +213,8 @@ class Field extends Component {
         onClick={onClick}
         style={dynamicStyles}
         onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}>
+        onMouseLeave={onMouseLeave}
+        ref={rootDOMElement => (this.rootDOMElement = rootDOMElement)}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
             icon: classNames(classes.iconIcon),
