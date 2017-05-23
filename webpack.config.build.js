@@ -17,6 +17,13 @@ module.exports = {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+  externals: [
+    'html2react',
+    'prop-types',
+    'ramda',
+    'react',
+    'react-motion'
+  ],
   resolve: {
     modules: [
       path.resolve('./'),
