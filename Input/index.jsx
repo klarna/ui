@@ -49,25 +49,30 @@ class Input extends Component {
   }
 
   componentDidMount () {
-    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
-      this.refs.input.focus()
+    const input = this.rootDOMElement.querySelector('input')
+
+    if (input && this.props.focus && getActiveElement(document) !== input) {
+      input.focus()
     }
 
-    this.refs.input.addEventListener &&
-    this.refs.input.addEventListener('animationstart', (e) => {
-      switch (e.animationName) {
-        case defaultStyles.onAutoFillStart:
-          return this.onAutoFillStart()
+    if (input && input.addEventListener) {
+      input.addEventListener('animationstart', (e) => {
+        switch (e.animationName) {
+          case defaultStyles.onAutoFillStart:
+            return this.onAutoFillStart()
 
-        case defaultStyles.onAutoFillCancel:
-          return this.onAutoFillCancel()
-      }
-    })
+          case defaultStyles.onAutoFillCancel:
+            return this.onAutoFillCancel()
+        }
+      })
+    }
   }
 
   componentDidUpdate () {
-    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
-      this.refs.input.focus()
+    const input = this.rootDOMElement.querySelector('input')
+
+    if (input && this.props.focus && getActiveElement(document) !== input) {
+      input.focus()
     }
   }
 
@@ -149,7 +154,8 @@ class Input extends Component {
       <div
         className={cls}
         id={id}
-        onClick={onClick}>
+        onClick={onClick}
+        ref={rootDOMElement => (this.rootDOMElement = rootDOMElement)}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
             icon: classNames(classes.iconIcon),
