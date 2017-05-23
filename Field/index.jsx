@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
@@ -34,85 +34,26 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-const Field = React.createClass({
-  displayName: 'Field',
+class Field extends Component {
+  constructor () {
+    super()
 
-  getDefaultProps () {
-    return {
-      big: false,
-      centered: false,
-      loading: false,
-      nonFloatingLabel: false,
-      onChange: function () {},
-      onFieldLinkClick: function () {},
-      responsive: true,
-      fieldLink: '',
-      fieldTooltip: '',
-      pinCode: false,
-      mouseflowExclude: false,
-      ...inlinedIcon.defaultProps,
-      ...fieldStates.defaultProps,
-      ...stacking.position.defaultProps,
-      ...handleKeyDown.defaultProps,
-      ...stacking.size.defaultProps
-    }
-  },
-
-  propTypes: {
-    arrow: PropTypes.string,
-    big: PropTypes.bool,
-    centered: PropTypes.bool,
-    customize: PropTypes.shape({
-      borderColor: PropTypes.string.isRequired,
-      borderColorSelected: PropTypes.string.isRequired,
-      borderRadius: PropTypes.string.isRequired,
-      labelColor: PropTypes.string.isRequired,
-      inputColor: PropTypes.string.isRequired
-    }),
-    fieldLink: PropTypes.string,
-    fieldTooltip: PropTypes.string,
-    focus: PropTypes.bool,
-    hidden: PropTypes.bool,
-    id: PropTypes.string,
-    input: PropTypes.func,
-    loading: PropTypes.bool,
-    label: PropTypes.string.isRequired,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onClick: PropTypes.func,
-    onFocus: PropTypes.func,
-    onFieldLinkClick: PropTypes.func,
-    nonFloatingLabel: PropTypes.bool,
-    pattern: PropTypes.string,
-    pinCode: PropTypes.bool,
-    mouseflowExclude: PropTypes.bool,
-    responsive: PropTypes.bool,
-    value: PropTypes.string,
-    styles: PropTypes.object,
-    ...inlinedIcon.propTypes,
-    ...fieldStates.propTypes,
-    ...handleKeyDown.propTypes,
-    ...stacking.position.propTypes,
-    ...stacking.size.propTypes
-  },
-
-  getInitialState () {
-    return {
+    this.state = {
       hover: false
     }
-  },
+  }
 
   onAutoFillStart () {
     this.setState({
       autoFill: true
     })
-  },
+  }
 
   onAutoFillCancel () {
     this.setState({
       autoFill: false
     })
-  },
+  }
 
   componentDidMount () {
     if (this.props.focus && getActiveElement(document) !== this.refs.input) {
@@ -129,25 +70,25 @@ const Field = React.createClass({
           return this.onAutoFillCancel()
       }
     })
-  },
+  }
 
   componentDidUpdate () {
     if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
-  },
+  }
 
   onMouseEnter () {
     this.setState({
       hover: true
     })
-  },
+  }
 
   onMouseLeave () {
     this.setState({
       hover: false
     })
-  },
+  }
 
   render () {
     const {
@@ -311,7 +252,64 @@ const Field = React.createClass({
       </div>
     )
   }
-})
+}
+
+Field.propTypes = {
+  arrow: PropTypes.string,
+  big: PropTypes.bool,
+  centered: PropTypes.bool,
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string.isRequired,
+    borderColorSelected: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+    labelColor: PropTypes.string.isRequired,
+    inputColor: PropTypes.string.isRequired
+  }),
+  fieldLink: PropTypes.string,
+  fieldTooltip: PropTypes.string,
+  focus: PropTypes.bool,
+  hidden: PropTypes.bool,
+  id: PropTypes.string,
+  input: PropTypes.func,
+  loading: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
+  onFieldLinkClick: PropTypes.func,
+  nonFloatingLabel: PropTypes.bool,
+  pattern: PropTypes.string,
+  pinCode: PropTypes.bool,
+  mouseflowExclude: PropTypes.bool,
+  responsive: PropTypes.bool,
+  value: PropTypes.string,
+  styles: PropTypes.object,
+  ...inlinedIcon.propTypes,
+  ...fieldStates.propTypes,
+  ...handleKeyDown.propTypes,
+  ...stacking.position.propTypes,
+  ...stacking.size.propTypes
+}
+
+Field.defaultProps = {
+  big: false,
+  centered: false,
+  loading: false,
+  nonFloatingLabel: false,
+  onChange: function () {},
+  onFieldLinkClick: function () {},
+  responsive: true,
+  fieldLink: '',
+  fieldTooltip: '',
+  pinCode: false,
+  mouseflowExclude: false,
+  ...inlinedIcon.defaultProps,
+  ...fieldStates.defaultProps,
+  ...stacking.position.defaultProps,
+  ...handleKeyDown.defaultProps,
+  ...stacking.size.defaultProps
+}
 
 export default compose(
   uncontrolled({
