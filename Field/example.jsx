@@ -96,7 +96,7 @@ export default {
 
         'With customizations': {
           live: <Field
-            customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
+            customize={{ borderColor: '#3500C8', borderColorSelected: 'yellow', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
             label='Favorite color'
             defaultValue='Purple'
           />,

@@ -16,7 +16,8 @@ import {
   overridable,
   themeable,
   uncontrolled,
-  uniqueName
+  uniqueName,
+  withHoverProps
 } from '@klarna/higher-order-components'
 
 const baseClass = 'field'
@@ -78,18 +79,6 @@ class Field extends Component {
     }
   }
 
-  onMouseEnter () {
-    this.setState({
-      hover: true
-    })
-  }
-
-  onMouseLeave () {
-    this.setState({
-      hover: false
-    })
-  }
-
   render () {
     const {
       arrow,
@@ -108,6 +97,7 @@ class Field extends Component {
       fieldTooltip,
       focus,
       hidden,
+      hovered,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
@@ -118,6 +108,8 @@ class Field extends Component {
       onClick,
       onEnter, // eslint-disable-line no-unused-vars
       onFocus,
+      onMouseEnter,
+      onMouseLeave,
       onTab, // eslint-disable-line no-unused-vars
       onFieldLinkClick,
       pinCode,
@@ -160,7 +152,7 @@ class Field extends Component {
     const dynamicStyles = customize
       ? {
         ...(hasNonDefaultState ? {} : {
-          borderColor: this.state.hover || focus
+          borderColor: hovered || focus
             ? customize.borderColorSelected
             : customize.borderColor,
           boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
@@ -215,8 +207,8 @@ class Field extends Component {
         id={id}
         onClick={onClick}
         style={dynamicStyles}
-        onMouseEnter={this.onMouseEnter}
-        onMouseLeave={this.onMouseLeave}>
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
             icon: classNames(classes.iconIcon),
@@ -312,6 +304,9 @@ Field.defaultProps = {
 }
 
 export default compose(
+  withHoverProps({
+    hovered: true
+  }),
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
