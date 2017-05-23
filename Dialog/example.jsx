@@ -71,7 +71,7 @@ import * as Button from '@klarna/ui/Button'`,
 
     examples: {
       Regular: {
-        live: <Example />,
+        live: <DialogExample />,
         code: `<Dialog.Overlay show>
   <Dialog.Main>
     <Dialog.Icon>
