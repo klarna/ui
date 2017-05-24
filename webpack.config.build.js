@@ -3,13 +3,10 @@ const Webpack = require('webpack')
 const WebpackHtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackErrorNotificationPlugin = require('webpack-error-notification')
 
-module.exports = {
+const webpackConfig = (entry, externals = []) => ({
   cache: true,
   devtool: 'source-map',
-  entry: {
-    index: './index.js',
-    example: './example.js'
-  },
+  entry,
   output: {
     path: path.resolve('./'),
     filename: '[name]-built.js',
@@ -17,13 +14,7 @@ module.exports = {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
-  externals: [
-    'html2react',
-    'prop-types',
-    'ramda',
-    'react',
-    'react-motion'
-  ],
+  externals,
   resolve: {
     modules: [
       path.resolve('./'),
@@ -99,4 +90,22 @@ module.exports = {
       debug: true
     })
   ]
-}
+})
+
+module.exports = [
+  webpackConfig(
+    {
+      index: './index.js'
+    },
+    [
+      'html2react',
+      'prop-types',
+      'ramda',
+      'react',
+      'react-motion'
+    ]
+  ),
+  webpackConfig({
+    example: './example.js'
+  })
+]
