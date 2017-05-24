@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
@@ -17,27 +17,7 @@ const classes = {
 
 export const tabDisplays = ['fluid', 'static']
 
-const Segmented = React.createClass({
-  displayName: 'Segmented',
-
-  propTypes: {
-    children: childrenPropType,
-    className: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    options: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.node.isRequired,
-      key: PropTypes.string.isRequired
-    })).isRequired,
-    selectable: PropTypes.bool,
-    tabDisplay: PropTypes.oneOf(tabDisplays),
-    value: PropTypes.string,
-    white: PropTypes.bool
-  },
-
+class Segmented extends Component {
   componentDidMount () {
     if (
       this.props.focus &&
@@ -45,7 +25,7 @@ const Segmented = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   componentDidUpdate () {
     if (
@@ -54,14 +34,7 @@ const Segmented = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
-
-  getDefaultProps () {
-    return {
-      selectable: true,
-      tabDisplay: 'fluid'
-    }
-  },
+  }
 
   render () {
     const {
@@ -128,7 +101,30 @@ const Segmented = React.createClass({
       </div>
     )
   }
-})
+}
+
+Segmented.propTypes = {
+  children: childrenPropType,
+  className: PropTypes.string,
+  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.node.isRequired,
+    key: PropTypes.string.isRequired
+  })).isRequired,
+  selectable: PropTypes.bool,
+  tabDisplay: PropTypes.oneOf(tabDisplays),
+  value: PropTypes.string,
+  white: PropTypes.bool
+}
+
+Segmented.defaultProps = {
+  selectable: true,
+  tabDisplay: 'fluid'
+}
 
 export default compose(
   uncontrolled({
