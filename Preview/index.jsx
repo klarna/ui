@@ -48,7 +48,11 @@ PreviewMain.propTypes = {
   className: PropTypes.string,
   children: childrenPropType,
   id: PropTypes.string,
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired
+  })
 }
 
 export const Main = compose(
@@ -62,43 +66,87 @@ export const Main = compose(
   overridable(defaultStyles)
 )(PreviewMain)
 
-export function Content ({children, className, styles, ...props}) {
+function PreviewContent ({children, className, customize, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
+  const dynamicStyles = customize
+    ? {
+      color: customize.textColor
+    } : {}
+
   return (
-    <div className={classNames(classes.content)} {...props}>
+    <div
+      className={classNames(classes.content)}
+      style={{...dynamicStyles}}
+      {...props}
+    >
       {children}
     </div>
   )
 }
 
-Content.displayName = 'Preview.Content'
+PreviewContent.displayName = 'Preview.Content'
 
-Content.propTypes = {
+PreviewContent.propTypes = {
   className: PropTypes.string,
   children: childrenPropType,
   id: PropTypes.string,
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  customize: PropTypes.shape({
+    textColor: PropTypes.string.isRequired
+  })
 }
 
-export function Title ({children, className, styles, ...props}) {
+export const Content = compose(
+  themeable((customizations, {customize}) => ({
+    customize: {
+      textColor: customizations.color_text_secondary,
+      ...customize
+    }
+  })),
+  overridable(defaultStyles)
+)(PreviewContent)
+
+function PreviewTitle ({children, className, customize, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
 
+  const dynamicStyles = customize
+    ? {
+      color: customize.textColor
+    } : {}
+
   return (
-    <h2 className={classNames(classes.title, className)} {...props}>
+    <h2
+      className={classNames(classes.title, className)}
+      style={{...dynamicStyles}}
+      {...props}
+    >
       {children}
     </h2>
   )
 }
 
-Title.displayName = 'Preview.Title'
+PreviewTitle.displayName = 'Preview.Title'
 
-Title.propTypes = {
+PreviewTitle.propTypes = {
   className: PropTypes.string,
   children: childrenPropType,
   id: PropTypes.string,
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  customize: PropTypes.shape({
+    textColor: PropTypes.string.isRequired
+  })
 }
+
+export const Title = compose(
+  themeable((customizations, {customize}) => ({
+    customize: {
+      textColor: customizations.color_text,
+      ...customize
+    }
+  })),
+  overridable(defaultStyles)
+)(PreviewTitle)
 
 function PreviewLink ({children, className, customize, id, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
