@@ -93,7 +93,8 @@
     "prop-types": "^15.5.9",
     "ramda": "^0.21.0",
     "react": "^0.14.0 || ^15.0.0",
-    "react-motion": "^0.4.2"
+    "react-motion": "^0.4.2",
+    "react-dom": "^15.5.0"
   },
   "standard": {
     "globals": [

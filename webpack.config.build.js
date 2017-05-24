@@ -102,6 +102,7 @@ module.exports = [
       'prop-types',
       'ramda',
       'react',
+      'react-dom',
       'react-motion'
     ]
   ),
