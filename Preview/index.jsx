@@ -5,6 +5,9 @@ import contains from '../lib/contains'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
+import compose from 'ramda/src/compose'
+import { overridable, themeable } from '@klarna/higher-order-components'
+
 const baseClass = 'preview'
 
 const classes = {
@@ -14,7 +17,7 @@ const classes = {
   title: `${baseClass}__title`
 }
 
-export function Main ({ className, children, styles, ...props }) {
+function PreviewMain ({ className, children, customize, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const cls = classNames(
     baseClass,
@@ -22,21 +25,42 @@ export function Main ({ className, children, styles, ...props }) {
     className
   )
 
+  const dynamicStyles = customize
+    ? {
+      borderColor: customize.borderColor,
+      borderRadius: customize.borderRadius
+    } : {}
+
   return (
-    <div className={cls} {...props}>
+    <div
+      className={cls}
+      style={{...dynamicStyles}}
+      {...props}
+    >
       {children}
     </div>
   )
 }
 
-Main.displayName = 'Preview.Main'
+PreviewMain.displayName = 'Preview.Main'
 
-Main.propTypes = {
+PreviewMain.propTypes = {
   className: PropTypes.string,
   children: childrenPropType,
   id: PropTypes.string,
   styles: PropTypes.object
 }
+
+export const Main = compose(
+  themeable((customizations, {customize}) => ({
+    customize: {
+      borderColor: customizations.color_border,
+      borderRadius: customizations.radius_border,
+      ...customize
+    }
+  })),
+  overridable(defaultStyles)
+)(PreviewMain)
 
 export function Content ({children, className, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
@@ -76,17 +100,23 @@ Title.propTypes = {
   styles: PropTypes.object
 }
 
-export function Link ({children, className, id, styles, ...props}) {
+function PreviewLink ({children, className, customize, id, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
   const ids = id
     ? {
       link: `${id}__link`
     } : {}
 
+  const dynamicStyles = customize
+    ? {
+      color: customize.linkColor
+    } : {}
+
   return (
     <div className={classNames(classes.footer)} id={id}>
       <a
         className={classNames(classes.footerLink, className)}
+        style={{...dynamicStyles}}
         id={ids.link}
         {...props}>
         {children}
@@ -95,11 +125,24 @@ export function Link ({children, className, id, styles, ...props}) {
   )
 }
 
-Link.displayName = 'Preview.Link'
+PreviewLink.displayName = 'Preview.Link'
 
-Link.propTypes = {
+PreviewLink.propTypes = {
   className: PropTypes.string,
   children: childrenPropType,
   id: PropTypes.string,
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  customize: PropTypes.shape({
+    linkColor: PropTypes.string.isRequired
+  })
 }
+
+export const Link = compose(
+  themeable((customizations, {customize}) => ({
+    customize: {
+      linkColor: customizations.color_link,
+      ...customize
+    }
+  })),
+  overridable(defaultStyles)
+)(PreviewLink)
