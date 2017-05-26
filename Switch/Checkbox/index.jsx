@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
@@ -29,58 +29,26 @@ const release = (component) => () => component.setState({ pressed: false })
 
 export const alignments = ['left', 'right']
 
-const Checkbox = React.createClass({
-  displayName: 'Switch.Checkbox',
+class Checkbox extends Component {
+  constructor () {
+    super()
 
-  getDefaultProps () {
-    return {
-      error: false,
-      disabled: false,
-      align: 'left',
-      legal: false,
-      value: false
+    this.state = {
+      pressed: false
     }
-  },
-
-  propTypes: {
-    align: PropTypes.oneOf(alignments),
-    children: childrenPropType,
-    className: PropTypes.string,
-    customize: PropTypes.shape({
-      backgroundColor: PropTypes.string.isRequired,
-      borderColorSelected: PropTypes.string.isRequired,
-      bulletColor: PropTypes.string.isRequired,
-      textColor: PropTypes.string.isRequired
-    }),
-    disabled: PropTypes.bool,
-    partial: PropTypes.bool,
-    error: PropTypes.bool,
-    focus: PropTypes.bool,
-    id: PropTypes.string,
-    legal: PropTypes.bool,
-    name: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    styles: PropTypes.object,
-    value: PropTypes.bool
-  },
+  }
 
   componentDidMount () {
     if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
-  },
+  }
 
   componentDidUpdate () {
     if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
-  },
-
-  getInitialState () {
-    return {pressed: false}
-  },
+  }
 
   render () {
     const {
@@ -190,7 +158,41 @@ const Checkbox = React.createClass({
       </label>
     </div>)
   }
-})
+}
+
+Checkbox.displayName = 'Switch.Checkbox'
+
+Checkbox.defaultProps = {
+  error: false,
+  disabled: false,
+  align: 'left',
+  legal: false,
+  value: false
+}
+
+Checkbox.propTypes = {
+  align: PropTypes.oneOf(alignments),
+  children: childrenPropType,
+  className: PropTypes.string,
+  customize: PropTypes.shape({
+    backgroundColor: PropTypes.string.isRequired,
+    borderColorSelected: PropTypes.string.isRequired,
+    bulletColor: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired
+  }),
+  disabled: PropTypes.bool,
+  partial: PropTypes.bool,
+  error: PropTypes.bool,
+  focus: PropTypes.bool,
+  id: PropTypes.string,
+  legal: PropTypes.bool,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  styles: PropTypes.object,
+  value: PropTypes.bool
+}
 
 export default compose(
   uncontrolled({
