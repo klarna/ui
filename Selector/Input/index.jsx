@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import {themeable, overridable} from '@klarna/higher-order-components'
@@ -27,59 +27,22 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-const SelectorInput = React.createClass({
-  displayName: 'SelectorInput',
+class SelectorInput extends Component {
+  constructor () {
+    super()
 
-  getDefaultProps () {
-    return {
-      big: false,
-      centered: false,
-      giant: false,
-      loading: false,
-      mouseflowExclude: false,
-      ...inlinedIcon.defaultProps,
-      ...fieldStates.defaultProps,
-      ...stacking.position.defaultProps,
-      ...stacking.size.defaultProps
+    this.state = {
+      hover: false
     }
-  },
-
-  getInitialState () {
-    return { hover: false }
-  },
-
-  propTypes: {
-    big: PropTypes.bool,
-    centered: PropTypes.bool,
-    customize: PropTypes.shape({
-      borderColor: PropTypes.string.isRequired,
-      borderColorSelected: PropTypes.string.isRequired,
-      labelColor: PropTypes.string.isRequired,
-      inputColor: PropTypes.string.isRequired
-    }),
-    giant: PropTypes.bool,
-    id: PropTypes.string,
-    input: PropTypes.func,
-    link: PropTypes.string,
-    loading: PropTypes.bool,
-    label: PropTypes.string.isRequired,
-    mouseflowExclude: PropTypes.bool,
-    onClick: PropTypes.func,
-    value: PropTypes.string,
-    styles: PropTypes.object,
-    ...inlinedIcon.propTypes,
-    ...fieldStates.propTypes,
-    ...stacking.position.propTypes,
-    ...stacking.size.propTypes
-  },
+  }
 
   onMouseEnter () {
     this.setState({ hover: true })
-  },
+  }
 
   onMouseLeave () {
     this.setState({ hover: false })
-  },
+  }
 
   render () {
     const {
@@ -211,7 +174,46 @@ const SelectorInput = React.createClass({
       </div>
     )
   }
-})
+}
+
+SelectorInput.displayName = 'Selector.Input'
+
+SelectorInput.defaultProps = {
+  big: false,
+  centered: false,
+  giant: false,
+  loading: false,
+  mouseflowExclude: false,
+  ...inlinedIcon.defaultProps,
+  ...fieldStates.defaultProps,
+  ...stacking.position.defaultProps,
+  ...stacking.size.defaultProps
+}
+
+SelectorInput.propTypes = {
+  big: PropTypes.bool,
+  centered: PropTypes.bool,
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string.isRequired,
+    borderColorSelected: PropTypes.string.isRequired,
+    labelColor: PropTypes.string.isRequired,
+    inputColor: PropTypes.string.isRequired
+  }),
+  giant: PropTypes.bool,
+  id: PropTypes.string,
+  input: PropTypes.func,
+  link: PropTypes.string,
+  loading: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  mouseflowExclude: PropTypes.bool,
+  onClick: PropTypes.func,
+  value: PropTypes.string,
+  styles: PropTypes.object,
+  ...inlinedIcon.propTypes,
+  ...fieldStates.propTypes,
+  ...stacking.position.propTypes,
+  ...stacking.size.propTypes
+}
 
 export default compose(
   themeable((customizations, {customize}) => ({
