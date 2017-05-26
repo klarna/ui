@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
@@ -31,6 +31,7 @@ const pressTouch = (component) => (e) => {
     touchStartPositionX: e.changedTouches[0].pageX
   })
 }
+
 const releaseTouch = (component) => (e) => {
   const { touchStartPositionX } = component.state
   const touchPositionX = e.changedTouches[0].pageX
@@ -54,6 +55,7 @@ const releaseTouch = (component) => (e) => {
     bulletPosition: undefined
   })
 }
+
 const dragTouch = (component) => (e) => {
   const { position, pseudoValue } = getRelativeOffset(component, e.changedTouches[0].pageX)
   component.setState({
@@ -106,58 +108,26 @@ const getRelativeOffset = (component, touchPositionX) => {
 
 export const alignments = ['left', 'right']
 
-const Toggle = React.createClass({
-  displayName: 'Switch.Toggle',
+class Toggle extends Component {
+  constructor () {
+    super()
 
-  getDefaultProps () {
-    return {
-      error: false,
-      disabled: false,
-      align: 'left',
-      legal: false,
-      value: false
+    this.state = {
+      pressed: false
     }
-  },
-
-  propTypes: {
-    children: childrenPropType,
-    className: PropTypes.string,
-    customize: PropTypes.shape({
-      backgroundColor: PropTypes.string.isRequired,
-      bulletColor: PropTypes.string.isRequired,
-      textColor: PropTypes.string.isRequired
-    }),
-    disabled: PropTypes.bool,
-    error: PropTypes.bool,
-    focus: PropTypes.bool,
-    id: PropTypes.string,
-    legal: PropTypes.bool,
-    name: PropTypes.string.isRequired,
-    align: PropTypes.oneOf(alignments),
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    styles: PropTypes.object,
-    value: PropTypes.bool
-  },
+  }
 
   componentDidMount () {
     if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
-  },
+  }
 
   componentDidUpdate () {
     if (this.props.focus && getActiveElement(document) !== this.refs.input) {
       this.refs.input.focus()
     }
-  },
-
-  getInitialState () {
-    return {
-      pressed: false
-    }
-  },
+  }
 
   render () {
     const {
@@ -255,7 +225,39 @@ const Toggle = React.createClass({
       </label>
     </div>)
   }
-})
+}
+
+Toggle.displayName = 'Switch.Toggle'
+
+Toggle.defaultProps = {
+  error: false,
+  disabled: false,
+  align: 'left',
+  legal: false,
+  value: false
+}
+
+Toggle.propTypes = {
+  children: childrenPropType,
+  className: PropTypes.string,
+  customize: PropTypes.shape({
+    backgroundColor: PropTypes.string.isRequired,
+    bulletColor: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired
+  }),
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
+  focus: PropTypes.bool,
+  id: PropTypes.string,
+  legal: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  align: PropTypes.oneOf(alignments),
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  styles: PropTypes.object,
+  value: PropTypes.bool
+}
 
 export default compose(
   uncontrolled({
