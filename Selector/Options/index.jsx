@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
@@ -22,35 +22,15 @@ const classes = {
   label: `${baseClass}__label`
 }
 
-const Options = React.createClass({
-  displayName: 'Selector.Options',
+class SelectorOptions extends Component {
+  constructor () {
+    super()
 
-  propTypes: {
-    className: PropTypes.string,
-    customize: PropTypes.shape({
-      borderColor: PropTypes.string.isRequired,
-      bulletColor: PropTypes.string.isRequired,
-      labelColor: PropTypes.string.isRequired,
-      labelColorSelected: PropTypes.string.isRequired
-    }),
-    data: PropTypes.array.isRequired,
-    focus: PropTypes.any,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    styles: PropTypes.object,
-    // Allows any type to be a key, as long as it is comparable
-    value: PropTypes.any
-  },
-
-  getInitialState () {
-    return {
+    this.state = {
       hover: undefined,
       focus: undefined
     }
-  },
+  }
 
   componentDidMount () {
     if (
@@ -59,7 +39,7 @@ const Options = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   componentDidUpdate () {
     if (
@@ -68,7 +48,15 @@ const Options = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
+
+  onOptionMouseEnter (key) {
+    this.setState({ hover: key })
+  }
+
+  onOptionMouseLeave (key) {
+    this.setState({ hover: undefined })
+  }
 
   render () {
     const {
@@ -155,16 +143,30 @@ const Options = React.createClass({
         })}
       </div>
     )
-  },
-
-  onOptionMouseEnter (key) {
-    this.setState({ hover: key })
-  },
-
-  onOptionMouseLeave (key) {
-    this.setState({ hover: undefined })
   }
-})
+}
+
+SelectorOptions.displayName = 'Selector.Options'
+
+SelectorOptions.propTypes = {
+  className: PropTypes.string,
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string.isRequired,
+    bulletColor: PropTypes.string.isRequired,
+    labelColor: PropTypes.string.isRequired,
+    labelColorSelected: PropTypes.string.isRequired
+  }),
+  data: PropTypes.array.isRequired,
+  focus: PropTypes.any,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  styles: PropTypes.object,
+  // Allows any type to be a key, as long as it is comparable
+  value: PropTypes.any
+}
 
 export default compose(
   uncontrolled({
@@ -193,4 +195,4 @@ export default compose(
     }
   })),
   overridable(defaultStyles)
-)(Options)
+)(SelectorOptions)
