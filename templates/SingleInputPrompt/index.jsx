@@ -58,6 +58,7 @@ function SingleInputPrompt ({
         label={label}
         onBlur={onBlur}
         onChange={onChange}
+        onEnter={onAccept}
         onFocus={onFocus}
         value={value}
         disabled={loading}
