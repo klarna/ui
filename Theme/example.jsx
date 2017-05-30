@@ -15,6 +15,7 @@ import * as Paragraph from '../Paragraph'
 import * as Selector from '../Selector'
 import * as List from '../List'
 import * as Block from '../Block'
+import * as Preview from '../Preview'
 import { Back, Hamburger } from '../IconButton'
 import { LIVE } from '../Showroom/variationTypes'
 
@@ -207,6 +208,19 @@ import * as List from '@klarna/ui/List'`,
           <Field bottom left size='1/2' error label='Family name' />
           <Dropdown bottom right size='1/2' label='Middle name' options={options} autoFocus />
         </Fieldset>
+
+        <Preview.Main>
+          <Preview.Title>John Smith</Preview.Title>
+          <Preview.Content>
+            1425 North Avenue Street<br />
+            San Francisco<br />
+            94100 California<br />
+            United States
+          </Preview.Content>
+          <Preview.Link>
+            Change address
+          </Preview.Link>
+        </Preview.Main>
 
         <div style={{paddingBottom: '20px'}}>
           <BoxSelector

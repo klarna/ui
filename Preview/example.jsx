@@ -33,6 +33,22 @@ export default {
         <Preview.Link>
           Change address
         </Preview.Link>
+      </Preview.Main>,
+
+      'With Customizations': <Preview.Main
+        onClick={() => console.log('You clicked the address')}
+        customize={{ borderColor: 'purple', borderRadius: '10px' }}
+      >
+        <Preview.Title customize={{ textColor: 'red' }}>John Smith</Preview.Title>
+        <Preview.Content customize={{ textColor: 'green' }}>
+          1425 North Avenue Street<br />
+          San Francisco<br />
+          94100 California<br />
+          United States
+        </Preview.Content>
+        <Preview.Link customize={{ linkColor: 'brown' }}>
+          Change address
+        </Preview.Link>
       </Preview.Main>
     }
   }
