@@ -87,6 +87,10 @@
     background-color: #fafafa;
     border-color: map-get($colors, grey-lines);
 
+    .dropdown__select {
+      cursor: default;
+    }
+
     &:hover {
       border-color: map-get($colors, grey-lines);
     }

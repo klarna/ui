@@ -91,6 +91,7 @@
   position: absolute;
   right: ($grid * 4);
   top: ($grid * 4);
+  z-index: 1;
 
   &.left {
     left: ($grid * 4);
