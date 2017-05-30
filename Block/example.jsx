@@ -32,7 +32,7 @@ export default {
 
       'Left-Aligned': <Block.Installments.Main leftAlign>
         <Block.Installments.Content>
-          <Paragraph.Primary>
+          <Paragraph.Primary style={{marginTop: -15, marginBottom: -10}}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
           </Paragraph.Primary>
         </Block.Installments.Content>
@@ -40,11 +40,11 @@ export default {
 
       'With Footer': <Block.Installments.Main leftAlign>
         <Block.Installments.Content>
-          <Paragraph.Primary>
+          <Paragraph.Primary style={{marginTop: -15}}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
           </Paragraph.Primary>
         </Block.Installments.Content>
-        <Block.Footer>
+        <Block.Footer styles={{main: { base: {marginBottom: -10} } }}>
           <icons.MediumCard />
           <icons.MediumPinDevice />
         </Block.Footer>
