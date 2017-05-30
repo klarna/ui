@@ -44,7 +44,7 @@ export default {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at aliquet leo.
           </Paragraph.Primary>
         </Block.Installments.Content>
-        <Block.Footer styles={{main: { base: {marginBottom: -10} } }}>
+        <Block.Footer styles={{main: {base: {marginBottom: -10}}}}>
           <icons.MediumCard />
           <icons.MediumPinDevice />
         </Block.Footer>
