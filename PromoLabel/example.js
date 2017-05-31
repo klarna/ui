@@ -1,7 +1,7 @@
 import React from 'react'
 import PromoLabel from '../PromoLabel'
 import * as Paragraph from '../Paragraph'
-import { LIVE, SHOWCASE } from '../Showroom/variationTypes'
+import { LIVE } from '../Showroom/variationTypes'
 
 export default {
   title: 'PromoLabel',

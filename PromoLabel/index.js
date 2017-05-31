@@ -24,7 +24,7 @@ const defaultStyles = {
       ...typographize({
         fontSize: grid(2),
         fontFamily: fontFamilies.BASE,
-        fontWeight: fontWeights.SEMI_BOLD,
+        fontWeight: fontWeights.SEMI_BOLD
       })
     }
   }
