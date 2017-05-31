@@ -19,6 +19,7 @@ import UIMenu from '../../Menu/example'
 import UIMouseflowExclude from '../../MouseflowExclude/example'
 import UIPreview from '../../Preview/example'
 import UIProgressBar from '../../ProgressBar/example'
+import UIPromoLabel from '../../PromoLabel/example'
 import UIRadio from '../../Radio/example'
 import UIRadioMark from '../../RadioMark/example'
 import UISavedInputLabel from '../../SavedInputLabel/example'
@@ -50,6 +51,7 @@ export const Menu = UIMenu
 export const MouseflowExclude = UIMouseflowExclude
 export const Preview = UIPreview
 export const ProgressBar = UIProgressBar
+export const PromoLabel = UIPromoLabel
 export const Radio = UIRadio
 export const RadioMark = UIRadioMark
 export const SavedInputLabel = UISavedInputLabel
