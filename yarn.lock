@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@klarna/higher-order-components@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.6.0.tgz#fb4ef79cc16b91d7ee40f82b9337b23c1ac55961"
+"@klarna/higher-order-components@0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.8.2.tgz#afc9e530cafac6c7ad9e73216a1ae5234653d60b"
   dependencies:
     collect-fps "2.0.0"
     seed-random "^2.2.0"
@@ -4876,7 +4876,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.9:
+prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9:
   version "15.5.9"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.9.tgz#d478eef0e761396942f70c78e772f76e8be747c9"
   dependencies:
@@ -5063,11 +5063,12 @@ react-maskedinput@^3.3.1:
   dependencies:
     inputmask-core "^2.1.1"
 
-react-motion@^0.4.2:
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.4.7.tgz#f77331ec7920bdb0d0cfc37eb6ffa10571bf42c7"
+react-motion@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.5.0.tgz#1708fc2aee552900d21c1e6bed28346863e017b6"
   dependencies:
     performance-now "^0.2.0"
+    prop-types "^15.5.8"
     raf "^3.1.0"
 
 react-proxy@^3.0.0-alpha.0:
@@ -5091,13 +5092,20 @@ react-syntax-highlighter@^2.2.0:
     highlight.js "~9.7.0"
     lowlight "^1.2.0"
 
-react@15.4.0:
-  version "15.4.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.4.0.tgz#736c1c7c542e8088127106e1f450b010f86d172b"
+react-text-mask@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/react-text-mask/-/react-text-mask-5.0.2.tgz#09bce3f94ac244c11932082e42328cb455b73aa6"
   dependencies:
-    fbjs "^0.8.4"
+    prop-types "^15.5.6"
+
+react@15.5.4:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
+  dependencies:
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+    prop-types "^15.5.7"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"

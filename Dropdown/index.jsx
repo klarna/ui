@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import classNamesBind from 'classnames/bind'
 import PropTypes from 'prop-types'
 import defaultStyles from './styles.scss'
@@ -25,84 +25,40 @@ const classes = {
   select: `${baseClass}__select`
 }
 
-const Dropdown = React.createClass({
-  displayName: 'Dropdown',
+class Dropdown extends Component {
+  constructor () {
+    super()
 
-  getInitialState () {
-    return {
+    this.state = {
       hover: false
     }
-  },
-
-  getDefaultProps () {
-    return {
-      fieldTooltip: '',
-      loading: false,
-      onChange: function () {},
-      mouseflowExclude: false,
-      ...inlinedIcon.defaultProps,
-      ...fieldStates.defaultProps,
-      ...stacking.position.defaultProps,
-      ...handleKeyDown.defaultProps,
-      ...stacking.size.defaultProps
-    }
-  },
-
-  propTypes: {
-    customize: PropTypes.shape({
-      borderColor: PropTypes.string.isRequired,
-      borderColorSelected: PropTypes.string.isRequired,
-      borderRadius: PropTypes.string.isRequired,
-      labelColor: PropTypes.string.isRequired,
-      selectedColor: PropTypes.string.isRequired
-    }),
-    focus: PropTypes.bool,
-    id: PropTypes.string,
-    label: PropTypes.string,
-    loading: PropTypes.bool,
-    mouseflowExclude: PropTypes.bool,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onClick: PropTypes.func,
-    onFocus: PropTypes.func,
-    options: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      key: PropTypes.any.isRequired
-    })),
-    styles: PropTypes.object,
-    value: PropTypes.any,
-    ...inlinedIcon.propTypes,
-    ...fieldStates.propTypes,
-    ...handleKeyDown.propTypes,
-    ...stacking.position.propTypes,
-    ...stacking.size.propTypes
-  },
+  }
 
   componentDidMount () {
     if (this.props.focus && getActiveElement(document) !== this.refs.select) {
       this.refs.select.focus()
     }
-  },
+  }
 
   componentDidUpdate () {
     if (this.props.focus && getActiveElement(document) !== this.refs.select) {
       this.refs.select.focus()
     }
-  },
+  }
 
   onMouseEnter () {
     this.setState({
       ...this.state,
       hover: true
     })
-  },
+  }
 
   onMouseLeave () {
     this.setState({
       ...this.state,
       hover: false
     })
-  },
+  }
 
   render () {
     const {
@@ -255,7 +211,49 @@ const Dropdown = React.createClass({
       </div>
     )
   }
-})
+}
+
+Dropdown.defaultProps = {
+  fieldTooltip: '',
+  loading: false,
+  onChange: function () {},
+  mouseflowExclude: false,
+  ...inlinedIcon.defaultProps,
+  ...fieldStates.defaultProps,
+  ...stacking.position.defaultProps,
+  ...handleKeyDown.defaultProps,
+  ...stacking.size.defaultProps
+}
+
+Dropdown.propTypes = {
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string.isRequired,
+    borderColorSelected: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+    labelColor: PropTypes.string.isRequired,
+    selectedColor: PropTypes.string.isRequired
+  }),
+  focus: PropTypes.bool,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  loading: PropTypes.bool,
+  mouseflowExclude: PropTypes.bool,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    key: PropTypes.any.isRequired
+  })),
+  styles: PropTypes.object,
+  value: PropTypes.any,
+  ...inlinedIcon.propTypes,
+  ...fieldStates.propTypes,
+  ...handleKeyDown.propTypes,
+  ...stacking.position.propTypes,
+  ...stacking.size.propTypes
+}
 
 const onMouseEnter = (component) => () =>
   component.setState({

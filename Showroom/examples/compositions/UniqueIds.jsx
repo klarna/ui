@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import * as Alert from '../../../Alert'
 import Amount from '../../../Amount'
 import * as Block from '../../../Block'
@@ -31,14 +31,14 @@ import TextLabel from '../../../TextLabel'
 import Tooltip from '../../../Tooltip'
 import {LIVE, MANUAL} from '../../variationTypes'
 
-const Example = React.createClass({
-  displayName: 'DialogExample',
+class Example extends Component {
+  constructor () {
+    super()
 
-  getInitialState () {
-    return {
+    this.state = {
       open: false
     }
-  },
+  }
 
   render () {
     const close = () => this.setState({ open: false })
@@ -80,7 +80,7 @@ const Example = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default {
   title: 'UniqueIds',

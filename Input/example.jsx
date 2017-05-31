@@ -2,7 +2,7 @@ import React from 'react'
 import Input, { icons } from '../Input'
 import Fieldset from '../Fieldset'
 import { LIVE, LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
-import ReactMaskedInput from 'react-maskedinput'
+import ReactTextMask from 'react-text-mask'
 
 export default {
   title: 'Input',
@@ -92,21 +92,31 @@ export default {
     {
       title: 'Override',
       require: `import Input from '@klarna/ui/Input'
-import ReactMaskedInput from 'react-maskedinput'`,
+import ReactTextMask from 'react-text-mask'`,
       type: MANUAL,
 
       examples: {
         'Masked credit card input': {
           live: <Input
             label='Credit card number'
-            Input={ReactMaskedInput}
-            mask='1111 1111 1111 1111'
+            Input={ReactTextMask}
+            mask={[
+              /\d/, /\d/, /\d/, /\d/, ' ',
+              /\d/, /\d/, /\d/, /\d/, ' ',
+              /\d/, /\d/, /\d/, /\d/, ' ',
+              /\d/, /\d/, /\d/, /\d/
+            ]}
             placeholder=' '
           />,
           code: `<Input
   label='Credit card number'
-  Input={ReactMaskedInput}
-  mask='1111 1111 1111 1111'
+  Input={ReactTextMask}
+  mask={[
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/
+  ]}
   placeholder=' '
 />`
         }

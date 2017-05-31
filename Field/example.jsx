@@ -1,7 +1,7 @@
 import React from 'react'
 import Field, { icons } from '../Field'
 import Fieldset from '../Fieldset'
-import ReactMaskedInput from 'react-maskedinput'
+import ReactTextMask from 'react-text-mask'
 import { LIVE, LIVE_WIDE, MANUAL } from '../Showroom/variationTypes'
 
 export default {
@@ -96,7 +96,7 @@ export default {
 
         'With customizations': {
           live: <Field
-            customize={{ borderColor: '#3500C8', borderColorSelected: '#3500C8', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
+            customize={{ borderColor: '#3500C8', borderColorSelected: 'yellow', borderRadius: '15px', inputColor: 'green', labelColor: 'red' }}
             label='Favorite color'
             defaultValue='Purple'
           />,
@@ -140,22 +140,33 @@ export default {
     {
       title: 'Override',
       require: `import Field from '@klarna/ui/Field'
-import ReactMaskedInput from 'react-maskedinput'`,
+import ReactTextMask from 'react-text-mask'`,
       type: MANUAL,
 
       examples: {
         'Masked credit card field': {
           live: <Field
             label='Credit card number'
-            Input={ReactMaskedInput}
-            mask='1111 1111 1111 1111'
+            Input={ReactTextMask}
+            type='tel'
+            mask={[
+              /\d/, /\d/, /\d/, /\d/, ' ',
+              /\d/, /\d/, /\d/, /\d/, ' ',
+              /\d/, /\d/, /\d/, /\d/, ' ',
+              /\d/, /\d/, /\d/, /\d/
+            ]}
             placeholder=' '
           />,
 
           code: `<Field
   label='Credit card number'
-  Input={ReactMaskedInput}
-  mask='1111 1111 1111 1111'
+  Input={ReactTextMask}
+  mask={[
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/
+  ]}
   placeholder=' '
 />`
         }

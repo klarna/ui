@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
@@ -16,7 +16,8 @@ import {
   overridable,
   themeable,
   uncontrolled,
-  uniqueName
+  uniqueName,
+  withHoverProps
 } from '@klarna/higher-order-components'
 
 const baseClass = 'field'
@@ -34,120 +35,54 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-const Field = React.createClass({
-  displayName: 'Field',
+class Field extends Component {
+  constructor () {
+    super()
 
-  getDefaultProps () {
-    return {
-      big: false,
-      centered: false,
-      loading: false,
-      nonFloatingLabel: false,
-      onChange: function () {},
-      onFieldLinkClick: function () {},
-      responsive: true,
-      fieldLink: '',
-      fieldTooltip: '',
-      pinCode: false,
-      mouseflowExclude: false,
-      ...inlinedIcon.defaultProps,
-      ...fieldStates.defaultProps,
-      ...stacking.position.defaultProps,
-      ...handleKeyDown.defaultProps,
-      ...stacking.size.defaultProps
-    }
-  },
-
-  propTypes: {
-    arrow: PropTypes.string,
-    big: PropTypes.bool,
-    centered: PropTypes.bool,
-    customize: PropTypes.shape({
-      borderColor: PropTypes.string.isRequired,
-      borderColorSelected: PropTypes.string.isRequired,
-      borderRadius: PropTypes.string.isRequired,
-      labelColor: PropTypes.string.isRequired,
-      inputColor: PropTypes.string.isRequired
-    }),
-    fieldLink: PropTypes.string,
-    fieldTooltip: PropTypes.string,
-    focus: PropTypes.bool,
-    hidden: PropTypes.bool,
-    id: PropTypes.string,
-    input: PropTypes.func,
-    loading: PropTypes.bool,
-    label: PropTypes.string.isRequired,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onClick: PropTypes.func,
-    onFocus: PropTypes.func,
-    onFieldLinkClick: PropTypes.func,
-    nonFloatingLabel: PropTypes.bool,
-    pattern: PropTypes.string,
-    pinCode: PropTypes.bool,
-    mouseflowExclude: PropTypes.bool,
-    responsive: PropTypes.bool,
-    value: PropTypes.string,
-    styles: PropTypes.object,
-    ...inlinedIcon.propTypes,
-    ...fieldStates.propTypes,
-    ...handleKeyDown.propTypes,
-    ...stacking.position.propTypes,
-    ...stacking.size.propTypes
-  },
-
-  getInitialState () {
-    return {
+    this.state = {
       hover: false
     }
-  },
+  }
 
   onAutoFillStart () {
     this.setState({
       autoFill: true
     })
-  },
+  }
 
   onAutoFillCancel () {
     this.setState({
       autoFill: false
     })
-  },
+  }
 
   componentDidMount () {
-    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
-      this.refs.input.focus()
+    const input = this.rootDOMElement.querySelector('input')
+
+    if (input && this.props.focus && getActiveElement(document) !== input) {
+      input.focus()
     }
 
-    this.refs.input.addEventListener &&
-    this.refs.input.addEventListener('animationstart', (e) => {
-      switch (e.animationName) {
-        case defaultStyles.onAutoFillStart:
-          return this.onAutoFillStart()
+    if (input &&input.addEventListener) {
+      input.addEventListener('animationstart', (e) => {
+        switch (e.animationName) {
+          case defaultStyles.onAutoFillStart:
+            return this.onAutoFillStart()
 
-        case defaultStyles.onAutoFillCancel:
-          return this.onAutoFillCancel()
-      }
-    })
-  },
+          case defaultStyles.onAutoFillCancel:
+            return this.onAutoFillCancel()
+        }
+      })
+    }
+  }
 
   componentDidUpdate () {
-    if (this.props.focus && getActiveElement(document) !== this.refs.input) {
-      this.refs.input.focus()
+    const input = this.rootDOMElement.querySelector('input')
+
+    if (input && this.props.focus && getActiveElement(document) !== input) {
+      input.focus()
     }
-  },
-
-  onMouseEnter () {
-    this.setState({
-      hover: true
-    })
-  },
-
-  onMouseLeave () {
-    this.setState({
-      hover: false
-    })
-  },
+  }
 
   render () {
     const {
@@ -167,6 +102,7 @@ const Field = React.createClass({
       fieldTooltip,
       focus,
       hidden,
+      hovered,
       label,
       left, // eslint-disable-line no-unused-vars
       loading,
@@ -177,6 +113,8 @@ const Field = React.createClass({
       onClick,
       onEnter, // eslint-disable-line no-unused-vars
       onFocus,
+      onMouseEnter,
+      onMouseLeave,
       onTab, // eslint-disable-line no-unused-vars
       onFieldLinkClick,
       pinCode,
@@ -205,7 +143,7 @@ const Field = React.createClass({
         'non-floating-label': pinCode || nonFloatingLabel,
         'pin-code': pinCode,
         square,
-        'is-focused': this.props.focus
+        'is-focused': focus
       },
       fieldStates.getClassName(this.props),
       stacking.size.getClassName(this.props),
@@ -219,7 +157,7 @@ const Field = React.createClass({
     const dynamicStyles = customize
       ? {
         ...(hasNonDefaultState ? {} : {
-          borderColor: this.state.hover || focus
+          borderColor: hovered || focus
             ? customize.borderColorSelected
             : customize.borderColor,
           boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
@@ -274,8 +212,9 @@ const Field = React.createClass({
         id={id}
         onClick={onClick}
         style={dynamicStyles}
-        onMouseEnter={this.onMouseEnter}
-        onMouseLeave={this.onMouseLeave}>
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        ref={rootDOMElement => (this.rootDOMElement = rootDOMElement)}>
         {
           inlinedIcon.renderInlinedIcon(this.props, {
             icon: classNames(classes.iconIcon),
@@ -311,9 +250,69 @@ const Field = React.createClass({
       </div>
     )
   }
-})
+}
+
+Field.propTypes = {
+  arrow: PropTypes.string,
+  big: PropTypes.bool,
+  centered: PropTypes.bool,
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string.isRequired,
+    borderColorSelected: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+    labelColor: PropTypes.string.isRequired,
+    inputColor: PropTypes.string.isRequired
+  }),
+  fieldLink: PropTypes.string,
+  fieldTooltip: PropTypes.string,
+  focus: PropTypes.bool,
+  hidden: PropTypes.bool,
+  id: PropTypes.string,
+  input: PropTypes.func,
+  loading: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
+  onFieldLinkClick: PropTypes.func,
+  nonFloatingLabel: PropTypes.bool,
+  pattern: PropTypes.string,
+  pinCode: PropTypes.bool,
+  mouseflowExclude: PropTypes.bool,
+  responsive: PropTypes.bool,
+  value: PropTypes.string,
+  styles: PropTypes.object,
+  ...inlinedIcon.propTypes,
+  ...fieldStates.propTypes,
+  ...handleKeyDown.propTypes,
+  ...stacking.position.propTypes,
+  ...stacking.size.propTypes
+}
+
+Field.defaultProps = {
+  big: false,
+  centered: false,
+  loading: false,
+  nonFloatingLabel: false,
+  onChange: function () {},
+  onFieldLinkClick: function () {},
+  responsive: true,
+  fieldLink: '',
+  fieldTooltip: '',
+  pinCode: false,
+  mouseflowExclude: false,
+  ...inlinedIcon.defaultProps,
+  ...fieldStates.defaultProps,
+  ...stacking.position.defaultProps,
+  ...handleKeyDown.defaultProps,
+  ...stacking.size.defaultProps
+}
 
 export default compose(
+  withHoverProps({
+    hovered: true
+  }),
   uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',

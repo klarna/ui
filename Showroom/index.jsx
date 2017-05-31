@@ -1,27 +1,31 @@
-import React from 'react'
+import React, {Component} from 'react'
 import * as examples from './examples'
 import Main from './Main'
 import states from './states'
 
-export default React.createClass({
-  getInitialState () {
-    return states()
-  },
+export default class Showroom extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      store: states()
+    }
+  }
 
   componentDidMount () {
-    states.map(this.replaceState.bind(this))
-  },
+    states.map(state => this.setState({store: state}))
+  }
 
   shouldComponentUpdate (nextProps, nextState) {
-    return nextState !== this.state
-  },
+    return nextState.store !== this.state.store
+  }
 
   render () {
     return (
       <Main
         examples={examples}
-        {...this.state}
+        {...this.state.store}
       />
     )
   }
-})
+}

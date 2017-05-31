@@ -1,12 +1,10 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 const NODE_COMMENT = 8
 const COMMENT_START = 'MouseflowExcludeStart'
 const COMMENT_END = 'MouseflowExcludeEnd'
 
-const MouseflowExclude = React.createClass({
-  displayName: 'MouseflowExclude',
-
+class MouseflowExclude extends Component {
   render () {
     return (
       <span ref={(span) => {
@@ -27,7 +25,7 @@ const MouseflowExclude = React.createClass({
       </span>
     )
   }
-})
+}
 
 export const exclude = (Component) => (props) => (
   <MouseflowExclude>

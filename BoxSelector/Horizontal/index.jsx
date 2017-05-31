@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import {
@@ -23,36 +23,15 @@ const classes = {
 
 const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
 
-const Horizontal = React.createClass({
-  displayName: 'BoxSelector.Horizontal',
+class Horizontal extends Component {
+  constructor () {
+    super()
 
-  propTypes: {
-    options: PropTypes.arrayOf(PropTypes.shape({
-      key: PropTypes.string.isRequired,
-      content: PropTypes.isRequired
-    })).isRequired,
-    className: PropTypes.string,
-    customize: PropTypes.shape({
-      borderColor: PropTypes.string.isRequired,
-      borderColorSelected: PropTypes.string.isRequired,
-      borderRadius: PropTypes.string.isRequired,
-      labelColor: PropTypes.string.isRequired
-    }),
-    focus: PropTypes.string,
-    id: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string
-  },
-
-  getInitialState () {
-    return {
+    this.state = {
       hover: undefined,
       previouslySelected: undefined
     }
-  },
+  }
 
   componentDidMount () {
     if (
@@ -61,7 +40,7 @@ const Horizontal = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   componentWillReceiveProps (props) {
     if (props.value !== undefined) {
@@ -69,7 +48,7 @@ const Horizontal = React.createClass({
         previouslySelected: this.props.value
       })
     }
-  },
+  }
 
   componentDidUpdate () {
     if (
@@ -78,11 +57,11 @@ const Horizontal = React.createClass({
     ) {
       this.refs[this.props.focus].focus()
     }
-  },
+  }
 
   getSelectedLabel (key) {
     return this.refs[`${key || this.props.value}-label`]
-  },
+  }
 
   render () {
     const {
@@ -204,7 +183,30 @@ const Horizontal = React.createClass({
       </div>
     </div>)
   }
-})
+}
+
+Horizontal.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string.isRequired,
+    content: PropTypes.isRequired
+  })).isRequired,
+  className: PropTypes.string,
+  customize: PropTypes.shape({
+    borderColor: PropTypes.string.isRequired,
+    borderColorSelected: PropTypes.string.isRequired,
+    borderRadius: PropTypes.string.isRequired,
+    labelColor: PropTypes.string.isRequired
+  }),
+  focus: PropTypes.string,
+  id: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string
+}
+
+Horizontal.displayName = 'BoxSelector.Horizontal'
 
 const hoverStartHandler = (component) => (id) => component.setState({ hover: id })
 const hoverEndHandler = (component) => () => component.setState({hover: undefined})
