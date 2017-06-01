@@ -14,10 +14,10 @@ const classes = {
   text: `${baseClass}__text`
 }
 
-function FieldTooltip ({active, arrow, id, fieldTooltip, ...props}) {
+function FieldTooltip ({active, arrow, id, fieldTooltip, onMouseOver, onMouseOut, ...props}) {
   const classNames = classNamesBind.bind({ ...defaultStyles })
 
-  return <div>
+  return <div onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
     <span
       id={id}
       className={classNames(classes.icon)}
