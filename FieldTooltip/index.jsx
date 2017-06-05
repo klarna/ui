@@ -10,6 +10,7 @@ import {withTouchProps, withHoverProps} from '@klarna/higher-order-components'
 const baseClass = 'field-tooltip'
 
 const classes = {
+  hover: `${baseClass}__hover`,
   icon: `${baseClass}__icon`,
   text: `${baseClass}__text`
 }
@@ -24,7 +25,10 @@ function FieldTooltip ({active, arrow, id, fieldTooltip, onMouseOver, onMouseOut
       {...props}>
       <Question color='black' />
     </span>
-    <Tooltip inlined inverse arrow={arrow} className={classNames(classes.text, active ? '.is-visible' : 'is-hidden', arrow)}>
+    <span
+      className={classNames(classes.hover, active ? 'is-visible' : 'is-hidden')}
+    />
+    <Tooltip inlined inverse arrow={arrow} className={classNames(classes.text, active ? 'is-visible' : 'is-hidden', arrow)}>
       {fieldTooltip}
     </Tooltip>
   </div>
