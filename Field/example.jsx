@@ -260,7 +260,7 @@ import Fieldset from '@klarna/ui/Fieldset'`,
 
         Many: <Fieldset margins>
           <Field top left size='1/2' label='Given name' />
-          <Field center size='1/4' label='Middle name' />
+          <Field center size='1/4' label='Middle name' fieldTooltip='This field is optional' arrow='top-right' />
           <Field top right size='1/4' label='Last name' />
           <Field left square size='1/5' label='Number' />
           <Field right square size='4/5' label='Street Address' />
