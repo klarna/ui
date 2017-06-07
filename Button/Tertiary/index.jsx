@@ -187,7 +187,7 @@ Tertiary.propTypes = {
 }
 
 export default compose(
-  (component) => (withPropsFromContext(component, ['brandVolume'])),
+  withPropsFromContext(['brandVolume']),
   themeable((customizations, { customize }) => ({
     customize: {
       backgroundColor: customizations.color_button,
