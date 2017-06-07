@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@klarna/higher-order-components@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.8.2.tgz#afc9e530cafac6c7ad9e73216a1ae5234653d60b"
+"@klarna/higher-order-components@0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.8.4.tgz#028aaeac545d4b85c5814bca83e95eebedc86390"
   dependencies:
     collect-fps "2.0.0"
     seed-random "^2.2.0"
@@ -5018,9 +5018,9 @@ react-component-queries@^2.1.1:
   dependencies:
     invariant "^2.2.0"
 
-react-context-props@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/react-context-props/-/react-context-props-0.1.4.tgz#ff6811e0656dfc613bf7efe0981a6d8bbf226ffc"
+react-context-props@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-context-props/-/react-context-props-2.2.0.tgz#1f0bd558b337482c7e437a13699acf7938bca18c"
 
 react-deep-force-update@^2.0.1:
   version "2.0.1"
