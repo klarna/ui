@@ -1,6 +1,15 @@
 @import '../css/settings';
 @import '../css/mixins/index';
 
+.field-tooltip__hover {
+  margin-top: -($grid * 3);
+  padding: ($grid * 2.5) 0 ($grid * 3.5) 33%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: 3;
+}
+
 .field-tooltip__icon {
   margin-top: -($grid * 2);
   padding: 0 ($grid * 2);
@@ -21,13 +30,13 @@
 }
 
 .bottom-right {
-  bottom: 50px;
+  bottom: 48px;
   right: -1px;
 }
 
 .top-right { 
   right: -1px;
-  top: 30px;
+  top: 29px;
 }
 
 .is-visible {

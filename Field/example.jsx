@@ -260,14 +260,14 @@ import Fieldset from '@klarna/ui/Fieldset'`,
 
         Many: <Fieldset margins>
           <Field top left size='1/2' label='Given name' />
-          <Field center size='1/4' label='Middle name' />
+          <Field center size='1/4' label='Middle name' fieldTooltip='This field is optional' arrow='top-right' />
           <Field top right size='1/4' label='Last name' />
           <Field left square size='1/5' label='Number' />
           <Field right square size='4/5' label='Street Address' />
           <Field left square size='1/3' label='Your favorite pokémon' />
           <Field right square size='2/3' label='Android or iPhone: please explain' />
           <Field left bottom size='2/5' label='Date of Birth' />
-          <Field right bottom size='3/5' label='Mobile phone number' />
+          <Field right bottom size='3/5' label='Mobile phone number' fieldTooltip='Please submit your number in case we need to contact you' arrow='bottom-right' />
         </Fieldset>
       }
     }
