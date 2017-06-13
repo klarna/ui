@@ -39,6 +39,9 @@ export default {
   disabled: {
     backgroundCircle: {
       fill: palette.GREY_LINES
+    },
+    main: {
+      opacity: palette.DISABLED_OPACITY
     }
   },
   checked: {

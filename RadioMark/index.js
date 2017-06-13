@@ -25,6 +25,11 @@ function RadioMark ({
       width={finalStyles.base.main.width}
       height={finalStyles.base.main.height}
       onClick={onClick}
+      style={
+        disabled && customize
+          ? finalStyles.disabled.main
+          : {}
+      }
       {...props}>
       <Motion
         style={{
@@ -38,7 +43,7 @@ function RadioMark ({
             <circle
               {...finalStyles.base.backgroundCircle}
               {...(customize ? {fill: customize.backgroundColor} : {})}
-              {...(disabled ? finalStyles.disabled.backgroundCircle : {})}
+              {...(disabled && customize == null ? finalStyles.disabled.backgroundCircle : {})}
               style={{ opacity: 1 - (scale - 1) / 2 }}
             />
             {/* tranformOrigin using matrices: http://stackoverflow.com/questions/6711610/how-to-set-transform-origin-in-svg#6714140 */}

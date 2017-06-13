@@ -17,6 +17,7 @@ import defaultStyles from './styles'
 import getActiveElement from '../lib/getActiveElement'
 import ExpandLabel from './ExpandLabel'
 import * as breakpoints from '../settings/breakpoints'
+import Loader from '../Loader'
 
 // The minimum/initial height of the ExpandLabel is 49 pixels. Unfortunately
 // it seems to be no way to get rid of this magic number without triggering
@@ -82,6 +83,7 @@ class Radio extends Component {
       visibleOptions,
       expandLabel,
       fullyExpanded,
+      loading,
       name,
       noAnimation,
       onBlur,
@@ -108,7 +110,7 @@ class Radio extends Component {
     const isExpanded = fullyExpanded || optionLists.collapsed.length === 0
 
     const OptionWithProps = Option({
-      allDisabled,
+      allDisabled: allDisabled || loading,
       onBlur,
       value,
       options,
@@ -172,11 +174,15 @@ class Radio extends Component {
               }))(footer.getBoundingClientRect().height)}
               onClick={onExpand}
               label={expandLabel}
+              disabled={allDisabled || loading}
               style={{opacity}}
               styles={styles.expandLabel}
             />
           </div>}
         </Motion>}
+        {loading && <div style={finalStyles.base.loaderWrapper}>
+          <Loader />
+        </div>}
       </div>
     )
   }
@@ -199,6 +205,7 @@ Radio.propTypes = {
   onExpand: PropTypes.func,
   focus: PropTypes.string,
   id: PropTypes.string,
+  loading: PropTypes.bool,
   name: PropTypes.string,
   noAnimation: PropTypes.bool,
   onBlur: PropTypes.func,
@@ -219,6 +226,7 @@ Radio.propTypes = {
 
 Radio.defaultProps = {
   fullyExpanded: false,
+  loading: false,
   styles: {
     radio: {},
     option: {},

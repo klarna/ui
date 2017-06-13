@@ -83,7 +83,8 @@ export default ({
         htmlFor={`${name}-${key}`}
         style={{
           ...finalStyles.base.header,
-          ...(key === value ? finalStyles.selected.header : {})
+          ...(key === value ? finalStyles.selected.header : {}),
+          ...(isDisabled ? finalStyles.disabled.header : {})
         }}
         id={ids.header}>
         <div
@@ -135,7 +136,8 @@ export default ({
           {aside && <div
             style={{
               ...finalStyles.base.aside,
-              ...finalStyles.base.rightmost
+              ...finalStyles.base.rightmost,
+              ...(isDisabled ? finalStyles.disabled.aside : {})
             }}
             id={ids.aside}>
             {aside}
@@ -147,11 +149,12 @@ export default ({
         onStartFPSCollection={onStartFPSCollection}
         onEndFPSCollection={onEndFPSCollection}
         lowFPS={noAnimation || lowFPS}
-        collapsed={isDisabled || !singleOption && key !== value}>
+        collapsed={!singleOption && key !== value}>
         <div
           style={{
             ...finalStyles.base.content,
-            ...(padded ? finalStyles.padded.content : {})
+            ...(padded ? finalStyles.padded.content : {}),
+            ...(isDisabled ? finalStyles.disabled.content : {})
           }}
           id={ids.content}>
           {content}

@@ -7,7 +7,16 @@ import {withTouchProps, withHoverProps} from '@klarna/higher-order-components'
 import * as Chevron from '../../icons/Chevron'
 import defaultStyles from './styles'
 
-function ExpandLabel ({active, label, onDOMElement, style, styles, ...props}) {
+function ExpandLabel ({
+  active,
+  disabled,
+  label,
+  onDOMElement,
+  style,
+  styles,
+  onClick,
+  ...props
+}) {
   const finalStyles = deepMerge(defaultStyles, styles)
 
   return <footer
@@ -15,8 +24,10 @@ function ExpandLabel ({active, label, onDOMElement, style, styles, ...props}) {
     style={{
       ...finalStyles.base.main,
       ...(active ? finalStyles.active.main : {}),
-      ...style
+      ...style,
+      ...(disabled ? finalStyles.disabled.main : {})
     }}
+    onClick={e => disabled || onClick(e)}
     {...props}>
     {label} <Chevron.Down color='black' style={finalStyles.base.chevron} />
   </footer>
@@ -25,12 +36,14 @@ function ExpandLabel ({active, label, onDOMElement, style, styles, ...props}) {
 ExpandLabel.propTypes = {
   label: PropTypes.string.isRequired,
   active: PropTypes.bool,
+  disabled: PropTypes.bool,
   styles: PropTypes.object
 }
 
 ExpandLabel.defaultProps = {
   styles: {},
-  active: false
+  active: false,
+  disabled: false
 }
 
 export default compose(
