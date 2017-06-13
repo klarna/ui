@@ -208,9 +208,13 @@ const Field = React.createClass({
         'is-focused': this.props.focus
       },
       fieldStates.getClassName(this.props),
-      stacking.size.getClassName(this.props),
-      stacking.position.getClassName(this.props),
       className
+    )
+
+    const wrapperClasses = classNames(
+      (icon ? classes.icon : baseClass),
+      stacking.size.getClassName(this.props),
+      stacking.position.getClassName(this.props)
     )
 
     const hasNonDefaultState = disabled || warning || error
@@ -244,7 +248,8 @@ const Field = React.createClass({
         input: `${id}__input`,
         label: `${id}__label`,
         link: `${id}__field-link`,
-        tooltip: `${id}__field-tooltip`
+        tooltip: `${id}__field-tooltip`,
+        wrapper: `${id}__wrapper`
       } : {}
 
     const inputProps = {
@@ -270,44 +275,48 @@ const Field = React.createClass({
 
     return (
       <div
-        className={cls}
-        id={id}
-        onClick={onClick}
-        style={dynamicStyles}
-        onMouseEnter={this.onMouseEnter}
-        onMouseLeave={this.onMouseLeave}>
-        {
-          inlinedIcon.renderInlinedIcon(this.props, {
-            icon: classNames(classes.iconIcon),
-            fill: classNames(classes.iconIconFill),
-            stroke: classNames(classes.iconIconStroke)
-          })
-        }
+        className={wrapperClasses}
+        id={ids.wrapper}>
+        <div
+          className={cls}
+          id={id}
+          onClick={onClick}
+          style={dynamicStyles}
+          onMouseEnter={this.onMouseEnter}
+          onMouseLeave={this.onMouseLeave}>
+          {
+            inlinedIcon.renderInlinedIcon(this.props, {
+              icon: classNames(classes.iconIcon),
+              fill: classNames(classes.iconIconFill),
+              stroke: classNames(classes.iconIconStroke)
+            })
+          }
 
-        <label
-          className={classNames(icon ? classes.iconLabel : classes.label)}
-          id={ids.label}
-          style={labelDynamicStyles}>
-          {label}
-        </label>
+          <label
+            className={classNames(icon ? classes.iconLabel : classes.label)}
+            id={ids.label}
+            style={labelDynamicStyles}>
+            {label}
+          </label>
 
-        {mouseflowExclude
-          ? <MouseflowExclude>{inputElement}</MouseflowExclude>
-          : inputElement
-        }
+          {mouseflowExclude
+            ? <MouseflowExclude>{inputElement}</MouseflowExclude>
+            : inputElement
+          }
 
-        {fieldLink && <FieldLink
-          id={ids.link}
-          label={fieldLink}
-          onFieldLinkClick={onFieldLinkClick} />
-        }
+          {fieldLink && <FieldLink
+            id={ids.link}
+            label={fieldLink}
+            onFieldLinkClick={onFieldLinkClick} />
+          }
 
-        {fieldTooltip &&
-          <FieldTooltip
-            arrow={arrow}
-            fieldTooltip={fieldTooltip}
-            id={ids.tooltip} />
-        }
+          {fieldTooltip &&
+            <FieldTooltip
+              arrow={arrow}
+              fieldTooltip={fieldTooltip}
+              id={ids.tooltip} />
+          }
+        </div>
       </div>
     )
   }
