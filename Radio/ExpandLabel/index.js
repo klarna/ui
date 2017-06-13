@@ -19,10 +19,6 @@ function ExpandLabel ({
 }) {
   const finalStyles = deepMerge(defaultStyles, styles)
 
-  console.log(finalStyles.disabled)
-  console.log(disabled)
-  console.log(style)
-
   return <footer
     ref={(domElement) => onDOMElement(domElement)}
     style={{
