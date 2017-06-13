@@ -19,6 +19,14 @@ export default {
           backgroundColor: '#660080',
           bulletColor: '#00ce3e'
         }}
+      />,
+      'Dynamic styling, checked and disabled': <RadioMark
+        checked
+        disabled
+        customize={{
+          backgroundColor: '#660080',
+          bulletColor: '#00ce3e'
+        }}
       />
     }
   }

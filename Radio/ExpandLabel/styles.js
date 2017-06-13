@@ -1,4 +1,4 @@
-import {LIGHT_GREY} from '../../settings/palette'
+import {LIGHT_GREY, DISABLED_OPACITY} from '../../settings/palette'
 import {MAIN_BODY_BIG} from '../../settings/fontSizes'
 import * as fontFamilies from '../../settings/fontFamilies'
 import * as fontWeights from '../../settings/fontWeights'
@@ -31,6 +31,15 @@ export default {
   active: {
     main: {
       backgroundColor: LIGHT_GREY.hover
+    }
+  },
+
+  disabled: {
+    main: {
+      opacity: DISABLED_OPACITY,
+      backgroundColor: LIGHT_GREY.base,
+      cursor: 'auto',
+      userSelect: 'none'
     }
   }
 }

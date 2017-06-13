@@ -90,9 +90,17 @@ export default {
     aside: {
       opacity: palette.DISABLED_OPACITY
     },
+    content: {
+      opacity: palette.DISABLED_OPACITY,
+      pointerEvents: 'none'
+    },
+    header: {
+      cursor: 'auto'
+    },
     main: {
       backgroundColor: palette.DISABLED_BACKGROUND,
-      pointerEvents: 'none'
+      pointerEvents: 'none',
+      cursor: 'auto'
     },
     label: {
       opacity: palette.DISABLED_OPACITY

@@ -235,7 +235,6 @@ export default {
       />,
 
       Controlled: <Radio
-        focus='sit'
         name='radio'
         onChange={(key) => console.log(key)}
         options={options}
@@ -268,6 +267,13 @@ export default {
         onChange={(key) => console.log(key)}
         options={options}
         defaultValue='lorem'
+      />,
+
+      Loading: <Radio
+        loading
+        onChange={(key) => console.log(key)}
+        options={optionsWithContent}
+        value={'lorem'}
       />,
 
       'One field disabled': <Radio
