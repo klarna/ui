@@ -45,7 +45,8 @@ export default {
     },
     inner: {
       display: 'table-row',
-      width: '100%'
+      width: '100%',
+      pointerEvents: 'none'
     },
     left: {
       display: 'table-cell',
