@@ -13,6 +13,10 @@
   // https://github.com/ftlabs/fastclick/issues/60
   label > * {
     pointer-events: none;
+
+    a, button, select, input {
+      pointer-events: auto;
+    }
   }
 }
 
