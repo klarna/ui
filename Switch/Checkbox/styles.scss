@@ -8,6 +8,12 @@
   &.is-disabled {
     opacity: .2;
   }
+
+  // This is a fix for fastclick making labels not working properly in iOS WebViews
+  // https://github.com/ftlabs/fastclick/issues/60
+  label > * {
+    pointer-events: none;
+  }
 }
 
 .switch--checkbox__input {
