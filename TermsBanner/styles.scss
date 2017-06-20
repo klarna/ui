@@ -1,0 +1,25 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.banner {
+  background-color: map-get($colors, light-grey);
+  color: map-get($colors, grey-text);
+  line-height: 17px;
+  padding: 20px 15px 15px 15px;
+  margin-top: -5px;
+}
+
+.banner__link,
+.banner__alt-link {
+  cursor: pointer;
+  font-size: 12px;
+  vertical-align: bottom;
+}
+
+.banner__link {
+  float: right;
+}
+
+.banner__alt-link {
+  margin-left: 10px;
+}
