@@ -13,7 +13,7 @@ const baseClass = 'preview'
 const classes = {
   content: `${baseClass}__content`,
   footer: `${baseClass}__footer`,
-  footerLink: `${baseClass}__footer__link`,
+  link: `${baseClass}__link`,
   title: `${baseClass}__title`
 }
 
@@ -163,7 +163,7 @@ function PreviewLink ({children, className, customize, id, styles, ...props}) {
   return (
     <div className={classNames(classes.footer)} id={id}>
       <a
-        className={classNames(classes.footerLink, className)}
+        className={classNames(classes.link, className)}
         style={{...dynamicStyles}}
         id={ids.link}
         {...props}>
