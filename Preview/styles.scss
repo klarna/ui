@@ -55,7 +55,7 @@
   text-align: center;
 }
 
-.preview__footer__link {
+.preview__link {
   @include typography(map-get($font-sizes, main-body-mobile), regular);
   @include palette-colors(map-get($colors, klarna-blue));
 
@@ -63,9 +63,9 @@
   background: white;
   cursor: pointer;
   display: inline-block;
+  float: right;
   line-height: ($grid * 4.4);
   margin: 0 auto;
-  padding: ($grid * 1) ($grid * 1) 0 ($grid * 1);
   text-decoration: none;
   transition: color .2s ease;
 
