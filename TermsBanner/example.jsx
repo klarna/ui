@@ -44,7 +44,7 @@ export default {
                  />
         <TermsBanner id='banner' logo={<DemoLogo />} link='Terms' altLink='Privacy & Autofill' />
       </div>,
-      
+
       'On Preview': <div>
         <Preview.Main>
           <Preview.Title>John Smith</Preview.Title>
