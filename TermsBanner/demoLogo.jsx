@@ -2,10 +2,13 @@ import React from 'react'
 
 export default function DemoLogo () {
   const styles = {
-    height: "14px"
+    height: '14px',
+    transform: 'scale(1.3)'
   }
-  return <svg viewBox="0 0 75 20" version="1.1" style={styles}>
-      <g transform="translate(-110.000000, -24.000000)" fill="#87878a">
+
+  return <svg viewBox="0 0 75 20" version="1.1" style="height: 15px;transform: scale(1.5);">
+      <g>
+        <text stroke="#8e8e90" id="svg_1" y="16" x="15" fill="#8e8e90" style="">Klarna</text>
       </g>
     </svg>
 }
