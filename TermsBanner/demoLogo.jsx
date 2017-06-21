@@ -8,7 +8,7 @@ export default function DemoLogo () {
 
   return <svg viewBox='0 0 75 20' version='1.1' style={styles}>
       <g>
-        <text stroke='#8e8e90' id='svg_1' y='16' x='15' fill='#8e8e90'>Klarna</text>
+        <text stroke='#8e8e90' id='svg_1' y='16' x='15' fill='#8e8e90'>ABCDEF</text>
       </g>
     </svg>
 }
