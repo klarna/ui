@@ -91,6 +91,7 @@ class Radio extends Component {
       onExpand,
       onFocus,
       onEndFPSCollection,
+      onLowFPS, // eslint-disable-line no-unused-vars
       onStartFPSCollection,
       lowFPS,
       padded,
