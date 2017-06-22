@@ -42,7 +42,14 @@ export default {
           }}
           onChange={(values) => console.log('new values', values)}
                  />
-        <TermsBanner id='banner' logo={<DemoLogo />} link='Terms' altLink='Privacy & Autofill' />
+        <TermsBanner
+          altLink='Privacy & Autofill'
+          id='banner'
+          logo={<DemoLogo />}
+          link='Terms'
+          onLinkClick={() => console.log('link clicked')}
+          onAltLinkClick={() => console.log('alt link clicked')}
+                />
       </div>,
 
       'On Preview': <div>
@@ -55,7 +62,14 @@ export default {
             United States
           </Preview.Content>
         </Preview.Main>
-        <TermsBanner id='banner' logo={<DemoLogo />} link='Terms' altLink='Privacy & Autofill' />
+        <TermsBanner
+          altLink='Privacy & Autofill'
+          id='banner'
+          logo={<DemoLogo />}
+          link='Terms'
+          onLinkClick={() => console.log('link clicked')}
+          onAltLinkClick={() => console.log('alt link clicked')}
+                />
       </div>
     }
   }
