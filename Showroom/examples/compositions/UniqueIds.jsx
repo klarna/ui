@@ -403,7 +403,7 @@ import * as Button from '@klarna/ui/Button'`,
 
         'List.Iconic': <List.Iconic.Wrapper id='list-iconic-wrapper'>
           <List.Iconic.Item
-            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+            icon={<svg focusable='false' width='60px' height='60px' viewBox='0 0 60 60'>
               <circle
                 stroke='#979797'
                 fill='#D8D8D8'
@@ -416,7 +416,7 @@ import * as Button from '@klarna/ui/Button'`,
             Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
           </List.Iconic.Item>
           <List.Iconic.Item
-            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+            icon={<svg focusable='false' width='60px' height='60px' viewBox='0 0 60 60'>
               <polygon
                 stroke='#979797'
                 fill='#D8D8D8'
@@ -427,7 +427,7 @@ import * as Button from '@klarna/ui/Button'`,
             Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
           </List.Iconic.Item>
           <List.Iconic.Item
-            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+            icon={<svg focusable='false' width='60px' height='60px' viewBox='0 0 60 60'>
               <polygon
                 stroke='#979797'
                 fill='#D8D8D8'
@@ -536,7 +536,7 @@ import * as Button from '@klarna/ui/Button'`,
               key: 'lorem',
               label: 'Lorem',
               description: 'Lorem Ipsum is simply dummy.',
-              aside: <svg width='32px' height='22px' viewBox='0 0 32 22'>
+              aside: <svg focusable='false' width='32px' height='22px' viewBox='0 0 32 22'>
                 <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
                   <rect fill='#0074C8' x='0' y='0' width='32' height='22' rx='2' />
                   <polygon fill='#E5E5E6' points='23 7 27 15 19 15' />

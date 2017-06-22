@@ -9,6 +9,7 @@ export default function Items ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'tiny', color, className)}
       strokeLinecap='round'
       viewBox='0 0 22 22'

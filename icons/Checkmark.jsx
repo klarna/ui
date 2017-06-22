@@ -9,6 +9,7 @@ export default function Checkmark ({ color, styles, className, stroke, ...props 
 
   return (
     <svg
+      focusable='false'
       strokeLinecap='round'
       strokeWidth='2'
       className={classNames('illustration', 'tiny', color, className)}

@@ -10,6 +10,7 @@ export default function NotFound ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'big', color, className)}
       viewBox='0 0 100 100'
       height='100px'

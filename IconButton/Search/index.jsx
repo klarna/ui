@@ -26,6 +26,7 @@ const Search = ({className, color, id, label, left, styles, ...props}) => {
   return <div className={classNames(classes.iconButton, className)} {...props}>
     <div className={classNames(classes.bgWrapper, color)}>
       <svg
+        focusable='false'
         className={classNames('illustration', 'button', color)}
         id={ids.illustration}
         viewBox='0 0 25 25'

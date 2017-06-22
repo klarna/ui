@@ -29,6 +29,7 @@ const Options = ({className, color, id, label, left, styles, ...props}) => {
     {...props}>
     <div className={classNames(classes.bgWrapper, color)}>
       <svg
+        focusable='false'
         className={classNames('illustration', 'button', color)}
         id={ids.illustration}
         viewBox='0 0 25 25'

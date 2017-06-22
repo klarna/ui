@@ -9,6 +9,7 @@ export default function LocationPin ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'tiny', color, className)}
       width='20px'
       height='20px'

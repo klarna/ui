@@ -22,6 +22,7 @@ function RadioMark ({
 
   return (
     <svg
+      focusable='false'
       width={finalStyles.base.main.width}
       height={finalStyles.base.main.height}
       onClick={onClick}

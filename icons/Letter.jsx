@@ -9,6 +9,7 @@ export default function Letter ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'big', color, className)}
       viewBox='0 0 100 100'
       strokeWidth='2'
