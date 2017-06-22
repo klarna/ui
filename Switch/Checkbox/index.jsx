@@ -163,6 +163,7 @@ const Checkbox = React.createClass({
             boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
           })} />
         <svg
+          focusable='false'
           className={classNames(classes.bulletCheckmark)}
           id={ids.bulletCheckmark}
           width='14px'

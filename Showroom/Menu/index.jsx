@@ -7,6 +7,7 @@ export default function Menu ({examples}) {
   return (
     <nav className={styles.menu}>
       <svg
+        focusable='false'
         className={styles.k}
         width='20' height='27' viewBox='0 0 20 27'>
         <title>K</title>

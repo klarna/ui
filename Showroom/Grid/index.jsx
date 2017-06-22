@@ -9,7 +9,7 @@ export default function Grid ({
   width,
   ...props
 }) {
-  return <svg width={width} height={height}
+  return <svg focusable='false' width={width} height={height}
     style={{
       left: 0,
       pointerEvents: 'none',

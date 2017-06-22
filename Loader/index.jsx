@@ -51,6 +51,7 @@ export default function Loader ({
 
   return (
     <svg
+      focusable='false'
       width={_size}
       height={_size}
       className={classNames(baseClass, {inline}, className)}

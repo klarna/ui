@@ -8,6 +8,7 @@ export default function Search ({ color, styles, className, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return <svg
+    focusable='false'
     className={classNames('illustration', 'tiny', color, className)}
     width='20px' height='20px'
     viewBox='0 0 20 20'

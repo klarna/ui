@@ -9,6 +9,7 @@ export default function Check ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'tiny', color, className)}
       height='20px'
       width='20px'

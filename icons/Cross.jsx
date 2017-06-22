@@ -8,6 +8,7 @@ export default function Cross ({ color, styles, className, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return <svg
+    focusable='false'
     className={classNames('illustration', 'tiny', color, className)}
     strokeLinecap='round'
     strokeWidth='2'

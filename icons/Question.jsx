@@ -9,6 +9,7 @@ export default function Question ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 21 21'
       height='20px'

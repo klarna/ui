@@ -9,6 +9,7 @@ export default function Password ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 100 100'
       strokeWidth='5'
