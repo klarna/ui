@@ -4,15 +4,15 @@
 .banner {
   background-color: map-get($colors, light-grey);
   color: map-get($colors, grey-text);
-  line-height: 17px;
-  padding: 20px 15px 15px 15px;
-  margin-top: -5px;
+  line-height: ($grid * 3.8);
+  padding: ($grid * 4) ($grid * 3) ($grid * 3) ($grid * 3);
+  margin-top: ($grid * -1);
 }
 
 .banner__link,
 .banner__alt-link {
   cursor: pointer;
-  font-size: 12px;
+  font-size: ($grid * 2.4);
   vertical-align: bottom;
 }
 
@@ -21,5 +21,5 @@
 }
 
 .banner__alt-link {
-  margin-left: 10px;
+  margin-left: ($grid * 2);
 }
