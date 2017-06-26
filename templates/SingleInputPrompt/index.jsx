@@ -24,6 +24,7 @@ function SingleInputPrompt ({
   title,
   value,
   loading,
+  style,
   ...props
 }) {
   const ids = id
@@ -40,6 +41,7 @@ function SingleInputPrompt ({
     id={ids.centered}
     illustration={illustration}
     loading={loading}
+    style={style}
     labels={{
       accept,
       cancel,

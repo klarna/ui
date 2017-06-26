@@ -6,6 +6,7 @@ export default function K ({className, hoverable}) {
   const classNames = classNamesBind.bind(styles)
 
   return <svg
+    focusable='false'
     className={classNames('k', {hoverable}, className)}
     width='20' height='27' viewBox='0 0 20 27'>
     <path

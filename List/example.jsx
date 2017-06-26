@@ -167,7 +167,7 @@ export default {
       examples: {
         Regular: <List.Iconic.Wrapper>
           <List.Iconic.Item
-            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+            icon={<svg focusable='false' width='60px' height='60px' viewBox='0 0 60 60'>
               <circle
                 stroke='#979797'
                 fill='#D8D8D8'
@@ -179,7 +179,7 @@ export default {
             Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
           </List.Iconic.Item>
           <List.Iconic.Item
-            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+            icon={<svg focusable='false' width='60px' height='60px' viewBox='0 0 60 60'>
               <polygon
                 stroke='#979797'
                 fill='#D8D8D8'
@@ -189,7 +189,7 @@ export default {
             Maecenas in dui ut tortor tristique auctor consequat et tortor. Sed cursus malesuada tellus dapibus. Longer make sure in several lines.
           </List.Iconic.Item>
           <List.Iconic.Item
-            icon={<svg width='60px' height='60px' viewBox='0 0 60 60'>
+            icon={<svg focusable='false' width='60px' height='60px' viewBox='0 0 60 60'>
               <polygon
                 stroke='#979797'
                 fill='#D8D8D8'

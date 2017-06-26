@@ -9,6 +9,7 @@ export default function Download ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 22 22'
       height='20px'

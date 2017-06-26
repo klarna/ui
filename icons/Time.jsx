@@ -10,6 +10,7 @@ export default function Time ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'big', color, className)}
       strokeLinecap='round'
       strokeWidth='2'

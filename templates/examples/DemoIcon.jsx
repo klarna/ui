@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function DemoIcon () {
-  return <svg width='100px' height='150px' viewBox='0 0 100 150'>
+  return <svg focusable='false' width='100px' height='150px' viewBox='0 0 100 150'>
     <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
       <g transform='translate(-39, 0)'>
         <g transform='translate(39, 0)'>

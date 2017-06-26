@@ -147,28 +147,20 @@ export const Title = compose(
   overridable(defaultStyles)
 )(PreviewTitle)
 
-function PreviewLink ({children, className, customize, id, styles, ...props}) {
+function PreviewLink ({children, className, customize, styles, ...props}) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
-  const ids = id
-    ? {
-      link: `${id}__link`
-    } : {}
-
   const dynamicStyles = customize
     ? {
       color: customize.linkColor
     } : {}
 
   return (
-    <div className={classNames(classes.footer)} id={id}>
-      <a
-        className={classNames(classes.link, className)}
-        style={{...dynamicStyles}}
-        id={ids.link}
-        {...props}>
-        {children}
-      </a>
-    </div>
+    <a
+      className={classNames(classes.link, className)}
+      style={{...dynamicStyles}}
+      {...props}>
+      {children}
+    </a>
   )
 }
 

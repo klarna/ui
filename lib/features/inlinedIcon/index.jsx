@@ -24,6 +24,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
     switch (icon) {
       case INLINED_ICONS.BANK:
         return <svg
+          focusable='false'
           className={styles.icon}
           width='20px'
           height='20px'
@@ -65,6 +66,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.CALENDAR:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -88,6 +90,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.CARD:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -104,6 +107,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.CHECK:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -121,6 +125,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.CLOSE:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -144,6 +149,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.EMAIL:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -160,6 +166,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.LOCATION:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             width='20px'
             height='20px'
@@ -176,6 +183,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.LOCK:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -190,6 +198,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.LOGOUT:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -215,6 +224,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.PERSON:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -229,6 +239,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.PHONE:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -242,6 +253,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.QUESTION:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -267,6 +279,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
       case INLINED_ICONS.DETAILS:
         return (
           <svg
+            focusable='false'
             className={styles.icon}
             height='20px'
             width='20px'
@@ -288,6 +301,7 @@ export const renderInlinedIcon = ({ icon }, styles) => {
 
       case INLINED_ICONS.SEARCH:
         return <svg
+          focusable='false'
           className={styles.icon}
           width='20px' height='20px'
           viewBox='0 0 20 20'>

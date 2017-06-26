@@ -9,6 +9,7 @@ export default function Mail ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       strokeWidth='5'
       className={classNames('illustration', 'tiny', color, className)}
       viewBox='0 0 100 100'

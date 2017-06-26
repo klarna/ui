@@ -33,7 +33,8 @@ export default function Centered ({
   loading,
   onAccept,
   onCancel,
-  styles
+  styles,
+  style
 }) {
   const classNames = classNamesBind.bind({...defaultStyles, ...styles})
   const paragraphs = labels.summary instanceof Array
@@ -56,7 +57,8 @@ export default function Centered ({
 
   return <Dialog.Content
     id={ids.dialogContent}
-    className={classNames(baseClass, className)}>
+    className={classNames(baseClass, className)}
+    style={style}>
     {illustration}
 
     <Title.Primary

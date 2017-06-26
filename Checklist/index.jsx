@@ -78,6 +78,7 @@ function ChecklistItem ({className, children, customize, id, styles, ...props}) 
     style={listItemDynamicStyles}
     {...props}>
     <svg
+      focusable='false'
       className={classNames(classes.checkmark)}
       id={ids.checkmark}
       style={iconDynamicStyles}

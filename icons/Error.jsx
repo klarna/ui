@@ -10,6 +10,7 @@ export default function Error ({ color, styles, className, ...props }) {
 
   return (
     <svg
+      focusable='false'
       className={classNames('illustration', 'big', color, className)}
       strokeWidth='2'
       viewBox='0 0 100 100'

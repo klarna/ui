@@ -10,6 +10,7 @@ export default function Sidebar ({examples, selected}) {
       <nav className={styles.sidebarNav}>
         <a href='#'>
           <svg
+            focusable='false'
             className={styles.sidebarK}
             width='20' height='27' viewBox='0 0 20 27'>
             <title>K</title>
