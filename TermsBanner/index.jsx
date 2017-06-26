@@ -27,8 +27,18 @@ function TermsBanner (props) {
       id={id}
       className={classNames(baseClass)}>
       {logo}
-      <span className={classNames(classes.altLink)} onClick={onAltLinkClick}>{altLink}</span>
-      <span className={classNames(classes.link)} onClick={onLinkClick}>{link}</span>
+      {onAltLinkClick && <span
+        className={classNames(classes.altLink)}
+        onClick={onAltLinkClick}>
+        {altLink}
+        </span>
+      }
+      {onLinkClick && <span
+        className={classNames(classes.link)}
+        onClick={onLinkClick}>
+        {link}
+        </span>
+      }
     </div>
   )
 }
