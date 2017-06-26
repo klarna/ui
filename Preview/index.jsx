@@ -12,7 +12,6 @@ const baseClass = 'preview'
 
 const classes = {
   content: `${baseClass}__content`,
-  footer: `${baseClass}__footer`,
   link: `${baseClass}__link`,
   title: `${baseClass}__title`
 }
