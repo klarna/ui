@@ -3,11 +3,11 @@
 
 .banner {
   background-color: map-get($colors, light-grey);
+  border-radius: 0 0 $grid $grid;
   color: map-get($colors, grey-text);
   line-height: ($grid * 3.8);
-  padding: ($grid * 4) ($grid * 3) ($grid * 3) ($grid * 3);
   margin-top: ($grid * -1);
-  border-radius: 0 0 $grid $grid;
+  padding: ($grid * 4) ($grid * 3) ($grid * 3) ($grid * 3);
 }
 
 .banner__link,
