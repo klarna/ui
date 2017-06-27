@@ -8,6 +8,7 @@
   line-height: ($grid * 3.8);
   margin-top: ($grid * -1);
   padding: ($grid * 4) ($grid * 3) ($grid * 3) ($grid * 3);
+  position: relative;
 }
 
 .banner__link,
@@ -18,7 +19,8 @@
 }
 
 .banner__link {
-  float: right;
+  position: absolute;
+  right: 15px;
 }
 
 .banner__alt-link {

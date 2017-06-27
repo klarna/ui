@@ -2,10 +2,9 @@
 @import '../css/mixins/index';
 
 .fieldset {
-  background-color: white;
   border-radius: 5px;
   position: relative;
-  
+
   &.default-margins {
     padding-bottom: ($grid * 5);
   }
