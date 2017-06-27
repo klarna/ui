@@ -12,8 +12,8 @@
 
 .banner__link,
 .banner__alt-link {
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
   cursor: pointer;
-  font-size: ($grid * 2.4);
   vertical-align: bottom;
 }
 
