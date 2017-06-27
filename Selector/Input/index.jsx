@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
-import {themeable, overridable} from '@klarna/higher-order-components'
+import {withTheme, overridable} from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
 import defaultStyles from './styles.scss'
 import * as fieldStates from '../../lib/features/fieldStates'
@@ -214,7 +214,7 @@ const SelectorInput = React.createClass({
 })
 
 export default compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
       borderColorSelected: customizations.color_border_selected,

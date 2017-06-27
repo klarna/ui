@@ -14,9 +14,9 @@ import FieldTooltip from '../FieldTooltip'
 import compose from 'ramda/src/compose'
 import {
   overridable,
-  themeable,
-  uncontrolled,
-  uniqueName
+  withTheme,
+  withUncontrolledProp,
+  withUniqueFormIdentifier
 } from '@klarna/higher-order-components'
 
 const baseClass = 'field'
@@ -314,7 +314,7 @@ const Field = React.createClass({
 })
 
 export default compose(
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
@@ -322,14 +322,14 @@ export default compose(
       onBlur: () => () => false
     }
   }),
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
       onChange: () => e => e.target.value
     }
   }),
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
       borderColorSelected: customizations.color_border_selected,
@@ -340,5 +340,5 @@ export default compose(
     }
   })),
   overridable(defaultStyles),
-  uniqueName
+  withUniqueFormIdentifier
 )(Field)

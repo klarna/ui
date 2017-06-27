@@ -10,7 +10,7 @@ import { handleKeyDown } from '../lib/features/keyboardEvents'
 import MouseflowExclude from '../MouseflowExclude'
 
 import compose from 'ramda/src/compose'
-import {uncontrolled, uniqueName} from '@klarna/higher-order-components'
+import {withUncontrolledProp, withUniqueFormIdentifier} from '@klarna/higher-order-components'
 
 const baseClass = 'input'
 
@@ -214,7 +214,7 @@ const Input = React.createClass({
 })
 
 export default compose(
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
@@ -222,12 +222,12 @@ export default compose(
       onBlur: () => () => false
     }
   }),
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
       onChange: () => e => e.target.value
     }
   }),
-  uniqueName
+  withUniqueFormIdentifier
 )(Input)
