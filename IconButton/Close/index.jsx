@@ -5,7 +5,7 @@ import defaultStyles from '../styles.scss'
 import withDisplayName from '../withDisplayName'
 
 import compose from 'ramda/src/compose'
-import {overridable, themeable} from '@klarna/higher-order-components'
+import {overridable, withTheme} from '@klarna/higher-order-components'
 
 const classes = {
   bgWrapper: 'bg-wrapper',
@@ -60,7 +60,7 @@ Close.propTypes = {
 }
 
 export default compose(
-  themeable(() => ({color: 'gray'})),
+  withTheme(() => ({color: 'gray'})),
   overridable(defaultStyles),
   withDisplayName('Close')
 )(Close)

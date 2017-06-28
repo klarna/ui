@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
 import compose from 'ramda/src/compose'
-import {themeable} from '@klarna/higher-order-components'
+import {withTheme} from '@klarna/higher-order-components'
 import deepMerge from 'deepmerge'
 import defaultStyles from './styles'
 
@@ -88,7 +88,7 @@ RadioMark.defaultProps = {
 }
 
 export default compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       backgroundColor: customizations.color_checkbox,
       bulletColor: customizations.color_checkbox_checkmark,

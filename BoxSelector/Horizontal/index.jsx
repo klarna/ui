@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import {
-  themeable,
+  withTheme,
   overridable,
-  uncontrolled,
-  uniqueName
+  withUncontrolledProp,
+  withUniqueFormIdentifier
 } from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
 import defaultStyles from './styles.scss'
@@ -226,14 +226,14 @@ const cellDynamicStyles = ({ borderRadius, borderColor, borderColorSelected, lab
 })
 
 export default compose(
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
       onChange: () => value => value
     }
   }),
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
       borderColorSelected: customizations.color_border_selected,
@@ -243,5 +243,5 @@ export default compose(
     }
   })),
   overridable(defaultStyles),
-  uniqueName
+  withUniqueFormIdentifier
 )(Horizontal)

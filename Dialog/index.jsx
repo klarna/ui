@@ -3,7 +3,7 @@ import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
 import PropTypes from 'prop-types'
 import defaultStyles from './styles.scss'
-import {themeable, overridable} from '@klarna/higher-order-components'
+import {withTheme, overridable} from '@klarna/higher-order-components'
 import childrenPropType from '../propTypes/children'
 
 const baseClass = 'dialog'
@@ -50,7 +50,7 @@ DialogMain.propTypes = {
 }
 
 export const Main = compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       borderRadius: customizations.radius_border,
       ...customize

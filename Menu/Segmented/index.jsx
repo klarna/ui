@@ -6,7 +6,7 @@ import getActiveElement from '../../lib/getActiveElement'
 import childrenPropType from '../../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import {uncontrolled, uniqueName} from '@klarna/higher-order-components'
+import {withUncontrolledProp, withUniqueFormIdentifier} from '@klarna/higher-order-components'
 
 const baseClass = 'segmented'
 
@@ -131,7 +131,7 @@ const Segmented = React.createClass({
 })
 
 export default compose(
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
@@ -139,12 +139,12 @@ export default compose(
       onBlur: () => () => undefined
     }
   }),
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
       onChange: () => value => value
     }
   }),
-  uniqueName
+  withUniqueFormIdentifier
 )(Segmented)

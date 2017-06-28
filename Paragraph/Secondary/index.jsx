@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
-import {overridable, themeable} from '@klarna/higher-order-components'
+import {overridable, withTheme} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
 
 import defaultStyles from './styles.scss'
@@ -58,7 +58,7 @@ Secondary.propTypes = {
 }
 
 export default compose(
-  themeable(isThemeable((customizations, {style}) => ({
+  withTheme(isThemeable((customizations, {style}) => ({
     style: {
       color: customizations.color_text_secondary,
       ...style
