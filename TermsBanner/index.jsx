@@ -12,10 +12,10 @@ const classes = {
 
 function TermsBanner (props) {
   const {
+    altLink,
     id,
     logo,
     link,
-    altLink,
     onLinkClick,
     onAltLinkClick
   } = props
@@ -44,9 +44,9 @@ function TermsBanner (props) {
 }
 
 TermsBanner.propTypes = {
+  altLink: PropTypes.string,
   id: PropTypes.string,
   link: PropTypes.string,
-  altLink: PropTypes.string,
   onLinkClick: PropTypes.func,
   onAltLinkClick: PropTypes.func
 }
