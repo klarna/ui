@@ -226,14 +226,14 @@ const cellDynamicStyles = ({ borderRadius, borderColor, borderColorSelected, lab
 })
 
 export default compose(
-  withUncontrolledProp({
+  uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
       onChange: () => value => value
     }
   }),
-  withTheme((customizations, {customize}) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
       borderColorSelected: customizations.color_border_selected,
@@ -243,5 +243,5 @@ export default compose(
     }
   })),
   overridable(defaultStyles),
-  withUniqueFormIdentifier
+  uniqueName
 )(Vertical)
