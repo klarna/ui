@@ -317,7 +317,7 @@ const Field = React.createClass({
 })
 
 export default compose(
-  withUncontrolledProp({
+  uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
@@ -325,14 +325,14 @@ export default compose(
       onBlur: () => () => false
     }
   }),
-  withUncontrolledProp({
+  uncontrolled({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
       onChange: () => e => e.target.value
     }
   }),
-  withTheme((customizations, {customize}) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
       borderColorSelected: customizations.color_border_selected,
@@ -343,5 +343,5 @@ export default compose(
     }
   })),
   overridable(defaultStyles),
-  withUniqueFormIdentifier
+  uniqueName
 )(Field)
