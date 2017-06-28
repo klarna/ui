@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import {
-  withTheme,
+  themeable,
   overridable,
-  withUncontrolledProp,
-  withUniqueFormIdentifier
+  uncontrolled,
+  uniqueName
 } from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
 import defaultStyles from './styles.scss'
