@@ -49,7 +49,7 @@ ChecklistMain.propTypes = {
 }
 
 export const Main = compose(
-  withTheme((customizations, props) => ({
+  themeable((customizations, props) => ({
     customize: {
       ...props.customize,
       borderColor: customizations.color_border,
