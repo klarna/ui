@@ -5,7 +5,7 @@ import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import {overridable, withTheme} from '@klarna/higher-order-components'
+import {overridable, themeable} from '@klarna/higher-order-components'
 
 const baseClass = 'checklist'
 
@@ -106,7 +106,7 @@ ChecklistItem.propTypes = {
 }
 
 export const Item = compose(
-  withTheme((customizations, {customize}) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
       strokeColor: customizations.color_details,
       textColor: customizations.color_text,
