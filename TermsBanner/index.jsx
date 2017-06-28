@@ -6,16 +6,16 @@ import defaultStyles from './styles.scss'
 const baseClass = 'banner'
 
 const classes = {
-  link: `${baseClass}__link`,
-  altLink: `${baseClass}__alt-link`
+  altLink: `${baseClass}__alt-link`,
+  link: `${baseClass}__link`
 }
 
 function TermsBanner (props) {
   const {
+    altLink,
     id,
     logo,
     link,
-    altLink,
     onLinkClick,
     onAltLinkClick
   } = props
@@ -44,9 +44,9 @@ function TermsBanner (props) {
 }
 
 TermsBanner.propTypes = {
+  altLink: PropTypes.string,
   id: PropTypes.string,
   link: PropTypes.string,
-  altLink: PropTypes.string,
   onLinkClick: PropTypes.func,
   onAltLinkClick: PropTypes.func
 }
