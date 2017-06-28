@@ -6,7 +6,6 @@
   border-radius: 0 0 $border-radius $border-radius;
   color: map-get($colors, grey-text);
   line-height: ($grid * 3.8);
-  margin-top: 1px;
   padding: ($grid * 3);
   position: relative;
 }
