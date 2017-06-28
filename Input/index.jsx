@@ -38,7 +38,6 @@ const Input = React.createClass({
       loading: false,
       mouseflowExclude: false,
       onChange: function () {},
-      prefilled: false,
       ...inlinedIcon.defaultProps,
       ...fieldStates.defaultProps,
       ...stacking.position.defaultProps,
@@ -61,7 +60,6 @@ const Input = React.createClass({
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
-    prefilled: PropTypes.bool,
     value: PropTypes.string,
     styles: PropTypes.object,
     ...inlinedIcon.propTypes,
@@ -136,7 +134,6 @@ const Input = React.createClass({
       onEnter, // eslint-disable-line no-unused-vars
       onFocus,
       onTab, // eslint-disable-line no-unused-vars
-      prefilled,
       right, // eslint-disable-line no-unused-vars
       square,
       styles,
@@ -151,7 +148,7 @@ const Input = React.createClass({
       (icon ? classes.icon : baseClass), {
         big,
         giant,
-        'is-autofill': !!this.state.autoFill | prefilled,
+        'is-autofill': !!this.state.autoFill,
         'is-centered': centered,
         'is-filled': value != null && value !== '',
         'is-loading': loading,

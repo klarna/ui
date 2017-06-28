@@ -49,7 +49,6 @@ const Field = React.createClass({
       fieldLink: '',
       fieldTooltip: '',
       pinCode: false,
-      prefilled: false,
       mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
       ...fieldStates.defaultProps,
@@ -86,7 +85,6 @@ const Field = React.createClass({
     nonFloatingLabel: PropTypes.bool,
     pattern: PropTypes.string,
     pinCode: PropTypes.bool,
-    prefilled: PropTypes.bool,
     mouseflowExclude: PropTypes.bool,
     responsive: PropTypes.bool,
     value: PropTypes.string,
@@ -182,7 +180,6 @@ const Field = React.createClass({
       onTab, // eslint-disable-line no-unused-vars
       onFieldLinkClick,
       pinCode,
-      prefilled,
       responsive,
       right, // eslint-disable-line no-unused-vars
       square,
@@ -199,7 +196,7 @@ const Field = React.createClass({
     const cls = classNames(
       (icon ? classes.icon : baseClass), {
         big: big || pinCode,
-        'is-autofill': !!this.state.autoFill || prefilled,
+        'is-autofill': !!this.state.autoFill,
         'is-centered': centered || pinCode,
         'is-filled': value != null && value !== '',
         'is-loading': loading,
