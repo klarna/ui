@@ -12,9 +12,9 @@ import FieldTooltip from '../FieldTooltip'
 import compose from 'ramda/src/compose'
 import {
   overridable,
-  withTheme,
-  withUncontrolledProp,
-  withUniqueFormIdentifier
+  themeable,
+  uncontrolled,
+  uniqueName
 } from '@klarna/higher-order-components'
 
 const baseClass = 'dropdown'
