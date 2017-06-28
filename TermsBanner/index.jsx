@@ -6,8 +6,8 @@ import defaultStyles from './styles.scss'
 const baseClass = 'banner'
 
 const classes = {
-  link: `${baseClass}__link`,
-  altLink: `${baseClass}__alt-link`
+  altLink: `${baseClass}__alt-link`,
+  link: `${baseClass}__link`
 }
 
 function TermsBanner (props) {
