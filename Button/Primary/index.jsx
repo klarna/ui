@@ -5,7 +5,6 @@ import {overridable, themeable} from '@klarna/higher-order-components'
 import { withPropsFromContext } from 'react-context-props'
 import classNamesBind from 'classnames/bind'
 import parseColor from 'parse-color'
-(component) => (withPropsFromContext(component, ['brandVolume'])),
 import Loader from '../../Loader'
 import Price from '../Price'
 import contains from '../../lib/contains'
