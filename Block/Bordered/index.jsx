@@ -51,7 +51,7 @@ Bordered.propTypes = {
 }
 
 export default compose(
-  withTheme((customizations, {customize}) => ({
+  themeable((customizations, {customize}) => ({
     customize: {
       borderRadius: customizations.radius_border,
       ...customize
