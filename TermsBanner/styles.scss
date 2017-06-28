@@ -2,10 +2,12 @@
 @import '../css/mixins/index';
 
 .banner {
-  border-radius: 0 0 $grid $grid;
+  background-color: map-get($colors, light-grey);
+  border-radius: 0 0 $border-radius $border-radius;
   color: map-get($colors, grey-text);
   line-height: ($grid * 3.8);
-  padding: ($grid * 3) 0;
+  margin-top: 1px;
+  padding: ($grid * 3);
   position: relative;
 }
 
@@ -18,7 +20,7 @@
 
 .banner__link {
   position: absolute;
-  right: 0;
+  right: ($grid * 3);
 }
 
 .banner__alt-link {

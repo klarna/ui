@@ -33,7 +33,7 @@ export default {
             {
               name: 'address',
               label: 'Street address',
-              bottom: true
+              square: true
             }
           ]}
           autoFocus='lastname'
@@ -53,7 +53,9 @@ export default {
       </div>,
 
       'On Preview': <div>
-        <Preview.Main>
+        <Preview.Main
+          style={{ borderRadius: '5px 5px 0 0' }}
+        >
           <Preview.Title>John Smith</Preview.Title>
           <Preview.Content>
             1425 North Avenue Street<br />
