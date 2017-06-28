@@ -167,7 +167,7 @@ Secondary.propTypes = {
 }
 
 export default compose(
-  withPropsFromContext(['brandVolume']),
+  (component) => (withPropsFromContext(component, ['brandVolume'])),
   themeable((customizations, { customize }) => ({
     customize: {
       backgroundColor: customizations.color_button,
