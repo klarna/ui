@@ -8,7 +8,7 @@ import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import {withUncontrolledProp} from '@klarna/higher-order-components'
+import {uncontrolled} from '@klarna/higher-order-components'
 
 function Fieldset ({
   className,
@@ -102,7 +102,7 @@ Fieldset.propTypes = {
 }
 
 export default compose(
-  withUncontrolledProp({
+  uncontrolled({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
@@ -110,7 +110,7 @@ export default compose(
       onBlur: () => () => undefined
     }
   }),
-  withUncontrolledProp({
+  uncontrolled({
     prop: 'values',
     defaultProp: 'defaultValues',
     handlers: {
