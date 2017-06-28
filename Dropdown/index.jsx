@@ -39,6 +39,7 @@ const Dropdown = React.createClass({
       fieldTooltip: '',
       loading: false,
       onChange: function () {},
+      prefilled: false,
       mouseflowExclude: false,
       ...inlinedIcon.defaultProps,
       ...fieldStates.defaultProps,
@@ -69,6 +70,7 @@ const Dropdown = React.createClass({
       label: PropTypes.string.isRequired,
       key: PropTypes.any.isRequired
     })),
+    prefilled: PropTypes.bool,
     styles: PropTypes.object,
     value: PropTypes.any,
     ...inlinedIcon.propTypes,
@@ -127,6 +129,7 @@ const Dropdown = React.createClass({
       onFocus,
       onTab, // eslint-disable-line no-unused-vars
       options,
+      prefilled,
       right, // eslint-disable-line no-unused-vars
       square,
       styles,
@@ -144,6 +147,7 @@ const Dropdown = React.createClass({
     const cls = classNames(
       baseClass,
       {
+        'is-autofilled': prefilled,
         'is-loading': loading,
         'is-selected': value != null,
         square,
