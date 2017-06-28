@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
-import {overridable, withTheme} from '@klarna/higher-order-components'
+import {overridable, themeable} from '@klarna/higher-order-components'
 import { withPropsFromContext } from 'react-context-props'
 import classNamesBind from 'classnames/bind'
 import parseColor from 'parse-color'
@@ -168,7 +168,7 @@ Secondary.propTypes = {
 
 export default compose(
   withPropsFromContext(['brandVolume']),
-  withTheme((customizations, { customize }) => ({
+  themeable((customizations, { customize }) => ({
     customize: {
       backgroundColor: customizations.color_button,
       borderRadius: customizations.radius_border,
