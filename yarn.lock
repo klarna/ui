@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@klarna/higher-order-components@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.6.0.tgz#fb4ef79cc16b91d7ee40f82b9337b23c1ac55961"
+"@klarna/higher-order-components@0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.8.3.tgz#6c8f3e1a391404522ee9df21c9036955ee91e0ec"
   dependencies:
     collect-fps "2.0.0"
     seed-random "^2.2.0"
