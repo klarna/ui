@@ -61,6 +61,22 @@ export default {
           code: `<Field disabled label='Address' defaultValue='16, Corn street' />`
         },
 
+        'Has been prefilled': {
+          live: <Field
+            mouseflowExclude
+            label='Address'
+            defaultValue='16, Corn street'
+            prefilled
+          />,
+          code:
+`<Field
+  mouseflowExclude
+  label='Address'
+  defaultValue='16, Corn street'
+  prefilled
+/>`
+        },
+
         'Exclude Mouseflow': {
           live: <Field
             mouseflowExclude

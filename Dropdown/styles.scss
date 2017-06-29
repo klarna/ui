@@ -144,6 +144,10 @@
     }
   }
 
+  .is-autofill & {
+    color: map-get($colors, autofill-label);
+  }
+
   .is-error & {
     color: map-get($colors, error);
   }

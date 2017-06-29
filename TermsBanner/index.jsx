@@ -25,7 +25,7 @@ function TermsBanner (props) {
   const ids = id
     ? {
       link: `${id}__link`,
-      altLink: `${id}__alt-link`,
+      altLink: `${id}__alt-link`
     } : {}
 
   return (

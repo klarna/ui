@@ -89,6 +89,27 @@ export default {
 />`
         },
 
+        'Has been prefilled': {
+          live: <Dropdown
+            label='Lorem ipsum'
+            name='dolor-sit-amet'
+            value='lorem'
+            options={options}
+            prefilled
+          />,
+          code:
+`<Dropdown
+  label='Lorem ipsum'
+  name='dolor-sit-amet'
+  prefilled
+  options={[
+    { key: '', label: 'Pick one!', disabled: true, hidden: true },
+    { key: 'lorem', label: 'Lorem sit amet' },
+    { key: 'ipsum', label: 'Ipsum' }
+  ]}
+/>`
+        },
+
         Loading: {
           live: <Dropdown
             label='Wait...'
