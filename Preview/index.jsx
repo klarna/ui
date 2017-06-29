@@ -6,7 +6,7 @@ import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import { overridable, themeable } from '@klarna/higher-order-components'
+import { overridable, withTheme } from '@klarna/higher-order-components'
 
 const baseClass = 'preview'
 
@@ -55,7 +55,7 @@ PreviewMain.propTypes = {
 }
 
 export const Main = compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
       borderRadius: customizations.radius_border,
@@ -97,7 +97,7 @@ PreviewContent.propTypes = {
 }
 
 export const Content = compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       textColor: customizations.color_text_secondary,
       ...customize
@@ -138,7 +138,7 @@ PreviewTitle.propTypes = {
 }
 
 export const Title = compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       textColor: customizations.color_text,
       ...customize
@@ -177,7 +177,7 @@ PreviewLink.propTypes = {
 }
 
 export const Link = compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       linkColor: customizations.color_link,
       ...customize

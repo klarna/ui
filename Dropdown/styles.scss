@@ -155,6 +155,10 @@
   .is-disabled & {
     color: map-get($colors, grey-lines);
   }
+  
+   .is-autofill & {
+    color: map-get($colors, autofill-label);
+  }
 }
 
 .dropdown__current-option {

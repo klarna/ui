@@ -4,7 +4,7 @@ import Input from '../../Input'
 import defaultStyles from './styles.scss'
 
 import compose from 'ramda/src/compose'
-import {uncontrolled} from '@klarna/higher-order-components'
+import {withUncontrolledProp} from '@klarna/higher-order-components'
 
 function SingleInputPrompt ({
   accept,
@@ -71,7 +71,7 @@ function SingleInputPrompt ({
 }
 
 export default compose(
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
@@ -79,7 +79,7 @@ export default compose(
       onBlur: () => () => false
     }
   }),
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
