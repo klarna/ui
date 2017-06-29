@@ -24,6 +24,7 @@ export { default as Selector } from './Selector'
 export { default as Subtitle } from './Subtitle'
 import * as TheSwitch from './Switch'
 import * as TheTemplates from './templates'
+import * as TheTermsBanner from './TermsBanner'
 import * as TheText from './Text'
 export { default as TextLabel } from './TextLabel'
 import * as TheTitle from './Title'
@@ -42,5 +43,6 @@ export const Paragraph = TheParagraph
 export const Preview = ThePreview
 export const Switch = TheSwitch
 export const templates = TheTemplates
+export const TermsBanner = TheTermsBanner
 export const Text = TheText
 export const Title = TheTitle

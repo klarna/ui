@@ -1,0 +1,27 @@
+@import '../css/settings';
+@import '../css/mixins/index';
+
+.banner {
+  background-color: map-get($colors, light-grey);
+  border-radius: 0 0 $border-radius $border-radius;
+  color: map-get($colors, grey-text);
+  line-height: ($grid * 3.8);
+  padding: ($grid * 3);
+  position: relative;
+}
+
+.banner__link,
+.banner__alt-link {
+  @include typography(map-get($font-sizes, main-body-mobile), regular);
+  cursor: pointer;
+  vertical-align: bottom;
+}
+
+.banner__link {
+  position: absolute;
+  right: ($grid * 3);
+}
+
+.banner__alt-link {
+  margin-left: ($grid * 2);
+}
