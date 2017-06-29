@@ -59,14 +59,14 @@ export default {
             mouseflowExclude
             label='Address'
             defaultValue='16, Corn street'
-            prefilled={true}
+            prefilled
           />,
           code:
 `<Input
   mouseflowExclude
   label='Address'
   defaultValue='16, Corn street'
-  prefilled={true}
+  prefilled
 />`
         },
 

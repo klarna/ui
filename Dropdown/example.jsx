@@ -95,13 +95,13 @@ export default {
             name='dolor-sit-amet'
             value='lorem'
             options={options}
-            prefilled={true}
+            prefilled
           />,
           code:
 `<Dropdown
   label='Lorem ipsum'
   name='dolor-sit-amet'
-  prefilled={true}
+  prefilled
   options={[
     { key: '', label: 'Pick one!', disabled: true, hidden: true },
     { key: 'lorem', label: 'Lorem sit amet' },
