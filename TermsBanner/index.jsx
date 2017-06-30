@@ -17,10 +17,11 @@ function TermsBanner (props) {
     logo,
     link,
     onLinkClick,
-    onAltLinkClick
+    onAltLinkClick,
+    styles
   } = props
 
-  const classNames = classNamesBind.bind({ ...defaultStyles })
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const ids = id
     ? {
