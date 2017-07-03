@@ -6,8 +6,8 @@
   border: ($grid * .2) solid map-get($colors, grey-lines);
   border-radius: $border-radius;
   box-sizing: border-box;
-  margin-bottom: ($grid * 5);
   padding: ($grid * 2.8) ($grid * 4);
+  position: relative;
 
   &.has-link {
     cursor: pointer;

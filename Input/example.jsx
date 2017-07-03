@@ -54,6 +54,22 @@ export default {
           code: `<Input disabled label='Address' defaultValue='16, Corn street' />`
         },
 
+        'Has been prefilled': {
+          live: <Input
+            mouseflowExclude
+            label='Address'
+            defaultValue='16, Corn street'
+            prefilled
+          />,
+          code:
+`<Input
+  mouseflowExclude
+  label='Address'
+  defaultValue='16, Corn street'
+  prefilled
+/>`
+        },
+
         'Exclude Mouseflow': {
           live: <Input
             mouseflowExclude

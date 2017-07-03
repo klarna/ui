@@ -26,6 +26,7 @@ import UISavedInputLabel from '../../SavedInputLabel/example'
 import UISelector from '../../Selector/example'
 import UIStrong from '../../Strong/example'
 import UISwitch from '../../Switch/example'
+import UITermsBanner from '../../TermsBanner/example'
 import UIText from '../../Text/example'
 import UITheme from '../../Theme/example'
 import UITooltip from '../../Tooltip/example'
@@ -58,6 +59,7 @@ export const SavedInputLabel = UISavedInputLabel
 export const Selector = UISelector
 export const Strong = UIStrong
 export const Switch = UISwitch
+export const TermsBanner = UITermsBanner
 export const Text = UIText
 export const Theme = UITheme
 export const Tooltip = UITooltip
