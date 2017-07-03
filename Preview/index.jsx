@@ -6,7 +6,7 @@ import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import { overridable, withTheme } from '@klarna/higher-order-components'
+import { withOverrideFromContext, withTheme } from '@klarna/higher-order-components'
 
 const baseClass = 'preview'
 
@@ -62,7 +62,7 @@ export const Main = compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(PreviewMain)
 
 function PreviewContent ({children, className, customize, styles, ...props}) {
@@ -103,7 +103,7 @@ export const Content = compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(PreviewContent)
 
 function PreviewTitle ({children, className, customize, styles, ...props}) {
@@ -144,7 +144,7 @@ export const Title = compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(PreviewTitle)
 
 function PreviewLink ({children, className, customize, styles, ...props}) {
@@ -183,5 +183,5 @@ export const Link = compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(PreviewLink)

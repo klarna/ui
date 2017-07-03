@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
-import {withTheme, overridable} from '@klarna/higher-order-components'
+import {withTheme, withOverrideFromContext} from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
 import defaultStyles from '../styles.scss'
 import withDisplayName from '../withDisplayName'
@@ -65,6 +65,6 @@ Select.propTypes = {
 
 export default compose(
   withTheme(() => ({color: 'gray'})),
-  overridable(defaultStyles),
+  withOverrideFromContext({ styles: defaultStyles }),
   withDisplayName('Select')
 )(Select)

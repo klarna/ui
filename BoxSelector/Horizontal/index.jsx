@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import {
   withTheme,
-  overridable,
+  withOverrideFromContext,
   withUncontrolledProp,
   withUniqueFormIdentifier
 } from '@klarna/higher-order-components'
@@ -242,6 +242,6 @@ export default compose(
       ...customize
     }
   })),
-  overridable(defaultStyles),
+  withOverrideFromContext({ styles: defaultStyles }),
   withUniqueFormIdentifier
 )(Horizontal)

@@ -13,7 +13,7 @@ import FieldTooltip from '../FieldTooltip'
 
 import compose from 'ramda/src/compose'
 import {
-  overridable,
+  withOverrideFromContext,
   withTheme,
   withUncontrolledProp,
   withUniqueFormIdentifier
@@ -342,6 +342,6 @@ export default compose(
       ...customize
     }
   })),
-  overridable(defaultStyles),
+  withOverrideFromContext({ styles: defaultStyles }),
   withUniqueFormIdentifier
 )(Field)

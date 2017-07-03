@@ -4,7 +4,7 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 import compose from 'ramda/src/compose'
-import {overridable} from '@klarna/higher-order-components'
+import {withOverrideFromContext} from '@klarna/higher-order-components'
 
 const baseClass = 'tooltip'
 
@@ -37,5 +37,5 @@ Tooltip.propTypes = {
 }
 
 export default compose(
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(Tooltip)

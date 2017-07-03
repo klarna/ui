@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
-import {overridable, withTheme} from '@klarna/higher-order-components'
+import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
 
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
@@ -66,5 +66,5 @@ export default compose(
       ...style
     }
   }))),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(Secondary)

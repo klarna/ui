@@ -3,7 +3,7 @@ import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
 import PropTypes from 'prop-types'
 import defaultStyles from './styles.scss'
-import {withTheme, overridable} from '@klarna/higher-order-components'
+import {withTheme, withOverrideFromContext} from '@klarna/higher-order-components'
 import childrenPropType from '../propTypes/children'
 
 const baseClass = 'dialog'
@@ -56,7 +56,7 @@ export const Main = compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(DialogMain)
 
 export function Icon ({children, className, left, styles, ...props}) {

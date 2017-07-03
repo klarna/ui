@@ -5,7 +5,7 @@ import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import {overridable, withTheme} from '@klarna/higher-order-components'
+import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
 
 const baseClass = 'checklist'
 
@@ -56,7 +56,7 @@ export const Main = compose(
       borderRadius: customizations.radius_border
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(ChecklistMain)
 
 function ChecklistItem ({className, children, customize, id, styles, ...props}) {
@@ -113,5 +113,5 @@ export const Item = compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(ChecklistItem)

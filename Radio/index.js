@@ -4,7 +4,7 @@ import compose from 'ramda/src/compose'
 import deepMerge from 'deepmerge'
 import {
   withNotifyOnLowFPS,
-  overridable,
+  withOverrideFromContext,
   withTheme,
   withUncontrolledProp,
   withUniqueFormIdentifier
@@ -277,6 +277,6 @@ export default compose(
       ...customize
     }
   })),
-  overridable(defaultStyles),
+  withOverrideFromContext({ styles: defaultStyles }),
   withUniqueFormIdentifier
 )(Radio)

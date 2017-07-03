@@ -5,7 +5,7 @@ import classNamesBind from 'classnames/bind'
 import childrenPropType from '../../propTypes/children'
 import defaultStyles from './styles.scss'
 import {
-  overridable,
+  withOverrideFromContext,
   withTheme
 } from '@klarna/higher-order-components'
 
@@ -57,5 +57,5 @@ export default compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(Bordered)

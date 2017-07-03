@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
-import {withTheme, overridable} from '@klarna/higher-order-components'
+import {withTheme, withOverrideFromContext} from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
 import defaultStyles from './styles.scss'
 import * as fieldStates from '../../lib/features/fieldStates'
@@ -223,5 +223,5 @@ export default compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(SelectorInput)

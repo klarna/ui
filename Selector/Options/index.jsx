@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
 import {
-  overridable,
+  withOverrideFromContext,
   withTheme,
   withUncontrolledProp,
   withUniqueFormIdentifier
@@ -192,5 +192,5 @@ export default compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(Options)

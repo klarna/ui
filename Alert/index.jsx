@@ -4,7 +4,7 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 import compose from 'ramda/src/compose'
-import {overridable} from '@klarna/higher-order-components'
+import {withOverrideFromContext} from '@klarna/higher-order-components'
 
 const baseClass = 'alert'
 
@@ -37,7 +37,7 @@ AlertError.propTypes = {
 }
 
 export const Error = compose(
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(AlertError)
 
 export function AlertWarning ({ children, className, styles, ...remainingProps }) {
@@ -62,7 +62,7 @@ AlertWarning.propTypes = {
 }
 
 export const Warning = compose(
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(AlertWarning)
 
 function AlertTitle ({ children, className, styles, ...remainingProps }) {
@@ -87,7 +87,7 @@ AlertTitle.propTypes = {
 }
 
 export const Title = compose(
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(AlertTitle)
 
 export function AlertParagraph ({ children, className, styles, ...remainingProps }) {
@@ -112,5 +112,5 @@ AlertParagraph.propTypes = {
 }
 
 export const Paragraph = compose(
-  overridable(defaultStyles)
+  withOverrideFromContext({ styles: defaultStyles })
 )(AlertParagraph)
