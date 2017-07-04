@@ -56,7 +56,7 @@ export const Main = compose(
       ...customize
     }
   })),
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(DialogMain)
 
 export function Icon ({children, className, left, styles, ...props}) {

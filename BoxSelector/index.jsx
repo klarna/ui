@@ -60,4 +60,4 @@ BoxSelector.propTypes = {
   layout: PropTypes.oneOf(['auto', 'horizontal', 'vertical'])
 }
 
-export default withOverrideFromContext({ styles: defaultStyles })(BoxSelector)
+export default withOverrideFromContext(BoxSelector)

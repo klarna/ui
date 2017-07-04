@@ -28,5 +28,5 @@ Strong.propTypes = {
 }
 
 export default compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(Strong)

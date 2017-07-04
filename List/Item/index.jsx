@@ -60,5 +60,5 @@ export default compose(
       ...style
     }
   })),
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(Item)

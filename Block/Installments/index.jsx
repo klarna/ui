@@ -38,7 +38,7 @@ InstallmentsMain.propTypes = {
 }
 
 export const Main = compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(InstallmentsMain)
 
 function InstallmentsTitle ({ className, children, styles, ...props }) {
@@ -61,7 +61,7 @@ InstallmentsTitle.propTypes = {
 }
 
 export const Title = compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(InstallmentsTitle)
 
 function InstallmentsContent ({ className, children, styles, ...props }) {
@@ -84,7 +84,7 @@ InstallmentsContent.propTypes = {
 }
 
 export const Content = compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(InstallmentsContent)
 
 function InstallmentsValue ({ className, clarification, children, id, title, styles, value, ...props }) {
@@ -137,5 +137,5 @@ InstallmentsValue.propTypes = {
 }
 
 export const Value = compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(InstallmentsValue)

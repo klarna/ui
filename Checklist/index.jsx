@@ -56,7 +56,7 @@ export const Main = compose(
       borderRadius: customizations.radius_border
     }
   })),
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(ChecklistMain)
 
 function ChecklistItem ({className, children, customize, id, styles, ...props}) {
@@ -113,5 +113,5 @@ export const Item = compose(
       ...customize
     }
   })),
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(ChecklistItem)

@@ -37,7 +37,7 @@ AlertError.propTypes = {
 }
 
 export const Error = compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(AlertError)
 
 export function AlertWarning ({ children, className, styles, ...remainingProps }) {
@@ -62,7 +62,7 @@ AlertWarning.propTypes = {
 }
 
 export const Warning = compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(AlertWarning)
 
 function AlertTitle ({ children, className, styles, ...remainingProps }) {
@@ -87,7 +87,7 @@ AlertTitle.propTypes = {
 }
 
 export const Title = compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(AlertTitle)
 
 export function AlertParagraph ({ children, className, styles, ...remainingProps }) {
@@ -112,5 +112,5 @@ AlertParagraph.propTypes = {
 }
 
 export const Paragraph = compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(AlertParagraph)

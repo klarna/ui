@@ -223,5 +223,5 @@ export default compose(
       ...customize
     }
   })),
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(SelectorInput)

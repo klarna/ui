@@ -62,7 +62,7 @@ export const Main = compose(
       ...customize
     }
   })),
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(PreviewMain)
 
 function PreviewContent ({children, className, customize, styles, ...props}) {
@@ -103,7 +103,7 @@ export const Content = compose(
       ...customize
     }
   })),
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(PreviewContent)
 
 function PreviewTitle ({children, className, customize, styles, ...props}) {
@@ -144,7 +144,7 @@ export const Title = compose(
       ...customize
     }
   })),
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(PreviewTitle)
 
 function PreviewLink ({children, className, customize, styles, ...props}) {
@@ -183,5 +183,5 @@ export const Link = compose(
       ...customize
     }
   })),
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(PreviewLink)

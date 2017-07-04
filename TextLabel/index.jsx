@@ -45,5 +45,5 @@ TextLabel.propTypes = {
 }
 
 export default compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(TextLabel)

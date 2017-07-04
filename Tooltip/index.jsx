@@ -37,5 +37,5 @@ Tooltip.propTypes = {
 }
 
 export default compose(
-  withOverrideFromContext({ styles: defaultStyles })
+  withOverrideFromContext
 )(Tooltip)
