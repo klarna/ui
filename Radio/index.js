@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
 import deepMerge from 'deepmerge'
 import {
-  notifyOnLowFPS,
-  overridable,
-  themeable,
-  uncontrolled,
-  uniqueName
+  withNotifyOnLowFPS,
+  withOverrideFromContext,
+  withTheme,
+  withUncontrolledProp,
+  withUniqueFormIdentifier
 } from '@klarna/higher-order-components'
 import {Motion, spring} from 'react-motion'
 import componentQueries from 'react-component-queries'
@@ -244,15 +244,15 @@ export default compose(
       ? {padded: true}
       : {padded: false}
   ),
-  notifyOnLowFPS({threshold: 10}),
-  uncontrolled({
+  withNotifyOnLowFPS({threshold: 10}),
+  withUncontrolledProp({
     prop: 'fullyExpanded',
     defaultProp: 'autoFullyExpanded',
     handlers: {
       onExpand: () => () => true
     }
   }),
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
@@ -260,14 +260,14 @@ export default compose(
       onBlur: () => () => undefined
     }
   }),
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
       onChange: () => value => value
     }
   }),
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       backgroundColor: customizations.color_checkbox,
       bulletColor: customizations.color_checkbox_checkmark,
@@ -277,6 +277,6 @@ export default compose(
       ...customize
     }
   })),
-  overridable(defaultStyles),
-  uniqueName
+  withOverrideFromContext,
+  withUniqueFormIdentifier
 )(Radio)

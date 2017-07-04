@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
 import {
-  overridable,
-  themeable,
-  uncontrolled,
-  uniqueName
+  withOverrideFromContext,
+  withTheme,
+  withUncontrolledProp,
+  withUniqueFormIdentifier
 } from '@klarna/higher-order-components'
 
 import defaultStyles from './styles.scss'
@@ -167,7 +167,7 @@ const Options = React.createClass({
 })
 
 export default compose(
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
@@ -175,15 +175,15 @@ export default compose(
       onBlur: () => () => undefined
     }
   }),
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
       onChange: () => field => field
     }
   }),
-  uniqueName,
-  themeable((customizations, {customize}) => ({
+  withUniqueFormIdentifier,
+  withTheme((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
       bulletColor: customizations.color_checkbox_checkmark,
@@ -192,5 +192,5 @@ export default compose(
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(Options)

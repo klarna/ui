@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
-import {overridable, themeable} from '@klarna/higher-order-components'
+import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
 
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
@@ -64,11 +64,11 @@ Primary.propTypes = {
 }
 
 export default compose(
-  themeable(isThemeable((customizations, {style}) => ({
+  withTheme(isThemeable((customizations, {style}) => ({
     style: {
       color: customizations.color_header,
       ...style
     }
   }))),
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(Primary)

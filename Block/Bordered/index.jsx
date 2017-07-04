@@ -5,8 +5,8 @@ import classNamesBind from 'classnames/bind'
 import childrenPropType from '../../propTypes/children'
 import defaultStyles from './styles.scss'
 import {
-  overridable,
-  themeable
+  withOverrideFromContext,
+  withTheme
 } from '@klarna/higher-order-components'
 
 const baseClass = 'block--bordered'
@@ -51,11 +51,11 @@ Bordered.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       borderRadius: customizations.radius_border,
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(Bordered)

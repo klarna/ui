@@ -5,7 +5,7 @@ import defaultStyles from '../styles.scss'
 import withDisplayName from '../withDisplayName'
 
 import compose from 'ramda/src/compose'
-import {overridable, themeable} from '@klarna/higher-order-components'
+import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
 
 const classes = {
   bgWrapper: 'bg-wrapper',
@@ -62,7 +62,7 @@ Hamburger.propTypes = {
 }
 
 export default compose(
-  themeable(() => ({color: 'gray'})),
-  overridable(defaultStyles),
+  withTheme(() => ({color: 'gray'})),
+  withOverrideFromContext,
   withDisplayName('Hamburger')
 )(Hamburger)

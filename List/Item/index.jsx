@@ -5,7 +5,7 @@ import defaultStyles from '../styles.scss'
 import childrenPropType from '../../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import {overridable, themeable} from '@klarna/higher-order-components'
+import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
 
 const baseClass = 'list__item'
 
@@ -54,11 +54,11 @@ Item.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, {style}) => ({
+  withTheme((customizations, {style}) => ({
     style: {
       color: customizations.color_text,
       ...style
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(Item)

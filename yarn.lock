@@ -2,11 +2,13 @@
 # yarn lockfile v1
 
 
-"@klarna/higher-order-components@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-0.6.0.tgz#fb4ef79cc16b91d7ee40f82b9337b23c1ac55961"
+"@klarna/higher-order-components@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-1.0.1.tgz#0ea218d1d37bbc170de7362702d2697c25ecbb02"
   dependencies:
     collect-fps "2.0.0"
+    deepmerge "^1.4.4"
+    recompose "^0.23.4"
     seed-random "^2.2.0"
 
 abbrev@1, abbrev@1.0.x:
@@ -1776,6 +1778,10 @@ deep-is@~0.1.2, deep-is@~0.1.3:
 deepmerge@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.3.2.tgz#1663691629d4dbfe364fa12a2a4f0aa86aa3a050"
+
+deepmerge@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.4.4.tgz#40ef393c91af09d16a887e755337844230ad14c9"
 
 defined@^1.0.0:
   version "1.0.0"
@@ -5018,9 +5024,9 @@ react-component-queries@^2.1.1:
   dependencies:
     invariant "^2.2.0"
 
-react-context-props@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/react-context-props/-/react-context-props-0.1.4.tgz#ff6811e0656dfc613bf7efe0981a6d8bbf226ffc"
+react-context-props@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-context-props/-/react-context-props-2.2.0.tgz#1f0bd558b337482c7e437a13699acf7938bca18c"
 
 react-deep-force-update@^2.0.1:
   version "2.0.1"
@@ -5181,6 +5187,15 @@ rechoir@^0.6.2:
 recompose@^0.22.0:
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.22.0.tgz#f099d18385882ca41d9eec891718dadddc3204ef"
+  dependencies:
+    change-emitter "^0.1.2"
+    fbjs "^0.8.1"
+    hoist-non-react-statics "^1.0.0"
+    symbol-observable "^1.0.4"
+
+recompose@^0.23.4:
+  version "0.23.5"
+  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.23.5.tgz#72ac8261246bec378235d187467d02a721e8b1de"
   dependencies:
     change-emitter "^0.1.2"
     fbjs "^0.8.1"

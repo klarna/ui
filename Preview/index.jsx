@@ -6,7 +6,7 @@ import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import { overridable, themeable } from '@klarna/higher-order-components'
+import { withOverrideFromContext, withTheme } from '@klarna/higher-order-components'
 
 const baseClass = 'preview'
 
@@ -55,14 +55,14 @@ PreviewMain.propTypes = {
 }
 
 export const Main = compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
       borderRadius: customizations.radius_border,
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(PreviewMain)
 
 function PreviewContent ({children, className, customize, styles, ...props}) {
@@ -97,13 +97,13 @@ PreviewContent.propTypes = {
 }
 
 export const Content = compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       textColor: customizations.color_text_secondary,
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(PreviewContent)
 
 function PreviewTitle ({children, className, customize, styles, ...props}) {
@@ -138,13 +138,13 @@ PreviewTitle.propTypes = {
 }
 
 export const Title = compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       textColor: customizations.color_text,
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(PreviewTitle)
 
 function PreviewLink ({children, className, customize, styles, ...props}) {
@@ -177,11 +177,11 @@ PreviewLink.propTypes = {
 }
 
 export const Link = compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       linkColor: customizations.color_link,
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(PreviewLink)

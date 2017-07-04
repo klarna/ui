@@ -102,7 +102,7 @@ import * as List from '@klarna/ui/List'`,
         </Theme>
       ),
       Regular: <Theme
-        customizations={{
+        theme={{
           color_border: '#660080',
           color_border_selected: '#00ce3e',
           color_button: '#660080',

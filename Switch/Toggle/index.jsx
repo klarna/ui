@@ -7,10 +7,10 @@ import childrenPropType from '../../propTypes/children'
 
 import compose from 'ramda/src/compose'
 import {
-  overridable,
-  themeable,
-  uncontrolled,
-  uniqueName
+  withOverrideFromContext,
+  withTheme,
+  withUncontrolledProp,
+  withUniqueFormIdentifier
 } from '@klarna/higher-order-components'
 
 const baseClass = 'switch'
@@ -258,7 +258,7 @@ const Toggle = React.createClass({
 })
 
 export default compose(
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',
     handlers: {
@@ -266,14 +266,14 @@ export default compose(
       onBlur: () => () => false
     }
   }),
-  uncontrolled({
+  withUncontrolledProp({
     prop: 'value',
     defaultProp: 'defaultValue',
     handlers: {
       onChange: () => field => field
     }
   }),
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       backgroundColor: customizations.color_checkbox,
       bulletColor: customizations.color_checkbox_checkmark,
@@ -281,6 +281,6 @@ export default compose(
       ...customize
     }
   })),
-  overridable(defaultStyles),
-  uniqueName
+  withOverrideFromContext,
+  withUniqueFormIdentifier
 )(Toggle)

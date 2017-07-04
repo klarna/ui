@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import {
-  overridable
+  withOverrideFromContext
 } from '@klarna/higher-order-components'
 import Horizontal from './Horizontal'
 import Vertical from './Vertical'
@@ -60,4 +60,4 @@ BoxSelector.propTypes = {
   layout: PropTypes.oneOf(['auto', 'horizontal', 'vertical'])
 }
 
-export default overridable(defaultStyles)(BoxSelector)
+export default withOverrideFromContext(BoxSelector)

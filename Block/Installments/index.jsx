@@ -4,7 +4,7 @@ import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../../propTypes/children'
 import compose from 'ramda/src/compose'
-import {overridable} from '@klarna/higher-order-components'
+import {withOverrideFromContext} from '@klarna/higher-order-components'
 
 const baseClass = 'block--installments'
 
@@ -38,7 +38,7 @@ InstallmentsMain.propTypes = {
 }
 
 export const Main = compose(
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(InstallmentsMain)
 
 function InstallmentsTitle ({ className, children, styles, ...props }) {
@@ -61,7 +61,7 @@ InstallmentsTitle.propTypes = {
 }
 
 export const Title = compose(
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(InstallmentsTitle)
 
 function InstallmentsContent ({ className, children, styles, ...props }) {
@@ -84,7 +84,7 @@ InstallmentsContent.propTypes = {
 }
 
 export const Content = compose(
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(InstallmentsContent)
 
 function InstallmentsValue ({ className, clarification, children, id, title, styles, value, ...props }) {
@@ -137,5 +137,5 @@ InstallmentsValue.propTypes = {
 }
 
 export const Value = compose(
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(InstallmentsValue)

@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
-import {overridable} from '@klarna/higher-order-components'
+import {withOverrideFromContext} from '@klarna/higher-order-components'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
@@ -28,5 +28,5 @@ Strong.propTypes = {
 }
 
 export default compose(
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(Strong)

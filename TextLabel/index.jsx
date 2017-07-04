@@ -5,7 +5,7 @@ import defaultStyles from './styles.scss'
 import palette from '../lib/palette'
 import childrenPropType from '../propTypes/children'
 import compose from 'ramda/src/compose'
-import {overridable} from '@klarna/higher-order-components'
+import {withOverrideFromContext} from '@klarna/higher-order-components'
 
 const baseClass = 'text-label'
 
@@ -45,5 +45,5 @@ TextLabel.propTypes = {
 }
 
 export default compose(
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(TextLabel)

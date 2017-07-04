@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
-import {overridable, themeable} from '@klarna/higher-order-components'
+import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
 
 import defaultStyles from './styles.scss'
@@ -55,11 +55,11 @@ Link.propTypes = {
 }
 
 export default compose(
-  themeable((customizations, {customize}) => ({
+  withTheme((customizations, {customize}) => ({
     customize: {
       textColor: customizations.color_link,
       ...customize
     }
   })),
-  overridable(defaultStyles)
+  withOverrideFromContext
 )(Link)
