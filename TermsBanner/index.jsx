@@ -17,7 +17,6 @@ function TermsBanner ({
   link,
   onLinkClick,
   onAltLinkClick,
-  styles,
   ...props
 }) {
 
