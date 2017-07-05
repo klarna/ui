@@ -10,18 +10,17 @@ const classes = {
   link: `${baseClass}__link`
 }
 
-function TermsBanner (props) {
-  const {
-    altLink,
-    id,
-    logo,
-    link,
-    onLinkClick,
-    onAltLinkClick
-  } = props
+function TermsBanner ({
+  altLink,
+  id,
+  logo,
+  link,
+  onLinkClick,
+  onAltLinkClick,
+  ...props
+}) {
 
   const classNames = classNamesBind.bind({ ...defaultStyles })
-
   const ids = id
     ? {
       link: `${id}__link`,
@@ -31,7 +30,9 @@ function TermsBanner (props) {
   return (
     <div
       id={id}
-      className={classNames(baseClass)}>
+      className={classNames(baseClass)}
+      {...props}
+    >
       {logo}
       {onAltLinkClick && <span
         id={ids.altLink}

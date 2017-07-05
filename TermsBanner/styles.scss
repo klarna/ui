@@ -4,6 +4,7 @@
 .banner {
   background-color: map-get($colors, light-grey);
   border-radius: 0 0 $border-radius $border-radius;
+  box-sizing: border-box;
   color: map-get($colors, grey-text);
   line-height: ($grid * 3.8);
   padding: ($grid * 3);
