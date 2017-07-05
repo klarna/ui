@@ -24,7 +24,8 @@ function TermsBanner ({
     <div
       id={id}
       className={classNames('banner')}
-      style={stylesheet.TermsBanner}
+      {...props}
+    >
       {logo}
       {onAltLinkClick && <span
         id={ids.altLink}
@@ -49,7 +50,8 @@ TermsBanner.propTypes = {
   id: PropTypes.string,
   link: PropTypes.string,
   onLinkClick: PropTypes.func,
-  onAltLinkClick: PropTypes.func
+  onAltLinkClick: PropTypes.func,
+  styles: PropTypes.object
 }
 
 export default TermsBanner
