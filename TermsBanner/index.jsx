@@ -10,10 +10,11 @@ function TermsBanner ({
   link,
   onLinkClick,
   onAltLinkClick,
-  styleSheet,
+  styles,
   ...props
 }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles })
+  debugger;
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const ids = id
     ? {
       link: `${id}__link`,
