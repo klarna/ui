@@ -18,7 +18,8 @@ function TermsBanner (props) {
     link,
     onLinkClick,
     onAltLinkClick,
-    styles
+    styles,
+    ...props
   } = props
 
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
