@@ -3,6 +3,13 @@ import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
+const baseClass = 'banner'
+
+const classes = {
+  link: `${baseClass}__link`,
+  altLink: `${baseClass}__alt-link`,
+}
+
 function TermsBanner ({
   altLink,
   id,
@@ -13,8 +20,8 @@ function TermsBanner ({
   styles,
   ...props
 }) {
-  debugger;
-  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+
+  const classNames = classNamesBind.bind({ ...defaultStyles })
   const ids = id
     ? {
       link: `${id}__link`,
@@ -24,7 +31,7 @@ function TermsBanner ({
   return (
     <div
       id={id}
-      className={classNames('banner')}
+      className={classNames(baseClass)}
       {...props}
     >
       {logo}
@@ -51,8 +58,7 @@ TermsBanner.propTypes = {
   id: PropTypes.string,
   link: PropTypes.string,
   onLinkClick: PropTypes.func,
-  onAltLinkClick: PropTypes.func,
-  styles: PropTypes.object
+  onAltLinkClick: PropTypes.func
 }
 
 export default TermsBanner
