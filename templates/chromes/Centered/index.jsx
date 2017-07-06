@@ -31,6 +31,7 @@ export default function Centered ({
   id,
   illustration,
   loading,
+  acceptDisabled,
   onAccept,
   onCancel,
   styles,
@@ -79,6 +80,7 @@ export default function Centered ({
 
     {labels.accept && onAccept && <Button.Primary
       id={ids.accept}
+      disabled={acceptDisabled}
       brandVolume={brandVolume}
       onClick={onAccept}
       loading={loading}
@@ -116,4 +118,8 @@ export default function Centered ({
       {labels.legal}
     </Paragraph.Legal>}
   </Dialog.Content>
+}
+
+Centered.defaultProps = {
+  acceptDisabled: false
 }
