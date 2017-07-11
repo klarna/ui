@@ -19,7 +19,6 @@ function TermsBanner ({
   onAltLinkClick,
   ...props
 }) {
-
   const classNames = classNamesBind.bind({ ...defaultStyles })
   const ids = id
     ? {
