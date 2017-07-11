@@ -20,7 +20,7 @@ import * as TheParagraph from './Paragraph'
 import * as ThePreview from './Preview'
 export { default as ProgressBar } from './ProgressBar'
 export { default as Radio } from './Radio'
-export { default as Selector } from './Selector'
+import * as TheSelector from './Selector'
 export { default as Subtitle } from './Subtitle'
 import * as TheSwitch from './Switch'
 import * as TheTemplates from './templates'
@@ -41,6 +41,7 @@ export const icons = TheIcons
 export const Menu = TheMenu
 export const Paragraph = TheParagraph
 export const Preview = ThePreview
+export const Selector = TheSelector
 export const Switch = TheSwitch
 export const templates = TheTemplates
 export const TermsBanner = TheTermsBanner

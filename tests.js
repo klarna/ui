@@ -1,9 +1,11 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { compose, unnest, flip, keys, map, prop, values } from 'ramda'
+import { deepEqual } from 'assert'
+import { compose, unnest, flip, keys, map, prop, values, pickBy } from 'ramda'
 import { LIVE, LIVE_WIDE, MANUAL, TEMPLATE, SHOWCASE } from './Showroom/variationTypes'
 
 import * as examples from './Showroom/examples'
+import * as index from './index'
 
 const container = document.createElement('div')
 container.id = 'container'
@@ -64,4 +66,10 @@ const createTests = compose(
 
 describe('@klarna/ui', () => {
   map(createTests, ['components', 'templates'])
+
+  describe('index', () => {
+    it('should not export undefined values', () => {
+      deepEqual({}, pickBy((x) => !x, index))
+    })
+  })
 })
