@@ -160,10 +160,6 @@
     color: map-get($colors, grey-text);
   }
 
-  .is-error & {
-    color: map-get($colors, error);
-  }
-
   .is-warning & {
     color: map-get($colors, warning);
   }
@@ -174,6 +170,10 @@
 
   .is-autofill & {
     color: map-get($colors, autofill-label);
+  }
+  
+  .is-error & {
+    color: map-get($colors, error);
   }
 }
 
