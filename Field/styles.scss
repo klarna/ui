@@ -162,6 +162,10 @@
 
   .is-error & {
     color: map-get($colors, error);
+    
+    .is-autofill & {
+      color: map-get($colors, error);
+    }
   }
 
   .is-warning & {
