@@ -61,6 +61,6 @@ Close.propTypes = {
 
 export default compose(
   withTheme(() => ({color: 'gray'})),
-  withOverrideFromContext,
-  withDisplayName('Close')
+  withDisplayName('Close'),
+  withOverrideFromContext
 )(Close)

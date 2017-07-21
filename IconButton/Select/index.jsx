@@ -65,6 +65,6 @@ Select.propTypes = {
 
 export default compose(
   withTheme(() => ({color: 'gray'})),
-  withOverrideFromContext,
-  withDisplayName('Select')
+  withDisplayName('Select'),
+  withOverrideFromContext
 )(Select)
