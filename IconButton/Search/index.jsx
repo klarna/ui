@@ -60,6 +60,6 @@ Search.propTypes = {
 
 export default compose(
   withTheme(() => ({color: 'gray'})),
-  withOverrideFromContext,
-  withDisplayName('Search')
+  withDisplayName('Search'),
+  withOverrideFromContext
 )(Search)

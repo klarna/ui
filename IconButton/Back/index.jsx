@@ -60,6 +60,6 @@ Back.propTypes = {
 
 export default compose(
   withTheme(() => ({color: 'gray'})),
-  withOverrideFromContext,
-  withDisplayName('Back')
+  withDisplayName('Back'),
+  withOverrideFromContext
 )(Back)

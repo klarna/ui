@@ -342,6 +342,6 @@ export default compose(
       ...customize
     }
   })),
-  withOverrideFromContext,
-  withUniqueFormIdentifier
+  withUniqueFormIdentifier,
+  withOverrideFromContext
 )(Field)
