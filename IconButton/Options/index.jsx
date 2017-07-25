@@ -61,6 +61,6 @@ Options.propTypes = {
 
 export default compose(
   withTheme(() => ({color: 'gray'})),
-  withDisplayName('Options'),
-  withOverrideFromContext
+  withOverrideFromContext,
+  withDisplayName('Options')
 )(Options)
