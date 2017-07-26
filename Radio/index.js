@@ -140,7 +140,7 @@ class Radio extends Component {
           ...baseStyle
         }}
         {...remainingProps}>
-        {optionLists.visible.map(OptionWithProps)}
+        {optionLists.visible.map((option, index) => OptionWithProps({hidden: false, ...option}, index))}
 
         {optionLists.collapsed.length > 0 && <Collapsible
           onStartFPSCollection={onStartFPSCollection}
@@ -149,7 +149,7 @@ class Radio extends Component {
           minimumHeight={this.state.expandLabelInitialHeight}
           collapsed={!isExpanded}>
           <div>
-            {optionLists.collapsed.map(OptionWithProps)}
+            {optionLists.collapsed.map((option, index) => OptionWithProps({hidden: !isExpanded, ...option}, index))}
           </div>
         </Collapsible>}
 

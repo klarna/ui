@@ -32,6 +32,7 @@ export default ({
     description,
     disabled,
     aside,
+    hidden,
     content,
     ...restOfProps
   } = option
@@ -76,6 +77,7 @@ export default ({
         ...(options.indexOf(options.find(option => option.key === key)) === options.length - 1 ? finalStyles.last.main : {}),
         ...(borderless ? finalStyles.borderless.main : {})
       }}
+      aria-hidden={hidden}
       id={ids.label}
       key={`${key}-${index}`}
       {...restOfProps}>
