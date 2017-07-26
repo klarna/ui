@@ -149,7 +149,7 @@ class Radio extends Component {
           minimumHeight={this.state.expandLabelInitialHeight}
           collapsed={!isExpanded}>
           <div>
-            {optionLists.collapsed.map((option, index) => OptionWithProps({hidden: true, ...option}, index))}
+            {optionLists.collapsed.map((option, index) => OptionWithProps({hidden: !isExpanded, ...option}, index))}
           </div>
         </Collapsible>}
 
