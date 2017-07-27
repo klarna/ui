@@ -168,7 +168,7 @@ const Dropdown = React.createClass({
         borderColor: this.state.hover || focus
           ? customize.borderColorSelected
           : customize.borderColor,
-        boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`,
+        boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
       }
       : undefined
 
