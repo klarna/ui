@@ -163,24 +163,20 @@ const Dropdown = React.createClass({
     const hasNonDefaultState = disabled || warning || error
     const useDynamicStyles = customize && !hasNonDefaultState
 
-    let dynamicStyles = useDynamicStyles
+    const dynamicStyles = customize
       ? {
-        borderColor: this.state.hover || focus
-          ? customize.borderColorSelected
-          : customize.borderColor,
-        boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
-      }
-      : undefined
-
-    if (customize && customize.borderRadius) {
-      dynamicStyles = {
-        ...dynamicStyles,
-        ...stacking.position.getBorderRadii(
+        ...(!hasNonDefaultState && {
+          borderColor: this.state.hover || focus
+            ? customize.borderColorSelected
+            : customize.borderColor,
+          boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+        }),
+        ...(customize.borderRadius && stacking.position.getBorderRadii(
           this.props,
           customize.borderRadius
-        )
+        ))
       }
-    }
+      : undefined
 
     const selectedDynamicStyles = useDynamicStyles
       ? { color: customize.selectedColor }
