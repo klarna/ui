@@ -111,6 +111,7 @@ const Dropdown = React.createClass({
       arrow,
       bottom, // eslint-disable-line no-unused-vars
       center, // eslint-disable-line no-unused-vars
+      children,
       className,
       customize,
       disabled,
@@ -258,6 +259,8 @@ const Dropdown = React.createClass({
             fieldTooltip={fieldTooltip}
             id={ids.tooltip} />
         }
+
+        {children}
       </div>
     )
   }
