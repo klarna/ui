@@ -284,7 +284,10 @@ const Field = React.createClass({
             icon: classNames(classes.iconIcon),
             fill: classNames(classes.iconIconFill),
             stroke: classNames(classes.iconIconStroke)
-          })
+          }, useDynamicStyles ? {
+            fill: this.state.hover || focus ? customize.borderColor : customize.labelColor,
+            stroke: this.state.hover || focus ? customize.borderColor : customize.labelColor
+          } : {})
         }
 
         <label
