@@ -3,8 +3,8 @@ node_js:
 - '6'
 script:
 - npm test
-- curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
-  && python weigh_in.py index-built.js
+# - curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
+#   && python weigh_in.py index-built.js
 addons:
   apt:
     packages:
@@ -15,8 +15,8 @@ install:
 - curl -o- -L https://yarnpkg.com/install.sh | bash
 - export PATH="$HOME/.yarn/bin:$PATH"
 - yarn install
-- curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
-  && python weigh_in.py index-built.js
+# - curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
+#  && python weigh_in.py index-built.js
 deploy:
   provider: npm
   email: ui-admin.e@klarna.com
