@@ -19,7 +19,7 @@ export const INLINED_ICONS = {
   DETAILS: 'details'
 }
 
-export const renderInlinedIcon = ({ icon }, styles, style) => {
+export const renderInlinedIcon = ({ icon }, styles, style = {}) => {
   if (icon) {
     switch (icon) {
       case INLINED_ICONS.BANK:
