@@ -24,6 +24,10 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   display: block;
   line-height: ($grid * 5);
   padding: ($grid * 2.4) ($grid * 4);
+
+  .is-disabled & {
+    cursor: auto;
+  }
 }
 
 .box-selector--vertical__cell.is-hovered,
@@ -80,6 +84,11 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   &.is-after-previously-selected {
     transition: border 0ms;
   }
+}
+
+.box-selector--vertical__cell.is-disabled {
+  color: map-get($colors, grey-lines);
+  cursor: auto;
 }
 
 .box-selector--vertical__cell__highlight {

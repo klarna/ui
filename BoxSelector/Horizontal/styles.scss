@@ -77,11 +77,20 @@ $highlightTransitionEasing: cubic-bezier(.31,.09,.24,1);
   display: block;
   line-height: ($grid * 4);
   padding-left: 0;
+
+  .is-disabled & {
+    cursor: auto;
+  }
 }
 
 .box-selector--horizontal__cell.is-hovered,
 .box-selector--horizontal__cell.is-focused {
   color: map-get($colors, klarna-blue);
+}
+
+.box-selector--horizontal__cell.is-disabled {
+  color: map-get($colors, grey-lines);
+  cursor: auto;
 }
 
 .box-selector--horizontal__cell__highlight {

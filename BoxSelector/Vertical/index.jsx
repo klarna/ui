@@ -145,7 +145,7 @@ const Vertical = React.createClass({
       <div
         className={classNames(classes.row)}
         id={ids.row}>
-        {options.map(({ key, content }, index) => {
+        {options.map(({ key, content, disabled }, index) => {
           const id = `${name}-${key}`
           const isFirst = index === 0
           const isLast = index === options.length - 1
@@ -159,9 +159,10 @@ const Vertical = React.createClass({
             key={`cell-${id}`}
             className={classNames(
               classes.cell,
-              { 'is-focused': focus === key },
+              { 'is-focused': focus === key && !disabled },
               { 'is-selected': key === selected },
-              { 'is-hovered': id === this.state.hover },
+              { 'is-disabled': disabled },
+              { 'is-hovered': id === this.state.hover && !disabled },
               { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
               { 'is-previously-selected': key === previouslySelected },
               { 'is-after-previously-selected': !(key === selected) && (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
@@ -182,6 +183,7 @@ const Vertical = React.createClass({
               name={name}
               ref={key}
               id={id}
+              disabled={disabled}
               onBlur={onBlur}
               onChange={() => onChange && onChange(key)}
               onFocus={(e) => onFocus && onFocus(key, e)}
