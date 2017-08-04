@@ -9,6 +9,13 @@ const options = [
   { key: 'box-selector_24', content: 'Et consequetur bla bla' }
 ]
 
+const optionsWithDisabled = [
+  { key: 'box-selector_3', content: 'Lorem ipsum dolor sit amet' },
+  { key: 'box-selector_6', content: 'Et consequetur bla bla', disabled: true },
+  { key: 'box-selector_12', content: 'Lorem ipsum dolor sit amet' },
+  { key: 'box-selector_24', content: 'Et consequetur bla bla' }
+]
+
 export default {
   title: 'BoxSelector',
 
@@ -31,6 +38,24 @@ export default {
         focus='box-selector_6'
         options={options}
       />,
+
+      'With disabled': [
+        <BoxSelector
+          key={1}
+          layout='horizontal'
+          onChange={key => console.log('You selected', key)}
+          name='box-selector-disabled-horizontal'
+          options={optionsWithDisabled}
+        />,
+        <div style={{marginBottom: 20}} />,
+        <BoxSelector
+          key={2}
+          layout='vertical'
+          onChange={key => console.log('You selected', key)}
+          name='box-selector-disabled-vertical'
+          options={optionsWithDisabled}
+        />
+      ],
 
       Horizontal: <BoxSelector
         layout='horizontal'

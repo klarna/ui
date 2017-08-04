@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {compose, setDisplayName} from 'recompose'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import {
@@ -60,4 +61,7 @@ BoxSelector.propTypes = {
   layout: PropTypes.oneOf(['auto', 'horizontal', 'vertical'])
 }
 
-export default withOverrideFromContext(BoxSelector)
+export default compose(
+  setDisplayName('BoxSelector'),
+  withOverrideFromContext
+)(BoxSelector)
