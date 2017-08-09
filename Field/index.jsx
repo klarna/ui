@@ -225,7 +225,7 @@ const Field = React.createClass({
           borderColor: this.state.hover || focus
             ? customize.borderColorSelected
             : customize.borderColor,
-          boxShadow: focus && `0 0 4px ${customize.borderColorSelected}`
+          boxShadow: focus && (customize.boxShadow ? customize.boxShadow : `0 0 4px ${customize.borderColorSelected}`)
         }),
         ...stacking.position.getBorderRadii(
           this.props,
@@ -271,6 +271,13 @@ const Field = React.createClass({
       ? <Input {...inputProps} />
       : <input {...inputProps} />
 
+    const inlineIconColor = useDynamicStyles
+      ? (customize.iconColor ? customize.iconColor : customize.labelColor)
+      : {}
+    const inlineIconActiveColor = useDynamicStyles
+      ? (customize.iconActiveColor ? customize.iconActiveColor : customize.borderColor)
+      : {}
+
     return (
       <div
         className={cls}
@@ -285,8 +292,8 @@ const Field = React.createClass({
             fill: classNames(classes.iconIconFill),
             stroke: classNames(classes.iconIconStroke)
           }, useDynamicStyles ? {
-            fill: this.state.hover || focus ? customize.borderColor : customize.labelColor,
-            stroke: this.state.hover || focus ? customize.borderColor : customize.labelColor
+            fill: this.state.hover || focus ? inlineIconActiveColor : inlineIconColor,
+            stroke: this.state.hover || focus ? inlineIconActiveColor : inlineIconColor
           } : {})
         }
 
