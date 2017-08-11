@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from '../styles.scss'
 import childrenPropType from '../../propTypes/children'
 
@@ -54,6 +55,7 @@ Item.propTypes = {
 }
 
 export default compose(
+  setDisplayName('List.Item'),
   withTheme((customizations, {style}) => ({
     style: {
       color: customizations.color_text,
