@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../../lib/getActiveElement'
 import childrenPropType from '../../propTypes/children'
@@ -194,6 +195,7 @@ const Checkbox = React.createClass({
 })
 
 export default compose(
+  setDisplayName('Switch.Checkbox'),
   withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',
