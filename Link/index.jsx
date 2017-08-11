@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
+import setDisplayName from 'recompose/setDisplayName'
 import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
 
@@ -55,6 +56,7 @@ Link.propTypes = {
 }
 
 export default compose(
+  setDisplayName('Link'),
   withTheme((customizations, {customize}) => ({
     customize: {
       textColor: customizations.color_link,

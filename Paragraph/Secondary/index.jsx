@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
+import setDisplayName from 'recompose/setDisplayName'
 import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
 
@@ -58,6 +59,7 @@ Secondary.propTypes = {
 }
 
 export default compose(
+  setDisplayName('Paragraph.Secondary'),
   withTheme(isThemeable((customizations, {style}) => ({
     style: {
       color: customizations.color_text_secondary,
