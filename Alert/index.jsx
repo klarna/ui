@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
+import setDisplayName from 'recompose/setDisplayName'
 import compose from 'ramda/src/compose'
 import {withOverrideFromContext} from '@klarna/higher-order-components'
 
@@ -37,6 +38,7 @@ AlertError.propTypes = {
 }
 
 export const Error = compose(
+  setDisplayName('Alert.Error'),
   withOverrideFromContext
 )(AlertError)
 
@@ -62,6 +64,7 @@ AlertWarning.propTypes = {
 }
 
 export const Warning = compose(
+  setDisplayName('Alert.Warning'),
   withOverrideFromContext
 )(AlertWarning)
 
@@ -87,6 +90,7 @@ AlertTitle.propTypes = {
 }
 
 export const Title = compose(
+  setDisplayName('Alert.Title'),
   withOverrideFromContext
 )(AlertTitle)
 
@@ -112,5 +116,6 @@ AlertParagraph.propTypes = {
 }
 
 export const Paragraph = compose(
+  setDisplayName('Alert.Paragraph'),
   withOverrideFromContext
 )(AlertParagraph)
