@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../lib/getActiveElement'
 import * as fieldStates from '../lib/features/fieldStates'
@@ -327,6 +328,7 @@ const Field = React.createClass({
 })
 
 export default compose(
+  setDisplayName('Field'),
   withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',
