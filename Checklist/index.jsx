@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
@@ -49,6 +50,7 @@ ChecklistMain.propTypes = {
 }
 
 export const Main = compose(
+  setDisplayName('Checklist.Main'),
   withTheme((customizations, props) => ({
     customize: {
       ...props.customize,
@@ -106,6 +108,7 @@ ChecklistItem.propTypes = {
 }
 
 export const Item = compose(
+  setDisplayName('Checklist.Item'),
   withTheme((customizations, {customize}) => ({
     customize: {
       strokeColor: customizations.color_details,
