@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
+import setDisplayName from 'recompose/setDisplayName'
 import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
 
 import defaultStyles from './styles.scss'
@@ -64,6 +65,7 @@ Primary.propTypes = {
 }
 
 export default compose(
+  setDisplayName('Title.Primary'),
   withTheme(isThemeable((customizations, {style}) => ({
     style: {
       color: customizations.color_header,

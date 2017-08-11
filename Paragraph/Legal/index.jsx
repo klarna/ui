@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
 import palette from '../../lib/palette'
 import childrenPropType from '../../propTypes/children'
@@ -55,5 +56,6 @@ Legal.propTypes = {
 }
 
 export default compose(
+  setDisplayName('Paragraph.Legal'),
   withOverrideFromContext
 )(Legal)

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
 import compose from 'ramda/src/compose'
+import setDisplayName from 'recompose/setDisplayName'
 import {withTheme} from '@klarna/higher-order-components'
 import deepMerge from 'deepmerge'
 import defaultStyles from './styles'
@@ -88,6 +89,7 @@ RadioMark.defaultProps = {
 }
 
 export default compose(
+  setDisplayName('RadioMark'),
   withTheme((customizations, {customize}) => ({
     customize: {
       backgroundColor: customizations.color_checkbox,

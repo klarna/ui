@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from '../styles.scss'
 import withDisplayName from '../withDisplayName'
 
@@ -60,6 +61,7 @@ Close.propTypes = {
 }
 
 export default compose(
+  setDisplayName('IconButton.Close'),
   withTheme(() => ({color: 'gray'})),
   withOverrideFromContext,
   withDisplayName('Close')

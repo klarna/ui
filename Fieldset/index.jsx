@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import setDisplayName from 'recompose/setDisplayName'
 import Field from '../Field'
 import Dropdown from '../Dropdown'
 import Input from '../Input'
@@ -102,6 +103,7 @@ Fieldset.propTypes = {
 }
 
 export default compose(
+  setDisplayName('Fieldset'),
   withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',

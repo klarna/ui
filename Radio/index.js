@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
 import deepMerge from 'deepmerge'
+import setDisplayName from 'recompose/setDisplayName'
 import {
   withNotifyOnLowFPS,
   withOverrideFromContext,
@@ -239,6 +240,7 @@ Radio.defaultProps = {
 Radio.displayName = 'Radio'
 
 export default compose(
+  setDisplayName('Radio'),
   componentQueries(
     ({width}) => width > breakpoints.MOBILE_MAX_WIDTH
       ? {padded: true}

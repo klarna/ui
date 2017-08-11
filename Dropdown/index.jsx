@@ -2,6 +2,7 @@ import React from 'react'
 import classNamesBind from 'classnames/bind'
 import PropTypes from 'prop-types'
 import defaultStyles from './styles.scss'
+import setDisplayName from 'recompose/setDisplayName'
 import getActiveElement from '../lib/getActiveElement'
 import * as fieldStates from '../lib/features/fieldStates'
 import * as inlinedIcon from '../lib/features/inlinedIcon'
@@ -279,6 +280,7 @@ const onMouseLeave = (component) => () =>
   })
 
 export default compose(
+  setDisplayName('Dropdown'),
   withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',

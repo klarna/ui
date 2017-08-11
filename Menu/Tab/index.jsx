@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
+import setDisplayName from 'recompose/setDisplayName'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import getActiveElement from '../../lib/getActiveElement'
@@ -164,6 +165,7 @@ Tab.propTypes = {
 Tab.displayName = 'Menu.Tab'
 
 export default compose(
+  setDisplayName('Menu.Tab'),
   withUncontrolledProp({
     prop: 'focus',
     defaultProp: 'autoFocus',

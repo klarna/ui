@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import {withTheme, withOverrideFromContext} from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
 import defaultStyles from '../styles.scss'
@@ -64,6 +65,7 @@ Select.propTypes = {
 }
 
 export default compose(
+  setDisplayName('IconButton.Select'),
   withTheme(() => ({color: 'gray'})),
   withOverrideFromContext,
   withDisplayName('Select')

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from '../styles.scss'
 import withDisplayName from '../withDisplayName'
 
@@ -60,6 +61,7 @@ Options.propTypes = {
 }
 
 export default compose(
+  setDisplayName('Button.Options'),
   withTheme(() => ({color: 'gray'})),
   withOverrideFromContext,
   withDisplayName('Options')

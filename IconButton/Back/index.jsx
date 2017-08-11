@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from '../styles.scss'
 import withDisplayName from '../withDisplayName'
 
@@ -59,6 +60,7 @@ Back.propTypes = {
 }
 
 export default compose(
+  setDisplayName('IconButton.Back'),
   withTheme(() => ({color: 'gray'})),
   withOverrideFromContext,
   withDisplayName('Back')

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
 import {withTheme, withOverrideFromContext} from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
 import * as fieldStates from '../../lib/features/fieldStates'
 import * as inlinedIcon from '../../lib/features/inlinedIcon'
@@ -214,6 +215,7 @@ const SelectorInput = React.createClass({
 })
 
 export default compose(
+  setDisplayName('Selector.Input'),
   withTheme((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
