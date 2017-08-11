@@ -72,7 +72,7 @@
     "react-maskedinput": "^3.3.1",
     "react-motion": "^0.4.2",
     "react-syntax-highlighter": "^2.2.0",
-    "recompose": "^0.22.0",
+    "recompose": "^0.24.0",
     "resolve-url-loader": "^1.2.0",
     "sass-lint": "^1.9.1",
     "sass-loader": "^3.2.0",
@@ -93,8 +93,8 @@
     "prop-types": "^15.5.9",
     "ramda": "^0.21.0",
     "react": "^0.14.0 || ^15.0.0",
-    "react-motion": "^0.4.2",
-    "react-dom": "^15.5.0"
+    "react-dom": "^15.5.0",
+    "react-motion": "^0.4.2"
   },
   "standard": {
     "globals": [
