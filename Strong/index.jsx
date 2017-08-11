@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import compose from 'ramda/src/compose'
 import {withOverrideFromContext} from '@klarna/higher-order-components'
 import defaultStyles from './styles.scss'
@@ -28,5 +29,6 @@ Strong.propTypes = {
 }
 
 export default compose(
+  setDisplayName('Strong'),
   withOverrideFromContext
 )(Strong)
