@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from '../styles.scss'
 import withDisplayName from '../withDisplayName'
 
@@ -62,6 +63,7 @@ Hamburger.propTypes = {
 }
 
 export default compose(
+  setDisplayName('Button.Hamburger'),
   withTheme(() => ({color: 'gray'})),
   withOverrideFromContext,
   withDisplayName('Hamburger')
