@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../../propTypes/children'
 import compose from 'ramda/src/compose'
@@ -38,6 +39,7 @@ InstallmentsMain.propTypes = {
 }
 
 export const Main = compose(
+  setDisplayName('Block.Installments.Main'),
   withOverrideFromContext
 )(InstallmentsMain)
 
@@ -61,6 +63,7 @@ InstallmentsTitle.propTypes = {
 }
 
 export const Title = compose(
+  setDisplayName('Block.Installments.Title'),
   withOverrideFromContext
 )(InstallmentsTitle)
 
@@ -84,6 +87,7 @@ InstallmentsContent.propTypes = {
 }
 
 export const Content = compose(
+  setDisplayName('Block.Installments.Content'),
   withOverrideFromContext
 )(InstallmentsContent)
 
@@ -137,5 +141,6 @@ InstallmentsValue.propTypes = {
 }
 
 export const Value = compose(
+  setDisplayName('Block.Installments.Value'),
   withOverrideFromContext
 )(InstallmentsValue)

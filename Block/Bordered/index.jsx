@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
+import setDisplayName from 'recompose/setDisplayName'
 import classNamesBind from 'classnames/bind'
 import childrenPropType from '../../propTypes/children'
 import defaultStyles from './styles.scss'
@@ -51,6 +52,7 @@ Bordered.propTypes = {
 }
 
 export default compose(
+  setDisplayName('Block.Bordered'),
   withTheme((customizations, {customize}) => ({
     customize: {
       borderRadius: customizations.radius_border,
