@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import setDisplayName from 'recompose/setDisplayName'
 import contains from '../lib/contains'
 import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
@@ -55,6 +56,7 @@ PreviewMain.propTypes = {
 }
 
 export const Main = compose(
+  setDisplayName('Preview.Main'),
   withTheme((customizations, {customize}) => ({
     customize: {
       borderColor: customizations.color_border,
@@ -97,6 +99,7 @@ PreviewContent.propTypes = {
 }
 
 export const Content = compose(
+  setDisplayName('Preview.Content'),
   withTheme((customizations, {customize}) => ({
     customize: {
       textColor: customizations.color_text_secondary,
@@ -138,6 +141,7 @@ PreviewTitle.propTypes = {
 }
 
 export const Title = compose(
+  setDisplayName('Preview.Title'),
   withTheme((customizations, {customize}) => ({
     customize: {
       textColor: customizations.color_text,
@@ -177,6 +181,7 @@ PreviewLink.propTypes = {
 }
 
 export const Link = compose(
+  setDisplayName('Preview.Link'),
   withTheme((customizations, {customize}) => ({
     customize: {
       linkColor: customizations.color_link,
