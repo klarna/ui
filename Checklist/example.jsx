@@ -10,23 +10,17 @@ export default {
     type: LIVE,
 
     examples: {
-      Header: <Checklist.Main title='this is the title'>
-        <Checklist.Item>Just one click and you're done</Checklist.Item>
-        <Checklist.Item>Very little hassle</Checklist.Item>
-        <Checklist.Item>Just do it!</Checklist.Item>
-      </Checklist.Main>,
-
-      HeaderAndFooter: <Checklist.Main title='this is the title'>
-        <Checklist.Item>Just one click and you're done</Checklist.Item>
-        <Checklist.Item>Very little hassle</Checklist.Item>
-        <Checklist.Item>Just do it!</Checklist.Item>
-        <Checklist.Footer><a href='http://google.com'>This is the footer</a></Checklist.Footer>
-      </Checklist.Main>,
-
       Regular: <Checklist.Main>
         <Checklist.Item>Just one click and you're done</Checklist.Item>
         <Checklist.Item>Very little hassle</Checklist.Item>
         <Checklist.Item>Just do it!</Checklist.Item>
+      </Checklist.Main>,
+
+      'Header and footer': <Checklist.Main title='this is the title'>
+        <Checklist.Item>Just one click and you're done</Checklist.Item>
+        <Checklist.Item>Very little hassle</Checklist.Item>
+        <Checklist.Item>Just do it!</Checklist.Item>
+        <Checklist.Footer><a href='http://google.com'>This is the footer</a></Checklist.Footer>
       </Checklist.Main>,
 
       Chromeless: <Checklist.Main chromeless>
