@@ -13,7 +13,8 @@
   }
 
   h1 {
-    padding-top: ($grid * 2);
+    @include subtitle;
+
     text-align: center;
   }
 

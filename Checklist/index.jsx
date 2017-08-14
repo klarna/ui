@@ -31,9 +31,9 @@ function ChecklistMain({ chromeless, className, children, title, customize, styl
     }}
     className={classNames(baseClass, { chromeless }, className)}
   >
-    {title && <h1>{title}</h1>}
     <ul
     {...props}>
+      {title && <h1>{title}</h1>}
       {children}
     </ul>
   </div>
