@@ -16,7 +16,7 @@ const classes = {
   footer: `${baseClass}__footer`
 }
 
-function ChecklistMain({ chromeless, className, children, title, customize, style, styles, ...props }) {
+function ChecklistMain ({ chromeless, className, children, title, customize, style, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const dynamicStyles = customize
@@ -33,7 +33,7 @@ function ChecklistMain({ chromeless, className, children, title, customize, styl
     className={classNames(baseClass, { chromeless }, className)}
   >
     <ul
-    {...props}>
+      {...props}>
       {title && <h1>{title}</h1>}
       {children}
     </ul>
@@ -67,7 +67,7 @@ export const Main = compose(
   withOverrideFromContext
 )(ChecklistMain)
 
-function ChecklistItem({ className, children, customize, id, styles, ...props }) {
+function ChecklistItem ({ className, children, customize, id, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const listItemDynamicStyles = customize
     ? { color: customize.textColor }
@@ -125,7 +125,7 @@ export const Item = compose(
   withOverrideFromContext
 )(ChecklistItem)
 
-function ChecklistFooter({ className, children, customize, id, styles, ...props }) {
+function ChecklistFooter ({ className, children, customize, id, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const listFooterDynamicStyles = customize
     ? { color: customize.textColor }
