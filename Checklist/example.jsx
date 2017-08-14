@@ -10,6 +10,12 @@ export default {
     type: LIVE,
 
     examples: {
+      Header: <Checklist.Main title="this is the title">
+        <Checklist.Item>Just one click and you're done</Checklist.Item>
+        <Checklist.Item>Very little hassle</Checklist.Item>
+        <Checklist.Item>Just do it!</Checklist.Item>
+      </Checklist.Main>,
+
       Regular: <Checklist.Main>
         <Checklist.Item>Just one click and you're done</Checklist.Item>
         <Checklist.Item>Very little hassle</Checklist.Item>

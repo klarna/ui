@@ -5,9 +5,17 @@
   background: map-get($colors, light-grey);
   border-radius: $border-radius;
   line-height: ($grid * 4);
-  list-style: none;
   margin: ($grid * -.2) 0 0 0;
-  padding: ($grid * 2) ($grid * 4) ($grid * 2.8);
+
+  ul {
+      padding: ($grid * 2) ($grid * 4) ($grid * 2.8);
+      list-style: none;
+  }
+
+  h1 {
+    padding-top: ($grid * 2);
+    text-align: center;
+  }
 
   &.chromeless {
     background: transparent;

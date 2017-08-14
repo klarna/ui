@@ -6,7 +6,7 @@ import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
+import { withOverrideFromContext, withTheme } from '@klarna/higher-order-components'
 
 const baseClass = 'checklist'
 
@@ -15,7 +15,7 @@ const classes = {
   checkmark: `${baseClass}__checkmark`
 }
 
-function ChecklistMain ({ chromeless, className, children, customize, style, styles, ...props }) {
+function ChecklistMain({ chromeless, className, children, title, customize, style, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const dynamicStyles = customize
@@ -24,21 +24,26 @@ function ChecklistMain ({ chromeless, className, children, customize, style, sty
       borderColor: customize.borderColor
     } : {}
 
-  return <ul
+  return <div
     style={{
       ...dynamicStyles,
       ...style
     }}
     className={classNames(baseClass, { chromeless }, className)}
+  >
+    {title && <h1>{title}</h1>}
+    <ul
     {...props}>
-    {children}
-  </ul>
+      {children}
+    </ul>
+  </div>
 }
 
 ChecklistMain.displayName = 'Checklist.Main'
 
 ChecklistMain.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
   children: childrenPropType,
   chromeless: PropTypes.bool,
   id: PropTypes.string,
@@ -61,7 +66,7 @@ export const Main = compose(
   withOverrideFromContext
 )(ChecklistMain)
 
-function ChecklistItem ({className, children, customize, id, styles, ...props}) {
+function ChecklistItem({ className, children, customize, id, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const listItemDynamicStyles = customize
     ? { color: customize.textColor }
@@ -109,7 +114,7 @@ ChecklistItem.propTypes = {
 
 export const Item = compose(
   setDisplayName('Checklist.Item'),
-  withTheme((customizations, {customize}) => ({
+  withTheme((customizations, { customize }) => ({
     customize: {
       strokeColor: customizations.color_details,
       textColor: customizations.color_text,
