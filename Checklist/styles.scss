@@ -42,6 +42,14 @@
     }
   }
 
+  &__footer {
+    @include typography(map-get($font-sizes, main-body-mobile), regular);
+    @include respond-to-wide {
+      @include typography(map-get($font-sizes, main-body-desktop), regular);
+    }
+    text-align: center;
+  }
+
   &__checkmark {
     fill: none;
     height: ($grid * 4);

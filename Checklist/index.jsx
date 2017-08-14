@@ -12,7 +12,8 @@ const baseClass = 'checklist'
 
 const classes = {
   item: `${baseClass}__item`,
-  checkmark: `${baseClass}__checkmark`
+  checkmark: `${baseClass}__checkmark`,
+  footer: `${baseClass}__footer`
 }
 
 function ChecklistMain({ chromeless, className, children, title, customize, style, styles, ...props }) {
@@ -123,3 +124,38 @@ export const Item = compose(
   })),
   withOverrideFromContext
 )(ChecklistItem)
+
+function ChecklistFooter({ className, children, customize, id, styles, ...props }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+  const listFooterDynamicStyles = customize
+    ? { color: customize.textColor }
+    : undefined
+
+  return <div
+    className={classNames(classes.footer, className)}
+    id={id}
+    style={listFooterDynamicStyles}
+    {...props}>
+    {children}
+  </div>
+}
+
+ChecklistFooter.displayName = 'Checklist.Footer'
+
+ChecklistFooter.propTypes = {
+  className: PropTypes.string,
+  children: childrenPropType,
+  id: PropTypes.string,
+  styles: PropTypes.object,
+  customize: PropTypes.object
+}
+
+export const Footer = compose(
+  setDisplayName('Checklist.Footer'),
+  withTheme((customizations, { customize }) => ({
+    customize: {
+      ...customize
+    }
+  })),
+  withOverrideFromContext
+)(ChecklistFooter)
