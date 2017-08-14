@@ -6,16 +6,17 @@ import defaultStyles from './styles.scss'
 import childrenPropType from '../propTypes/children'
 
 import compose from 'ramda/src/compose'
-import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
+import { withOverrideFromContext, withTheme } from '@klarna/higher-order-components'
 
 const baseClass = 'checklist'
 
 const classes = {
   item: `${baseClass}__item`,
-  checkmark: `${baseClass}__checkmark`
+  checkmark: `${baseClass}__checkmark`,
+  footer: `${baseClass}__footer`
 }
 
-function ChecklistMain ({ chromeless, className, children, customize, style, styles, ...props }) {
+function ChecklistMain ({ chromeless, className, children, title, customize, style, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   const dynamicStyles = customize
@@ -24,21 +25,26 @@ function ChecklistMain ({ chromeless, className, children, customize, style, sty
       borderColor: customize.borderColor
     } : {}
 
-  return <ul
+  return <div
     style={{
       ...dynamicStyles,
       ...style
     }}
     className={classNames(baseClass, { chromeless }, className)}
-    {...props}>
-    {children}
-  </ul>
+  >
+    <ul
+      {...props}>
+      {title && <h1>{title}</h1>}
+      {children}
+    </ul>
+  </div>
 }
 
 ChecklistMain.displayName = 'Checklist.Main'
 
 ChecklistMain.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
   children: childrenPropType,
   chromeless: PropTypes.bool,
   id: PropTypes.string,
@@ -61,7 +67,7 @@ export const Main = compose(
   withOverrideFromContext
 )(ChecklistMain)
 
-function ChecklistItem ({className, children, customize, id, styles, ...props}) {
+function ChecklistItem ({ className, children, customize, id, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const listItemDynamicStyles = customize
     ? { color: customize.textColor }
@@ -109,7 +115,7 @@ ChecklistItem.propTypes = {
 
 export const Item = compose(
   setDisplayName('Checklist.Item'),
-  withTheme((customizations, {customize}) => ({
+  withTheme((customizations, { customize }) => ({
     customize: {
       strokeColor: customizations.color_details,
       textColor: customizations.color_text,
@@ -118,3 +124,38 @@ export const Item = compose(
   })),
   withOverrideFromContext
 )(ChecklistItem)
+
+function ChecklistFooter ({ className, children, customize, id, styles, ...props }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+  const listFooterDynamicStyles = customize
+    ? { color: customize.textColor }
+    : undefined
+
+  return <div
+    className={classNames(classes.footer, className)}
+    id={id}
+    style={listFooterDynamicStyles}
+    {...props}>
+    {children}
+  </div>
+}
+
+ChecklistFooter.displayName = 'Checklist.Footer'
+
+ChecklistFooter.propTypes = {
+  className: PropTypes.string,
+  children: childrenPropType,
+  id: PropTypes.string,
+  styles: PropTypes.object,
+  customize: PropTypes.object
+}
+
+export const Footer = compose(
+  setDisplayName('Checklist.Footer'),
+  withTheme((customizations, { customize }) => ({
+    customize: {
+      ...customize
+    }
+  })),
+  withOverrideFromContext
+)(ChecklistFooter)
