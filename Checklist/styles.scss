@@ -6,16 +6,12 @@
   border-radius: $border-radius;
   line-height: ($grid * 4);
   margin: ($grid * -.2) 0 0 0;
+  padding: ($grid * 2) ($grid * 4) ($grid * 2.8);
 
   ul {
     list-style: none;
-    padding: ($grid * 2) ($grid * 4) ($grid * 2.8);
-  }
-
-  h1 {
-    @include subtitle;
-
-    text-align: center;
+    margin: 0;
+    padding: 0;
   }
 
   &.chromeless {
@@ -23,6 +19,13 @@
     border: 0;
     margin: 0;
     padding: 0;
+  }
+
+  &__title {
+    @include subtitle;
+
+    padding-top: ($grid * 1.2);
+    text-align: center;
   }
 
   &__item {
@@ -47,6 +50,9 @@
     @include respond-to-wide {
       @include typography(map-get($font-sizes, main-body-desktop), regular);
     }
+
+    padding-bottom: $grid;
+    padding-top: ($grid * 1.4);
     text-align: center;
   }
 
