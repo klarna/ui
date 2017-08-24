@@ -37,22 +37,22 @@ function TermsBanner ({
     >
       <div className={classNames(classes.logoWrapper)}>{logo}</div>
       {onAltLinkClick && <div className={classNames(classes.altLinkWrapper)}>
-          <span
-            id={ids.altLink}
-            className={classNames(classes.altLink)}
-            onClick={onAltLinkClick}>
-            {altLink}
-          </span>
-        </div>
+        <span
+          id={ids.altLink}
+          className={classNames(classes.altLink)}
+          onClick={onAltLinkClick}>
+          {altLink}
+        </span>
+      </div>
       }
       {onLinkClick && <div className={classNames(classes.linkWrapper)}>
-          <span
-            id={ids.link}
-            className={classNames(classes.link)}
-            onClick={onLinkClick}>
-            {link}
-          </span>
-        </div>
+        <span
+          id={ids.link}
+          className={classNames(classes.link)}
+          onClick={onLinkClick}>
+          {link}
+        </span>
+      </div>
       }
     </div>
   )
