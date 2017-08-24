@@ -17,16 +17,6 @@
 .banner__alt-link {
   @include typography(map-get($font-sizes, main-body-mobile), regular);
   cursor: pointer;
-  vertical-align: bottom;
-}
-
-.banner__link {
-  position: absolute;
-  right: ($grid * 3);
-}
-
-.banner__alt-link {
-  margin-left: ($grid * 2);
 }
 
 .banner__logo-wrapper {
