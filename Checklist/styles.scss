@@ -14,7 +14,6 @@
     padding: 0;
   }
 
-
   &.chromeless {
     background: transparent;
     border: 0;
@@ -25,8 +24,8 @@
   &__title {
     @include subtitle;
 
-    text-align: center;
     padding-top: ($grid * 1.2);
+    text-align: center;
   }
 
   &__item {
@@ -52,9 +51,9 @@
       @include typography(map-get($font-sizes, main-body-desktop), regular);
     }
 
-    text-align: center;
-    padding-top: ($grid * 1.4);
     padding-bottom: $grid;
+    padding-top: ($grid * 1.4);
+    text-align: center;
   }
 
   &__checkmark {
