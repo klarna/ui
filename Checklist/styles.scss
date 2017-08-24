@@ -6,24 +6,27 @@
   border-radius: $border-radius;
   line-height: ($grid * 4);
   margin: ($grid * -.2) 0 0 0;
+  padding: ($grid * 2) ($grid * 4) ($grid * 2.8);
 
   ul {
     list-style: none;
     margin: 0;
-    padding: ($grid * 2) ($grid * 4) ($grid * 2.8);
+    padding: 0;
   }
 
-  h1 {
-    @include subtitle;
-
-    text-align: center;
-  }
 
   &.chromeless {
     background: transparent;
     border: 0;
     margin: 0;
     padding: 0;
+  }
+
+  &__title {
+    @include subtitle;
+
+    text-align: center;
+    padding-top: ($grid * 1.2);
   }
 
   &__item {
@@ -48,7 +51,10 @@
     @include respond-to-wide {
       @include typography(map-get($font-sizes, main-body-desktop), regular);
     }
+
     text-align: center;
+    padding-top: ($grid * 1.4);
+    padding-bottom: $grid;
   }
 
   &__checkmark {

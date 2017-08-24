@@ -11,6 +11,7 @@ import { withOverrideFromContext, withTheme } from '@klarna/higher-order-compone
 const baseClass = 'checklist'
 
 const classes = {
+  title: `${baseClass}__title`,
   item: `${baseClass}__item`,
   checkmark: `${baseClass}__checkmark`,
   footer: `${baseClass}__footer`
@@ -25,6 +26,10 @@ function ChecklistMain ({ chromeless, className, children, title, customize, sty
       borderColor: customize.borderColor
     } : {}
 
+  const allChildren = React.Children.toArray(children)
+  const items = allChildren.filter((child) => child.type === Item)
+  const footer = allChildren.filter((child) => child.type === Footer)
+
   return <div
     style={{
       ...dynamicStyles,
@@ -32,11 +37,13 @@ function ChecklistMain ({ chromeless, className, children, title, customize, sty
     }}
     className={classNames(baseClass, { chromeless }, className)}
   >
-    <ul
-      {...props}>
-      {title && <h1>{title}</h1>}
-      {children}
+    {title && <h1 className={classNames(classes.title)}>{title}</h1>}
+
+    <ul {...props}>
+      {items}
     </ul>
+
+    {footer}
   </div>
 }
 
