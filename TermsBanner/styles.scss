@@ -6,9 +6,11 @@
   border-radius: 0 0 $border-radius $border-radius;
   box-sizing: border-box;
   color: map-get($colors, grey-text);
+  display: table;
   line-height: ($grid * 3.8);
   padding: ($grid * 3);
   position: relative;
+  width: 100%;
 }
 
 .banner__link,
@@ -25,4 +27,21 @@
 
 .banner__alt-link {
   margin-left: ($grid * 2);
+}
+
+.banner__logo-wrapper {
+  display: table-cell;
+  width: 68px;
+  vertical-align: middle;
+}
+
+.banner__alt-link-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.banner__link-wrapper` {
+  display: table-cell;
+  text-align: right;
+  vertical-align: middle;
 }
