@@ -35,9 +35,7 @@ function TermsBanner ({
       className={classNames(baseClass)}
       {...props}
     >
-      <div className={classNames(classes.logoWrapper)>
-        {logo}
-      </div>
+      <div className={classNames(classes.logoWrapper)>{logo}</div>
       {onAltLinkClick && <div className={classNames(classes.altLinkWrapper)>
           <span
             id={ids.altLink}
