@@ -35,8 +35,8 @@ function TermsBanner ({
       className={classNames(baseClass)}
       {...props}
     >
-      <div className={classNames(classes.logoWrapper)>{logo}</div>
-      {onAltLinkClick && <div className={classNames(classes.altLinkWrapper)>
+      <div className={classNames(classes.logoWrapper)}>{logo}</div>
+      {onAltLinkClick && <div className={classNames(classes.altLinkWrapper)}>
           <span
             id={ids.altLink}
             className={classNames(classes.altLink)}
@@ -45,7 +45,7 @@ function TermsBanner ({
           </span>
         </div>
       }
-      {onLinkClick && <div className={classNames(classes.linkWrapper)>
+      {onLinkClick && <div className={classNames(classes.linkWrapper)}>
           <span
             id={ids.link}
             className={classNames(classes.link)}
