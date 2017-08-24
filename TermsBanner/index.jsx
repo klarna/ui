@@ -7,7 +7,10 @@ const baseClass = 'banner'
 
 const classes = {
   altLink: `${baseClass}__alt-link`,
-  link: `${baseClass}__link`
+  link: `${baseClass}__link`,
+  logoWrapper: `${baseClass}__logo-wrapper`,
+  altLinkWrapper: `${baseClass}__alt-link-wrapper`,
+  linkWrapper: `${baseClass}__link-wrapper`
 }
 
 function TermsBanner ({
@@ -23,10 +26,7 @@ function TermsBanner ({
   const ids = id
     ? {
       link: `${id}__link`,
-      altLink: `${id}__alt-link`,
-      logoWrapper: `${id}__logo-wrapper`,
-      altLinkWrapper: `${id}__alt-link-wrapper`,
-      linkWrapper: `${id}__link-wrapper`
+      altLink: `${id}__alt-link`
     } : {}
 
   return (
@@ -35,10 +35,10 @@ function TermsBanner ({
       className={classNames(baseClass)}
       {...props}
     >
-      <div id={ids.logoWrapper}>
+      <div className={classNames(classes.logoWrapper)>
         {logo}
       </div>
-      {onAltLinkClick && <div id={ids.altLinkWrapper}>
+      {onAltLinkClick && <div className={classNames(classes.altLinkWrapper)>
           <span
             id={ids.altLink}
             className={classNames(classes.altLink)}
@@ -47,7 +47,7 @@ function TermsBanner ({
           </span>
         </div>
       }
-      {onLinkClick && <div id={ids.linkWrapper}>
+      {onLinkClick && <div className={classNames(classes.linkWrapper)>
           <span
             id={ids.link}
             className={classNames(classes.link)}
