@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import compose from 'ramda/src/compose'
 import setDisplayName from 'recompose/setDisplayName'
-import {withOverrideFromContext, withTheme} from '@klarna/higher-order-components'
+import {withOverrideFromContext} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
