@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNamesBind from 'classnames/bind'
+import compose from 'ramda/src/compose'
+import setDisplayName from 'recompose/setDisplayName'
+import {withOverrideFromContext} from '@klarna/higher-order-components'
 import defaultStyles from './styles.scss'
 
 const baseClass = 'banner'
@@ -20,9 +23,10 @@ function TermsBanner ({
   link,
   onLinkClick,
   onAltLinkClick,
+  styles,
   ...props
 }) {
-  const classNames = classNamesBind.bind({ ...defaultStyles })
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const ids = id
     ? {
       link: `${id}__link`,
@@ -58,12 +62,18 @@ function TermsBanner ({
   )
 }
 
+TermsBanner.displayName = 'TermsBanner'
+
 TermsBanner.propTypes = {
   altLink: PropTypes.string,
   id: PropTypes.string,
   link: PropTypes.string,
   onLinkClick: PropTypes.func,
-  onAltLinkClick: PropTypes.func
+  onAltLinkClick: PropTypes.func,
+  styles: PropTypes.object
 }
 
-export default TermsBanner
+export default compose(
+  setDisplayName('TermsBanner'),
+  withOverrideFromContext
+)(TermsBanner)
