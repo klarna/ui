@@ -194,6 +194,9 @@ const Horizontal = React.createClass({
               className={classNames(
                 classes.cellContent
               )}
+              style={customize
+                ? cellContentDynamicStyles(customize, id === this.state.hover)
+                : undefined}
               id={ids.content}>
               {content}
             </div>
@@ -225,6 +228,10 @@ const cellDynamicStyles = ({ borderRadius, borderColor, borderColorSelected, lab
   borderBottomRightRadius: isLast ? borderRadius : undefined,
   color: hovered ? borderColorSelected : labelColor,
   borderColor
+})
+
+const cellContentDynamicStyles = ({ borderColorSelected, labelColor }, hovered) => ({
+  color: hovered ? borderColorSelected : labelColor
 })
 
 export default compose(
