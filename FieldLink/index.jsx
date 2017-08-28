@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import compose from 'ramda/src/compose'
+import setDisplayName from 'recompose/setDisplayName'
+import {withOverrideFromContext} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 
@@ -9,10 +12,11 @@ function FieldLink (props) {
   const {
     id,
     label,
-    onFieldLinkClick
+    onFieldLinkClick,
+    styles
   } = props
 
-  const classNames = classNamesBind.bind({ ...defaultStyles })
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
     <span
@@ -24,10 +28,16 @@ function FieldLink (props) {
   )
 }
 
+FieldLink.displayName = 'FieldLink'
+
 FieldLink.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
-  onFieldLinkClick: PropTypes.func
+  onFieldLinkClick: PropTypes.func,
+  styles: PropTypes.object
 }
 
-export default FieldLink
+export default compose(
+  setDisplayName('FieldLink'),
+  withOverrideFromContext
+)(FieldLink)

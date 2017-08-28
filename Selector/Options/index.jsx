@@ -149,6 +149,7 @@ const Options = React.createClass({
                   color='blue'
                   id={ids.icon}
                   stroke={useDynamicStyles && customize.bulletColor}
+                  styles={styles}
                 />
               )}
             </label>
