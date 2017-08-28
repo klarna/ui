@@ -160,15 +160,15 @@ const Vertical = React.createClass({
             className={classNames(
               classes.cell,
               { 'is-focused': focus === key && !disabled },
-              { 'is-selected': key === selected },
+              { 'is-selected': !disabled && key === selected },
               { 'is-disabled': disabled },
               { 'is-hovered': id === this.state.hover && !disabled },
-              { 'is-after-selected': (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
-              { 'is-previously-selected': key === previouslySelected },
-              { 'is-after-previously-selected': !(key === selected) && (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
+              { 'is-after-selected': !disabled && (selectedIndex >= 0) && (index === (selectedIndex + 1)) },
+              { 'is-previously-selected': !disabled && key === previouslySelected },
+              { 'is-after-previously-selected': !disabled && !(key === selected) && (previouslySelectedIndex >= 0) && (index === (previouslySelectedIndex + 1)) }
             )}
             id={ids.label}
-            style={customize
+            style={!disabled && customize
               ? cellDynamicStyles(customize, id === this.state.hover, isFirst, isLast)
               : undefined}
             onMouseEnter={() => onCellMouseEnter(this)(id)}
@@ -194,7 +194,7 @@ const Vertical = React.createClass({
               className={classNames(
                 classes.cellContent
               )}
-              style={customize
+              style={!disabled && customize
                 ? cellContentDynamicStyles(customize, id === this.state.hover)
                 : undefined}
               id={ids.content}>
@@ -202,7 +202,7 @@ const Vertical = React.createClass({
             </div>
             <span
               className={classNames(classes.cellHighlight)}
-              style={{...highlightDynamicStyles}}
+              style={!disabled ? {...highlightDynamicStyles} : {}}
             />
           </label>
         })}
