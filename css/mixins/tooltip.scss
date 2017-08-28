@@ -43,6 +43,7 @@
   padding: ($grid * 1.5) ($grid * 4);
   position: relative;
   text-align: center;
+  z-index: 10;
 
   @include respond-to-wide {
     @include typography(map-get($font-sizes, main-body-desktop), regular);
