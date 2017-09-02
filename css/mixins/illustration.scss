@@ -4,6 +4,12 @@
   transition: stroke .2s ease;
 }
 
+@mixin illustration__stroke__alt ($color) {
+  fill-opacity: 0;
+  stroke: $color;
+  transition: stroke .2s ease;
+}
+
 @mixin illustration__fill ($color) {
   fill: $color;
   transition: fill .2s ease;
