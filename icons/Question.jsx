@@ -16,7 +16,7 @@ export default function Question ({ color, styles, className, ...props }) {
       width='20px'
       {...props}>
       <circle
-        className={classNames('illustration__stroke__alt')}
+        className={classNames('illustration__stroke')}
         cx='10.5'
         cy='10.5'
         r='7'
