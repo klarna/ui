@@ -37,10 +37,10 @@
 }
 
 .dialog__content {
-  display: table-row;
+  display: block;
 
   &--inner {
-    display: table-cell;
+    display: block;
     height: 100%;
     vertical-align: middle;
 
