@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import {Right} from '../../icons/Chevron'
@@ -14,7 +15,7 @@ const classes = {
   description: `${baseClass}__description`
 }
 
-export default React.createClass({
+export default createReactClass({
   displayName: 'Selector.Direct',
 
   propTypes: {

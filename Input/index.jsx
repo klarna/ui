@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
@@ -28,7 +29,7 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-const Input = React.createClass({
+const Input = createReactClass({
   displayName: 'Input',
 
   getDefaultProps () {

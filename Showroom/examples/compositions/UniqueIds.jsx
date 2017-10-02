@@ -1,4 +1,5 @@
 import React from 'react'
+import createReactClass from 'create-react-class'
 import * as Alert from '../../../Alert'
 import Amount from '../../../Amount'
 import * as Block from '../../../Block'
@@ -31,7 +32,7 @@ import TextLabel from '../../../TextLabel'
 import Tooltip from '../../../Tooltip'
 import {LIVE, MANUAL} from '../../variationTypes'
 
-const Example = React.createClass({
+const Example = createReactClass({
   displayName: 'DialogExample',
 
   getInitialState () {

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
@@ -107,7 +108,7 @@ const getRelativeOffset = (component, touchPositionX) => {
 
 export const alignments = ['left', 'right']
 
-const Toggle = React.createClass({
+const Toggle = createReactClass({
   displayName: 'Switch.Toggle',
 
   getDefaultProps () {

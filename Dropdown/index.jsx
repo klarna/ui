@@ -1,4 +1,5 @@
 import React from 'react'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import PropTypes from 'prop-types'
 import defaultStyles from './styles.scss'
@@ -26,7 +27,7 @@ const classes = {
   select: `${baseClass}__select`
 }
 
-const Dropdown = React.createClass({
+const Dropdown = createReactClass({
   displayName: 'Dropdown',
 
   getInitialState () {

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import {
   withTheme,
@@ -23,7 +24,7 @@ const classes = {
 
 const findIndexOfOptionKey = (options) => (key) => options.findIndex((option) => option.key === key)
 
-const Vertical = React.createClass({
+const Vertical = createReactClass({
   displayName: 'BoxSelector.Vertical',
 
   propTypes: {

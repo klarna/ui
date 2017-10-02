@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
@@ -18,7 +19,7 @@ const classes = {
 
 export const tabDisplays = ['fluid', 'static']
 
-const Segmented = React.createClass({
+const Segmented = createReactClass({
   displayName: 'Segmented',
 
   propTypes: {
