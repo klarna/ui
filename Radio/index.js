@@ -89,6 +89,7 @@ class Radio extends Component {
       noAnimation,
       onBlur,
       onChange,
+      onClickDisabled,
       onExpand,
       onFocus,
       onEndFPSCollection,
@@ -127,6 +128,7 @@ class Radio extends Component {
       onEndFPSCollection,
       onFocus,
       onChange,
+      onClickDisabled,
       name,
       padded: padded && options.length > 1,
       styles
