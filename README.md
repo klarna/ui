@@ -8,7 +8,7 @@ This library contains the basic set of components used by multiple front end pro
 ## Install
 
 ```sh
-npm install @klarna/ui --save
+yarn add @klarna/ui
 ```
 
 You can use the UI components either with [React](https://facebook.github.io/react/) and [Preact](https://preactjs.com/). [Learn more in the docs](https://github.com/klarna/ui/wiki/Preact).
@@ -18,7 +18,7 @@ This project has several peer dependencies that it needs to work. Although they 
 Install all peer dependencies with:
 
 ```sh
-npm install prop-types react react-motion html2react ramda --save
+yarn add prop-types react react-motion html2react ramda --save
 ```
 
 This package has a build, but usage of it is not recommended. You must have a Babel pipeline to use it. [Read more about how to config it](https://github.com/klarna/ui/wiki/Webpack-config).
@@ -34,8 +34,8 @@ There are plenty of articles in our wiki. [Check it out](https://github.com/klar
 To run the showroom locally:
 
 ```sh
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 Open [localhost:7777/ui/](http://localhost:7777/ui/).
