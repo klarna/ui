@@ -18,6 +18,7 @@ install:
 # - curl -O https://raw.githubusercontent.com/danvk/travis-weigh-in/master/weigh_in.py
 #  && python weigh_in.py index-built.js
 deploy:
+  skip_cleanup: true
   provider: npm
   email: ui-admin.e@klarna.com
   api_key:
