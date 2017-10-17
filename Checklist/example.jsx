@@ -27,7 +27,7 @@ export default {
         <Checklist.Item>Just one click and you're done</Checklist.Item>
         <Checklist.Item>Very little hassle</Checklist.Item>
         <Checklist.Item>Just do it!</Checklist.Item>
-        <Checklist.BottomDecoration><div style={{ backgroundColor: 'blue', width: '52px', height: '24px' }}></div></Checklist.BottomDecoration>
+        <Checklist.BottomDecoration><div style={{ backgroundColor: 'blue', width: '52px', height: '24px' }}/></Checklist.BottomDecoration>
       </Checklist.Main>,
 
       Chromeless: <Checklist.Main chromeless>

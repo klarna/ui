@@ -170,7 +170,7 @@ export const Footer = compose(
   withOverrideFromContext
 )(ChecklistFooter)
 
-function ChecklistBottomDecoration({ className, children, customize, id, styles, ...props }) {
+function ChecklistBottomDecoration ({ className, children, customize, id, styles, ...props }) {
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
   const listBottomDecorationDynamicStyles = customize
     ? { color: customize.textColor }
