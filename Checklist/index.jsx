@@ -14,7 +14,8 @@ const classes = {
   title: `${baseClass}__title`,
   item: `${baseClass}__item`,
   checkmark: `${baseClass}__checkmark`,
-  footer: `${baseClass}__footer`
+  footer: `${baseClass}__footer`,
+  bottomDecoration: `${baseClass}__bottom-decoration`
 }
 
 function ChecklistMain ({ chromeless, className, children, title, customize, style, styles, ...props }) {
@@ -29,6 +30,7 @@ function ChecklistMain ({ chromeless, className, children, title, customize, sty
   const allChildren = React.Children.toArray(children)
   const items = allChildren.filter((child) => child.type === Item)
   const footer = allChildren.filter((child) => child.type === Footer)
+  const bottomDecoration = allChildren.filter((child) => child.type === BottomDecoration)
 
   return <div
     style={{
@@ -44,6 +46,7 @@ function ChecklistMain ({ chromeless, className, children, title, customize, sty
     </ul>
 
     {footer}
+    {bottomDecoration}
   </div>
 }
 
@@ -166,3 +169,38 @@ export const Footer = compose(
   })),
   withOverrideFromContext
 )(ChecklistFooter)
+
+function ChecklistBottomDecoration ({ className, children, customize, id, styles, ...props }) {
+  const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
+  const listBottomDecorationDynamicStyles = customize
+    ? { color: customize.textColor }
+    : undefined
+
+  return <div
+    className={classNames(classes.bottomDecoration, className)}
+    id={id}
+    style={listBottomDecorationDynamicStyles}
+    {...props}>
+    {children}
+  </div>
+}
+
+ChecklistBottomDecoration.displayName = 'Checklist.BottomDecoration'
+
+ChecklistBottomDecoration.propTypes = {
+  className: PropTypes.string,
+  children: childrenPropType,
+  id: PropTypes.string,
+  styles: PropTypes.object,
+  customize: PropTypes.object
+}
+
+export const BottomDecoration = compose(
+  setDisplayName('Checklist.BottomDecoration'),
+  withTheme((customizations, { customize }) => ({
+    customize: {
+      ...customize
+    }
+  })),
+  withOverrideFromContext
+)(ChecklistBottomDecoration)

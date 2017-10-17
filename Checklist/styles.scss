@@ -7,6 +7,7 @@
   line-height: ($grid * 4);
   margin: ($grid * -.2) 0 0 0;
   padding: ($grid * 2) ($grid * 4) ($grid * 2.8);
+  position: relative;
 
   ul {
     list-style: none;
@@ -68,4 +69,16 @@
     top: $grid;
     width: ($grid * 4);
   }
+
+  &__bottom-decoration {
+    background-color: map-get($colors, white);
+    border: 1px solid map-get($colors, light-grey);;
+    border-radius: 3px;
+    bottom: -19px;
+    display: block;
+    padding: 7px;
+    position: absolute;
+    right: 20px;
+  }
 }
+

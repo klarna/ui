@@ -23,6 +23,13 @@ export default {
         <Checklist.Footer><a href='http://google.com'>This is the footer</a></Checklist.Footer>
       </Checklist.Main>,
 
+      'Bottom decoration': <Checklist.Main>
+        <Checklist.Item>Just one click and you're done</Checklist.Item>
+        <Checklist.Item>Very little hassle</Checklist.Item>
+        <Checklist.Item>Just do it!</Checklist.Item>
+        <Checklist.BottomDecoration><div style={{ backgroundColor: 'blue', width: '52px', height: '24px' }} /></Checklist.BottomDecoration>
+      </Checklist.Main>,
+
       Chromeless: <Checklist.Main chromeless>
         <Checklist.Item>Just one click and you're done</Checklist.Item>
         <Checklist.Item>Very little hassle</Checklist.Item>
