@@ -20,6 +20,7 @@ export default ({
   name,
   noAnimation,
   onChange,
+  onClickDisabled,
   onEndFPSCollection,
   onFocus,
   onStartFPSCollection,
@@ -80,6 +81,7 @@ export default ({
       aria-hidden={hidden}
       id={ids.label}
       key={`${key}-${index}`}
+      onClick={() => { isDisabled && onClickDisabled && onClickDisabled(key) }}
       {...restOfProps}>
       <label
         htmlFor={`${name}-${key}`}
