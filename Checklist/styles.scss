@@ -74,10 +74,10 @@
     background-color: map-get($colors, white);
     border: 1px solid map-get($colors, light-grey);;
     border-radius: 3px;
+    bottom: -19px;
     display: block;
     padding: 7px;
     position: absolute;
-    bottom: -19px;
     right: 20px;
   }
 }
