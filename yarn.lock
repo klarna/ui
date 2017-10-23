@@ -2,14 +2,13 @@
 # yarn lockfile v1
 
 
-"@klarna/higher-order-components@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-3.1.0.tgz#1e1b3b7c1fd859024882bc4de2ceca4e5654a454"
+"@klarna/higher-order-components@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@klarna/higher-order-components/-/higher-order-components-5.0.0.tgz#3d7875b3726c205a4252681a998cc28050e7367c"
   dependencies:
     collect-fps "2.0.0"
     deepmerge "^1.4.4"
     jwt-decode "^2.2.0"
-    recompose "^0.23.4"
     seed-random "^2.2.0"
 
 abbrev@1, abbrev@1.0.x:
@@ -5188,15 +5187,6 @@ rechoir@^0.6.2:
   resolved "https://registry.yarnpkg.com/rechoir/-/rechoir-0.6.2.tgz#85204b54dba82d5742e28c96756ef43af50e3384"
   dependencies:
     resolve "^1.1.6"
-
-recompose@^0.23.4:
-  version "0.23.5"
-  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.23.5.tgz#72ac8261246bec378235d187467d02a721e8b1de"
-  dependencies:
-    change-emitter "^0.1.2"
-    fbjs "^0.8.1"
-    hoist-non-react-statics "^1.0.0"
-    symbol-observable "^1.0.4"
 
 recompose@^0.24.0:
   version "0.24.0"
