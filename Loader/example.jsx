@@ -18,7 +18,8 @@ export default {
         Regular: <Loader />,
         Small: <Loader size='small' />,
         Tiny: <Loader size='tiny' />,
-        Inline: <Loader inline />
+        Inline: <Loader inline />,
+        'No animations': <Loader noAnimation />
       }
     },
 
