@@ -35,6 +35,7 @@ export default function Loader ({
   className,
   color,
   inline,
+  noAnimation,
   size,
   styles,
   ...props
@@ -54,7 +55,7 @@ export default function Loader ({
       focusable='false'
       width={_size}
       height={_size}
-      className={classNames(baseClass, {inline}, className)}
+      className={classNames(baseClass, {inline, 'no-animation': noAnimation}, className)}
       viewBox={`-1 -1 ${_size + stroke} ${_size + stroke}`}
       {...props}>
       <defs>
@@ -105,6 +106,7 @@ Loader.propTypes = {
   ]),
   id: PropTypes.string,
   inline: PropTypes.bool,
+  noAnimation: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(sizes)),
   styles: PropTypes.object
 }
