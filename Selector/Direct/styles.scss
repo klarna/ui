@@ -14,16 +14,16 @@
   text-decoration: none;
   
   .selector--direct__bordersHack {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    margin-top: -($grid * .2);
-    top: 0;
-    left: 0;
-    border-top: ($grid * .2) solid map-get($colors, blue-hover);
     border-bottom: ($grid * .2) solid map-get($colors, blue-hover);
-    transition: opacity .2s ease;
+    border-top: ($grid * .2) solid map-get($colors, blue-hover);
+    height: 100%;
+    left: 0;
+    margin-top: -($grid * .2);
     opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity .2s ease;
+    width: 100%;
     z-index: 2;
   }
 

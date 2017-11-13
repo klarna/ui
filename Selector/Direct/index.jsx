@@ -28,7 +28,7 @@ const SelectorDirect = React.createClass({
     onSelect: PropTypes.func,
     styles: PropTypes.object
   },
-  
+
   getInitialState () {
     return {
       hover: undefined
@@ -77,16 +77,16 @@ const SelectorDirect = React.createClass({
         {data.map(({ key, label, description }) => {
           const isHovered = this.state.hover === key
           const dynamicBorderStyles = useDynamicStyles
-            ? { 
+            ? {
               borderTopColor: isHovered ? customize.borderColorHovered : customize.borderColor,
               borderBottomColor: isHovered ? customize.borderColorHovered : customize.borderColor
             }
             : undefined
 
           return (
-            <a          
+            <a
               href={`#${key}`}
-              id={ids.option(key)}              
+              id={ids.option(key)}
               onMouseEnter={this.onOptionMouseEnter.bind(this, key)}
               onMouseLeave={this.onOptionMouseLeave.bind(this, key)}
               onClick={(e) => {
@@ -95,10 +95,9 @@ const SelectorDirect = React.createClass({
               }}
               className={classNames(classes.item)}
               key={key}>
-              <div 
+              <div
                 className={classNames(classes.bordersHack)}
-                style={dynamicBorderStyles}>
-              </div>
+                style={dynamicBorderStyles} />
               <div
                 className={classNames(classes.label)}
                 id={ids.label(key)}>
