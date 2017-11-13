@@ -17,11 +17,11 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    margin-top: -1px;
+    margin-top: -($grid * .2);
     top: 0;
     left: 0;
-    border-top: 1px solid map-get($colors, blue-hover);
-    border-bottom: 1px solid map-get($colors, blue-hover);
+    border-top: ($grid * .2) solid map-get($colors, blue-hover);
+    border-bottom: ($grid * .2) solid map-get($colors, blue-hover);
     transition: opacity .2s ease;
     opacity: 0;
     z-index: 2;
