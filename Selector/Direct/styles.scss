@@ -12,41 +12,29 @@
   padding: ($grid * 3.2) 0 ($grid * 3.6) 0;
   position: relative;
   text-decoration: none;
-
-  &::before {
-    border-bottom: ($grid * .2) solid transparent;
-    border-top: ($grid * .2) solid transparent;
-    bottom: ($grid * -.2);
-    content: "";
-    display: block;
-    left: 0;
+  
+  .selector--direct__bordersHack {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    right: 0;
-    top: ($grid * -.2);
-    transition: border-color .2s ease;
-    z-index: 10;
+    margin-top: -1px;
+    top: 0;
+    left: 0;
+    border-top: 1px solid map-get($colors, blue-hover);
+    border-bottom: 1px solid map-get($colors, blue-hover);
+    transition: opacity .2s ease;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  &:hover {
+    .selector--direct__bordersHack {
+      opacity: 1;
+    }
   }
 
   &:focus {
     outline: 0;
-  }
-
-  &:hover,
-  &:focus,
-  &:active,
-  .selector--direct__input:checked + & {
-    &::before {
-      border-bottom: ($grid * .2) solid map-get($colors, blue-hover);
-      border-top: ($grid * .2) solid map-get($colors, blue-hover);
-      bottom: ($grid * -.2);
-      content: "";
-      display: block;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: ($grid * -.2);
-      z-index: 10;
-    }
   }
 
   &:first-child {

@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import compose from 'ramda/src/compose'
+import setDisplayName from 'recompose/setDisplayName'
+import {withTheme, withOverrideFromContext} from '@klarna/higher-order-components'
 import classNamesBind from 'classnames/bind'
 import defaultStyles from './styles.scss'
 import {Right} from '../../icons/Chevron'
@@ -11,10 +14,11 @@ const classes = {
   input: `${baseClass}__input`,
   item: `${baseClass}__item`,
   label: `${baseClass}__label`,
-  description: `${baseClass}__description`
+  description: `${baseClass}__description`,
+  bordersHack: `${baseClass}__bordersHack`
 }
 
-export default React.createClass({
+const SelectorDirect = React.createClass({
   displayName: 'Selector.Direct',
 
   propTypes: {
@@ -24,16 +28,32 @@ export default React.createClass({
     onSelect: PropTypes.func,
     styles: PropTypes.object
   },
+  
+  getInitialState () {
+    return {
+      hover: undefined
+    }
+  },
+
+  onOptionMouseEnter (key) {
+    this.setState({ hover: key })
+  },
+
+  onOptionMouseLeave (key) {
+    this.setState({ hover: undefined })
+  },
 
   render () {
     const {
       className,
+      customize,
       data,
       id,
       onSelect,
       styles,
       ...remainingProps
     } = this.props
+    const useDynamicStyles = !!customize
 
     const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
     const ids = id
@@ -54,38 +74,66 @@ export default React.createClass({
         className={classNames(baseClass, 'title', className)}
         id={id}
         {...remainingProps}>
-        {data.map(({ key, label, description }) => [
-          <a
-            href={`#${key}`}
-            id={ids.option(key)}
-            onClick={(e) => {
-              e.preventDefault()
-              onSelect && onSelect(key)
-            }}
-            className={classNames(classes.item)}
-            key={key}>
-            <div
-              className={classNames(classes.label)}
-              id={ids.label(key)}>
-              {label}
-            </div>
-            {
-              description && (
-                <div
-                  className={classNames(classes.description)}
-                  id={ids.description(key)}>
-                  {description}
-                </div>
-              )
+        {data.map(({ key, label, description }) => {
+          const isHovered = this.state.hover === key
+          const dynamicBorderStyles = useDynamicStyles
+            ? { 
+              borderTopColor: isHovered ? customize.borderColorHovered : customize.borderColor,
+              borderBottomColor: isHovered ? customize.borderColorHovered : customize.borderColor
             }
-            <Right
-              className={classNames(classes.icon)}
-              id={ids.icon(key)}
-              color='black'
-            />
-          </a>
-        ])}
+            : undefined
+
+          return (
+            <a          
+              href={`#${key}`}
+              id={ids.option(key)}              
+              onMouseEnter={this.onOptionMouseEnter.bind(this, key)}
+              onMouseLeave={this.onOptionMouseLeave.bind(this, key)}
+              onClick={(e) => {
+                e.preventDefault()
+                onSelect && onSelect(key)
+              }}
+              className={classNames(classes.item)}
+              key={key}>
+              <div 
+                className={classNames(classes.bordersHack)}
+                style={dynamicBorderStyles}>
+              </div>
+              <div
+                className={classNames(classes.label)}
+                id={ids.label(key)}>
+                {label}
+              </div>
+              {
+                description && (
+                  <div
+                    className={classNames(classes.description)}
+                    id={ids.description(key)}>
+                    {description}
+                  </div>
+                )
+              }
+              <Right
+                className={classNames(classes.icon)}
+                id={ids.icon(key)}
+                color='black'
+              />
+            </a>
+          )
+        })}
       </div>
     )
   }
 })
+
+export default compose(
+  setDisplayName('Selector.Direct'),
+  withTheme((customizations, {customize}) => ({
+    customize: {
+      borderColor: customizations.color_border,
+      borderColorHovered: customizations.color_border_selected,
+      ...customize
+    }
+  })),
+  withOverrideFromContext
+)(SelectorDirect)
