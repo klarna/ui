@@ -353,7 +353,7 @@ import * as List from '@klarna/ui/List'`,
           data={options}
           value={2}
         />
-        <CenteredSelection 
+        <CenteredSelection
           title='Centered Selection title here'
           summary='Summary for the selection here'
           options={[{ key: 1, label: 'First label' }, { key: 2, label: 'Second label' }, { key: 3, label: 'Third label' }]}
