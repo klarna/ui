@@ -12,25 +12,15 @@
   padding: ($grid * 3.2) 0 ($grid * 3.6) 0;
   position: relative;
   text-decoration: none;
+  transition: border-color .2s ease;
   
-  .selector--direct__bordersHack {
-    border-bottom: ($grid * .2) solid map-get($colors, blue-hover);
-    border-top: ($grid * .2) solid map-get($colors, blue-hover);
-    height: 100%;
-    left: 0;
-    margin-top: -($grid * .2);
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    transition: opacity .2s ease;
-    width: 100%;
-    z-index: 2;
+  &:hover {
+    border-bottom-color: map-get($colors, blue-hover);
+    border-top-color: map-get($colors, blue-hover);
   }
 
-  &:hover {
-    .selector--direct__bordersHack {
-      opacity: 1;
-    }
+  &:hover + & {
+    border-top-color: transparent !important;
   }
 
   &:focus {

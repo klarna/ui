@@ -93,11 +93,9 @@ const SelectorDirect = React.createClass({
                 e.preventDefault()
                 onSelect && onSelect(key)
               }}
+              style={dynamicBorderStyles}
               className={classNames(classes.item)}
               key={key}>
-              <div
-                className={classNames(classes.bordersHack)}
-                style={dynamicBorderStyles} />
               <div
                 className={classNames(classes.label)}
                 id={ids.label(key)}>

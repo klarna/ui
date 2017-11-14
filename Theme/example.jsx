@@ -18,6 +18,7 @@ import * as Block from '../Block'
 import * as Preview from '../Preview'
 import { Back, Hamburger } from '../IconButton'
 import { LIVE } from '../Showroom/variationTypes'
+import CenteredSelection from '../templates/CenteredSelection'
 
 const options = [
   { key: '', label: 'Pick one!', disabled: true, hidden: true },
@@ -351,6 +352,11 @@ import * as List from '@klarna/ui/List'`,
         <Selector.Options
           data={options}
           value={2}
+        />
+        <CenteredSelection 
+          title='Centered Selection title here'
+          summary='Summary for the selection here'
+          options={[{ key: 1, label: 'First label' }, { key: 2, label: 'Second label' }, { key: 3, label: 'Third label' }]}
         />
       </Theme>
     }
