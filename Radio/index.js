@@ -90,6 +90,7 @@ class Radio extends Component {
       onBlur,
       onChange,
       onClickDisabled,
+      onAnimationEnd,
       onExpand,
       onFocus,
       onEndFPSCollection,
@@ -124,6 +125,7 @@ class Radio extends Component {
       noAnimation,
       labelStyle,
       descriptionStyle,
+      onAnimationEnd,
       onStartFPSCollection,
       onEndFPSCollection,
       onFocus,
@@ -147,7 +149,14 @@ class Radio extends Component {
 
         {optionLists.collapsed.length > 0 && <Collapsible
           onStartFPSCollection={onStartFPSCollection}
-          onEndFPSCollection={onEndFPSCollection}
+          onEndFPSCollection={() => {
+            if (onAnimationEnd) {
+              onAnimationEnd()
+            }
+            if (onEndFPSCollection) {
+              onEndFPSCollection()
+            }
+          }}
           lowFPS={noAnimation || lowFPS}
           minimumHeight={this.state.expandLabelInitialHeight}
           collapsed={!isExpanded}>
@@ -212,6 +221,7 @@ Radio.propTypes = {
   loading: PropTypes.bool,
   name: PropTypes.string,
   noAnimation: PropTypes.bool,
+  onAnimationEnd: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
