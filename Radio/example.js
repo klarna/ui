@@ -209,6 +209,7 @@ export default {
         onChange={(key) => console.log(key)}
         options={optionsWithContent}
         defaultValue='lorem'
+        onAnimationEnd={() => console.log('animation ended')}
       />,
 
       'Without content': <Radio
@@ -220,6 +221,7 @@ export default {
         options={optionsWithContent}
         expandLabel='Show me all the options'
         visibleOptions={1}
+        onAnimationEnd={() => console.log('animation ended')}
       />,
 
       'Completely collapsed': <Radio

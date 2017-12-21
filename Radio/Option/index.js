@@ -19,6 +19,7 @@ export default ({
   descriptionStyle,
   name,
   noAnimation,
+  onAnimationEnd,
   onChange,
   onClickDisabled,
   onEndFPSCollection,
@@ -151,7 +152,14 @@ export default ({
 
       {content && <Collapsible
         onStartFPSCollection={onStartFPSCollection}
-        onEndFPSCollection={onEndFPSCollection}
+        onEndFPSCollection={() => {
+          if (onAnimationEnd) {
+            onAnimationEnd()
+          }
+          if (onEndFPSCollection) {
+            onEndFPSCollection()
+          }
+        }}
         lowFPS={noAnimation || lowFPS}
         collapsed={!singleOption && key !== value}>
         <div
