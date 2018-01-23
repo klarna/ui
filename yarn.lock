@@ -11,6 +11,10 @@
     jwt-decode "^2.2.0"
     seed-random "^2.2.0"
 
+"@types/node@^7.0.18":
+  version "7.0.52"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.52.tgz#8990d3350375542b0c21a83cd0331e6a8fc86716"
+
 abbrev@1, abbrev@1.0.x:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
@@ -1959,10 +1963,11 @@ electron-to-chromium@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.2.2.tgz#e41bc9488c88e3cfa1e94bde28e8420d7d47c47c"
 
-electron@^1.4.15:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-1.6.0.tgz#d1d12024fe4e8d14128eb9c73b8a5253324ced06"
+electron@^1.7.11:
+  version "1.7.11"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-1.7.11.tgz#993b6aa79e0e79a7cfcc369f4c813fbd9a0b08d9"
   dependencies:
+    "@types/node" "^7.0.18"
     electron-download "^3.0.1"
     extract-zip "^1.0.3"
 
