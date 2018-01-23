@@ -38,7 +38,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^4.0.0",
     "css-loader": "^0.28.0",
-    "electron": "^1.4.15",
+    "electron": "^1.7.11",
     "file-loader": "^0.8.5",
     "flyd": "^0.2.2",
     "html-webpack-plugin": "^2.28.0",
