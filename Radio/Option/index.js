@@ -160,6 +160,11 @@ export default ({
             onEndFPSCollection()
           }
         }}
+        onSizeChanged={() => {
+          if (onAnimationEnd) {
+            onAnimationEnd()
+          }
+        }}
         lowFPS={noAnimation || lowFPS}
         collapsed={!singleOption && key !== value}>
         <div

@@ -22,6 +22,9 @@ export default class Collapsible extends Component {
     if (!nextProps.collapsed && this.props.collapsed) {
       this.setState({ height: calculateHeight(this.content) })
       this.props.onStartFPSCollection()
+      if (this.props.lowFPS && this.props.onSizeChanged) {
+        setTimeout(this.props.onSizeChanged, 500)
+      }
     } else if (nextProps.collapsed && !this.props.collapsed) {
       this.props.onStartFPSCollection()
     }

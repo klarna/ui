@@ -157,6 +157,11 @@ class Radio extends Component {
               onEndFPSCollection()
             }
           }}
+          onSizeChanged={() => {
+            if (onAnimationEnd) {
+              onAnimationEnd()
+            }
+          }}
           lowFPS={noAnimation || lowFPS}
           minimumHeight={this.state.expandLabelInitialHeight}
           collapsed={!isExpanded}>
