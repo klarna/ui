@@ -52,3 +52,10 @@ Down.displayName = 'Chevron.Down'
 export const Up = (props) =>
   <Chevron {...props} d='M6,11l4,-4l4,4' />
 Up.displayName = 'Chevron.Up'
+
+export default {
+  Right,
+  Left,
+  Down,
+  Up
+}
