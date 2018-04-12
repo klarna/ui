@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import compose from 'ramda/src/compose'
 import setDisplayName from 'recompose/setDisplayName'
@@ -23,7 +24,7 @@ const classes = {
   label: `${baseClass}__label`
 }
 
-const Options = React.createClass({
+const Options = createReactClass({
   displayName: 'Selector.Options',
 
   propTypes: {

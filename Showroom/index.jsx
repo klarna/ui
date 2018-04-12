@@ -1,9 +1,10 @@
 import React from 'react'
+import createReactClass from 'create-react-class'
 import * as examples from './examples'
 import Main from './Main'
 import states from './states'
 
-export default React.createClass({
+export default createReactClass({
   getInitialState () {
     return states()
   },

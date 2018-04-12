@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import {withTheme, withOverrideFromContext} from '@klarna/higher-order-components'
 import compose from 'ramda/src/compose'
@@ -28,7 +29,7 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-const SelectorInput = React.createClass({
+const SelectorInput = createReactClass({
   displayName: 'SelectorInput',
 
   getDefaultProps () {

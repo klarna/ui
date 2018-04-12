@@ -1,11 +1,12 @@
 import React from 'react'
+import createReactClass from 'create-react-class'
 import * as Button from '../Button'
 import * as Dialog from '../Dialog'
 import { Close } from '../IconButton'
 import { Title, Paragraph, Subtitle } from '../Text'
 import { MANUAL } from '../Showroom/variationTypes'
 
-const Example = React.createClass({
+const Example = createReactClass({
   displayName: 'DialogExample',
 
   getInitialState () {

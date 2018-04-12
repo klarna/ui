@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
@@ -35,7 +36,7 @@ const classes = {
 
 export const icons = inlinedIcon.INLINED_ICONS
 
-const Field = React.createClass({
+const Field = createReactClass({
   displayName: 'Field',
 
   getDefaultProps () {

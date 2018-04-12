@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createReactClass from 'create-react-class'
 import classNamesBind from 'classnames/bind'
 import setDisplayName from 'recompose/setDisplayName'
 import defaultStyles from './styles.scss'
@@ -30,7 +31,7 @@ const release = (component) => () => component.setState({ pressed: false })
 
 export const alignments = ['left', 'right']
 
-const Checkbox = React.createClass({
+const Checkbox = createReactClass({
   displayName: 'Switch.Checkbox',
 
   getDefaultProps () {

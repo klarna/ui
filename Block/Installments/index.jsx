@@ -22,7 +22,7 @@ function InstallmentsMain ({ className, children, leftAlign, styles, ...props })
   const classNames = classNamesBind.bind({ ...defaultStyles, ...styles })
 
   return (
-    <div className={classNames(baseClass, className, 'left-align': leftAlign)} {...props}>
+    <div className={classNames(baseClass, className, {'left-align': leftAlign})} {...props}>
       {children}
     </div>
   )

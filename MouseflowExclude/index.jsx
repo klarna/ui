@@ -1,10 +1,11 @@
 import React from 'react'
+import createReactClass from 'create-react-class'
 
 const NODE_COMMENT = 8
 const COMMENT_START = 'MouseflowExcludeStart'
 const COMMENT_END = 'MouseflowExcludeEnd'
 
-const MouseflowExclude = React.createClass({
+const MouseflowExclude = createReactClass({
   displayName: 'MouseflowExclude',
 
   render () {
