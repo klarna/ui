@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import deepMerge from 'deepmerge'
 import compose from 'ramda/src/compose'
-import {withTouchProps, withHoverProps} from '@klarna/higher-order-components'
+import {withHoverProps} from '@klarna/higher-order-components'
 
 import * as Chevron from '../../icons/Chevron'
 import defaultStyles from './styles'
@@ -48,5 +48,4 @@ ExpandLabel.defaultProps = {
 
 export default compose(
   withHoverProps({active: true}),
-  withTouchProps({active: true})
 )(ExpandLabel)
