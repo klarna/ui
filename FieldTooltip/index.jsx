@@ -5,7 +5,7 @@ import defaultStyles from './styles.scss'
 import Question from '../icons/Question.jsx'
 import Tooltip from '../Tooltip'
 import compose from 'ramda/src/compose'
-import {withTouchProps, withHoverProps} from '@klarna/higher-order-components'
+import {withHoverProps} from '@klarna/higher-order-components'
 
 const baseClass = 'field-tooltip'
 
@@ -47,5 +47,4 @@ FieldTooltip.defaultProps = {
 
 export default compose(
   withHoverProps({active: true}),
-  withTouchProps({active: true})
 )(FieldTooltip)

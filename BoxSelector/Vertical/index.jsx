@@ -175,8 +175,6 @@ const Vertical = createReactClass({
             onMouseEnter={() => onCellMouseEnter(this)(id)}
             onMouseLeave={() => onCellMouseLeave(this)(id)}
             onClick={() => onCellClick(this)(id)}
-            onTouchStart={() => onCellTouchStart(this)(id)}
-            onTouchMove={() => onCellTouchMove(this)(id)}
             ref={`${key}-label`}>
             <input
               className={classNames(classes.input)}
@@ -215,10 +213,8 @@ const Vertical = createReactClass({
 const hoverStartHandler = (component) => (id) => component.setState({ hover: id })
 const hoverEndHandler = (component) => () => component.setState({hover: undefined})
 
-const onCellTouchStart = hoverStartHandler
 const onCellMouseEnter = hoverStartHandler
 
-const onCellTouchMove = hoverEndHandler
 const onCellMouseLeave = hoverEndHandler
 const onCellClick = hoverEndHandler
 
