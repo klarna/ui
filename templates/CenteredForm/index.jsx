@@ -8,8 +8,10 @@ export default function CenteredForm ({
   accept,
   brandVolume,
   cancel,
+  error,
   id,
   illustration,
+  loading,
   onAccept,
   onCancel,
   styles,
@@ -30,6 +32,7 @@ export default function CenteredForm ({
     brandVolume={brandVolume}
     onAccept={onAccept}
     onCancel={onCancel}
+    error={error}
     id={ids.centered}
     illustration={illustration}
     labels={{
@@ -37,7 +40,8 @@ export default function CenteredForm ({
       cancel,
       summary,
       title
-    }}>
+    }}
+    loading={loading}>
     <div
       id={ids.content}
       className={classNames('centered-form__content')}>
