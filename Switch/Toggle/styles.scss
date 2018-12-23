@@ -36,6 +36,10 @@
     color: map-get($colors, error);
   }
 
+  .is-disabled & {
+    cursor: default;
+  }
+
   .is-focused & {
     color: map-get($colors, klarna-blue);
   }
