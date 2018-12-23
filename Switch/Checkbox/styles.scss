@@ -42,6 +42,10 @@
     color: map-get($colors, error);
   }
 
+  .is-disabled & {
+    cursor: default;
+  }
+
   .legal & {
     @include typography(map-get($font-sizes, legal-mobile), regular);
 
