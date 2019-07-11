@@ -25,7 +25,7 @@
     "parse-color": "1.0.0",
     "react-component-queries": "^2.1.1",
     "react-context-props": "^2.2.0",
-    "react-sizeme": "^2.2.0"
+    "react-sizeme": "^2.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.1",
