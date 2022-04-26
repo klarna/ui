@@ -7,6 +7,7 @@ import Menu from '../Menu'
 import Page from '../Page'
 import Sidebar from '../Sidebar'
 import K from '../K'
+import Alert from '../Alert'
 import { has } from 'ramda'
 
 import 'normalize.css'
@@ -44,6 +45,16 @@ export default function Showroom ({route, grid, examples}) {
     </Link>
 
     <div className={styles.page__main}>
+      <div className={styles.deprecated}>
+        <Alert.Error>
+          <Alert.Title>
+            This library is deprecataed and should not be used
+          </Alert.Title>
+          <Alert.Paragraph>
+            please use @klarna/bubble-ui instead
+          </Alert.Paragraph>
+        </Alert.Error>
+      </div>
       {getCurrentPage(route, examples)}
 
       <Footer />

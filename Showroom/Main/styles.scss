@@ -12,6 +12,12 @@
   top: 20px;
 }
 
+.deprecated {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
 @media screen and (max-width: 1025px) {
   .page__narrow--anchor {
     display: block;
