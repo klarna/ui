@@ -5,6 +5,7 @@ import Content from '../Content'
 import * as Paragraph from '../../../Paragraph'
 import * as Title from '../../../Title'
 import Subtitle from '../../../Subtitle'
+import * as Alert from '../../../Alert'
 
 import styles from './styles.scss'
 
@@ -12,7 +13,7 @@ export default function GettingStarted ({example}) {
   return <Content>
     <header className={styles['getting-started__header']}>
       <Title.Primary margins>
-        Getting started
+        DEPRECATED! do not use!
       </Title.Primary>
 
       <Paragraph.Primary margins>
@@ -50,6 +51,15 @@ export default function GettingStarted ({example}) {
     </header>
 
     <section>
+      <Alert.Error>
+        <Alert.Title>
+          This library is deprecataed and should not be used
+        </Alert.Title>
+        <Alert.Paragraph>
+          please use @klarna/bubble-ui instead
+        </Alert.Paragraph>
+      </Alert.Error>
+
       <Title.Primary
         className={styles['getting-started__design-title']}
         margins>
